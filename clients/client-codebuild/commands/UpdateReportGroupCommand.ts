@@ -24,6 +24,20 @@ export interface UpdateReportGroupCommandOutput extends UpdateReportGroupOutput,
  * <p>
  *       Updates a report group.
  *     </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeBuildClient, UpdateReportGroupCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
+ * // const { CodeBuildClient, UpdateReportGroupCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * const client = new CodeBuildClient(config);
+ * const command = new UpdateReportGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateReportGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateReportGroupCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateReportGroupCommand extends $Command<
   UpdateReportGroupCommandInput,

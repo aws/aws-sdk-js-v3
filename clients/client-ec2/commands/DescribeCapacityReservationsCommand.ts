@@ -25,6 +25,20 @@ export interface DescribeCapacityReservationsCommandOutput
 /**
  * <p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the AWS
  * 			Region that you're currently using.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DescribeCapacityReservationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeCapacityReservationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DescribeCapacityReservationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCapacityReservationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeCapacityReservationsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCapacityReservationsCommand extends $Command<
   DescribeCapacityReservationsCommandInput,

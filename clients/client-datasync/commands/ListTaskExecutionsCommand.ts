@@ -22,6 +22,20 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
 
 /**
  * <p>Returns a list of executed tasks.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataSyncClient, ListTaskExecutionsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, ListTaskExecutionsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * const client = new DataSyncClient(config);
+ * const command = new ListTaskExecutionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTaskExecutionsCommandInput} for command's `input` shape.
+ * @see {@link ListTaskExecutionsCommandOutput} for command's `response` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTaskExecutionsCommand extends $Command<
   ListTaskExecutionsCommandInput,

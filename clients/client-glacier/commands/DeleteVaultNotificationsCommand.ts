@@ -34,6 +34,20 @@ export interface DeleteVaultNotificationsCommandOutput extends __MetadataBearer 
  *          <p> For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html">Configuring Vault
  *             Notifications in Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-delete.html">Delete Vault
  *             Notification Configuration </a> in the Amazon S3 Glacier Developer Guide. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlacierClient, DeleteVaultNotificationsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
+ * // const { GlacierClient, DeleteVaultNotificationsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * const client = new GlacierClient(config);
+ * const command = new DeleteVaultNotificationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVaultNotificationsCommandInput} for command's `input` shape.
+ * @see {@link DeleteVaultNotificationsCommandOutput} for command's `response` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVaultNotificationsCommand extends $Command<
   DeleteVaultNotificationsCommandInput,

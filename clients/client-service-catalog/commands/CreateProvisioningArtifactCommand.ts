@@ -27,6 +27,20 @@ export interface CreateProvisioningArtifactCommandOutput extends CreateProvision
  *          <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
  *          IAM policy permission. This policy permission is required when using the
  *          <code>ImportFromPhysicalId</code> template source in the information data section.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, CreateProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, CreateProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new CreateProvisioningArtifactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateProvisioningArtifactCommandInput} for command's `input` shape.
+ * @see {@link CreateProvisioningArtifactCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateProvisioningArtifactCommand extends $Command<
   CreateProvisioningArtifactCommandInput,

@@ -23,6 +23,20 @@ export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkRes
 /**
  * <p>Updates an existing global network. To remove information for any of the parameters,
  *             specify an empty string.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NetworkManagerClient, UpdateGlobalNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
+ * // const { NetworkManagerClient, UpdateGlobalNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * const client = new NetworkManagerClient(config);
+ * const command = new UpdateGlobalNetworkCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateGlobalNetworkCommandInput} for command's `input` shape.
+ * @see {@link UpdateGlobalNetworkCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateGlobalNetworkCommand extends $Command<
   UpdateGlobalNetworkCommandInput,

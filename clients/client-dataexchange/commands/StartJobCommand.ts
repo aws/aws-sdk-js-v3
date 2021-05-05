@@ -22,6 +22,20 @@ export interface StartJobCommandOutput extends StartJobResponse, __MetadataBeare
 
 /**
  * <p>This operation starts a job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataExchangeClient, StartJobCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
+ * // const { DataExchangeClient, StartJobCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * const client = new DataExchangeClient(config);
+ * const command = new StartJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartJobCommandInput} for command's `input` shape.
+ * @see {@link StartJobCommandOutput} for command's `response` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartJobCommand extends $Command<
   StartJobCommandInput,

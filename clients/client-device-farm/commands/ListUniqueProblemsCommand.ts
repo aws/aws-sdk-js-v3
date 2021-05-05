@@ -26,6 +26,20 @@ export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResul
  *             if a call in your application consistently raises an exception (<code>OutOfBoundsException in
  *                 MyActivity.java:386</code>), <code>ListUniqueProblems</code> returns a single entry instead of many
  *             individual entries for that exception.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, ListUniqueProblemsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, ListUniqueProblemsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new ListUniqueProblemsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListUniqueProblemsCommandInput} for command's `input` shape.
+ * @see {@link ListUniqueProblemsCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListUniqueProblemsCommand extends $Command<
   ListUniqueProblemsCommandInput,

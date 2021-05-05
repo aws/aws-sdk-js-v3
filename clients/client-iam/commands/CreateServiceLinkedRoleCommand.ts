@@ -30,6 +30,20 @@ export interface CreateServiceLinkedRoleCommandOutput extends CreateServiceLinke
  *                 roles</a> in the <i>IAM User Guide</i>. </p>
  *         <p>To attach a policy to this service-linked role, you must make the request using the
  *             AWS service that depends on this role.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, CreateServiceLinkedRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, CreateServiceLinkedRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new CreateServiceLinkedRoleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateServiceLinkedRoleCommandInput} for command's `input` shape.
+ * @see {@link CreateServiceLinkedRoleCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateServiceLinkedRoleCommand extends $Command<
   CreateServiceLinkedRoleCommandInput,

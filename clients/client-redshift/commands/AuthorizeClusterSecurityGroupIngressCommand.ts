@@ -42,6 +42,20 @@ export interface AuthorizeClusterSecurityGroupIngressCommandOutput
  *             on these IP addresses or the EC2 instance are authorized to connect to the cluster. For
  *             information about managing security groups, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Working with Security
  *                 Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, AuthorizeClusterSecurityGroupIngressCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, AuthorizeClusterSecurityGroupIngressCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new AuthorizeClusterSecurityGroupIngressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AuthorizeClusterSecurityGroupIngressCommandInput} for command's `input` shape.
+ * @see {@link AuthorizeClusterSecurityGroupIngressCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AuthorizeClusterSecurityGroupIngressCommand extends $Command<
   AuthorizeClusterSecurityGroupIngressCommandInput,

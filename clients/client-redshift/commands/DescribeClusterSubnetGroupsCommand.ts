@@ -32,6 +32,20 @@ export interface DescribeClusterSubnetGroupsCommandOutput extends ClusterSubnetG
  *         <p>If both tag keys and values are omitted from the request, subnet groups are
  *             returned regardless of whether they have tag keys or values associated with
  *             them.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, DescribeClusterSubnetGroupsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, DescribeClusterSubnetGroupsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new DescribeClusterSubnetGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeClusterSubnetGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeClusterSubnetGroupsCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeClusterSubnetGroupsCommand extends $Command<
   DescribeClusterSubnetGroupsCommandInput,

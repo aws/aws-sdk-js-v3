@@ -46,6 +46,20 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  *                   <code>INSYNC</code>: Propagation is complete.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFRegionalClient, GetChangeTokenStatusCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
+ * // const { WAFRegionalClient, GetChangeTokenStatusCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * const client = new WAFRegionalClient(config);
+ * const command = new GetChangeTokenStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetChangeTokenStatusCommandInput} for command's `input` shape.
+ * @see {@link GetChangeTokenStatusCommandOutput} for command's `response` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetChangeTokenStatusCommand extends $Command<
   GetChangeTokenStatusCommandInput,

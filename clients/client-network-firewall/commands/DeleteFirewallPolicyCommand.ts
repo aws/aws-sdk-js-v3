@@ -22,6 +22,20 @@ export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyR
 
 /**
  * <p>Deletes the specified <a>FirewallPolicy</a>. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NetworkFirewallClient, DeleteFirewallPolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
+ * // const { NetworkFirewallClient, DeleteFirewallPolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * const client = new NetworkFirewallClient(config);
+ * const command = new DeleteFirewallPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFirewallPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteFirewallPolicyCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFirewallPolicyCommand extends $Command<
   DeleteFirewallPolicyCommandInput,

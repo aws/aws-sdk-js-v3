@@ -10,6 +10,9 @@ export interface ComplexNestedErrorData {
 }
 
 export namespace ComplexNestedErrorData {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ComplexNestedErrorData): any => ({
     ...obj,
   });
@@ -26,6 +29,9 @@ export interface ComplexError extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ComplexError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ComplexError): any => ({
     ...obj,
   });
@@ -34,6 +40,9 @@ export namespace ComplexError {
 export interface EmptyStruct {}
 
 export namespace EmptyStruct {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EmptyStruct): any => ({
     ...obj,
   });
@@ -44,6 +53,9 @@ export interface HostLabelInput {
 }
 
 export namespace HostLabelInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HostLabelInput): any => ({
     ...obj,
   });
@@ -54,6 +66,9 @@ export interface SimpleStruct {
 }
 
 export namespace SimpleStruct {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SimpleStruct): any => ({
     ...obj,
   });
@@ -64,6 +79,9 @@ export interface StructWithLocationName {
 }
 
 export namespace StructWithLocationName {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StructWithLocationName): any => ({
     ...obj,
   });
@@ -75,6 +93,9 @@ export interface ErrorWithoutMembers extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ErrorWithoutMembers {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ErrorWithoutMembers): any => ({
     ...obj,
   });
@@ -90,6 +111,9 @@ export interface FooError extends __SmithyException, $MetadataBearer {
 }
 
 export namespace FooError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FooError): any => ({
     ...obj,
   });
@@ -100,6 +124,9 @@ export interface GreetingWithErrorsOutput {
 }
 
 export namespace GreetingWithErrorsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GreetingWithErrorsOutput): any => ({
     ...obj,
   });
@@ -115,6 +142,9 @@ export interface InvalidGreeting extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidGreeting {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidGreeting): any => ({
     ...obj,
   });
@@ -138,6 +168,9 @@ export interface JsonEnumsInputOutput {
 }
 
 export namespace JsonEnumsInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: JsonEnumsInputOutput): any => ({
     ...obj,
   });
@@ -148,6 +181,9 @@ export interface GreetingStruct {
 }
 
 export namespace GreetingStruct {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GreetingStruct): any => ({
     ...obj,
   });
@@ -325,6 +361,9 @@ export namespace MyUnion {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MyUnion): any => {
     if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
     if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
@@ -351,6 +390,9 @@ export interface UnionInputOutput {
 }
 
 export namespace UnionInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnionInputOutput): any => ({
     ...obj,
     ...(obj.contents && { contents: MyUnion.filterSensitiveLog(obj.contents) }),
@@ -364,6 +406,9 @@ export interface NullOperationInputOutput {
 }
 
 export namespace NullOperationInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NullOperationInputOutput): any => ({
     ...obj,
   });
@@ -374,6 +419,9 @@ export interface PutAndGetInlineDocumentsInputOutput {
 }
 
 export namespace PutAndGetInlineDocumentsInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutAndGetInlineDocumentsInputOutput): any => ({
     ...obj,
   });
@@ -409,6 +457,9 @@ export interface KitchenSink {
 }
 
 export namespace KitchenSink {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KitchenSink): any => ({
     ...obj,
   });
@@ -430,6 +481,9 @@ export interface ErrorWithMembers extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ErrorWithMembers {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ErrorWithMembers): any => ({
     ...obj,
   });

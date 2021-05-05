@@ -22,6 +22,20 @@ export interface DescribeServiceUpdatesCommandOutput extends ServiceUpdatesMessa
 
 /**
  * <p>Returns details of the service updates</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElastiCacheClient, DescribeServiceUpdatesCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, DescribeServiceUpdatesCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * const client = new ElastiCacheClient(config);
+ * const command = new DescribeServiceUpdatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeServiceUpdatesCommandInput} for command's `input` shape.
+ * @see {@link DescribeServiceUpdatesCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeServiceUpdatesCommand extends $Command<
   DescribeServiceUpdatesCommandInput,

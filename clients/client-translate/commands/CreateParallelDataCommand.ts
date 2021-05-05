@@ -25,6 +25,20 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  *       Amazon S3. Parallel data files contain examples of source phrases and their translations from
  *       your translation memory. By adding parallel data, you can influence the style, tone, and word
  *       choice in your translation output.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TranslateClient, CreateParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
+ * // const { TranslateClient, CreateParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * const client = new TranslateClient(config);
+ * const command = new CreateParallelDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateParallelDataCommandInput} for command's `input` shape.
+ * @see {@link CreateParallelDataCommandOutput} for command's `response` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateParallelDataCommand extends $Command<
   CreateParallelDataCommandInput,

@@ -22,6 +22,20 @@ export interface ListProcessingJobsCommandOutput extends ListProcessingJobsRespo
 
 /**
  * <p>Lists processing jobs that satisfy various filters.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, ListProcessingJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListProcessingJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new ListProcessingJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProcessingJobsCommandInput} for command's `input` shape.
+ * @see {@link ListProcessingJobsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProcessingJobsCommand extends $Command<
   ListProcessingJobsCommandInput,

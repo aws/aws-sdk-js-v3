@@ -27,6 +27,20 @@ export interface CreateRelationalDatabaseSnapshotCommandOutput
  *       to make copies of a database, and to save data before deleting a database.</p>
  *          <p>The <code>create relational database snapshot</code> operation supports tag-based access
  *       control via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LightsailClient, CreateRelationalDatabaseSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, CreateRelationalDatabaseSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * const client = new LightsailClient(config);
+ * const command = new CreateRelationalDatabaseSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRelationalDatabaseSnapshotCommandInput} for command's `input` shape.
+ * @see {@link CreateRelationalDatabaseSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRelationalDatabaseSnapshotCommand extends $Command<
   CreateRelationalDatabaseSnapshotCommandInput,

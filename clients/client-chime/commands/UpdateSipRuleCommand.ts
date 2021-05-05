@@ -22,6 +22,20 @@ export interface UpdateSipRuleCommandOutput extends UpdateSipRuleResponse, __Met
 
 /**
  * <p>Updates the details of the specified SIP rule.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, UpdateSipRuleCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, UpdateSipRuleCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new UpdateSipRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSipRuleCommandInput} for command's `input` shape.
+ * @see {@link UpdateSipRuleCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSipRuleCommand extends $Command<
   UpdateSipRuleCommandInput,

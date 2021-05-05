@@ -25,6 +25,20 @@ export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
  *          This operation can only be called by an invited member account. </p>
  *          <p>The request provides the ARN of behavior graph.</p>
  *          <p>The member account status in the graph must be <code>INVITED</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DetectiveClient, AcceptInvitationCommand } from "@aws-sdk/client-detective"; // ES Modules import
+ * // const { DetectiveClient, AcceptInvitationCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * const client = new DetectiveClient(config);
+ * const command = new AcceptInvitationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AcceptInvitationCommandInput} for command's `input` shape.
+ * @see {@link AcceptInvitationCommandOutput} for command's `response` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AcceptInvitationCommand extends $Command<
   AcceptInvitationCommandInput,

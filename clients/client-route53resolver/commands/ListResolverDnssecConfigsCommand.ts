@@ -22,6 +22,20 @@ export interface ListResolverDnssecConfigsCommandOutput extends ListResolverDnss
 
 /**
  * <p>Lists the configurations for DNSSEC validation that are associated with the current AWS account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53ResolverClient, ListResolverDnssecConfigsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, ListResolverDnssecConfigsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * const client = new Route53ResolverClient(config);
+ * const command = new ListResolverDnssecConfigsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResolverDnssecConfigsCommandInput} for command's `input` shape.
+ * @see {@link ListResolverDnssecConfigsCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResolverDnssecConfigsCommand extends $Command<
   ListResolverDnssecConfigsCommandInput,

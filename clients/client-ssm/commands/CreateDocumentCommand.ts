@@ -25,6 +25,20 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  *    your managed instances. For more information about SSM documents, including information about
  *    supported schemas, features, and syntax, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">AWS Systems Manager Documents</a> in the
  *     <i>AWS Systems Manager User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, CreateDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, CreateDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new CreateDocumentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDocumentCommandInput} for command's `input` shape.
+ * @see {@link CreateDocumentCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDocumentCommand extends $Command<
   CreateDocumentCommandInput,

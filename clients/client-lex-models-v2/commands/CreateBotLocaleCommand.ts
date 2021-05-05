@@ -25,6 +25,20 @@ export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, _
  *          slot types that the bot uses in conversations with users in the
  *          specified language and locale. You must add a locale to a bot before
  *          you can add intents and slot types to the bot.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelsV2Client, CreateBotLocaleCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, CreateBotLocaleCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * const client = new LexModelsV2Client(config);
+ * const command = new CreateBotLocaleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateBotLocaleCommandInput} for command's `input` shape.
+ * @see {@link CreateBotLocaleCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateBotLocaleCommand extends $Command<
   CreateBotLocaleCommandInput,

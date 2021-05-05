@@ -34,6 +34,20 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  *       tables sequentially. Only one table with secondary indexes can be in the <code>CREATING</code> state at
  *       any given time.</p>
  *          <p>You can use the <code>DescribeTable</code> action to check the table status.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DynamoDBClient, CreateTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, CreateTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * const client = new DynamoDBClient(config);
+ * const command = new CreateTableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTableCommandInput} for command's `input` shape.
+ * @see {@link CreateTableCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTableCommand extends $Command<
   CreateTableCommandInput,

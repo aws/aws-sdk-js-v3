@@ -41,6 +41,20 @@ export interface GetResourceConfigHistoryCommandOutput extends GetResourceConfig
  * 				you can make another call, using the
  * 				<code>nextToken</code>.</p>
  * 		       </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConfigServiceClient, GetResourceConfigHistoryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, GetResourceConfigHistoryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * const client = new ConfigServiceClient(config);
+ * const command = new GetResourceConfigHistoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetResourceConfigHistoryCommandInput} for command's `input` shape.
+ * @see {@link GetResourceConfigHistoryCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetResourceConfigHistoryCommand extends $Command<
   GetResourceConfigHistoryCommandInput,

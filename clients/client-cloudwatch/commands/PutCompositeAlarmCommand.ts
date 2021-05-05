@@ -57,6 +57,20 @@ export interface PutCompositeAlarmCommandOutput extends __MetadataBearer {}
  *
  * 		       <p>If you are an IAM user, you must have <code>iam:CreateServiceLinkedRole</code> to create
  * 			a composite alarm that has Systems Manager OpsItem actions.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchClient, PutCompositeAlarmCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
+ * // const { CloudWatchClient, PutCompositeAlarmCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * const client = new CloudWatchClient(config);
+ * const command = new PutCompositeAlarmCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutCompositeAlarmCommandInput} for command's `input` shape.
+ * @see {@link PutCompositeAlarmCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutCompositeAlarmCommand extends $Command<
   PutCompositeAlarmCommandInput,

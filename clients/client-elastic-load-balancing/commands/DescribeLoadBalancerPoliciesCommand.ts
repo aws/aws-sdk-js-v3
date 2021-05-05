@@ -32,6 +32,20 @@ export interface DescribeLoadBalancerPoliciesCommandOutput
  *     If you specify a policy name associated with your load balancer, the action returns the description of that policy.
  *     If you don't specify a load balancer name, the action returns descriptions of the specified sample policies, or descriptions of all sample policies.
  *     The names of the sample policies have the <code>ELBSample-</code> prefix.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticLoadBalancingClient, DescribeLoadBalancerPoliciesCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
+ * // const { ElasticLoadBalancingClient, DescribeLoadBalancerPoliciesCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * const client = new ElasticLoadBalancingClient(config);
+ * const command = new DescribeLoadBalancerPoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLoadBalancerPoliciesCommandInput} for command's `input` shape.
+ * @see {@link DescribeLoadBalancerPoliciesCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLoadBalancerPoliciesCommand extends $Command<
   DescribeLoadBalancerPoliciesCommandInput,

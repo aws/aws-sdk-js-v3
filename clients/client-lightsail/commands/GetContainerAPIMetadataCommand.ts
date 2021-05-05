@@ -23,6 +23,20 @@ export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMet
 /**
  * <p>Returns information about Amazon Lightsail containers, such as the current version of the
  *       Lightsail Control (lightsailctl) plugin.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LightsailClient, GetContainerAPIMetadataCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetContainerAPIMetadataCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * const client = new LightsailClient(config);
+ * const command = new GetContainerAPIMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetContainerAPIMetadataCommandInput} for command's `input` shape.
+ * @see {@link GetContainerAPIMetadataCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetContainerAPIMetadataCommand extends $Command<
   GetContainerAPIMetadataCommandInput,

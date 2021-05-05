@@ -32,6 +32,20 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  *
  *         <p>You can describe a change during the 60-day request history retention period for API
  *             calls.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MarketplaceCatalogClient, ListChangeSetsCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
+ * // const { MarketplaceCatalogClient, ListChangeSetsCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * const client = new MarketplaceCatalogClient(config);
+ * const command = new ListChangeSetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListChangeSetsCommandInput} for command's `input` shape.
+ * @see {@link ListChangeSetsCommandOutput} for command's `response` shape.
+ * @see {@link MarketplaceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListChangeSetsCommand extends $Command<
   ListChangeSetsCommandInput,

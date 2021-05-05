@@ -32,6 +32,20 @@ export interface RegisterEcsClusterCommandOutput extends RegisterEcsClusterResul
  *       information on user permissions, see
  *       <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">
  *       Managing User Permissions</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OpsWorksClient, RegisterEcsClusterCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
+ * // const { OpsWorksClient, RegisterEcsClusterCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * const client = new OpsWorksClient(config);
+ * const command = new RegisterEcsClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterEcsClusterCommandInput} for command's `input` shape.
+ * @see {@link RegisterEcsClusterCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterEcsClusterCommand extends $Command<
   RegisterEcsClusterCommandInput,

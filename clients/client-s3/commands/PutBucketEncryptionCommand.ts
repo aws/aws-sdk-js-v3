@@ -55,6 +55,20 @@ export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, PutBucketEncryptionCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, PutBucketEncryptionCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new PutBucketEncryptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutBucketEncryptionCommandInput} for command's `input` shape.
+ * @see {@link PutBucketEncryptionCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutBucketEncryptionCommand extends $Command<
   PutBucketEncryptionCommandInput,

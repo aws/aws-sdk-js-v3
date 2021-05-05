@@ -22,6 +22,20 @@ export interface ListTagsForResourceCommandOutput extends ResourceTags, __Metada
 
 /**
  * <p>Retrieves the list of key-value tags assigned to the resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppConfigClient, ListTagsForResourceCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
+ * // const { AppConfigClient, ListTagsForResourceCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * const client = new AppConfigClient(config);
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

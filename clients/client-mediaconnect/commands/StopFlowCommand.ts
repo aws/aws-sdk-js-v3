@@ -22,6 +22,20 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
 
 /**
  * Stops a flow.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaConnectClient, StopFlowCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
+ * // const { MediaConnectClient, StopFlowCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * const client = new MediaConnectClient(config);
+ * const command = new StopFlowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopFlowCommandInput} for command's `input` shape.
+ * @see {@link StopFlowCommandOutput} for command's `response` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopFlowCommand extends $Command<
   StopFlowCommandInput,

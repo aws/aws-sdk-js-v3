@@ -53,6 +53,20 @@ export interface CreateByteMatchSetCommandOutput extends CreateByteMatchSetRespo
  *          </ol>
  * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFRegionalClient, CreateByteMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
+ * // const { WAFRegionalClient, CreateByteMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * const client = new WAFRegionalClient(config);
+ * const command = new CreateByteMatchSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateByteMatchSetCommandInput} for command's `input` shape.
+ * @see {@link CreateByteMatchSetCommandOutput} for command's `response` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateByteMatchSetCommand extends $Command<
   CreateByteMatchSetCommandInput,

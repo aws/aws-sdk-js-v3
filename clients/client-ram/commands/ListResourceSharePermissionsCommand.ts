@@ -24,6 +24,20 @@ export interface ListResourceSharePermissionsCommandOutput
 
 /**
  * <p>Lists the AWS RAM permissions that are associated with a resource share.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RAMClient, ListResourceSharePermissionsCommand } from "@aws-sdk/client-ram"; // ES Modules import
+ * // const { RAMClient, ListResourceSharePermissionsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * const client = new RAMClient(config);
+ * const command = new ListResourceSharePermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResourceSharePermissionsCommandInput} for command's `input` shape.
+ * @see {@link ListResourceSharePermissionsCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResourceSharePermissionsCommand extends $Command<
   ListResourceSharePermissionsCommandInput,

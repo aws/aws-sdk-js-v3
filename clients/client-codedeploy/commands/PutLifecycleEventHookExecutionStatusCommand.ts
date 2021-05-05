@@ -35,6 +35,20 @@ export interface PutLifecycleEventHookExecutionStatusCommandOutput
  *                 <code>BeforeAllowTraffic</code>, and <code>AfterAllowTraffic</code>. Lambda
  *             validation functions return <code>Succeeded</code> or <code>Failed</code>. For more
  *             information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-lambda">AppSpec 'hooks' Section for an AWS Lambda Deployment </a> and <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html#appspec-hooks-ecs">AppSpec 'hooks' Section for an Amazon ECS Deployment</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeDeployClient, PutLifecycleEventHookExecutionStatusCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
+ * // const { CodeDeployClient, PutLifecycleEventHookExecutionStatusCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * const client = new CodeDeployClient(config);
+ * const command = new PutLifecycleEventHookExecutionStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutLifecycleEventHookExecutionStatusCommandInput} for command's `input` shape.
+ * @see {@link PutLifecycleEventHookExecutionStatusCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutLifecycleEventHookExecutionStatusCommand extends $Command<
   PutLifecycleEventHookExecutionStatusCommandInput,

@@ -22,6 +22,20 @@ export interface GetTableVersionCommandOutput extends GetTableVersionResponse, _
 
 /**
  * <p>Retrieves a specified version of a table.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, GetTableVersionCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetTableVersionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new GetTableVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTableVersionCommandInput} for command's `input` shape.
+ * @see {@link GetTableVersionCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTableVersionCommand extends $Command<
   GetTableVersionCommandInput,

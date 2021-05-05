@@ -27,6 +27,20 @@ export interface ListOrganizationPortfolioAccessCommandOutput
  *          only be called by the management account in the organization or by a delegated
  *          admin.</p>
  *          <p>If a delegated admin is de-registered, they can no longer perform this operation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, ListOrganizationPortfolioAccessCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, ListOrganizationPortfolioAccessCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new ListOrganizationPortfolioAccessCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListOrganizationPortfolioAccessCommandInput} for command's `input` shape.
+ * @see {@link ListOrganizationPortfolioAccessCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListOrganizationPortfolioAccessCommand extends $Command<
   ListOrganizationPortfolioAccessCommandInput,

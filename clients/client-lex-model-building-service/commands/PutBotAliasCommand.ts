@@ -31,6 +31,20 @@ export interface PutBotAliasCommandOutput extends PutBotAliasResponse, __Metadat
  *       see <a>versioning-aliases</a>.</p>
  *          <p>This operation requires permissions for the
  *         <code>lex:PutBotAlias</code> action. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelBuildingServiceClient, PutBotAliasCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
+ * // const { LexModelBuildingServiceClient, PutBotAliasCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new PutBotAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutBotAliasCommandInput} for command's `input` shape.
+ * @see {@link PutBotAliasCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutBotAliasCommand extends $Command<
   PutBotAliasCommandInput,

@@ -27,6 +27,20 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
 
 /**
  * <p>Adds or updates the delivery options for a configuration set.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESClient, PutConfigurationSetDeliveryOptionsCommand } from "@aws-sdk/client-ses"; // ES Modules import
+ * // const { SESClient, PutConfigurationSetDeliveryOptionsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * const client = new SESClient(config);
+ * const command = new PutConfigurationSetDeliveryOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutConfigurationSetDeliveryOptionsCommandInput} for command's `input` shape.
+ * @see {@link PutConfigurationSetDeliveryOptionsCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
   PutConfigurationSetDeliveryOptionsCommandInput,

@@ -22,6 +22,20 @@ export interface ListTerminologiesCommandOutput extends ListTerminologiesRespons
 
 /**
  * <p>Provides a list of custom terminologies associated with your account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TranslateClient, ListTerminologiesCommand } from "@aws-sdk/client-translate"; // ES Modules import
+ * // const { TranslateClient, ListTerminologiesCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * const client = new TranslateClient(config);
+ * const command = new ListTerminologiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTerminologiesCommandInput} for command's `input` shape.
+ * @see {@link ListTerminologiesCommandOutput} for command's `response` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTerminologiesCommand extends $Command<
   ListTerminologiesCommandInput,

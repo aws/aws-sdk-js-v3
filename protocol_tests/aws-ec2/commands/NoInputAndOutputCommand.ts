@@ -25,6 +25,20 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * no request payload or response members.
  *
  * While this should be rare, code generators must support this.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2ProtocolClient, NoInputAndOutputCommand } from "@aws-sdk/aws-ec2"; // ES Modules import
+ * // const { EC2ProtocolClient, NoInputAndOutputCommand } = require("@aws-sdk/aws-ec2"); // CommonJS import
+ * const client = new EC2ProtocolClient(config);
+ * const command = new NoInputAndOutputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link NoInputAndOutputCommandInput} for command's `input` shape.
+ * @see {@link NoInputAndOutputCommandOutput} for command's `response` shape.
+ * @see {@link EC2ProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class NoInputAndOutputCommand extends $Command<
   NoInputAndOutputCommandInput,

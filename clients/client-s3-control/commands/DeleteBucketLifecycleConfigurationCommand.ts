@@ -51,6 +51,20 @@ export interface DeleteBucketLifecycleConfigurationCommandOutput extends __Metad
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3ControlClient, DeleteBucketLifecycleConfigurationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
+ * // const { S3ControlClient, DeleteBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * const client = new S3ControlClient(config);
+ * const command = new DeleteBucketLifecycleConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBucketLifecycleConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBucketLifecycleConfigurationCommand extends $Command<
   DeleteBucketLifecycleConfigurationCommandInput,

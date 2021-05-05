@@ -22,6 +22,20 @@ export interface IsVpcPeeredCommandOutput extends IsVpcPeeredResult, __MetadataB
 
 /**
  * <p>Returns a Boolean value indicating whether your Lightsail VPC is peered.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LightsailClient, IsVpcPeeredCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, IsVpcPeeredCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * const client = new LightsailClient(config);
+ * const command = new IsVpcPeeredCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link IsVpcPeeredCommandInput} for command's `input` shape.
+ * @see {@link IsVpcPeeredCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class IsVpcPeeredCommand extends $Command<
   IsVpcPeeredCommandInput,

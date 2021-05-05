@@ -27,6 +27,20 @@ export interface GetSigningCertificateCommandOutput extends GetSigningCertificat
 
 /**
  * <p>This method takes a user pool ID, and returns the signing certificate.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, GetSigningCertificateCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, GetSigningCertificateCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new GetSigningCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSigningCertificateCommandInput} for command's `input` shape.
+ * @see {@link GetSigningCertificateCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSigningCertificateCommand extends $Command<
   GetSigningCertificateCommandInput,

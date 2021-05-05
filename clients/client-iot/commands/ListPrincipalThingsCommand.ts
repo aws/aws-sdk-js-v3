@@ -24,6 +24,20 @@ export interface ListPrincipalThingsCommandOutput extends ListPrincipalThingsRes
  * <p>Lists the things associated with the specified principal. A principal can be X.509
  * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
  * 			identities. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, ListPrincipalThingsCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListPrincipalThingsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new ListPrincipalThingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPrincipalThingsCommandInput} for command's `input` shape.
+ * @see {@link ListPrincipalThingsCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPrincipalThingsCommand extends $Command<
   ListPrincipalThingsCommandInput,

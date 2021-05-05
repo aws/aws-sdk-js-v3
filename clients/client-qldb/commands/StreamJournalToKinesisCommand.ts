@@ -24,6 +24,20 @@ export interface StreamJournalToKinesisCommandOutput extends StreamJournalToKine
  * <p>Creates a journal stream for a given Amazon QLDB ledger. The stream captures every
  *          document revision that is committed to the ledger's journal and delivers the data to a
  *          specified Amazon Kinesis Data Streams resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QLDBClient, StreamJournalToKinesisCommand } from "@aws-sdk/client-qldb"; // ES Modules import
+ * // const { QLDBClient, StreamJournalToKinesisCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * const client = new QLDBClient(config);
+ * const command = new StreamJournalToKinesisCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StreamJournalToKinesisCommandInput} for command's `input` shape.
+ * @see {@link StreamJournalToKinesisCommandOutput} for command's `response` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StreamJournalToKinesisCommand extends $Command<
   StreamJournalToKinesisCommandInput,

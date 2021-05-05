@@ -30,6 +30,20 @@ export interface PublishVersionCommandOutput extends FunctionConfiguration, __Me
  *       function before publishing a version.</p>
  *
  *          <p>Clients can invoke versions directly or with an alias. To create an alias, use <a>CreateAlias</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LambdaClient, PublishVersionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, PublishVersionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * const client = new LambdaClient(config);
+ * const command = new PublishVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PublishVersionCommandInput} for command's `input` shape.
+ * @see {@link PublishVersionCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PublishVersionCommand extends $Command<
   PublishVersionCommandInput,

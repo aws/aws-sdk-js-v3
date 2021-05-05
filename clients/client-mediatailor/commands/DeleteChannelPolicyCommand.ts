@@ -22,6 +22,20 @@ export interface DeleteChannelPolicyCommandOutput extends DeleteChannelPolicyRes
 
 /**
  * <p>Deletes a channel's IAM policy.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaTailorClient, DeleteChannelPolicyCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
+ * // const { MediaTailorClient, DeleteChannelPolicyCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * const client = new MediaTailorClient(config);
+ * const command = new DeleteChannelPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteChannelPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteChannelPolicyCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteChannelPolicyCommand extends $Command<
   DeleteChannelPolicyCommandInput,

@@ -44,6 +44,20 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *             later, excluding 5.0.x versions. The RunJobFlow request can contain InstanceFleets
  *             parameters or InstanceGroups parameters, but not both.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EMRClient, RunJobFlowCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, RunJobFlowCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * const client = new EMRClient(config);
+ * const command = new RunJobFlowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RunJobFlowCommandInput} for command's `input` shape.
+ * @see {@link RunJobFlowCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RunJobFlowCommand extends $Command<
   RunJobFlowCommandInput,

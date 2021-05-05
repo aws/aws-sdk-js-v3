@@ -30,6 +30,20 @@ export interface DescribeScheduledActionsCommandOutput extends DescribeScheduled
  *             <code>ScalableDimension</code>, and <code>ScheduledActionNames</code> parameters.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled scaling</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/scheduled-scaling-additional-cli-commands.html">Managing scheduled scaling</a> in the
  *          <i>Application Auto Scaling User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApplicationAutoScalingClient, DescribeScheduledActionsCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
+ * // const { ApplicationAutoScalingClient, DescribeScheduledActionsCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
+ * const client = new ApplicationAutoScalingClient(config);
+ * const command = new DescribeScheduledActionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeScheduledActionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeScheduledActionsCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeScheduledActionsCommand extends $Command<
   DescribeScheduledActionsCommandInput,

@@ -34,6 +34,20 @@ export interface GetFaceDetectionCommandOutput extends GetFaceDetectionResponse,
  *    specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set
  *    of results. To get the next page of results, call <code>GetFaceDetection</code> and populate the <code>NextToken</code> request parameter with the token
  *     value returned from the previous call to <code>GetFaceDetection</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RekognitionClient, GetFaceDetectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, GetFaceDetectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * const client = new RekognitionClient(config);
+ * const command = new GetFaceDetectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFaceDetectionCommandInput} for command's `input` shape.
+ * @see {@link GetFaceDetectionCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFaceDetectionCommand extends $Command<
   GetFaceDetectionCommandInput,

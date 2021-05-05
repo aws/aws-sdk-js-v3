@@ -43,6 +43,20 @@ export interface GetAccessPointForObjectLambdaCommandOutput
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3ControlClient, GetAccessPointForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
+ * // const { S3ControlClient, GetAccessPointForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * const client = new S3ControlClient(config);
+ * const command = new GetAccessPointForObjectLambdaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAccessPointForObjectLambdaCommandInput} for command's `input` shape.
+ * @see {@link GetAccessPointForObjectLambdaCommandOutput} for command's `response` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAccessPointForObjectLambdaCommand extends $Command<
   GetAccessPointForObjectLambdaCommandInput,

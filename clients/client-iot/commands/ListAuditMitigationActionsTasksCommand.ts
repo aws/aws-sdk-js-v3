@@ -24,6 +24,20 @@ export interface ListAuditMitigationActionsTasksCommandOutput
 
 /**
  * <p>Gets a list of audit mitigation action tasks that match the specified filters.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, ListAuditMitigationActionsTasksCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListAuditMitigationActionsTasksCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new ListAuditMitigationActionsTasksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAuditMitigationActionsTasksCommandInput} for command's `input` shape.
+ * @see {@link ListAuditMitigationActionsTasksCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAuditMitigationActionsTasksCommand extends $Command<
   ListAuditMitigationActionsTasksCommandInput,

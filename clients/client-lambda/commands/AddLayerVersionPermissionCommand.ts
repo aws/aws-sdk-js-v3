@@ -27,6 +27,20 @@ export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionP
  *       accounts in an organization.</p>
  *          <p>To revoke permission, call <a>RemoveLayerVersionPermission</a> with the statement ID that you
  *       specified when you added it.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LambdaClient, AddLayerVersionPermissionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, AddLayerVersionPermissionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * const client = new LambdaClient(config);
+ * const command = new AddLayerVersionPermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddLayerVersionPermissionCommandInput} for command's `input` shape.
+ * @see {@link AddLayerVersionPermissionCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddLayerVersionPermissionCommand extends $Command<
   AddLayerVersionPermissionCommandInput,

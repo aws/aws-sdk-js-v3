@@ -22,6 +22,20 @@ export interface GetConferencePreferenceCommandOutput extends GetConferencePrefe
 
 /**
  * <p>Retrieves the existing conference preferences.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, GetConferencePreferenceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, GetConferencePreferenceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new GetConferencePreferenceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetConferencePreferenceCommandInput} for command's `input` shape.
+ * @see {@link GetConferencePreferenceCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetConferencePreferenceCommand extends $Command<
   GetConferencePreferenceCommandInput,

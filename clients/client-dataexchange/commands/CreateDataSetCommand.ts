@@ -22,6 +22,20 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
 
 /**
  * <p>This operation creates a data set.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataExchangeClient, CreateDataSetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
+ * // const { DataExchangeClient, CreateDataSetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * const client = new DataExchangeClient(config);
+ * const command = new CreateDataSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDataSetCommandInput} for command's `input` shape.
+ * @see {@link CreateDataSetCommandOutput} for command's `response` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDataSetCommand extends $Command<
   CreateDataSetCommandInput,

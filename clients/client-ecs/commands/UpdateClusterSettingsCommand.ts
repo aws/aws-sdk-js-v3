@@ -22,6 +22,20 @@ export interface UpdateClusterSettingsCommandOutput extends UpdateClusterSetting
 
 /**
  * <p>Modifies the settings to use for a cluster.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECSClient, UpdateClusterSettingsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, UpdateClusterSettingsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * const client = new ECSClient(config);
+ * const command = new UpdateClusterSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateClusterSettingsCommandInput} for command's `input` shape.
+ * @see {@link UpdateClusterSettingsCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateClusterSettingsCommand extends $Command<
   UpdateClusterSettingsCommandInput,

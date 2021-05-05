@@ -28,6 +28,20 @@ export interface DeleteReplicationConfigurationTemplateCommandOutput
 
 /**
  * <p>Deletes a single Replication Configuration Template by ID</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MgnClient, DeleteReplicationConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
+ * // const { MgnClient, DeleteReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * const client = new MgnClient(config);
+ * const command = new DeleteReplicationConfigurationTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteReplicationConfigurationTemplateCommandInput} for command's `input` shape.
+ * @see {@link DeleteReplicationConfigurationTemplateCommandOutput} for command's `response` shape.
+ * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteReplicationConfigurationTemplateCommand extends $Command<
   DeleteReplicationConfigurationTemplateCommandInput,

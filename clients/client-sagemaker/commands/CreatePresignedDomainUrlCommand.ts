@@ -30,6 +30,20 @@ export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDo
  *             <p>The URL that you get from a call to <code>CreatePresignedDomainUrl</code> has a default timeout of 5 minutes. You can configure this value using <code>ExpiresInSeconds</code>. If you try to use the URL after the timeout limit expires, you
  *             are directed to the AWS console sign-in page.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, CreatePresignedDomainUrlCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, CreatePresignedDomainUrlCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new CreatePresignedDomainUrlCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePresignedDomainUrlCommandInput} for command's `input` shape.
+ * @see {@link CreatePresignedDomainUrlCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePresignedDomainUrlCommand extends $Command<
   CreatePresignedDomainUrlCommandInput,

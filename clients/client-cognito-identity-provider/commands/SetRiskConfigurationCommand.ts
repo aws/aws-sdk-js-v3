@@ -31,6 +31,20 @@ export interface SetRiskConfigurationCommandOutput extends SetRiskConfigurationR
  *             configuration types.</p>
  *         <p>To enable Amazon Cognito advanced security features, update the user pool to include
  *             the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, SetRiskConfigurationCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, SetRiskConfigurationCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new SetRiskConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetRiskConfigurationCommandInput} for command's `input` shape.
+ * @see {@link SetRiskConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetRiskConfigurationCommand extends $Command<
   SetRiskConfigurationCommandInput,

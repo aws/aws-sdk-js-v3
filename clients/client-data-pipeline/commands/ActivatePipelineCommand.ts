@@ -52,6 +52,20 @@ export interface ActivatePipelineCommandOutput extends ActivatePipelineOutput, _
  *
  *             </response>
  *         </examples>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataPipelineClient, ActivatePipelineCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
+ * // const { DataPipelineClient, ActivatePipelineCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * const client = new DataPipelineClient(config);
+ * const command = new ActivatePipelineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ActivatePipelineCommandInput} for command's `input` shape.
+ * @see {@link ActivatePipelineCommandOutput} for command's `response` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ActivatePipelineCommand extends $Command<
   ActivatePipelineCommandInput,

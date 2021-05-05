@@ -22,6 +22,20 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
 
 /**
  * Returns a list of all configurations.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MqClient, ListConfigurationsCommand } from "@aws-sdk/client-mq"; // ES Modules import
+ * // const { MqClient, ListConfigurationsCommand } = require("@aws-sdk/client-mq"); // CommonJS import
+ * const client = new MqClient(config);
+ * const command = new ListConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link ListConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link MqClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListConfigurationsCommand extends $Command<
   ListConfigurationsCommandInput,

@@ -22,6 +22,20 @@ export interface GetManagedScalingPolicyCommandOutput extends GetManagedScalingP
 
 /**
  * <p>Fetches the attached managed scaling policy for an Amazon EMR cluster. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EMRClient, GetManagedScalingPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, GetManagedScalingPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * const client = new EMRClient(config);
+ * const command = new GetManagedScalingPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetManagedScalingPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetManagedScalingPolicyCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetManagedScalingPolicyCommand extends $Command<
   GetManagedScalingPolicyCommandInput,

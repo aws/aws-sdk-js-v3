@@ -22,6 +22,20 @@ export interface GetPartnerAccountCommandOutput extends GetPartnerAccountRespons
 
 /**
  * <p>Gets information about a partner account. If <code>PartnerAccountId</code> and <code>PartnerType</code> are <code>null</code>, returns all partner accounts.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTWirelessClient, GetPartnerAccountCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, GetPartnerAccountCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * const client = new IoTWirelessClient(config);
+ * const command = new GetPartnerAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPartnerAccountCommandInput} for command's `input` shape.
+ * @see {@link GetPartnerAccountCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPartnerAccountCommand extends $Command<
   GetPartnerAccountCommandInput,

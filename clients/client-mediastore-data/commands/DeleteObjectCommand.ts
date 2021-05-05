@@ -22,6 +22,20 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
 
 /**
  * <p>Deletes an object at the specified path.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaStoreDataClient, DeleteObjectCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
+ * // const { MediaStoreDataClient, DeleteObjectCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
+ * const client = new MediaStoreDataClient(config);
+ * const command = new DeleteObjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteObjectCommandInput} for command's `input` shape.
+ * @see {@link DeleteObjectCommandOutput} for command's `response` shape.
+ * @see {@link MediaStoreDataClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteObjectCommand extends $Command<
   DeleteObjectCommandInput,

@@ -28,6 +28,20 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  *                     images</code> command shows the uncompressed image size, so it may return a
  *                 larger image size than the image sizes returned by <a>DescribeImages</a>.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECRClient, DescribeImagesCommand } from "@aws-sdk/client-ecr"; // ES Modules import
+ * // const { ECRClient, DescribeImagesCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * const client = new ECRClient(config);
+ * const command = new DescribeImagesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeImagesCommandInput} for command's `input` shape.
+ * @see {@link DescribeImagesCommandOutput} for command's `response` shape.
+ * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeImagesCommand extends $Command<
   DescribeImagesCommandInput,

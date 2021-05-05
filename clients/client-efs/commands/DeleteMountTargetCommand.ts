@@ -55,6 +55,20 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EFSClient, DeleteMountTargetCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, DeleteMountTargetCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * const client = new EFSClient(config);
+ * const command = new DeleteMountTargetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMountTargetCommandInput} for command's `input` shape.
+ * @see {@link DeleteMountTargetCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMountTargetCommand extends $Command<
   DeleteMountTargetCommandInput,

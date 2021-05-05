@@ -28,6 +28,20 @@ export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminat
  *          <p> For <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested
  *             stacks</a>, termination protection is set on the root stack and cannot be changed
  *          directly on the nested stack.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFormationClient, UpdateTerminationProtectionCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, UpdateTerminationProtectionCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * const client = new CloudFormationClient(config);
+ * const command = new UpdateTerminationProtectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTerminationProtectionCommandInput} for command's `input` shape.
+ * @see {@link UpdateTerminationProtectionCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTerminationProtectionCommand extends $Command<
   UpdateTerminationProtectionCommandInput,

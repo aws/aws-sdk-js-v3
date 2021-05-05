@@ -16,6 +16,9 @@ export interface MemoryInfo {
 }
 
 export namespace MemoryInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MemoryInfo): any => ({
     ...obj,
   });
@@ -45,6 +48,9 @@ export interface KeyValuePair {
 }
 
 export namespace KeyValuePair {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KeyValuePair): any => ({
     ...obj,
   });
@@ -79,6 +85,9 @@ export interface AcceleratorType {
 }
 
 export namespace AcceleratorType {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AcceleratorType): any => ({
     ...obj,
   });
@@ -119,6 +128,9 @@ export interface AcceleratorTypeOffering {
 }
 
 export namespace AcceleratorTypeOffering {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AcceleratorTypeOffering): any => ({
     ...obj,
   });
@@ -136,6 +148,9 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace BadRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
@@ -161,6 +176,9 @@ export interface DescribeAcceleratorOfferingsRequest {
 }
 
 export namespace DescribeAcceleratorOfferingsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAcceleratorOfferingsRequest): any => ({
     ...obj,
   });
@@ -176,6 +194,9 @@ export interface DescribeAcceleratorOfferingsResponse {
 }
 
 export namespace DescribeAcceleratorOfferingsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAcceleratorOfferingsResponse): any => ({
     ...obj,
   });
@@ -193,6 +214,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -210,6 +234,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -239,6 +266,9 @@ export interface Filter {
 }
 
 export namespace Filter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
@@ -279,6 +309,9 @@ export interface DescribeAcceleratorsRequest {
 }
 
 export namespace DescribeAcceleratorsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAcceleratorsRequest): any => ({
     ...obj,
   });
@@ -299,6 +332,9 @@ export interface ElasticInferenceAcceleratorHealth {
 }
 
 export namespace ElasticInferenceAcceleratorHealth {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ElasticInferenceAcceleratorHealth): any => ({
     ...obj,
   });
@@ -347,6 +383,9 @@ export interface ElasticInferenceAccelerator {
 }
 
 export namespace ElasticInferenceAccelerator {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ElasticInferenceAccelerator): any => ({
     ...obj,
   });
@@ -369,6 +408,9 @@ export interface DescribeAcceleratorsResponse {
 }
 
 export namespace DescribeAcceleratorsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAcceleratorsResponse): any => ({
     ...obj,
   });
@@ -377,6 +419,9 @@ export namespace DescribeAcceleratorsResponse {
 export interface DescribeAcceleratorTypesRequest {}
 
 export namespace DescribeAcceleratorTypesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAcceleratorTypesRequest): any => ({
     ...obj,
   });
@@ -392,6 +437,9 @@ export interface DescribeAcceleratorTypesResponse {
 }
 
 export namespace DescribeAcceleratorTypesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAcceleratorTypesResponse): any => ({
     ...obj,
   });
@@ -407,6 +455,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -422,6 +473,9 @@ export interface ListTagsForResourceResult {
 }
 
 export namespace ListTagsForResourceResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
     ...obj,
   });
@@ -444,6 +498,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -452,6 +509,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResult {}
 
 export namespace TagResourceResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResult): any => ({
     ...obj,
   });
@@ -474,6 +534,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -482,6 +545,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResult {}
 
 export namespace UntagResourceResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
     ...obj,
   });

@@ -26,6 +26,20 @@ export interface DisableRuleCommandOutput extends __MetadataBearer {}
  *
  *          <p>When you disable a rule, incoming events might continue to match to the disabled rule.
  *       Allow a short period of time for changes to take effect.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EventBridgeClient, DisableRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, DisableRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * const client = new EventBridgeClient(config);
+ * const command = new DisableRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableRuleCommandInput} for command's `input` shape.
+ * @see {@link DisableRuleCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableRuleCommand extends $Command<
   DisableRuleCommandInput,

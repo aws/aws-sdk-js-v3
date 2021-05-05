@@ -22,6 +22,20 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
 
 /**
  * Deletes the input end point
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaLiveClient, DeleteInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, DeleteInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * const client = new MediaLiveClient(config);
+ * const command = new DeleteInputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteInputCommandInput} for command's `input` shape.
+ * @see {@link DeleteInputCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteInputCommand extends $Command<
   DeleteInputCommandInput,

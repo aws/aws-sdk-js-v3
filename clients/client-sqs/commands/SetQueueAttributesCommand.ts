@@ -36,6 +36,20 @@ export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
  *               </li>
  *             </ul>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SQSClient, SetQueueAttributesCommand } from "@aws-sdk/client-sqs"; // ES Modules import
+ * // const { SQSClient, SetQueueAttributesCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * const client = new SQSClient(config);
+ * const command = new SetQueueAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetQueueAttributesCommandInput} for command's `input` shape.
+ * @see {@link SetQueueAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SQSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetQueueAttributesCommand extends $Command<
   SetQueueAttributesCommandInput,

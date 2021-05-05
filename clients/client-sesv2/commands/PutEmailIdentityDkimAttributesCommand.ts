@@ -24,6 +24,20 @@ export interface PutEmailIdentityDkimAttributesCommandOutput
 
 /**
  * <p>Used to enable or disable DKIM authentication for an email identity.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESv2Client, PutEmailIdentityDkimAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, PutEmailIdentityDkimAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * const client = new SESv2Client(config);
+ * const command = new PutEmailIdentityDkimAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutEmailIdentityDkimAttributesCommandInput} for command's `input` shape.
+ * @see {@link PutEmailIdentityDkimAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutEmailIdentityDkimAttributesCommand extends $Command<
   PutEmailIdentityDkimAttributesCommandInput,

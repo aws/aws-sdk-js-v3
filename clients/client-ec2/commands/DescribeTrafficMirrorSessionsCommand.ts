@@ -24,6 +24,20 @@ export interface DescribeTrafficMirrorSessionsCommandOutput
 
 /**
  * <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DescribeTrafficMirrorSessionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeTrafficMirrorSessionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DescribeTrafficMirrorSessionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTrafficMirrorSessionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeTrafficMirrorSessionsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTrafficMirrorSessionsCommand extends $Command<
   DescribeTrafficMirrorSessionsCommandInput,

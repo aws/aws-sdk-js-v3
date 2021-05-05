@@ -39,6 +39,20 @@ export interface GetObjectTorrentCommandOutput extends GetObjectTorrentOutput, _
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, GetObjectTorrentCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, GetObjectTorrentCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new GetObjectTorrentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetObjectTorrentCommandInput} for command's `input` shape.
+ * @see {@link GetObjectTorrentCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetObjectTorrentCommand extends $Command<
   GetObjectTorrentCommandInput,

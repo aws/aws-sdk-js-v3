@@ -22,6 +22,20 @@ export interface DeleteCustomDataIdentifierCommandOutput extends DeleteCustomDat
 
 /**
  * <p>Soft deletes a custom data identifier.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Macie2Client, DeleteCustomDataIdentifierCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, DeleteCustomDataIdentifierCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * const client = new Macie2Client(config);
+ * const command = new DeleteCustomDataIdentifierCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCustomDataIdentifierCommandInput} for command's `input` shape.
+ * @see {@link DeleteCustomDataIdentifierCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCustomDataIdentifierCommand extends $Command<
   DeleteCustomDataIdentifierCommandInput,

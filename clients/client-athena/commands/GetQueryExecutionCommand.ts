@@ -24,6 +24,20 @@ export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput,
  * <p>Returns information about a single execution of a query if you have access to the
  *             workgroup in which the query ran. Each time a query executes, information about the
  *             query execution is saved with a unique ID.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AthenaClient, GetQueryExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
+ * // const { AthenaClient, GetQueryExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * const client = new AthenaClient(config);
+ * const command = new GetQueryExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetQueryExecutionCommandInput} for command's `input` shape.
+ * @see {@link GetQueryExecutionCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetQueryExecutionCommand extends $Command<
   GetQueryExecutionCommandInput,

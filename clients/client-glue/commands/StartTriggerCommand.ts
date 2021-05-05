@@ -24,6 +24,20 @@ export interface StartTriggerCommandOutput extends StartTriggerResponse, __Metad
  * <p>Starts an existing trigger. See <a href="https://docs.aws.amazon.com/glue/latest/dg/trigger-job.html">Triggering
  *       Jobs</a> for information about how different types of trigger are
  *       started.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, StartTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, StartTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new StartTriggerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartTriggerCommandInput} for command's `input` shape.
+ * @see {@link StartTriggerCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartTriggerCommand extends $Command<
   StartTriggerCommandInput,

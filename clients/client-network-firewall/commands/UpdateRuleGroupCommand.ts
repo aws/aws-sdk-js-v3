@@ -27,6 +27,20 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *          <p>To update a rule group, first call <a>DescribeRuleGroup</a> to retrieve the
  *          current <a>RuleGroup</a> object, update the object as needed, and then provide
  *          the updated object to this call. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NetworkFirewallClient, UpdateRuleGroupCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
+ * // const { NetworkFirewallClient, UpdateRuleGroupCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * const client = new NetworkFirewallClient(config);
+ * const command = new UpdateRuleGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRuleGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateRuleGroupCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRuleGroupCommand extends $Command<
   UpdateRuleGroupCommandInput,

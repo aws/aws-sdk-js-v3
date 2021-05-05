@@ -22,6 +22,20 @@ export interface ListTopicRulesCommandOutput extends ListTopicRulesResponse, __M
 
 /**
  * <p>Lists the rules for the specific topic.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, ListTopicRulesCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListTopicRulesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new ListTopicRulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTopicRulesCommandInput} for command's `input` shape.
+ * @see {@link ListTopicRulesCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTopicRulesCommand extends $Command<
   ListTopicRulesCommandInput,

@@ -14,6 +14,9 @@ export interface AcceptResourceShareInvitationRequest {
 }
 
 export namespace AcceptResourceShareInvitationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AcceptResourceShareInvitationRequest): any => ({
     ...obj,
   });
@@ -81,6 +84,9 @@ export interface ResourceShareAssociation {
 }
 
 export namespace ResourceShareAssociation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceShareAssociation): any => ({
     ...obj,
   });
@@ -138,6 +144,9 @@ export interface ResourceShareInvitation {
 }
 
 export namespace ResourceShareInvitation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceShareInvitation): any => ({
     ...obj,
   });
@@ -156,6 +165,9 @@ export interface AcceptResourceShareInvitationResponse {
 }
 
 export namespace AcceptResourceShareInvitationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AcceptResourceShareInvitationResponse): any => ({
     ...obj,
   });
@@ -172,6 +184,9 @@ export interface IdempotentParameterMismatchException extends __SmithyException,
 }
 
 export namespace IdempotentParameterMismatchException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
     ...obj,
   });
@@ -187,6 +202,9 @@ export interface InvalidClientTokenException extends __SmithyException, $Metadat
 }
 
 export namespace InvalidClientTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidClientTokenException): any => ({
     ...obj,
   });
@@ -202,6 +220,9 @@ export interface MalformedArnException extends __SmithyException, $MetadataBeare
 }
 
 export namespace MalformedArnException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MalformedArnException): any => ({
     ...obj,
   });
@@ -217,6 +238,9 @@ export interface OperationNotPermittedException extends __SmithyException, $Meta
 }
 
 export namespace OperationNotPermittedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
     ...obj,
   });
@@ -232,6 +256,9 @@ export interface ResourceShareInvitationAlreadyAcceptedException extends __Smith
 }
 
 export namespace ResourceShareInvitationAlreadyAcceptedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceShareInvitationAlreadyAcceptedException): any => ({
     ...obj,
   });
@@ -247,6 +274,9 @@ export interface ResourceShareInvitationAlreadyRejectedException extends __Smith
 }
 
 export namespace ResourceShareInvitationAlreadyRejectedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceShareInvitationAlreadyRejectedException): any => ({
     ...obj,
   });
@@ -262,6 +292,9 @@ export interface ResourceShareInvitationArnNotFoundException extends __SmithyExc
 }
 
 export namespace ResourceShareInvitationArnNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceShareInvitationArnNotFoundException): any => ({
     ...obj,
   });
@@ -277,6 +310,9 @@ export interface ResourceShareInvitationExpiredException extends __SmithyExcepti
 }
 
 export namespace ResourceShareInvitationExpiredException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceShareInvitationExpiredException): any => ({
     ...obj,
   });
@@ -292,6 +328,9 @@ export interface ServerInternalException extends __SmithyException, $MetadataBea
 }
 
 export namespace ServerInternalException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServerInternalException): any => ({
     ...obj,
   });
@@ -307,6 +346,9 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
 }
 
 export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
@@ -337,6 +379,9 @@ export interface AssociateResourceShareRequest {
 }
 
 export namespace AssociateResourceShareRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateResourceShareRequest): any => ({
     ...obj,
   });
@@ -355,6 +400,9 @@ export interface AssociateResourceShareResponse {
 }
 
 export namespace AssociateResourceShareResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateResourceShareResponse): any => ({
     ...obj,
   });
@@ -370,6 +418,9 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidParameterException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
@@ -385,6 +436,9 @@ export interface InvalidStateTransitionException extends __SmithyException, $Met
 }
 
 export namespace InvalidStateTransitionException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidStateTransitionException): any => ({
     ...obj,
   });
@@ -400,6 +454,9 @@ export interface ResourceShareLimitExceededException extends __SmithyException, 
 }
 
 export namespace ResourceShareLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceShareLimitExceededException): any => ({
     ...obj,
   });
@@ -415,6 +472,9 @@ export interface UnknownResourceException extends __SmithyException, $MetadataBe
 }
 
 export namespace UnknownResourceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnknownResourceException): any => ({
     ...obj,
   });
@@ -445,6 +505,9 @@ export interface AssociateResourceSharePermissionRequest {
 }
 
 export namespace AssociateResourceSharePermissionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateResourceSharePermissionRequest): any => ({
     ...obj,
   });
@@ -463,6 +526,9 @@ export interface AssociateResourceSharePermissionResponse {
 }
 
 export namespace AssociateResourceSharePermissionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateResourceSharePermissionResponse): any => ({
     ...obj,
   });
@@ -484,6 +550,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -530,6 +599,9 @@ export interface CreateResourceShareRequest {
 }
 
 export namespace CreateResourceShareRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateResourceShareRequest): any => ({
     ...obj,
   });
@@ -616,6 +688,9 @@ export interface ResourceShare {
 }
 
 export namespace ResourceShare {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceShare): any => ({
     ...obj,
   });
@@ -634,6 +709,9 @@ export interface CreateResourceShareResponse {
 }
 
 export namespace CreateResourceShareResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateResourceShareResponse): any => ({
     ...obj,
   });
@@ -649,6 +727,9 @@ export interface TagPolicyViolationException extends __SmithyException, $Metadat
 }
 
 export namespace TagPolicyViolationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagPolicyViolationException): any => ({
     ...obj,
   });
@@ -667,6 +748,9 @@ export interface DeleteResourceShareRequest {
 }
 
 export namespace DeleteResourceShareRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteResourceShareRequest): any => ({
     ...obj,
   });
@@ -685,6 +769,9 @@ export interface DeleteResourceShareResponse {
 }
 
 export namespace DeleteResourceShareResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteResourceShareResponse): any => ({
     ...obj,
   });
@@ -713,6 +800,9 @@ export interface DisassociateResourceShareRequest {
 }
 
 export namespace DisassociateResourceShareRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateResourceShareRequest): any => ({
     ...obj,
   });
@@ -731,6 +821,9 @@ export interface DisassociateResourceShareResponse {
 }
 
 export namespace DisassociateResourceShareResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateResourceShareResponse): any => ({
     ...obj,
   });
@@ -754,6 +847,9 @@ export interface DisassociateResourceSharePermissionRequest {
 }
 
 export namespace DisassociateResourceSharePermissionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateResourceSharePermissionRequest): any => ({
     ...obj,
   });
@@ -772,6 +868,9 @@ export interface DisassociateResourceSharePermissionResponse {
 }
 
 export namespace DisassociateResourceSharePermissionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateResourceSharePermissionResponse): any => ({
     ...obj,
   });
@@ -780,6 +879,9 @@ export namespace DisassociateResourceSharePermissionResponse {
 export interface EnableSharingWithAwsOrganizationRequest {}
 
 export namespace EnableSharingWithAwsOrganizationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnableSharingWithAwsOrganizationRequest): any => ({
     ...obj,
   });
@@ -793,6 +895,9 @@ export interface EnableSharingWithAwsOrganizationResponse {
 }
 
 export namespace EnableSharingWithAwsOrganizationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnableSharingWithAwsOrganizationResponse): any => ({
     ...obj,
   });
@@ -811,6 +916,9 @@ export interface GetPermissionRequest {
 }
 
 export namespace GetPermissionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetPermissionRequest): any => ({
     ...obj,
   });
@@ -865,6 +973,9 @@ export interface ResourceSharePermissionDetail {
 }
 
 export namespace ResourceSharePermissionDetail {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceSharePermissionDetail): any => ({
     ...obj,
   });
@@ -878,6 +989,9 @@ export interface GetPermissionResponse {
 }
 
 export namespace GetPermissionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetPermissionResponse): any => ({
     ...obj,
   });
@@ -907,6 +1021,9 @@ export interface GetResourcePoliciesRequest {
 }
 
 export namespace GetResourcePoliciesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetResourcePoliciesRequest): any => ({
     ...obj,
   });
@@ -925,6 +1042,9 @@ export interface GetResourcePoliciesResponse {
 }
 
 export namespace GetResourcePoliciesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetResourcePoliciesResponse): any => ({
     ...obj,
   });
@@ -940,6 +1060,9 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidNextTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
@@ -955,6 +1078,9 @@ export interface ResourceArnNotFoundException extends __SmithyException, $Metada
 }
 
 export namespace ResourceArnNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceArnNotFoundException): any => ({
     ...obj,
   });
@@ -1003,6 +1129,9 @@ export interface GetResourceShareAssociationsRequest {
 }
 
 export namespace GetResourceShareAssociationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetResourceShareAssociationsRequest): any => ({
     ...obj,
   });
@@ -1021,6 +1150,9 @@ export interface GetResourceShareAssociationsResponse {
 }
 
 export namespace GetResourceShareAssociationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetResourceShareAssociationsResponse): any => ({
     ...obj,
   });
@@ -1050,6 +1182,9 @@ export interface GetResourceShareInvitationsRequest {
 }
 
 export namespace GetResourceShareInvitationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetResourceShareInvitationsRequest): any => ({
     ...obj,
   });
@@ -1068,6 +1203,9 @@ export interface GetResourceShareInvitationsResponse {
 }
 
 export namespace GetResourceShareInvitationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetResourceShareInvitationsResponse): any => ({
     ...obj,
   });
@@ -1083,6 +1221,9 @@ export interface InvalidMaxResultsException extends __SmithyException, $Metadata
 }
 
 export namespace InvalidMaxResultsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidMaxResultsException): any => ({
     ...obj,
   });
@@ -1109,6 +1250,9 @@ export interface TagFilter {
 }
 
 export namespace TagFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagFilter): any => ({
     ...obj,
   });
@@ -1153,6 +1297,9 @@ export interface GetResourceSharesRequest {
 }
 
 export namespace GetResourceSharesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetResourceSharesRequest): any => ({
     ...obj,
   });
@@ -1171,6 +1318,9 @@ export interface GetResourceSharesResponse {
 }
 
 export namespace GetResourceSharesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetResourceSharesResponse): any => ({
     ...obj,
   });
@@ -1195,6 +1345,9 @@ export interface ListPendingInvitationResourcesRequest {
 }
 
 export namespace ListPendingInvitationResourcesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPendingInvitationResourcesRequest): any => ({
     ...obj,
   });
@@ -1249,6 +1402,9 @@ export interface Resource {
 }
 
 export namespace Resource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj,
   });
@@ -1267,6 +1423,9 @@ export interface ListPendingInvitationResourcesResponse {
 }
 
 export namespace ListPendingInvitationResourcesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPendingInvitationResourcesResponse): any => ({
     ...obj,
   });
@@ -1282,6 +1441,9 @@ export interface MissingRequiredParameterException extends __SmithyException, $M
 }
 
 export namespace MissingRequiredParameterException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MissingRequiredParameterException): any => ({
     ...obj,
   });
@@ -1307,6 +1469,9 @@ export interface ListPermissionsRequest {
 }
 
 export namespace ListPermissionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPermissionsRequest): any => ({
     ...obj,
   });
@@ -1358,6 +1523,9 @@ export interface ResourceSharePermissionSummary {
 }
 
 export namespace ResourceSharePermissionSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceSharePermissionSummary): any => ({
     ...obj,
   });
@@ -1376,6 +1544,9 @@ export interface ListPermissionsResponse {
 }
 
 export namespace ListPermissionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPermissionsResponse): any => ({
     ...obj,
   });
@@ -1422,6 +1593,9 @@ export interface ListPrincipalsRequest {
 }
 
 export namespace ListPrincipalsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPrincipalsRequest): any => ({
     ...obj,
   });
@@ -1458,6 +1632,9 @@ export interface Principal {
 }
 
 export namespace Principal {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Principal): any => ({
     ...obj,
   });
@@ -1476,6 +1653,9 @@ export interface ListPrincipalsResponse {
 }
 
 export namespace ListPrincipalsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPrincipalsResponse): any => ({
     ...obj,
   });
@@ -1491,6 +1671,9 @@ export interface InvalidResourceTypeException extends __SmithyException, $Metada
 }
 
 export namespace InvalidResourceTypeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidResourceTypeException): any => ({
     ...obj,
   });
@@ -1537,6 +1720,9 @@ export interface ListResourcesRequest {
 }
 
 export namespace ListResourcesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
     ...obj,
   });
@@ -1555,6 +1741,9 @@ export interface ListResourcesResponse {
 }
 
 export namespace ListResourcesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListResourcesResponse): any => ({
     ...obj,
   });
@@ -1579,6 +1768,9 @@ export interface ListResourceSharePermissionsRequest {
 }
 
 export namespace ListResourceSharePermissionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListResourceSharePermissionsRequest): any => ({
     ...obj,
   });
@@ -1597,6 +1789,9 @@ export interface ListResourceSharePermissionsResponse {
 }
 
 export namespace ListResourceSharePermissionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListResourceSharePermissionsResponse): any => ({
     ...obj,
   });
@@ -1616,6 +1811,9 @@ export interface ListResourceTypesRequest {
 }
 
 export namespace ListResourceTypesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListResourceTypesRequest): any => ({
     ...obj,
   });
@@ -1637,6 +1835,9 @@ export interface ServiceNameAndResourceType {
 }
 
 export namespace ServiceNameAndResourceType {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceNameAndResourceType): any => ({
     ...obj,
   });
@@ -1655,6 +1856,9 @@ export interface ListResourceTypesResponse {
 }
 
 export namespace ListResourceTypesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListResourceTypesResponse): any => ({
     ...obj,
   });
@@ -1668,6 +1872,9 @@ export interface PromoteResourceShareCreatedFromPolicyRequest {
 }
 
 export namespace PromoteResourceShareCreatedFromPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PromoteResourceShareCreatedFromPolicyRequest): any => ({
     ...obj,
   });
@@ -1681,6 +1888,9 @@ export interface PromoteResourceShareCreatedFromPolicyResponse {
 }
 
 export namespace PromoteResourceShareCreatedFromPolicyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PromoteResourceShareCreatedFromPolicyResponse): any => ({
     ...obj,
   });
@@ -1699,6 +1909,9 @@ export interface RejectResourceShareInvitationRequest {
 }
 
 export namespace RejectResourceShareInvitationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RejectResourceShareInvitationRequest): any => ({
     ...obj,
   });
@@ -1717,6 +1930,9 @@ export interface RejectResourceShareInvitationResponse {
 }
 
 export namespace RejectResourceShareInvitationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RejectResourceShareInvitationResponse): any => ({
     ...obj,
   });
@@ -1732,6 +1948,9 @@ export interface TagLimitExceededException extends __SmithyException, $MetadataB
 }
 
 export namespace TagLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagLimitExceededException): any => ({
     ...obj,
   });
@@ -1750,6 +1969,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -1758,6 +1980,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -1776,6 +2001,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -1784,6 +2012,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
@@ -1812,6 +2043,9 @@ export interface UpdateResourceShareRequest {
 }
 
 export namespace UpdateResourceShareRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateResourceShareRequest): any => ({
     ...obj,
   });
@@ -1830,6 +2064,9 @@ export interface UpdateResourceShareResponse {
 }
 
 export namespace UpdateResourceShareResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateResourceShareResponse): any => ({
     ...obj,
   });

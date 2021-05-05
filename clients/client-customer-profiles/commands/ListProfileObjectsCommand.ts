@@ -22,6 +22,20 @@ export interface ListProfileObjectsCommandOutput extends ListProfileObjectsRespo
 
 /**
  * <p>Returns a list of objects associated with a profile of a given ProfileObjectType.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CustomerProfilesClient, ListProfileObjectsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, ListProfileObjectsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * const client = new CustomerProfilesClient(config);
+ * const command = new ListProfileObjectsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProfileObjectsCommandInput} for command's `input` shape.
+ * @see {@link ListProfileObjectsCommandOutput} for command's `response` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProfileObjectsCommand extends $Command<
   ListProfileObjectsCommandInput,

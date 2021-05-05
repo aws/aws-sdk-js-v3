@@ -22,6 +22,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * <p>Lists the tags attached to an IoT Device Advisor resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IotDeviceAdvisorClient, ListTagsForResourceCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
+ * // const { IotDeviceAdvisorClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
+ * const client = new IotDeviceAdvisorClient(config);
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

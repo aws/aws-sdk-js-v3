@@ -22,6 +22,20 @@ export interface DeleteJobExecutionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a job execution.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, DeleteJobExecutionCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DeleteJobExecutionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new DeleteJobExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteJobExecutionCommandInput} for command's `input` shape.
+ * @see {@link DeleteJobExecutionCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteJobExecutionCommand extends $Command<
   DeleteJobExecutionCommandInput,

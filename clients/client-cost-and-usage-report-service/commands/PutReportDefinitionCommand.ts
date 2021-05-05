@@ -26,6 +26,20 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
 
 /**
  * <p>Creates a new report using the description that you provide.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CostAndUsageReportServiceClient, PutReportDefinitionCommand } from "@aws-sdk/client-cost-and-usage-report-service"; // ES Modules import
+ * // const { CostAndUsageReportServiceClient, PutReportDefinitionCommand } = require("@aws-sdk/client-cost-and-usage-report-service"); // CommonJS import
+ * const client = new CostAndUsageReportServiceClient(config);
+ * const command = new PutReportDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutReportDefinitionCommandInput} for command's `input` shape.
+ * @see {@link PutReportDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutReportDefinitionCommand extends $Command<
   PutReportDefinitionCommandInput,

@@ -22,6 +22,20 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
 
 /**
  * <p>Creates a new DB instance.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NeptuneClient, CreateDBInstanceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, CreateDBInstanceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * const client = new NeptuneClient(config);
+ * const command = new CreateDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDBInstanceCommandInput} for command's `input` shape.
+ * @see {@link CreateDBInstanceCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDBInstanceCommand extends $Command<
   CreateDBInstanceCommandInput,

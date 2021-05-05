@@ -22,6 +22,20 @@ export interface GetModelVersionCommandOutput extends GetModelVersionResult, __M
 
 /**
  * <p>Gets the details of the specified model version.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FraudDetectorClient, GetModelVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, GetModelVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * const client = new FraudDetectorClient(config);
+ * const command = new GetModelVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetModelVersionCommandInput} for command's `input` shape.
+ * @see {@link GetModelVersionCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetModelVersionCommand extends $Command<
   GetModelVersionCommandInput,

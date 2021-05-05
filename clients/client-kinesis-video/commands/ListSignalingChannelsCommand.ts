@@ -24,6 +24,20 @@ export interface ListSignalingChannelsCommandOutput extends ListSignalingChannel
  * <p>Returns an array of <code>ChannelInfo</code> objects. Each object describes a
  *             signaling channel. To retrieve only those channels that satisfy a specific condition, you can
  *             specify a <code>ChannelNameCondition</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisVideoClient, ListSignalingChannelsCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
+ * // const { KinesisVideoClient, ListSignalingChannelsCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * const client = new KinesisVideoClient(config);
+ * const command = new ListSignalingChannelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSignalingChannelsCommandInput} for command's `input` shape.
+ * @see {@link ListSignalingChannelsCommandOutput} for command's `response` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSignalingChannelsCommand extends $Command<
   ListSignalingChannelsCommandInput,

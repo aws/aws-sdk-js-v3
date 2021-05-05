@@ -22,6 +22,20 @@ export interface DeleteGcmChannelCommandOutput extends DeleteGcmChannelResponse,
 
 /**
  * <p>Disables the GCM channel for an application and deletes any existing settings for the channel.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointClient, DeleteGcmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, DeleteGcmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * const client = new PinpointClient(config);
+ * const command = new DeleteGcmChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteGcmChannelCommandInput} for command's `input` shape.
+ * @see {@link DeleteGcmChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteGcmChannelCommand extends $Command<
   DeleteGcmChannelCommandInput,

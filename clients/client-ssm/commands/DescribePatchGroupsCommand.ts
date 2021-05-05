@@ -22,6 +22,20 @@ export interface DescribePatchGroupsCommandOutput extends DescribePatchGroupsRes
 
 /**
  * <p>Lists all patch groups that have been registered with patch baselines.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, DescribePatchGroupsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DescribePatchGroupsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new DescribePatchGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePatchGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribePatchGroupsCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePatchGroupsCommand extends $Command<
   DescribePatchGroupsCommandInput,

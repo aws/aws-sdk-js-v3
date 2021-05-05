@@ -22,6 +22,20 @@ export interface DescribeActivitiesCommandOutput extends DescribeActivitiesRespo
 
 /**
  * <p>Describes the user activities in a specified time period.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkDocsClient, DescribeActivitiesCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
+ * // const { WorkDocsClient, DescribeActivitiesCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * const client = new WorkDocsClient(config);
+ * const command = new DescribeActivitiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeActivitiesCommandInput} for command's `input` shape.
+ * @see {@link DescribeActivitiesCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeActivitiesCommand extends $Command<
   DescribeActivitiesCommandInput,

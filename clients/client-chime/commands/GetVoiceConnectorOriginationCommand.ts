@@ -24,6 +24,20 @@ export interface GetVoiceConnectorOriginationCommandOutput
 
 /**
  * <p>Retrieves origination setting details for the specified Amazon Chime Voice Connector.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, GetVoiceConnectorOriginationCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, GetVoiceConnectorOriginationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new GetVoiceConnectorOriginationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetVoiceConnectorOriginationCommandInput} for command's `input` shape.
+ * @see {@link GetVoiceConnectorOriginationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetVoiceConnectorOriginationCommand extends $Command<
   GetVoiceConnectorOriginationCommandInput,

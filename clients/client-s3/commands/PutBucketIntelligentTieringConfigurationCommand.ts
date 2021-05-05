@@ -106,6 +106,20 @@ export interface PutBucketIntelligentTieringConfigurationCommandOutput extends _
  *                </ul>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, PutBucketIntelligentTieringConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, PutBucketIntelligentTieringConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new PutBucketIntelligentTieringConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutBucketIntelligentTieringConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutBucketIntelligentTieringConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutBucketIntelligentTieringConfigurationCommand extends $Command<
   PutBucketIntelligentTieringConfigurationCommandInput,

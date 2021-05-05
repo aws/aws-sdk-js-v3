@@ -25,6 +25,20 @@ export interface BatchDeleteTableRowsCommandOutput extends BatchDeleteTableRowsR
  *             The BatchDeleteTableRows API allows you to delete one or more rows from a table in a workbook.
  *             You need to specify the ids of the rows that you want to delete from the table.
  *         </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { HoneycodeClient, BatchDeleteTableRowsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
+ * // const { HoneycodeClient, BatchDeleteTableRowsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
+ * const client = new HoneycodeClient(config);
+ * const command = new BatchDeleteTableRowsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDeleteTableRowsCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteTableRowsCommandOutput} for command's `response` shape.
+ * @see {@link HoneycodeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDeleteTableRowsCommand extends $Command<
   BatchDeleteTableRowsCommandInput,

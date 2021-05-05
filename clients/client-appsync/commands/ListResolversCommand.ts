@@ -22,6 +22,20 @@ export interface ListResolversCommandOutput extends ListResolversResponse, __Met
 
 /**
  * <p>Lists the resolvers for a given API and type.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppSyncClient, ListResolversCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, ListResolversCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * const client = new AppSyncClient(config);
+ * const command = new ListResolversCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResolversCommandInput} for command's `input` shape.
+ * @see {@link ListResolversCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResolversCommand extends $Command<
   ListResolversCommandInput,

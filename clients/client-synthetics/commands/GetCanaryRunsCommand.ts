@@ -22,6 +22,20 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
 
 /**
  * <p>Retrieves a list of runs for a specified canary.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SyntheticsClient, GetCanaryRunsCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
+ * // const { SyntheticsClient, GetCanaryRunsCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * const client = new SyntheticsClient(config);
+ * const command = new GetCanaryRunsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCanaryRunsCommandInput} for command's `input` shape.
+ * @see {@link GetCanaryRunsCommandOutput} for command's `response` shape.
+ * @see {@link SyntheticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCanaryRunsCommand extends $Command<
   GetCanaryRunsCommandInput,

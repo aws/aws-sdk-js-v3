@@ -22,6 +22,20 @@ export interface GetApnsVoipSandboxChannelCommandOutput extends GetApnsVoipSandb
 
 /**
  * <p>Retrieves information about the status and settings of the APNs VoIP sandbox channel for an application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointClient, GetApnsVoipSandboxChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, GetApnsVoipSandboxChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * const client = new PinpointClient(config);
+ * const command = new GetApnsVoipSandboxChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetApnsVoipSandboxChannelCommandInput} for command's `input` shape.
+ * @see {@link GetApnsVoipSandboxChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetApnsVoipSandboxChannelCommand extends $Command<
   GetApnsVoipSandboxChannelCommandInput,

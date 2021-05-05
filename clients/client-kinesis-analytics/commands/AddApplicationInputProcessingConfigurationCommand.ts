@@ -33,6 +33,20 @@ export interface AddApplicationInputProcessingConfigurationCommandOutput
  *         <p>Adds an <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html">InputProcessingConfiguration</a> to an application. An input processor preprocesses records on the input stream
  *             before the application's SQL code executes. Currently, the only input processor available is
  *             <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisAnalyticsClient, AddApplicationInputProcessingConfigurationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
+ * // const { KinesisAnalyticsClient, AddApplicationInputProcessingConfigurationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * const client = new KinesisAnalyticsClient(config);
+ * const command = new AddApplicationInputProcessingConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddApplicationInputProcessingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link AddApplicationInputProcessingConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddApplicationInputProcessingConfigurationCommand extends $Command<
   AddApplicationInputProcessingConfigurationCommandInput,

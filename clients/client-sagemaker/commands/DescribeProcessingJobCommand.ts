@@ -22,6 +22,20 @@ export interface DescribeProcessingJobCommandOutput extends DescribeProcessingJo
 
 /**
  * <p>Returns a description of a processing job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, DescribeProcessingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DescribeProcessingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeProcessingJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeProcessingJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeProcessingJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeProcessingJobCommand extends $Command<
   DescribeProcessingJobCommandInput,

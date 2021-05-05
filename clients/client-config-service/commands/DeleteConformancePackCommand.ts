@@ -25,6 +25,20 @@ export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
  * 			conformance pack.</p>
  * 		       <p>AWS Config sets the conformance pack to <code>DELETE_IN_PROGRESS</code> until the deletion is complete.
  * 			You cannot update a conformance pack while it is in this state.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConfigServiceClient, DeleteConformancePackCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, DeleteConformancePackCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * const client = new ConfigServiceClient(config);
+ * const command = new DeleteConformancePackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConformancePackCommandInput} for command's `input` shape.
+ * @see {@link DeleteConformancePackCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConformancePackCommand extends $Command<
   DeleteConformancePackCommandInput,

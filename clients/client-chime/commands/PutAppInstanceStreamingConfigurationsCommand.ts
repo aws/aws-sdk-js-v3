@@ -28,6 +28,20 @@ export interface PutAppInstanceStreamingConfigurationsCommandOutput
 
 /**
  * <p>The data streaming configurations of an <code>AppInstance</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, PutAppInstanceStreamingConfigurationsCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, PutAppInstanceStreamingConfigurationsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new PutAppInstanceStreamingConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAppInstanceStreamingConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link PutAppInstanceStreamingConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAppInstanceStreamingConfigurationsCommand extends $Command<
   PutAppInstanceStreamingConfigurationsCommandInput,

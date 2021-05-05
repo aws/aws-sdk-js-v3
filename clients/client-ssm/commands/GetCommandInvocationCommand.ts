@@ -26,6 +26,20 @@ export interface GetCommandInvocationCommandOutput extends GetCommandInvocationR
  *             <code>GetCommandInvocation</code> only gives the execution status of a plugin in a document.
  *    To get the command execution status on a specific instance, use <a>ListCommandInvocations</a>. To get the command execution status across instances, use
  *     <a>ListCommands</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, GetCommandInvocationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, GetCommandInvocationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new GetCommandInvocationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCommandInvocationCommandInput} for command's `input` shape.
+ * @see {@link GetCommandInvocationCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCommandInvocationCommand extends $Command<
   GetCommandInvocationCommandInput,

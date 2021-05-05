@@ -22,6 +22,20 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
 
 /**
  * <p>Lists summary information for all the services that are associated with one or more specified namespaces.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceDiscoveryClient, ListServicesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
+ * // const { ServiceDiscoveryClient, ListServicesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * const client = new ServiceDiscoveryClient(config);
+ * const command = new ListServicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListServicesCommandInput} for command's `input` shape.
+ * @see {@link ListServicesCommandOutput} for command's `response` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListServicesCommand extends $Command<
   ListServicesCommandInput,

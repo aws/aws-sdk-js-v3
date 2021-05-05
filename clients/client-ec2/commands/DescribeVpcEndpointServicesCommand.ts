@@ -29,6 +29,20 @@ export interface DescribeVpcEndpointServicesCommandOutput extends DescribeVpcEnd
  *             consumer uses <code>us-east-1a</code> and <code>us-east-1b</code>, the response includes
  *             the VPC endpoint services in the common Availability Zone,
  *             <code>us-east-1a</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DescribeVpcEndpointServicesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeVpcEndpointServicesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DescribeVpcEndpointServicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeVpcEndpointServicesCommandInput} for command's `input` shape.
+ * @see {@link DescribeVpcEndpointServicesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeVpcEndpointServicesCommand extends $Command<
   DescribeVpcEndpointServicesCommandInput,

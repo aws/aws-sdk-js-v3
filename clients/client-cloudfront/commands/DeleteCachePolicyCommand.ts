@@ -28,6 +28,20 @@ export interface DeleteCachePolicyCommandOutput extends __MetadataBearer {}
  * 		       <p>To delete a cache policy, you must provide the policy’s identifier and version. To get these
  * 			values, you can use <code>ListCachePolicies</code> or
  * 			<code>GetCachePolicy</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFrontClient, DeleteCachePolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, DeleteCachePolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * const client = new CloudFrontClient(config);
+ * const command = new DeleteCachePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCachePolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteCachePolicyCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCachePolicyCommand extends $Command<
   DeleteCachePolicyCommandInput,

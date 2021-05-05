@@ -22,6 +22,20 @@ export interface GetDashboardCommandOutput extends GetDashboardOutput, __Metadat
  * 		       <p>To copy an existing dashboard, use <code>GetDashboard</code>, and then use the data returned
  * 			within <code>DashboardBody</code> as the template for the new dashboard when you call <code>PutDashboard</code> to create
  * 			the copy.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchClient, GetDashboardCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
+ * // const { CloudWatchClient, GetDashboardCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * const client = new CloudWatchClient(config);
+ * const command = new GetDashboardCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDashboardCommandInput} for command's `input` shape.
+ * @see {@link GetDashboardCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDashboardCommand extends $Command<
   GetDashboardCommandInput,

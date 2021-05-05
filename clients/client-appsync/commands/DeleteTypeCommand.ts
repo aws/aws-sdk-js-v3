@@ -22,6 +22,20 @@ export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataB
 
 /**
  * <p>Deletes a <code>Type</code> object.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppSyncClient, DeleteTypeCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, DeleteTypeCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * const client = new AppSyncClient(config);
+ * const command = new DeleteTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTypeCommandInput} for command's `input` shape.
+ * @see {@link DeleteTypeCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTypeCommand extends $Command<
   DeleteTypeCommandInput,

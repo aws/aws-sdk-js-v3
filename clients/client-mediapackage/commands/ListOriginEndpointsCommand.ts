@@ -22,6 +22,20 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
 
 /**
  * Returns a collection of OriginEndpoint records.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaPackageClient, ListOriginEndpointsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
+ * // const { MediaPackageClient, ListOriginEndpointsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * const client = new MediaPackageClient(config);
+ * const command = new ListOriginEndpointsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListOriginEndpointsCommandInput} for command's `input` shape.
+ * @see {@link ListOriginEndpointsCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListOriginEndpointsCommand extends $Command<
   ListOriginEndpointsCommandInput,

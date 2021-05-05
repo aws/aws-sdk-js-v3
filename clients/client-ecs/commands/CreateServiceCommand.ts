@@ -127,6 +127,20 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *                </ul>
  * 			         </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECSClient, CreateServiceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, CreateServiceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * const client = new ECSClient(config);
+ * const command = new CreateServiceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateServiceCommandInput} for command's `input` shape.
+ * @see {@link CreateServiceCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateServiceCommand extends $Command<
   CreateServiceCommandInput,

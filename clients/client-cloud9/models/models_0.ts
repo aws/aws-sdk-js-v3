@@ -13,6 +13,9 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace BadRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
@@ -30,6 +33,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -56,6 +62,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
     ...(obj.Key && { Key: SENSITIVE_STRING }),
@@ -160,6 +169,9 @@ export interface CreateEnvironmentEC2Request {
 }
 
 export namespace CreateEnvironmentEC2Request {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateEnvironmentEC2Request): any => ({
     ...obj,
     ...(obj.description && { description: SENSITIVE_STRING }),
@@ -175,6 +187,9 @@ export interface CreateEnvironmentEC2Result {
 }
 
 export namespace CreateEnvironmentEC2Result {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateEnvironmentEC2Result): any => ({
     ...obj,
   });
@@ -192,6 +207,9 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
@@ -209,6 +227,9 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
 }
 
 export namespace InternalServerErrorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
     ...obj,
   });
@@ -226,6 +247,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -243,6 +267,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
@@ -260,6 +287,9 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
 }
 
 export namespace TooManyRequestsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
@@ -298,6 +328,9 @@ export interface CreateEnvironmentMembershipRequest {
 }
 
 export namespace CreateEnvironmentMembershipRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateEnvironmentMembershipRequest): any => ({
     ...obj,
   });
@@ -354,6 +387,9 @@ export interface EnvironmentMember {
 }
 
 export namespace EnvironmentMember {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnvironmentMember): any => ({
     ...obj,
   });
@@ -367,6 +403,9 @@ export interface CreateEnvironmentMembershipResult {
 }
 
 export namespace CreateEnvironmentMembershipResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateEnvironmentMembershipResult): any => ({
     ...obj,
   });
@@ -380,6 +419,9 @@ export interface DeleteEnvironmentRequest {
 }
 
 export namespace DeleteEnvironmentRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
     ...obj,
   });
@@ -388,6 +430,9 @@ export namespace DeleteEnvironmentRequest {
 export interface DeleteEnvironmentResult {}
 
 export namespace DeleteEnvironmentResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteEnvironmentResult): any => ({
     ...obj,
   });
@@ -406,6 +451,9 @@ export interface DeleteEnvironmentMembershipRequest {
 }
 
 export namespace DeleteEnvironmentMembershipRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteEnvironmentMembershipRequest): any => ({
     ...obj,
   });
@@ -414,6 +462,9 @@ export namespace DeleteEnvironmentMembershipRequest {
 export interface DeleteEnvironmentMembershipResult {}
 
 export namespace DeleteEnvironmentMembershipResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteEnvironmentMembershipResult): any => ({
     ...obj,
   });
@@ -462,6 +513,9 @@ export interface DescribeEnvironmentMembershipsRequest {
 }
 
 export namespace DescribeEnvironmentMembershipsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEnvironmentMembershipsRequest): any => ({
     ...obj,
   });
@@ -480,6 +534,9 @@ export interface DescribeEnvironmentMembershipsResult {
 }
 
 export namespace DescribeEnvironmentMembershipsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEnvironmentMembershipsResult): any => ({
     ...obj,
   });
@@ -493,6 +550,9 @@ export interface DescribeEnvironmentsRequest {
 }
 
 export namespace DescribeEnvironmentsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEnvironmentsRequest): any => ({
     ...obj,
   });
@@ -549,6 +609,9 @@ export interface EnvironmentLifecycle {
 }
 
 export namespace EnvironmentLifecycle {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnvironmentLifecycle): any => ({
     ...obj,
   });
@@ -687,6 +750,9 @@ export interface Environment {
 }
 
 export namespace Environment {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Environment): any => ({
     ...obj,
     ...(obj.description && { description: SENSITIVE_STRING }),
@@ -701,6 +767,9 @@ export interface DescribeEnvironmentsResult {
 }
 
 export namespace DescribeEnvironmentsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEnvironmentsResult): any => ({
     ...obj,
     ...(obj.environments && { environments: obj.environments.map((item) => Environment.filterSensitiveLog(item)) }),
@@ -715,6 +784,9 @@ export interface DescribeEnvironmentStatusRequest {
 }
 
 export namespace DescribeEnvironmentStatusRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEnvironmentStatusRequest): any => ({
     ...obj,
   });
@@ -773,6 +845,9 @@ export interface DescribeEnvironmentStatusResult {
 }
 
 export namespace DescribeEnvironmentStatusResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEnvironmentStatusResult): any => ({
     ...obj,
   });
@@ -791,6 +866,9 @@ export interface ListEnvironmentsRequest {
 }
 
 export namespace ListEnvironmentsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
     ...obj,
   });
@@ -809,6 +887,9 @@ export interface ListEnvironmentsResult {
 }
 
 export namespace ListEnvironmentsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEnvironmentsResult): any => ({
     ...obj,
   });
@@ -822,6 +903,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -835,6 +919,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
     ...(obj.Tags && { Tags: SENSITIVE_STRING }),
@@ -853,6 +940,9 @@ export interface ConcurrentAccessException extends __SmithyException, $MetadataB
 }
 
 export namespace ConcurrentAccessException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConcurrentAccessException): any => ({
     ...obj,
   });
@@ -871,6 +961,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
     ...(obj.Tags && { Tags: SENSITIVE_STRING }),
@@ -880,6 +973,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -898,6 +994,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
     ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
@@ -907,6 +1006,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
@@ -930,6 +1032,9 @@ export interface UpdateEnvironmentRequest {
 }
 
 export namespace UpdateEnvironmentRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
     ...obj,
     ...(obj.description && { description: SENSITIVE_STRING }),
@@ -939,6 +1044,9 @@ export namespace UpdateEnvironmentRequest {
 export interface UpdateEnvironmentResult {}
 
 export namespace UpdateEnvironmentResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateEnvironmentResult): any => ({
     ...obj,
   });
@@ -972,6 +1080,9 @@ export interface UpdateEnvironmentMembershipRequest {
 }
 
 export namespace UpdateEnvironmentMembershipRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateEnvironmentMembershipRequest): any => ({
     ...obj,
   });
@@ -985,6 +1096,9 @@ export interface UpdateEnvironmentMembershipResult {
 }
 
 export namespace UpdateEnvironmentMembershipResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateEnvironmentMembershipResult): any => ({
     ...obj,
   });

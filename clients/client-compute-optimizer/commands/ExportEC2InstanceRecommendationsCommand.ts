@@ -31,6 +31,20 @@ export interface ExportEC2InstanceRecommendationsCommandOutput
  *                 Recommendations</a> in the <i>Compute Optimizer User Guide</i>.</p>
  *
  *         <p>You can have only one Amazon EC2 instance export job in progress per AWS Region.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ComputeOptimizerClient, ExportEC2InstanceRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
+ * // const { ComputeOptimizerClient, ExportEC2InstanceRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * const client = new ComputeOptimizerClient(config);
+ * const command = new ExportEC2InstanceRecommendationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ExportEC2InstanceRecommendationsCommandInput} for command's `input` shape.
+ * @see {@link ExportEC2InstanceRecommendationsCommandOutput} for command's `response` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ExportEC2InstanceRecommendationsCommand extends $Command<
   ExportEC2InstanceRecommendationsCommandInput,

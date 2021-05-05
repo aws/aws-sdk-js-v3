@@ -22,6 +22,20 @@ export interface ListAppsCommandOutput extends ListAppsResult, __MetadataBearer 
 
 /**
  * <p> Returns a list of the existing Amplify apps. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmplifyClient, ListAppsCommand } from "@aws-sdk/client-amplify"; // ES Modules import
+ * // const { AmplifyClient, ListAppsCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * const client = new AmplifyClient(config);
+ * const command = new ListAppsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAppsCommandInput} for command's `input` shape.
+ * @see {@link ListAppsCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAppsCommand extends $Command<
   ListAppsCommandInput,

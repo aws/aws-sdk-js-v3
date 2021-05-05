@@ -24,6 +24,20 @@ export interface DeleteMobileDeviceAccessRuleCommandOutput
 
 /**
  * <p>Deletes a mobile device access rule for the specified Amazon WorkMail organization.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkMailClient, DeleteMobileDeviceAccessRuleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, DeleteMobileDeviceAccessRuleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * const client = new WorkMailClient(config);
+ * const command = new DeleteMobileDeviceAccessRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMobileDeviceAccessRuleCommandInput} for command's `input` shape.
+ * @see {@link DeleteMobileDeviceAccessRuleCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMobileDeviceAccessRuleCommand extends $Command<
   DeleteMobileDeviceAccessRuleCommandInput,

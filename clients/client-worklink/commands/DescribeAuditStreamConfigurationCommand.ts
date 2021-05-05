@@ -24,6 +24,20 @@ export interface DescribeAuditStreamConfigurationCommandOutput
 
 /**
  * <p>Describes the configuration for delivering audit streams to the customer account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkLinkClient, DescribeAuditStreamConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
+ * // const { WorkLinkClient, DescribeAuditStreamConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * const client = new WorkLinkClient(config);
+ * const command = new DescribeAuditStreamConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAuditStreamConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeAuditStreamConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAuditStreamConfigurationCommand extends $Command<
   DescribeAuditStreamConfigurationCommandInput,

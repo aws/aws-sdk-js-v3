@@ -22,6 +22,20 @@ export interface CreateWorkGroupCommandOutput extends CreateWorkGroupOutput, __M
 
 /**
  * <p>Creates a workgroup with the specified name.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AthenaClient, CreateWorkGroupCommand } from "@aws-sdk/client-athena"; // ES Modules import
+ * // const { AthenaClient, CreateWorkGroupCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * const client = new AthenaClient(config);
+ * const command = new CreateWorkGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateWorkGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateWorkGroupCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateWorkGroupCommand extends $Command<
   CreateWorkGroupCommandInput,

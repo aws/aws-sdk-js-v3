@@ -22,6 +22,20 @@ export interface ListKafkaVersionsCommandOutput extends ListKafkaVersionsRespons
 
 /**
  * <p>Returns a list of Kafka versions.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KafkaClient, ListKafkaVersionsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
+ * // const { KafkaClient, ListKafkaVersionsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * const client = new KafkaClient(config);
+ * const command = new ListKafkaVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListKafkaVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListKafkaVersionsCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListKafkaVersionsCommand extends $Command<
   ListKafkaVersionsCommandInput,

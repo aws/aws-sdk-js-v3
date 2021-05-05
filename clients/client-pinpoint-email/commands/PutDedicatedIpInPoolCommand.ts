@@ -31,6 +31,20 @@ export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolR
  *                 using the <code>CreateDedicatedIpPool</code> operation.</p>
  *
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointEmailClient, PutDedicatedIpInPoolCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
+ * // const { PinpointEmailClient, PutDedicatedIpInPoolCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * const client = new PinpointEmailClient(config);
+ * const command = new PutDedicatedIpInPoolCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutDedicatedIpInPoolCommandInput} for command's `input` shape.
+ * @see {@link PutDedicatedIpInPoolCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutDedicatedIpInPoolCommand extends $Command<
   PutDedicatedIpInPoolCommandInput,

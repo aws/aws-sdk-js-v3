@@ -23,6 +23,20 @@ export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsRespons
 /**
  * <p>Updates some of the parameters of a previously created location for Network File System (NFS) access.
  *       For information about creating an NFS location, see <a>create-nfs-location</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataSyncClient, UpdateLocationNfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, UpdateLocationNfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * const client = new DataSyncClient(config);
+ * const command = new UpdateLocationNfsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateLocationNfsCommandInput} for command's `input` shape.
+ * @see {@link UpdateLocationNfsCommandOutput} for command's `response` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateLocationNfsCommand extends $Command<
   UpdateLocationNfsCommandInput,

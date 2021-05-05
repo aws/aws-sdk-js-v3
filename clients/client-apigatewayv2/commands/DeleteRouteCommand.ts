@@ -22,6 +22,20 @@ export interface DeleteRouteCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a Route.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApiGatewayV2Client, DeleteRouteCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
+ * // const { ApiGatewayV2Client, DeleteRouteCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new DeleteRouteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRouteCommandInput} for command's `input` shape.
+ * @see {@link DeleteRouteCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRouteCommand extends $Command<
   DeleteRouteCommandInput,

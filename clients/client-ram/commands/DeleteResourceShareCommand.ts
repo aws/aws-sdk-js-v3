@@ -22,6 +22,20 @@ export interface DeleteResourceShareCommandOutput extends DeleteResourceShareRes
 
 /**
  * <p>Deletes the specified resource share.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RAMClient, DeleteResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
+ * // const { RAMClient, DeleteResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * const client = new RAMClient(config);
+ * const command = new DeleteResourceShareCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteResourceShareCommandInput} for command's `input` shape.
+ * @see {@link DeleteResourceShareCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteResourceShareCommand extends $Command<
   DeleteResourceShareCommandInput,

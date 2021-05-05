@@ -75,6 +75,20 @@ export interface CreateGameServerGroupCommandOutput extends CreateGameServerGrou
  *                     <a>DescribeGameServerInstances</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
  *          </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GameLiftClient, CreateGameServerGroupCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
+ * // const { GameLiftClient, CreateGameServerGroupCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * const client = new GameLiftClient(config);
+ * const command = new CreateGameServerGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateGameServerGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateGameServerGroupCommandOutput} for command's `response` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateGameServerGroupCommand extends $Command<
   CreateGameServerGroupCommandInput,

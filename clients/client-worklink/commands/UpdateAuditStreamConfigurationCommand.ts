@@ -24,6 +24,20 @@ export interface UpdateAuditStreamConfigurationCommandOutput
 
 /**
  * <p>Updates the audit stream configuration for the fleet.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkLinkClient, UpdateAuditStreamConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
+ * // const { WorkLinkClient, UpdateAuditStreamConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * const client = new WorkLinkClient(config);
+ * const command = new UpdateAuditStreamConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAuditStreamConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateAuditStreamConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAuditStreamConfigurationCommand extends $Command<
   UpdateAuditStreamConfigurationCommandInput,

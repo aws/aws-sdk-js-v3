@@ -29,6 +29,20 @@ export interface DeleteBotVersionCommandOutput extends __MetadataBearer {}
  *       bot, use the <a>DeleteBot</a> operation. </p>
  *          <p>This operation requires permissions for the
  *         <code>lex:DeleteBotVersion</code> action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelBuildingServiceClient, DeleteBotVersionCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
+ * // const { LexModelBuildingServiceClient, DeleteBotVersionCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new DeleteBotVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBotVersionCommandInput} for command's `input` shape.
+ * @see {@link DeleteBotVersionCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBotVersionCommand extends $Command<
   DeleteBotVersionCommandInput,

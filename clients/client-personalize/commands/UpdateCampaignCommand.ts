@@ -30,6 +30,20 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *         updated campaign is <code>ACTIVE</code> before asking the campaign for recommendations.</p>
  *          </note>
  *          <p>For more information on campaigns, see <a>CreateCampaign</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PersonalizeClient, UpdateCampaignCommand } from "@aws-sdk/client-personalize"; // ES Modules import
+ * // const { PersonalizeClient, UpdateCampaignCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * const client = new PersonalizeClient(config);
+ * const command = new UpdateCampaignCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateCampaignCommandInput} for command's `input` shape.
+ * @see {@link UpdateCampaignCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateCampaignCommand extends $Command<
   UpdateCampaignCommandInput,

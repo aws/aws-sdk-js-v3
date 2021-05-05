@@ -38,6 +38,20 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3ControlClient, PutPublicAccessBlockCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
+ * // const { S3ControlClient, PutPublicAccessBlockCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * const client = new S3ControlClient(config);
+ * const command = new PutPublicAccessBlockCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutPublicAccessBlockCommandInput} for command's `input` shape.
+ * @see {@link PutPublicAccessBlockCommandOutput} for command's `response` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutPublicAccessBlockCommand extends $Command<
   PutPublicAccessBlockCommandInput,

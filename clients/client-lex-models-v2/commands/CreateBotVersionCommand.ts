@@ -27,6 +27,20 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  *          version, it returns the last created version.</p>
  *          <p>When you create the first version of a bot, Amazon Lex sets the version
  *          to 1. Subsequent versions increment by 1.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelsV2Client, CreateBotVersionCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, CreateBotVersionCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * const client = new LexModelsV2Client(config);
+ * const command = new CreateBotVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateBotVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateBotVersionCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateBotVersionCommand extends $Command<
   CreateBotVersionCommandInput,

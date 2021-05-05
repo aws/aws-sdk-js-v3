@@ -24,6 +24,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Returns a list of tags attached to the specified Amazon Lookout for Vision model.</p>
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:ListTagsForResource</code> operation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LookoutVisionClient, ListTagsForResourceCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
+ * // const { LookoutVisionClient, ListTagsForResourceCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * const client = new LookoutVisionClient(config);
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

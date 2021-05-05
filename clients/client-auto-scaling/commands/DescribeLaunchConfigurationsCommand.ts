@@ -22,6 +22,20 @@ export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigu
 
 /**
  * <p>Describes one or more launch configurations.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AutoScalingClient, DescribeLaunchConfigurationsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, DescribeLaunchConfigurationsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * const client = new AutoScalingClient(config);
+ * const command = new DescribeLaunchConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLaunchConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeLaunchConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLaunchConfigurationsCommand extends $Command<
   DescribeLaunchConfigurationsCommandInput,

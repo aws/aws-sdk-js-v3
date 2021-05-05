@@ -22,6 +22,20 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
 
 /**
  * <p>Lists Amazon GuardDuty findings for the specified detector ID.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GuardDutyClient, ListFindingsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, ListFindingsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * const client = new GuardDutyClient(config);
+ * const command = new ListFindingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFindingsCommandInput} for command's `input` shape.
+ * @see {@link ListFindingsCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFindingsCommand extends $Command<
   ListFindingsCommandInput,

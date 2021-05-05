@@ -22,6 +22,20 @@ export interface GetPendingJobExecutionsCommandOutput extends GetPendingJobExecu
 
 /**
  * <p>Gets the list of all jobs for a thing that are not in a terminal status.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTJobsDataPlaneClient, GetPendingJobExecutionsCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
+ * // const { IoTJobsDataPlaneClient, GetPendingJobExecutionsCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
+ * const client = new IoTJobsDataPlaneClient(config);
+ * const command = new GetPendingJobExecutionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPendingJobExecutionsCommandInput} for command's `input` shape.
+ * @see {@link GetPendingJobExecutionsCommandOutput} for command's `response` shape.
+ * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPendingJobExecutionsCommand extends $Command<
   GetPendingJobExecutionsCommandInput,

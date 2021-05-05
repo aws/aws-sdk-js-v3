@@ -27,6 +27,20 @@ export interface GetVariablesCommandOutput extends GetVariablesResult, __Metadat
  *          50 and 100. To get the next page result, a provide a pagination token from
  *         <code>GetVariablesResult</code> as part of your request. Null pagination token
  *          fetches the records from the beginning. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FraudDetectorClient, GetVariablesCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, GetVariablesCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * const client = new FraudDetectorClient(config);
+ * const command = new GetVariablesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetVariablesCommandInput} for command's `input` shape.
+ * @see {@link GetVariablesCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetVariablesCommand extends $Command<
   GetVariablesCommandInput,

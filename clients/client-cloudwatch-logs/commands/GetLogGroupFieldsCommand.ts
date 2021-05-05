@@ -29,6 +29,20 @@ export interface GetLogGroupFieldsCommandOutput extends GetLogGroupFieldsRespons
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData-discoverable-fields.html">Supported Logs and Discovered Fields</a>.</p>
  *          <p>The response results are sorted by the frequency percentage, starting
  *     with the highest percentage.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchLogsClient, GetLogGroupFieldsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
+ * // const { CloudWatchLogsClient, GetLogGroupFieldsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new GetLogGroupFieldsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLogGroupFieldsCommandInput} for command's `input` shape.
+ * @see {@link GetLogGroupFieldsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLogGroupFieldsCommand extends $Command<
   GetLogGroupFieldsCommandInput,

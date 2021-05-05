@@ -27,6 +27,20 @@ export interface RegisterPatchBaselineForPatchGroupCommandOutput
 
 /**
  * <p>Registers a patch baseline for a patch group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, RegisterPatchBaselineForPatchGroupCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, RegisterPatchBaselineForPatchGroupCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new RegisterPatchBaselineForPatchGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterPatchBaselineForPatchGroupCommandInput} for command's `input` shape.
+ * @see {@link RegisterPatchBaselineForPatchGroupCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterPatchBaselineForPatchGroupCommand extends $Command<
   RegisterPatchBaselineForPatchGroupCommandInput,

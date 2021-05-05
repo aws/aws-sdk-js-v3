@@ -36,6 +36,20 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  *
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-upload-notification">Getting file upload notification</a> in the <i>AWS Storage Gateway User
  *             Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { StorageGatewayClient, NotifyWhenUploadedCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, NotifyWhenUploadedCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * const client = new StorageGatewayClient(config);
+ * const command = new NotifyWhenUploadedCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link NotifyWhenUploadedCommandInput} for command's `input` shape.
+ * @see {@link NotifyWhenUploadedCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class NotifyWhenUploadedCommand extends $Command<
   NotifyWhenUploadedCommandInput,

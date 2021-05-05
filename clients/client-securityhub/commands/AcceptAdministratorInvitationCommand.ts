@@ -29,6 +29,20 @@ export interface AcceptAdministratorInvitationCommandOutput
  *          Organizations.</p>
  *          <p>When the member account accepts the invitation, permission is granted to the administrator
  *          account to view findings generated in the member account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecurityHubClient, AcceptAdministratorInvitationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, AcceptAdministratorInvitationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * const client = new SecurityHubClient(config);
+ * const command = new AcceptAdministratorInvitationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AcceptAdministratorInvitationCommandInput} for command's `input` shape.
+ * @see {@link AcceptAdministratorInvitationCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AcceptAdministratorInvitationCommand extends $Command<
   AcceptAdministratorInvitationCommandInput,

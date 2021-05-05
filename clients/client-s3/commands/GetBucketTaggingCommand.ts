@@ -54,6 +54,20 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, GetBucketTaggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, GetBucketTaggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new GetBucketTaggingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBucketTaggingCommandInput} for command's `input` shape.
+ * @see {@link GetBucketTaggingCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBucketTaggingCommand extends $Command<
   GetBucketTaggingCommandInput,

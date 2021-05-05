@@ -28,6 +28,20 @@ export interface RefreshSchemasCommandOutput extends RefreshSchemasResponse, __M
  * <p>Populates the schema for the specified endpoint. This is an asynchronous operation and
  *          can take several minutes. You can check the status of this operation by calling the
  *          DescribeRefreshSchemasStatus operation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DatabaseMigrationServiceClient, RefreshSchemasCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, RefreshSchemasCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new RefreshSchemasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RefreshSchemasCommandInput} for command's `input` shape.
+ * @see {@link RefreshSchemasCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RefreshSchemasCommand extends $Command<
   RefreshSchemasCommandInput,

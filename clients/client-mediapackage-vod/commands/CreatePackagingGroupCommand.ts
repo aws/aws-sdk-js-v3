@@ -22,6 +22,20 @@ export interface CreatePackagingGroupCommandOutput extends CreatePackagingGroupR
 
 /**
  * Creates a new MediaPackage VOD PackagingGroup resource.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaPackageVodClient, CreatePackagingGroupCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
+ * // const { MediaPackageVodClient, CreatePackagingGroupCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
+ * const client = new MediaPackageVodClient(config);
+ * const command = new CreatePackagingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePackagingGroupCommandInput} for command's `input` shape.
+ * @see {@link CreatePackagingGroupCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageVodClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePackagingGroupCommand extends $Command<
   CreatePackagingGroupCommandInput,

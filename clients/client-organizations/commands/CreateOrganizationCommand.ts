@@ -32,6 +32,20 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  *             supporting only the consolidated billing features by setting the <code>FeatureSet</code>
  *             parameter to <code>CONSOLIDATED_BILLING"</code>, no policy types are enabled by default,
  *             and you can't use organization policies</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OrganizationsClient, CreateOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
+ * // const { OrganizationsClient, CreateOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * const client = new OrganizationsClient(config);
+ * const command = new CreateOrganizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateOrganizationCommandInput} for command's `input` shape.
+ * @see {@link CreateOrganizationCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateOrganizationCommand extends $Command<
   CreateOrganizationCommandInput,

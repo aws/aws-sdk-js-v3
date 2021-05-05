@@ -22,6 +22,20 @@ export interface ListEventsDetectionJobsCommandOutput extends ListEventsDetectio
 
 /**
  * <p>Gets a list of the events detection jobs that you have submitted.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ComprehendClient, ListEventsDetectionJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, ListEventsDetectionJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * const client = new ComprehendClient(config);
+ * const command = new ListEventsDetectionJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEventsDetectionJobsCommandInput} for command's `input` shape.
+ * @see {@link ListEventsDetectionJobsCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEventsDetectionJobsCommand extends $Command<
   ListEventsDetectionJobsCommandInput,

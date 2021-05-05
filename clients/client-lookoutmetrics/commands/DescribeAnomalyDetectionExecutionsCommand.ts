@@ -27,6 +27,20 @@ export interface DescribeAnomalyDetectionExecutionsCommandOutput
 
 /**
  * <p>Returns information about the status of the specified anomaly detection jobs.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LookoutMetricsClient, DescribeAnomalyDetectionExecutionsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
+ * // const { LookoutMetricsClient, DescribeAnomalyDetectionExecutionsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * const client = new LookoutMetricsClient(config);
+ * const command = new DescribeAnomalyDetectionExecutionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAnomalyDetectionExecutionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeAnomalyDetectionExecutionsCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAnomalyDetectionExecutionsCommand extends $Command<
   DescribeAnomalyDetectionExecutionsCommandInput,

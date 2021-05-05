@@ -66,6 +66,20 @@ export interface GetClipCommandOutput extends GetClipOutput, __MetadataBearer {}
  *             using CloudWatch to monitor Kinesis Video Streams, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/monitoring.html">Monitoring Kinesis Video Streams</a>. For pricing information, see <a href="https://aws.amazon.com/kinesis/video-streams/pricing/">Amazon Kinesis Video
  *                 Streams Pricing</a> and <a href="https://aws.amazon.com/pricing/">AWS
  *                 Pricing</a>. Charges for outgoing AWS data apply.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisVideoArchivedMediaClient, GetClipCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
+ * // const { KinesisVideoArchivedMediaClient, GetClipCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
+ * const client = new KinesisVideoArchivedMediaClient(config);
+ * const command = new GetClipCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetClipCommandInput} for command's `input` shape.
+ * @see {@link GetClipCommandOutput} for command's `response` shape.
+ * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetClipCommand extends $Command<
   GetClipCommandInput,

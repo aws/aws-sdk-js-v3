@@ -22,6 +22,20 @@ export interface ModifyDBProxyCommandOutput extends ModifyDBProxyResponse, __Met
 
 /**
  * <p>Changes the settings for an existing DB proxy.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, ModifyDBProxyCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, ModifyDBProxyCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new ModifyDBProxyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyDBProxyCommandInput} for command's `input` shape.
+ * @see {@link ModifyDBProxyCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyDBProxyCommand extends $Command<
   ModifyDBProxyCommandInput,

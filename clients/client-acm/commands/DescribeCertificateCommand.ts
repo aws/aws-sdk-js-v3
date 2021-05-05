@@ -22,6 +22,20 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
 
 /**
  * <p>Returns detailed metadata about the specified ACM certificate.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ACMClient, DescribeCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
+ * // const { ACMClient, DescribeCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * const client = new ACMClient(config);
+ * const command = new DescribeCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCertificateCommandInput} for command's `input` shape.
+ * @see {@link DescribeCertificateCommandOutput} for command's `response` shape.
+ * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCertificateCommand extends $Command<
   DescribeCertificateCommandInput,

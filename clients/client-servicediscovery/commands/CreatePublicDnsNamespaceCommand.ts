@@ -26,6 +26,20 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  *     <code>backend</code>, the resulting DNS name for the service will be <code>backend.example.com</code>. For the
  *    current quota on the number of namespaces that you can create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
  *     <i>AWS Cloud Map Developer Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceDiscoveryClient, CreatePublicDnsNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
+ * // const { ServiceDiscoveryClient, CreatePublicDnsNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * const client = new ServiceDiscoveryClient(config);
+ * const command = new CreatePublicDnsNamespaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePublicDnsNamespaceCommandInput} for command's `input` shape.
+ * @see {@link CreatePublicDnsNamespaceCommandOutput} for command's `response` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePublicDnsNamespaceCommand extends $Command<
   CreatePublicDnsNamespaceCommandInput,

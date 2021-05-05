@@ -30,6 +30,20 @@ export interface CreateCloudFrontOriginAccessIdentityCommandOutput
  * 			use an origin access identity to require users to access your content using a CloudFront URL instead
  * 			of the Amazon S3 URL. For more information about how to use origin access identities, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through CloudFront</a> in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFrontClient, CreateCloudFrontOriginAccessIdentityCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, CreateCloudFrontOriginAccessIdentityCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * const client = new CloudFrontClient(config);
+ * const command = new CreateCloudFrontOriginAccessIdentityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCloudFrontOriginAccessIdentityCommandInput} for command's `input` shape.
+ * @see {@link CreateCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCloudFrontOriginAccessIdentityCommand extends $Command<
   CreateCloudFrontOriginAccessIdentityCommandInput,

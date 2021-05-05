@@ -25,6 +25,20 @@ export interface GetPrincipalTagAttributeMapCommandOutput
 
 /**
  * <p>Use <code>GetPrincipalTagAttributeMap</code> to list all mappings between <code>PrincipalTags</code> and user attributes.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityClient, GetPrincipalTagAttributeMapCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
+ * // const { CognitoIdentityClient, GetPrincipalTagAttributeMapCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * const client = new CognitoIdentityClient(config);
+ * const command = new GetPrincipalTagAttributeMapCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPrincipalTagAttributeMapCommandInput} for command's `input` shape.
+ * @see {@link GetPrincipalTagAttributeMapCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPrincipalTagAttributeMapCommand extends $Command<
   GetPrincipalTagAttributeMapCommandInput,

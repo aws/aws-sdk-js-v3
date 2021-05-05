@@ -25,6 +25,20 @@ export interface CreateDistributionConfigurationCommandOutput
 /**
  * <p>Creates a new distribution configuration. Distribution configurations define and configure
  *       the outputs of your pipeline.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ImagebuilderClient, CreateDistributionConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, CreateDistributionConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * const client = new ImagebuilderClient(config);
+ * const command = new CreateDistributionConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDistributionConfigurationCommandInput} for command's `input` shape.
+ * @see {@link CreateDistributionConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDistributionConfigurationCommand extends $Command<
   CreateDistributionConfigurationCommandInput,

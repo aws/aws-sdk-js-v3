@@ -31,6 +31,20 @@ export interface ListAssociationsForLicenseConfigurationCommandOutput
  *          <p>Resource associations need not consume licenses from a license configuration.
  *          For example, an AMI or a stopped instance might not consume a license (depending on
  *          the license rules).</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LicenseManagerClient, ListAssociationsForLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, ListAssociationsForLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * const client = new LicenseManagerClient(config);
+ * const command = new ListAssociationsForLicenseConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAssociationsForLicenseConfigurationCommandInput} for command's `input` shape.
+ * @see {@link ListAssociationsForLicenseConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAssociationsForLicenseConfigurationCommand extends $Command<
   ListAssociationsForLicenseConfigurationCommandInput,

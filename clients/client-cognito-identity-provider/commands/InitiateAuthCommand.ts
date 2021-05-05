@@ -26,6 +26,20 @@ export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __Metad
 
 /**
  * <p>Initiates the authentication flow.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, InitiateAuthCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, InitiateAuthCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new InitiateAuthCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InitiateAuthCommandInput} for command's `input` shape.
+ * @see {@link InitiateAuthCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InitiateAuthCommand extends $Command<
   InitiateAuthCommandInput,

@@ -22,6 +22,20 @@ export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaAppli
 
 /**
  * <p>Lists the SIP media applications under the administrator's AWS account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, ListSipMediaApplicationsCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, ListSipMediaApplicationsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new ListSipMediaApplicationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSipMediaApplicationsCommandInput} for command's `input` shape.
+ * @see {@link ListSipMediaApplicationsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSipMediaApplicationsCommand extends $Command<
   ListSipMediaApplicationsCommandInput,

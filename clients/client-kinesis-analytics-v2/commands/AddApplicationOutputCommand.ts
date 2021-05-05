@@ -38,6 +38,20 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  *          <p> Any configuration update, including adding a streaming source using this
  *       operation, results in a new version of the application. You can use the <a>DescribeApplication</a> operation to find the current application
  *       version.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisAnalyticsV2Client, AddApplicationOutputCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, AddApplicationOutputCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * const client = new KinesisAnalyticsV2Client(config);
+ * const command = new AddApplicationOutputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddApplicationOutputCommandInput} for command's `input` shape.
+ * @see {@link AddApplicationOutputCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddApplicationOutputCommand extends $Command<
   AddApplicationOutputCommandInput,

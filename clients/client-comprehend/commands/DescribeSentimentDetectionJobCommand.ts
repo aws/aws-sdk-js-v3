@@ -25,6 +25,20 @@ export interface DescribeSentimentDetectionJobCommandOutput
 /**
  * <p>Gets the properties associated with a sentiment detection job. Use this operation to get
  *       the status of a detection job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ComprehendClient, DescribeSentimentDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, DescribeSentimentDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * const client = new ComprehendClient(config);
+ * const command = new DescribeSentimentDetectionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSentimentDetectionJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeSentimentDetectionJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSentimentDetectionJobCommand extends $Command<
   DescribeSentimentDetectionJobCommandInput,

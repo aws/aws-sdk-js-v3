@@ -43,6 +43,20 @@ export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExport
  *       complete when the status shows as ACTIVE. If the status shows as CREATE FAILED, the response
  *       includes a <code>failureReason</code> key, which describes why the job failed.
  *     </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PersonalizeClient, CreateDatasetExportJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
+ * // const { PersonalizeClient, CreateDatasetExportJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * const client = new PersonalizeClient(config);
+ * const command = new CreateDatasetExportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDatasetExportJobCommandInput} for command's `input` shape.
+ * @see {@link CreateDatasetExportJobCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDatasetExportJobCommand extends $Command<
   CreateDatasetExportJobCommandInput,

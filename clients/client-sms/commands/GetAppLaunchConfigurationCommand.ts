@@ -22,6 +22,20 @@ export interface GetAppLaunchConfigurationCommandOutput extends GetAppLaunchConf
 
 /**
  * <p>Retrieves the application launch configuration associated with the specified application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SMSClient, GetAppLaunchConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
+ * // const { SMSClient, GetAppLaunchConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * const client = new SMSClient(config);
+ * const command = new GetAppLaunchConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAppLaunchConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetAppLaunchConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAppLaunchConfigurationCommand extends $Command<
   GetAppLaunchConfigurationCommandInput,

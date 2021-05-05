@@ -53,6 +53,20 @@ export interface CreateSizeConstraintSetCommandOutput extends CreateSizeConstrai
  *          </ol>
  * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFClient, CreateSizeConstraintSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, CreateSizeConstraintSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * const client = new WAFClient(config);
+ * const command = new CreateSizeConstraintSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSizeConstraintSetCommandInput} for command's `input` shape.
+ * @see {@link CreateSizeConstraintSetCommandOutput} for command's `response` shape.
+ * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSizeConstraintSetCommand extends $Command<
   CreateSizeConstraintSetCommandInput,

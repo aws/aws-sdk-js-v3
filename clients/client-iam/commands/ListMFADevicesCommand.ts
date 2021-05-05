@@ -27,6 +27,20 @@ export interface ListMFADevicesCommandOutput extends ListMFADevicesResponse, __M
  *             access key ID signing the request for this operation.</p>
  *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, ListMFADevicesCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, ListMFADevicesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new ListMFADevicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMFADevicesCommandInput} for command's `input` shape.
+ * @see {@link ListMFADevicesCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMFADevicesCommand extends $Command<
   ListMFADevicesCommandInput,

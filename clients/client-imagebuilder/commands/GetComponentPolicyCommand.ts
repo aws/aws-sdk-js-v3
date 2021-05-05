@@ -22,6 +22,20 @@ export interface GetComponentPolicyCommandOutput extends GetComponentPolicyRespo
 
 /**
  * <p> Gets a component policy.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ImagebuilderClient, GetComponentPolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, GetComponentPolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * const client = new ImagebuilderClient(config);
+ * const command = new GetComponentPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetComponentPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetComponentPolicyCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetComponentPolicyCommand extends $Command<
   GetComponentPolicyCommandInput,

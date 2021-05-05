@@ -42,6 +42,20 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  *                </li>
  *             </ul>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QLDBSessionClient, SendCommandCommand } from "@aws-sdk/client-qldb-session"; // ES Modules import
+ * // const { QLDBSessionClient, SendCommandCommand } = require("@aws-sdk/client-qldb-session"); // CommonJS import
+ * const client = new QLDBSessionClient(config);
+ * const command = new SendCommandCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendCommandCommandInput} for command's `input` shape.
+ * @see {@link SendCommandCommandOutput} for command's `response` shape.
+ * @see {@link QLDBSessionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendCommandCommand extends $Command<
   SendCommandCommandInput,

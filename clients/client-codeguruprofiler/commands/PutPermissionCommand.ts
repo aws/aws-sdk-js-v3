@@ -47,6 +47,20 @@ export interface PutPermissionCommandOutput extends PutPermissionResponse, __Met
  *         <p>
  *             The response contains the profiling group's JSON-formatted resource policy.
  *         </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeGuruProfilerClient, PutPermissionCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
+ * // const { CodeGuruProfilerClient, PutPermissionCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * const client = new CodeGuruProfilerClient(config);
+ * const command = new PutPermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutPermissionCommandInput} for command's `input` shape.
+ * @see {@link PutPermissionCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutPermissionCommand extends $Command<
   PutPermissionCommandInput,

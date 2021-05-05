@@ -28,6 +28,9 @@ export interface ActiveContextTimeToLive {
 }
 
 export namespace ActiveContextTimeToLive {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActiveContextTimeToLive): any => ({
     ...obj,
   });
@@ -60,6 +63,9 @@ export interface ActiveContext {
 }
 
 export namespace ActiveContext {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActiveContext): any => ({
     ...obj,
     ...(obj.parameters && { parameters: SENSITIVE_STRING }),
@@ -78,6 +84,9 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace BadRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
@@ -94,6 +103,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -117,6 +129,9 @@ export interface DeleteSessionRequest {
 }
 
 export namespace DeleteSessionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteSessionRequest): any => ({
     ...obj,
   });
@@ -145,6 +160,9 @@ export interface DeleteSessionResponse {
 }
 
 export namespace DeleteSessionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteSessionResponse): any => ({
     ...obj,
   });
@@ -160,6 +178,9 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
 }
 
 export namespace InternalFailureException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
@@ -176,6 +197,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -192,6 +216,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
@@ -225,6 +252,9 @@ export interface GetSessionRequest {
 }
 
 export namespace GetSessionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSessionRequest): any => ({
     ...obj,
   });
@@ -367,6 +397,9 @@ export interface DialogAction {
 }
 
 export namespace DialogAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DialogAction): any => ({
     ...obj,
     ...(obj.slots && { slots: SENSITIVE_STRING }),
@@ -494,6 +527,9 @@ export interface IntentSummary {
 }
 
 export namespace IntentSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IntentSummary): any => ({
     ...obj,
     ...(obj.slots && { slots: SENSITIVE_STRING }),
@@ -540,6 +576,9 @@ export interface GetSessionResponse {
 }
 
 export namespace GetSessionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSessionResponse): any => ({
     ...obj,
     ...(obj.recentIntentSummaryView && {
@@ -563,6 +602,9 @@ export interface BadGatewayException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace BadGatewayException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BadGatewayException): any => ({
     ...obj,
   });
@@ -593,6 +635,9 @@ export interface DependencyFailedException extends __SmithyException, $MetadataB
 }
 
 export namespace DependencyFailedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DependencyFailedException): any => ({
     ...obj,
   });
@@ -608,6 +653,9 @@ export interface LoopDetectedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace LoopDetectedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LoopDetectedException): any => ({
     ...obj,
   });
@@ -623,6 +671,9 @@ export interface NotAcceptableException extends __SmithyException, $MetadataBear
 }
 
 export namespace NotAcceptableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotAcceptableException): any => ({
     ...obj,
   });
@@ -807,6 +858,9 @@ export interface PostContentRequest {
 }
 
 export namespace PostContentRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PostContentRequest): any => ({
     ...obj,
     ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
@@ -1090,6 +1144,9 @@ export interface PostContentResponse {
 }
 
 export namespace PostContentResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PostContentResponse): any => ({
     ...obj,
     ...(obj.message && { message: SENSITIVE_STRING }),
@@ -1109,6 +1166,9 @@ export interface RequestTimeoutException extends __SmithyException, $MetadataBea
 }
 
 export namespace RequestTimeoutException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RequestTimeoutException): any => ({
     ...obj,
   });
@@ -1125,6 +1185,9 @@ export interface UnsupportedMediaTypeException extends __SmithyException, $Metad
 }
 
 export namespace UnsupportedMediaTypeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedMediaTypeException): any => ({
     ...obj,
   });
@@ -1208,6 +1271,9 @@ export interface PostTextRequest {
 }
 
 export namespace PostTextRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PostTextRequest): any => ({
     ...obj,
     ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
@@ -1231,6 +1297,9 @@ export interface IntentConfidence {
 }
 
 export namespace IntentConfidence {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IntentConfidence): any => ({
     ...obj,
   });
@@ -1261,6 +1330,9 @@ export interface PredictedIntent {
 }
 
 export namespace PredictedIntent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PredictedIntent): any => ({
     ...obj,
     ...(obj.slots && { slots: SENSITIVE_STRING }),
@@ -1290,6 +1362,9 @@ export interface Button {
 }
 
 export namespace Button {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Button): any => ({
     ...obj,
   });
@@ -1327,6 +1402,9 @@ export interface GenericAttachment {
 }
 
 export namespace GenericAttachment {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GenericAttachment): any => ({
     ...obj,
   });
@@ -1357,6 +1435,9 @@ export interface ResponseCard {
 }
 
 export namespace ResponseCard {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResponseCard): any => ({
     ...obj,
   });
@@ -1382,6 +1463,9 @@ export interface SentimentResponse {
 }
 
 export namespace SentimentResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SentimentResponse): any => ({
     ...obj,
   });
@@ -1587,6 +1671,9 @@ export interface PostTextResponse {
 }
 
 export namespace PostTextResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PostTextResponse): any => ({
     ...obj,
     ...(obj.alternativeIntents && {
@@ -1725,6 +1812,9 @@ export interface PutSessionRequest {
 }
 
 export namespace PutSessionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutSessionRequest): any => ({
     ...obj,
     ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
@@ -1880,6 +1970,9 @@ export interface PutSessionResponse {
 }
 
 export namespace PutSessionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutSessionResponse): any => ({
     ...obj,
     ...(obj.message && { message: SENSITIVE_STRING }),

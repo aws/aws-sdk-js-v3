@@ -170,6 +170,20 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, UploadPartCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, UploadPartCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new UploadPartCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UploadPartCommandInput} for command's `input` shape.
+ * @see {@link UploadPartCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UploadPartCommand extends $Command<
   UploadPartCommandInput,

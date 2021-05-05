@@ -30,6 +30,20 @@ export interface ModifySnapshotCopyRetentionPeriodCommandOutput
  *             set the manual option to change only the retention periods of copied manual snapshots.
  *             If you set this option, only newly copied manual snapshots have the new retention
  *             period. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, ModifySnapshotCopyRetentionPeriodCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, ModifySnapshotCopyRetentionPeriodCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new ModifySnapshotCopyRetentionPeriodCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifySnapshotCopyRetentionPeriodCommandInput} for command's `input` shape.
+ * @see {@link ModifySnapshotCopyRetentionPeriodCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
   ModifySnapshotCopyRetentionPeriodCommandInput,

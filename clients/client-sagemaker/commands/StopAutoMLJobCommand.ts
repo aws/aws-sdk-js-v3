@@ -22,6 +22,20 @@ export interface StopAutoMLJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>A method for forcing the termination of a running job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, StopAutoMLJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, StopAutoMLJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new StopAutoMLJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopAutoMLJobCommandInput} for command's `input` shape.
+ * @see {@link StopAutoMLJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopAutoMLJobCommand extends $Command<
   StopAutoMLJobCommandInput,

@@ -24,6 +24,20 @@ export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput,
  * <p>
  *       Returns a list of details about test cases for a report.
  *     </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeBuildClient, DescribeTestCasesCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
+ * // const { CodeBuildClient, DescribeTestCasesCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * const client = new CodeBuildClient(config);
+ * const command = new DescribeTestCasesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTestCasesCommandInput} for command's `input` shape.
+ * @see {@link DescribeTestCasesCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTestCasesCommand extends $Command<
   DescribeTestCasesCommandInput,

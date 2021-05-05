@@ -93,6 +93,20 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  *
  *             </li>
  *          </ol>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeGuruProfilerClient, GetProfileCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
+ * // const { CodeGuruProfilerClient, GetProfileCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * const client = new CodeGuruProfilerClient(config);
+ * const command = new GetProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetProfileCommandInput} for command's `input` shape.
+ * @see {@link GetProfileCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetProfileCommand extends $Command<
   GetProfileCommandInput,

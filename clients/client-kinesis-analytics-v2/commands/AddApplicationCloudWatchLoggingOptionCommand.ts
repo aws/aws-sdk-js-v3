@@ -32,6 +32,20 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
 
 /**
  * <p>Adds an Amazon CloudWatch log stream to monitor application configuration errors.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisAnalyticsV2Client, AddApplicationCloudWatchLoggingOptionCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, AddApplicationCloudWatchLoggingOptionCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * const client = new KinesisAnalyticsV2Client(config);
+ * const command = new AddApplicationCloudWatchLoggingOptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddApplicationCloudWatchLoggingOptionCommandInput} for command's `input` shape.
+ * @see {@link AddApplicationCloudWatchLoggingOptionCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
   AddApplicationCloudWatchLoggingOptionCommandInput,

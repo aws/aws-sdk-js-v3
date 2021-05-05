@@ -29,6 +29,20 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  *          <note>
  *             <p>You must turn on the gateway VM before you can activate your gateway.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { StorageGatewayClient, ActivateGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, ActivateGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * const client = new StorageGatewayClient(config);
+ * const command = new ActivateGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ActivateGatewayCommandInput} for command's `input` shape.
+ * @see {@link ActivateGatewayCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ActivateGatewayCommand extends $Command<
   ActivateGatewayCommandInput,

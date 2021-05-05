@@ -22,6 +22,20 @@ export interface UpdateRevisionCommandOutput extends UpdateRevisionResponse, __M
 
 /**
  * <p>This operation updates a revision.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataExchangeClient, UpdateRevisionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
+ * // const { DataExchangeClient, UpdateRevisionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * const client = new DataExchangeClient(config);
+ * const command = new UpdateRevisionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRevisionCommandInput} for command's `input` shape.
+ * @see {@link UpdateRevisionCommandOutput} for command's `response` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRevisionCommand extends $Command<
   UpdateRevisionCommandInput,

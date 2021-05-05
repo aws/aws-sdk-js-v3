@@ -22,6 +22,20 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
 
 /**
  * <p>Retrieves a list of connection definitions from the Data Catalog.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, GetConnectionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetConnectionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new GetConnectionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetConnectionsCommandInput} for command's `input` shape.
+ * @see {@link GetConnectionsCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetConnectionsCommand extends $Command<
   GetConnectionsCommandInput,

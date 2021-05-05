@@ -27,6 +27,20 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  *             <code>DescribeCanaries</code>, the user can see all of the canaries in the account. A
  *          deny policy can only be used to restrict access to all canaries. It cannot be used on
  *          specific resources. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SyntheticsClient, DescribeCanariesCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
+ * // const { SyntheticsClient, DescribeCanariesCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
+ * const client = new SyntheticsClient(config);
+ * const command = new DescribeCanariesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCanariesCommandInput} for command's `input` shape.
+ * @see {@link DescribeCanariesCommandOutput} for command's `response` shape.
+ * @see {@link SyntheticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCanariesCommand extends $Command<
   DescribeCanariesCommandInput,

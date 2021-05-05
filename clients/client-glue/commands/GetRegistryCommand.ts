@@ -22,6 +22,20 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
 
 /**
  * <p>Describes the specified registry in detail.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, GetRegistryCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetRegistryCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new GetRegistryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRegistryCommandInput} for command's `input` shape.
+ * @see {@link GetRegistryCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRegistryCommand extends $Command<
   GetRegistryCommandInput,

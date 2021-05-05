@@ -22,6 +22,20 @@ export interface CreateWirelessGatewayCommandOutput extends CreateWirelessGatewa
 
 /**
  * <p>Provisions a wireless gateway.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTWirelessClient, CreateWirelessGatewayCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, CreateWirelessGatewayCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * const client = new IoTWirelessClient(config);
+ * const command = new CreateWirelessGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateWirelessGatewayCommandInput} for command's `input` shape.
+ * @see {@link CreateWirelessGatewayCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateWirelessGatewayCommand extends $Command<
   CreateWirelessGatewayCommandInput,

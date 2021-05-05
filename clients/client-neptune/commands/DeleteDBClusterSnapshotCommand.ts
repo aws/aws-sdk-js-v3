@@ -27,6 +27,20 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  *             <p>The DB cluster snapshot must be in the <code>available</code> state to be
  *         deleted.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NeptuneClient, DeleteDBClusterSnapshotCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, DeleteDBClusterSnapshotCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * const client = new NeptuneClient(config);
+ * const command = new DeleteDBClusterSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDBClusterSnapshotCommandInput} for command's `input` shape.
+ * @see {@link DeleteDBClusterSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDBClusterSnapshotCommand extends $Command<
   DeleteDBClusterSnapshotCommandInput,

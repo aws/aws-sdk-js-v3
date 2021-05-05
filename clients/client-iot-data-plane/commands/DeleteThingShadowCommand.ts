@@ -23,6 +23,20 @@ export interface DeleteThingShadowCommandOutput extends DeleteThingShadowRespons
 /**
  * <p>Deletes the shadow for the specified thing.</p>
  *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the AWS IoT Developer Guide.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTDataPlaneClient, DeleteThingShadowCommand } from "@aws-sdk/client-iot-data-plane"; // ES Modules import
+ * // const { IoTDataPlaneClient, DeleteThingShadowCommand } = require("@aws-sdk/client-iot-data-plane"); // CommonJS import
+ * const client = new IoTDataPlaneClient(config);
+ * const command = new DeleteThingShadowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteThingShadowCommandInput} for command's `input` shape.
+ * @see {@link DeleteThingShadowCommandOutput} for command's `response` shape.
+ * @see {@link IoTDataPlaneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteThingShadowCommand extends $Command<
   DeleteThingShadowCommandInput,

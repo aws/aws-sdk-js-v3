@@ -22,6 +22,20 @@ export interface DescribeDocumentClassifierCommandOutput extends DescribeDocumen
 
 /**
  * <p>Gets the properties associated with a document classifier.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ComprehendClient, DescribeDocumentClassifierCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, DescribeDocumentClassifierCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * const client = new ComprehendClient(config);
+ * const command = new DescribeDocumentClassifierCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDocumentClassifierCommandInput} for command's `input` shape.
+ * @see {@link DescribeDocumentClassifierCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDocumentClassifierCommand extends $Command<
   DescribeDocumentClassifierCommandInput,

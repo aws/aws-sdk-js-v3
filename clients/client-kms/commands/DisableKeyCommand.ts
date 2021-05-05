@@ -38,6 +38,20 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
  *          <p>
  *             <b>Related operations</b>: <a>EnableKey</a>
  *          </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KMSClient, DisableKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, DisableKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * const client = new KMSClient(config);
+ * const command = new DisableKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableKeyCommandInput} for command's `input` shape.
+ * @see {@link DisableKeyCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableKeyCommand extends $Command<
   DisableKeyCommandInput,

@@ -28,6 +28,20 @@ export interface CreateCloudFormationTemplateCommandOutput
 
 /**
  * <p>Creates an AWS CloudFormation template.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServerlessApplicationRepositoryClient, CreateCloudFormationTemplateCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
+ * // const { ServerlessApplicationRepositoryClient, CreateCloudFormationTemplateCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
+ * const client = new ServerlessApplicationRepositoryClient(config);
+ * const command = new CreateCloudFormationTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCloudFormationTemplateCommandInput} for command's `input` shape.
+ * @see {@link CreateCloudFormationTemplateCommandOutput} for command's `response` shape.
+ * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCloudFormationTemplateCommand extends $Command<
   CreateCloudFormationTemplateCommandInput,

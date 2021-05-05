@@ -26,6 +26,20 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  *             an email by specifying the name of the configuration set when you call the Amazon SES API v2. When
  *             you apply a configuration set to an email, all of the rules in that configuration set
  *             are applied to the email. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESv2Client, CreateConfigurationSetCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, CreateConfigurationSetCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * const client = new SESv2Client(config);
+ * const command = new CreateConfigurationSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateConfigurationSetCommandInput} for command's `input` shape.
+ * @see {@link CreateConfigurationSetCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateConfigurationSetCommand extends $Command<
   CreateConfigurationSetCommandInput,

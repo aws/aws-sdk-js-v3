@@ -27,6 +27,20 @@ export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __Met
 
 /**
  * <p>Lists the user pools associated with an AWS account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, ListUserPoolsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, ListUserPoolsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new ListUserPoolsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListUserPoolsCommandInput} for command's `input` shape.
+ * @see {@link ListUserPoolsCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListUserPoolsCommand extends $Command<
   ListUserPoolsCommandInput,

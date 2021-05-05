@@ -12,6 +12,9 @@ export interface ClientLimitExceededException extends __SmithyException, $Metada
 }
 
 export namespace ClientLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ClientLimitExceededException): any => ({
     ...obj,
   });
@@ -46,6 +49,9 @@ export interface GetIceServerConfigRequest {
 }
 
 export namespace GetIceServerConfigRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetIceServerConfigRequest): any => ({
     ...obj,
   });
@@ -79,6 +85,9 @@ export interface IceServer {
 }
 
 export namespace IceServer {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IceServer): any => ({
     ...obj,
   });
@@ -92,6 +101,9 @@ export interface GetIceServerConfigResponse {
 }
 
 export namespace GetIceServerConfigResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetIceServerConfigResponse): any => ({
     ...obj,
   });
@@ -107,6 +119,9 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidArgumentException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj,
   });
@@ -122,6 +137,9 @@ export interface InvalidClientException extends __SmithyException, $MetadataBear
 }
 
 export namespace InvalidClientException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidClientException): any => ({
     ...obj,
   });
@@ -137,6 +155,9 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
 }
 
 export namespace NotAuthorizedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj,
   });
@@ -152,6 +173,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -169,6 +193,9 @@ export interface SessionExpiredException extends __SmithyException, $MetadataBea
 }
 
 export namespace SessionExpiredException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SessionExpiredException): any => ({
     ...obj,
   });
@@ -193,6 +220,9 @@ export interface SendAlexaOfferToMasterRequest {
 }
 
 export namespace SendAlexaOfferToMasterRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendAlexaOfferToMasterRequest): any => ({
     ...obj,
   });
@@ -206,6 +236,9 @@ export interface SendAlexaOfferToMasterResponse {
 }
 
 export namespace SendAlexaOfferToMasterResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendAlexaOfferToMasterResponse): any => ({
     ...obj,
   });

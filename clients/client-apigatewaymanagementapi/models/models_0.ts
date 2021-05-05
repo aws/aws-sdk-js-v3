@@ -6,6 +6,9 @@ export interface DeleteConnectionRequest {
 }
 
 export namespace DeleteConnectionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
     ...obj,
   });
@@ -20,6 +23,9 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
@@ -34,6 +40,9 @@ export interface GoneException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace GoneException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GoneException): any => ({
     ...obj,
   });
@@ -48,6 +57,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -58,6 +70,9 @@ export interface GetConnectionRequest {
 }
 
 export namespace GetConnectionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetConnectionRequest): any => ({
     ...obj,
   });
@@ -76,6 +91,9 @@ export interface Identity {
 }
 
 export namespace Identity {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Identity): any => ({
     ...obj,
   });
@@ -95,6 +113,9 @@ export interface GetConnectionResponse {
 }
 
 export namespace GetConnectionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetConnectionResponse): any => ({
     ...obj,
   });
@@ -110,6 +131,9 @@ export interface PayloadTooLargeException extends __SmithyException, $MetadataBe
 }
 
 export namespace PayloadTooLargeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PayloadTooLargeException): any => ({
     ...obj,
   });
@@ -128,6 +152,9 @@ export interface PostToConnectionRequest {
 }
 
 export namespace PostToConnectionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PostToConnectionRequest): any => ({
     ...obj,
   });

@@ -30,6 +30,20 @@ export interface AdminSetUserSettingsCommandOutput extends AdminSetUserSettingsR
  *             <i>This action is no longer supported.</i> You can use it to configure
  *             only SMS MFA. You can't use it to configure TOTP software token MFA. To configure either
  *             type of MFA, use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html">AdminSetUserMFAPreference</a> instead.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, AdminSetUserSettingsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminSetUserSettingsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new AdminSetUserSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdminSetUserSettingsCommandInput} for command's `input` shape.
+ * @see {@link AdminSetUserSettingsCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdminSetUserSettingsCommand extends $Command<
   AdminSetUserSettingsCommandInput,

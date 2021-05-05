@@ -23,6 +23,20 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
 /**
  * <p>Retrieves GuardDuty member accounts (of the current GuardDuty administrator account) specified by
  *       the account IDs.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GuardDutyClient, GetMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, GetMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * const client = new GuardDutyClient(config);
+ * const command = new GetMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMembersCommandInput} for command's `input` shape.
+ * @see {@link GetMembersCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMembersCommand extends $Command<
   GetMembersCommandInput,

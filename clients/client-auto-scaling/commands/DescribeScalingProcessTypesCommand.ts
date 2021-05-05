@@ -23,6 +23,20 @@ export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType,
 /**
  * <p>Describes the scaling process types for use with the <a>ResumeProcesses</a>
  *             and <a>SuspendProcesses</a> APIs.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AutoScalingClient, DescribeScalingProcessTypesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, DescribeScalingProcessTypesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * const client = new AutoScalingClient(config);
+ * const command = new DescribeScalingProcessTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeScalingProcessTypesCommandInput} for command's `input` shape.
+ * @see {@link DescribeScalingProcessTypesCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeScalingProcessTypesCommand extends $Command<
   DescribeScalingProcessTypesCommandInput,

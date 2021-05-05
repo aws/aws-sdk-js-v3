@@ -22,6 +22,20 @@ export interface GetLaunchProfileDetailsCommandOutput extends GetLaunchProfileDe
 
 /**
  * <p>Launch profile details include the launch profile resource and summary information of resources that are used by, or available to, the launch profile. This includes the name and description of all studio components used by the launch profiles, and the name and description of streaming images that can be used with this launch profile.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NimbleClient, GetLaunchProfileDetailsCommand } from "@aws-sdk/client-nimble"; // ES Modules import
+ * // const { NimbleClient, GetLaunchProfileDetailsCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * const client = new NimbleClient(config);
+ * const command = new GetLaunchProfileDetailsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLaunchProfileDetailsCommandInput} for command's `input` shape.
+ * @see {@link GetLaunchProfileDetailsCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLaunchProfileDetailsCommand extends $Command<
   GetLaunchProfileDetailsCommandInput,

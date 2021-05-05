@@ -25,6 +25,20 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *       AWS. When you make updates to your file transfer protocol-enabled server or when you work with
  *       users, use the service-generated <code>ServerId</code> property that is assigned to the newly
  *       created server.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TransferClient, CreateServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
+ * // const { TransferClient, CreateServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * const client = new TransferClient(config);
+ * const command = new CreateServerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateServerCommandInput} for command's `input` shape.
+ * @see {@link CreateServerCommandOutput} for command's `response` shape.
+ * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateServerCommand extends $Command<
   CreateServerCommandInput,

@@ -36,6 +36,20 @@ export interface ListCreatedArtifactsCommandOutput extends ListCreatedArtifactsR
  *                <p>Lists created artifacts in a paginated interface. </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MigrationHubClient, ListCreatedArtifactsCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
+ * // const { MigrationHubClient, ListCreatedArtifactsCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * const client = new MigrationHubClient(config);
+ * const command = new ListCreatedArtifactsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCreatedArtifactsCommandInput} for command's `input` shape.
+ * @see {@link ListCreatedArtifactsCommandOutput} for command's `response` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCreatedArtifactsCommand extends $Command<
   ListCreatedArtifactsCommandInput,

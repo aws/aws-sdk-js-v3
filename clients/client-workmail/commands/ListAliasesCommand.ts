@@ -23,6 +23,20 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
 /**
  * <p>Creates a paginated call to list the aliases associated with a given
  *          entity.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkMailClient, ListAliasesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, ListAliasesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * const client = new WorkMailClient(config);
+ * const command = new ListAliasesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAliasesCommandInput} for command's `input` shape.
+ * @see {@link ListAliasesCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAliasesCommand extends $Command<
   ListAliasesCommandInput,

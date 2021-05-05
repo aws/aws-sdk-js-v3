@@ -22,6 +22,20 @@ export interface UpdatePartitionCommandOutput extends UpdatePartitionResponse, _
 
 /**
  * <p>Updates a partition.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, UpdatePartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, UpdatePartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new UpdatePartitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePartitionCommandInput} for command's `input` shape.
+ * @see {@link UpdatePartitionCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePartitionCommand extends $Command<
   UpdatePartitionCommandInput,

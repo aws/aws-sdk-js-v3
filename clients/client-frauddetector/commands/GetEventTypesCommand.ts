@@ -27,6 +27,20 @@ export interface GetEventTypesCommandOutput extends GetEventTypesResult, __Metad
  *          To get the next page results, provide the pagination token from the
  *             <code>GetEventTypesResponse</code> as part of your request. A null pagination token
  *          fetches the records from the beginning. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FraudDetectorClient, GetEventTypesCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, GetEventTypesCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * const client = new FraudDetectorClient(config);
+ * const command = new GetEventTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEventTypesCommandInput} for command's `input` shape.
+ * @see {@link GetEventTypesCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEventTypesCommand extends $Command<
   GetEventTypesCommandInput,

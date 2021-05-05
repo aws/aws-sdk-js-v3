@@ -23,6 +23,20 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
 /**
  * <p>Lists the versions of the specified policy and identifies the default
  *          version.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, ListPolicyVersionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListPolicyVersionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new ListPolicyVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPolicyVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListPolicyVersionsCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPolicyVersionsCommand extends $Command<
   ListPolicyVersionsCommandInput,

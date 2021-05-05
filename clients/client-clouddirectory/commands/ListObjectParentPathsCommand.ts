@@ -29,6 +29,20 @@ export interface ListObjectParentPathsCommandOutput extends ListObjectParentPath
  *       The order of the paths and nodes returned is consistent among multiple API calls unless the
  *       objects are deleted or moved. Paths not leading to the directory root are ignored from the
  *       target object.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudDirectoryClient, ListObjectParentPathsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, ListObjectParentPathsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * const client = new CloudDirectoryClient(config);
+ * const command = new ListObjectParentPathsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListObjectParentPathsCommandInput} for command's `input` shape.
+ * @see {@link ListObjectParentPathsCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListObjectParentPathsCommand extends $Command<
   ListObjectParentPathsCommandInput,

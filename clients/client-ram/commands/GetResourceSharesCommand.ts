@@ -22,6 +22,20 @@ export interface GetResourceSharesCommandOutput extends GetResourceSharesRespons
 
 /**
  * <p>Gets the resource shares that you own or the resource shares that are shared with you.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RAMClient, GetResourceSharesCommand } from "@aws-sdk/client-ram"; // ES Modules import
+ * // const { RAMClient, GetResourceSharesCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * const client = new RAMClient(config);
+ * const command = new GetResourceSharesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetResourceSharesCommandInput} for command's `input` shape.
+ * @see {@link GetResourceSharesCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetResourceSharesCommand extends $Command<
   GetResourceSharesCommandInput,

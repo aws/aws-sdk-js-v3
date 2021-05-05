@@ -22,6 +22,20 @@ export interface GetVpcLinksCommandOutput extends GetVpcLinksResponse, __Metadat
 
 /**
  * <p>Gets a collection of VPC links.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApiGatewayV2Client, GetVpcLinksCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
+ * // const { ApiGatewayV2Client, GetVpcLinksCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new GetVpcLinksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetVpcLinksCommandInput} for command's `input` shape.
+ * @see {@link GetVpcLinksCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetVpcLinksCommand extends $Command<
   GetVpcLinksCommandInput,

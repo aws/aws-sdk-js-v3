@@ -23,6 +23,20 @@ export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse,
 /**
  * <p>Lists and gets information about your Amazon Rekognition Custom Labels projects.</p>
  *          <p>This operation requires permissions to perform the <code>rekognition:DescribeProjects</code> action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RekognitionClient, DescribeProjectsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, DescribeProjectsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * const client = new RekognitionClient(config);
+ * const command = new DescribeProjectsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeProjectsCommandInput} for command's `input` shape.
+ * @see {@link DescribeProjectsCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeProjectsCommand extends $Command<
   DescribeProjectsCommandInput,

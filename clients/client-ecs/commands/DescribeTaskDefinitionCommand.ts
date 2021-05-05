@@ -29,6 +29,20 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * 			         <p>You can only describe <code>INACTIVE</code> task definitions while an active task
  * 				or service references them.</p>
  * 		       </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECSClient, DescribeTaskDefinitionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, DescribeTaskDefinitionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * const client = new ECSClient(config);
+ * const command = new DescribeTaskDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTaskDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DescribeTaskDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTaskDefinitionCommand extends $Command<
   DescribeTaskDefinitionCommandInput,

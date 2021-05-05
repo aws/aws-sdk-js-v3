@@ -23,6 +23,20 @@ export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAgg
 /**
  * <p>Returns the number of entities that are affected by each of the specified events. If no
  *          events are specified, the counts of all affected entities are returned.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { HealthClient, DescribeEntityAggregatesCommand } from "@aws-sdk/client-health"; // ES Modules import
+ * // const { HealthClient, DescribeEntityAggregatesCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * const client = new HealthClient(config);
+ * const command = new DescribeEntityAggregatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEntityAggregatesCommandInput} for command's `input` shape.
+ * @see {@link DescribeEntityAggregatesCommandOutput} for command's `response` shape.
+ * @see {@link HealthClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEntityAggregatesCommand extends $Command<
   DescribeEntityAggregatesCommandInput,

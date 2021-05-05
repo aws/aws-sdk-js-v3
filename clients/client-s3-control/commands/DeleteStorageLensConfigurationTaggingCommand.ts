@@ -38,6 +38,20 @@ export interface DeleteStorageLensConfigurationTaggingCommandOutput
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
  *          <i>Amazon Simple Storage Service User Guide</i>.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3ControlClient, DeleteStorageLensConfigurationTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
+ * // const { S3ControlClient, DeleteStorageLensConfigurationTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * const client = new S3ControlClient(config);
+ * const command = new DeleteStorageLensConfigurationTaggingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteStorageLensConfigurationTaggingCommandInput} for command's `input` shape.
+ * @see {@link DeleteStorageLensConfigurationTaggingCommandOutput} for command's `response` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteStorageLensConfigurationTaggingCommand extends $Command<
   DeleteStorageLensConfigurationTaggingCommandInput,

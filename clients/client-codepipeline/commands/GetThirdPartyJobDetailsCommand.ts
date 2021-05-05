@@ -29,6 +29,20 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  *                 that S3 bucket for input or output artifacts. This API also returns any secret
  *                 values defined for the action.</p>
  *         </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodePipelineClient, GetThirdPartyJobDetailsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
+ * // const { CodePipelineClient, GetThirdPartyJobDetailsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * const client = new CodePipelineClient(config);
+ * const command = new GetThirdPartyJobDetailsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetThirdPartyJobDetailsCommandInput} for command's `input` shape.
+ * @see {@link GetThirdPartyJobDetailsCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetThirdPartyJobDetailsCommand extends $Command<
   GetThirdPartyJobDetailsCommandInput,

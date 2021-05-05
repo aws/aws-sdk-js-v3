@@ -22,6 +22,20 @@ export interface DeleteBackendEnvironmentCommandOutput extends DeleteBackendEnvi
 
 /**
  * <p> Deletes a backend environment for an Amplify app. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmplifyClient, DeleteBackendEnvironmentCommand } from "@aws-sdk/client-amplify"; // ES Modules import
+ * // const { AmplifyClient, DeleteBackendEnvironmentCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * const client = new AmplifyClient(config);
+ * const command = new DeleteBackendEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBackendEnvironmentCommandInput} for command's `input` shape.
+ * @see {@link DeleteBackendEnvironmentCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBackendEnvironmentCommand extends $Command<
   DeleteBackendEnvironmentCommandInput,

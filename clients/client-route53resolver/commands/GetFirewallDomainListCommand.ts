@@ -22,6 +22,20 @@ export interface GetFirewallDomainListCommandOutput extends GetFirewallDomainLis
 
 /**
  * <p>Retrieves the specified firewall domain list.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53ResolverClient, GetFirewallDomainListCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, GetFirewallDomainListCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * const client = new Route53ResolverClient(config);
+ * const command = new GetFirewallDomainListCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFirewallDomainListCommandInput} for command's `input` shape.
+ * @see {@link GetFirewallDomainListCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFirewallDomainListCommand extends $Command<
   GetFirewallDomainListCommandInput,

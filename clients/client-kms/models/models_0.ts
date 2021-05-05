@@ -31,6 +31,9 @@ export interface AliasListEntry {
 }
 
 export namespace AliasListEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AliasListEntry): any => ({
     ...obj,
   });
@@ -47,6 +50,9 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
 }
 
 export namespace AlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
     ...obj,
   });
@@ -74,6 +80,9 @@ export interface CancelKeyDeletionRequest {
 }
 
 export namespace CancelKeyDeletionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelKeyDeletionRequest): any => ({
     ...obj,
   });
@@ -87,6 +96,9 @@ export interface CancelKeyDeletionResponse {
 }
 
 export namespace CancelKeyDeletionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelKeyDeletionResponse): any => ({
     ...obj,
   });
@@ -103,6 +115,9 @@ export interface DependencyTimeoutException extends __SmithyException, $Metadata
 }
 
 export namespace DependencyTimeoutException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DependencyTimeoutException): any => ({
     ...obj,
   });
@@ -119,6 +134,9 @@ export interface InvalidArnException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace InvalidArnException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidArnException): any => ({
     ...obj,
   });
@@ -135,6 +153,9 @@ export interface KMSInternalException extends __SmithyException, $MetadataBearer
 }
 
 export namespace KMSInternalException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KMSInternalException): any => ({
     ...obj,
   });
@@ -155,6 +176,9 @@ export interface KMSInvalidStateException extends __SmithyException, $MetadataBe
 }
 
 export namespace KMSInvalidStateException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KMSInvalidStateException): any => ({
     ...obj,
   });
@@ -171,6 +195,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
@@ -190,6 +217,9 @@ export interface CloudHsmClusterInUseException extends __SmithyException, $Metad
 }
 
 export namespace CloudHsmClusterInUseException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudHsmClusterInUseException): any => ({
     ...obj,
   });
@@ -237,6 +267,9 @@ export interface CloudHsmClusterInvalidConfigurationException extends __SmithyEx
 }
 
 export namespace CloudHsmClusterInvalidConfigurationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudHsmClusterInvalidConfigurationException): any => ({
     ...obj,
   });
@@ -254,6 +287,9 @@ export interface CloudHsmClusterNotActiveException extends __SmithyException, $M
 }
 
 export namespace CloudHsmClusterNotActiveException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudHsmClusterNotActiveException): any => ({
     ...obj,
   });
@@ -270,6 +306,9 @@ export interface CloudHsmClusterNotFoundException extends __SmithyException, $Me
 }
 
 export namespace CloudHsmClusterNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudHsmClusterNotFoundException): any => ({
     ...obj,
   });
@@ -292,6 +331,9 @@ export interface CloudHsmClusterNotRelatedException extends __SmithyException, $
 }
 
 export namespace CloudHsmClusterNotRelatedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudHsmClusterNotRelatedException): any => ({
     ...obj,
   });
@@ -306,6 +348,9 @@ export interface ConnectCustomKeyStoreRequest {
 }
 
 export namespace ConnectCustomKeyStoreRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConnectCustomKeyStoreRequest): any => ({
     ...obj,
   });
@@ -314,6 +359,9 @@ export namespace ConnectCustomKeyStoreRequest {
 export interface ConnectCustomKeyStoreResponse {}
 
 export namespace ConnectCustomKeyStoreResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConnectCustomKeyStoreResponse): any => ({
     ...obj,
   });
@@ -349,6 +397,9 @@ export interface CustomKeyStoreInvalidStateException extends __SmithyException, 
 }
 
 export namespace CustomKeyStoreInvalidStateException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomKeyStoreInvalidStateException): any => ({
     ...obj,
   });
@@ -365,6 +416,9 @@ export interface CustomKeyStoreNotFoundException extends __SmithyException, $Met
 }
 
 export namespace CustomKeyStoreNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomKeyStoreNotFoundException): any => ({
     ...obj,
   });
@@ -426,6 +480,9 @@ export interface CreateAliasRequest {
 }
 
 export namespace CreateAliasRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateAliasRequest): any => ({
     ...obj,
   });
@@ -441,6 +498,9 @@ export interface InvalidAliasNameException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidAliasNameException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidAliasNameException): any => ({
     ...obj,
   });
@@ -457,6 +517,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -495,6 +558,9 @@ export interface CreateCustomKeyStoreRequest {
 }
 
 export namespace CreateCustomKeyStoreRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCustomKeyStoreRequest): any => ({
     ...obj,
     ...(obj.KeyStorePassword && { KeyStorePassword: SENSITIVE_STRING }),
@@ -509,6 +575,9 @@ export interface CreateCustomKeyStoreResponse {
 }
 
 export namespace CreateCustomKeyStoreResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCustomKeyStoreResponse): any => ({
     ...obj,
   });
@@ -526,6 +595,9 @@ export interface CustomKeyStoreNameInUseException extends __SmithyException, $Me
 }
 
 export namespace CustomKeyStoreNameInUseException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomKeyStoreNameInUseException): any => ({
     ...obj,
   });
@@ -544,6 +616,9 @@ export interface IncorrectTrustAnchorException extends __SmithyException, $Metad
 }
 
 export namespace IncorrectTrustAnchorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IncorrectTrustAnchorException): any => ({
     ...obj,
   });
@@ -587,6 +662,9 @@ export interface GrantConstraints {
 }
 
 export namespace GrantConstraints {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GrantConstraints): any => ({
     ...obj,
   });
@@ -692,6 +770,9 @@ export interface CreateGrantRequest {
 }
 
 export namespace CreateGrantRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateGrantRequest): any => ({
     ...obj,
   });
@@ -713,6 +794,9 @@ export interface CreateGrantResponse {
 }
 
 export namespace CreateGrantResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateGrantResponse): any => ({
     ...obj,
   });
@@ -728,6 +812,9 @@ export interface DisabledException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DisabledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisabledException): any => ({
     ...obj,
   });
@@ -743,6 +830,9 @@ export interface InvalidGrantTokenException extends __SmithyException, $Metadata
 }
 
 export namespace InvalidGrantTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidGrantTokenException): any => ({
     ...obj,
   });
@@ -789,6 +879,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -995,6 +1088,9 @@ export interface CreateKeyRequest {
 }
 
 export namespace CreateKeyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateKeyRequest): any => ({
     ...obj,
   });
@@ -1158,6 +1254,9 @@ export interface KeyMetadata {
 }
 
 export namespace KeyMetadata {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KeyMetadata): any => ({
     ...obj,
   });
@@ -1171,6 +1270,9 @@ export interface CreateKeyResponse {
 }
 
 export namespace CreateKeyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateKeyResponse): any => ({
     ...obj,
   });
@@ -1187,6 +1289,9 @@ export interface MalformedPolicyDocumentException extends __SmithyException, $Me
 }
 
 export namespace MalformedPolicyDocumentException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
     ...obj,
   });
@@ -1202,6 +1307,9 @@ export interface TagException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TagException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagException): any => ({
     ...obj,
   });
@@ -1218,6 +1326,9 @@ export interface UnsupportedOperationException extends __SmithyException, $Metad
 }
 
 export namespace UnsupportedOperationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
     ...obj,
   });
@@ -1235,6 +1346,9 @@ export interface CustomKeyStoreHasCMKsException extends __SmithyException, $Meta
 }
 
 export namespace CustomKeyStoreHasCMKsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomKeyStoreHasCMKsException): any => ({
     ...obj,
   });
@@ -1352,6 +1466,9 @@ export interface CustomKeyStoresListEntry {
 }
 
 export namespace CustomKeyStoresListEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomKeyStoresListEntry): any => ({
     ...obj,
   });
@@ -1439,6 +1556,9 @@ export interface DecryptRequest {
 }
 
 export namespace DecryptRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DecryptRequest): any => ({
     ...obj,
   });
@@ -1462,6 +1582,9 @@ export interface DecryptResponse {
 }
 
 export namespace DecryptResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DecryptResponse): any => ({
     ...obj,
     ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
@@ -1481,6 +1604,9 @@ export interface IncorrectKeyException extends __SmithyException, $MetadataBeare
 }
 
 export namespace IncorrectKeyException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IncorrectKeyException): any => ({
     ...obj,
   });
@@ -1501,6 +1627,9 @@ export interface InvalidCiphertextException extends __SmithyException, $Metadata
 }
 
 export namespace InvalidCiphertextException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidCiphertextException): any => ({
     ...obj,
   });
@@ -1532,6 +1661,9 @@ export interface InvalidKeyUsageException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidKeyUsageException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidKeyUsageException): any => ({
     ...obj,
   });
@@ -1548,6 +1680,9 @@ export interface KeyUnavailableException extends __SmithyException, $MetadataBea
 }
 
 export namespace KeyUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KeyUnavailableException): any => ({
     ...obj,
   });
@@ -1562,6 +1697,9 @@ export interface DeleteAliasRequest {
 }
 
 export namespace DeleteAliasRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteAliasRequest): any => ({
     ...obj,
   });
@@ -1575,6 +1713,9 @@ export interface DeleteCustomKeyStoreRequest {
 }
 
 export namespace DeleteCustomKeyStoreRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteCustomKeyStoreRequest): any => ({
     ...obj,
   });
@@ -1583,6 +1724,9 @@ export namespace DeleteCustomKeyStoreRequest {
 export interface DeleteCustomKeyStoreResponse {}
 
 export namespace DeleteCustomKeyStoreResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteCustomKeyStoreResponse): any => ({
     ...obj,
   });
@@ -1610,6 +1754,9 @@ export interface DeleteImportedKeyMaterialRequest {
 }
 
 export namespace DeleteImportedKeyMaterialRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteImportedKeyMaterialRequest): any => ({
     ...obj,
   });
@@ -1651,6 +1798,9 @@ export interface DescribeCustomKeyStoresRequest {
 }
 
 export namespace DescribeCustomKeyStoresRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCustomKeyStoresRequest): any => ({
     ...obj,
   });
@@ -1678,6 +1828,9 @@ export interface DescribeCustomKeyStoresResponse {
 }
 
 export namespace DescribeCustomKeyStoresResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCustomKeyStoresResponse): any => ({
     ...obj,
   });
@@ -1723,6 +1876,9 @@ export interface DescribeKeyRequest {
 }
 
 export namespace DescribeKeyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeKeyRequest): any => ({
     ...obj,
   });
@@ -1736,6 +1892,9 @@ export interface DescribeKeyResponse {
 }
 
 export namespace DescribeKeyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeKeyResponse): any => ({
     ...obj,
   });
@@ -1762,6 +1921,9 @@ export interface DisableKeyRequest {
 }
 
 export namespace DisableKeyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisableKeyRequest): any => ({
     ...obj,
   });
@@ -1791,6 +1953,9 @@ export interface DisableKeyRotationRequest {
 }
 
 export namespace DisableKeyRotationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisableKeyRotationRequest): any => ({
     ...obj,
   });
@@ -1804,6 +1969,9 @@ export interface DisconnectCustomKeyStoreRequest {
 }
 
 export namespace DisconnectCustomKeyStoreRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisconnectCustomKeyStoreRequest): any => ({
     ...obj,
   });
@@ -1812,6 +1980,9 @@ export namespace DisconnectCustomKeyStoreRequest {
 export interface DisconnectCustomKeyStoreResponse {}
 
 export namespace DisconnectCustomKeyStoreResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisconnectCustomKeyStoreResponse): any => ({
     ...obj,
   });
@@ -1838,6 +2009,9 @@ export interface EnableKeyRequest {
 }
 
 export namespace EnableKeyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnableKeyRequest): any => ({
     ...obj,
   });
@@ -1865,6 +2039,9 @@ export interface EnableKeyRotationRequest {
 }
 
 export namespace EnableKeyRotationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnableKeyRotationRequest): any => ({
     ...obj,
   });
@@ -1930,6 +2107,9 @@ export interface EncryptRequest {
 }
 
 export namespace EncryptRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EncryptRequest): any => ({
     ...obj,
     ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
@@ -1954,6 +2134,9 @@ export interface EncryptResponse {
 }
 
 export namespace EncryptResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EncryptResponse): any => ({
     ...obj,
   });
@@ -1970,6 +2153,9 @@ export interface ExpiredImportTokenException extends __SmithyException, $Metadat
 }
 
 export namespace ExpiredImportTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExpiredImportTokenException): any => ({
     ...obj,
   });
@@ -2038,6 +2224,9 @@ export interface GenerateDataKeyRequest {
 }
 
 export namespace GenerateDataKeyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GenerateDataKeyRequest): any => ({
     ...obj,
   });
@@ -2062,6 +2251,9 @@ export interface GenerateDataKeyResponse {
 }
 
 export namespace GenerateDataKeyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GenerateDataKeyResponse): any => ({
     ...obj,
     ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
@@ -2122,6 +2314,9 @@ export interface GenerateDataKeyPairRequest {
 }
 
 export namespace GenerateDataKeyPairRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GenerateDataKeyPairRequest): any => ({
     ...obj,
   });
@@ -2155,6 +2350,9 @@ export interface GenerateDataKeyPairResponse {
 }
 
 export namespace GenerateDataKeyPairResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GenerateDataKeyPairResponse): any => ({
     ...obj,
     ...(obj.PrivateKeyPlaintext && { PrivateKeyPlaintext: SENSITIVE_STRING }),
@@ -2215,6 +2413,9 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
 }
 
 export namespace GenerateDataKeyPairWithoutPlaintextRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GenerateDataKeyPairWithoutPlaintextRequest): any => ({
     ...obj,
   });
@@ -2243,6 +2444,9 @@ export interface GenerateDataKeyPairWithoutPlaintextResponse {
 }
 
 export namespace GenerateDataKeyPairWithoutPlaintextResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GenerateDataKeyPairWithoutPlaintextResponse): any => ({
     ...obj,
   });
@@ -2307,6 +2511,9 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
 }
 
 export namespace GenerateDataKeyWithoutPlaintextRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GenerateDataKeyWithoutPlaintextRequest): any => ({
     ...obj,
   });
@@ -2325,6 +2532,9 @@ export interface GenerateDataKeyWithoutPlaintextResponse {
 }
 
 export namespace GenerateDataKeyWithoutPlaintextResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GenerateDataKeyWithoutPlaintextResponse): any => ({
     ...obj,
   });
@@ -2344,6 +2554,9 @@ export interface GenerateRandomRequest {
 }
 
 export namespace GenerateRandomRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GenerateRandomRequest): any => ({
     ...obj,
   });
@@ -2357,6 +2570,9 @@ export interface GenerateRandomResponse {
 }
 
 export namespace GenerateRandomResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GenerateRandomResponse): any => ({
     ...obj,
     ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
@@ -2390,6 +2606,9 @@ export interface GetKeyPolicyRequest {
 }
 
 export namespace GetKeyPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetKeyPolicyRequest): any => ({
     ...obj,
   });
@@ -2403,6 +2622,9 @@ export interface GetKeyPolicyResponse {
 }
 
 export namespace GetKeyPolicyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetKeyPolicyResponse): any => ({
     ...obj,
   });
@@ -2430,6 +2652,9 @@ export interface GetKeyRotationStatusRequest {
 }
 
 export namespace GetKeyRotationStatusRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetKeyRotationStatusRequest): any => ({
     ...obj,
   });
@@ -2443,6 +2668,9 @@ export interface GetKeyRotationStatusResponse {
 }
 
 export namespace GetKeyRotationStatusResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetKeyRotationStatusResponse): any => ({
     ...obj,
   });
@@ -2486,6 +2714,9 @@ export interface GetParametersForImportRequest {
 }
 
 export namespace GetParametersForImportRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetParametersForImportRequest): any => ({
     ...obj,
   });
@@ -2519,6 +2750,9 @@ export interface GetParametersForImportResponse {
 }
 
 export namespace GetParametersForImportResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetParametersForImportResponse): any => ({
     ...obj,
     ...(obj.PublicKey && { PublicKey: SENSITIVE_STRING }),
@@ -2562,6 +2796,9 @@ export interface GetPublicKeyRequest {
 }
 
 export namespace GetPublicKeyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetPublicKeyRequest): any => ({
     ...obj,
   });
@@ -2612,6 +2849,9 @@ export interface GetPublicKeyResponse {
 }
 
 export namespace GetPublicKeyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetPublicKeyResponse): any => ({
     ...obj,
   });
@@ -2674,6 +2914,9 @@ export interface GrantListEntry {
 }
 
 export namespace GrantListEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GrantListEntry): any => ({
     ...obj,
   });
@@ -2732,6 +2975,9 @@ export interface ImportKeyMaterialRequest {
 }
 
 export namespace ImportKeyMaterialRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImportKeyMaterialRequest): any => ({
     ...obj,
   });
@@ -2740,6 +2986,9 @@ export namespace ImportKeyMaterialRequest {
 export interface ImportKeyMaterialResponse {}
 
 export namespace ImportKeyMaterialResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImportKeyMaterialResponse): any => ({
     ...obj,
   });
@@ -2757,6 +3006,9 @@ export interface IncorrectKeyMaterialException extends __SmithyException, $Metad
 }
 
 export namespace IncorrectKeyMaterialException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IncorrectKeyMaterialException): any => ({
     ...obj,
   });
@@ -2773,6 +3025,9 @@ export interface InvalidImportTokenException extends __SmithyException, $Metadat
 }
 
 export namespace InvalidImportTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidImportTokenException): any => ({
     ...obj,
   });
@@ -2788,6 +3043,9 @@ export interface InvalidGrantIdException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidGrantIdException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidGrantIdException): any => ({
     ...obj,
   });
@@ -2804,6 +3062,9 @@ export interface InvalidMarkerException extends __SmithyException, $MetadataBear
 }
 
 export namespace InvalidMarkerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidMarkerException): any => ({
     ...obj,
   });
@@ -2825,6 +3086,9 @@ export interface KeyListEntry {
 }
 
 export namespace KeyListEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KeyListEntry): any => ({
     ...obj,
   });
@@ -2842,6 +3106,9 @@ export interface KMSInvalidSignatureException extends __SmithyException, $Metada
 }
 
 export namespace KMSInvalidSignatureException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KMSInvalidSignatureException): any => ({
     ...obj,
   });
@@ -2888,6 +3155,9 @@ export interface ListAliasesRequest {
 }
 
 export namespace ListAliasesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAliasesRequest): any => ({
     ...obj,
   });
@@ -2915,6 +3185,9 @@ export interface ListAliasesResponse {
 }
 
 export namespace ListAliasesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAliasesResponse): any => ({
     ...obj,
   });
@@ -2971,6 +3244,9 @@ export interface ListGrantsRequest {
 }
 
 export namespace ListGrantsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGrantsRequest): any => ({
     ...obj,
   });
@@ -2998,6 +3274,9 @@ export interface ListGrantsResponse {
 }
 
 export namespace ListGrantsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGrantsResponse): any => ({
     ...obj,
   });
@@ -3041,6 +3320,9 @@ export interface ListKeyPoliciesRequest {
 }
 
 export namespace ListKeyPoliciesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListKeyPoliciesRequest): any => ({
     ...obj,
   });
@@ -3068,6 +3350,9 @@ export interface ListKeyPoliciesResponse {
 }
 
 export namespace ListKeyPoliciesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListKeyPoliciesResponse): any => ({
     ...obj,
   });
@@ -3092,6 +3377,9 @@ export interface ListKeysRequest {
 }
 
 export namespace ListKeysRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListKeysRequest): any => ({
     ...obj,
   });
@@ -3119,6 +3407,9 @@ export interface ListKeysResponse {
 }
 
 export namespace ListKeysResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListKeysResponse): any => ({
     ...obj,
   });
@@ -3163,6 +3454,9 @@ export interface ListResourceTagsRequest {
 }
 
 export namespace ListResourceTagsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListResourceTagsRequest): any => ({
     ...obj,
   });
@@ -3191,6 +3485,9 @@ export interface ListResourceTagsResponse {
 }
 
 export namespace ListResourceTagsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListResourceTagsResponse): any => ({
     ...obj,
   });
@@ -3226,6 +3523,9 @@ export interface ListRetirableGrantsRequest {
 }
 
 export namespace ListRetirableGrantsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRetirableGrantsRequest): any => ({
     ...obj,
   });
@@ -3298,6 +3598,9 @@ export interface PutKeyPolicyRequest {
 }
 
 export namespace PutKeyPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutKeyPolicyRequest): any => ({
     ...obj,
   });
@@ -3421,6 +3724,9 @@ export interface ReEncryptRequest {
 }
 
 export namespace ReEncryptRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReEncryptRequest): any => ({
     ...obj,
   });
@@ -3455,6 +3761,9 @@ export interface ReEncryptResponse {
 }
 
 export namespace ReEncryptResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReEncryptResponse): any => ({
     ...obj,
   });
@@ -3487,6 +3796,9 @@ export interface RetireGrantRequest {
 }
 
 export namespace RetireGrantRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RetireGrantRequest): any => ({
     ...obj,
   });
@@ -3520,6 +3832,9 @@ export interface RevokeGrantRequest {
 }
 
 export namespace RevokeGrantRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RevokeGrantRequest): any => ({
     ...obj,
   });
@@ -3555,6 +3870,9 @@ export interface ScheduleKeyDeletionRequest {
 }
 
 export namespace ScheduleKeyDeletionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ScheduleKeyDeletionRequest): any => ({
     ...obj,
   });
@@ -3573,6 +3891,9 @@ export interface ScheduleKeyDeletionResponse {
 }
 
 export namespace ScheduleKeyDeletionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ScheduleKeyDeletionResponse): any => ({
     ...obj,
   });
@@ -3639,6 +3960,9 @@ export interface SignRequest {
 }
 
 export namespace SignRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SignRequest): any => ({
     ...obj,
     ...(obj.Message && { Message: SENSITIVE_STRING }),
@@ -3679,6 +4003,9 @@ export interface SignResponse {
 }
 
 export namespace SignResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SignResponse): any => ({
     ...obj,
   });
@@ -3715,6 +4042,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -3747,6 +4077,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -3786,6 +4119,9 @@ export interface UpdateAliasRequest {
 }
 
 export namespace UpdateAliasRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAliasRequest): any => ({
     ...obj,
   });
@@ -3825,6 +4161,9 @@ export interface UpdateCustomKeyStoreRequest {
 }
 
 export namespace UpdateCustomKeyStoreRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCustomKeyStoreRequest): any => ({
     ...obj,
     ...(obj.KeyStorePassword && { KeyStorePassword: SENSITIVE_STRING }),
@@ -3834,6 +4173,9 @@ export namespace UpdateCustomKeyStoreRequest {
 export interface UpdateCustomKeyStoreResponse {}
 
 export namespace UpdateCustomKeyStoreResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCustomKeyStoreResponse): any => ({
     ...obj,
   });
@@ -3865,6 +4207,9 @@ export interface UpdateKeyDescriptionRequest {
 }
 
 export namespace UpdateKeyDescriptionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateKeyDescriptionRequest): any => ({
     ...obj,
   });
@@ -3942,6 +4287,9 @@ export interface VerifyRequest {
 }
 
 export namespace VerifyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VerifyRequest): any => ({
     ...obj,
     ...(obj.Message && { Message: SENSITIVE_STRING }),
@@ -3970,6 +4318,9 @@ export interface VerifyResponse {
 }
 
 export namespace VerifyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VerifyResponse): any => ({
     ...obj,
   });

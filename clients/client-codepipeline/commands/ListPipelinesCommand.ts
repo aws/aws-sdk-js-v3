@@ -22,6 +22,20 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
 
 /**
  * <p>Gets a summary of all of the pipelines associated with your account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodePipelineClient, ListPipelinesCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
+ * // const { CodePipelineClient, ListPipelinesCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * const client = new CodePipelineClient(config);
+ * const command = new ListPipelinesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPipelinesCommandInput} for command's `input` shape.
+ * @see {@link ListPipelinesCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPipelinesCommand extends $Command<
   ListPipelinesCommandInput,

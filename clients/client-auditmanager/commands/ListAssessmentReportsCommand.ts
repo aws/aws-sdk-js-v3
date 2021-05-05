@@ -24,6 +24,20 @@ export interface ListAssessmentReportsCommandOutput extends ListAssessmentReport
  * <p>
  * Returns a list of assessment reports created in AWS Audit Manager.
  * </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AuditManagerClient, ListAssessmentReportsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
+ * // const { AuditManagerClient, ListAssessmentReportsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * const client = new AuditManagerClient(config);
+ * const command = new ListAssessmentReportsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAssessmentReportsCommandInput} for command's `input` shape.
+ * @see {@link ListAssessmentReportsCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAssessmentReportsCommand extends $Command<
   ListAssessmentReportsCommandInput,

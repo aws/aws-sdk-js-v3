@@ -24,6 +24,20 @@ export interface ListCustomMetricsCommandOutput extends ListCustomMetricsRespons
  * <p>
  *       Lists your Device Defender detect custom metrics.
  *     </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, ListCustomMetricsCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListCustomMetricsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new ListCustomMetricsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCustomMetricsCommandInput} for command's `input` shape.
+ * @see {@link ListCustomMetricsCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCustomMetricsCommand extends $Command<
   ListCustomMetricsCommandInput,

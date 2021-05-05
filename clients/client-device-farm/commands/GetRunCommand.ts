@@ -19,6 +19,20 @@ export interface GetRunCommandOutput extends GetRunResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about a run.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, GetRunCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, GetRunCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new GetRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRunCommandInput} for command's `input` shape.
+ * @see {@link GetRunCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOutput, DeviceFarmClientResolvedConfig> {
   // Start section: command_properties

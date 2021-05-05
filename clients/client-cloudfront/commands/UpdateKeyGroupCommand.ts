@@ -39,6 +39,20 @@ export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __Met
  * 					the fields that you modified and those that you didn’t.</p>
  * 			         </li>
  *          </ol>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFrontClient, UpdateKeyGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, UpdateKeyGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * const client = new CloudFrontClient(config);
+ * const command = new UpdateKeyGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateKeyGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateKeyGroupCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateKeyGroupCommand extends $Command<
   UpdateKeyGroupCommandInput,

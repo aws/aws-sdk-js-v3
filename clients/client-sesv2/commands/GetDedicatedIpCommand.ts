@@ -24,6 +24,20 @@ export interface GetDedicatedIpCommandOutput extends GetDedicatedIpResponse, __M
  * <p>Get information about a dedicated IP address, including the name of the dedicated IP
  *             pool that it's associated with, as well information about the automatic warm-up process
  *             for the address.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESv2Client, GetDedicatedIpCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, GetDedicatedIpCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * const client = new SESv2Client(config);
+ * const command = new GetDedicatedIpCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDedicatedIpCommandInput} for command's `input` shape.
+ * @see {@link GetDedicatedIpCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDedicatedIpCommand extends $Command<
   GetDedicatedIpCommandInput,

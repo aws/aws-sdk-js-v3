@@ -24,6 +24,20 @@ export interface PutAccountSendingAttributesCommandOutput
 
 /**
  * <p>Enable or disable the ability of your account to send email.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointEmailClient, PutAccountSendingAttributesCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
+ * // const { PinpointEmailClient, PutAccountSendingAttributesCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * const client = new PinpointEmailClient(config);
+ * const command = new PutAccountSendingAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAccountSendingAttributesCommandInput} for command's `input` shape.
+ * @see {@link PutAccountSendingAttributesCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAccountSendingAttributesCommand extends $Command<
   PutAccountSendingAttributesCommandInput,

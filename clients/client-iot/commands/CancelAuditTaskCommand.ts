@@ -22,6 +22,20 @@ export interface CancelAuditTaskCommandOutput extends CancelAuditTaskResponse, _
 
 /**
  * <p>Cancels an audit that is in progress. The audit can be either scheduled or on demand. If the audit isn't in progress, an "InvalidRequestException" occurs.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, CancelAuditTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, CancelAuditTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new CancelAuditTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelAuditTaskCommandInput} for command's `input` shape.
+ * @see {@link CancelAuditTaskCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelAuditTaskCommand extends $Command<
   CancelAuditTaskCommandInput,

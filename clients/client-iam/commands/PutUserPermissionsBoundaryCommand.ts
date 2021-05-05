@@ -32,6 +32,20 @@ export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBeare
  *                 permissions for a user are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM JSON policy
  *                     evaluation logic</a> in the IAM User Guide. </p>
  *         </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, PutUserPermissionsBoundaryCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, PutUserPermissionsBoundaryCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new PutUserPermissionsBoundaryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutUserPermissionsBoundaryCommandInput} for command's `input` shape.
+ * @see {@link PutUserPermissionsBoundaryCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutUserPermissionsBoundaryCommand extends $Command<
   PutUserPermissionsBoundaryCommandInput,

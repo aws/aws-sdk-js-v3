@@ -36,6 +36,20 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *         <code>RestoreDBClusterToPointInTime</code> action has completed and the DB cluster is
  *         available.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NeptuneClient, RestoreDBClusterToPointInTimeCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, RestoreDBClusterToPointInTimeCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * const client = new NeptuneClient(config);
+ * const command = new RestoreDBClusterToPointInTimeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RestoreDBClusterToPointInTimeCommandInput} for command's `input` shape.
+ * @see {@link RestoreDBClusterToPointInTimeCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RestoreDBClusterToPointInTimeCommand extends $Command<
   RestoreDBClusterToPointInTimeCommandInput,

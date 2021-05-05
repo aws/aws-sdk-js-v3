@@ -22,6 +22,20 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
 
 /**
  * <p>Creates a journey for an application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointClient, CreateJourneyCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, CreateJourneyCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * const client = new PinpointClient(config);
+ * const command = new CreateJourneyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateJourneyCommandInput} for command's `input` shape.
+ * @see {@link CreateJourneyCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateJourneyCommand extends $Command<
   CreateJourneyCommandInput,

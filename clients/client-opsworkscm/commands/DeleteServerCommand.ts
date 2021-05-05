@@ -37,6 +37,20 @@ export interface DeleteServerCommandOutput extends DeleteServerResponse, __Metad
  *     </p>
  *          <p>
  *     </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OpsWorksCMClient, DeleteServerCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
+ * // const { OpsWorksCMClient, DeleteServerCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
+ * const client = new OpsWorksCMClient(config);
+ * const command = new DeleteServerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteServerCommandInput} for command's `input` shape.
+ * @see {@link DeleteServerCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteServerCommand extends $Command<
   DeleteServerCommandInput,

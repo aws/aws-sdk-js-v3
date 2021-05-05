@@ -22,6 +22,20 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
 
 /**
  * <p>Lists completed exports within the past 90 days.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DynamoDBClient, ListExportsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, ListExportsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * const client = new DynamoDBClient(config);
+ * const command = new ListExportsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListExportsCommandInput} for command's `input` shape.
+ * @see {@link ListExportsCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListExportsCommand extends $Command<
   ListExportsCommandInput,

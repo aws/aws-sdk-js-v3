@@ -36,6 +36,20 @@ export interface StreamingTraitsWithMediaTypeCommandOutput
  *
  * This examples uses a `@mediaType` trait on the payload to force a custom
  * content-type to be serialized.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, StreamingTraitsWithMediaTypeCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, StreamingTraitsWithMediaTypeCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new StreamingTraitsWithMediaTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StreamingTraitsWithMediaTypeCommandInput} for command's `input` shape.
+ * @see {@link StreamingTraitsWithMediaTypeCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StreamingTraitsWithMediaTypeCommand extends $Command<
   StreamingTraitsWithMediaTypeCommandInput,

@@ -22,6 +22,20 @@ export interface GetDeploymentTargetCommandOutput extends GetDeploymentTargetOut
 
 /**
  * <p> Returns information about a deployment target. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeDeployClient, GetDeploymentTargetCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
+ * // const { CodeDeployClient, GetDeploymentTargetCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * const client = new CodeDeployClient(config);
+ * const command = new GetDeploymentTargetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDeploymentTargetCommandInput} for command's `input` shape.
+ * @see {@link GetDeploymentTargetCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDeploymentTargetCommand extends $Command<
   GetDeploymentTargetCommandInput,

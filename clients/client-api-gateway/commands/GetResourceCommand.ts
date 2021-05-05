@@ -22,6 +22,20 @@ export interface GetResourceCommandOutput extends Resource, __MetadataBearer {}
 
 /**
  * <p>Lists information about a resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, GetResourceCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, GetResourceCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new GetResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetResourceCommandInput} for command's `input` shape.
+ * @see {@link GetResourceCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetResourceCommand extends $Command<
   GetResourceCommandInput,

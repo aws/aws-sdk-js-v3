@@ -50,6 +50,20 @@ export interface GetContentModerationCommandOutput extends GetContentModerationR
  *        returned from the previous call to <code>GetContentModeration</code>.</p>
  *
  *          <p>For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RekognitionClient, GetContentModerationCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, GetContentModerationCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * const client = new RekognitionClient(config);
+ * const command = new GetContentModerationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetContentModerationCommandInput} for command's `input` shape.
+ * @see {@link GetContentModerationCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetContentModerationCommand extends $Command<
   GetContentModerationCommandInput,

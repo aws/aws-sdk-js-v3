@@ -22,6 +22,20 @@ export interface DeleteDataflowEndpointGroupCommandOutput extends DataflowEndpoi
 
 /**
  * <p>Deletes a dataflow endpoint group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GroundStationClient, DeleteDataflowEndpointGroupCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
+ * // const { GroundStationClient, DeleteDataflowEndpointGroupCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * const client = new GroundStationClient(config);
+ * const command = new DeleteDataflowEndpointGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDataflowEndpointGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteDataflowEndpointGroupCommandOutput} for command's `response` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDataflowEndpointGroupCommand extends $Command<
   DeleteDataflowEndpointGroupCommandInput,

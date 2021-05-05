@@ -40,6 +40,20 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  *                </li>
  *             </ul>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { HealthClient, DescribeAffectedEntitiesCommand } from "@aws-sdk/client-health"; // ES Modules import
+ * // const { HealthClient, DescribeAffectedEntitiesCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * const client = new HealthClient(config);
+ * const command = new DescribeAffectedEntitiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAffectedEntitiesCommandInput} for command's `input` shape.
+ * @see {@link DescribeAffectedEntitiesCommandOutput} for command's `response` shape.
+ * @see {@link HealthClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAffectedEntitiesCommand extends $Command<
   DescribeAffectedEntitiesCommandInput,

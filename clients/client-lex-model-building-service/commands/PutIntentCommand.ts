@@ -83,6 +83,20 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  *          <p>For more information, see <a>how-it-works</a>.</p>
  *          <p>This operation requires permissions for the
  *         <code>lex:PutIntent</code> action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelBuildingServiceClient, PutIntentCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
+ * // const { LexModelBuildingServiceClient, PutIntentCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new PutIntentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutIntentCommandInput} for command's `input` shape.
+ * @see {@link PutIntentCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutIntentCommand extends $Command<
   PutIntentCommandInput,

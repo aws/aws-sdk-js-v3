@@ -22,6 +22,20 @@ export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __Met
 
 /**
  * <p>Starts an on-demand backup job for the specified resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BackupClient, StartBackupJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, StartBackupJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * const client = new BackupClient(config);
+ * const command = new StartBackupJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartBackupJobCommandInput} for command's `input` shape.
+ * @see {@link StartBackupJobCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartBackupJobCommand extends $Command<
   StartBackupJobCommandInput,

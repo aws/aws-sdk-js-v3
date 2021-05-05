@@ -23,6 +23,20 @@ export interface DeleteFunctionEventInvokeConfigCommandOutput extends __Metadata
 /**
  * <p>Deletes the configuration for asynchronous invocation for a function, version, or alias.</p>
  *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LambdaClient, DeleteFunctionEventInvokeConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, DeleteFunctionEventInvokeConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * const client = new LambdaClient(config);
+ * const command = new DeleteFunctionEventInvokeConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFunctionEventInvokeConfigCommandInput} for command's `input` shape.
+ * @see {@link DeleteFunctionEventInvokeConfigCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFunctionEventInvokeConfigCommand extends $Command<
   DeleteFunctionEventInvokeConfigCommandInput,

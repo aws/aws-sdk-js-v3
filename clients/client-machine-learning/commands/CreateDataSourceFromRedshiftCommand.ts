@@ -56,6 +56,20 @@ export interface CreateDataSourceFromRedshiftCommandOutput
  *                 <code>GetDataSource</code> for an existing datasource and copy the values to a
  *                 <code>CreateDataSource</code> call. Change the settings that you want to change and
  *             make sure that all required fields have the appropriate values.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MachineLearningClient, CreateDataSourceFromRedshiftCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
+ * // const { MachineLearningClient, CreateDataSourceFromRedshiftCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * const client = new MachineLearningClient(config);
+ * const command = new CreateDataSourceFromRedshiftCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDataSourceFromRedshiftCommandInput} for command's `input` shape.
+ * @see {@link CreateDataSourceFromRedshiftCommandOutput} for command's `response` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDataSourceFromRedshiftCommand extends $Command<
   CreateDataSourceFromRedshiftCommandInput,

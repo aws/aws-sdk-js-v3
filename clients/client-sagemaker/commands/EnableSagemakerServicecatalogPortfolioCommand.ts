@@ -29,6 +29,20 @@ export interface EnableSagemakerServicecatalogPortfolioCommandOutput
 /**
  * <p>Enables using Service Catalog in SageMaker. Service Catalog is used to create
  *             SageMaker projects.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, EnableSagemakerServicecatalogPortfolioCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, EnableSagemakerServicecatalogPortfolioCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new EnableSagemakerServicecatalogPortfolioCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableSagemakerServicecatalogPortfolioCommandInput} for command's `input` shape.
+ * @see {@link EnableSagemakerServicecatalogPortfolioCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<
   EnableSagemakerServicecatalogPortfolioCommandInput,

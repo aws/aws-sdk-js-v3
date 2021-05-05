@@ -25,6 +25,20 @@ export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsInputOu
  *
  * In this example, no JSON document is synthesized because the payload is
  * not a structure or a union type.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, HttpPayloadTraitsCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, HttpPayloadTraitsCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new HttpPayloadTraitsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link HttpPayloadTraitsCommandInput} for command's `input` shape.
+ * @see {@link HttpPayloadTraitsCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class HttpPayloadTraitsCommand extends $Command<
   HttpPayloadTraitsCommandInput,

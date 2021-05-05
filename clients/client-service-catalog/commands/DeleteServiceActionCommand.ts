@@ -22,6 +22,20 @@ export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOut
 
 /**
  * <p>Deletes a self-service action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, DeleteServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, DeleteServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DeleteServiceActionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteServiceActionCommandInput} for command's `input` shape.
+ * @see {@link DeleteServiceActionCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteServiceActionCommand extends $Command<
   DeleteServiceActionCommandInput,

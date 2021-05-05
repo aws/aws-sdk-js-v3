@@ -56,6 +56,20 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  *          </ol>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle
  *                 hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AutoScalingClient, RecordLifecycleActionHeartbeatCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, RecordLifecycleActionHeartbeatCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * const client = new AutoScalingClient(config);
+ * const command = new RecordLifecycleActionHeartbeatCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RecordLifecycleActionHeartbeatCommandInput} for command's `input` shape.
+ * @see {@link RecordLifecycleActionHeartbeatCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RecordLifecycleActionHeartbeatCommand extends $Command<
   RecordLifecycleActionHeartbeatCommandInput,

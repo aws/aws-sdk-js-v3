@@ -25,6 +25,20 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
  *         <note>
  *             <p>This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, UpdateSAMLProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, UpdateSAMLProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new UpdateSAMLProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSAMLProviderCommandInput} for command's `input` shape.
+ * @see {@link UpdateSAMLProviderCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSAMLProviderCommand extends $Command<
   UpdateSAMLProviderCommandInput,

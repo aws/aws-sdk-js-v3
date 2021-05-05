@@ -30,6 +30,20 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
  *          </note>
  *          <p>Returns an array of <a>RuleGroup</a> objects.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFRegionalClient, ListRuleGroupsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
+ * // const { WAFRegionalClient, ListRuleGroupsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * const client = new WAFRegionalClient(config);
+ * const command = new ListRuleGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRuleGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListRuleGroupsCommandOutput} for command's `response` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRuleGroupsCommand extends $Command<
   ListRuleGroupsCommandInput,

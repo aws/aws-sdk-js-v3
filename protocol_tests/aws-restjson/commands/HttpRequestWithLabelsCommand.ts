@@ -23,6 +23,20 @@ export interface HttpRequestWithLabelsCommandOutput extends __MetadataBearer {}
 /**
  * The example tests how requests are serialized when there's no input
  * payload but there are HTTP labels.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, HttpRequestWithLabelsCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, HttpRequestWithLabelsCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new HttpRequestWithLabelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link HttpRequestWithLabelsCommandInput} for command's `input` shape.
+ * @see {@link HttpRequestWithLabelsCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class HttpRequestWithLabelsCommand extends $Command<
   HttpRequestWithLabelsCommandInput,

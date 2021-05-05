@@ -22,6 +22,20 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
 
 /**
  * <p>Creates a network profile with the specified details.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, CreateNetworkProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, CreateNetworkProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new CreateNetworkProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateNetworkProfileCommandInput} for command's `input` shape.
+ * @see {@link CreateNetworkProfileCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateNetworkProfileCommand extends $Command<
   CreateNetworkProfileCommandInput,

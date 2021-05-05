@@ -37,6 +37,20 @@ export interface SendDiagnosticInterruptCommandOutput extends __MetadataBearer {
  *
  * 		       <p>For more information about configuring your operating system to generate a crash dump
  * 			when a kernel panic or stop error occurs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html">Send a diagnostic interrupt</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html">Send a Diagnostic Interrupt</a> (Windows instances).</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, SendDiagnosticInterruptCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, SendDiagnosticInterruptCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new SendDiagnosticInterruptCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendDiagnosticInterruptCommandInput} for command's `input` shape.
+ * @see {@link SendDiagnosticInterruptCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendDiagnosticInterruptCommand extends $Command<
   SendDiagnosticInterruptCommandInput,

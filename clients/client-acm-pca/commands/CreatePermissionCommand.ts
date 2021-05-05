@@ -48,6 +48,20 @@ export interface CreatePermissionCommandOutput extends __MetadataBearer {}
  * 			Based Policy with ACM Private CA</a>.</p>
  * 		          </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ACMPCAClient, CreatePermissionCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
+ * // const { ACMPCAClient, CreatePermissionCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * const client = new ACMPCAClient(config);
+ * const command = new CreatePermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePermissionCommandInput} for command's `input` shape.
+ * @see {@link CreatePermissionCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePermissionCommand extends $Command<
   CreatePermissionCommandInput,

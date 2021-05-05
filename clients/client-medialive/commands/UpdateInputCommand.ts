@@ -22,6 +22,20 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
 
 /**
  * Updates an input.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaLiveClient, UpdateInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, UpdateInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * const client = new MediaLiveClient(config);
+ * const command = new UpdateInputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateInputCommandInput} for command's `input` shape.
+ * @see {@link UpdateInputCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateInputCommand extends $Command<
   UpdateInputCommandInput,

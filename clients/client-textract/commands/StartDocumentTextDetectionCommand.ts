@@ -38,6 +38,20 @@ export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTe
  *          pass the job identifier (<code>JobId</code>) from the initial call to
  *             <code>StartDocumentTextDetection</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document Text Detection</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TextractClient, StartDocumentTextDetectionCommand } from "@aws-sdk/client-textract"; // ES Modules import
+ * // const { TextractClient, StartDocumentTextDetectionCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * const client = new TextractClient(config);
+ * const command = new StartDocumentTextDetectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartDocumentTextDetectionCommandInput} for command's `input` shape.
+ * @see {@link StartDocumentTextDetectionCommandOutput} for command's `response` shape.
+ * @see {@link TextractClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartDocumentTextDetectionCommand extends $Command<
   StartDocumentTextDetectionCommandInput,

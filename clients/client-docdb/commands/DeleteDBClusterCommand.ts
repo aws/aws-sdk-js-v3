@@ -25,6 +25,20 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  *             automated backups for that cluster are deleted and can't be recovered. Manual DB
  *             cluster snapshots of the specified cluster are not deleted.</p>
  *         <p></p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DocDBClient, DeleteDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, DeleteDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * const client = new DocDBClient(config);
+ * const command = new DeleteDBClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDBClusterCommandInput} for command's `input` shape.
+ * @see {@link DeleteDBClusterCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDBClusterCommand extends $Command<
   DeleteDBClusterCommandInput,

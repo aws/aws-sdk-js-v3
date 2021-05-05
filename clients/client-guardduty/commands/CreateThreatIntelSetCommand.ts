@@ -24,6 +24,20 @@ export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetR
  * <p>Creates a new ThreatIntelSet. ThreatIntelSets consist of known malicious IP addresses.
  *       GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator account can
  *       use this operation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GuardDutyClient, CreateThreatIntelSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, CreateThreatIntelSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * const client = new GuardDutyClient(config);
+ * const command = new CreateThreatIntelSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateThreatIntelSetCommandInput} for command's `input` shape.
+ * @see {@link CreateThreatIntelSetCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateThreatIntelSetCommand extends $Command<
   CreateThreatIntelSetCommandInput,

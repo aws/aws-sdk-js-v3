@@ -28,6 +28,20 @@ export interface GetBotAliasesCommandOutput extends GetBotAliasesResponse, __Met
  * <p>Returns a list of aliases for a specified Amazon Lex bot.</p>
  *          <p>This operation requires permissions for the
  *         <code>lex:GetBotAliases</code> action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelBuildingServiceClient, GetBotAliasesCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
+ * // const { LexModelBuildingServiceClient, GetBotAliasesCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new GetBotAliasesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBotAliasesCommandInput} for command's `input` shape.
+ * @see {@link GetBotAliasesCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBotAliasesCommand extends $Command<
   GetBotAliasesCommandInput,

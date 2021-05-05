@@ -26,6 +26,20 @@ export interface DescribeInstanceStorageConfigCommandOutput
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Retrieves the current storage configurations for the specified resource type, association
  *    ID, and instance ID.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, DescribeInstanceStorageConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DescribeInstanceStorageConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * const client = new ConnectClient(config);
+ * const command = new DescribeInstanceStorageConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeInstanceStorageConfigCommandInput} for command's `input` shape.
+ * @see {@link DescribeInstanceStorageConfigCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeInstanceStorageConfigCommand extends $Command<
   DescribeInstanceStorageConfigCommandInput,

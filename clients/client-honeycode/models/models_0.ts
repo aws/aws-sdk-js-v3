@@ -14,6 +14,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -29,6 +32,9 @@ export interface AutomationExecutionException extends __SmithyException, $Metada
 }
 
 export namespace AutomationExecutionException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AutomationExecutionException): any => ({
     ...obj,
   });
@@ -44,6 +50,9 @@ export interface AutomationExecutionTimeoutException extends __SmithyException, 
 }
 
 export namespace AutomationExecutionTimeoutException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AutomationExecutionTimeoutException): any => ({
     ...obj,
   });
@@ -65,6 +74,9 @@ export interface CellInput {
 }
 
 export namespace CellInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CellInput): any => ({
     ...obj,
     ...(obj.fact && { fact: SENSITIVE_STRING }),
@@ -97,6 +109,9 @@ export interface CreateRowData {
 }
 
 export namespace CreateRowData {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateRowData): any => ({
     ...obj,
     ...(obj.cellsToCreate && {
@@ -158,6 +173,9 @@ export interface BatchCreateTableRowsRequest {
 }
 
 export namespace BatchCreateTableRowsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchCreateTableRowsRequest): any => ({
     ...obj,
     ...(obj.rowsToCreate && { rowsToCreate: obj.rowsToCreate.map((item) => CreateRowData.filterSensitiveLog(item)) }),
@@ -189,6 +207,9 @@ export interface FailedBatchItem {
 }
 
 export namespace FailedBatchItem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FailedBatchItem): any => ({
     ...obj,
   });
@@ -216,6 +237,9 @@ export interface BatchCreateTableRowsResult {
 }
 
 export namespace BatchCreateTableRowsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchCreateTableRowsResult): any => ({
     ...obj,
   });
@@ -231,6 +255,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -246,6 +273,9 @@ export interface RequestTimeoutException extends __SmithyException, $MetadataBea
 }
 
 export namespace RequestTimeoutException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RequestTimeoutException): any => ({
     ...obj,
   });
@@ -261,6 +291,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -278,6 +311,9 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
 }
 
 export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
@@ -293,6 +329,9 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
 }
 
 export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
@@ -308,6 +347,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -325,6 +367,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -375,6 +420,9 @@ export interface BatchDeleteTableRowsRequest {
 }
 
 export namespace BatchDeleteTableRowsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchDeleteTableRowsRequest): any => ({
     ...obj,
   });
@@ -397,6 +445,9 @@ export interface BatchDeleteTableRowsResult {
 }
 
 export namespace BatchDeleteTableRowsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchDeleteTableRowsResult): any => ({
     ...obj,
   });
@@ -425,6 +476,9 @@ export interface UpdateRowData {
 }
 
 export namespace UpdateRowData {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateRowData): any => ({
     ...obj,
     ...(obj.cellsToUpdate && {
@@ -487,6 +541,9 @@ export interface BatchUpdateTableRowsRequest {
 }
 
 export namespace BatchUpdateTableRowsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchUpdateTableRowsRequest): any => ({
     ...obj,
     ...(obj.rowsToUpdate && { rowsToUpdate: obj.rowsToUpdate.map((item) => UpdateRowData.filterSensitiveLog(item)) }),
@@ -510,6 +567,9 @@ export interface BatchUpdateTableRowsResult {
 }
 
 export namespace BatchUpdateTableRowsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchUpdateTableRowsResult): any => ({
     ...obj,
   });
@@ -544,6 +604,9 @@ export interface Filter {
 }
 
 export namespace Filter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
     ...(obj.formula && { formula: SENSITIVE_STRING }),
@@ -591,6 +654,9 @@ export interface UpsertRowData {
 }
 
 export namespace UpsertRowData {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpsertRowData): any => ({
     ...obj,
     ...(obj.filter && { filter: Filter.filterSensitiveLog(obj.filter) }),
@@ -655,6 +721,9 @@ export interface BatchUpsertTableRowsRequest {
 }
 
 export namespace BatchUpsertTableRowsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchUpsertTableRowsRequest): any => ({
     ...obj,
     ...(obj.rowsToUpsert && { rowsToUpsert: obj.rowsToUpsert.map((item) => UpsertRowData.filterSensitiveLog(item)) }),
@@ -690,6 +759,9 @@ export interface UpsertRowsResult {
 }
 
 export namespace UpsertRowsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpsertRowsResult): any => ({
     ...obj,
   });
@@ -721,6 +793,9 @@ export interface BatchUpsertTableRowsResult {
 }
 
 export namespace BatchUpsertTableRowsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchUpsertTableRowsResult): any => ({
     ...obj,
   });
@@ -816,6 +891,9 @@ export interface Cell {
 }
 
 export namespace Cell {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Cell): any => ({
     ...obj,
     ...(obj.formula && { formula: SENSITIVE_STRING }),
@@ -838,6 +916,9 @@ export interface ColumnMetadata {
 }
 
 export namespace ColumnMetadata {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ColumnMetadata): any => ({
     ...obj,
     ...(obj.name && { name: SENSITIVE_STRING }),
@@ -868,6 +949,9 @@ export interface DataItem {
 }
 
 export namespace DataItem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataItem): any => ({
     ...obj,
   });
@@ -910,6 +994,9 @@ export interface DelimitedTextImportOptions {
 }
 
 export namespace DelimitedTextImportOptions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DelimitedTextImportOptions): any => ({
     ...obj,
   });
@@ -942,6 +1029,9 @@ export interface DescribeTableDataImportJobRequest {
 }
 
 export namespace DescribeTableDataImportJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTableDataImportJobRequest): any => ({
     ...obj,
   });
@@ -962,6 +1052,9 @@ export interface ImportDataSourceConfig {
 }
 
 export namespace ImportDataSourceConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImportDataSourceConfig): any => ({
     ...obj,
   });
@@ -978,6 +1071,9 @@ export interface ImportDataSource {
 }
 
 export namespace ImportDataSource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImportDataSource): any => ({
     ...obj,
   });
@@ -994,6 +1090,9 @@ export interface SourceDataColumnProperties {
 }
 
 export namespace SourceDataColumnProperties {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SourceDataColumnProperties): any => ({
     ...obj,
   });
@@ -1010,6 +1109,9 @@ export interface DestinationOptions {
 }
 
 export namespace DestinationOptions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DestinationOptions): any => ({
     ...obj,
   });
@@ -1031,6 +1133,9 @@ export interface ImportOptions {
 }
 
 export namespace ImportOptions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImportOptions): any => ({
     ...obj,
   });
@@ -1052,6 +1157,9 @@ export interface ImportJobSubmitter {
 }
 
 export namespace ImportJobSubmitter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImportJobSubmitter): any => ({
     ...obj,
     ...(obj.email && { email: SENSITIVE_STRING }),
@@ -1084,6 +1192,9 @@ export interface TableDataImportJobMetadata {
 }
 
 export namespace TableDataImportJobMetadata {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TableDataImportJobMetadata): any => ({
     ...obj,
     ...(obj.submitter && { submitter: ImportJobSubmitter.filterSensitiveLog(obj.submitter) }),
@@ -1121,6 +1232,9 @@ export interface DescribeTableDataImportJobResult {
 }
 
 export namespace DescribeTableDataImportJobResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTableDataImportJobResult): any => ({
     ...obj,
     ...(obj.jobMetadata && { jobMetadata: TableDataImportJobMetadata.filterSensitiveLog(obj.jobMetadata) }),
@@ -1138,6 +1252,9 @@ export interface VariableValue {
 }
 
 export namespace VariableValue {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VariableValue): any => ({
     ...obj,
   });
@@ -1193,6 +1310,9 @@ export interface GetScreenDataRequest {
 }
 
 export namespace GetScreenDataRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetScreenDataRequest): any => ({
     ...obj,
     ...(obj.variables && { variables: SENSITIVE_STRING }),
@@ -1215,6 +1335,9 @@ export interface ResultRow {
 }
 
 export namespace ResultRow {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResultRow): any => ({
     ...obj,
     ...(obj.dataItems && { dataItems: SENSITIVE_STRING }),
@@ -1254,6 +1377,9 @@ export interface ResultSet {
 }
 
 export namespace ResultSet {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResultSet): any => ({
     ...obj,
     ...(obj.headers && { headers: obj.headers.map((item) => ColumnMetadata.filterSensitiveLog(item)) }),
@@ -1285,6 +1411,9 @@ export interface GetScreenDataResult {
 }
 
 export namespace GetScreenDataResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetScreenDataResult): any => ({
     ...obj,
     ...(obj.results && {
@@ -1357,6 +1486,9 @@ export interface InvokeScreenAutomationRequest {
 }
 
 export namespace InvokeScreenAutomationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvokeScreenAutomationRequest): any => ({
     ...obj,
     ...(obj.variables && { variables: SENSITIVE_STRING }),
@@ -1371,6 +1503,9 @@ export interface InvokeScreenAutomationResult {
 }
 
 export namespace InvokeScreenAutomationResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvokeScreenAutomationResult): any => ({
     ...obj,
   });
@@ -1406,6 +1541,9 @@ export interface ListTableColumnsRequest {
 }
 
 export namespace ListTableColumnsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTableColumnsRequest): any => ({
     ...obj,
   });
@@ -1435,6 +1573,9 @@ export interface TableColumn {
 }
 
 export namespace TableColumn {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TableColumn): any => ({
     ...obj,
   });
@@ -1467,6 +1608,9 @@ export interface ListTableColumnsResult {
 }
 
 export namespace ListTableColumnsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTableColumnsResult): any => ({
     ...obj,
   });
@@ -1516,6 +1660,9 @@ export interface ListTableRowsRequest {
 }
 
 export namespace ListTableRowsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTableRowsRequest): any => ({
     ...obj,
   });
@@ -1538,6 +1685,9 @@ export interface TableRow {
 }
 
 export namespace TableRow {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TableRow): any => ({
     ...obj,
     ...(obj.cells && { cells: SENSITIVE_STRING }),
@@ -1586,6 +1736,9 @@ export interface ListTableRowsResult {
 }
 
 export namespace ListTableRowsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTableRowsResult): any => ({
     ...obj,
     ...(obj.rows && { rows: obj.rows.map((item) => TableRow.filterSensitiveLog(item)) }),
@@ -1619,6 +1772,9 @@ export interface ListTablesRequest {
 }
 
 export namespace ListTablesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTablesRequest): any => ({
     ...obj,
   });
@@ -1640,6 +1796,9 @@ export interface Table {
 }
 
 export namespace Table {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Table): any => ({
     ...obj,
   });
@@ -1672,6 +1831,9 @@ export interface ListTablesResult {
 }
 
 export namespace ListTablesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTablesResult): any => ({
     ...obj,
   });
@@ -1718,6 +1880,9 @@ export interface QueryTableRowsRequest {
 }
 
 export namespace QueryTableRowsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryTableRowsRequest): any => ({
     ...obj,
     ...(obj.filterFormula && { filterFormula: Filter.filterSensitiveLog(obj.filterFormula) }),
@@ -1758,6 +1923,9 @@ export interface QueryTableRowsResult {
 }
 
 export namespace QueryTableRowsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryTableRowsResult): any => ({
     ...obj,
     ...(obj.rows && { rows: obj.rows.map((item) => TableRow.filterSensitiveLog(item)) }),
@@ -1820,6 +1988,9 @@ export interface StartTableDataImportJobRequest {
 }
 
 export namespace StartTableDataImportJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartTableDataImportJobRequest): any => ({
     ...obj,
   });
@@ -1843,6 +2014,9 @@ export interface StartTableDataImportJobResult {
 }
 
 export namespace StartTableDataImportJobResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartTableDataImportJobResult): any => ({
     ...obj,
   });

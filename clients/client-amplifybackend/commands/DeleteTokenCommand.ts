@@ -22,6 +22,20 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
 
 /**
  * <p>Deletes the challenge token based on the given appId and sessionId.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmplifyBackendClient, DeleteTokenCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
+ * // const { AmplifyBackendClient, DeleteTokenCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * const client = new AmplifyBackendClient(config);
+ * const command = new DeleteTokenCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTokenCommandInput} for command's `input` shape.
+ * @see {@link DeleteTokenCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTokenCommand extends $Command<
   DeleteTokenCommandInput,

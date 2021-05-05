@@ -22,6 +22,20 @@ export interface DeleteVoiceChannelCommandOutput extends DeleteVoiceChannelRespo
 
 /**
  * <p>Disables the voice channel for an application and deletes any existing settings for the channel.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointClient, DeleteVoiceChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, DeleteVoiceChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * const client = new PinpointClient(config);
+ * const command = new DeleteVoiceChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVoiceChannelCommandInput} for command's `input` shape.
+ * @see {@link DeleteVoiceChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVoiceChannelCommand extends $Command<
   DeleteVoiceChannelCommandInput,

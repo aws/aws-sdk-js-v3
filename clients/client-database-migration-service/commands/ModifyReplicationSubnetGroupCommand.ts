@@ -28,6 +28,20 @@ export interface ModifyReplicationSubnetGroupCommandOutput
 
 /**
  * <p>Modifies the settings for the specified replication subnet group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DatabaseMigrationServiceClient, ModifyReplicationSubnetGroupCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, ModifyReplicationSubnetGroupCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new ModifyReplicationSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyReplicationSubnetGroupCommandInput} for command's `input` shape.
+ * @see {@link ModifyReplicationSubnetGroupCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyReplicationSubnetGroupCommand extends $Command<
   ModifyReplicationSubnetGroupCommandInput,

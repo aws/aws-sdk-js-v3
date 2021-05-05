@@ -22,6 +22,20 @@ export interface CreateGraphqlApiCommandOutput extends CreateGraphqlApiResponse,
 
 /**
  * <p>Creates a <code>GraphqlApi</code> object.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppSyncClient, CreateGraphqlApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, CreateGraphqlApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * const client = new AppSyncClient(config);
+ * const command = new CreateGraphqlApiCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateGraphqlApiCommandInput} for command's `input` shape.
+ * @see {@link CreateGraphqlApiCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateGraphqlApiCommand extends $Command<
   CreateGraphqlApiCommandInput,

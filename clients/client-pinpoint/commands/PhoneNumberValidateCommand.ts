@@ -22,6 +22,20 @@ export interface PhoneNumberValidateCommandOutput extends PhoneNumberValidateRes
 
 /**
  * <p>Retrieves information about a phone number.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointClient, PhoneNumberValidateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, PhoneNumberValidateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * const client = new PinpointClient(config);
+ * const command = new PhoneNumberValidateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PhoneNumberValidateCommandInput} for command's `input` shape.
+ * @see {@link PhoneNumberValidateCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PhoneNumberValidateCommand extends $Command<
   PhoneNumberValidateCommandInput,

@@ -30,6 +30,20 @@ export interface GetScalingPlanResourceForecastDataCommandOutput
  *          <p>Capacity forecasts are represented as predicted values, or data points, that are
  *          calculated using historical data points from a specified CloudWatch load metric. Data points are
  *          available for up to 56 days. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AutoScalingPlansClient, GetScalingPlanResourceForecastDataCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
+ * // const { AutoScalingPlansClient, GetScalingPlanResourceForecastDataCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
+ * const client = new AutoScalingPlansClient(config);
+ * const command = new GetScalingPlanResourceForecastDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetScalingPlanResourceForecastDataCommandInput} for command's `input` shape.
+ * @see {@link GetScalingPlanResourceForecastDataCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingPlansClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetScalingPlanResourceForecastDataCommand extends $Command<
   GetScalingPlanResourceForecastDataCommandInput,

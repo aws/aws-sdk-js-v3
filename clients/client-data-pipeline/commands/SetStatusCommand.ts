@@ -51,6 +51,20 @@ export interface SetStatusCommandOutput extends __MetadataBearer {}
  *
  *             </response>
  *         </examples>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataPipelineClient, SetStatusCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
+ * // const { DataPipelineClient, SetStatusCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * const client = new DataPipelineClient(config);
+ * const command = new SetStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetStatusCommandInput} for command's `input` shape.
+ * @see {@link SetStatusCommandOutput} for command's `response` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetStatusCommand extends $Command<
   SetStatusCommandInput,

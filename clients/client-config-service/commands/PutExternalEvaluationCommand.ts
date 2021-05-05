@@ -23,6 +23,20 @@ export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluatio
 /**
  * <p>Add or updates the evaluations for process checks.
  * 			This API checks if the rule is a process check when the name of the AWS Config rule is provided.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConfigServiceClient, PutExternalEvaluationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, PutExternalEvaluationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * const client = new ConfigServiceClient(config);
+ * const command = new PutExternalEvaluationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutExternalEvaluationCommandInput} for command's `input` shape.
+ * @see {@link PutExternalEvaluationCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutExternalEvaluationCommand extends $Command<
   PutExternalEvaluationCommandInput,

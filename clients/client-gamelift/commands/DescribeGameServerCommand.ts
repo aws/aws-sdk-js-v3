@@ -46,6 +46,20 @@ export interface DescribeGameServerCommandOutput extends DescribeGameServerOutpu
  *                     <a>DeregisterGameServer</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
  *          </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GameLiftClient, DescribeGameServerCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
+ * // const { GameLiftClient, DescribeGameServerCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * const client = new GameLiftClient(config);
+ * const command = new DescribeGameServerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeGameServerCommandInput} for command's `input` shape.
+ * @see {@link DescribeGameServerCommandOutput} for command's `response` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeGameServerCommand extends $Command<
   DescribeGameServerCommandInput,

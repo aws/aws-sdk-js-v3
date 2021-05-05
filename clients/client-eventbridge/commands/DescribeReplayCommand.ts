@@ -30,6 +30,20 @@ export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __M
  *         <code>DescribeReplay</code> to determine the progress of a replay. The value returned for
  *         <code>EventLastReplayedTime</code> indicates the time within the specified time range
  *       associated with the last event replayed.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EventBridgeClient, DescribeReplayCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, DescribeReplayCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * const client = new EventBridgeClient(config);
+ * const command = new DescribeReplayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeReplayCommandInput} for command's `input` shape.
+ * @see {@link DescribeReplayCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeReplayCommand extends $Command<
   DescribeReplayCommandInput,

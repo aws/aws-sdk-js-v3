@@ -45,6 +45,20 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  *       an event-generating resource within the partner system. The combination of
  *         <i>event_namespace</i> and <i>event_name</i> should help AWS
  *       customers decide whether to create an event bus to receive these events.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EventBridgeClient, CreatePartnerEventSourceCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, CreatePartnerEventSourceCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * const client = new EventBridgeClient(config);
+ * const command = new CreatePartnerEventSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePartnerEventSourceCommandInput} for command's `input` shape.
+ * @see {@link CreatePartnerEventSourceCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePartnerEventSourceCommand extends $Command<
   CreatePartnerEventSourceCommandInput,

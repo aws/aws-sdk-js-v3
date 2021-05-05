@@ -22,6 +22,20 @@ export interface GetCrawlerCommandOutput extends GetCrawlerResponse, __MetadataB
 
 /**
  * <p>Retrieves metadata for a specified crawler.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, GetCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new GetCrawlerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCrawlerCommandInput} for command's `input` shape.
+ * @see {@link GetCrawlerCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCrawlerCommand extends $Command<
   GetCrawlerCommandInput,

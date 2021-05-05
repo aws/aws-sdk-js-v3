@@ -23,6 +23,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
  *          <p>Lists the tags for the specified resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppIntegrationsClient, ListTagsForResourceCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
+ * // const { AppIntegrationsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
+ * const client = new AppIntegrationsClient(config);
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link AppIntegrationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

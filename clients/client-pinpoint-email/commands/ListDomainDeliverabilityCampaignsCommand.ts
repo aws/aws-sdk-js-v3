@@ -30,6 +30,20 @@ export interface ListDomainDeliverabilityCampaignsCommandOutput
  *             email during a specified time range. This data is available for a domain only if you
  *             enabled the Deliverability dashboard (<code>PutDeliverabilityDashboardOption</code> operation)
  *             for the domain.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointEmailClient, ListDomainDeliverabilityCampaignsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
+ * // const { PinpointEmailClient, ListDomainDeliverabilityCampaignsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * const client = new PinpointEmailClient(config);
+ * const command = new ListDomainDeliverabilityCampaignsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDomainDeliverabilityCampaignsCommandInput} for command's `input` shape.
+ * @see {@link ListDomainDeliverabilityCampaignsCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDomainDeliverabilityCampaignsCommand extends $Command<
   ListDomainDeliverabilityCampaignsCommandInput,

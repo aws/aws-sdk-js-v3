@@ -26,6 +26,20 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
 
 /**
  * <p>Describes the application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApplicationInsightsClient, DescribeApplicationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
+ * // const { ApplicationInsightsClient, DescribeApplicationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * const client = new ApplicationInsightsClient(config);
+ * const command = new DescribeApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeApplicationCommandInput} for command's `input` shape.
+ * @see {@link DescribeApplicationCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeApplicationCommand extends $Command<
   DescribeApplicationCommandInput,

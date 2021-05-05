@@ -26,6 +26,20 @@ export interface DetachUserPolicyCommandOutput extends __MetadataBearer {}
  *                 <a>DeleteUserPolicy</a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
  *                 policies and inline policies</a> in the
  *             <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, DetachUserPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, DetachUserPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new DetachUserPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetachUserPolicyCommandInput} for command's `input` shape.
+ * @see {@link DetachUserPolicyCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetachUserPolicyCommand extends $Command<
   DetachUserPolicyCommandInput,

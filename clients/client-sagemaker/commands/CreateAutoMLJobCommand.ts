@@ -25,6 +25,20 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  *          <p>Find the best performing model after you run an Autopilot job by calling .</p>
  *          <p>For information about how to use Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">Automate Model
  *             Development with Amazon SageMaker Autopilot</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, CreateAutoMLJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, CreateAutoMLJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new CreateAutoMLJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAutoMLJobCommandInput} for command's `input` shape.
+ * @see {@link CreateAutoMLJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAutoMLJobCommand extends $Command<
   CreateAutoMLJobCommandInput,

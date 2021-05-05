@@ -27,6 +27,20 @@ export interface AssociateTrackerConsumerCommandOutput extends AssociateTrackerC
  *         <note>
  *             <p>Currently not supported — Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LocationClient, AssociateTrackerConsumerCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, AssociateTrackerConsumerCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * const client = new LocationClient(config);
+ * const command = new AssociateTrackerConsumerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateTrackerConsumerCommandInput} for command's `input` shape.
+ * @see {@link AssociateTrackerConsumerCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateTrackerConsumerCommand extends $Command<
   AssociateTrackerConsumerCommandInput,

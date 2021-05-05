@@ -30,6 +30,20 @@ export interface BatchGetNamedQueryCommandOutput extends BatchGetNamedQueryOutpu
  *             queries. Use <a>BatchGetQueryExecutionInput</a> to get details about each
  *             unique query execution, and <a>ListQueryExecutionsInput</a> to get a list of
  *             query execution IDs.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AthenaClient, BatchGetNamedQueryCommand } from "@aws-sdk/client-athena"; // ES Modules import
+ * // const { AthenaClient, BatchGetNamedQueryCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * const client = new AthenaClient(config);
+ * const command = new BatchGetNamedQueryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetNamedQueryCommandInput} for command's `input` shape.
+ * @see {@link BatchGetNamedQueryCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetNamedQueryCommand extends $Command<
   BatchGetNamedQueryCommandInput,

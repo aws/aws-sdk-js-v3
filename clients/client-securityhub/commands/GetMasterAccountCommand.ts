@@ -27,6 +27,20 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  *          <p>Provides the details for the Security Hub administrator account for the current member account.</p>
  *          <p>Can be used by both member accounts that are managed using Organizations and accounts that were
  *          invited manually.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecurityHubClient, GetMasterAccountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, GetMasterAccountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * const client = new SecurityHubClient(config);
+ * const command = new GetMasterAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMasterAccountCommandInput} for command's `input` shape.
+ * @see {@link GetMasterAccountCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMasterAccountCommand extends $Command<
   GetMasterAccountCommandInput,

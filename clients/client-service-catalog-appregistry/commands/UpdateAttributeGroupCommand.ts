@@ -26,6 +26,20 @@ export interface UpdateAttributeGroupCommandOutput extends UpdateAttributeGroupR
 
 /**
  * <p>Updates an existing attribute group with new details. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogAppRegistryClient, UpdateAttributeGroupCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
+ * // const { ServiceCatalogAppRegistryClient, UpdateAttributeGroupCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * const client = new ServiceCatalogAppRegistryClient(config);
+ * const command = new UpdateAttributeGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAttributeGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateAttributeGroupCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAttributeGroupCommand extends $Command<
   UpdateAttributeGroupCommandInput,

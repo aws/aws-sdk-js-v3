@@ -23,6 +23,20 @@ export interface CreateKeySigningKeyCommandOutput extends CreateKeySigningKeyRes
 
 /**
  * <p>Creates a new key-signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53Client, CreateKeySigningKeyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, CreateKeySigningKeyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * const client = new Route53Client(config);
+ * const command = new CreateKeySigningKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateKeySigningKeyCommandInput} for command's `input` shape.
+ * @see {@link CreateKeySigningKeyCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateKeySigningKeyCommand extends $Command<
   CreateKeySigningKeyCommandInput,

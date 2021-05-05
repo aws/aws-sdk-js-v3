@@ -22,6 +22,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 
 /**
  * <p>Assigns a tag to a resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GroundStationClient, TagResourceCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
+ * // const { GroundStationClient, TagResourceCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * const client = new GroundStationClient(config);
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

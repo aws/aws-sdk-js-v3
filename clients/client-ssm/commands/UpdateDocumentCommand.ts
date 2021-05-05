@@ -22,6 +22,20 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
 
 /**
  * <p>Updates one or more values for an SSM document.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, UpdateDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, UpdateDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new UpdateDocumentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDocumentCommandInput} for command's `input` shape.
+ * @see {@link UpdateDocumentCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDocumentCommand extends $Command<
   UpdateDocumentCommandInput,

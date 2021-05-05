@@ -22,6 +22,20 @@ export interface GetExperimentTemplateCommandOutput extends GetExperimentTemplat
 
 /**
  * <p>Gets information about the specified experiment template.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FisClient, GetExperimentTemplateCommand } from "@aws-sdk/client-fis"; // ES Modules import
+ * // const { FisClient, GetExperimentTemplateCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * const client = new FisClient(config);
+ * const command = new GetExperimentTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetExperimentTemplateCommandInput} for command's `input` shape.
+ * @see {@link GetExperimentTemplateCommandOutput} for command's `response` shape.
+ * @see {@link FisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetExperimentTemplateCommand extends $Command<
   GetExperimentTemplateCommandInput,

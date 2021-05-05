@@ -27,6 +27,20 @@ export interface MoveAddressToVpcCommandOutput extends MoveAddressToVpcResult, _
  *       available for use in the EC2-Classic platform, unless you move it back using the
  *         <a>RestoreAddressToClassic</a> request. You cannot move an Elastic IP address that was
  *       originally allocated for use in the EC2-VPC platform to the EC2-Classic platform. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, MoveAddressToVpcCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, MoveAddressToVpcCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new MoveAddressToVpcCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link MoveAddressToVpcCommandInput} for command's `input` shape.
+ * @see {@link MoveAddressToVpcCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class MoveAddressToVpcCommand extends $Command<
   MoveAddressToVpcCommandInput,

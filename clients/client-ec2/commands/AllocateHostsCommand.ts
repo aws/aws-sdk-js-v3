@@ -21,6 +21,20 @@ export interface AllocateHostsCommandOutput extends AllocateHostsResult, __Metad
  * <p>Allocates a Dedicated Host to your account. At a minimum, specify the supported instance
  *         	type or instance family, the Availability Zone in which to allocate the host, and the number of
  *         	hosts to allocate.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, AllocateHostsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, AllocateHostsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new AllocateHostsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AllocateHostsCommandInput} for command's `input` shape.
+ * @see {@link AllocateHostsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AllocateHostsCommand extends $Command<
   AllocateHostsCommandInput,

@@ -19,6 +19,20 @@ export interface GetDeviceCommandOutput extends GetDeviceResult, __MetadataBeare
 
 /**
  * <p>Gets information about a unique device type.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, GetDeviceCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, GetDeviceCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new GetDeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDeviceCommandInput} for command's `input` shape.
+ * @see {@link GetDeviceCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDeviceCommand extends $Command<
   GetDeviceCommandInput,

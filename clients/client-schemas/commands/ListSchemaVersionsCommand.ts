@@ -22,6 +22,20 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
 
 /**
  * <p>Provides a list of the schema versions and related information.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SchemasClient, ListSchemaVersionsCommand } from "@aws-sdk/client-schemas"; // ES Modules import
+ * // const { SchemasClient, ListSchemaVersionsCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * const client = new SchemasClient(config);
+ * const command = new ListSchemaVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSchemaVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListSchemaVersionsCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSchemaVersionsCommand extends $Command<
   ListSchemaVersionsCommandInput,

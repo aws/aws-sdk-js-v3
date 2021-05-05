@@ -29,6 +29,20 @@ export interface GetOpsItemCommandOutput extends GetOpsItemResponse, __MetadataB
  *    operational issues impacting the performance and health of their AWS resources. For more
  *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
  *     <i>AWS Systems Manager User Guide</i>. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, GetOpsItemCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, GetOpsItemCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new GetOpsItemCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOpsItemCommandInput} for command's `input` shape.
+ * @see {@link GetOpsItemCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOpsItemCommand extends $Command<
   GetOpsItemCommandInput,

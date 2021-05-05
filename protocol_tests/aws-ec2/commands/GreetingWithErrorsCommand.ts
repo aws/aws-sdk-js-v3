@@ -26,6 +26,20 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * 1. A successful response in the form of GreetingWithErrorsOutput
  * 2. An InvalidGreeting error.
  * 3. A BadRequest error.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2ProtocolClient, GreetingWithErrorsCommand } from "@aws-sdk/aws-ec2"; // ES Modules import
+ * // const { EC2ProtocolClient, GreetingWithErrorsCommand } = require("@aws-sdk/aws-ec2"); // CommonJS import
+ * const client = new EC2ProtocolClient(config);
+ * const command = new GreetingWithErrorsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GreetingWithErrorsCommandInput} for command's `input` shape.
+ * @see {@link GreetingWithErrorsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GreetingWithErrorsCommand extends $Command<
   GreetingWithErrorsCommandInput,

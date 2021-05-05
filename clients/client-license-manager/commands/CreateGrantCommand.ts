@@ -22,6 +22,20 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
 
 /**
  * <p>Creates a grant for the specified license. A grant shares the use of license entitlements with specific AWS accounts.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LicenseManagerClient, CreateGrantCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, CreateGrantCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * const client = new LicenseManagerClient(config);
+ * const command = new CreateGrantCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateGrantCommandInput} for command's `input` shape.
+ * @see {@link CreateGrantCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateGrantCommand extends $Command<
   CreateGrantCommandInput,

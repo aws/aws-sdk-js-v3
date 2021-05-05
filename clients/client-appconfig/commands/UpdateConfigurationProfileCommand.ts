@@ -22,6 +22,20 @@ export interface UpdateConfigurationProfileCommandOutput extends ConfigurationPr
 
 /**
  * <p>Updates a configuration profile.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppConfigClient, UpdateConfigurationProfileCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
+ * // const { AppConfigClient, UpdateConfigurationProfileCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * const client = new AppConfigClient(config);
+ * const command = new UpdateConfigurationProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateConfigurationProfileCommandInput} for command's `input` shape.
+ * @see {@link UpdateConfigurationProfileCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateConfigurationProfileCommand extends $Command<
   UpdateConfigurationProfileCommandInput,

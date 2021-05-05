@@ -50,6 +50,20 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  *             execute scaling policies. Any scaling policies that were specified for the scalable
  *             target are deleted.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApplicationAutoScalingClient, PutScalingPolicyCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
+ * // const { ApplicationAutoScalingClient, PutScalingPolicyCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
+ * const client = new ApplicationAutoScalingClient(config);
+ * const command = new PutScalingPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutScalingPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutScalingPolicyCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutScalingPolicyCommand extends $Command<
   PutScalingPolicyCommandInput,

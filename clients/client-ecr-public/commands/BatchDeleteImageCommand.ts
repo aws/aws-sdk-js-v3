@@ -27,6 +27,20 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  *          you remove the last tag from an image, the image is deleted from your repository.</p>
  *          <p>You can completely delete an image (and all of its tags) by specifying the image's
  *          digest in your request.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECRPUBLICClient, BatchDeleteImageCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
+ * // const { ECRPUBLICClient, BatchDeleteImageCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * const client = new ECRPUBLICClient(config);
+ * const command = new BatchDeleteImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDeleteImageCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteImageCommandOutput} for command's `response` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDeleteImageCommand extends $Command<
   BatchDeleteImageCommandInput,

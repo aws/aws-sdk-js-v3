@@ -27,6 +27,20 @@ export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthe
  *       output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn).
  *       Once the synthesis task is created, this operation will return a SpeechSynthesisTask object,
  *       which will include an identifier of this task as well as the current status.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PollyClient, StartSpeechSynthesisTaskCommand } from "@aws-sdk/client-polly"; // ES Modules import
+ * // const { PollyClient, StartSpeechSynthesisTaskCommand } = require("@aws-sdk/client-polly"); // CommonJS import
+ * const client = new PollyClient(config);
+ * const command = new StartSpeechSynthesisTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartSpeechSynthesisTaskCommandInput} for command's `input` shape.
+ * @see {@link StartSpeechSynthesisTaskCommandOutput} for command's `response` shape.
+ * @see {@link PollyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartSpeechSynthesisTaskCommand extends $Command<
   StartSpeechSynthesisTaskCommandInput,

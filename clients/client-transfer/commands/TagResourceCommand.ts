@@ -25,6 +25,20 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *       Resources are users, servers, roles, and other entities.</p>
  *
  *          <p>There is no response returned from this call.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TransferClient, TagResourceCommand } from "@aws-sdk/client-transfer"; // ES Modules import
+ * // const { TransferClient, TagResourceCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * const client = new TransferClient(config);
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

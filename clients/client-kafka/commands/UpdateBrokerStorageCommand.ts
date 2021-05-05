@@ -22,6 +22,20 @@ export interface UpdateBrokerStorageCommandOutput extends UpdateBrokerStorageRes
 
 /**
  * <p>Updates the EBS storage associated with MSK brokers.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KafkaClient, UpdateBrokerStorageCommand } from "@aws-sdk/client-kafka"; // ES Modules import
+ * // const { KafkaClient, UpdateBrokerStorageCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * const client = new KafkaClient(config);
+ * const command = new UpdateBrokerStorageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateBrokerStorageCommandInput} for command's `input` shape.
+ * @see {@link UpdateBrokerStorageCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateBrokerStorageCommand extends $Command<
   UpdateBrokerStorageCommandInput,

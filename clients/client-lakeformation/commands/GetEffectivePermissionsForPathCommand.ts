@@ -25,6 +25,20 @@ export interface GetEffectivePermissionsForPathCommandOutput
 /**
  * <p>Returns the Lake Formation permissions for a specified table or database resource located
  *       at a path in Amazon S3. <code>GetEffectivePermissionsForPath</code> will not return databases and tables if the catalog is encrypted.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LakeFormationClient, GetEffectivePermissionsForPathCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
+ * // const { LakeFormationClient, GetEffectivePermissionsForPathCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * const client = new LakeFormationClient(config);
+ * const command = new GetEffectivePermissionsForPathCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEffectivePermissionsForPathCommandInput} for command's `input` shape.
+ * @see {@link GetEffectivePermissionsForPathCommandOutput} for command's `response` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEffectivePermissionsForPathCommand extends $Command<
   GetEffectivePermissionsForPathCommandInput,

@@ -26,6 +26,20 @@ export interface StartEntitiesDetectionJobCommandOutput extends StartEntitiesDet
  *       order to be used for custom entity recognition, the optional <code>EntityRecognizerArn</code>
  *       must be used in order to provide access to the recognizer being used to detect the custom
  *       entity.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ComprehendClient, StartEntitiesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, StartEntitiesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * const client = new ComprehendClient(config);
+ * const command = new StartEntitiesDetectionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartEntitiesDetectionJobCommandInput} for command's `input` shape.
+ * @see {@link StartEntitiesDetectionJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartEntitiesDetectionJobCommand extends $Command<
   StartEntitiesDetectionJobCommandInput,

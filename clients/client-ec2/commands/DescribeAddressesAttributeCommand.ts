@@ -22,6 +22,20 @@ export interface DescribeAddressesAttributeCommandOutput extends DescribeAddress
 
 /**
  * <p>Describes the attributes of the specified Elastic IP addresses. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DescribeAddressesAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeAddressesAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DescribeAddressesAttributeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAddressesAttributeCommandInput} for command's `input` shape.
+ * @see {@link DescribeAddressesAttributeCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAddressesAttributeCommand extends $Command<
   DescribeAddressesAttributeCommandInput,

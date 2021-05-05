@@ -27,6 +27,20 @@ export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectCon
  *       are connected through a Direct Connect gateway can be in different AWS Regions. This enables you to
  *       connect to a VPC in any Region, regardless of the Region in which the virtual interfaces
  *       are located, and pass traffic between them.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectConnectClient, CreateDirectConnectGatewayCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, CreateDirectConnectGatewayCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * const client = new DirectConnectClient(config);
+ * const command = new CreateDirectConnectGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDirectConnectGatewayCommandInput} for command's `input` shape.
+ * @see {@link CreateDirectConnectGatewayCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDirectConnectGatewayCommand extends $Command<
   CreateDirectConnectGatewayCommandInput,

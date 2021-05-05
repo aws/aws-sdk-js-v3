@@ -22,6 +22,20 @@ export interface DeleteReservationCommandOutput extends DeleteReservationRespons
 
 /**
  * Delete an expired reservation.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaLiveClient, DeleteReservationCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, DeleteReservationCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * const client = new MediaLiveClient(config);
+ * const command = new DeleteReservationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteReservationCommandInput} for command's `input` shape.
+ * @see {@link DeleteReservationCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteReservationCommand extends $Command<
   DeleteReservationCommandInput,

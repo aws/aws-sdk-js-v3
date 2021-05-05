@@ -22,6 +22,20 @@ export interface StartMetricStreamsCommandOutput extends StartMetricStreamsOutpu
 
 /**
  * <p>Starts the streaming of metrics for one or more of your metric streams.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchClient, StartMetricStreamsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
+ * // const { CloudWatchClient, StartMetricStreamsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * const client = new CloudWatchClient(config);
+ * const command = new StartMetricStreamsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartMetricStreamsCommandInput} for command's `input` shape.
+ * @see {@link StartMetricStreamsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartMetricStreamsCommand extends $Command<
   StartMetricStreamsCommandInput,

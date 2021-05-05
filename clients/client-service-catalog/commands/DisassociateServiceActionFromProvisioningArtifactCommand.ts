@@ -28,6 +28,20 @@ export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
 
 /**
  * <p>Disassociates the specified self-service action association from the specified provisioning artifact.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, DisassociateServiceActionFromProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, DisassociateServiceActionFromProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DisassociateServiceActionFromProvisioningArtifactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateServiceActionFromProvisioningArtifactCommandInput} for command's `input` shape.
+ * @see {@link DisassociateServiceActionFromProvisioningArtifactCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateServiceActionFromProvisioningArtifactCommand extends $Command<
   DisassociateServiceActionFromProvisioningArtifactCommandInput,

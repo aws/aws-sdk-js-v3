@@ -24,6 +24,20 @@ export interface UpdateSubscriptionDefinitionCommandOutput
 
 /**
  * Updates a subscription definition.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassClient, UpdateSubscriptionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, UpdateSubscriptionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * const client = new GreengrassClient(config);
+ * const command = new UpdateSubscriptionDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSubscriptionDefinitionCommandInput} for command's `input` shape.
+ * @see {@link UpdateSubscriptionDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSubscriptionDefinitionCommand extends $Command<
   UpdateSubscriptionDefinitionCommandInput,

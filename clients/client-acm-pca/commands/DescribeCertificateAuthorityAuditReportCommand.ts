@@ -31,6 +31,20 @@ export interface DescribeCertificateAuthorityAuditReportCommandOutput
  * 			every time the certificate authority (CA) private key is used. The private key is used
  * 			when you call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> action or the
  * 				<a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> action. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ACMPCAClient, DescribeCertificateAuthorityAuditReportCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
+ * // const { ACMPCAClient, DescribeCertificateAuthorityAuditReportCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * const client = new ACMPCAClient(config);
+ * const command = new DescribeCertificateAuthorityAuditReportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCertificateAuthorityAuditReportCommandInput} for command's `input` shape.
+ * @see {@link DescribeCertificateAuthorityAuditReportCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCertificateAuthorityAuditReportCommand extends $Command<
   DescribeCertificateAuthorityAuditReportCommandInput,

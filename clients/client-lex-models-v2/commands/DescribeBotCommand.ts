@@ -22,6 +22,20 @@ export interface DescribeBotCommandOutput extends DescribeBotResponse, __Metadat
 
 /**
  * <p>Provides metadata information about a bot. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelsV2Client, DescribeBotCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, DescribeBotCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * const client = new LexModelsV2Client(config);
+ * const command = new DescribeBotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeBotCommandInput} for command's `input` shape.
+ * @see {@link DescribeBotCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeBotCommand extends $Command<
   DescribeBotCommandInput,

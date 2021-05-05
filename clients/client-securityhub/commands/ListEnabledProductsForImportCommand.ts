@@ -25,6 +25,20 @@ export interface ListEnabledProductsForImportCommandOutput
 /**
  * <p>Lists all findings-generating solutions (products) that you are subscribed to receive
  *          findings from in Security Hub.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecurityHubClient, ListEnabledProductsForImportCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, ListEnabledProductsForImportCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * const client = new SecurityHubClient(config);
+ * const command = new ListEnabledProductsForImportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEnabledProductsForImportCommandInput} for command's `input` shape.
+ * @see {@link ListEnabledProductsForImportCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEnabledProductsForImportCommand extends $Command<
   ListEnabledProductsForImportCommandInput,

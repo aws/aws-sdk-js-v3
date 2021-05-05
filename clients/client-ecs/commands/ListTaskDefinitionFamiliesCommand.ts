@@ -28,6 +28,20 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  * 				<code>ACTIVE</code> task definition revisions by setting the <code>status</code>
  * 			parameter to <code>ACTIVE</code>. You can also filter the results with the
  * 				<code>familyPrefix</code> parameter.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECSClient, ListTaskDefinitionFamiliesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, ListTaskDefinitionFamiliesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * const client = new ECSClient(config);
+ * const command = new ListTaskDefinitionFamiliesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTaskDefinitionFamiliesCommandInput} for command's `input` shape.
+ * @see {@link ListTaskDefinitionFamiliesCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTaskDefinitionFamiliesCommand extends $Command<
   ListTaskDefinitionFamiliesCommandInput,

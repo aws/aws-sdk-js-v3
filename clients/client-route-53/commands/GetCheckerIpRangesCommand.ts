@@ -29,6 +29,20 @@ export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesRespo
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html">IP Address Ranges of Amazon Route 53 Servers</a>
  * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
  * 		       </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53Client, GetCheckerIpRangesCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, GetCheckerIpRangesCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * const client = new Route53Client(config);
+ * const command = new GetCheckerIpRangesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCheckerIpRangesCommandInput} for command's `input` shape.
+ * @see {@link GetCheckerIpRangesCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCheckerIpRangesCommand extends $Command<
   GetCheckerIpRangesCommandInput,

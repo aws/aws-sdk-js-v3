@@ -28,6 +28,20 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
 
 /**
  * Deletes an event destination in a configuration set.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointSMSVoiceClient, DeleteConfigurationSetEventDestinationCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
+ * // const { PinpointSMSVoiceClient, DeleteConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
+ * const client = new PinpointSMSVoiceClient(config);
+ * const command = new DeleteConfigurationSetEventDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConfigurationSetEventDestinationCommandInput} for command's `input` shape.
+ * @see {@link DeleteConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
+ * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConfigurationSetEventDestinationCommand extends $Command<
   DeleteConfigurationSetEventDestinationCommandInput,

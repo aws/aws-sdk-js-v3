@@ -53,6 +53,20 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  *     start of the video, persons are matched.
  *     You can also sort by persons by specifying <code>INDEX</code> for the <code>SORTBY</code> input
  *     parameter.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RekognitionClient, GetFaceSearchCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, GetFaceSearchCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * const client = new RekognitionClient(config);
+ * const command = new GetFaceSearchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFaceSearchCommandInput} for command's `input` shape.
+ * @see {@link GetFaceSearchCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFaceSearchCommand extends $Command<
   GetFaceSearchCommandInput,

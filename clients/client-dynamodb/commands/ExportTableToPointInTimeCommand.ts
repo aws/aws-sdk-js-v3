@@ -24,6 +24,20 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  * <p>Exports table data to an S3 bucket. The table must have point in time recovery
  *             enabled, and you can export data from any time within the point in time recovery
  *             window.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DynamoDBClient, ExportTableToPointInTimeCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, ExportTableToPointInTimeCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * const client = new DynamoDBClient(config);
+ * const command = new ExportTableToPointInTimeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ExportTableToPointInTimeCommandInput} for command's `input` shape.
+ * @see {@link ExportTableToPointInTimeCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ExportTableToPointInTimeCommand extends $Command<
   ExportTableToPointInTimeCommandInput,

@@ -22,6 +22,20 @@ export interface ListMeetingTagsCommandOutput extends ListMeetingTagsResponse, _
 
 /**
  * <p>Lists the tags applied to an Amazon Chime SDK meeting resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, ListMeetingTagsCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, ListMeetingTagsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new ListMeetingTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMeetingTagsCommandInput} for command's `input` shape.
+ * @see {@link ListMeetingTagsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMeetingTagsCommand extends $Command<
   ListMeetingTagsCommandInput,

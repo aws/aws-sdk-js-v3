@@ -50,6 +50,9 @@ export interface GetRealtimeLogConfigResult {
 }
 
 export namespace GetRealtimeLogConfigResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRealtimeLogConfigResult): any => ({
     ...obj,
   });
@@ -66,6 +69,9 @@ export interface GetStreamingDistributionRequest {
 }
 
 export namespace GetStreamingDistributionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetStreamingDistributionRequest): any => ({
     ...obj,
   });
@@ -88,6 +94,9 @@ export interface GetStreamingDistributionResult {
 }
 
 export namespace GetStreamingDistributionResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetStreamingDistributionResult): any => ({
     ...obj,
   });
@@ -104,6 +113,9 @@ export interface GetStreamingDistributionConfigRequest {
 }
 
 export namespace GetStreamingDistributionConfigRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetStreamingDistributionConfigRequest): any => ({
     ...obj,
   });
@@ -126,6 +138,9 @@ export interface GetStreamingDistributionConfigResult {
 }
 
 export namespace GetStreamingDistributionConfigResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetStreamingDistributionConfigResult): any => ({
     ...obj,
   });
@@ -164,6 +179,9 @@ export interface ListCachePoliciesRequest {
 }
 
 export namespace ListCachePoliciesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCachePoliciesRequest): any => ({
     ...obj,
   });
@@ -177,6 +195,9 @@ export interface ListCachePoliciesResult {
 }
 
 export namespace ListCachePoliciesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCachePoliciesResult): any => ({
     ...obj,
   });
@@ -203,6 +224,9 @@ export interface ListCloudFrontOriginAccessIdentitiesRequest {
 }
 
 export namespace ListCloudFrontOriginAccessIdentitiesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCloudFrontOriginAccessIdentitiesRequest): any => ({
     ...obj,
   });
@@ -232,6 +256,9 @@ export interface CloudFrontOriginAccessIdentitySummary {
 }
 
 export namespace CloudFrontOriginAccessIdentitySummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudFrontOriginAccessIdentitySummary): any => ({
     ...obj,
   });
@@ -291,6 +318,9 @@ export interface CloudFrontOriginAccessIdentityList {
 }
 
 export namespace CloudFrontOriginAccessIdentityList {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudFrontOriginAccessIdentityList): any => ({
     ...obj,
   });
@@ -307,6 +337,9 @@ export interface ListCloudFrontOriginAccessIdentitiesResult {
 }
 
 export namespace ListCloudFrontOriginAccessIdentitiesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCloudFrontOriginAccessIdentitiesResult): any => ({
     ...obj,
   });
@@ -332,6 +365,9 @@ export interface ListDistributionsRequest {
 }
 
 export namespace ListDistributionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDistributionsRequest): any => ({
     ...obj,
   });
@@ -464,6 +500,9 @@ export interface DistributionSummary {
 }
 
 export namespace DistributionSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DistributionSummary): any => ({
     ...obj,
   });
@@ -510,6 +549,9 @@ export interface DistributionList {
 }
 
 export namespace DistributionList {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DistributionList): any => ({
     ...obj,
   });
@@ -526,6 +568,9 @@ export interface ListDistributionsResult {
 }
 
 export namespace ListDistributionsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDistributionsResult): any => ({
     ...obj,
   });
@@ -552,6 +597,9 @@ export interface ListDistributionsByCachePolicyIdRequest {
 }
 
 export namespace ListDistributionsByCachePolicyIdRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDistributionsByCachePolicyIdRequest): any => ({
     ...obj,
   });
@@ -596,6 +644,9 @@ export interface DistributionIdList {
 }
 
 export namespace DistributionIdList {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DistributionIdList): any => ({
     ...obj,
   });
@@ -609,6 +660,9 @@ export interface ListDistributionsByCachePolicyIdResult {
 }
 
 export namespace ListDistributionsByCachePolicyIdResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDistributionsByCachePolicyIdResult): any => ({
     ...obj,
   });
@@ -635,6 +689,9 @@ export interface ListDistributionsByKeyGroupRequest {
 }
 
 export namespace ListDistributionsByKeyGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDistributionsByKeyGroupRequest): any => ({
     ...obj,
   });
@@ -648,6 +705,9 @@ export interface ListDistributionsByKeyGroupResult {
 }
 
 export namespace ListDistributionsByKeyGroupResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDistributionsByKeyGroupResult): any => ({
     ...obj,
   });
@@ -675,6 +735,9 @@ export interface ListDistributionsByOriginRequestPolicyIdRequest {
 }
 
 export namespace ListDistributionsByOriginRequestPolicyIdRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDistributionsByOriginRequestPolicyIdRequest): any => ({
     ...obj,
   });
@@ -688,6 +751,9 @@ export interface ListDistributionsByOriginRequestPolicyIdResult {
 }
 
 export namespace ListDistributionsByOriginRequestPolicyIdResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDistributionsByOriginRequestPolicyIdResult): any => ({
     ...obj,
   });
@@ -721,6 +787,9 @@ export interface ListDistributionsByRealtimeLogConfigRequest {
 }
 
 export namespace ListDistributionsByRealtimeLogConfigRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDistributionsByRealtimeLogConfigRequest): any => ({
     ...obj,
   });
@@ -734,6 +803,9 @@ export interface ListDistributionsByRealtimeLogConfigResult {
 }
 
 export namespace ListDistributionsByRealtimeLogConfigResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDistributionsByRealtimeLogConfigResult): any => ({
     ...obj,
   });
@@ -768,6 +840,9 @@ export interface ListDistributionsByWebACLIdRequest {
 }
 
 export namespace ListDistributionsByWebACLIdRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDistributionsByWebACLIdRequest): any => ({
     ...obj,
   });
@@ -785,6 +860,9 @@ export interface ListDistributionsByWebACLIdResult {
 }
 
 export namespace ListDistributionsByWebACLIdResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDistributionsByWebACLIdResult): any => ({
     ...obj,
   });
@@ -805,6 +883,9 @@ export interface ListFieldLevelEncryptionConfigsRequest {
 }
 
 export namespace ListFieldLevelEncryptionConfigsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListFieldLevelEncryptionConfigsRequest): any => ({
     ...obj,
   });
@@ -845,6 +926,9 @@ export interface FieldLevelEncryptionSummary {
 }
 
 export namespace FieldLevelEncryptionSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FieldLevelEncryptionSummary): any => ({
     ...obj,
   });
@@ -878,6 +962,9 @@ export interface FieldLevelEncryptionList {
 }
 
 export namespace FieldLevelEncryptionList {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FieldLevelEncryptionList): any => ({
     ...obj,
   });
@@ -891,6 +978,9 @@ export interface ListFieldLevelEncryptionConfigsResult {
 }
 
 export namespace ListFieldLevelEncryptionConfigsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListFieldLevelEncryptionConfigsResult): any => ({
     ...obj,
   });
@@ -911,6 +1001,9 @@ export interface ListFieldLevelEncryptionProfilesRequest {
 }
 
 export namespace ListFieldLevelEncryptionProfilesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListFieldLevelEncryptionProfilesRequest): any => ({
     ...obj,
   });
@@ -948,6 +1041,9 @@ export interface FieldLevelEncryptionProfileSummary {
 }
 
 export namespace FieldLevelEncryptionProfileSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FieldLevelEncryptionProfileSummary): any => ({
     ...obj,
   });
@@ -981,6 +1077,9 @@ export interface FieldLevelEncryptionProfileList {
 }
 
 export namespace FieldLevelEncryptionProfileList {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FieldLevelEncryptionProfileList): any => ({
     ...obj,
   });
@@ -994,6 +1093,9 @@ export interface ListFieldLevelEncryptionProfilesResult {
 }
 
 export namespace ListFieldLevelEncryptionProfilesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListFieldLevelEncryptionProfilesResult): any => ({
     ...obj,
   });
@@ -1026,6 +1128,9 @@ export interface ListInvalidationsRequest {
 }
 
 export namespace ListInvalidationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListInvalidationsRequest): any => ({
     ...obj,
   });
@@ -1052,6 +1157,9 @@ export interface InvalidationSummary {
 }
 
 export namespace InvalidationSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidationSummary): any => ({
     ...obj,
   });
@@ -1102,6 +1210,9 @@ export interface InvalidationList {
 }
 
 export namespace InvalidationList {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidationList): any => ({
     ...obj,
   });
@@ -1118,6 +1229,9 @@ export interface ListInvalidationsResult {
 }
 
 export namespace ListInvalidationsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListInvalidationsResult): any => ({
     ...obj,
   });
@@ -1139,6 +1253,9 @@ export interface ListKeyGroupsRequest {
 }
 
 export namespace ListKeyGroupsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListKeyGroupsRequest): any => ({
     ...obj,
   });
@@ -1155,6 +1272,9 @@ export interface KeyGroupSummary {
 }
 
 export namespace KeyGroupSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KeyGroupSummary): any => ({
     ...obj,
   });
@@ -1188,6 +1308,9 @@ export interface KeyGroupList {
 }
 
 export namespace KeyGroupList {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KeyGroupList): any => ({
     ...obj,
   });
@@ -1201,6 +1324,9 @@ export interface ListKeyGroupsResult {
 }
 
 export namespace ListKeyGroupsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListKeyGroupsResult): any => ({
     ...obj,
   });
@@ -1241,6 +1367,9 @@ export interface ListOriginRequestPoliciesRequest {
 }
 
 export namespace ListOriginRequestPoliciesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListOriginRequestPoliciesRequest): any => ({
     ...obj,
   });
@@ -1263,6 +1392,9 @@ export interface OriginRequestPolicySummary {
 }
 
 export namespace OriginRequestPolicySummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OriginRequestPolicySummary): any => ({
     ...obj,
   });
@@ -1297,6 +1429,9 @@ export interface OriginRequestPolicyList {
 }
 
 export namespace OriginRequestPolicyList {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OriginRequestPolicyList): any => ({
     ...obj,
   });
@@ -1310,6 +1445,9 @@ export interface ListOriginRequestPoliciesResult {
 }
 
 export namespace ListOriginRequestPoliciesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListOriginRequestPoliciesResult): any => ({
     ...obj,
   });
@@ -1330,6 +1468,9 @@ export interface ListPublicKeysRequest {
 }
 
 export namespace ListPublicKeysRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPublicKeysRequest): any => ({
     ...obj,
   });
@@ -1366,6 +1507,9 @@ export interface PublicKeySummary {
 }
 
 export namespace PublicKeySummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PublicKeySummary): any => ({
     ...obj,
   });
@@ -1399,6 +1543,9 @@ export interface PublicKeyList {
 }
 
 export namespace PublicKeyList {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PublicKeyList): any => ({
     ...obj,
   });
@@ -1412,6 +1559,9 @@ export interface ListPublicKeysResult {
 }
 
 export namespace ListPublicKeysResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPublicKeysResult): any => ({
     ...obj,
   });
@@ -1433,6 +1583,9 @@ export interface ListRealtimeLogConfigsRequest {
 }
 
 export namespace ListRealtimeLogConfigsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRealtimeLogConfigsRequest): any => ({
     ...obj,
   });
@@ -1473,6 +1626,9 @@ export interface RealtimeLogConfigs {
 }
 
 export namespace RealtimeLogConfigs {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RealtimeLogConfigs): any => ({
     ...obj,
   });
@@ -1486,6 +1642,9 @@ export interface ListRealtimeLogConfigsResult {
 }
 
 export namespace ListRealtimeLogConfigsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRealtimeLogConfigsResult): any => ({
     ...obj,
   });
@@ -1507,6 +1666,9 @@ export interface ListStreamingDistributionsRequest {
 }
 
 export namespace ListStreamingDistributionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStreamingDistributionsRequest): any => ({
     ...obj,
   });
@@ -1592,6 +1754,9 @@ export interface StreamingDistributionSummary {
 }
 
 export namespace StreamingDistributionSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StreamingDistributionSummary): any => ({
     ...obj,
   });
@@ -1639,6 +1804,9 @@ export interface StreamingDistributionList {
 }
 
 export namespace StreamingDistributionList {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StreamingDistributionList): any => ({
     ...obj,
   });
@@ -1655,6 +1823,9 @@ export interface ListStreamingDistributionsResult {
 }
 
 export namespace ListStreamingDistributionsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStreamingDistributionsResult): any => ({
     ...obj,
   });
@@ -1671,6 +1842,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -1687,6 +1861,9 @@ export interface ListTagsForResourceResult {
 }
 
 export namespace ListTagsForResourceResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
     ...obj,
   });
@@ -1708,6 +1885,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -1724,6 +1904,9 @@ export interface TagKeys {
 }
 
 export namespace TagKeys {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagKeys): any => ({
     ...obj,
   });
@@ -1745,6 +1928,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -1760,6 +1946,9 @@ export interface IllegalUpdate extends __SmithyException, $MetadataBearer {
 }
 
 export namespace IllegalUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IllegalUpdate): any => ({
     ...obj,
   });
@@ -1787,6 +1976,9 @@ export interface UpdateCachePolicyRequest {
 }
 
 export namespace UpdateCachePolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCachePolicyRequest): any => ({
     ...obj,
   });
@@ -1805,6 +1997,9 @@ export interface UpdateCachePolicyResult {
 }
 
 export namespace UpdateCachePolicyResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCachePolicyResult): any => ({
     ...obj,
   });
@@ -1832,6 +2027,9 @@ export interface UpdateCloudFrontOriginAccessIdentityRequest {
 }
 
 export namespace UpdateCloudFrontOriginAccessIdentityRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCloudFrontOriginAccessIdentityRequest): any => ({
     ...obj,
   });
@@ -1854,6 +2052,9 @@ export interface UpdateCloudFrontOriginAccessIdentityResult {
 }
 
 export namespace UpdateCloudFrontOriginAccessIdentityResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCloudFrontOriginAccessIdentityResult): any => ({
     ...obj,
   });
@@ -1881,6 +2082,9 @@ export interface UpdateDistributionRequest {
 }
 
 export namespace UpdateDistributionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDistributionRequest): any => ({
     ...obj,
     ...(obj.DistributionConfig && {
@@ -1906,6 +2110,9 @@ export interface UpdateDistributionResult {
 }
 
 export namespace UpdateDistributionResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDistributionResult): any => ({
     ...obj,
     ...(obj.Distribution && { Distribution: Distribution.filterSensitiveLog(obj.Distribution) }),
@@ -1931,6 +2138,9 @@ export interface UpdateFieldLevelEncryptionConfigRequest {
 }
 
 export namespace UpdateFieldLevelEncryptionConfigRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateFieldLevelEncryptionConfigRequest): any => ({
     ...obj,
   });
@@ -1950,6 +2160,9 @@ export interface UpdateFieldLevelEncryptionConfigResult {
 }
 
 export namespace UpdateFieldLevelEncryptionConfigResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateFieldLevelEncryptionConfigResult): any => ({
     ...obj,
   });
@@ -1974,6 +2187,9 @@ export interface UpdateFieldLevelEncryptionProfileRequest {
 }
 
 export namespace UpdateFieldLevelEncryptionProfileRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateFieldLevelEncryptionProfileRequest): any => ({
     ...obj,
   });
@@ -1992,6 +2208,9 @@ export interface UpdateFieldLevelEncryptionProfileResult {
 }
 
 export namespace UpdateFieldLevelEncryptionProfileResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateFieldLevelEncryptionProfileResult): any => ({
     ...obj,
   });
@@ -2016,6 +2235,9 @@ export interface UpdateKeyGroupRequest {
 }
 
 export namespace UpdateKeyGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateKeyGroupRequest): any => ({
     ...obj,
   });
@@ -2034,6 +2256,9 @@ export interface UpdateKeyGroupResult {
 }
 
 export namespace UpdateKeyGroupResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateKeyGroupResult): any => ({
     ...obj,
   });
@@ -2061,6 +2286,9 @@ export interface UpdateOriginRequestPolicyRequest {
 }
 
 export namespace UpdateOriginRequestPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateOriginRequestPolicyRequest): any => ({
     ...obj,
   });
@@ -2079,6 +2307,9 @@ export interface UpdateOriginRequestPolicyResult {
 }
 
 export namespace UpdateOriginRequestPolicyResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateOriginRequestPolicyResult): any => ({
     ...obj,
   });
@@ -2103,6 +2334,9 @@ export interface UpdatePublicKeyRequest {
 }
 
 export namespace UpdatePublicKeyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdatePublicKeyRequest): any => ({
     ...obj,
   });
@@ -2121,6 +2355,9 @@ export interface UpdatePublicKeyResult {
 }
 
 export namespace UpdatePublicKeyResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdatePublicKeyResult): any => ({
     ...obj,
   });
@@ -2159,6 +2396,9 @@ export interface UpdateRealtimeLogConfigRequest {
 }
 
 export namespace UpdateRealtimeLogConfigRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateRealtimeLogConfigRequest): any => ({
     ...obj,
   });
@@ -2172,6 +2412,9 @@ export interface UpdateRealtimeLogConfigResult {
 }
 
 export namespace UpdateRealtimeLogConfigResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateRealtimeLogConfigResult): any => ({
     ...obj,
   });
@@ -2199,6 +2442,9 @@ export interface UpdateStreamingDistributionRequest {
 }
 
 export namespace UpdateStreamingDistributionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateStreamingDistributionRequest): any => ({
     ...obj,
   });
@@ -2221,6 +2467,9 @@ export interface UpdateStreamingDistributionResult {
 }
 
 export namespace UpdateStreamingDistributionResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateStreamingDistributionResult): any => ({
     ...obj,
   });

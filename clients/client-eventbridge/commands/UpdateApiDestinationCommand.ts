@@ -22,6 +22,20 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
 
 /**
  * <p>Updates an API destination.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EventBridgeClient, UpdateApiDestinationCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, UpdateApiDestinationCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * const client = new EventBridgeClient(config);
+ * const command = new UpdateApiDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateApiDestinationCommandInput} for command's `input` shape.
+ * @see {@link UpdateApiDestinationCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateApiDestinationCommand extends $Command<
   UpdateApiDestinationCommandInput,

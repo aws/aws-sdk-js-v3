@@ -22,6 +22,20 @@ export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBeare
 
 /**
  * <p> Creates a new Amplify app. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmplifyClient, CreateAppCommand } from "@aws-sdk/client-amplify"; // ES Modules import
+ * // const { AmplifyClient, CreateAppCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * const client = new AmplifyClient(config);
+ * const command = new CreateAppCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAppCommandInput} for command's `input` shape.
+ * @see {@link CreateAppCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAppCommand extends $Command<
   CreateAppCommandInput,

@@ -22,6 +22,20 @@ export interface UpdateRecipeJobCommandOutput extends UpdateRecipeJobResponse, _
 
 /**
  * <p>Modifies the definition of an existing DataBrew recipe job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataBrewClient, UpdateRecipeJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
+ * // const { DataBrewClient, UpdateRecipeJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * const client = new DataBrewClient(config);
+ * const command = new UpdateRecipeJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRecipeJobCommandInput} for command's `input` shape.
+ * @see {@link UpdateRecipeJobCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRecipeJobCommand extends $Command<
   UpdateRecipeJobCommandInput,

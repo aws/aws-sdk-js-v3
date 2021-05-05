@@ -24,6 +24,20 @@ export interface ListLayersCommandOutput extends ListLayersResponse, __MetadataB
  * <p>Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
  *         layers</a> and shows information about the latest version of each. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only layers
  *       that indicate that they're compatible with that runtime.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LambdaClient, ListLayersCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, ListLayersCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * const client = new LambdaClient(config);
+ * const command = new ListLayersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListLayersCommandInput} for command's `input` shape.
+ * @see {@link ListLayersCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListLayersCommand extends $Command<
   ListLayersCommandInput,

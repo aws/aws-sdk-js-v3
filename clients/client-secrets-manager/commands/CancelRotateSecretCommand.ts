@@ -74,6 +74,20 @@ export interface CancelRotateSecretCommandOutput extends CancelRotateSecretRespo
  *                <p>To list all of the versions currently associated with a secret, use <a>ListSecretVersionIds</a>.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecretsManagerClient, CancelRotateSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
+ * // const { SecretsManagerClient, CancelRotateSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * const client = new SecretsManagerClient(config);
+ * const command = new CancelRotateSecretCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelRotateSecretCommandInput} for command's `input` shape.
+ * @see {@link CancelRotateSecretCommandOutput} for command's `response` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelRotateSecretCommand extends $Command<
   CancelRotateSecretCommandInput,

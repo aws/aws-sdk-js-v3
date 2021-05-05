@@ -24,6 +24,20 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
 /**
  * <p>Deletes the specified rule.</p>
  *          <p>You can't delete the default rule.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticLoadBalancingV2Client, DeleteRuleCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, DeleteRuleCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new DeleteRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRuleCommandInput} for command's `input` shape.
+ * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRuleCommand extends $Command<
   DeleteRuleCommandInput,

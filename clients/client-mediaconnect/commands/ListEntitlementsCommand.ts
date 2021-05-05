@@ -22,6 +22,20 @@ export interface ListEntitlementsCommandOutput extends ListEntitlementsResponse,
 
 /**
  * Displays a list of all entitlements that have been granted to this account. This request returns 20 results per page.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaConnectClient, ListEntitlementsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
+ * // const { MediaConnectClient, ListEntitlementsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * const client = new MediaConnectClient(config);
+ * const command = new ListEntitlementsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEntitlementsCommandInput} for command's `input` shape.
+ * @see {@link ListEntitlementsCommandOutput} for command's `response` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEntitlementsCommand extends $Command<
   ListEntitlementsCommandInput,

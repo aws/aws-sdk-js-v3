@@ -54,6 +54,20 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *          add the new one.</p>
  *          <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFClient, UpdateRuleGroupCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, UpdateRuleGroupCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * const client = new WAFClient(config);
+ * const command = new UpdateRuleGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRuleGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateRuleGroupCommandOutput} for command's `response` shape.
+ * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRuleGroupCommand extends $Command<
   UpdateRuleGroupCommandInput,

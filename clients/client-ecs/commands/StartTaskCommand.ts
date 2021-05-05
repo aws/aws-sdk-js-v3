@@ -23,6 +23,20 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * 		       <p>Alternatively, you can use <a>RunTask</a> to place tasks for you. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the
  * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECSClient, StartTaskCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, StartTaskCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * const client = new ECSClient(config);
+ * const command = new StartTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartTaskCommandInput} for command's `input` shape.
+ * @see {@link StartTaskCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartTaskCommand extends $Command<StartTaskCommandInput, StartTaskCommandOutput, ECSClientResolvedConfig> {
   // Start section: command_properties

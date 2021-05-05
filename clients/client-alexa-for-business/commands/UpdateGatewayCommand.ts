@@ -23,6 +23,20 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
 /**
  * <p>Updates the details of a gateway. If any optional field is not provided, the existing
  *          corresponding value is left unmodified.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, UpdateGatewayCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, UpdateGatewayCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new UpdateGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateGatewayCommandInput} for command's `input` shape.
+ * @see {@link UpdateGatewayCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateGatewayCommand extends $Command<
   UpdateGatewayCommandInput,

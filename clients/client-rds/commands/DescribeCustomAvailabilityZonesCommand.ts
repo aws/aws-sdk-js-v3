@@ -27,6 +27,20 @@ export interface DescribeCustomAvailabilityZonesCommandOutput extends CustomAvai
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
  *                 RDS on VMware User Guide.</a>
  *          </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, DescribeCustomAvailabilityZonesCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeCustomAvailabilityZonesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new DescribeCustomAvailabilityZonesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCustomAvailabilityZonesCommandInput} for command's `input` shape.
+ * @see {@link DescribeCustomAvailabilityZonesCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCustomAvailabilityZonesCommand extends $Command<
   DescribeCustomAvailabilityZonesCommandInput,

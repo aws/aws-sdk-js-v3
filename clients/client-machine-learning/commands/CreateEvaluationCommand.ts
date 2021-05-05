@@ -33,6 +33,20 @@ export interface CreateEvaluationCommandOutput extends CreateEvaluationOutput, _
  *             Amazon ML sets the status to <code>COMPLETED</code>.
  *         </p>
  *         <p>You can use the <code>GetEvaluation</code> operation to check progress of the evaluation during the creation operation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MachineLearningClient, CreateEvaluationCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
+ * // const { MachineLearningClient, CreateEvaluationCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * const client = new MachineLearningClient(config);
+ * const command = new CreateEvaluationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateEvaluationCommandInput} for command's `input` shape.
+ * @see {@link CreateEvaluationCommandOutput} for command's `response` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateEvaluationCommand extends $Command<
   CreateEvaluationCommandInput,

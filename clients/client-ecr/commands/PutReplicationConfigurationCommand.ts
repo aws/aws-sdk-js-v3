@@ -34,6 +34,20 @@ export interface PutReplicationConfigurationCommandOutput
  *                 source account permission to replicate. This permission is controlled using a
  *                 registry permissions policy. For more information, see <a>PutRegistryPolicy</a>.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECRClient, PutReplicationConfigurationCommand } from "@aws-sdk/client-ecr"; // ES Modules import
+ * // const { ECRClient, PutReplicationConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
+ * const client = new ECRClient(config);
+ * const command = new PutReplicationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutReplicationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutReplicationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutReplicationConfigurationCommand extends $Command<
   PutReplicationConfigurationCommandInput,

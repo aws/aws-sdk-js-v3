@@ -31,6 +31,20 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  *          </note>
  *          <p>Permanently deletes the <a>LoggingConfiguration</a> from the specified web
  *          ACL.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFClient, DeleteLoggingConfigurationCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, DeleteLoggingConfigurationCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * const client = new WAFClient(config);
+ * const command = new DeleteLoggingConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteLoggingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteLoggingConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteLoggingConfigurationCommand extends $Command<
   DeleteLoggingConfigurationCommandInput,

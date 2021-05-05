@@ -27,6 +27,20 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  *             <p>This operation can also return information for Amazon RDS instances
  *     and Amazon DocDB instances.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NeptuneClient, DescribeDBInstancesCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, DescribeDBInstancesCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * const client = new NeptuneClient(config);
+ * const command = new DescribeDBInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDBInstancesCommandInput} for command's `input` shape.
+ * @see {@link DescribeDBInstancesCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDBInstancesCommand extends $Command<
   DescribeDBInstancesCommandInput,

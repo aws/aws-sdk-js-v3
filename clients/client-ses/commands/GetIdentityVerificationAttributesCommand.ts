@@ -42,6 +42,20 @@ export interface GetIdentityVerificationAttributesCommandOutput
  *             process from the beginning.</p>
  *         <p>This operation is throttled at one request per second and can only get verification
  *             attributes for up to 100 identities at a time.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESClient, GetIdentityVerificationAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
+ * // const { SESClient, GetIdentityVerificationAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * const client = new SESClient(config);
+ * const command = new GetIdentityVerificationAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetIdentityVerificationAttributesCommandInput} for command's `input` shape.
+ * @see {@link GetIdentityVerificationAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetIdentityVerificationAttributesCommand extends $Command<
   GetIdentityVerificationAttributesCommandInput,

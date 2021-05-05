@@ -23,6 +23,20 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
 /**
  * <p>Returns a list of subnet group descriptions. If a subnet group name is specified,
  *             the list will contain only the description of that group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DAXClient, DescribeSubnetGroupsCommand } from "@aws-sdk/client-dax"; // ES Modules import
+ * // const { DAXClient, DescribeSubnetGroupsCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * const client = new DAXClient(config);
+ * const command = new DescribeSubnetGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSubnetGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeSubnetGroupsCommandOutput} for command's `response` shape.
+ * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSubnetGroupsCommand extends $Command<
   DescribeSubnetGroupsCommandInput,

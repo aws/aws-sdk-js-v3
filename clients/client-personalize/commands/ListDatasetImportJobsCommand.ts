@@ -26,6 +26,20 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  *       provides the properties for each dataset import job, including the Amazon Resource Name (ARN).
  *       For more information on dataset import jobs, see <a>CreateDatasetImportJob</a>. For
  *       more information on datasets, see <a>CreateDataset</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PersonalizeClient, ListDatasetImportJobsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
+ * // const { PersonalizeClient, ListDatasetImportJobsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * const client = new PersonalizeClient(config);
+ * const command = new ListDatasetImportJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDatasetImportJobsCommandInput} for command's `input` shape.
+ * @see {@link ListDatasetImportJobsCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDatasetImportJobsCommand extends $Command<
   ListDatasetImportJobsCommandInput,

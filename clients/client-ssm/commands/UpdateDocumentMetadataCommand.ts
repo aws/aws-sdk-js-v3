@@ -22,6 +22,20 @@ export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetad
 
 /**
  * <p>Updates information related to approval reviews for a specific version of a document.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, UpdateDocumentMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, UpdateDocumentMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new UpdateDocumentMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDocumentMetadataCommandInput} for command's `input` shape.
+ * @see {@link UpdateDocumentMetadataCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDocumentMetadataCommand extends $Command<
   UpdateDocumentMetadataCommandInput,

@@ -22,6 +22,20 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
 
 /**
  * <p>Returns summaries of the organization's resources.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkMailClient, ListResourcesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, ListResourcesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * const client = new WorkMailClient(config);
+ * const command = new ListResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResourcesCommandInput} for command's `input` shape.
+ * @see {@link ListResourcesCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResourcesCommand extends $Command<
   ListResourcesCommandInput,

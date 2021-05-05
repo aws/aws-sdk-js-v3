@@ -24,6 +24,20 @@ export interface DescribeModelBiasJobDefinitionCommandOutput
 
 /**
  * <p>Returns a description of a model bias job definition.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, DescribeModelBiasJobDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DescribeModelBiasJobDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeModelBiasJobDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeModelBiasJobDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DescribeModelBiasJobDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeModelBiasJobDefinitionCommand extends $Command<
   DescribeModelBiasJobDefinitionCommandInput,

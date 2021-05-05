@@ -25,6 +25,20 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *          <note>
  *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTFleetHubClient, ListTagsForResourceCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
+ * // const { IoTFleetHubClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import
+ * const client = new IoTFleetHubClient(config);
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link IoTFleetHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

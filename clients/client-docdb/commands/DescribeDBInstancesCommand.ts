@@ -23,6 +23,20 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
 /**
  * <p>Returns information about provisioned Amazon DocumentDB instances. This API supports
  *             pagination.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DocDBClient, DescribeDBInstancesCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, DescribeDBInstancesCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * const client = new DocDBClient(config);
+ * const command = new DescribeDBInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDBInstancesCommandInput} for command's `input` shape.
+ * @see {@link DescribeDBInstancesCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDBInstancesCommand extends $Command<
   DescribeDBInstancesCommandInput,

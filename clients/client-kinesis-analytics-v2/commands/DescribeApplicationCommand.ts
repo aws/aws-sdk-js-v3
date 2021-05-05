@@ -28,6 +28,20 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * <p>Returns information about a specific Kinesis Data Analytics application.</p>
  *          <p>If you want to retrieve a list of all applications in your account,
  *       use the <a>ListApplications</a> operation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisAnalyticsV2Client, DescribeApplicationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, DescribeApplicationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * const client = new KinesisAnalyticsV2Client(config);
+ * const command = new DescribeApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeApplicationCommandInput} for command's `input` shape.
+ * @see {@link DescribeApplicationCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeApplicationCommand extends $Command<
   DescribeApplicationCommandInput,

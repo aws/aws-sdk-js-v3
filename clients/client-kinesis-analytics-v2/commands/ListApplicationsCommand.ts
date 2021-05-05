@@ -30,6 +30,20 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  *       status. </p>
  *          <p>If you want detailed information about a specific application, use
  *       <a>DescribeApplication</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisAnalyticsV2Client, ListApplicationsCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, ListApplicationsCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * const client = new KinesisAnalyticsV2Client(config);
+ * const command = new ListApplicationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListApplicationsCommandInput} for command's `input` shape.
+ * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListApplicationsCommand extends $Command<
   ListApplicationsCommandInput,

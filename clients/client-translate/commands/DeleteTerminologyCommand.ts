@@ -22,6 +22,20 @@ export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>A synchronous action that deletes a custom terminology.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TranslateClient, DeleteTerminologyCommand } from "@aws-sdk/client-translate"; // ES Modules import
+ * // const { TranslateClient, DeleteTerminologyCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * const client = new TranslateClient(config);
+ * const command = new DeleteTerminologyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTerminologyCommandInput} for command's `input` shape.
+ * @see {@link DeleteTerminologyCommandOutput} for command's `response` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTerminologyCommand extends $Command<
   DeleteTerminologyCommandInput,

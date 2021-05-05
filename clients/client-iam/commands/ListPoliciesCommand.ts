@@ -34,6 +34,20 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a customer manged policy, see
  *                     <a>GetPolicy</a>.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, ListPoliciesCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, ListPoliciesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new ListPoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPoliciesCommandInput} for command's `input` shape.
+ * @see {@link ListPoliciesCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPoliciesCommand extends $Command<
   ListPoliciesCommandInput,

@@ -23,6 +23,20 @@ export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcesso
 /**
  * <p>Deletes the stream processor identified by <code>Name</code>. You assign the value for <code>Name</code> when you create the stream processor with
  *             <a>CreateStreamProcessor</a>. You might not be able to use the same name for a stream processor for a few seconds after calling <code>DeleteStreamProcessor</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RekognitionClient, DeleteStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, DeleteStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * const client = new RekognitionClient(config);
+ * const command = new DeleteStreamProcessorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteStreamProcessorCommandInput} for command's `input` shape.
+ * @see {@link DeleteStreamProcessorCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteStreamProcessorCommand extends $Command<
   DeleteStreamProcessorCommandInput,

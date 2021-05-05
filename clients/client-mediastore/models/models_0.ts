@@ -60,6 +60,9 @@ export interface Container {
 }
 
 export namespace Container {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Container): any => ({
     ...obj,
   });
@@ -76,6 +79,9 @@ export interface ContainerInUseException extends __SmithyException, $MetadataBea
 }
 
 export namespace ContainerInUseException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ContainerInUseException): any => ({
     ...obj,
   });
@@ -96,6 +102,9 @@ export interface ContainerNotFoundException extends __SmithyException, $Metadata
 }
 
 export namespace ContainerNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ContainerNotFoundException): any => ({
     ...obj,
   });
@@ -150,6 +159,9 @@ export interface CorsRule {
 }
 
 export namespace CorsRule {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CorsRule): any => ({
     ...obj,
   });
@@ -165,6 +177,9 @@ export interface CorsPolicyNotFoundException extends __SmithyException, $Metadat
 }
 
 export namespace CorsPolicyNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CorsPolicyNotFoundException): any => ({
     ...obj,
   });
@@ -191,6 +206,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -214,6 +232,9 @@ export interface CreateContainerInput {
 }
 
 export namespace CreateContainerInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateContainerInput): any => ({
     ...obj,
   });
@@ -238,6 +259,9 @@ export interface CreateContainerOutput {
 }
 
 export namespace CreateContainerOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateContainerOutput): any => ({
     ...obj,
   });
@@ -253,6 +277,9 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
 }
 
 export namespace InternalServerError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
@@ -268,6 +295,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -281,6 +311,9 @@ export interface DeleteContainerInput {
 }
 
 export namespace DeleteContainerInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteContainerInput): any => ({
     ...obj,
   });
@@ -289,6 +322,9 @@ export namespace DeleteContainerInput {
 export interface DeleteContainerOutput {}
 
 export namespace DeleteContainerOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteContainerOutput): any => ({
     ...obj,
   });
@@ -302,6 +338,9 @@ export interface DeleteContainerPolicyInput {
 }
 
 export namespace DeleteContainerPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteContainerPolicyInput): any => ({
     ...obj,
   });
@@ -310,6 +349,9 @@ export namespace DeleteContainerPolicyInput {
 export interface DeleteContainerPolicyOutput {}
 
 export namespace DeleteContainerPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteContainerPolicyOutput): any => ({
     ...obj,
   });
@@ -325,6 +367,9 @@ export interface PolicyNotFoundException extends __SmithyException, $MetadataBea
 }
 
 export namespace PolicyNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyNotFoundException): any => ({
     ...obj,
   });
@@ -338,6 +383,9 @@ export interface DeleteCorsPolicyInput {
 }
 
 export namespace DeleteCorsPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteCorsPolicyInput): any => ({
     ...obj,
   });
@@ -346,6 +394,9 @@ export namespace DeleteCorsPolicyInput {
 export interface DeleteCorsPolicyOutput {}
 
 export namespace DeleteCorsPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteCorsPolicyOutput): any => ({
     ...obj,
   });
@@ -359,6 +410,9 @@ export interface DeleteLifecyclePolicyInput {
 }
 
 export namespace DeleteLifecyclePolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteLifecyclePolicyInput): any => ({
     ...obj,
   });
@@ -367,6 +421,9 @@ export namespace DeleteLifecyclePolicyInput {
 export interface DeleteLifecyclePolicyOutput {}
 
 export namespace DeleteLifecyclePolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteLifecyclePolicyOutput): any => ({
     ...obj,
   });
@@ -380,6 +437,9 @@ export interface DeleteMetricPolicyInput {
 }
 
 export namespace DeleteMetricPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteMetricPolicyInput): any => ({
     ...obj,
   });
@@ -388,6 +448,9 @@ export namespace DeleteMetricPolicyInput {
 export interface DeleteMetricPolicyOutput {}
 
 export namespace DeleteMetricPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteMetricPolicyOutput): any => ({
     ...obj,
   });
@@ -401,6 +464,9 @@ export interface DescribeContainerInput {
 }
 
 export namespace DescribeContainerInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeContainerInput): any => ({
     ...obj,
   });
@@ -414,6 +480,9 @@ export interface DescribeContainerOutput {
 }
 
 export namespace DescribeContainerOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeContainerOutput): any => ({
     ...obj,
   });
@@ -427,6 +496,9 @@ export interface GetContainerPolicyInput {
 }
 
 export namespace GetContainerPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetContainerPolicyInput): any => ({
     ...obj,
   });
@@ -440,6 +512,9 @@ export interface GetContainerPolicyOutput {
 }
 
 export namespace GetContainerPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetContainerPolicyOutput): any => ({
     ...obj,
   });
@@ -453,6 +528,9 @@ export interface GetCorsPolicyInput {
 }
 
 export namespace GetCorsPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetCorsPolicyInput): any => ({
     ...obj,
   });
@@ -466,6 +544,9 @@ export interface GetCorsPolicyOutput {
 }
 
 export namespace GetCorsPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetCorsPolicyOutput): any => ({
     ...obj,
   });
@@ -479,6 +560,9 @@ export interface GetLifecyclePolicyInput {
 }
 
 export namespace GetLifecyclePolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetLifecyclePolicyInput): any => ({
     ...obj,
   });
@@ -492,6 +576,9 @@ export interface GetLifecyclePolicyOutput {
 }
 
 export namespace GetLifecyclePolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetLifecyclePolicyOutput): any => ({
     ...obj,
   });
@@ -505,6 +592,9 @@ export interface GetMetricPolicyInput {
 }
 
 export namespace GetMetricPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMetricPolicyInput): any => ({
     ...obj,
   });
@@ -526,6 +616,9 @@ export interface MetricPolicyRule {
 }
 
 export namespace MetricPolicyRule {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MetricPolicyRule): any => ({
     ...obj,
   });
@@ -548,6 +641,9 @@ export interface MetricPolicy {
 }
 
 export namespace MetricPolicy {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MetricPolicy): any => ({
     ...obj,
   });
@@ -561,6 +657,9 @@ export interface GetMetricPolicyOutput {
 }
 
 export namespace GetMetricPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMetricPolicyOutput): any => ({
     ...obj,
   });
@@ -582,6 +681,9 @@ export interface ListContainersInput {
 }
 
 export namespace ListContainersInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListContainersInput): any => ({
     ...obj,
   });
@@ -603,6 +705,9 @@ export interface ListContainersOutput {
 }
 
 export namespace ListContainersOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListContainersOutput): any => ({
     ...obj,
   });
@@ -616,6 +721,9 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
@@ -629,6 +737,9 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
   });
@@ -656,6 +767,9 @@ export interface PutContainerPolicyInput {
 }
 
 export namespace PutContainerPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutContainerPolicyInput): any => ({
     ...obj,
   });
@@ -664,6 +778,9 @@ export namespace PutContainerPolicyInput {
 export interface PutContainerPolicyOutput {}
 
 export namespace PutContainerPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutContainerPolicyOutput): any => ({
     ...obj,
   });
@@ -682,6 +799,9 @@ export interface PutCorsPolicyInput {
 }
 
 export namespace PutCorsPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutCorsPolicyInput): any => ({
     ...obj,
   });
@@ -690,6 +810,9 @@ export namespace PutCorsPolicyInput {
 export interface PutCorsPolicyOutput {}
 
 export namespace PutCorsPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutCorsPolicyOutput): any => ({
     ...obj,
   });
@@ -708,6 +831,9 @@ export interface PutLifecyclePolicyInput {
 }
 
 export namespace PutLifecyclePolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutLifecyclePolicyInput): any => ({
     ...obj,
   });
@@ -716,6 +842,9 @@ export namespace PutLifecyclePolicyInput {
 export interface PutLifecyclePolicyOutput {}
 
 export namespace PutLifecyclePolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutLifecyclePolicyOutput): any => ({
     ...obj,
   });
@@ -742,6 +871,9 @@ export interface PutMetricPolicyInput {
 }
 
 export namespace PutMetricPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutMetricPolicyInput): any => ({
     ...obj,
   });
@@ -750,6 +882,9 @@ export namespace PutMetricPolicyInput {
 export interface PutMetricPolicyOutput {}
 
 export namespace PutMetricPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutMetricPolicyOutput): any => ({
     ...obj,
   });
@@ -763,6 +898,9 @@ export interface StartAccessLoggingInput {
 }
 
 export namespace StartAccessLoggingInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartAccessLoggingInput): any => ({
     ...obj,
   });
@@ -771,6 +909,9 @@ export namespace StartAccessLoggingInput {
 export interface StartAccessLoggingOutput {}
 
 export namespace StartAccessLoggingOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartAccessLoggingOutput): any => ({
     ...obj,
   });
@@ -784,6 +925,9 @@ export interface StopAccessLoggingInput {
 }
 
 export namespace StopAccessLoggingInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopAccessLoggingInput): any => ({
     ...obj,
   });
@@ -792,6 +936,9 @@ export namespace StopAccessLoggingInput {
 export interface StopAccessLoggingOutput {}
 
 export namespace StopAccessLoggingOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopAccessLoggingOutput): any => ({
     ...obj,
   });
@@ -813,6 +960,9 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
@@ -821,6 +971,9 @@ export namespace TagResourceInput {
 export interface TagResourceOutput {}
 
 export namespace TagResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
     ...obj,
   });
@@ -841,6 +994,9 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
@@ -849,6 +1005,9 @@ export namespace UntagResourceInput {
 export interface UntagResourceOutput {}
 
 export namespace UntagResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
     ...obj,
   });

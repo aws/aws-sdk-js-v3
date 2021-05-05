@@ -23,6 +23,20 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
 /**
  * <p>Provides more information regarding a given organization based on its
  *          identifier.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkMailClient, DescribeOrganizationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, DescribeOrganizationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * const client = new WorkMailClient(config);
+ * const command = new DescribeOrganizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeOrganizationCommandInput} for command's `input` shape.
+ * @see {@link DescribeOrganizationCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeOrganizationCommand extends $Command<
   DescribeOrganizationCommandInput,

@@ -24,6 +24,20 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, _
  * <p>
  *          Deletes a repository.
  *        </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeartifactClient, DeleteRepositoryCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
+ * // const { CodeartifactClient, DeleteRepositoryCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * const client = new CodeartifactClient(config);
+ * const command = new DeleteRepositoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRepositoryCommandInput} for command's `input` shape.
+ * @see {@link DeleteRepositoryCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRepositoryCommand extends $Command<
   DeleteRepositoryCommandInput,

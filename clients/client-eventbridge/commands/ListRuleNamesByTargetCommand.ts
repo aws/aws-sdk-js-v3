@@ -23,6 +23,20 @@ export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTarge
 /**
  * <p>Lists the rules for the specified target. You can see which of the rules in Amazon
  *       EventBridge can invoke a specific target in your account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EventBridgeClient, ListRuleNamesByTargetCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, ListRuleNamesByTargetCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * const client = new EventBridgeClient(config);
+ * const command = new ListRuleNamesByTargetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRuleNamesByTargetCommandInput} for command's `input` shape.
+ * @see {@link ListRuleNamesByTargetCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRuleNamesByTargetCommand extends $Command<
   ListRuleNamesByTargetCommandInput,

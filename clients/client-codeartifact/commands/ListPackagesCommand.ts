@@ -28,6 +28,20 @@ export interface ListPackagesCommandOutput extends ListPackagesResult, __Metadat
  *             </a>
  *         objects for packages in a repository that match the request parameters.
  *       </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeartifactClient, ListPackagesCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
+ * // const { CodeartifactClient, ListPackagesCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * const client = new CodeartifactClient(config);
+ * const command = new ListPackagesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPackagesCommandInput} for command's `input` shape.
+ * @see {@link ListPackagesCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPackagesCommand extends $Command<
   ListPackagesCommandInput,

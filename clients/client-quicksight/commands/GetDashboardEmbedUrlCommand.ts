@@ -43,6 +43,20 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  *          </ul>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedded Analytics</a> in the <i>Amazon QuickSight User
  *             Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QuickSightClient, GetDashboardEmbedUrlCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, GetDashboardEmbedUrlCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * const client = new QuickSightClient(config);
+ * const command = new GetDashboardEmbedUrlCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDashboardEmbedUrlCommandInput} for command's `input` shape.
+ * @see {@link GetDashboardEmbedUrlCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDashboardEmbedUrlCommand extends $Command<
   GetDashboardEmbedUrlCommandInput,

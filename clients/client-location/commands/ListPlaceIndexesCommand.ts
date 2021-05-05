@@ -22,6 +22,20 @@ export interface ListPlaceIndexesCommandOutput extends ListPlaceIndexesResponse,
 
 /**
  * <p>Lists Place index resources in your AWS account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LocationClient, ListPlaceIndexesCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, ListPlaceIndexesCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * const client = new LocationClient(config);
+ * const command = new ListPlaceIndexesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPlaceIndexesCommandInput} for command's `input` shape.
+ * @see {@link ListPlaceIndexesCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPlaceIndexesCommand extends $Command<
   ListPlaceIndexesCommandInput,

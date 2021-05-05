@@ -22,6 +22,20 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
 
 /**
  * <p> Deletes a component build version.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ImagebuilderClient, DeleteComponentCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, DeleteComponentCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * const client = new ImagebuilderClient(config);
+ * const command = new DeleteComponentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteComponentCommandInput} for command's `input` shape.
+ * @see {@link DeleteComponentCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteComponentCommand extends $Command<
   DeleteComponentCommandInput,

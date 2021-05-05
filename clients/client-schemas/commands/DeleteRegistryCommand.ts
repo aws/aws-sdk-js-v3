@@ -22,6 +22,20 @@ export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a Registry.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SchemasClient, DeleteRegistryCommand } from "@aws-sdk/client-schemas"; // ES Modules import
+ * // const { SchemasClient, DeleteRegistryCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * const client = new SchemasClient(config);
+ * const command = new DeleteRegistryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRegistryCommandInput} for command's `input` shape.
+ * @see {@link DeleteRegistryCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRegistryCommand extends $Command<
   DeleteRegistryCommandInput,

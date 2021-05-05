@@ -32,6 +32,20 @@ export interface DisassociateEnclaveCertificateIamRoleCommandOutput
  * 			encrypted private key from the Amazon S3 bucket. It also revokes the IAM role's permission to use the
  * 			AWS Key Management Service (KMS) customer master key (CMK) used to encrypt the private key. This effectively revokes the role's
  * 			permission to use the certificate. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DisassociateEnclaveCertificateIamRoleCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DisassociateEnclaveCertificateIamRoleCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DisassociateEnclaveCertificateIamRoleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateEnclaveCertificateIamRoleCommandInput} for command's `input` shape.
+ * @see {@link DisassociateEnclaveCertificateIamRoleCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateEnclaveCertificateIamRoleCommand extends $Command<
   DisassociateEnclaveCertificateIamRoleCommandInput,

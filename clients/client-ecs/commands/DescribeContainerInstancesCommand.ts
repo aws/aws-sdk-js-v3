@@ -23,6 +23,20 @@ export interface DescribeContainerInstancesCommandOutput extends DescribeContain
 /**
  * <p>Describes Amazon Elastic Container Service container instances. Returns metadata about registered and
  * 			remaining resources on each container instance requested.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECSClient, DescribeContainerInstancesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, DescribeContainerInstancesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * const client = new ECSClient(config);
+ * const command = new DescribeContainerInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeContainerInstancesCommandInput} for command's `input` shape.
+ * @see {@link DescribeContainerInstancesCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeContainerInstancesCommand extends $Command<
   DescribeContainerInstancesCommandInput,

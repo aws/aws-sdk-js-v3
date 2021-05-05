@@ -58,6 +58,20 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  *                <p>The values of condition keys in the context of the user's request.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { STSClient, DecodeAuthorizationMessageCommand } from "@aws-sdk/client-sts"; // ES Modules import
+ * // const { STSClient, DecodeAuthorizationMessageCommand } = require("@aws-sdk/client-sts"); // CommonJS import
+ * const client = new STSClient(config);
+ * const command = new DecodeAuthorizationMessageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DecodeAuthorizationMessageCommandInput} for command's `input` shape.
+ * @see {@link DecodeAuthorizationMessageCommandOutput} for command's `response` shape.
+ * @see {@link STSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DecodeAuthorizationMessageCommand extends $Command<
   DecodeAuthorizationMessageCommandInput,

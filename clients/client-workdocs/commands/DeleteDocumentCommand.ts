@@ -22,6 +22,20 @@ export interface DeleteDocumentCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Permanently deletes the specified document and its associated metadata.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkDocsClient, DeleteDocumentCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
+ * // const { WorkDocsClient, DeleteDocumentCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * const client = new WorkDocsClient(config);
+ * const command = new DeleteDocumentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDocumentCommandInput} for command's `input` shape.
+ * @see {@link DeleteDocumentCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDocumentCommand extends $Command<
   DeleteDocumentCommandInput,

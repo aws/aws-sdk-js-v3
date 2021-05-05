@@ -23,6 +23,20 @@ export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, _
 /**
  * <p>List the dedicated IP addresses that are associated with your Amazon Pinpoint
  *             account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointEmailClient, GetDedicatedIpsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
+ * // const { PinpointEmailClient, GetDedicatedIpsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * const client = new PinpointEmailClient(config);
+ * const command = new GetDedicatedIpsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDedicatedIpsCommandInput} for command's `input` shape.
+ * @see {@link GetDedicatedIpsCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDedicatedIpsCommand extends $Command<
   GetDedicatedIpsCommandInput,

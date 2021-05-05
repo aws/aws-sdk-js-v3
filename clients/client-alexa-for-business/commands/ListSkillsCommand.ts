@@ -22,6 +22,20 @@ export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataB
 
 /**
  * <p>Lists all enabled skills in a specific skill group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, ListSkillsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, ListSkillsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new ListSkillsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSkillsCommandInput} for command's `input` shape.
+ * @see {@link ListSkillsCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSkillsCommand extends $Command<
   ListSkillsCommandInput,

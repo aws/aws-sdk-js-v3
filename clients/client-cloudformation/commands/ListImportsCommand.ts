@@ -24,6 +24,20 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  *          <p>For more information about importing an exported output value, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html">
  *                <code>Fn::ImportValue</code>
  *             </a> function. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFormationClient, ListImportsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, ListImportsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * const client = new CloudFormationClient(config);
+ * const command = new ListImportsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListImportsCommandInput} for command's `input` shape.
+ * @see {@link ListImportsCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListImportsCommand extends $Command<
   ListImportsCommandInput,

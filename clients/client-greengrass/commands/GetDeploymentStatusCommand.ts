@@ -22,6 +22,20 @@ export interface GetDeploymentStatusCommandOutput extends GetDeploymentStatusRes
 
 /**
  * Returns the status of a deployment.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassClient, GetDeploymentStatusCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, GetDeploymentStatusCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * const client = new GreengrassClient(config);
+ * const command = new GetDeploymentStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDeploymentStatusCommandInput} for command's `input` shape.
+ * @see {@link GetDeploymentStatusCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDeploymentStatusCommand extends $Command<
   GetDeploymentStatusCommandInput,

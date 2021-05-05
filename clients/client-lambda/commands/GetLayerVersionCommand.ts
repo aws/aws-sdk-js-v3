@@ -24,6 +24,20 @@ export interface GetLayerVersionCommandOutput extends GetLayerVersionResponse, _
  * <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
  *         layer</a>, with a link to download the layer archive
  *         that's valid for 10 minutes.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LambdaClient, GetLayerVersionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, GetLayerVersionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * const client = new LambdaClient(config);
+ * const command = new GetLayerVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLayerVersionCommandInput} for command's `input` shape.
+ * @see {@link GetLayerVersionCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLayerVersionCommand extends $Command<
   GetLayerVersionCommandInput,

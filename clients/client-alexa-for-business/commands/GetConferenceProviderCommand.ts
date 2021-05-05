@@ -22,6 +22,20 @@ export interface GetConferenceProviderCommandOutput extends GetConferenceProvide
 
 /**
  * <p>Gets details about a specific conference provider.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, GetConferenceProviderCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, GetConferenceProviderCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new GetConferenceProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetConferenceProviderCommandInput} for command's `input` shape.
+ * @see {@link GetConferenceProviderCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetConferenceProviderCommand extends $Command<
   GetConferenceProviderCommandInput,

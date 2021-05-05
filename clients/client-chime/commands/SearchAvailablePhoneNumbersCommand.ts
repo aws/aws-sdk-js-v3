@@ -24,6 +24,20 @@ export interface SearchAvailablePhoneNumbersCommandOutput
 
 /**
  * <p>Searches phone numbers that can be ordered.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, SearchAvailablePhoneNumbersCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, SearchAvailablePhoneNumbersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new SearchAvailablePhoneNumbersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchAvailablePhoneNumbersCommandInput} for command's `input` shape.
+ * @see {@link SearchAvailablePhoneNumbersCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchAvailablePhoneNumbersCommand extends $Command<
   SearchAvailablePhoneNumbersCommandInput,

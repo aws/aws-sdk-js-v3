@@ -133,6 +133,20 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, CompleteMultipartUploadCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, CompleteMultipartUploadCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new CompleteMultipartUploadCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CompleteMultipartUploadCommandInput} for command's `input` shape.
+ * @see {@link CompleteMultipartUploadCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CompleteMultipartUploadCommand extends $Command<
   CompleteMultipartUploadCommandInput,

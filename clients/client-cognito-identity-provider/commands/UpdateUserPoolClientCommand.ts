@@ -32,6 +32,20 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  *             <p>If you don't provide a value for an attribute, it will be set to the default
  *                 value.</p>
  *         </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, UpdateUserPoolClientCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, UpdateUserPoolClientCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new UpdateUserPoolClientCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateUserPoolClientCommandInput} for command's `input` shape.
+ * @see {@link UpdateUserPoolClientCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateUserPoolClientCommand extends $Command<
   UpdateUserPoolClientCommandInput,

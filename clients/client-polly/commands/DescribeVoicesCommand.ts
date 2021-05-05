@@ -38,6 +38,20 @@ export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __Met
  *       English voices. </p>
  *          <p>This operation requires permissions to perform the <code>polly:DescribeVoices</code>
  *       action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PollyClient, DescribeVoicesCommand } from "@aws-sdk/client-polly"; // ES Modules import
+ * // const { PollyClient, DescribeVoicesCommand } = require("@aws-sdk/client-polly"); // CommonJS import
+ * const client = new PollyClient(config);
+ * const command = new DescribeVoicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeVoicesCommandInput} for command's `input` shape.
+ * @see {@link DescribeVoicesCommandOutput} for command's `response` shape.
+ * @see {@link PollyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeVoicesCommand extends $Command<
   DescribeVoicesCommandInput,

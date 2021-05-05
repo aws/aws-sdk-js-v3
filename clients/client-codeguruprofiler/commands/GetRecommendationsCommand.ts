@@ -33,6 +33,20 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  *             objects that contains details about anomalies detected in the profiling group for the same time period is also
  *             returned.
  *         </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeGuruProfilerClient, GetRecommendationsCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
+ * // const { CodeGuruProfilerClient, GetRecommendationsCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * const client = new CodeGuruProfilerClient(config);
+ * const command = new GetRecommendationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRecommendationsCommandInput} for command's `input` shape.
+ * @see {@link GetRecommendationsCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRecommendationsCommand extends $Command<
   GetRecommendationsCommandInput,

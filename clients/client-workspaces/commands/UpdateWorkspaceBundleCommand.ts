@@ -30,6 +30,20 @@ export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundl
  *             based on. To update existing WorkSpaces that are based on a bundle that you've updated, you
  *             must either rebuild the WorkSpaces or delete and recreate them.</p>
  *          </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkSpacesClient, UpdateWorkspaceBundleCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
+ * // const { WorkSpacesClient, UpdateWorkspaceBundleCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * const client = new WorkSpacesClient(config);
+ * const command = new UpdateWorkspaceBundleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateWorkspaceBundleCommandInput} for command's `input` shape.
+ * @see {@link UpdateWorkspaceBundleCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateWorkspaceBundleCommand extends $Command<
   UpdateWorkspaceBundleCommandInput,

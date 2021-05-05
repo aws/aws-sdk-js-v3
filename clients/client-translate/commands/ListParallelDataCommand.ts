@@ -22,6 +22,20 @@ export interface ListParallelDataCommandOutput extends ListParallelDataResponse,
 
 /**
  * <p>Provides a list of your parallel data resources in Amazon Translate.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TranslateClient, ListParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
+ * // const { TranslateClient, ListParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * const client = new TranslateClient(config);
+ * const command = new ListParallelDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListParallelDataCommandInput} for command's `input` shape.
+ * @see {@link ListParallelDataCommandOutput} for command's `response` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListParallelDataCommand extends $Command<
   ListParallelDataCommandInput,

@@ -22,6 +22,20 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
 
 /**
  * <p>Creates an index object. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.html">Indexing and search</a> for more information.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudDirectoryClient, CreateIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, CreateIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * const client = new CloudDirectoryClient(config);
+ * const command = new CreateIndexCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateIndexCommandInput} for command's `input` shape.
+ * @see {@link CreateIndexCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateIndexCommand extends $Command<
   CreateIndexCommandInput,

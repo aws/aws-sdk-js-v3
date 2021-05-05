@@ -22,6 +22,20 @@ export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, _
 
 /**
  * <p>Deletes a specific VOD source in a specific source location.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaTailorClient, DeleteVodSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
+ * // const { MediaTailorClient, DeleteVodSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * const client = new MediaTailorClient(config);
+ * const command = new DeleteVodSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVodSourceCommandInput} for command's `input` shape.
+ * @see {@link DeleteVodSourceCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVodSourceCommand extends $Command<
   DeleteVodSourceCommandInput,

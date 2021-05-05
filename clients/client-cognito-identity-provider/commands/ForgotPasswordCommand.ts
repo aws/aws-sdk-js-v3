@@ -33,6 +33,20 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  *             neither a verified phone number nor a verified email exists, an
  *                 <code>InvalidParameterException</code> is thrown. To use the confirmation code for
  *             resetting the password, call <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html">ConfirmForgotPassword</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, ForgotPasswordCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, ForgotPasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new ForgotPasswordCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ForgotPasswordCommandInput} for command's `input` shape.
+ * @see {@link ForgotPasswordCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ForgotPasswordCommand extends $Command<
   ForgotPasswordCommandInput,

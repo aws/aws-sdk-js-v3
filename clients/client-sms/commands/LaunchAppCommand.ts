@@ -19,6 +19,20 @@ export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBea
 
 /**
  * <p>Launches the specified application as a stack in AWS CloudFormation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SMSClient, LaunchAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
+ * // const { SMSClient, LaunchAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * const client = new SMSClient(config);
+ * const command = new LaunchAppCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link LaunchAppCommandInput} for command's `input` shape.
+ * @see {@link LaunchAppCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppCommandOutput, SMSClientResolvedConfig> {
   // Start section: command_properties

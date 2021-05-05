@@ -26,6 +26,20 @@ export interface GetCloudFormationTemplateCommandOutput extends GetCloudFormatio
 
 /**
  * <p>Gets the specified AWS CloudFormation template.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServerlessApplicationRepositoryClient, GetCloudFormationTemplateCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
+ * // const { ServerlessApplicationRepositoryClient, GetCloudFormationTemplateCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
+ * const client = new ServerlessApplicationRepositoryClient(config);
+ * const command = new GetCloudFormationTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCloudFormationTemplateCommandInput} for command's `input` shape.
+ * @see {@link GetCloudFormationTemplateCommandOutput} for command's `response` shape.
+ * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCloudFormationTemplateCommand extends $Command<
   GetCloudFormationTemplateCommandInput,

@@ -25,6 +25,20 @@ export interface ListFunctionsByCodeSigningConfigCommandOutput
 /**
  * <p>List the functions that use the specified code signing configuration. You can use this method prior to deleting a
  *       code signing configuration, to verify that no functions are using it.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LambdaClient, ListFunctionsByCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, ListFunctionsByCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * const client = new LambdaClient(config);
+ * const command = new ListFunctionsByCodeSigningConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFunctionsByCodeSigningConfigCommandInput} for command's `input` shape.
+ * @see {@link ListFunctionsByCodeSigningConfigCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFunctionsByCodeSigningConfigCommand extends $Command<
   ListFunctionsByCodeSigningConfigCommandInput,

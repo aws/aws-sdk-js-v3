@@ -30,6 +30,20 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  *          returns a <code>BadRequestException</code>. If the locale doesn't exist
  *          or is not enabled for the alias, you receive a
  *             <code>BadRequestException</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexRuntimeV2Client, GetSessionCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
+ * // const { LexRuntimeV2Client, GetSessionCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
+ * const client = new LexRuntimeV2Client(config);
+ * const command = new GetSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSessionCommandInput} for command's `input` shape.
+ * @see {@link GetSessionCommandOutput} for command's `response` shape.
+ * @see {@link LexRuntimeV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSessionCommand extends $Command<
   GetSessionCommandInput,

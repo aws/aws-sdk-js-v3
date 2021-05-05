@@ -32,6 +32,20 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
  *          <p>Retrieves information about a high-availability partition group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudHSMClient, DescribeHapgCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
+ * // const { CloudHSMClient, DescribeHapgCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * const client = new CloudHSMClient(config);
+ * const command = new DescribeHapgCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeHapgCommandInput} for command's `input` shape.
+ * @see {@link DescribeHapgCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeHapgCommand extends $Command<
   DescribeHapgCommandInput,

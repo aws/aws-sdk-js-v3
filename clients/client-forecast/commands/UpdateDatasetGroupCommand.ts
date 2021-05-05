@@ -27,6 +27,20 @@ export interface UpdateDatasetGroupCommandOutput extends UpdateDatasetGroupRespo
  *         use the dataset group to create a predictor. Use the <a>DescribeDatasetGroup</a>
  *         operation to get the status.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ForecastClient, UpdateDatasetGroupCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, UpdateDatasetGroupCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * const client = new ForecastClient(config);
+ * const command = new UpdateDatasetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDatasetGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateDatasetGroupCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDatasetGroupCommand extends $Command<
   UpdateDatasetGroupCommandInput,

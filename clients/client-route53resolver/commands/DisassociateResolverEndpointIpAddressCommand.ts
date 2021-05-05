@@ -32,6 +32,20 @@ export interface DisassociateResolverEndpointIpAddressCommandOutput
  * 		       <p>To add an IP address to an endpoint, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverEndpointIpAddress.html">AssociateResolverEndpointIpAddress</a>.
  * 		</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53ResolverClient, DisassociateResolverEndpointIpAddressCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, DisassociateResolverEndpointIpAddressCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * const client = new Route53ResolverClient(config);
+ * const command = new DisassociateResolverEndpointIpAddressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateResolverEndpointIpAddressCommandInput} for command's `input` shape.
+ * @see {@link DisassociateResolverEndpointIpAddressCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateResolverEndpointIpAddressCommand extends $Command<
   DisassociateResolverEndpointIpAddressCommandInput,

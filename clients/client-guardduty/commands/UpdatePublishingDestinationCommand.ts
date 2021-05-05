@@ -25,6 +25,20 @@ export interface UpdatePublishingDestinationCommandOutput
 /**
  * <p>Updates information about the publishing destination specified by the
  *         <code>destinationId</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GuardDutyClient, UpdatePublishingDestinationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, UpdatePublishingDestinationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * const client = new GuardDutyClient(config);
+ * const command = new UpdatePublishingDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePublishingDestinationCommandInput} for command's `input` shape.
+ * @see {@link UpdatePublishingDestinationCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePublishingDestinationCommand extends $Command<
   UpdatePublishingDestinationCommandInput,

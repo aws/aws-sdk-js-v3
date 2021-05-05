@@ -31,6 +31,20 @@ export interface DescribeElasticsearchDomainConfigCommandOutput
 
 /**
  * <p>Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticsearchServiceClient, DescribeElasticsearchDomainConfigCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
+ * // const { ElasticsearchServiceClient, DescribeElasticsearchDomainConfigCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new DescribeElasticsearchDomainConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeElasticsearchDomainConfigCommandInput} for command's `input` shape.
+ * @see {@link DescribeElasticsearchDomainConfigCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeElasticsearchDomainConfigCommand extends $Command<
   DescribeElasticsearchDomainConfigCommandInput,

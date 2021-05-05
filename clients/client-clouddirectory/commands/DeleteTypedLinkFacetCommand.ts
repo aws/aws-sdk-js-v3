@@ -22,6 +22,20 @@ export interface DeleteTypedLinkFacetCommandOutput extends DeleteTypedLinkFacetR
 
 /**
  * <p>Deletes a <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudDirectoryClient, DeleteTypedLinkFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, DeleteTypedLinkFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * const client = new CloudDirectoryClient(config);
+ * const command = new DeleteTypedLinkFacetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTypedLinkFacetCommandInput} for command's `input` shape.
+ * @see {@link DeleteTypedLinkFacetCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTypedLinkFacetCommand extends $Command<
   DeleteTypedLinkFacetCommandInput,

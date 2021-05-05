@@ -31,6 +31,20 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond">BytesPerSecond</a>
  *                </code>.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataSyncClient, UpdateTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, UpdateTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * const client = new DataSyncClient(config);
+ * const command = new UpdateTaskExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTaskExecutionCommandInput} for command's `input` shape.
+ * @see {@link UpdateTaskExecutionCommandOutput} for command's `response` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTaskExecutionCommand extends $Command<
   UpdateTaskExecutionCommandInput,

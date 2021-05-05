@@ -26,6 +26,20 @@ export interface StopContinuousExportCommandOutput extends StopContinuousExportR
 
 /**
  * <p>Stop the continuous flow of agent's discovered data into Amazon Athena.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApplicationDiscoveryServiceClient, StopContinuousExportCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, StopContinuousExportCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new StopContinuousExportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopContinuousExportCommandInput} for command's `input` shape.
+ * @see {@link StopContinuousExportCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopContinuousExportCommand extends $Command<
   StopContinuousExportCommandInput,

@@ -18,6 +18,9 @@ export interface Attachment {
 }
 
 export namespace Attachment {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Attachment): any => ({
     ...obj,
   });
@@ -45,6 +48,9 @@ export interface AddAttachmentsToSetRequest {
 }
 
 export namespace AddAttachmentsToSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddAttachmentsToSetRequest): any => ({
     ...obj,
   });
@@ -69,6 +75,9 @@ export interface AddAttachmentsToSetResponse {
 }
 
 export namespace AddAttachmentsToSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddAttachmentsToSetResponse): any => ({
     ...obj,
   });
@@ -89,6 +98,9 @@ export interface AttachmentLimitExceeded extends __SmithyException, $MetadataBea
 }
 
 export namespace AttachmentLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttachmentLimitExceeded): any => ({
     ...obj,
   });
@@ -109,6 +121,9 @@ export interface AttachmentSetExpired extends __SmithyException, $MetadataBearer
 }
 
 export namespace AttachmentSetExpired {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttachmentSetExpired): any => ({
     ...obj,
   });
@@ -127,6 +142,9 @@ export interface AttachmentSetIdNotFound extends __SmithyException, $MetadataBea
 }
 
 export namespace AttachmentSetIdNotFound {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttachmentSetIdNotFound): any => ({
     ...obj,
   });
@@ -147,6 +165,9 @@ export interface AttachmentSetSizeLimitExceeded extends __SmithyException, $Meta
 }
 
 export namespace AttachmentSetSizeLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttachmentSetSizeLimitExceeded): any => ({
     ...obj,
   });
@@ -165,6 +186,9 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
 }
 
 export namespace InternalServerError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
@@ -198,6 +222,9 @@ export interface AddCommunicationToCaseRequest {
 }
 
 export namespace AddCommunicationToCaseRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddCommunicationToCaseRequest): any => ({
     ...obj,
   });
@@ -215,6 +242,9 @@ export interface AddCommunicationToCaseResponse {
 }
 
 export namespace AddCommunicationToCaseResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddCommunicationToCaseResponse): any => ({
     ...obj,
   });
@@ -233,6 +263,9 @@ export interface CaseIdNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace CaseIdNotFound {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CaseIdNotFound): any => ({
     ...obj,
   });
@@ -255,6 +288,9 @@ export interface AttachmentDetails {
 }
 
 export namespace AttachmentDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttachmentDetails): any => ({
     ...obj,
   });
@@ -273,6 +309,9 @@ export interface AttachmentIdNotFound extends __SmithyException, $MetadataBearer
 }
 
 export namespace AttachmentIdNotFound {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttachmentIdNotFound): any => ({
     ...obj,
   });
@@ -292,6 +331,9 @@ export interface CaseCreationLimitExceeded extends __SmithyException, $MetadataB
 }
 
 export namespace CaseCreationLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CaseCreationLimitExceeded): any => ({
     ...obj,
   });
@@ -364,6 +406,9 @@ export interface CreateCaseRequest {
 }
 
 export namespace CreateCaseRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCaseRequest): any => ({
     ...obj,
   });
@@ -383,6 +428,9 @@ export interface CreateCaseResponse {
 }
 
 export namespace CreateCaseResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCaseResponse): any => ({
     ...obj,
   });
@@ -403,6 +451,9 @@ export interface DescribeAttachmentLimitExceeded extends __SmithyException, $Met
 }
 
 export namespace DescribeAttachmentLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAttachmentLimitExceeded): any => ({
     ...obj,
   });
@@ -416,6 +467,9 @@ export interface DescribeAttachmentRequest {
 }
 
 export namespace DescribeAttachmentRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAttachmentRequest): any => ({
     ...obj,
   });
@@ -436,6 +490,9 @@ export interface DescribeAttachmentResponse {
 }
 
 export namespace DescribeAttachmentResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAttachmentResponse): any => ({
     ...obj,
   });
@@ -496,6 +553,9 @@ export interface DescribeCasesRequest {
 }
 
 export namespace DescribeCasesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCasesRequest): any => ({
     ...obj,
   });
@@ -541,6 +601,9 @@ export interface Communication {
 }
 
 export namespace Communication {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Communication): any => ({
     ...obj,
   });
@@ -562,6 +625,9 @@ export interface RecentCaseCommunications {
 }
 
 export namespace RecentCaseCommunications {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecentCaseCommunications): any => ({
     ...obj,
   });
@@ -777,6 +843,9 @@ export interface CaseDetails {
 }
 
 export namespace CaseDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CaseDetails): any => ({
     ...obj,
   });
@@ -800,6 +869,9 @@ export interface DescribeCasesResponse {
 }
 
 export namespace DescribeCasesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCasesResponse): any => ({
     ...obj,
   });
@@ -838,6 +910,9 @@ export interface DescribeCommunicationsRequest {
 }
 
 export namespace DescribeCommunicationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCommunicationsRequest): any => ({
     ...obj,
   });
@@ -860,6 +935,9 @@ export interface DescribeCommunicationsResponse {
 }
 
 export namespace DescribeCommunicationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCommunicationsResponse): any => ({
     ...obj,
   });
@@ -880,6 +958,9 @@ export interface DescribeServicesRequest {
 }
 
 export namespace DescribeServicesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeServicesRequest): any => ({
     ...obj,
   });
@@ -903,6 +984,9 @@ export interface Category {
 }
 
 export namespace Category {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Category): any => ({
     ...obj,
   });
@@ -934,6 +1018,9 @@ export interface Service {
 }
 
 export namespace Service {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Service): any => ({
     ...obj,
   });
@@ -951,6 +1038,9 @@ export interface DescribeServicesResponse {
 }
 
 export namespace DescribeServicesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeServicesResponse): any => ({
     ...obj,
   });
@@ -966,6 +1056,9 @@ export interface DescribeSeverityLevelsRequest {
 }
 
 export namespace DescribeSeverityLevelsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSeverityLevelsRequest): any => ({
     ...obj,
   });
@@ -1023,6 +1116,9 @@ export interface SeverityLevel {
 }
 
 export namespace SeverityLevel {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SeverityLevel): any => ({
     ...obj,
   });
@@ -1041,6 +1137,9 @@ export interface DescribeSeverityLevelsResponse {
 }
 
 export namespace DescribeSeverityLevelsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSeverityLevelsResponse): any => ({
     ...obj,
   });
@@ -1058,6 +1157,9 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
 }
 
 export namespace DescribeTrustedAdvisorCheckRefreshStatusesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckRefreshStatusesRequest): any => ({
     ...obj,
   });
@@ -1111,6 +1213,9 @@ export interface TrustedAdvisorCheckRefreshStatus {
 }
 
 export namespace TrustedAdvisorCheckRefreshStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TrustedAdvisorCheckRefreshStatus): any => ({
     ...obj,
   });
@@ -1127,6 +1232,9 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse {
 }
 
 export namespace DescribeTrustedAdvisorCheckRefreshStatusesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckRefreshStatusesResponse): any => ({
     ...obj,
   });
@@ -1150,6 +1258,9 @@ export interface DescribeTrustedAdvisorCheckResultRequest {
 }
 
 export namespace DescribeTrustedAdvisorCheckResultRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckResultRequest): any => ({
     ...obj,
   });
@@ -1174,6 +1285,9 @@ export interface TrustedAdvisorCostOptimizingSummary {
 }
 
 export namespace TrustedAdvisorCostOptimizingSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TrustedAdvisorCostOptimizingSummary): any => ({
     ...obj,
   });
@@ -1192,6 +1306,9 @@ export interface TrustedAdvisorCategorySpecificSummary {
 }
 
 export namespace TrustedAdvisorCategorySpecificSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TrustedAdvisorCategorySpecificSummary): any => ({
     ...obj,
   });
@@ -1232,6 +1349,9 @@ export interface TrustedAdvisorResourceDetail {
 }
 
 export namespace TrustedAdvisorResourceDetail {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TrustedAdvisorResourceDetail): any => ({
     ...obj,
   });
@@ -1266,6 +1386,9 @@ export interface TrustedAdvisorResourcesSummary {
 }
 
 export namespace TrustedAdvisorResourcesSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TrustedAdvisorResourcesSummary): any => ({
     ...obj,
   });
@@ -1309,6 +1432,9 @@ export interface TrustedAdvisorCheckResult {
 }
 
 export namespace TrustedAdvisorCheckResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TrustedAdvisorCheckResult): any => ({
     ...obj,
   });
@@ -1325,6 +1451,9 @@ export interface DescribeTrustedAdvisorCheckResultResponse {
 }
 
 export namespace DescribeTrustedAdvisorCheckResultResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckResultResponse): any => ({
     ...obj,
   });
@@ -1340,6 +1469,9 @@ export interface DescribeTrustedAdvisorChecksRequest {
 }
 
 export namespace DescribeTrustedAdvisorChecksRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTrustedAdvisorChecksRequest): any => ({
     ...obj,
   });
@@ -1381,6 +1513,9 @@ export interface TrustedAdvisorCheckDescription {
 }
 
 export namespace TrustedAdvisorCheckDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TrustedAdvisorCheckDescription): any => ({
     ...obj,
   });
@@ -1397,6 +1532,9 @@ export interface DescribeTrustedAdvisorChecksResponse {
 }
 
 export namespace DescribeTrustedAdvisorChecksResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTrustedAdvisorChecksResponse): any => ({
     ...obj,
   });
@@ -1410,6 +1548,9 @@ export interface DescribeTrustedAdvisorCheckSummariesRequest {
 }
 
 export namespace DescribeTrustedAdvisorCheckSummariesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckSummariesRequest): any => ({
     ...obj,
   });
@@ -1454,6 +1595,9 @@ export interface TrustedAdvisorCheckSummary {
 }
 
 export namespace TrustedAdvisorCheckSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TrustedAdvisorCheckSummary): any => ({
     ...obj,
   });
@@ -1470,6 +1614,9 @@ export interface DescribeTrustedAdvisorCheckSummariesResponse {
 }
 
 export namespace DescribeTrustedAdvisorCheckSummariesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTrustedAdvisorCheckSummariesResponse): any => ({
     ...obj,
   });
@@ -1487,6 +1634,9 @@ export interface RefreshTrustedAdvisorCheckRequest {
 }
 
 export namespace RefreshTrustedAdvisorCheckRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RefreshTrustedAdvisorCheckRequest): any => ({
     ...obj,
   });
@@ -1504,6 +1654,9 @@ export interface RefreshTrustedAdvisorCheckResponse {
 }
 
 export namespace RefreshTrustedAdvisorCheckResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RefreshTrustedAdvisorCheckResponse): any => ({
     ...obj,
   });
@@ -1520,6 +1673,9 @@ export interface ResolveCaseRequest {
 }
 
 export namespace ResolveCaseRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResolveCaseRequest): any => ({
     ...obj,
   });
@@ -1542,6 +1698,9 @@ export interface ResolveCaseResponse {
 }
 
 export namespace ResolveCaseResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResolveCaseResponse): any => ({
     ...obj,
   });

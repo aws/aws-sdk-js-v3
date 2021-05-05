@@ -13,6 +13,9 @@ export interface ClientLimitExceededException extends __SmithyException, $Metada
 }
 
 export namespace ClientLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ClientLimitExceededException): any => ({
     ...obj,
   });
@@ -29,6 +32,9 @@ export interface ConnectionLimitExceededException extends __SmithyException, $Me
 }
 
 export namespace ConnectionLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConnectionLimitExceededException): any => ({
     ...obj,
   });
@@ -118,6 +124,9 @@ export interface StartSelector {
 }
 
 export namespace StartSelector {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartSelector): any => ({
     ...obj,
   });
@@ -144,6 +153,9 @@ export interface GetMediaInput {
 }
 
 export namespace GetMediaInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMediaInput): any => ({
     ...obj,
   });
@@ -229,6 +241,9 @@ export interface GetMediaOutput {
 }
 
 export namespace GetMediaOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMediaOutput): any => ({
     ...obj,
   });
@@ -244,6 +259,9 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidArgumentException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj,
   });
@@ -262,6 +280,9 @@ export interface InvalidEndpointException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidEndpointException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidEndpointException): any => ({
     ...obj,
   });
@@ -278,6 +299,9 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
 }
 
 export namespace NotAuthorizedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj,
   });
@@ -293,6 +317,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });

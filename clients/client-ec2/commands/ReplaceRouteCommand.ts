@@ -24,6 +24,20 @@ export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
  *             gateway.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the
  *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, ReplaceRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, ReplaceRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new ReplaceRouteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReplaceRouteCommandInput} for command's `input` shape.
+ * @see {@link ReplaceRouteCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReplaceRouteCommand extends $Command<
   ReplaceRouteCommandInput,

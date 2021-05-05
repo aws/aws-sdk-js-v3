@@ -23,6 +23,20 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
 /**
  * <p>Modifies settings for an instance. You can change one or more database configuration
  *             parameters by specifying these parameters and the new values in the request.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DocDBClient, ModifyDBInstanceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, ModifyDBInstanceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * const client = new DocDBClient(config);
+ * const command = new ModifyDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyDBInstanceCommandInput} for command's `input` shape.
+ * @see {@link ModifyDBInstanceCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyDBInstanceCommand extends $Command<
   ModifyDBInstanceCommandInput,

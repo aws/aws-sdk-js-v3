@@ -57,6 +57,20 @@ export interface MergeShardsCommandOutput extends __MetadataBearer {}
  *         <p>
  *             <code>MergeShards</code> has a limit of five transactions per second per
  *             account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisClient, MergeShardsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
+ * // const { KinesisClient, MergeShardsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * const client = new KinesisClient(config);
+ * const command = new MergeShardsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link MergeShardsCommandInput} for command's `input` shape.
+ * @see {@link MergeShardsCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class MergeShardsCommand extends $Command<
   MergeShardsCommandInput,

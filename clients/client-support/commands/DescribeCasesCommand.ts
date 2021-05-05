@@ -52,6 +52,20 @@ export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __Met
  *                 </li>
  *             </ul>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SupportClient, DescribeCasesCommand } from "@aws-sdk/client-support"; // ES Modules import
+ * // const { SupportClient, DescribeCasesCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * const client = new SupportClient(config);
+ * const command = new DescribeCasesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCasesCommandInput} for command's `input` shape.
+ * @see {@link DescribeCasesCommandOutput} for command's `response` shape.
+ * @see {@link SupportClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCasesCommand extends $Command<
   DescribeCasesCommandInput,

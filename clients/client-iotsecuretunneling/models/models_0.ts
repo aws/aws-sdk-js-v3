@@ -15,6 +15,9 @@ export interface CloseTunnelRequest {
 }
 
 export namespace CloseTunnelRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloseTunnelRequest): any => ({
     ...obj,
   });
@@ -23,6 +26,9 @@ export namespace CloseTunnelRequest {
 export interface CloseTunnelResponse {}
 
 export namespace CloseTunnelResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloseTunnelResponse): any => ({
     ...obj,
   });
@@ -38,6 +44,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -65,6 +74,9 @@ export interface ConnectionState {
 }
 
 export namespace ConnectionState {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConnectionState): any => ({
     ...obj,
   });
@@ -78,6 +90,9 @@ export interface DescribeTunnelRequest {
 }
 
 export namespace DescribeTunnelRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTunnelRequest): any => ({
     ...obj,
   });
@@ -102,6 +117,9 @@ export interface DestinationConfig {
 }
 
 export namespace DestinationConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DestinationConfig): any => ({
     ...obj,
   });
@@ -129,6 +147,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -147,6 +168,9 @@ export interface TimeoutConfig {
 }
 
 export namespace TimeoutConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TimeoutConfig): any => ({
     ...obj,
   });
@@ -217,6 +241,9 @@ export interface Tunnel {
 }
 
 export namespace Tunnel {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tunnel): any => ({
     ...obj,
   });
@@ -230,6 +257,9 @@ export interface DescribeTunnelResponse {
 }
 
 export namespace DescribeTunnelResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTunnelResponse): any => ({
     ...obj,
   });
@@ -243,6 +273,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -256,6 +289,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -279,6 +315,9 @@ export interface ListTunnelsRequest {
 }
 
 export namespace ListTunnelsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTunnelsRequest): any => ({
     ...obj,
   });
@@ -322,6 +361,9 @@ export interface TunnelSummary {
 }
 
 export namespace TunnelSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TunnelSummary): any => ({
     ...obj,
   });
@@ -340,6 +382,9 @@ export interface ListTunnelsResponse {
 }
 
 export namespace ListTunnelsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTunnelsResponse): any => ({
     ...obj,
   });
@@ -355,6 +400,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -383,6 +431,9 @@ export interface OpenTunnelRequest {
 }
 
 export namespace OpenTunnelRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OpenTunnelRequest): any => ({
     ...obj,
   });
@@ -415,6 +466,9 @@ export interface OpenTunnelResponse {
 }
 
 export namespace OpenTunnelResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OpenTunnelResponse): any => ({
     ...obj,
     ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
@@ -435,6 +489,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -443,6 +500,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -461,6 +521,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -469,6 +532,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });

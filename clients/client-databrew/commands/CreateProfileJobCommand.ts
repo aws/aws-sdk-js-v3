@@ -22,6 +22,20 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
 
 /**
  * <p>Creates a new job to analyze a dataset and create its data profile.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataBrewClient, CreateProfileJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
+ * // const { DataBrewClient, CreateProfileJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * const client = new DataBrewClient(config);
+ * const command = new CreateProfileJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateProfileJobCommandInput} for command's `input` shape.
+ * @see {@link CreateProfileJobCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateProfileJobCommand extends $Command<
   CreateProfileJobCommandInput,

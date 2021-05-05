@@ -22,6 +22,20 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
 
 /**
  * <p>Get details of an existing environment.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MWAAClient, GetEnvironmentCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
+ * // const { MWAAClient, GetEnvironmentCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * const client = new MWAAClient(config);
+ * const command = new GetEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEnvironmentCommandInput} for command's `input` shape.
+ * @see {@link GetEnvironmentCommandOutput} for command's `response` shape.
+ * @see {@link MWAAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEnvironmentCommand extends $Command<
   GetEnvironmentCommandInput,

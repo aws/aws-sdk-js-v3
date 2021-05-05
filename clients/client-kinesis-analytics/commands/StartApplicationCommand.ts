@@ -33,6 +33,20 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  *             the input by calling the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_StopApplication.html">StopApplication</a> operation.</p>
  *         <p>This operation requires permissions to perform the
  *             <code>kinesisanalytics:StartApplication</code> action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisAnalyticsClient, StartApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
+ * // const { KinesisAnalyticsClient, StartApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
+ * const client = new KinesisAnalyticsClient(config);
+ * const command = new StartApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartApplicationCommandInput} for command's `input` shape.
+ * @see {@link StartApplicationCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartApplicationCommand extends $Command<
   StartApplicationCommandInput,

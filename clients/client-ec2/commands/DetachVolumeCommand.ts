@@ -30,6 +30,20 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  *       product code is no longer associated with the instance.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Detaching an Amazon EBS volume</a> in the
  *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DetachVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DetachVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DetachVolumeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetachVolumeCommandInput} for command's `input` shape.
+ * @see {@link DetachVolumeCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetachVolumeCommand extends $Command<
   DetachVolumeCommandInput,

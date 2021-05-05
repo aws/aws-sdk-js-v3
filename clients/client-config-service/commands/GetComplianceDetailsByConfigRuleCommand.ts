@@ -27,6 +27,20 @@ export interface GetComplianceDetailsByConfigRuleCommandOutput
  * 			rule. The results indicate which AWS resources were evaluated by the
  * 			rule, when each resource was last evaluated, and whether each
  * 			resource complies with the rule.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConfigServiceClient, GetComplianceDetailsByConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, GetComplianceDetailsByConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * const client = new ConfigServiceClient(config);
+ * const command = new GetComplianceDetailsByConfigRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetComplianceDetailsByConfigRuleCommandInput} for command's `input` shape.
+ * @see {@link GetComplianceDetailsByConfigRuleCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetComplianceDetailsByConfigRuleCommand extends $Command<
   GetComplianceDetailsByConfigRuleCommandInput,

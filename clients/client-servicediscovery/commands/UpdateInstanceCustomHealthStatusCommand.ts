@@ -26,6 +26,20 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  *    which you define using <code>HealthCheckCustomConfig</code> when you create a service. You can't use it to change the
  *    status for Route 53 health checks, which you define using <code>HealthCheckConfig</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html">HealthCheckCustomConfig</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceDiscoveryClient, UpdateInstanceCustomHealthStatusCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
+ * // const { ServiceDiscoveryClient, UpdateInstanceCustomHealthStatusCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * const client = new ServiceDiscoveryClient(config);
+ * const command = new UpdateInstanceCustomHealthStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateInstanceCustomHealthStatusCommandInput} for command's `input` shape.
+ * @see {@link UpdateInstanceCustomHealthStatusCommandOutput} for command's `response` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateInstanceCustomHealthStatusCommand extends $Command<
   UpdateInstanceCustomHealthStatusCommandInput,

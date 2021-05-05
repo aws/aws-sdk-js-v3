@@ -22,6 +22,20 @@ export interface UpdatePullRequestTitleCommandOutput extends UpdatePullRequestTi
 
 /**
  * <p>Replaces the title of a pull request.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeCommitClient, UpdatePullRequestTitleCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, UpdatePullRequestTitleCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * const client = new CodeCommitClient(config);
+ * const command = new UpdatePullRequestTitleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePullRequestTitleCommandInput} for command's `input` shape.
+ * @see {@link UpdatePullRequestTitleCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePullRequestTitleCommand extends $Command<
   UpdatePullRequestTitleCommandInput,

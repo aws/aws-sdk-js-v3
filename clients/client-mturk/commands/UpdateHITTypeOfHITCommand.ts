@@ -29,6 +29,20 @@ export interface UpdateHITTypeOfHITCommandOutput extends UpdateHITTypeOfHITRespo
  *             associates it with the new HITType properties. The HIT takes on the
  *             properties of the new HITType in place of the old ones.
  *         </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MTurkClient, UpdateHITTypeOfHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
+ * // const { MTurkClient, UpdateHITTypeOfHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * const client = new MTurkClient(config);
+ * const command = new UpdateHITTypeOfHITCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateHITTypeOfHITCommandInput} for command's `input` shape.
+ * @see {@link UpdateHITTypeOfHITCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateHITTypeOfHITCommand extends $Command<
   UpdateHITTypeOfHITCommandInput,

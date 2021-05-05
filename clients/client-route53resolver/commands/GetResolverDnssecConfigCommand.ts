@@ -22,6 +22,20 @@ export interface GetResolverDnssecConfigCommandOutput extends GetResolverDnssecC
 
 /**
  * <p>Gets DNSSEC validation information for a specified resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53ResolverClient, GetResolverDnssecConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, GetResolverDnssecConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * const client = new Route53ResolverClient(config);
+ * const command = new GetResolverDnssecConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetResolverDnssecConfigCommandInput} for command's `input` shape.
+ * @see {@link GetResolverDnssecConfigCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetResolverDnssecConfigCommand extends $Command<
   GetResolverDnssecConfigCommandInput,

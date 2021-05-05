@@ -22,6 +22,20 @@ export interface GetParallelDataCommandOutput extends GetParallelDataResponse, _
 
 /**
  * <p>Provides information about a parallel data resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TranslateClient, GetParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
+ * // const { TranslateClient, GetParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * const client = new TranslateClient(config);
+ * const command = new GetParallelDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetParallelDataCommandInput} for command's `input` shape.
+ * @see {@link GetParallelDataCommandOutput} for command's `response` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetParallelDataCommand extends $Command<
   GetParallelDataCommandInput,

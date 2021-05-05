@@ -28,6 +28,20 @@ export interface AdminUpdateDeviceStatusCommandOutput extends AdminUpdateDeviceS
 /**
  * <p>Updates the device status as an administrator.</p>
  *         <p>Calling this action requires developer credentials.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, AdminUpdateDeviceStatusCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminUpdateDeviceStatusCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new AdminUpdateDeviceStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdminUpdateDeviceStatusCommandInput} for command's `input` shape.
+ * @see {@link AdminUpdateDeviceStatusCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdminUpdateDeviceStatusCommand extends $Command<
   AdminUpdateDeviceStatusCommandInput,

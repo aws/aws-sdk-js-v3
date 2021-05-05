@@ -23,6 +23,20 @@ export interface UpdateScheduledAuditCommandOutput extends UpdateScheduledAuditR
 /**
  * <p>Updates a scheduled audit, including which checks are performed and
  *           how often the audit takes place.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, UpdateScheduledAuditCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, UpdateScheduledAuditCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new UpdateScheduledAuditCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateScheduledAuditCommandInput} for command's `input` shape.
+ * @see {@link UpdateScheduledAuditCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateScheduledAuditCommand extends $Command<
   UpdateScheduledAuditCommandInput,

@@ -32,6 +32,20 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrRespo
  * 			WithdrawByoipCidr</a>.</p>
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own
  * 			IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlobalAcceleratorClient, AdvertiseByoipCidrCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
+ * // const { GlobalAcceleratorClient, AdvertiseByoipCidrCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new AdvertiseByoipCidrCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdvertiseByoipCidrCommandInput} for command's `input` shape.
+ * @see {@link AdvertiseByoipCidrCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdvertiseByoipCidrCommand extends $Command<
   AdvertiseByoipCidrCommandInput,

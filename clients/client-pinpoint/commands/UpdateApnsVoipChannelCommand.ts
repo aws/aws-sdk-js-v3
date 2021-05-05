@@ -22,6 +22,20 @@ export interface UpdateApnsVoipChannelCommandOutput extends UpdateApnsVoipChanne
 
 /**
  * <p>Enables the APNs VoIP channel for an application or updates the status and settings of the APNs VoIP channel for an application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointClient, UpdateApnsVoipChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, UpdateApnsVoipChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * const client = new PinpointClient(config);
+ * const command = new UpdateApnsVoipChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateApnsVoipChannelCommandInput} for command's `input` shape.
+ * @see {@link UpdateApnsVoipChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateApnsVoipChannelCommand extends $Command<
   UpdateApnsVoipChannelCommandInput,

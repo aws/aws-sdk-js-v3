@@ -57,6 +57,20 @@ export interface TagInstanceProfileCommandOutput extends __MetadataBearer {}
  *                </li>
  *             </ul>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, TagInstanceProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, TagInstanceProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new TagInstanceProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagInstanceProfileCommandInput} for command's `input` shape.
+ * @see {@link TagInstanceProfileCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagInstanceProfileCommand extends $Command<
   TagInstanceProfileCommandInput,

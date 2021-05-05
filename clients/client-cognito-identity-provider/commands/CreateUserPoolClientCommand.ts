@@ -27,6 +27,20 @@ export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientR
 
 /**
  * <p>Creates the user pool client.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, CreateUserPoolClientCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, CreateUserPoolClientCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new CreateUserPoolClientCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateUserPoolClientCommandInput} for command's `input` shape.
+ * @see {@link CreateUserPoolClientCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateUserPoolClientCommand extends $Command<
   CreateUserPoolClientCommandInput,

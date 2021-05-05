@@ -25,6 +25,20 @@ export interface AcceptCertificateTransferCommandOutput extends __MetadataBearer
  *          INACTIVE.</p>
  *          <p>To check for pending certificate transfers, call <a>ListCertificates</a>
  *          to enumerate your certificates.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, AcceptCertificateTransferCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, AcceptCertificateTransferCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new AcceptCertificateTransferCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AcceptCertificateTransferCommandInput} for command's `input` shape.
+ * @see {@link AcceptCertificateTransferCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AcceptCertificateTransferCommand extends $Command<
   AcceptCertificateTransferCommandInput,

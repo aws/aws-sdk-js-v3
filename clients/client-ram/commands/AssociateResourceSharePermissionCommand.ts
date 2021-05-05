@@ -24,6 +24,20 @@ export interface AssociateResourceSharePermissionCommandOutput
 
 /**
  * <p>Associates a permission with a resource share.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RAMClient, AssociateResourceSharePermissionCommand } from "@aws-sdk/client-ram"; // ES Modules import
+ * // const { RAMClient, AssociateResourceSharePermissionCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * const client = new RAMClient(config);
+ * const command = new AssociateResourceSharePermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateResourceSharePermissionCommandInput} for command's `input` shape.
+ * @see {@link AssociateResourceSharePermissionCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateResourceSharePermissionCommand extends $Command<
   AssociateResourceSharePermissionCommandInput,

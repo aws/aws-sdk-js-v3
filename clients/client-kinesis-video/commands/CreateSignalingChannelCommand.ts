@@ -24,6 +24,20 @@ export interface CreateSignalingChannelCommandOutput extends CreateSignalingChan
  * <p>Creates a signaling channel. </p>
  *         <p>
  *             <code>CreateSignalingChannel</code> is an asynchronous operation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisVideoClient, CreateSignalingChannelCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
+ * // const { KinesisVideoClient, CreateSignalingChannelCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * const client = new KinesisVideoClient(config);
+ * const command = new CreateSignalingChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSignalingChannelCommandInput} for command's `input` shape.
+ * @see {@link CreateSignalingChannelCommandOutput} for command's `response` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSignalingChannelCommand extends $Command<
   CreateSignalingChannelCommandInput,

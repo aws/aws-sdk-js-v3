@@ -22,6 +22,20 @@ export interface DeleteDeviceFleetCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a fleet.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, DeleteDeviceFleetCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DeleteDeviceFleetCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteDeviceFleetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDeviceFleetCommandInput} for command's `input` shape.
+ * @see {@link DeleteDeviceFleetCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDeviceFleetCommand extends $Command<
   DeleteDeviceFleetCommandInput,

@@ -75,6 +75,20 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  *           when you call this operation.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassV2Client, CreateComponentVersionCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
+ * // const { GreengrassV2Client, CreateComponentVersionCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * const client = new GreengrassV2Client(config);
+ * const command = new CreateComponentVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateComponentVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateComponentVersionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateComponentVersionCommand extends $Command<
   CreateComponentVersionCommandInput,

@@ -28,6 +28,20 @@ export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofen
  *             <p>The last geofence that a device was observed within, if any, is tracked for 30
  *                 days after the most recent device position update</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LocationClient, BatchEvaluateGeofencesCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, BatchEvaluateGeofencesCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * const client = new LocationClient(config);
+ * const command = new BatchEvaluateGeofencesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchEvaluateGeofencesCommandInput} for command's `input` shape.
+ * @see {@link BatchEvaluateGeofencesCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchEvaluateGeofencesCommand extends $Command<
   BatchEvaluateGeofencesCommandInput,

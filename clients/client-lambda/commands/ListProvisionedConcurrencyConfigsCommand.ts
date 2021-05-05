@@ -27,6 +27,20 @@ export interface ListProvisionedConcurrencyConfigsCommandOutput
 
 /**
  * <p>Retrieves a list of provisioned concurrency configurations for a function.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LambdaClient, ListProvisionedConcurrencyConfigsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, ListProvisionedConcurrencyConfigsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * const client = new LambdaClient(config);
+ * const command = new ListProvisionedConcurrencyConfigsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProvisionedConcurrencyConfigsCommandInput} for command's `input` shape.
+ * @see {@link ListProvisionedConcurrencyConfigsCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProvisionedConcurrencyConfigsCommand extends $Command<
   ListProvisionedConcurrencyConfigsCommandInput,

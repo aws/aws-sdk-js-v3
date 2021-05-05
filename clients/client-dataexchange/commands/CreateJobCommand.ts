@@ -22,6 +22,20 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
 
 /**
  * <p>This operation creates a job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataExchangeClient, CreateJobCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
+ * // const { DataExchangeClient, CreateJobCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * const client = new DataExchangeClient(config);
+ * const command = new CreateJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateJobCommandInput} for command's `input` shape.
+ * @see {@link CreateJobCommandOutput} for command's `response` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateJobCommand extends $Command<
   CreateJobCommandInput,

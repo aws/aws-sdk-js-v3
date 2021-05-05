@@ -22,6 +22,20 @@ export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedb
 
 /**
  * <p>Marks the specified GuardDuty findings as useful or not useful.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GuardDutyClient, UpdateFindingsFeedbackCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, UpdateFindingsFeedbackCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * const client = new GuardDutyClient(config);
+ * const command = new UpdateFindingsFeedbackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFindingsFeedbackCommandInput} for command's `input` shape.
+ * @see {@link UpdateFindingsFeedbackCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFindingsFeedbackCommand extends $Command<
   UpdateFindingsFeedbackCommandInput,

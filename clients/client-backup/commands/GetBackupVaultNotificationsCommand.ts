@@ -22,6 +22,20 @@ export interface GetBackupVaultNotificationsCommandOutput extends GetBackupVault
 
 /**
  * <p>Returns event notifications for the specified backup vault.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BackupClient, GetBackupVaultNotificationsCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, GetBackupVaultNotificationsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * const client = new BackupClient(config);
+ * const command = new GetBackupVaultNotificationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBackupVaultNotificationsCommandInput} for command's `input` shape.
+ * @see {@link GetBackupVaultNotificationsCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBackupVaultNotificationsCommand extends $Command<
   GetBackupVaultNotificationsCommandInput,

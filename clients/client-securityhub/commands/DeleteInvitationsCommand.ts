@@ -24,6 +24,20 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  * <p>Deletes invitations received by the AWS account to become a member account.</p>
  *          <p>This operation is only used by accounts that are not part of an organization.
  *          Organization accounts do not receive invitations.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecurityHubClient, DeleteInvitationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, DeleteInvitationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * const client = new SecurityHubClient(config);
+ * const command = new DeleteInvitationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteInvitationsCommandInput} for command's `input` shape.
+ * @see {@link DeleteInvitationsCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteInvitationsCommand extends $Command<
   DeleteInvitationsCommandInput,

@@ -22,6 +22,20 @@ export interface GetAuthorizerCommandOutput extends GetAuthorizerResponse, __Met
 
 /**
  * <p>Gets an Authorizer.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApiGatewayV2Client, GetAuthorizerCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
+ * // const { ApiGatewayV2Client, GetAuthorizerCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new GetAuthorizerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAuthorizerCommandInput} for command's `input` shape.
+ * @see {@link GetAuthorizerCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAuthorizerCommand extends $Command<
   GetAuthorizerCommandInput,

@@ -21,6 +21,9 @@ export interface AssumedRoleUser {
 }
 
 export namespace AssumedRoleUser {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssumedRoleUser): any => ({
     ...obj,
   });
@@ -40,6 +43,9 @@ export interface PolicyDescriptorType {
 }
 
 export namespace PolicyDescriptorType {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyDescriptorType): any => ({
     ...obj,
   });
@@ -70,6 +76,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -277,6 +286,9 @@ export interface AssumeRoleRequest {
 }
 
 export namespace AssumeRoleRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssumeRoleRequest): any => ({
     ...obj,
   });
@@ -309,6 +321,9 @@ export interface Credentials {
 }
 
 export namespace Credentials {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Credentials): any => ({
     ...obj,
   });
@@ -364,6 +379,9 @@ export interface AssumeRoleResponse {
 }
 
 export namespace AssumeRoleResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssumeRoleResponse): any => ({
     ...obj,
   });
@@ -380,6 +398,9 @@ export interface ExpiredTokenException extends __SmithyException, $MetadataBeare
 }
 
 export namespace ExpiredTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExpiredTokenException): any => ({
     ...obj,
   });
@@ -396,6 +417,9 @@ export interface MalformedPolicyDocumentException extends __SmithyException, $Me
 }
 
 export namespace MalformedPolicyDocumentException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
     ...obj,
   });
@@ -419,6 +443,9 @@ export interface PackedPolicyTooLargeException extends __SmithyException, $Metad
 }
 
 export namespace PackedPolicyTooLargeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PackedPolicyTooLargeException): any => ({
     ...obj,
   });
@@ -438,6 +465,9 @@ export interface RegionDisabledException extends __SmithyException, $MetadataBea
 }
 
 export namespace RegionDisabledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegionDisabledException): any => ({
     ...obj,
   });
@@ -542,6 +572,9 @@ export interface AssumeRoleWithSAMLRequest {
 }
 
 export namespace AssumeRoleWithSAMLRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssumeRoleWithSAMLRequest): any => ({
     ...obj,
   });
@@ -647,6 +680,9 @@ export interface AssumeRoleWithSAMLResponse {
 }
 
 export namespace AssumeRoleWithSAMLResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssumeRoleWithSAMLResponse): any => ({
     ...obj,
   });
@@ -665,6 +701,9 @@ export interface IDPRejectedClaimException extends __SmithyException, $MetadataB
 }
 
 export namespace IDPRejectedClaimException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IDPRejectedClaimException): any => ({
     ...obj,
   });
@@ -681,6 +720,9 @@ export interface InvalidIdentityTokenException extends __SmithyException, $Metad
 }
 
 export namespace InvalidIdentityTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidIdentityTokenException): any => ({
     ...obj,
   });
@@ -799,6 +841,9 @@ export interface AssumeRoleWithWebIdentityRequest {
 }
 
 export namespace AssumeRoleWithWebIdentityRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssumeRoleWithWebIdentityRequest): any => ({
     ...obj,
   });
@@ -883,6 +928,9 @@ export interface AssumeRoleWithWebIdentityResponse {
 }
 
 export namespace AssumeRoleWithWebIdentityResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssumeRoleWithWebIdentityResponse): any => ({
     ...obj,
   });
@@ -902,6 +950,9 @@ export interface IDPCommunicationErrorException extends __SmithyException, $Meta
 }
 
 export namespace IDPCommunicationErrorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IDPCommunicationErrorException): any => ({
     ...obj,
   });
@@ -915,6 +966,9 @@ export interface DecodeAuthorizationMessageRequest {
 }
 
 export namespace DecodeAuthorizationMessageRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DecodeAuthorizationMessageRequest): any => ({
     ...obj,
   });
@@ -932,6 +986,9 @@ export interface DecodeAuthorizationMessageResponse {
 }
 
 export namespace DecodeAuthorizationMessageResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DecodeAuthorizationMessageResponse): any => ({
     ...obj,
   });
@@ -949,6 +1006,9 @@ export interface InvalidAuthorizationMessageException extends __SmithyException,
 }
 
 export namespace InvalidAuthorizationMessageException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidAuthorizationMessageException): any => ({
     ...obj,
   });
@@ -964,6 +1024,9 @@ export interface GetAccessKeyInfoRequest {
 }
 
 export namespace GetAccessKeyInfoRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetAccessKeyInfoRequest): any => ({
     ...obj,
   });
@@ -977,6 +1040,9 @@ export interface GetAccessKeyInfoResponse {
 }
 
 export namespace GetAccessKeyInfoResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetAccessKeyInfoResponse): any => ({
     ...obj,
   });
@@ -985,6 +1051,9 @@ export namespace GetAccessKeyInfoResponse {
 export interface GetCallerIdentityRequest {}
 
 export namespace GetCallerIdentityRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetCallerIdentityRequest): any => ({
     ...obj,
   });
@@ -1016,6 +1085,9 @@ export interface GetCallerIdentityResponse {
 }
 
 export namespace GetCallerIdentityResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetCallerIdentityResponse): any => ({
     ...obj,
   });
@@ -1143,6 +1215,9 @@ export interface GetFederationTokenRequest {
 }
 
 export namespace GetFederationTokenRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetFederationTokenRequest): any => ({
     ...obj,
   });
@@ -1167,6 +1242,9 @@ export interface FederatedUser {
 }
 
 export namespace FederatedUser {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FederatedUser): any => ({
     ...obj,
   });
@@ -1204,6 +1282,9 @@ export interface GetFederationTokenResponse {
 }
 
 export namespace GetFederationTokenResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetFederationTokenResponse): any => ({
     ...obj,
   });
@@ -1246,6 +1327,9 @@ export interface GetSessionTokenRequest {
 }
 
 export namespace GetSessionTokenRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSessionTokenRequest): any => ({
     ...obj,
   });
@@ -1269,6 +1353,9 @@ export interface GetSessionTokenResponse {
 }
 
 export namespace GetSessionTokenResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSessionTokenResponse): any => ({
     ...obj,
   });

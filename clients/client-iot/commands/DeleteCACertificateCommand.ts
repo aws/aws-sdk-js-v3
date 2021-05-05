@@ -22,6 +22,20 @@ export interface DeleteCACertificateCommandOutput extends DeleteCACertificateRes
 
 /**
  * <p>Deletes a registered CA certificate.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, DeleteCACertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DeleteCACertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new DeleteCACertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCACertificateCommandInput} for command's `input` shape.
+ * @see {@link DeleteCACertificateCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCACertificateCommand extends $Command<
   DeleteCACertificateCommandInput,

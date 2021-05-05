@@ -22,6 +22,20 @@ export interface UpdateEventConfigurationsCommandOutput extends UpdateEventConfi
 
 /**
  * <p>Updates the event configurations.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, UpdateEventConfigurationsCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, UpdateEventConfigurationsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new UpdateEventConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateEventConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link UpdateEventConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateEventConfigurationsCommand extends $Command<
   UpdateEventConfigurationsCommandInput,

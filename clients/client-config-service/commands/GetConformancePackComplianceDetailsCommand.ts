@@ -27,6 +27,20 @@ export interface GetConformancePackComplianceDetailsCommandOutput
 
 /**
  * <p>Returns compliance details of a conformance pack for all AWS resources that are monitered by conformance pack.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConfigServiceClient, GetConformancePackComplianceDetailsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, GetConformancePackComplianceDetailsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * const client = new ConfigServiceClient(config);
+ * const command = new GetConformancePackComplianceDetailsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetConformancePackComplianceDetailsCommandInput} for command's `input` shape.
+ * @see {@link GetConformancePackComplianceDetailsCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetConformancePackComplianceDetailsCommand extends $Command<
   GetConformancePackComplianceDetailsCommandInput,

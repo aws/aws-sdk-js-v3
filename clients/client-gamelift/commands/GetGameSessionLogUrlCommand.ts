@@ -44,6 +44,20 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
  *                     <a>StopGameSessionPlacement</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GameLiftClient, GetGameSessionLogUrlCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
+ * // const { GameLiftClient, GetGameSessionLogUrlCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * const client = new GameLiftClient(config);
+ * const command = new GetGameSessionLogUrlCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetGameSessionLogUrlCommandInput} for command's `input` shape.
+ * @see {@link GetGameSessionLogUrlCommandOutput} for command's `response` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetGameSessionLogUrlCommand extends $Command<
   GetGameSessionLogUrlCommandInput,

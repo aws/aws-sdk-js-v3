@@ -22,6 +22,20 @@ export interface DescribeHarvestJobCommandOutput extends DescribeHarvestJobRespo
 
 /**
  * Gets details about an existing HarvestJob.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaPackageClient, DescribeHarvestJobCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
+ * // const { MediaPackageClient, DescribeHarvestJobCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * const client = new MediaPackageClient(config);
+ * const command = new DescribeHarvestJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeHarvestJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeHarvestJobCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeHarvestJobCommand extends $Command<
   DescribeHarvestJobCommandInput,

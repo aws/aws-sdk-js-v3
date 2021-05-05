@@ -23,6 +23,20 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
 /**
  * <p>Lists all GuardDuty membership invitations that were sent to the current AWS
  *       account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GuardDutyClient, ListInvitationsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, ListInvitationsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * const client = new GuardDutyClient(config);
+ * const command = new ListInvitationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListInvitationsCommandInput} for command's `input` shape.
+ * @see {@link ListInvitationsCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListInvitationsCommand extends $Command<
   ListInvitationsCommandInput,

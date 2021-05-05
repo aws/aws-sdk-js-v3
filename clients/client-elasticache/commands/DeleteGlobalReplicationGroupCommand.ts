@@ -40,6 +40,20 @@ export interface DeleteGlobalReplicationGroupCommandOutput
  *
  *         <p>When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the selected resources;
  *             you cannot cancel or revert this operation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElastiCacheClient, DeleteGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, DeleteGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * const client = new ElastiCacheClient(config);
+ * const command = new DeleteGlobalReplicationGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteGlobalReplicationGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteGlobalReplicationGroupCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteGlobalReplicationGroupCommand extends $Command<
   DeleteGlobalReplicationGroupCommandInput,

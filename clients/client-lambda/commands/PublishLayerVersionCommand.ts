@@ -25,6 +25,20 @@ export interface PublishLayerVersionCommandOutput extends PublishLayerVersionRes
  *         layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same
  *       layer name, a new version is created.</p>
  *          <p>Add layers to your function with <a>CreateFunction</a> or <a>UpdateFunctionConfiguration</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LambdaClient, PublishLayerVersionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, PublishLayerVersionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * const client = new LambdaClient(config);
+ * const command = new PublishLayerVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PublishLayerVersionCommandInput} for command's `input` shape.
+ * @see {@link PublishLayerVersionCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PublishLayerVersionCommand extends $Command<
   PublishLayerVersionCommandInput,

@@ -22,6 +22,20 @@ export interface CreatePreparedStatementCommandOutput extends CreatePreparedStat
 
 /**
  * <p>Creates a prepared statement for use with SQL queries in Athena.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AthenaClient, CreatePreparedStatementCommand } from "@aws-sdk/client-athena"; // ES Modules import
+ * // const { AthenaClient, CreatePreparedStatementCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * const client = new AthenaClient(config);
+ * const command = new CreatePreparedStatementCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePreparedStatementCommandInput} for command's `input` shape.
+ * @see {@link CreatePreparedStatementCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePreparedStatementCommand extends $Command<
   CreatePreparedStatementCommandInput,

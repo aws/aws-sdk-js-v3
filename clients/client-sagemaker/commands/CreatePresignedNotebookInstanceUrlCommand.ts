@@ -41,6 +41,20 @@ export interface CreatePresignedNotebookInstanceUrlCommandOutput
  *                 you try to use the URL after the 5-minute limit expires, you are directed to the
  *                 AWS console sign-in page.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, CreatePresignedNotebookInstanceUrlCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, CreatePresignedNotebookInstanceUrlCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new CreatePresignedNotebookInstanceUrlCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePresignedNotebookInstanceUrlCommandInput} for command's `input` shape.
+ * @see {@link CreatePresignedNotebookInstanceUrlCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePresignedNotebookInstanceUrlCommand extends $Command<
   CreatePresignedNotebookInstanceUrlCommandInput,

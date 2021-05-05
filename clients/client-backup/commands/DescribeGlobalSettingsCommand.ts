@@ -23,6 +23,20 @@ export interface DescribeGlobalSettingsCommandOutput extends DescribeGlobalSetti
 /**
  * <p>Describes the global settings of the AWS account, including whether it is opted in to
  *          cross-account backup.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BackupClient, DescribeGlobalSettingsCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, DescribeGlobalSettingsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * const client = new BackupClient(config);
+ * const command = new DescribeGlobalSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeGlobalSettingsCommandInput} for command's `input` shape.
+ * @see {@link DescribeGlobalSettingsCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeGlobalSettingsCommand extends $Command<
   DescribeGlobalSettingsCommandInput,

@@ -22,6 +22,20 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
 
 /**
  * <p>Searches for devices using the specified filters.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BraketClient, SearchDevicesCommand } from "@aws-sdk/client-braket"; // ES Modules import
+ * // const { BraketClient, SearchDevicesCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * const client = new BraketClient(config);
+ * const command = new SearchDevicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchDevicesCommandInput} for command's `input` shape.
+ * @see {@link SearchDevicesCommandOutput} for command's `response` shape.
+ * @see {@link BraketClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchDevicesCommand extends $Command<
   SearchDevicesCommandInput,

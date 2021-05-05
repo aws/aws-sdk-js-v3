@@ -22,6 +22,20 @@ export interface PutRepositoryCatalogDataCommandOutput extends PutRepositoryCata
 
 /**
  * <p>Creates or updates the catalog data for a repository in a public registry.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECRPUBLICClient, PutRepositoryCatalogDataCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
+ * // const { ECRPUBLICClient, PutRepositoryCatalogDataCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * const client = new ECRPUBLICClient(config);
+ * const command = new PutRepositoryCatalogDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutRepositoryCatalogDataCommandInput} for command's `input` shape.
+ * @see {@link PutRepositoryCatalogDataCommandOutput} for command's `response` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutRepositoryCatalogDataCommand extends $Command<
   PutRepositoryCatalogDataCommandInput,

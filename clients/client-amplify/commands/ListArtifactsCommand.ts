@@ -22,6 +22,20 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
 
 /**
  * <p> Returns a list of artifacts for a specified app, branch, and job. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmplifyClient, ListArtifactsCommand } from "@aws-sdk/client-amplify"; // ES Modules import
+ * // const { AmplifyClient, ListArtifactsCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * const client = new AmplifyClient(config);
+ * const command = new ListArtifactsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListArtifactsCommandInput} for command's `input` shape.
+ * @see {@link ListArtifactsCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListArtifactsCommand extends $Command<
   ListArtifactsCommandInput,

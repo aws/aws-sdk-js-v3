@@ -22,6 +22,20 @@ export interface JsonEnumsCommandOutput extends JsonEnumsInputOutput, __Metadata
 
 /**
  * This example serializes enums as top level properties, in lists, sets, and maps.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, JsonEnumsCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, JsonEnumsCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new JsonEnumsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link JsonEnumsCommandInput} for command's `input` shape.
+ * @see {@link JsonEnumsCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class JsonEnumsCommand extends $Command<
   JsonEnumsCommandInput,

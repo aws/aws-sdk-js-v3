@@ -22,6 +22,20 @@ export interface CreateInputSecurityGroupCommandOutput extends CreateInputSecuri
 
 /**
  * Creates a Input Security Group
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaLiveClient, CreateInputSecurityGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, CreateInputSecurityGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * const client = new MediaLiveClient(config);
+ * const command = new CreateInputSecurityGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateInputSecurityGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateInputSecurityGroupCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateInputSecurityGroupCommand extends $Command<
   CreateInputSecurityGroupCommandInput,

@@ -150,6 +150,20 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  * 				           <p>Any other extension</p>
  * 			         </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ACMPCAClient, ImportCertificateAuthorityCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
+ * // const { ACMPCAClient, ImportCertificateAuthorityCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * const client = new ACMPCAClient(config);
+ * const command = new ImportCertificateAuthorityCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportCertificateAuthorityCertificateCommandInput} for command's `input` shape.
+ * @see {@link ImportCertificateAuthorityCertificateCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ImportCertificateAuthorityCertificateCommand extends $Command<
   ImportCertificateAuthorityCertificateCommandInput,

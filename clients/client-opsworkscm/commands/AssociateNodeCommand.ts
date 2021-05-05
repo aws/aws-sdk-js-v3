@@ -38,6 +38,20 @@ export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __Met
  *       A <code>ResourceNotFoundException</code> is thrown when the server does not exist. A <code>ValidationException</code> is raised when parameters of the request are not valid.
  *       The AssociateNode API call can be integrated into Auto Scaling configurations, AWS Cloudformation templates, or the user data of a server's instance.
  *     </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OpsWorksCMClient, AssociateNodeCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
+ * // const { OpsWorksCMClient, AssociateNodeCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
+ * const client = new OpsWorksCMClient(config);
+ * const command = new AssociateNodeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateNodeCommandInput} for command's `input` shape.
+ * @see {@link AssociateNodeCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateNodeCommand extends $Command<
   AssociateNodeCommandInput,

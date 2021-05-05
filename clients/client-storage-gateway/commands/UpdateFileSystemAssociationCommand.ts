@@ -23,6 +23,20 @@ export interface UpdateFileSystemAssociationCommandOutput extends UpdateFileSyst
 /**
  * <p>Updates a file system association. This operation is only supported in the Amazon FSx
  *          file gateway type.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { StorageGatewayClient, UpdateFileSystemAssociationCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, UpdateFileSystemAssociationCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * const client = new StorageGatewayClient(config);
+ * const command = new UpdateFileSystemAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFileSystemAssociationCommandInput} for command's `input` shape.
+ * @see {@link UpdateFileSystemAssociationCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFileSystemAssociationCommand extends $Command<
   UpdateFileSystemAssociationCommandInput,

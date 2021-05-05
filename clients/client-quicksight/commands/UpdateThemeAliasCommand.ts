@@ -22,6 +22,20 @@ export interface UpdateThemeAliasCommandOutput extends UpdateThemeAliasResponse,
 
 /**
  * <p>Updates an alias of a theme.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QuickSightClient, UpdateThemeAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, UpdateThemeAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * const client = new QuickSightClient(config);
+ * const command = new UpdateThemeAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateThemeAliasCommandInput} for command's `input` shape.
+ * @see {@link UpdateThemeAliasCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateThemeAliasCommand extends $Command<
   UpdateThemeAliasCommandInput,

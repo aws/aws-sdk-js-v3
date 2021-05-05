@@ -28,6 +28,20 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  *     can use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in
  *     the Java SDK. Other languages and SDKs provide similar functionality.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, GetRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, GetRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new GetRoleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRoleCommandInput} for command's `input` shape.
+ * @see {@link GetRoleCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRoleCommand extends $Command<GetRoleCommandInput, GetRoleCommandOutput, IAMClientResolvedConfig> {
   // Start section: command_properties

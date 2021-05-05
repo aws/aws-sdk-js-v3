@@ -36,6 +36,20 @@ export interface SetTerminationProtectionCommandOutput extends __MetadataBearer 
  *          value to <code>false</code>. </p>
  *          <p> For more information, see<a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html">Managing Cluster
  *             Termination</a> in the <i>Amazon EMR Management Guide</i>. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EMRClient, SetTerminationProtectionCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, SetTerminationProtectionCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * const client = new EMRClient(config);
+ * const command = new SetTerminationProtectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetTerminationProtectionCommandInput} for command's `input` shape.
+ * @see {@link SetTerminationProtectionCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetTerminationProtectionCommand extends $Command<
   SetTerminationProtectionCommandInput,

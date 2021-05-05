@@ -29,6 +29,20 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  *          certificate; and then use the DeletePolicy API to delete the policy.</p>
  *          <p>When a policy is deleted using DeletePolicy, its default version is deleted with
  *          it.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, DeletePolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DeletePolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new DeletePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePolicyCommandInput} for command's `input` shape.
+ * @see {@link DeletePolicyCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePolicyCommand extends $Command<
   DeletePolicyCommandInput,

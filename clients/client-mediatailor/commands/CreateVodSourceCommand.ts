@@ -22,6 +22,20 @@ export interface CreateVodSourceCommandOutput extends CreateVodSourceResponse, _
 
 /**
  * <p>Creates name for a specific VOD source in a source location.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaTailorClient, CreateVodSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
+ * // const { MediaTailorClient, CreateVodSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * const client = new MediaTailorClient(config);
+ * const command = new CreateVodSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVodSourceCommandInput} for command's `input` shape.
+ * @see {@link CreateVodSourceCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateVodSourceCommand extends $Command<
   CreateVodSourceCommandInput,

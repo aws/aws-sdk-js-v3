@@ -22,6 +22,20 @@ export interface ListApiDestinationsCommandOutput extends ListApiDestinationsRes
 
 /**
  * <p>Retrieves a list of API destination in the account in the current Region.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchEventsClient, ListApiDestinationsCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
+ * // const { CloudWatchEventsClient, ListApiDestinationsCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * const client = new CloudWatchEventsClient(config);
+ * const command = new ListApiDestinationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListApiDestinationsCommandInput} for command's `input` shape.
+ * @see {@link ListApiDestinationsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListApiDestinationsCommand extends $Command<
   ListApiDestinationsCommandInput,

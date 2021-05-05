@@ -25,6 +25,20 @@ export interface DeleteRoleCommandOutput extends __MetadataBearer {}
  *                 are about to delete. Deleting a role or instance profile that is associated with a
  *                 running instance will break any applications running on the instance.</p>
  *         </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, DeleteRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, DeleteRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new DeleteRoleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRoleCommandInput} for command's `input` shape.
+ * @see {@link DeleteRoleCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRoleCommand extends $Command<
   DeleteRoleCommandInput,

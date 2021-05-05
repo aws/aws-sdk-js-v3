@@ -22,6 +22,20 @@ export interface CreateDevicePoolCommandOutput extends CreateDevicePoolResult, _
 
 /**
  * <p>Creates a device pool.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, CreateDevicePoolCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, CreateDevicePoolCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new CreateDevicePoolCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDevicePoolCommandInput} for command's `input` shape.
+ * @see {@link CreateDevicePoolCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDevicePoolCommand extends $Command<
   CreateDevicePoolCommandInput,

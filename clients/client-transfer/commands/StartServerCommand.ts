@@ -30,6 +30,20 @@ export interface StartServerCommandOutput extends __MetadataBearer {}
  *       can indicate an error condition.</p>
  *
  *          <p>No response is returned from this call.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TransferClient, StartServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
+ * // const { TransferClient, StartServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * const client = new TransferClient(config);
+ * const command = new StartServerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartServerCommandInput} for command's `input` shape.
+ * @see {@link StartServerCommandOutput} for command's `response` shape.
+ * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartServerCommand extends $Command<
   StartServerCommandInput,

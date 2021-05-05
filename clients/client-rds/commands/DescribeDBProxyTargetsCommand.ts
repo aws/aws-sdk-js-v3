@@ -22,6 +22,20 @@ export interface DescribeDBProxyTargetsCommandOutput extends DescribeDBProxyTarg
 
 /**
  * <p>Returns information about <code>DBProxyTarget</code> objects. This API supports pagination.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, DescribeDBProxyTargetsCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeDBProxyTargetsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new DescribeDBProxyTargetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDBProxyTargetsCommandInput} for command's `input` shape.
+ * @see {@link DescribeDBProxyTargetsCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDBProxyTargetsCommand extends $Command<
   DescribeDBProxyTargetsCommandInput,

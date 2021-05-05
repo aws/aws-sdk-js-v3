@@ -32,6 +32,20 @@ export interface UpdateConfigurationSetTrackingOptionsCommandOutput
  *         <p>By default, images and links used for tracking open and click events are hosted on
  *             domains operated by Amazon SES. You can configure a subdomain of your own to handle these
  *             events. For information about using custom domains, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESClient, UpdateConfigurationSetTrackingOptionsCommand } from "@aws-sdk/client-ses"; // ES Modules import
+ * // const { SESClient, UpdateConfigurationSetTrackingOptionsCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * const client = new SESClient(config);
+ * const command = new UpdateConfigurationSetTrackingOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
+ * @see {@link UpdateConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
   UpdateConfigurationSetTrackingOptionsCommandInput,

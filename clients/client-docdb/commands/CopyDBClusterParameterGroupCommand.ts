@@ -22,6 +22,20 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
 
 /**
  * <p>Copies the specified cluster parameter group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DocDBClient, CopyDBClusterParameterGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, CopyDBClusterParameterGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * const client = new DocDBClient(config);
+ * const command = new CopyDBClusterParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CopyDBClusterParameterGroupCommandInput} for command's `input` shape.
+ * @see {@link CopyDBClusterParameterGroupCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CopyDBClusterParameterGroupCommand extends $Command<
   CopyDBClusterParameterGroupCommandInput,

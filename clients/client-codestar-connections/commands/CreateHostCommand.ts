@@ -33,6 +33,20 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  *             <p>A host created through the CLI or the SDK is in `PENDING` status by
  *         default. You can make its status `AVAILABLE` by setting up the host in the console.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeStarConnectionsClient, CreateHostCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
+ * // const { CodeStarConnectionsClient, CreateHostCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * const client = new CodeStarConnectionsClient(config);
+ * const command = new CreateHostCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateHostCommandInput} for command's `input` shape.
+ * @see {@link CreateHostCommandOutput} for command's `response` shape.
+ * @see {@link CodeStarConnectionsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateHostCommand extends $Command<
   CreateHostCommandInput,

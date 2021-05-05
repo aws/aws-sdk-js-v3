@@ -23,6 +23,20 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
 /**
  * <p>Updates an asset's name. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
  *         <i>AWS IoT SiteWise User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTSiteWiseClient, UpdateAssetCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, UpdateAssetCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new UpdateAssetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAssetCommandInput} for command's `input` shape.
+ * @see {@link UpdateAssetCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAssetCommand extends $Command<
   UpdateAssetCommandInput,

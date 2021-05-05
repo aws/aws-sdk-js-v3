@@ -22,6 +22,20 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
 
 /**
  * <p>Retrieves (queries) quotas and aggregated usage data for one or more accounts.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Macie2Client, GetUsageStatisticsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, GetUsageStatisticsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * const client = new Macie2Client(config);
+ * const command = new GetUsageStatisticsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetUsageStatisticsCommandInput} for command's `input` shape.
+ * @see {@link GetUsageStatisticsCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetUsageStatisticsCommand extends $Command<
   GetUsageStatisticsCommandInput,

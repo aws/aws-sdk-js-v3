@@ -81,6 +81,20 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  *          </ul>
  *
  *         <p>Also see, <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html#auto-failover-test">Testing Multi-AZ </a> in the <i>ElastiCache User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElastiCacheClient, TestFailoverCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, TestFailoverCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * const client = new ElastiCacheClient(config);
+ * const command = new TestFailoverCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TestFailoverCommandInput} for command's `input` shape.
+ * @see {@link TestFailoverCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TestFailoverCommand extends $Command<
   TestFailoverCommandInput,

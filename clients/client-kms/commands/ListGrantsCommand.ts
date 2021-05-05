@@ -62,6 +62,20 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KMSClient, ListGrantsCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, ListGrantsCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * const client = new KMSClient(config);
+ * const command = new ListGrantsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListGrantsCommandInput} for command's `input` shape.
+ * @see {@link ListGrantsCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListGrantsCommand extends $Command<
   ListGrantsCommandInput,

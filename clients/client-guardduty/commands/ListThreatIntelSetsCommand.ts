@@ -24,6 +24,20 @@ export interface ListThreatIntelSetsCommandOutput extends ListThreatIntelSetsRes
  * <p>Lists the ThreatIntelSets of the GuardDuty service specified by the detector ID. If you
  *       use this operation from a member account, the ThreatIntelSets associated with the administrator
  *       account are returned.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GuardDutyClient, ListThreatIntelSetsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, ListThreatIntelSetsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * const client = new GuardDutyClient(config);
+ * const command = new ListThreatIntelSetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListThreatIntelSetsCommandInput} for command's `input` shape.
+ * @see {@link ListThreatIntelSetsCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListThreatIntelSetsCommand extends $Command<
   ListThreatIntelSetsCommandInput,

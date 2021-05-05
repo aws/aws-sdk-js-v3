@@ -24,6 +24,20 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * <p>Returns attributes related to AWS Elastic Beanstalk that are associated with the calling AWS
  *       account.</p>
  *          <p>The result currently has one set of attributes—resource quotas.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticBeanstalkClient, DescribeAccountAttributesCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
+ * // const { ElasticBeanstalkClient, DescribeAccountAttributesCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new DescribeAccountAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAccountAttributesCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAccountAttributesCommand extends $Command<
   DescribeAccountAttributesCommandInput,

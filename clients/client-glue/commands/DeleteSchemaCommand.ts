@@ -22,6 +22,20 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
 
 /**
  * <p>Deletes the entire schema set, including the schema set and all of its versions. To get the status of the delete operation, you can call <code>GetSchema</code> API after the asynchronous call. Deleting a registry will disable all online operations for the schema, such as the <code>GetSchemaByDefinition</code>, and <code>RegisterSchemaVersion</code> APIs.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, DeleteSchemaCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, DeleteSchemaCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new DeleteSchemaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSchemaCommandInput} for command's `input` shape.
+ * @see {@link DeleteSchemaCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSchemaCommand extends $Command<
   DeleteSchemaCommandInput,

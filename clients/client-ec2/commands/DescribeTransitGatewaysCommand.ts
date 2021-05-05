@@ -23,6 +23,20 @@ export interface DescribeTransitGatewaysCommandOutput extends DescribeTransitGat
 /**
  * <p>Describes one or more transit gateways. By default, all transit gateways are described. Alternatively, you can
  *          filter the results.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DescribeTransitGatewaysCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeTransitGatewaysCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DescribeTransitGatewaysCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTransitGatewaysCommandInput} for command's `input` shape.
+ * @see {@link DescribeTransitGatewaysCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTransitGatewaysCommand extends $Command<
   DescribeTransitGatewaysCommandInput,

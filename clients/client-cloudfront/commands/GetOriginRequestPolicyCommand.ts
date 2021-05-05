@@ -35,6 +35,20 @@ export interface GetOriginRequestPolicyCommandOutput extends GetOriginRequestPol
  * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
  * 			origin request policy is not attached to a cache behavior, you can get the identifier
  * 			using <code>ListOriginRequestPolicies</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFrontClient, GetOriginRequestPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, GetOriginRequestPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * const client = new CloudFrontClient(config);
+ * const command = new GetOriginRequestPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOriginRequestPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetOriginRequestPolicyCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOriginRequestPolicyCommand extends $Command<
   GetOriginRequestPolicyCommandInput,

@@ -28,6 +28,20 @@ export interface GetSipMediaApplicationLoggingConfigurationCommandOutput
 
 /**
  * <p>Returns the logging configuration for the specified SIP media application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, GetSipMediaApplicationLoggingConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, GetSipMediaApplicationLoggingConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new GetSipMediaApplicationLoggingConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSipMediaApplicationLoggingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetSipMediaApplicationLoggingConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSipMediaApplicationLoggingConfigurationCommand extends $Command<
   GetSipMediaApplicationLoggingConfigurationCommandInput,

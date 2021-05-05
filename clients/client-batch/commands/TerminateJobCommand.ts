@@ -24,6 +24,20 @@ export interface TerminateJobCommandOutput extends TerminateJobResponse, __Metad
  * <p>Terminates a job in a job queue. Jobs that are in the <code>STARTING</code> or <code>RUNNING</code> state are
  *    terminated, which causes them to transition to <code>FAILED</code>. Jobs that have not progressed to the
  *     <code>STARTING</code> state are cancelled.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BatchClient, TerminateJobCommand } from "@aws-sdk/client-batch"; // ES Modules import
+ * // const { BatchClient, TerminateJobCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * const client = new BatchClient(config);
+ * const command = new TerminateJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TerminateJobCommandInput} for command's `input` shape.
+ * @see {@link TerminateJobCommandOutput} for command's `response` shape.
+ * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TerminateJobCommand extends $Command<
   TerminateJobCommandInput,

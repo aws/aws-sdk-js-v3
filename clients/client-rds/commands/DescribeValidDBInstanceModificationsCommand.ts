@@ -31,6 +31,20 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  *             You can use this information when you call
  *             <code>ModifyDBInstance</code>.
  *         </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, DescribeValidDBInstanceModificationsCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeValidDBInstanceModificationsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new DescribeValidDBInstanceModificationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeValidDBInstanceModificationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeValidDBInstanceModificationsCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeValidDBInstanceModificationsCommand extends $Command<
   DescribeValidDBInstanceModificationsCommandInput,

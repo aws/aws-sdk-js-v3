@@ -24,6 +24,9 @@ export interface AssociateDomainRequest {
 }
 
 export namespace AssociateDomainRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateDomainRequest): any => ({
     ...obj,
   });
@@ -32,6 +35,9 @@ export namespace AssociateDomainRequest {
 export interface AssociateDomainResponse {}
 
 export namespace AssociateDomainResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateDomainResponse): any => ({
     ...obj,
   });
@@ -47,6 +53,9 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
 }
 
 export namespace InternalServerErrorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
     ...obj,
   });
@@ -62,6 +71,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -77,6 +89,9 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
 }
 
 export namespace ResourceAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
@@ -92,6 +107,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -107,6 +125,9 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
 }
 
 export namespace TooManyRequestsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
@@ -122,6 +143,9 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace UnauthorizedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj,
   });
@@ -150,6 +174,9 @@ export interface AssociateWebsiteAuthorizationProviderRequest {
 }
 
 export namespace AssociateWebsiteAuthorizationProviderRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateWebsiteAuthorizationProviderRequest): any => ({
     ...obj,
   });
@@ -163,6 +190,9 @@ export interface AssociateWebsiteAuthorizationProviderResponse {
 }
 
 export namespace AssociateWebsiteAuthorizationProviderResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateWebsiteAuthorizationProviderResponse): any => ({
     ...obj,
   });
@@ -186,6 +216,9 @@ export interface AssociateWebsiteCertificateAuthorityRequest {
 }
 
 export namespace AssociateWebsiteCertificateAuthorityRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateWebsiteCertificateAuthorityRequest): any => ({
     ...obj,
   });
@@ -199,6 +232,9 @@ export interface AssociateWebsiteCertificateAuthorityResponse {
 }
 
 export namespace AssociateWebsiteCertificateAuthorityResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateWebsiteCertificateAuthorityResponse): any => ({
     ...obj,
   });
@@ -228,6 +264,9 @@ export interface CreateFleetRequest {
 }
 
 export namespace CreateFleetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateFleetRequest): any => ({
     ...obj,
   });
@@ -241,6 +280,9 @@ export interface CreateFleetResponse {
 }
 
 export namespace CreateFleetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateFleetResponse): any => ({
     ...obj,
   });
@@ -254,6 +296,9 @@ export interface DeleteFleetRequest {
 }
 
 export namespace DeleteFleetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteFleetRequest): any => ({
     ...obj,
   });
@@ -262,6 +307,9 @@ export namespace DeleteFleetRequest {
 export interface DeleteFleetResponse {}
 
 export namespace DeleteFleetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteFleetResponse): any => ({
     ...obj,
   });
@@ -275,6 +323,9 @@ export interface DescribeAuditStreamConfigurationRequest {
 }
 
 export namespace DescribeAuditStreamConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAuditStreamConfigurationRequest): any => ({
     ...obj,
   });
@@ -288,6 +339,9 @@ export interface DescribeAuditStreamConfigurationResponse {
 }
 
 export namespace DescribeAuditStreamConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAuditStreamConfigurationResponse): any => ({
     ...obj,
   });
@@ -301,6 +355,9 @@ export interface DescribeCompanyNetworkConfigurationRequest {
 }
 
 export namespace DescribeCompanyNetworkConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCompanyNetworkConfigurationRequest): any => ({
     ...obj,
   });
@@ -324,6 +381,9 @@ export interface DescribeCompanyNetworkConfigurationResponse {
 }
 
 export namespace DescribeCompanyNetworkConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCompanyNetworkConfigurationResponse): any => ({
     ...obj,
   });
@@ -342,6 +402,9 @@ export interface DescribeDeviceRequest {
 }
 
 export namespace DescribeDeviceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDeviceRequest): any => ({
     ...obj,
   });
@@ -400,6 +463,9 @@ export interface DescribeDeviceResponse {
 }
 
 export namespace DescribeDeviceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
     ...obj,
   });
@@ -413,6 +479,9 @@ export interface DescribeDevicePolicyConfigurationRequest {
 }
 
 export namespace DescribeDevicePolicyConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDevicePolicyConfigurationRequest): any => ({
     ...obj,
   });
@@ -426,6 +495,9 @@ export interface DescribeDevicePolicyConfigurationResponse {
 }
 
 export namespace DescribeDevicePolicyConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDevicePolicyConfigurationResponse): any => ({
     ...obj,
   });
@@ -444,6 +516,9 @@ export interface DescribeDomainRequest {
 }
 
 export namespace DescribeDomainRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDomainRequest): any => ({
     ...obj,
   });
@@ -488,6 +563,9 @@ export interface DescribeDomainResponse {
 }
 
 export namespace DescribeDomainResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDomainResponse): any => ({
     ...obj,
   });
@@ -501,6 +579,9 @@ export interface DescribeFleetMetadataRequest {
 }
 
 export namespace DescribeFleetMetadataRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFleetMetadataRequest): any => ({
     ...obj,
   });
@@ -559,6 +640,9 @@ export interface DescribeFleetMetadataResponse {
 }
 
 export namespace DescribeFleetMetadataResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFleetMetadataResponse): any => ({
     ...obj,
   });
@@ -572,6 +656,9 @@ export interface DescribeIdentityProviderConfigurationRequest {
 }
 
 export namespace DescribeIdentityProviderConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeIdentityProviderConfigurationRequest): any => ({
     ...obj,
   });
@@ -599,6 +686,9 @@ export interface DescribeIdentityProviderConfigurationResponse {
 }
 
 export namespace DescribeIdentityProviderConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeIdentityProviderConfigurationResponse): any => ({
     ...obj,
   });
@@ -617,6 +707,9 @@ export interface DescribeWebsiteCertificateAuthorityRequest {
 }
 
 export namespace DescribeWebsiteCertificateAuthorityRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeWebsiteCertificateAuthorityRequest): any => ({
     ...obj,
   });
@@ -640,6 +733,9 @@ export interface DescribeWebsiteCertificateAuthorityResponse {
 }
 
 export namespace DescribeWebsiteCertificateAuthorityResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeWebsiteCertificateAuthorityResponse): any => ({
     ...obj,
   });
@@ -661,6 +757,9 @@ export interface DeviceSummary {
 }
 
 export namespace DeviceSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeviceSummary): any => ({
     ...obj,
   });
@@ -679,6 +778,9 @@ export interface DisassociateDomainRequest {
 }
 
 export namespace DisassociateDomainRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateDomainRequest): any => ({
     ...obj,
   });
@@ -687,6 +789,9 @@ export namespace DisassociateDomainRequest {
 export interface DisassociateDomainResponse {}
 
 export namespace DisassociateDomainResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateDomainResponse): any => ({
     ...obj,
   });
@@ -705,6 +810,9 @@ export interface DisassociateWebsiteAuthorizationProviderRequest {
 }
 
 export namespace DisassociateWebsiteAuthorizationProviderRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateWebsiteAuthorizationProviderRequest): any => ({
     ...obj,
   });
@@ -713,6 +821,9 @@ export namespace DisassociateWebsiteAuthorizationProviderRequest {
 export interface DisassociateWebsiteAuthorizationProviderResponse {}
 
 export namespace DisassociateWebsiteAuthorizationProviderResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateWebsiteAuthorizationProviderResponse): any => ({
     ...obj,
   });
@@ -731,6 +842,9 @@ export interface DisassociateWebsiteCertificateAuthorityRequest {
 }
 
 export namespace DisassociateWebsiteCertificateAuthorityRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateWebsiteCertificateAuthorityRequest): any => ({
     ...obj,
   });
@@ -739,6 +853,9 @@ export namespace DisassociateWebsiteCertificateAuthorityRequest {
 export interface DisassociateWebsiteCertificateAuthorityResponse {}
 
 export namespace DisassociateWebsiteCertificateAuthorityResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateWebsiteCertificateAuthorityResponse): any => ({
     ...obj,
   });
@@ -770,6 +887,9 @@ export interface DomainSummary {
 }
 
 export namespace DomainSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DomainSummary): any => ({
     ...obj,
   });
@@ -821,6 +941,9 @@ export interface FleetSummary {
 }
 
 export namespace FleetSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FleetSummary): any => ({
     ...obj,
   });
@@ -845,6 +968,9 @@ export interface ListDevicesRequest {
 }
 
 export namespace ListDevicesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDevicesRequest): any => ({
     ...obj,
   });
@@ -864,6 +990,9 @@ export interface ListDevicesResponse {
 }
 
 export namespace ListDevicesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDevicesResponse): any => ({
     ...obj,
   });
@@ -888,6 +1017,9 @@ export interface ListDomainsRequest {
 }
 
 export namespace ListDomainsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDomainsRequest): any => ({
     ...obj,
   });
@@ -907,6 +1039,9 @@ export interface ListDomainsResponse {
 }
 
 export namespace ListDomainsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDomainsResponse): any => ({
     ...obj,
   });
@@ -926,6 +1061,9 @@ export interface ListFleetsRequest {
 }
 
 export namespace ListFleetsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListFleetsRequest): any => ({
     ...obj,
   });
@@ -945,6 +1083,9 @@ export interface ListFleetsResponse {
 }
 
 export namespace ListFleetsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListFleetsResponse): any => ({
     ...obj,
   });
@@ -958,6 +1099,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -971,6 +1115,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -994,6 +1141,9 @@ export interface ListWebsiteAuthorizationProvidersRequest {
 }
 
 export namespace ListWebsiteAuthorizationProvidersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListWebsiteAuthorizationProvidersRequest): any => ({
     ...obj,
   });
@@ -1026,6 +1176,9 @@ export interface WebsiteAuthorizationProviderSummary {
 }
 
 export namespace WebsiteAuthorizationProviderSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: WebsiteAuthorizationProviderSummary): any => ({
     ...obj,
   });
@@ -1044,6 +1197,9 @@ export interface ListWebsiteAuthorizationProvidersResponse {
 }
 
 export namespace ListWebsiteAuthorizationProvidersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListWebsiteAuthorizationProvidersResponse): any => ({
     ...obj,
   });
@@ -1068,6 +1224,9 @@ export interface ListWebsiteCertificateAuthoritiesRequest {
 }
 
 export namespace ListWebsiteCertificateAuthoritiesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListWebsiteCertificateAuthoritiesRequest): any => ({
     ...obj,
   });
@@ -1094,6 +1253,9 @@ export interface WebsiteCaSummary {
 }
 
 export namespace WebsiteCaSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: WebsiteCaSummary): any => ({
     ...obj,
   });
@@ -1113,6 +1275,9 @@ export interface ListWebsiteCertificateAuthoritiesResponse {
 }
 
 export namespace ListWebsiteCertificateAuthoritiesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListWebsiteCertificateAuthoritiesResponse): any => ({
     ...obj,
   });
@@ -1131,6 +1296,9 @@ export interface RestoreDomainAccessRequest {
 }
 
 export namespace RestoreDomainAccessRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreDomainAccessRequest): any => ({
     ...obj,
   });
@@ -1139,6 +1307,9 @@ export namespace RestoreDomainAccessRequest {
 export interface RestoreDomainAccessResponse {}
 
 export namespace RestoreDomainAccessResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreDomainAccessResponse): any => ({
     ...obj,
   });
@@ -1157,6 +1328,9 @@ export interface RevokeDomainAccessRequest {
 }
 
 export namespace RevokeDomainAccessRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RevokeDomainAccessRequest): any => ({
     ...obj,
   });
@@ -1165,6 +1339,9 @@ export namespace RevokeDomainAccessRequest {
 export interface RevokeDomainAccessResponse {}
 
 export namespace RevokeDomainAccessResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RevokeDomainAccessResponse): any => ({
     ...obj,
   });
@@ -1183,6 +1360,9 @@ export interface SignOutUserRequest {
 }
 
 export namespace SignOutUserRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SignOutUserRequest): any => ({
     ...obj,
   });
@@ -1191,6 +1371,9 @@ export namespace SignOutUserRequest {
 export interface SignOutUserResponse {}
 
 export namespace SignOutUserResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SignOutUserResponse): any => ({
     ...obj,
   });
@@ -1209,6 +1392,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -1217,6 +1403,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -1235,6 +1424,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -1243,6 +1435,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
@@ -1261,6 +1456,9 @@ export interface UpdateAuditStreamConfigurationRequest {
 }
 
 export namespace UpdateAuditStreamConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAuditStreamConfigurationRequest): any => ({
     ...obj,
   });
@@ -1269,6 +1467,9 @@ export namespace UpdateAuditStreamConfigurationRequest {
 export interface UpdateAuditStreamConfigurationResponse {}
 
 export namespace UpdateAuditStreamConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAuditStreamConfigurationResponse): any => ({
     ...obj,
   });
@@ -1297,6 +1498,9 @@ export interface UpdateCompanyNetworkConfigurationRequest {
 }
 
 export namespace UpdateCompanyNetworkConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCompanyNetworkConfigurationRequest): any => ({
     ...obj,
   });
@@ -1305,6 +1509,9 @@ export namespace UpdateCompanyNetworkConfigurationRequest {
 export interface UpdateCompanyNetworkConfigurationResponse {}
 
 export namespace UpdateCompanyNetworkConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCompanyNetworkConfigurationResponse): any => ({
     ...obj,
   });
@@ -1323,6 +1530,9 @@ export interface UpdateDevicePolicyConfigurationRequest {
 }
 
 export namespace UpdateDevicePolicyConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDevicePolicyConfigurationRequest): any => ({
     ...obj,
   });
@@ -1331,6 +1541,9 @@ export namespace UpdateDevicePolicyConfigurationRequest {
 export interface UpdateDevicePolicyConfigurationResponse {}
 
 export namespace UpdateDevicePolicyConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDevicePolicyConfigurationResponse): any => ({
     ...obj,
   });
@@ -1354,6 +1567,9 @@ export interface UpdateDomainMetadataRequest {
 }
 
 export namespace UpdateDomainMetadataRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDomainMetadataRequest): any => ({
     ...obj,
   });
@@ -1362,6 +1578,9 @@ export namespace UpdateDomainMetadataRequest {
 export interface UpdateDomainMetadataResponse {}
 
 export namespace UpdateDomainMetadataResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDomainMetadataResponse): any => ({
     ...obj,
   });
@@ -1386,6 +1605,9 @@ export interface UpdateFleetMetadataRequest {
 }
 
 export namespace UpdateFleetMetadataRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateFleetMetadataRequest): any => ({
     ...obj,
   });
@@ -1394,6 +1616,9 @@ export namespace UpdateFleetMetadataRequest {
 export interface UpdateFleetMetadataResponse {}
 
 export namespace UpdateFleetMetadataResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateFleetMetadataResponse): any => ({
     ...obj,
   });
@@ -1418,6 +1643,9 @@ export interface UpdateIdentityProviderConfigurationRequest {
 }
 
 export namespace UpdateIdentityProviderConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateIdentityProviderConfigurationRequest): any => ({
     ...obj,
   });
@@ -1426,6 +1654,9 @@ export namespace UpdateIdentityProviderConfigurationRequest {
 export interface UpdateIdentityProviderConfigurationResponse {}
 
 export namespace UpdateIdentityProviderConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateIdentityProviderConfigurationResponse): any => ({
     ...obj,
   });

@@ -53,6 +53,20 @@ export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KMSClient, DeleteImportedKeyMaterialCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, DeleteImportedKeyMaterialCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * const client = new KMSClient(config);
+ * const command = new DeleteImportedKeyMaterialCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteImportedKeyMaterialCommandInput} for command's `input` shape.
+ * @see {@link DeleteImportedKeyMaterialCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteImportedKeyMaterialCommand extends $Command<
   DeleteImportedKeyMaterialCommandInput,

@@ -22,6 +22,20 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
 
 /**
  * <p>Updates the device name by device ARN.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, UpdateDeviceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, UpdateDeviceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new UpdateDeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDeviceCommandInput} for command's `input` shape.
+ * @see {@link UpdateDeviceCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDeviceCommand extends $Command<
   UpdateDeviceCommandInput,

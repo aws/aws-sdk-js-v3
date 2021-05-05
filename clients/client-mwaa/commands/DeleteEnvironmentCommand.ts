@@ -22,6 +22,20 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput,
 
 /**
  * <p>Delete an existing environment.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MWAAClient, DeleteEnvironmentCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
+ * // const { MWAAClient, DeleteEnvironmentCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * const client = new MWAAClient(config);
+ * const command = new DeleteEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEnvironmentCommandInput} for command's `input` shape.
+ * @see {@link DeleteEnvironmentCommandOutput} for command's `response` shape.
+ * @see {@link MWAAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEnvironmentCommand extends $Command<
   DeleteEnvironmentCommandInput,

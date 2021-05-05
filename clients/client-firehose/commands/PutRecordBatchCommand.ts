@@ -72,6 +72,20 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  *             <p>Don't concatenate two or more base64 strings to form the data fields of your records.
  *             Instead, concatenate the raw data, then perform base64 encoding.</p>
  *          </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FirehoseClient, PutRecordBatchCommand } from "@aws-sdk/client-firehose"; // ES Modules import
+ * // const { FirehoseClient, PutRecordBatchCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
+ * const client = new FirehoseClient(config);
+ * const command = new PutRecordBatchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutRecordBatchCommandInput} for command's `input` shape.
+ * @see {@link PutRecordBatchCommandOutput} for command's `response` shape.
+ * @see {@link FirehoseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutRecordBatchCommand extends $Command<
   PutRecordBatchCommandInput,

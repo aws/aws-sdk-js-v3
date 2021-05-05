@@ -23,6 +23,20 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
  *          <note>
  *             <p>This action is not applicable for Linux/Unix instances or Windows instances that are backed by Amazon EBS.</p>
  * 			      </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, BundleInstanceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, BundleInstanceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new BundleInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BundleInstanceCommandInput} for command's `input` shape.
+ * @see {@link BundleInstanceCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BundleInstanceCommand extends $Command<
   BundleInstanceCommandInput,

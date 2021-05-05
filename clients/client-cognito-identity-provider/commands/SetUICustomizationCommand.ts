@@ -38,6 +38,20 @@ export interface SetUICustomizationCommandOutput extends SetUICustomizationRespo
  *                 there is no place to host the app's pages, and the service will throw an
  *                 error.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, SetUICustomizationCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, SetUICustomizationCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new SetUICustomizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetUICustomizationCommandInput} for command's `input` shape.
+ * @see {@link SetUICustomizationCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetUICustomizationCommand extends $Command<
   SetUICustomizationCommandInput,

@@ -22,6 +22,20 @@ export interface DescribeImportImageTasksCommandOutput extends DescribeImportIma
 
 /**
  * <p>Displays details about an import virtual machine or import snapshot tasks that are already created.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DescribeImportImageTasksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeImportImageTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DescribeImportImageTasksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeImportImageTasksCommandInput} for command's `input` shape.
+ * @see {@link DescribeImportImageTasksCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeImportImageTasksCommand extends $Command<
   DescribeImportImageTasksCommandInput,

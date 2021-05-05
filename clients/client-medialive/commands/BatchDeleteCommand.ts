@@ -22,6 +22,20 @@ export interface BatchDeleteCommandOutput extends BatchDeleteResponse, __Metadat
 
 /**
  * Starts delete of resources.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaLiveClient, BatchDeleteCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, BatchDeleteCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * const client = new MediaLiveClient(config);
+ * const command = new BatchDeleteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDeleteCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDeleteCommand extends $Command<
   BatchDeleteCommandInput,

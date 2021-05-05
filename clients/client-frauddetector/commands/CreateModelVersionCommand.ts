@@ -23,6 +23,20 @@ export interface CreateModelVersionCommandOutput extends CreateModelVersionResul
 /**
  * <p>Creates a version of the model using the specified model type and model id.
  *         </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FraudDetectorClient, CreateModelVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, CreateModelVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * const client = new FraudDetectorClient(config);
+ * const command = new CreateModelVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateModelVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateModelVersionCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateModelVersionCommand extends $Command<
   CreateModelVersionCommandInput,

@@ -58,6 +58,20 @@ export interface LabelParameterVersionCommandOutput extends LabelParameterVersio
  *      displays it in the list of InvalidLabels.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, LabelParameterVersionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, LabelParameterVersionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new LabelParameterVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link LabelParameterVersionCommandInput} for command's `input` shape.
+ * @see {@link LabelParameterVersionCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class LabelParameterVersionCommand extends $Command<
   LabelParameterVersionCommandInput,

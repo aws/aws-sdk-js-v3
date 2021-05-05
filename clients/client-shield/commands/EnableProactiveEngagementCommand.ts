@@ -22,6 +22,20 @@ export interface EnableProactiveEngagementCommandOutput extends EnableProactiveE
 
 /**
  * <p>Authorizes the DDoS Response Team (DRT) to use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ShieldClient, EnableProactiveEngagementCommand } from "@aws-sdk/client-shield"; // ES Modules import
+ * // const { ShieldClient, EnableProactiveEngagementCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * const client = new ShieldClient(config);
+ * const command = new EnableProactiveEngagementCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableProactiveEngagementCommandInput} for command's `input` shape.
+ * @see {@link EnableProactiveEngagementCommandOutput} for command's `response` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableProactiveEngagementCommand extends $Command<
   EnableProactiveEngagementCommandInput,

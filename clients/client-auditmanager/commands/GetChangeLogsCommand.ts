@@ -24,6 +24,20 @@ export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __Met
  * <p>
  * Returns a list of changelogs from AWS Audit Manager.
  * </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AuditManagerClient, GetChangeLogsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
+ * // const { AuditManagerClient, GetChangeLogsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * const client = new AuditManagerClient(config);
+ * const command = new GetChangeLogsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetChangeLogsCommandInput} for command's `input` shape.
+ * @see {@link GetChangeLogsCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetChangeLogsCommand extends $Command<
   GetChangeLogsCommandInput,

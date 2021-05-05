@@ -35,6 +35,20 @@ export interface CreateForecastExportJobCommandOutput extends CreateForecastExpo
  *             <p>The <code>Status</code> of the forecast export job must be <code>ACTIVE</code> before
  *         you can access the forecast in your Amazon S3 bucket. To get the status, use the <a>DescribeForecastExportJob</a> operation.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ForecastClient, CreateForecastExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, CreateForecastExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * const client = new ForecastClient(config);
+ * const command = new CreateForecastExportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateForecastExportJobCommandInput} for command's `input` shape.
+ * @see {@link CreateForecastExportJobCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateForecastExportJobCommand extends $Command<
   CreateForecastExportJobCommandInput,

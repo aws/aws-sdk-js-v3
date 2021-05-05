@@ -22,6 +22,20 @@ export interface GetContactAttributesCommandOutput extends GetContactAttributesR
 
 /**
  * <p>Retrieves the contact attributes for the specified contact.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, GetContactAttributesCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, GetContactAttributesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * const client = new ConnectClient(config);
+ * const command = new GetContactAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetContactAttributesCommandInput} for command's `input` shape.
+ * @see {@link GetContactAttributesCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetContactAttributesCommand extends $Command<
   GetContactAttributesCommandInput,

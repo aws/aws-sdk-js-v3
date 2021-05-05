@@ -22,6 +22,20 @@ export interface ActivateAnomalyDetectorCommandOutput extends ActivateAnomalyDet
 
 /**
  * <p>Activates an anomaly detector.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LookoutMetricsClient, ActivateAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
+ * // const { LookoutMetricsClient, ActivateAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * const client = new LookoutMetricsClient(config);
+ * const command = new ActivateAnomalyDetectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ActivateAnomalyDetectorCommandInput} for command's `input` shape.
+ * @see {@link ActivateAnomalyDetectorCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ActivateAnomalyDetectorCommand extends $Command<
   ActivateAnomalyDetectorCommandInput,

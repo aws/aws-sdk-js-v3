@@ -22,6 +22,20 @@ export interface DeleteStudioCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes an Amazon EMR Studio from the Studio metadata store.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EMRClient, DeleteStudioCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, DeleteStudioCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * const client = new EMRClient(config);
+ * const command = new DeleteStudioCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteStudioCommandInput} for command's `input` shape.
+ * @see {@link DeleteStudioCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteStudioCommand extends $Command<
   DeleteStudioCommandInput,

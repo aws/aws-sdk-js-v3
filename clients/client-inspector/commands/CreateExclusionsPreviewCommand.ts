@@ -24,6 +24,20 @@ export interface CreateExclusionsPreviewCommandOutput extends CreateExclusionsPr
  * <p>Starts the generation of an exclusions preview for the specified assessment template.
  *          The exclusions preview lists the potential exclusions (ExclusionPreview) that Inspector can
  *          detect before it runs the assessment. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { InspectorClient, CreateExclusionsPreviewCommand } from "@aws-sdk/client-inspector"; // ES Modules import
+ * // const { InspectorClient, CreateExclusionsPreviewCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * const client = new InspectorClient(config);
+ * const command = new CreateExclusionsPreviewCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateExclusionsPreviewCommandInput} for command's `input` shape.
+ * @see {@link CreateExclusionsPreviewCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateExclusionsPreviewCommand extends $Command<
   CreateExclusionsPreviewCommandInput,

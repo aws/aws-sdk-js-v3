@@ -22,6 +22,20 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
 
 /**
  * <p>Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudTrailClient, CreateTrailCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
+ * // const { CloudTrailClient, CreateTrailCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * const client = new CloudTrailClient(config);
+ * const command = new CreateTrailCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTrailCommandInput} for command's `input` shape.
+ * @see {@link CreateTrailCommandOutput} for command's `response` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTrailCommand extends $Command<
   CreateTrailCommandInput,

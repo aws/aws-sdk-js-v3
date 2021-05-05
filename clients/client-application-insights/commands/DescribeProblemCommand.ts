@@ -26,6 +26,20 @@ export interface DescribeProblemCommandOutput extends DescribeProblemResponse, _
 
 /**
  * <p>Describes an application problem.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApplicationInsightsClient, DescribeProblemCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
+ * // const { ApplicationInsightsClient, DescribeProblemCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * const client = new ApplicationInsightsClient(config);
+ * const command = new DescribeProblemCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeProblemCommandInput} for command's `input` shape.
+ * @see {@link DescribeProblemCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeProblemCommand extends $Command<
   DescribeProblemCommandInput,

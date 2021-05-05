@@ -22,6 +22,20 @@ export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsR
 
 /**
  * <p>Searches for AWS IoT Things Graph workflow execution instances.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTThingsGraphClient, SearchFlowExecutionsCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
+ * // const { IoTThingsGraphClient, SearchFlowExecutionsCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * const client = new IoTThingsGraphClient(config);
+ * const command = new SearchFlowExecutionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchFlowExecutionsCommandInput} for command's `input` shape.
+ * @see {@link SearchFlowExecutionsCommandOutput} for command's `response` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchFlowExecutionsCommand extends $Command<
   SearchFlowExecutionsCommandInput,

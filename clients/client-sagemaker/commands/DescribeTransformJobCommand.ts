@@ -22,6 +22,20 @@ export interface DescribeTransformJobCommandOutput extends DescribeTransformJobR
 
 /**
  * <p>Returns information about a transform job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, DescribeTransformJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DescribeTransformJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeTransformJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTransformJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeTransformJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTransformJobCommand extends $Command<
   DescribeTransformJobCommandInput,

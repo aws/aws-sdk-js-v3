@@ -49,6 +49,20 @@ export interface InviteAccountToOrganizationCommandOutput
  *         <p>If the request includes tags, then the requester must have the
  *                 <code>organizations:TagResource</code> permission.</p>
  *         <p>This operation can be called only from the organization's management account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OrganizationsClient, InviteAccountToOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
+ * // const { OrganizationsClient, InviteAccountToOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * const client = new OrganizationsClient(config);
+ * const command = new InviteAccountToOrganizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InviteAccountToOrganizationCommandInput} for command's `input` shape.
+ * @see {@link InviteAccountToOrganizationCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InviteAccountToOrganizationCommand extends $Command<
   InviteAccountToOrganizationCommandInput,

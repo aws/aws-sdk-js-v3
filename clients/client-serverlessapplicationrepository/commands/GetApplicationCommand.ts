@@ -26,6 +26,20 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
 
 /**
  * <p>Gets the specified application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServerlessApplicationRepositoryClient, GetApplicationCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
+ * // const { ServerlessApplicationRepositoryClient, GetApplicationCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
+ * const client = new ServerlessApplicationRepositoryClient(config);
+ * const command = new GetApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetApplicationCommandInput} for command's `input` shape.
+ * @see {@link GetApplicationCommandOutput} for command's `response` shape.
+ * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetApplicationCommand extends $Command<
   GetApplicationCommandInput,

@@ -41,6 +41,20 @@ export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __Metad
  *           <code>CreateDataSourceFromRDS</code>, <code>CreateDataSourceFromS3</code>, or
  *           <code>CreateDataSourceFromRedshift</code> operations.
  *         </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MachineLearningClient, CreateMLModelCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
+ * // const { MachineLearningClient, CreateMLModelCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * const client = new MachineLearningClient(config);
+ * const command = new CreateMLModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMLModelCommandInput} for command's `input` shape.
+ * @see {@link CreateMLModelCommandOutput} for command's `response` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMLModelCommand extends $Command<
   CreateMLModelCommandInput,

@@ -23,6 +23,20 @@ export interface UpdateRoutingProfileDefaultOutboundQueueCommandOutput extends _
 
 /**
  * <p>Updates the default outbound queue of a routing profile.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, UpdateRoutingProfileDefaultOutboundQueueCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, UpdateRoutingProfileDefaultOutboundQueueCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * const client = new ConnectClient(config);
+ * const command = new UpdateRoutingProfileDefaultOutboundQueueCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRoutingProfileDefaultOutboundQueueCommandInput} for command's `input` shape.
+ * @see {@link UpdateRoutingProfileDefaultOutboundQueueCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRoutingProfileDefaultOutboundQueueCommand extends $Command<
   UpdateRoutingProfileDefaultOutboundQueueCommandInput,

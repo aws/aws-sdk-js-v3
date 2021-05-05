@@ -25,6 +25,20 @@ export interface ListResolverQueryLogConfigsCommandOutput
 /**
  * <p>Lists information about the specified query logging configurations. Each configuration defines where you want Resolver to save
  * 			DNS query logs and specifies the VPCs that you want to log queries for.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53ResolverClient, ListResolverQueryLogConfigsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, ListResolverQueryLogConfigsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * const client = new Route53ResolverClient(config);
+ * const command = new ListResolverQueryLogConfigsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResolverQueryLogConfigsCommandInput} for command's `input` shape.
+ * @see {@link ListResolverQueryLogConfigsCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResolverQueryLogConfigsCommand extends $Command<
   ListResolverQueryLogConfigsCommandInput,

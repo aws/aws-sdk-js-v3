@@ -23,6 +23,20 @@ export interface ListPublishingDestinationsCommandOutput extends ListPublishingD
 /**
  * <p>Returns a list of publishing destinations associated with the specified
  *         <code>dectectorId</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GuardDutyClient, ListPublishingDestinationsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, ListPublishingDestinationsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * const client = new GuardDutyClient(config);
+ * const command = new ListPublishingDestinationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPublishingDestinationsCommandInput} for command's `input` shape.
+ * @see {@link ListPublishingDestinationsCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPublishingDestinationsCommand extends $Command<
   ListPublishingDestinationsCommandInput,

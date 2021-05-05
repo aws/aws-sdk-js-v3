@@ -19,6 +19,20 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
 
 /**
  * <p>Returns a list of all the tasks.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataSyncClient, ListTasksCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, ListTasksCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * const client = new DataSyncClient(config);
+ * const command = new ListTasksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTasksCommandInput} for command's `input` shape.
+ * @see {@link ListTasksCommandOutput} for command's `response` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTasksCommand extends $Command<
   ListTasksCommandInput,

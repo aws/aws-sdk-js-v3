@@ -22,6 +22,20 @@ export interface UpdateRouteResponseCommandOutput extends UpdateRouteResponseRes
 
 /**
  * <p>Updates a RouteResponse.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApiGatewayV2Client, UpdateRouteResponseCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
+ * // const { ApiGatewayV2Client, UpdateRouteResponseCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new UpdateRouteResponseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRouteResponseCommandInput} for command's `input` shape.
+ * @see {@link UpdateRouteResponseCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRouteResponseCommand extends $Command<
   UpdateRouteResponseCommandInput,

@@ -36,6 +36,20 @@ export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGr
  *       ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule
  *       has a description, you do not have to specify the description to revoke the rule.</p>
  *          <p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, RevokeSecurityGroupEgressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, RevokeSecurityGroupEgressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new RevokeSecurityGroupEgressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RevokeSecurityGroupEgressCommandInput} for command's `input` shape.
+ * @see {@link RevokeSecurityGroupEgressCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RevokeSecurityGroupEgressCommand extends $Command<
   RevokeSecurityGroupEgressCommandInput,

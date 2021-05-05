@@ -24,6 +24,20 @@ export interface DisassociateDelegateFromResourceCommandOutput
 
 /**
  * <p>Removes a member from the resource's set of delegates.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkMailClient, DisassociateDelegateFromResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, DisassociateDelegateFromResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * const client = new WorkMailClient(config);
+ * const command = new DisassociateDelegateFromResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateDelegateFromResourceCommandInput} for command's `input` shape.
+ * @see {@link DisassociateDelegateFromResourceCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateDelegateFromResourceCommand extends $Command<
   DisassociateDelegateFromResourceCommandInput,

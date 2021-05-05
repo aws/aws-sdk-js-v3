@@ -29,6 +29,20 @@ export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesO
  *                 HTML-encode the description field in any application that uses this API to display
  *                 the repository description on a webpage.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeCommitClient, BatchGetRepositoriesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, BatchGetRepositoriesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * const client = new CodeCommitClient(config);
+ * const command = new BatchGetRepositoriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetRepositoriesCommandInput} for command's `input` shape.
+ * @see {@link BatchGetRepositoriesCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetRepositoriesCommand extends $Command<
   BatchGetRepositoriesCommandInput,

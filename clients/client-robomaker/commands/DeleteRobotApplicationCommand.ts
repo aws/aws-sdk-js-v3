@@ -22,6 +22,20 @@ export interface DeleteRobotApplicationCommandOutput extends DeleteRobotApplicat
 
 /**
  * <p>Deletes a robot application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RoboMakerClient, DeleteRobotApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
+ * // const { RoboMakerClient, DeleteRobotApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * const client = new RoboMakerClient(config);
+ * const command = new DeleteRobotApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRobotApplicationCommandInput} for command's `input` shape.
+ * @see {@link DeleteRobotApplicationCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRobotApplicationCommand extends $Command<
   DeleteRobotApplicationCommandInput,

@@ -30,6 +30,20 @@ export interface GetComplianceDetailCommandOutput extends GetComplianceDetailRes
  *         if a firewall is missing in the VPC, if the firewall endpoint isn't set up in an expected Availability Zone and subnet,
  *         if a subnet created by the Firewall Manager doesn't have the expected route table,
  *         and for modifications to a firewall policy that violate the Firewall Manager policy's rules. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FMSClient, GetComplianceDetailCommand } from "@aws-sdk/client-fms"; // ES Modules import
+ * // const { FMSClient, GetComplianceDetailCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * const client = new FMSClient(config);
+ * const command = new GetComplianceDetailCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetComplianceDetailCommandInput} for command's `input` shape.
+ * @see {@link GetComplianceDetailCommandOutput} for command's `response` shape.
+ * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetComplianceDetailCommand extends $Command<
   GetComplianceDetailCommandInput,

@@ -27,6 +27,20 @@ export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmen
 /**
  * <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL
  *             provided in StartAttachmentUpload API. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectParticipantClient, CompleteAttachmentUploadCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
+ * // const { ConnectParticipantClient, CompleteAttachmentUploadCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
+ * const client = new ConnectParticipantClient(config);
+ * const command = new CompleteAttachmentUploadCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CompleteAttachmentUploadCommandInput} for command's `input` shape.
+ * @see {@link CompleteAttachmentUploadCommandOutput} for command's `response` shape.
+ * @see {@link ConnectParticipantClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CompleteAttachmentUploadCommand extends $Command<
   CompleteAttachmentUploadCommandInput,

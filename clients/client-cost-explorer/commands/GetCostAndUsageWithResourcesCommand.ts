@@ -32,6 +32,20 @@ export interface GetCostAndUsageWithResourcesCommandOutput
  * 	        <note>
  *             <p>This is an opt-in only feature. You can enable this feature from the Cost Explorer Settings page. For information on how to access the Settings page, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html">Controlling Access for Cost Explorer</a> in the <i>AWS Billing and Cost Management User Guide</i>.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CostExplorerClient, GetCostAndUsageWithResourcesCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
+ * // const { CostExplorerClient, GetCostAndUsageWithResourcesCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * const client = new CostExplorerClient(config);
+ * const command = new GetCostAndUsageWithResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCostAndUsageWithResourcesCommandInput} for command's `input` shape.
+ * @see {@link GetCostAndUsageWithResourcesCommandOutput} for command's `response` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCostAndUsageWithResourcesCommand extends $Command<
   GetCostAndUsageWithResourcesCommandInput,

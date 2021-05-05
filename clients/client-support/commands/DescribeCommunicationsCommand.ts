@@ -45,6 +45,20 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  *                 </li>
  *             </ul>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SupportClient, DescribeCommunicationsCommand } from "@aws-sdk/client-support"; // ES Modules import
+ * // const { SupportClient, DescribeCommunicationsCommand } = require("@aws-sdk/client-support"); // CommonJS import
+ * const client = new SupportClient(config);
+ * const command = new DescribeCommunicationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCommunicationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeCommunicationsCommandOutput} for command's `response` shape.
+ * @see {@link SupportClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCommunicationsCommand extends $Command<
   DescribeCommunicationsCommandInput,

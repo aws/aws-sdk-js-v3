@@ -21,6 +21,20 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  * <p>While a job's <code>JobState</code> value is <code>New</code>, you can update some of
  *       the information associated with a job. Once the job changes to a different job state, usually
  *       within 60 minutes of the job being created, this action is no longer available.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SnowballClient, UpdateJobCommand } from "@aws-sdk/client-snowball"; // ES Modules import
+ * // const { SnowballClient, UpdateJobCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * const client = new SnowballClient(config);
+ * const command = new UpdateJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateJobCommandInput} for command's `input` shape.
+ * @see {@link UpdateJobCommandOutput} for command's `response` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateJobCommand extends $Command<
   UpdateJobCommandInput,

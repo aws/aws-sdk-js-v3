@@ -22,6 +22,20 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
 
 /**
  * <p>Registers an AWS Batch job definition.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BatchClient, RegisterJobDefinitionCommand } from "@aws-sdk/client-batch"; // ES Modules import
+ * // const { BatchClient, RegisterJobDefinitionCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * const client = new BatchClient(config);
+ * const command = new RegisterJobDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterJobDefinitionCommandInput} for command's `input` shape.
+ * @see {@link RegisterJobDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterJobDefinitionCommand extends $Command<
   RegisterJobDefinitionCommandInput,

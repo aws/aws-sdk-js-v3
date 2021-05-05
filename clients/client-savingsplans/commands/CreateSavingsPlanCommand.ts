@@ -22,6 +22,20 @@ export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanRespons
 
 /**
  * <p>Creates a Savings Plan.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SavingsplansClient, CreateSavingsPlanCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
+ * // const { SavingsplansClient, CreateSavingsPlanCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
+ * const client = new SavingsplansClient(config);
+ * const command = new CreateSavingsPlanCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSavingsPlanCommandInput} for command's `input` shape.
+ * @see {@link CreateSavingsPlanCommandOutput} for command's `response` shape.
+ * @see {@link SavingsplansClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSavingsPlanCommand extends $Command<
   CreateSavingsPlanCommandInput,

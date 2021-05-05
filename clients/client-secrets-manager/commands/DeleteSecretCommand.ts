@@ -67,6 +67,20 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  *           use <a>RestoreSecret</a>.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecretsManagerClient, DeleteSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
+ * // const { SecretsManagerClient, DeleteSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * const client = new SecretsManagerClient(config);
+ * const command = new DeleteSecretCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSecretCommandInput} for command's `input` shape.
+ * @see {@link DeleteSecretCommandOutput} for command's `response` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSecretCommand extends $Command<
   DeleteSecretCommandInput,

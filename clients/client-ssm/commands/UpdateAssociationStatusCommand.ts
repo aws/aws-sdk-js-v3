@@ -22,6 +22,20 @@ export interface UpdateAssociationStatusCommandOutput extends UpdateAssociationS
 
 /**
  * <p>Updates the status of the Systems Manager document associated with the specified instance.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, UpdateAssociationStatusCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, UpdateAssociationStatusCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new UpdateAssociationStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAssociationStatusCommandInput} for command's `input` shape.
+ * @see {@link UpdateAssociationStatusCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAssociationStatusCommand extends $Command<
   UpdateAssociationStatusCommandInput,

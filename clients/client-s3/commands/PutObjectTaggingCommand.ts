@@ -126,6 +126,20 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, PutObjectTaggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, PutObjectTaggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new PutObjectTaggingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutObjectTaggingCommandInput} for command's `input` shape.
+ * @see {@link PutObjectTaggingCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutObjectTaggingCommand extends $Command<
   PutObjectTaggingCommandInput,

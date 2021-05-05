@@ -22,6 +22,20 @@ export interface CreateRevisionCommandOutput extends CreateRevisionResponse, __M
 
 /**
  * <p>This operation creates a revision for a data set.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataExchangeClient, CreateRevisionCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
+ * // const { DataExchangeClient, CreateRevisionCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
+ * const client = new DataExchangeClient(config);
+ * const command = new CreateRevisionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRevisionCommandInput} for command's `input` shape.
+ * @see {@link CreateRevisionCommandOutput} for command's `response` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRevisionCommand extends $Command<
   CreateRevisionCommandInput,

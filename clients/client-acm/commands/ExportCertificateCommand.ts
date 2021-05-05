@@ -28,6 +28,20 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  *          <p>For information about exporting and formatting a certificate using the ACM console or
  *       CLI, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-export-private.html">Export a
  *         Private Certificate</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ACMClient, ExportCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
+ * // const { ACMClient, ExportCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * const client = new ACMClient(config);
+ * const command = new ExportCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ExportCertificateCommandInput} for command's `input` shape.
+ * @see {@link ExportCertificateCommandOutput} for command's `response` shape.
+ * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ExportCertificateCommand extends $Command<
   ExportCertificateCommandInput,

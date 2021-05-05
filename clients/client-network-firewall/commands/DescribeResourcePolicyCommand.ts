@@ -22,6 +22,20 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
 
 /**
  * <p>Retrieves a resource policy that you created in a <a>PutResourcePolicy</a> request. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NetworkFirewallClient, DescribeResourcePolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
+ * // const { NetworkFirewallClient, DescribeResourcePolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * const client = new NetworkFirewallClient(config);
+ * const command = new DescribeResourcePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link DescribeResourcePolicyCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeResourcePolicyCommand extends $Command<
   DescribeResourcePolicyCommandInput,

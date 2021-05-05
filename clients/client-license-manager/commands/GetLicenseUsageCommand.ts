@@ -22,6 +22,20 @@ export interface GetLicenseUsageCommandOutput extends GetLicenseUsageResponse, _
 
 /**
  * <p>Gets detailed information about the usage of the specified license.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LicenseManagerClient, GetLicenseUsageCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, GetLicenseUsageCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * const client = new LicenseManagerClient(config);
+ * const command = new GetLicenseUsageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLicenseUsageCommandInput} for command's `input` shape.
+ * @see {@link GetLicenseUsageCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLicenseUsageCommand extends $Command<
   GetLicenseUsageCommandInput,

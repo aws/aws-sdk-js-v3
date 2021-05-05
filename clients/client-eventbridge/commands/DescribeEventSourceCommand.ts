@@ -23,6 +23,20 @@ export interface DescribeEventSourceCommandOutput extends DescribeEventSourceRes
 /**
  * <p>This operation lists details about a partner event source that is shared with your
  *       account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EventBridgeClient, DescribeEventSourceCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, DescribeEventSourceCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * const client = new EventBridgeClient(config);
+ * const command = new DescribeEventSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEventSourceCommandInput} for command's `input` shape.
+ * @see {@link DescribeEventSourceCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEventSourceCommand extends $Command<
   DescribeEventSourceCommandInput,

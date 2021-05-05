@@ -19,6 +19,20 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the client- and server-side session that is associated with the user.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSOClient, LogoutCommand } from "@aws-sdk/client-sso"; // ES Modules import
+ * // const { SSOClient, LogoutCommand } = require("@aws-sdk/client-sso"); // CommonJS import
+ * const client = new SSOClient(config);
+ * const command = new LogoutCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link LogoutCommandInput} for command's `input` shape.
+ * @see {@link LogoutCommandOutput} for command's `response` shape.
+ * @see {@link SSOClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOutput, SSOClientResolvedConfig> {
   // Start section: command_properties

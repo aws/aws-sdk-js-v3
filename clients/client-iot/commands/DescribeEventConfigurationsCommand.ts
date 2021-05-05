@@ -24,6 +24,20 @@ export interface DescribeEventConfigurationsCommandOutput
 
 /**
  * <p>Describes event configurations.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, DescribeEventConfigurationsCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DescribeEventConfigurationsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new DescribeEventConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEventConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeEventConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEventConfigurationsCommand extends $Command<
   DescribeEventConfigurationsCommandInput,

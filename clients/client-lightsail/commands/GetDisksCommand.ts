@@ -19,6 +19,20 @@ export interface GetDisksCommandOutput extends GetDisksResult, __MetadataBearer 
 
 /**
  * <p>Returns information about all block storage disks in your AWS account and region.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LightsailClient, GetDisksCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetDisksCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * const client = new LightsailClient(config);
+ * const command = new GetDisksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDisksCommandInput} for command's `input` shape.
+ * @see {@link GetDisksCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDisksCommand extends $Command<
   GetDisksCommandInput,

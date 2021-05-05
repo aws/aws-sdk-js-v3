@@ -43,6 +43,20 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attaching Amazon EBS volumes</a> in the
  *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, AttachVolumeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, AttachVolumeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new AttachVolumeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AttachVolumeCommandInput} for command's `input` shape.
+ * @see {@link AttachVolumeCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AttachVolumeCommand extends $Command<
   AttachVolumeCommandInput,

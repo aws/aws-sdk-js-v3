@@ -35,6 +35,20 @@ export interface GetQualificationScoreCommandOutput extends GetQualificationScor
  *         </p>
  *         <p>Only the owner of a Qualification type can query the value of
  *             a Worker's Qualification of that type.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MTurkClient, GetQualificationScoreCommand } from "@aws-sdk/client-mturk"; // ES Modules import
+ * // const { MTurkClient, GetQualificationScoreCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * const client = new MTurkClient(config);
+ * const command = new GetQualificationScoreCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetQualificationScoreCommandInput} for command's `input` shape.
+ * @see {@link GetQualificationScoreCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetQualificationScoreCommand extends $Command<
   GetQualificationScoreCommandInput,

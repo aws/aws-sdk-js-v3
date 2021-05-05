@@ -29,6 +29,20 @@ export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionRes
  *       and consistent. This applies to other unexpected failures that interrupt a task execution. In
  *       all of these cases, AWS DataSync successfully complete the transfer when you start the next
  *       task execution.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataSyncClient, CancelTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, CancelTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * const client = new DataSyncClient(config);
+ * const command = new CancelTaskExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelTaskExecutionCommandInput} for command's `input` shape.
+ * @see {@link CancelTaskExecutionCommandOutput} for command's `response` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelTaskExecutionCommand extends $Command<
   CancelTaskExecutionCommandInput,

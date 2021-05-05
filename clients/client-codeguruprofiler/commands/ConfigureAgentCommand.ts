@@ -26,6 +26,20 @@ export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __M
  *           configuration updates. For example, <code>ConfigureAgent</code> can be used
  *          to tell an agent whether to profile or not and for how long to return profiling data.
  *       </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeGuruProfilerClient, ConfigureAgentCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
+ * // const { CodeGuruProfilerClient, ConfigureAgentCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * const client = new CodeGuruProfilerClient(config);
+ * const command = new ConfigureAgentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ConfigureAgentCommandInput} for command's `input` shape.
+ * @see {@link ConfigureAgentCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ConfigureAgentCommand extends $Command<
   ConfigureAgentCommandInput,

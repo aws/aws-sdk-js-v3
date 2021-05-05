@@ -38,6 +38,20 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  *          <p>With a Network Load Balancer, you cannot register instances by instance ID if they have
  *       the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3,
  *       and T1. You can register instances of these types by IP address.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticLoadBalancingV2Client, RegisterTargetsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, RegisterTargetsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new RegisterTargetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterTargetsCommandInput} for command's `input` shape.
+ * @see {@link RegisterTargetsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterTargetsCommand extends $Command<
   RegisterTargetsCommandInput,

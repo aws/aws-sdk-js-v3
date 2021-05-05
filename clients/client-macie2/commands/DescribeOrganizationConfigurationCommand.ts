@@ -27,6 +27,20 @@ export interface DescribeOrganizationConfigurationCommandOutput
 
 /**
  * <p>Retrieves the Amazon Macie configuration settings for an AWS organization.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Macie2Client, DescribeOrganizationConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, DescribeOrganizationConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * const client = new Macie2Client(config);
+ * const command = new DescribeOrganizationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeOrganizationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeOrganizationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeOrganizationConfigurationCommand extends $Command<
   DescribeOrganizationConfigurationCommandInput,

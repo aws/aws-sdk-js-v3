@@ -23,6 +23,20 @@ export interface CreateAppInstanceCommandOutput extends CreateAppInstanceRespons
 /**
  * <p>Creates an Amazon Chime SDK messaging <code>AppInstance</code> under an AWS account. Only SDK messaging customers use this API.
  * <code>CreateAppInstance</code> supports idempotency behavior as described in the AWS API Standard.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, CreateAppInstanceCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, CreateAppInstanceCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new CreateAppInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAppInstanceCommandInput} for command's `input` shape.
+ * @see {@link CreateAppInstanceCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAppInstanceCommand extends $Command<
   CreateAppInstanceCommandInput,

@@ -24,6 +24,20 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsOutput, __Metad
  * This tests how timestamps are serialized, including using the
  * default format of date-time and various @timestampFormat trait
  * values.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QueryProtocolClient, XmlTimestampsCommand } from "@aws-sdk/aws-query"; // ES Modules import
+ * // const { QueryProtocolClient, XmlTimestampsCommand } = require("@aws-sdk/aws-query"); // CommonJS import
+ * const client = new QueryProtocolClient(config);
+ * const command = new XmlTimestampsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link XmlTimestampsCommandInput} for command's `input` shape.
+ * @see {@link XmlTimestampsCommandOutput} for command's `response` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class XmlTimestampsCommand extends $Command<
   XmlTimestampsCommandInput,

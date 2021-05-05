@@ -22,6 +22,20 @@ export interface ListUploadsCommandOutput extends ListUploadsResult, __MetadataB
 
 /**
  * <p>Gets information about uploads, given an AWS Device Farm project ARN.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, ListUploadsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, ListUploadsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new ListUploadsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListUploadsCommandInput} for command's `input` shape.
+ * @see {@link ListUploadsCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListUploadsCommand extends $Command<
   ListUploadsCommandInput,

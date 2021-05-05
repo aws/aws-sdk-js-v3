@@ -25,6 +25,20 @@ export interface SearchThingsCommandOutput extends SearchThingsResponse, __Metad
  *          <p>For example, if two different devices, camera1 and camera2, implement the camera device model, the user can associate thing1 to camera1 and thing2 to camera2.
  *          <code>SearchThings(camera2)</code> will return only thing2, but <code>SearchThings(camera)</code> will return both thing1 and thing2.</p>
  *          <p>This action searches for exact matches and doesn't perform partial text matching.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTThingsGraphClient, SearchThingsCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
+ * // const { IoTThingsGraphClient, SearchThingsCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * const client = new IoTThingsGraphClient(config);
+ * const command = new SearchThingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchThingsCommandInput} for command's `input` shape.
+ * @see {@link SearchThingsCommandOutput} for command's `response` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchThingsCommand extends $Command<
   SearchThingsCommandInput,

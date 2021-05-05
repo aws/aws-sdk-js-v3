@@ -24,6 +24,20 @@ export interface ListStackSetOperationResultsCommandOutput
 
 /**
  * <p>Returns summary information about the results of a stack set operation. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFormationClient, ListStackSetOperationResultsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, ListStackSetOperationResultsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * const client = new CloudFormationClient(config);
+ * const command = new ListStackSetOperationResultsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListStackSetOperationResultsCommandInput} for command's `input` shape.
+ * @see {@link ListStackSetOperationResultsCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListStackSetOperationResultsCommand extends $Command<
   ListStackSetOperationResultsCommandInput,

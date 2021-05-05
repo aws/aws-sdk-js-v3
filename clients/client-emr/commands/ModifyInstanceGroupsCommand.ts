@@ -24,6 +24,20 @@ export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
  * <p>ModifyInstanceGroups modifies the number of nodes and configuration settings of an
  *          instance group. The input parameters include the new target instance count for the group
  *          and the instance group ID. The call will either succeed or fail atomically.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EMRClient, ModifyInstanceGroupsCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, ModifyInstanceGroupsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * const client = new EMRClient(config);
+ * const command = new ModifyInstanceGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyInstanceGroupsCommandInput} for command's `input` shape.
+ * @see {@link ModifyInstanceGroupsCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyInstanceGroupsCommand extends $Command<
   ModifyInstanceGroupsCommandInput,

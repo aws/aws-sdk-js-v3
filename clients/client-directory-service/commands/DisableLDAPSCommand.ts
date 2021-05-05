@@ -22,6 +22,20 @@ export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __Metadat
 
 /**
  * <p>Deactivates LDAP secure calls for the specified directory.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectoryServiceClient, DisableLDAPSCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
+ * // const { DirectoryServiceClient, DisableLDAPSCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * const client = new DirectoryServiceClient(config);
+ * const command = new DisableLDAPSCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableLDAPSCommandInput} for command's `input` shape.
+ * @see {@link DisableLDAPSCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableLDAPSCommand extends $Command<
   DisableLDAPSCommandInput,

@@ -22,6 +22,20 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
 
 /**
  * <p>Creates sample findings.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Macie2Client, CreateSampleFindingsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, CreateSampleFindingsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * const client = new Macie2Client(config);
+ * const command = new CreateSampleFindingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSampleFindingsCommandInput} for command's `input` shape.
+ * @see {@link CreateSampleFindingsCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSampleFindingsCommand extends $Command<
   CreateSampleFindingsCommandInput,

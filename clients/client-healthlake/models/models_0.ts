@@ -11,6 +11,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -26,6 +29,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -50,6 +56,9 @@ export interface PreloadDataConfig {
 }
 
 export namespace PreloadDataConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PreloadDataConfig): any => ({
     ...obj,
   });
@@ -79,6 +88,9 @@ export interface CreateFHIRDatastoreRequest {
 }
 
 export namespace CreateFHIRDatastoreRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateFHIRDatastoreRequest): any => ({
     ...obj,
   });
@@ -118,6 +130,9 @@ export interface CreateFHIRDatastoreResponse {
 }
 
 export namespace CreateFHIRDatastoreResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateFHIRDatastoreResponse): any => ({
     ...obj,
   });
@@ -133,6 +148,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -148,6 +166,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -163,6 +184,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -196,6 +220,9 @@ export interface DatastoreFilter {
 }
 
 export namespace DatastoreFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DatastoreFilter): any => ({
     ...obj,
   });
@@ -247,6 +274,9 @@ export interface DatastoreProperties {
 }
 
 export namespace DatastoreProperties {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DatastoreProperties): any => ({
     ...obj,
   });
@@ -260,6 +290,9 @@ export interface DeleteFHIRDatastoreRequest {
 }
 
 export namespace DeleteFHIRDatastoreRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteFHIRDatastoreRequest): any => ({
     ...obj,
   });
@@ -289,6 +322,9 @@ export interface DeleteFHIRDatastoreResponse {
 }
 
 export namespace DeleteFHIRDatastoreResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteFHIRDatastoreResponse): any => ({
     ...obj,
   });
@@ -304,6 +340,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -317,6 +356,9 @@ export interface DescribeFHIRDatastoreRequest {
 }
 
 export namespace DescribeFHIRDatastoreRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFHIRDatastoreRequest): any => ({
     ...obj,
   });
@@ -332,6 +374,9 @@ export interface DescribeFHIRDatastoreResponse {
 }
 
 export namespace DescribeFHIRDatastoreResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFHIRDatastoreResponse): any => ({
     ...obj,
   });
@@ -350,6 +395,9 @@ export interface DescribeFHIRExportJobRequest {
 }
 
 export namespace DescribeFHIRExportJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFHIRExportJobRequest): any => ({
     ...obj,
   });
@@ -391,6 +439,9 @@ export namespace OutputDataConfig {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OutputDataConfig): any => {
     if (obj.S3Uri !== undefined) return { S3Uri: obj.S3Uri };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
@@ -448,6 +499,9 @@ export interface ExportJobProperties {
 }
 
 export namespace ExportJobProperties {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportJobProperties): any => ({
     ...obj,
     ...(obj.OutputDataConfig && { OutputDataConfig: OutputDataConfig.filterSensitiveLog(obj.OutputDataConfig) }),
@@ -462,6 +516,9 @@ export interface DescribeFHIRExportJobResponse {
 }
 
 export namespace DescribeFHIRExportJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFHIRExportJobResponse): any => ({
     ...obj,
     ...(obj.ExportJobProperties && {
@@ -483,6 +540,9 @@ export interface DescribeFHIRImportJobRequest {
 }
 
 export namespace DescribeFHIRImportJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFHIRImportJobRequest): any => ({
     ...obj,
   });
@@ -517,6 +577,9 @@ export namespace InputDataConfig {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InputDataConfig): any => {
     if (obj.S3Uri !== undefined) return { S3Uri: obj.S3Uri };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
@@ -574,6 +637,9 @@ export interface ImportJobProperties {
 }
 
 export namespace ImportJobProperties {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImportJobProperties): any => ({
     ...obj,
     ...(obj.InputDataConfig && { InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig) }),
@@ -588,6 +654,9 @@ export interface DescribeFHIRImportJobResponse {
 }
 
 export namespace DescribeFHIRImportJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFHIRImportJobResponse): any => ({
     ...obj,
     ...(obj.ImportJobProperties && {
@@ -615,6 +684,9 @@ export interface ListFHIRDatastoresRequest {
 }
 
 export namespace ListFHIRDatastoresRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListFHIRDatastoresRequest): any => ({
     ...obj,
   });
@@ -633,6 +705,9 @@ export interface ListFHIRDatastoresResponse {
 }
 
 export namespace ListFHIRDatastoresResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListFHIRDatastoresResponse): any => ({
     ...obj,
   });
@@ -666,6 +741,9 @@ export interface StartFHIRExportJobRequest {
 }
 
 export namespace StartFHIRExportJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartFHIRExportJobRequest): any => ({
     ...obj,
     ...(obj.OutputDataConfig && { OutputDataConfig: OutputDataConfig.filterSensitiveLog(obj.OutputDataConfig) }),
@@ -690,6 +768,9 @@ export interface StartFHIRExportJobResponse {
 }
 
 export namespace StartFHIRExportJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartFHIRExportJobResponse): any => ({
     ...obj,
   });
@@ -723,6 +804,9 @@ export interface StartFHIRImportJobRequest {
 }
 
 export namespace StartFHIRImportJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartFHIRImportJobRequest): any => ({
     ...obj,
     ...(obj.InputDataConfig && { InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig) }),
@@ -747,6 +831,9 @@ export interface StartFHIRImportJobResponse {
 }
 
 export namespace StartFHIRImportJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartFHIRImportJobResponse): any => ({
     ...obj,
   });

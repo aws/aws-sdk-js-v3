@@ -27,6 +27,20 @@ export interface DisassociateGlobalReplicationGroupCommandOutput
 
 /**
  * <p>Remove a secondary cluster from the Global datastore using the Global datastore name. The secondary cluster will no longer receive updates from the primary cluster, but will remain as a standalone cluster in that AWS region.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElastiCacheClient, DisassociateGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, DisassociateGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * const client = new ElastiCacheClient(config);
+ * const command = new DisassociateGlobalReplicationGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateGlobalReplicationGroupCommandInput} for command's `input` shape.
+ * @see {@link DisassociateGlobalReplicationGroupCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateGlobalReplicationGroupCommand extends $Command<
   DisassociateGlobalReplicationGroupCommandInput,

@@ -26,6 +26,20 @@ export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
  *             characters, and cannot include certain characters. The suffix .git is prohibited. For
  *             more information about the limits on repository names, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a> in the AWS CodeCommit
  *             User Guide.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeCommitClient, UpdateRepositoryNameCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, UpdateRepositoryNameCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * const client = new CodeCommitClient(config);
+ * const command = new UpdateRepositoryNameCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRepositoryNameCommandInput} for command's `input` shape.
+ * @see {@link UpdateRepositoryNameCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRepositoryNameCommand extends $Command<
   UpdateRepositoryNameCommandInput,

@@ -35,6 +35,20 @@ export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __M
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ResourceGroupsClient, SearchResourcesCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
+ * // const { ResourceGroupsClient, SearchResourcesCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import
+ * const client = new ResourceGroupsClient(config);
+ * const command = new SearchResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchResourcesCommandInput} for command's `input` shape.
+ * @see {@link SearchResourcesCommandOutput} for command's `response` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchResourcesCommand extends $Command<
   SearchResourcesCommandInput,

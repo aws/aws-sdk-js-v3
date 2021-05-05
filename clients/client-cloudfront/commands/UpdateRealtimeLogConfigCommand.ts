@@ -42,6 +42,20 @@ export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogC
  *          </ol>
  * 		       <p>You cannot update a real-time log configuration’s <code>Name</code> or
  * 			<code>ARN</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFrontClient, UpdateRealtimeLogConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, UpdateRealtimeLogConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * const client = new CloudFrontClient(config);
+ * const command = new UpdateRealtimeLogConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRealtimeLogConfigCommandInput} for command's `input` shape.
+ * @see {@link UpdateRealtimeLogConfigCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRealtimeLogConfigCommand extends $Command<
   UpdateRealtimeLogConfigCommandInput,

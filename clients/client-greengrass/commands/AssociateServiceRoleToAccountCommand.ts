@@ -24,6 +24,20 @@ export interface AssociateServiceRoleToAccountCommandOutput
 
 /**
  * Associates a role with your account. AWS IoT Greengrass will use the role to access your Lambda functions and AWS IoT resources. This is necessary for deployments to succeed. The role must have at least minimum permissions in the policy ''AWSGreengrassResourceAccessRolePolicy''.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassClient, AssociateServiceRoleToAccountCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, AssociateServiceRoleToAccountCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * const client = new GreengrassClient(config);
+ * const command = new AssociateServiceRoleToAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateServiceRoleToAccountCommandInput} for command's `input` shape.
+ * @see {@link AssociateServiceRoleToAccountCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateServiceRoleToAccountCommand extends $Command<
   AssociateServiceRoleToAccountCommandInput,

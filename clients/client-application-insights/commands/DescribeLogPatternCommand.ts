@@ -26,6 +26,20 @@ export interface DescribeLogPatternCommandOutput extends DescribeLogPatternRespo
 
 /**
  * <p>Describe a specific log pattern from a <code>LogPatternSet</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApplicationInsightsClient, DescribeLogPatternCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
+ * // const { ApplicationInsightsClient, DescribeLogPatternCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * const client = new ApplicationInsightsClient(config);
+ * const command = new DescribeLogPatternCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLogPatternCommandInput} for command's `input` shape.
+ * @see {@link DescribeLogPatternCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLogPatternCommand extends $Command<
   DescribeLogPatternCommandInput,

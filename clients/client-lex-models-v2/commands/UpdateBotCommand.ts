@@ -22,6 +22,20 @@ export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBea
 
 /**
  * <p>Updates the configuration of an existing bot. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelsV2Client, UpdateBotCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, UpdateBotCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * const client = new LexModelsV2Client(config);
+ * const command = new UpdateBotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateBotCommandInput} for command's `input` shape.
+ * @see {@link UpdateBotCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateBotCommand extends $Command<
   UpdateBotCommandInput,

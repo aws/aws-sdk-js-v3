@@ -28,6 +28,20 @@ export interface DescribePackageVersionCommandOutput extends DescribePackageVers
  *             </a>
  *        object that contains information about the requested package version.
  *      </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeartifactClient, DescribePackageVersionCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
+ * // const { CodeartifactClient, DescribePackageVersionCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * const client = new CodeartifactClient(config);
+ * const command = new DescribePackageVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePackageVersionCommandInput} for command's `input` shape.
+ * @see {@link DescribePackageVersionCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePackageVersionCommand extends $Command<
   DescribePackageVersionCommandInput,

@@ -27,6 +27,20 @@ export interface DisassociateFromAdministratorAccountCommandOutput
 
 /**
  * <p>Disassociates a member account from its Amazon Macie administrator account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Macie2Client, DisassociateFromAdministratorAccountCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, DisassociateFromAdministratorAccountCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * const client = new Macie2Client(config);
+ * const command = new DisassociateFromAdministratorAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateFromAdministratorAccountCommandInput} for command's `input` shape.
+ * @see {@link DisassociateFromAdministratorAccountCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateFromAdministratorAccountCommand extends $Command<
   DisassociateFromAdministratorAccountCommandInput,

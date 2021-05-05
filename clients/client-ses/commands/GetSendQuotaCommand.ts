@@ -20,6 +20,20 @@ export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __Metad
 /**
  * <p>Provides the sending limits for the Amazon SES account. </p>
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESClient, GetSendQuotaCommand } from "@aws-sdk/client-ses"; // ES Modules import
+ * // const { SESClient, GetSendQuotaCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * const client = new SESClient(config);
+ * const command = new GetSendQuotaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSendQuotaCommandInput} for command's `input` shape.
+ * @see {@link GetSendQuotaCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSendQuotaCommand extends $Command<
   GetSendQuotaCommandInput,

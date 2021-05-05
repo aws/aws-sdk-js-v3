@@ -22,6 +22,20 @@ export interface EnableUserCommandOutput extends EnableUserResult, __MetadataBea
 
 /**
  * <p>Enables a user in the user pool. After being enabled, users can sign in to AppStream 2.0 and open applications from the stacks to which they are assigned.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppStreamClient, EnableUserCommand } from "@aws-sdk/client-appstream"; // ES Modules import
+ * // const { AppStreamClient, EnableUserCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * const client = new AppStreamClient(config);
+ * const command = new EnableUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableUserCommandInput} for command's `input` shape.
+ * @see {@link EnableUserCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableUserCommand extends $Command<
   EnableUserCommandInput,

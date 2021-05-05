@@ -22,6 +22,20 @@ export interface UpdateMeshCommandOutput extends UpdateMeshOutput, __MetadataBea
 
 /**
  * <p>Updates an existing service mesh.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppMeshClient, UpdateMeshCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
+ * // const { AppMeshClient, UpdateMeshCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * const client = new AppMeshClient(config);
+ * const command = new UpdateMeshCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMeshCommandInput} for command's `input` shape.
+ * @see {@link UpdateMeshCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMeshCommand extends $Command<
   UpdateMeshCommandInput,

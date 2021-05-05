@@ -28,6 +28,20 @@ export interface DeleteComponentCommandOutput extends __MetadataBearer {}
  *         component version, you can remove the component from the deployment or update the deployment
  *         to use a valid version.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassV2Client, DeleteComponentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
+ * // const { GreengrassV2Client, DeleteComponentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * const client = new GreengrassV2Client(config);
+ * const command = new DeleteComponentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteComponentCommandInput} for command's `input` shape.
+ * @see {@link DeleteComponentCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteComponentCommand extends $Command<
   DeleteComponentCommandInput,

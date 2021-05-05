@@ -23,6 +23,20 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
 /**
  * <p> Creates a new image. This request will create a new image along with all of the
  *       configured output resources defined in the distribution configuration.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ImagebuilderClient, CreateImageCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, CreateImageCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * const client = new ImagebuilderClient(config);
+ * const command = new CreateImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateImageCommandInput} for command's `input` shape.
+ * @see {@link CreateImageCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateImageCommand extends $Command<
   CreateImageCommandInput,

@@ -27,6 +27,20 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  *             If you register a HIT type with values that match an existing HIT type, the HIT type
  *             ID of the existing type will be returned.
  *         </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MTurkClient, CreateHITTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
+ * // const { MTurkClient, CreateHITTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * const client = new MTurkClient(config);
+ * const command = new CreateHITTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateHITTypeCommandInput} for command's `input` shape.
+ * @see {@link CreateHITTypeCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateHITTypeCommand extends $Command<
   CreateHITTypeCommandInput,

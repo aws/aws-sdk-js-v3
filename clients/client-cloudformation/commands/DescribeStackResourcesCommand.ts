@@ -41,6 +41,20 @@ export interface DescribeStackResourcesCommandOutput extends DescribeStackResour
  *                <code>StackName</code> and <code>PhysicalResourceId</code> in the same
  *             request.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFormationClient, DescribeStackResourcesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, DescribeStackResourcesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * const client = new CloudFormationClient(config);
+ * const command = new DescribeStackResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeStackResourcesCommandInput} for command's `input` shape.
+ * @see {@link DescribeStackResourcesCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeStackResourcesCommand extends $Command<
   DescribeStackResourcesCommandInput,

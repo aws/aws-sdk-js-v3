@@ -23,6 +23,20 @@ export interface CancelCommandCommandOutput extends CancelCommandResult, __Metad
 /**
  * <p>Attempts to cancel the command specified by the Command ID. There is no guarantee that the
  *    command will be terminated and the underlying process stopped.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, CancelCommandCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, CancelCommandCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new CancelCommandCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelCommandCommandInput} for command's `input` shape.
+ * @see {@link CancelCommandCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelCommandCommand extends $Command<
   CancelCommandCommandInput,

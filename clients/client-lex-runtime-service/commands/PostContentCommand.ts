@@ -111,6 +111,20 @@ export interface PostContentCommandOutput extends PostContentResponse, __Metadat
  *          <p> In addition, Amazon Lex also returns your application-specific
  *         <code>sessionAttributes</code>. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing
  *         Conversation Context</a>. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexRuntimeServiceClient, PostContentCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
+ * // const { LexRuntimeServiceClient, PostContentCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
+ * const client = new LexRuntimeServiceClient(config);
+ * const command = new PostContentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PostContentCommandInput} for command's `input` shape.
+ * @see {@link PostContentCommandOutput} for command's `response` shape.
+ * @see {@link LexRuntimeServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PostContentCommand extends $Command<
   PostContentCommandInput,

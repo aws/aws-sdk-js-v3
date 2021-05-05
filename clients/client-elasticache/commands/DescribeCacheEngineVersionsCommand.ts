@@ -23,6 +23,20 @@ export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVer
 /**
  * <p>Returns a list of the available cache
  *             engines and their versions.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElastiCacheClient, DescribeCacheEngineVersionsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, DescribeCacheEngineVersionsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * const client = new ElastiCacheClient(config);
+ * const command = new DescribeCacheEngineVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCacheEngineVersionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeCacheEngineVersionsCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCacheEngineVersionsCommand extends $Command<
   DescribeCacheEngineVersionsCommandInput,

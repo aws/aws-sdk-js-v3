@@ -22,6 +22,20 @@ export interface DeleteEmailChannelCommandOutput extends DeleteEmailChannelRespo
 
 /**
  * <p>Disables the email channel for an application and deletes any existing settings for the channel.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointClient, DeleteEmailChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, DeleteEmailChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * const client = new PinpointClient(config);
+ * const command = new DeleteEmailChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEmailChannelCommandInput} for command's `input` shape.
+ * @see {@link DeleteEmailChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEmailChannelCommand extends $Command<
   DeleteEmailChannelCommandInput,

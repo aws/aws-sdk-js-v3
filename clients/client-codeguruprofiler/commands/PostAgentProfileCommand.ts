@@ -28,6 +28,20 @@ export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse,
  *                <code>GetProfile</code>
  *             </a>.
  *       </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeGuruProfilerClient, PostAgentProfileCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
+ * // const { CodeGuruProfilerClient, PostAgentProfileCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * const client = new CodeGuruProfilerClient(config);
+ * const command = new PostAgentProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PostAgentProfileCommandInput} for command's `input` shape.
+ * @see {@link PostAgentProfileCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PostAgentProfileCommand extends $Command<
   PostAgentProfileCommandInput,

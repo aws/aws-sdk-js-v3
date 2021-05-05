@@ -24,6 +24,20 @@ export interface UpdateDocumentDefaultVersionCommandOutput
 
 /**
  * <p>Set the default version of a document. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, UpdateDocumentDefaultVersionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, UpdateDocumentDefaultVersionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new UpdateDocumentDefaultVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDocumentDefaultVersionCommandInput} for command's `input` shape.
+ * @see {@link UpdateDocumentDefaultVersionCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDocumentDefaultVersionCommand extends $Command<
   UpdateDocumentDefaultVersionCommandInput,

@@ -25,6 +25,20 @@ export interface ListContainerInstancesCommandOutput extends ListContainerInstan
  * 			results of a <code>ListContainerInstances</code> operation with cluster query language
  * 			statements inside the <code>filter</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster Query Language</a> in the
  * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECSClient, ListContainerInstancesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, ListContainerInstancesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * const client = new ECSClient(config);
+ * const command = new ListContainerInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListContainerInstancesCommandInput} for command's `input` shape.
+ * @see {@link ListContainerInstancesCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListContainerInstancesCommand extends $Command<
   ListContainerInstancesCommandInput,

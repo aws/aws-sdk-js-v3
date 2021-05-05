@@ -22,6 +22,20 @@ export interface DeleteEventStreamCommandOutput extends DeleteEventStreamRespons
 
 /**
  * <p>Deletes the event stream for an application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointClient, DeleteEventStreamCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, DeleteEventStreamCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * const client = new PinpointClient(config);
+ * const command = new DeleteEventStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEventStreamCommandInput} for command's `input` shape.
+ * @see {@link DeleteEventStreamCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEventStreamCommand extends $Command<
   DeleteEventStreamCommandInput,

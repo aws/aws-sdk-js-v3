@@ -28,6 +28,20 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
  *         <p>AWS Compute Optimizer generates recommendations for functions that meet a specific set of
  *             requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
  *                 requirements</a> in the <i>AWS Compute Optimizer User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ComputeOptimizerClient, GetLambdaFunctionRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
+ * // const { ComputeOptimizerClient, GetLambdaFunctionRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * const client = new ComputeOptimizerClient(config);
+ * const command = new GetLambdaFunctionRecommendationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLambdaFunctionRecommendationsCommandInput} for command's `input` shape.
+ * @see {@link GetLambdaFunctionRecommendationsCommandOutput} for command's `response` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLambdaFunctionRecommendationsCommand extends $Command<
   GetLambdaFunctionRecommendationsCommandInput,

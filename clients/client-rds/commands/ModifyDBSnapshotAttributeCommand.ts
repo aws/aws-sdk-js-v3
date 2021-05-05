@@ -38,6 +38,20 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  *          <p>To view which AWS accounts have access to copy or restore a manual DB snapshot, or
  *             whether a manual DB snapshot public or private, use the <a>DescribeDBSnapshotAttributes</a> API action. The accounts are returned as
  *             values for the <code>restore</code> attribute.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, ModifyDBSnapshotAttributeCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, ModifyDBSnapshotAttributeCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new ModifyDBSnapshotAttributeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyDBSnapshotAttributeCommandInput} for command's `input` shape.
+ * @see {@link ModifyDBSnapshotAttributeCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyDBSnapshotAttributeCommand extends $Command<
   ModifyDBSnapshotAttributeCommandInput,

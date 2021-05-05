@@ -22,6 +22,20 @@ export interface ListManagedSchemaArnsCommandOutput extends ListManagedSchemaArn
 
 /**
  * <p>Lists the major version families of each managed schema. If a major version ARN is provided as SchemaArn, the minor version revisions in that family are listed instead.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudDirectoryClient, ListManagedSchemaArnsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, ListManagedSchemaArnsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * const client = new CloudDirectoryClient(config);
+ * const command = new ListManagedSchemaArnsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListManagedSchemaArnsCommandInput} for command's `input` shape.
+ * @see {@link ListManagedSchemaArnsCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListManagedSchemaArnsCommand extends $Command<
   ListManagedSchemaArnsCommandInput,

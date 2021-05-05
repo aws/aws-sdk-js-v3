@@ -36,6 +36,20 @@ export interface StopServerCommandOutput extends __MetadataBearer {}
  *       can indicate an error condition.</p>
  *
  *          <p>No response is returned from this call.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TransferClient, StopServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
+ * // const { TransferClient, StopServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * const client = new TransferClient(config);
+ * const command = new StopServerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopServerCommandInput} for command's `input` shape.
+ * @see {@link StopServerCommandOutput} for command's `response` shape.
+ * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopServerCommand extends $Command<
   StopServerCommandInput,

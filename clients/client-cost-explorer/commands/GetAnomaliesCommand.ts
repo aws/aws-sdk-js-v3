@@ -23,6 +23,20 @@ export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __Metad
 /**
  * <p>Retrieves all of the cost anomalies detected on your account, during the time period
  *       specified by the <code>DateInterval</code> object. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CostExplorerClient, GetAnomaliesCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
+ * // const { CostExplorerClient, GetAnomaliesCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * const client = new CostExplorerClient(config);
+ * const command = new GetAnomaliesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAnomaliesCommandInput} for command's `input` shape.
+ * @see {@link GetAnomaliesCommandOutput} for command's `response` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAnomaliesCommand extends $Command<
   GetAnomaliesCommandInput,

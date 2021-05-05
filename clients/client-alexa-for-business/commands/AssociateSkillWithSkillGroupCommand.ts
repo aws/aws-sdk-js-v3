@@ -24,6 +24,20 @@ export interface AssociateSkillWithSkillGroupCommandOutput
 
 /**
  * <p>Associates a skill with a skill group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, AssociateSkillWithSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, AssociateSkillWithSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new AssociateSkillWithSkillGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateSkillWithSkillGroupCommandInput} for command's `input` shape.
+ * @see {@link AssociateSkillWithSkillGroupCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateSkillWithSkillGroupCommand extends $Command<
   AssociateSkillWithSkillGroupCommandInput,

@@ -22,6 +22,20 @@ export interface CreateThingTypeCommandOutput extends CreateThingTypeResponse, _
 
 /**
  * <p>Creates a new thing type.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, CreateThingTypeCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, CreateThingTypeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new CreateThingTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateThingTypeCommandInput} for command's `input` shape.
+ * @see {@link CreateThingTypeCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateThingTypeCommand extends $Command<
   CreateThingTypeCommandInput,

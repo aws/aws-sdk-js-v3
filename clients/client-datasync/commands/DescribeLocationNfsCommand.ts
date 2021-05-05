@@ -22,6 +22,20 @@ export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsRes
 
 /**
  * <p>Returns metadata, such as the path information, about an NFS location.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataSyncClient, DescribeLocationNfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, DescribeLocationNfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
+ * const client = new DataSyncClient(config);
+ * const command = new DescribeLocationNfsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLocationNfsCommandInput} for command's `input` shape.
+ * @see {@link DescribeLocationNfsCommandOutput} for command's `response` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLocationNfsCommand extends $Command<
   DescribeLocationNfsCommandInput,

@@ -30,6 +30,20 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  *                     <code>transactionID</code> parameter, changes that result from the call are
  *                 committed automatically.</p>
  *         </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSDataClient, BatchExecuteStatementCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
+ * // const { RDSDataClient, BatchExecuteStatementCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
+ * const client = new RDSDataClient(config);
+ * const command = new BatchExecuteStatementCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchExecuteStatementCommandInput} for command's `input` shape.
+ * @see {@link BatchExecuteStatementCommandOutput} for command's `response` shape.
+ * @see {@link RDSDataClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchExecuteStatementCommand extends $Command<
   BatchExecuteStatementCommandInput,

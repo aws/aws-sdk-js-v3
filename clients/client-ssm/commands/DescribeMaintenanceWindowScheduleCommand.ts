@@ -24,6 +24,20 @@ export interface DescribeMaintenanceWindowScheduleCommandOutput
 
 /**
  * <p>Retrieves information about upcoming executions of a maintenance window.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, DescribeMaintenanceWindowScheduleCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DescribeMaintenanceWindowScheduleCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new DescribeMaintenanceWindowScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeMaintenanceWindowScheduleCommandInput} for command's `input` shape.
+ * @see {@link DescribeMaintenanceWindowScheduleCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeMaintenanceWindowScheduleCommand extends $Command<
   DescribeMaintenanceWindowScheduleCommandInput,

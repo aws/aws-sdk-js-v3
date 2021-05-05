@@ -25,6 +25,20 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
 /**
  * <p>Gets a group.</p>
  *         <p>Calling this action requires developer credentials.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, GetGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, GetGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new GetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetGroupCommandInput} for command's `input` shape.
+ * @see {@link GetGroupCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetGroupCommand extends $Command<
   GetGroupCommandInput,

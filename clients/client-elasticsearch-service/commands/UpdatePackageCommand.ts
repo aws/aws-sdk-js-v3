@@ -26,6 +26,20 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
 
 /**
  * <p>Updates a package for use with Amazon ES domains.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticsearchServiceClient, UpdatePackageCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
+ * // const { ElasticsearchServiceClient, UpdatePackageCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new UpdatePackageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePackageCommandInput} for command's `input` shape.
+ * @see {@link UpdatePackageCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePackageCommand extends $Command<
   UpdatePackageCommandInput,

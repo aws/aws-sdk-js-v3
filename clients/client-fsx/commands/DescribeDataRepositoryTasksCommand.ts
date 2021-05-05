@@ -34,6 +34,20 @@ export interface DescribeDataRepositoryTasksCommandOutput
  *             FSx returns a <code>NextToken</code> value in the response. In this case, send a later
  *             request with the <code>NextToken</code> request parameter set to the value of
  *             <code>NextToken</code> from the last response.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FSxClient, DescribeDataRepositoryTasksCommand } from "@aws-sdk/client-fsx"; // ES Modules import
+ * // const { FSxClient, DescribeDataRepositoryTasksCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * const client = new FSxClient(config);
+ * const command = new DescribeDataRepositoryTasksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDataRepositoryTasksCommandInput} for command's `input` shape.
+ * @see {@link DescribeDataRepositoryTasksCommandOutput} for command's `response` shape.
+ * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDataRepositoryTasksCommand extends $Command<
   DescribeDataRepositoryTasksCommandInput,

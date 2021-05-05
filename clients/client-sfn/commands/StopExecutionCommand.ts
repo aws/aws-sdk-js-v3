@@ -23,6 +23,20 @@ export interface StopExecutionCommandOutput extends StopExecutionOutput, __Metad
 /**
  * <p>Stops an execution.</p>
  *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SFNClient, StopExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
+ * // const { SFNClient, StopExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * const client = new SFNClient(config);
+ * const command = new StopExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopExecutionCommandInput} for command's `input` shape.
+ * @see {@link StopExecutionCommandOutput} for command's `response` shape.
+ * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopExecutionCommand extends $Command<
   StopExecutionCommandInput,

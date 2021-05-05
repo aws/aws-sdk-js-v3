@@ -25,6 +25,20 @@ export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInst
  *         <p>Unless otherwise specified, both registered and deregistered on-premises instance
  *             names are listed. To list only registered or deregistered on-premises instance names,
  *             use the registration status parameter.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeDeployClient, ListOnPremisesInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
+ * // const { CodeDeployClient, ListOnPremisesInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * const client = new CodeDeployClient(config);
+ * const command = new ListOnPremisesInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListOnPremisesInstancesCommandInput} for command's `input` shape.
+ * @see {@link ListOnPremisesInstancesCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListOnPremisesInstancesCommand extends $Command<
   ListOnPremisesInstancesCommandInput,

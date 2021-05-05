@@ -27,6 +27,20 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
  *          </note>
  * 		       <p>Returns the <a>WebACL</a> that is specified by <code>WebACLId</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFClient, GetWebACLCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, GetWebACLCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * const client = new WAFClient(config);
+ * const command = new GetWebACLCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetWebACLCommandInput} for command's `input` shape.
+ * @see {@link GetWebACLCommandOutput} for command's `response` shape.
+ * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetWebACLCommand extends $Command<GetWebACLCommandInput, GetWebACLCommandOutput, WAFClientResolvedConfig> {
   // Start section: command_properties

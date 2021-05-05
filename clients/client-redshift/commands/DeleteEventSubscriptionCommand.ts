@@ -22,6 +22,20 @@ export interface DeleteEventSubscriptionCommandOutput extends __MetadataBearer {
 
 /**
  * <p>Deletes an Amazon Redshift event notification subscription.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, DeleteEventSubscriptionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, DeleteEventSubscriptionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new DeleteEventSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEventSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link DeleteEventSubscriptionCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEventSubscriptionCommand extends $Command<
   DeleteEventSubscriptionCommandInput,

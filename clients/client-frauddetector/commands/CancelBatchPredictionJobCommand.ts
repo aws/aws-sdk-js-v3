@@ -22,6 +22,20 @@ export interface CancelBatchPredictionJobCommandOutput extends CancelBatchPredic
 
 /**
  * <p>Cancels the specified batch prediction job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FraudDetectorClient, CancelBatchPredictionJobCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, CancelBatchPredictionJobCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * const client = new FraudDetectorClient(config);
+ * const command = new CancelBatchPredictionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelBatchPredictionJobCommandInput} for command's `input` shape.
+ * @see {@link CancelBatchPredictionJobCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelBatchPredictionJobCommand extends $Command<
   CancelBatchPredictionJobCommandInput,

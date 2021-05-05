@@ -26,6 +26,20 @@ export interface DeleteDomainPermissionsPolicyCommandOutput
  * <p>
  *         Deletes the resource policy set on a domain.
  *       </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeartifactClient, DeleteDomainPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
+ * // const { CodeartifactClient, DeleteDomainPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * const client = new CodeartifactClient(config);
+ * const command = new DeleteDomainPermissionsPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDomainPermissionsPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteDomainPermissionsPolicyCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDomainPermissionsPolicyCommand extends $Command<
   DeleteDomainPermissionsPolicyCommandInput,

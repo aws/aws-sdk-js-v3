@@ -27,6 +27,20 @@ export interface ListInvitationsCommandOutput extends ListInvitationsOutput, __M
 /**
  * <p>Returns a list of all invitations for the current AWS account.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ManagedBlockchainClient, ListInvitationsCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
+ * // const { ManagedBlockchainClient, ListInvitationsCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * const client = new ManagedBlockchainClient(config);
+ * const command = new ListInvitationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListInvitationsCommandInput} for command's `input` shape.
+ * @see {@link ListInvitationsCommandOutput} for command's `response` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListInvitationsCommand extends $Command<
   ListInvitationsCommandInput,

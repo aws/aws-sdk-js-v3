@@ -27,6 +27,20 @@ export interface ListLicenseSpecificationsForResourceCommandOutput
 
 /**
  * <p>Describes the license configurations for the specified resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LicenseManagerClient, ListLicenseSpecificationsForResourceCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, ListLicenseSpecificationsForResourceCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * const client = new LicenseManagerClient(config);
+ * const command = new ListLicenseSpecificationsForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListLicenseSpecificationsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListLicenseSpecificationsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListLicenseSpecificationsForResourceCommand extends $Command<
   ListLicenseSpecificationsForResourceCommandInput,

@@ -58,6 +58,20 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  *             <code>SecretVersionsToStages</code> response value. </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecretsManagerClient, UpdateSecretVersionStageCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
+ * // const { SecretsManagerClient, UpdateSecretVersionStageCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * const client = new SecretsManagerClient(config);
+ * const command = new UpdateSecretVersionStageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSecretVersionStageCommandInput} for command's `input` shape.
+ * @see {@link UpdateSecretVersionStageCommandOutput} for command's `response` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSecretVersionStageCommand extends $Command<
   UpdateSecretVersionStageCommandInput,

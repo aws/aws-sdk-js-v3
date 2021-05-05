@@ -24,6 +24,20 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  * 			parameters.</p>
  * 		       <p>Recently stopped tasks might appear in the returned results. Currently, stopped tasks
  * 			appear in the returned results for at least one hour. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECSClient, ListTasksCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, ListTasksCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * const client = new ECSClient(config);
+ * const command = new ListTasksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTasksCommandInput} for command's `input` shape.
+ * @see {@link ListTasksCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksCommandOutput, ECSClientResolvedConfig> {
   // Start section: command_properties

@@ -39,6 +39,20 @@ export interface DescribeAggregateIdFormatCommandOutput extends DescribeAggregat
  *         <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code> |
  *         <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
  *         <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DescribeAggregateIdFormatCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeAggregateIdFormatCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DescribeAggregateIdFormatCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAggregateIdFormatCommandInput} for command's `input` shape.
+ * @see {@link DescribeAggregateIdFormatCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAggregateIdFormatCommand extends $Command<
   DescribeAggregateIdFormatCommandInput,

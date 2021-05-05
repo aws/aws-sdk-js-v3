@@ -24,6 +24,20 @@ export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __Met
  * <p>Gets a list of private work teams that you have defined in a region. The list may be empty if
  *             no work team satisfies the filter specified in the <code>NameContains</code>
  *             parameter.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, ListWorkteamsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListWorkteamsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new ListWorkteamsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListWorkteamsCommandInput} for command's `input` shape.
+ * @see {@link ListWorkteamsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListWorkteamsCommand extends $Command<
   ListWorkteamsCommandInput,

@@ -45,6 +45,20 @@ export interface DeleteGeoMatchSetCommandOutput extends DeleteGeoMatchSetRespons
  *                <p>Submit a <code>DeleteGeoMatchSet</code> request.</p>
  *             </li>
  *          </ol>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFClient, DeleteGeoMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, DeleteGeoMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * const client = new WAFClient(config);
+ * const command = new DeleteGeoMatchSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteGeoMatchSetCommandInput} for command's `input` shape.
+ * @see {@link DeleteGeoMatchSetCommandOutput} for command's `response` shape.
+ * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteGeoMatchSetCommand extends $Command<
   DeleteGeoMatchSetCommandInput,

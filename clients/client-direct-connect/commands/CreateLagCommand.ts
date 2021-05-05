@@ -36,6 +36,20 @@ export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
  *          <p>If the AWS account used to create a LAG is a registered AWS Direct Connect Partner, the LAG is
  *       automatically enabled to host sub-connections. For a LAG owned by a partner, any associated virtual
  *       interfaces cannot be directly configured.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectConnectClient, CreateLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, CreateLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * const client = new DirectConnectClient(config);
+ * const command = new CreateLagCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLagCommandInput} for command's `input` shape.
+ * @see {@link CreateLagCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLagCommand extends $Command<
   CreateLagCommandInput,

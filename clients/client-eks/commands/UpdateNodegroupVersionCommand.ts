@@ -39,6 +39,20 @@ export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVers
  *             the pods in that node are drained first. Amazon EKS attempts to drain the nodes gracefully
  *             and will fail if it is unable to do so. You can <code>force</code> the update if Amazon EKS
  *             is unable to drain the nodes as a result of a pod disruption budget issue.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EKSClient, UpdateNodegroupVersionCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, UpdateNodegroupVersionCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * const client = new EKSClient(config);
+ * const command = new UpdateNodegroupVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateNodegroupVersionCommandInput} for command's `input` shape.
+ * @see {@link UpdateNodegroupVersionCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateNodegroupVersionCommand extends $Command<
   UpdateNodegroupVersionCommandInput,

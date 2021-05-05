@@ -48,6 +48,20 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *         <note>
  *             <p>This operation is valid for Redis only.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElastiCacheClient, CreateReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, CreateReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * const client = new ElastiCacheClient(config);
+ * const command = new CreateReplicationGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateReplicationGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateReplicationGroupCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateReplicationGroupCommand extends $Command<
   CreateReplicationGroupCommandInput,

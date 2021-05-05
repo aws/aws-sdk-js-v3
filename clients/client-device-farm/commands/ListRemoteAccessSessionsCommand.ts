@@ -22,6 +22,20 @@ export interface ListRemoteAccessSessionsCommandOutput extends ListRemoteAccessS
 
 /**
  * <p>Returns a list of all currently running remote access sessions.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, ListRemoteAccessSessionsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, ListRemoteAccessSessionsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new ListRemoteAccessSessionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRemoteAccessSessionsCommandInput} for command's `input` shape.
+ * @see {@link ListRemoteAccessSessionsCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRemoteAccessSessionsCommand extends $Command<
   ListRemoteAccessSessionsCommandInput,

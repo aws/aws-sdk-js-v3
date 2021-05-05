@@ -22,6 +22,20 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
 
 /**
  * <p>Describes a specified task or tasks.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECSClient, DescribeTasksCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, DescribeTasksCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * const client = new ECSClient(config);
+ * const command = new DescribeTasksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTasksCommandInput} for command's `input` shape.
+ * @see {@link DescribeTasksCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTasksCommand extends $Command<
   DescribeTasksCommandInput,

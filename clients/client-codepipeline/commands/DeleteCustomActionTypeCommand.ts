@@ -30,6 +30,20 @@ export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
  *                 that is identical to the deleted action, including the original string in the
  *                 version field.</p>
  *         </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodePipelineClient, DeleteCustomActionTypeCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
+ * // const { CodePipelineClient, DeleteCustomActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * const client = new CodePipelineClient(config);
+ * const command = new DeleteCustomActionTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCustomActionTypeCommandInput} for command's `input` shape.
+ * @see {@link DeleteCustomActionTypeCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCustomActionTypeCommand extends $Command<
   DeleteCustomActionTypeCommandInput,

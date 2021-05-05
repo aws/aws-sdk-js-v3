@@ -59,6 +59,20 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  *                 </li>
  *             </ul>
  *         </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OrganizationsClient, RemoveAccountFromOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
+ * // const { OrganizationsClient, RemoveAccountFromOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * const client = new OrganizationsClient(config);
+ * const command = new RemoveAccountFromOrganizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveAccountFromOrganizationCommandInput} for command's `input` shape.
+ * @see {@link RemoveAccountFromOrganizationCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveAccountFromOrganizationCommand extends $Command<
   RemoveAccountFromOrganizationCommandInput,

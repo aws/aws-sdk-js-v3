@@ -29,6 +29,20 @@ export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsO
  *       groups are described. Alternatively, you can specify one of the following to filter the
  *       results: the ARN of the load balancer, the names of one or more target groups, or the ARNs of
  *       one or more target groups.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticLoadBalancingV2Client, DescribeTargetGroupsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, DescribeTargetGroupsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new DescribeTargetGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTargetGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeTargetGroupsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTargetGroupsCommand extends $Command<
   DescribeTargetGroupsCommandInput,

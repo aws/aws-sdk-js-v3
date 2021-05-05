@@ -24,6 +24,20 @@ export interface ModifyScheduledActionCommandOutput extends ScheduledAction, __M
 /**
  * <p>Modifies a scheduled action.
  *             </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, ModifyScheduledActionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, ModifyScheduledActionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new ModifyScheduledActionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyScheduledActionCommandInput} for command's `input` shape.
+ * @see {@link ModifyScheduledActionCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyScheduledActionCommand extends $Command<
   ModifyScheduledActionCommandInput,

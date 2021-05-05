@@ -29,6 +29,20 @@ export interface CreateKeyGroupCommandOutput extends CreateKeyGroupResult, __Met
  * 			a private key whose corresponding public key is in the key group. The signed URL or
  * 			cookie contains information about which public key CloudFront should use to verify the
  * 			signature. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving private content</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFrontClient, CreateKeyGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, CreateKeyGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * const client = new CloudFrontClient(config);
+ * const command = new CreateKeyGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateKeyGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateKeyGroupCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateKeyGroupCommand extends $Command<
   CreateKeyGroupCommandInput,

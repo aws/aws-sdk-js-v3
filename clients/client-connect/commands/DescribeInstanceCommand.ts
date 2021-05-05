@@ -27,6 +27,20 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  *          <p>If an instance is not created successfully, the instance status reason field returns details
  *    relevant to the reason. The instance in a failed state is returned only for 24 hours after the
  *    CreateInstance API was invoked.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, DescribeInstanceCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DescribeInstanceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * const client = new ConnectClient(config);
+ * const command = new DescribeInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeInstanceCommandInput} for command's `input` shape.
+ * @see {@link DescribeInstanceCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeInstanceCommand extends $Command<
   DescribeInstanceCommandInput,

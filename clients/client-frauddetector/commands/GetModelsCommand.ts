@@ -25,6 +25,20 @@ export interface GetModelsCommandOutput extends GetModelsResult, __MetadataBeare
  *          To get the next page results, provide the pagination token from the
  *             response as part of your request. A null pagination token
  *          fetches the records from the beginning.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FraudDetectorClient, GetModelsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, GetModelsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * const client = new FraudDetectorClient(config);
+ * const command = new GetModelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetModelsCommandInput} for command's `input` shape.
+ * @see {@link GetModelsCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetModelsCommand extends $Command<
   GetModelsCommandInput,

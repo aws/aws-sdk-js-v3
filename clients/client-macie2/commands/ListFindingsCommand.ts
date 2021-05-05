@@ -22,6 +22,20 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
 
 /**
  * <p>Retrieves a subset of information about one or more findings.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Macie2Client, ListFindingsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, ListFindingsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * const client = new Macie2Client(config);
+ * const command = new ListFindingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFindingsCommandInput} for command's `input` shape.
+ * @see {@link ListFindingsCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFindingsCommand extends $Command<
   ListFindingsCommandInput,

@@ -30,6 +30,20 @@ export interface DescribeHostReservationOfferingsCommandOutput
  * 			matches that of the Dedicated Hosts with which it is to be associated. For more
  * 			information about supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated Hosts</a>
  *             in the <i>Amazon EC2 User Guide</i>. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DescribeHostReservationOfferingsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeHostReservationOfferingsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DescribeHostReservationOfferingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeHostReservationOfferingsCommandInput} for command's `input` shape.
+ * @see {@link DescribeHostReservationOfferingsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeHostReservationOfferingsCommand extends $Command<
   DescribeHostReservationOfferingsCommandInput,

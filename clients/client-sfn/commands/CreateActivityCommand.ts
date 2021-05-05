@@ -38,6 +38,20 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  *         idempotent request of the previous. In this case, <code>tags</code> will not be updated,
  *         even if they are different.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SFNClient, CreateActivityCommand } from "@aws-sdk/client-sfn"; // ES Modules import
+ * // const { SFNClient, CreateActivityCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * const client = new SFNClient(config);
+ * const command = new CreateActivityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateActivityCommandInput} for command's `input` shape.
+ * @see {@link CreateActivityCommandOutput} for command's `response` shape.
+ * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateActivityCommand extends $Command<
   CreateActivityCommandInput,

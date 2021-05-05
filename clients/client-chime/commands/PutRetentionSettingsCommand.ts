@@ -40,6 +40,20 @@ export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsR
  * <i>Amazon Chime Administration Guide</i>
  * .
  * </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, PutRetentionSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, PutRetentionSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new PutRetentionSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutRetentionSettingsCommandInput} for command's `input` shape.
+ * @see {@link PutRetentionSettingsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutRetentionSettingsCommand extends $Command<
   PutRetentionSettingsCommandInput,

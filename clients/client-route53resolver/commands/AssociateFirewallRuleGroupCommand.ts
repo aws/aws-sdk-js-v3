@@ -22,6 +22,20 @@ export interface AssociateFirewallRuleGroupCommandOutput extends AssociateFirewa
 
 /**
  * <p>Associates a <a>FirewallRuleGroup</a> with a VPC, to provide DNS filtering for the VPC. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53ResolverClient, AssociateFirewallRuleGroupCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, AssociateFirewallRuleGroupCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * const client = new Route53ResolverClient(config);
+ * const command = new AssociateFirewallRuleGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateFirewallRuleGroupCommandInput} for command's `input` shape.
+ * @see {@link AssociateFirewallRuleGroupCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateFirewallRuleGroupCommand extends $Command<
   AssociateFirewallRuleGroupCommandInput,

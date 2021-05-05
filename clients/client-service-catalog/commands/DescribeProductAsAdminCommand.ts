@@ -22,6 +22,20 @@ export interface DescribeProductAsAdminCommandOutput extends DescribeProductAsAd
 
 /**
  * <p>Gets information about the specified product. This operation is run with administrator access.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, DescribeProductAsAdminCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, DescribeProductAsAdminCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DescribeProductAsAdminCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeProductAsAdminCommandInput} for command's `input` shape.
+ * @see {@link DescribeProductAsAdminCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeProductAsAdminCommand extends $Command<
   DescribeProductAsAdminCommandInput,

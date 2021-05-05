@@ -23,6 +23,20 @@ export interface DetachObjectCommandOutput extends DetachObjectResponse, __Metad
 /**
  * <p>Detaches a given object from the parent object. The object that is to be detached from the
  *       parent is specified by the link name.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudDirectoryClient, DetachObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, DetachObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * const client = new CloudDirectoryClient(config);
+ * const command = new DetachObjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetachObjectCommandInput} for command's `input` shape.
+ * @see {@link DetachObjectCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetachObjectCommand extends $Command<
   DetachObjectCommandInput,

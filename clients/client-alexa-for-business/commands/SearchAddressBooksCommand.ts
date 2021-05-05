@@ -23,6 +23,20 @@ export interface SearchAddressBooksCommandOutput extends SearchAddressBooksRespo
 /**
  * <p>Searches address books and lists the ones that meet a set of filter and sort
  *          criteria.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, SearchAddressBooksCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, SearchAddressBooksCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new SearchAddressBooksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchAddressBooksCommandInput} for command's `input` shape.
+ * @see {@link SearchAddressBooksCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchAddressBooksCommand extends $Command<
   SearchAddressBooksCommandInput,

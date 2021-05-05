@@ -26,6 +26,20 @@ export interface ListForecastsCommandOutput extends ListForecastsResponse, __Met
  *       Resource Name (ARN). To retrieve the complete set of properties, specify the ARN with the
  *         <a>DescribeForecast</a> operation. You can filter the list using an array of
  *         <a>Filter</a> objects.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ForecastClient, ListForecastsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, ListForecastsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * const client = new ForecastClient(config);
+ * const command = new ListForecastsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListForecastsCommandInput} for command's `input` shape.
+ * @see {@link ListForecastsCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListForecastsCommand extends $Command<
   ListForecastsCommandInput,

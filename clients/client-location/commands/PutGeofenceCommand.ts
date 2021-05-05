@@ -23,6 +23,20 @@ export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __Metadat
 /**
  * <p>Stores a geofence geometry in a given geofence collection, or updates the geometry of
  *             an existing geofence if a geofence ID is included in the request. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LocationClient, PutGeofenceCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, PutGeofenceCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * const client = new LocationClient(config);
+ * const command = new PutGeofenceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutGeofenceCommandInput} for command's `input` shape.
+ * @see {@link PutGeofenceCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutGeofenceCommand extends $Command<
   PutGeofenceCommandInput,

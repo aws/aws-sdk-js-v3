@@ -22,6 +22,20 @@ export interface StopRunCommandOutput extends StopRunResult, __MetadataBearer {}
  *             where tests have not started. You are not billed for these devices. On devices where tests have started
  *             executing, setup suite and teardown suite tests run to completion on those devices. You are billed for
  *             setup, teardown, and any tests that were in progress or already completed.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, StopRunCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, StopRunCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new StopRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopRunCommandInput} for command's `input` shape.
+ * @see {@link StopRunCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopRunCommand extends $Command<
   StopRunCommandInput,

@@ -27,6 +27,20 @@ export interface DescribeWorkforceCommandOutput extends DescribeWorkforceRespons
  *         <important>
  *             <p>This operation applies only to private workforces.</p>
  *         </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, DescribeWorkforceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DescribeWorkforceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeWorkforceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeWorkforceCommandInput} for command's `input` shape.
+ * @see {@link DescribeWorkforceCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeWorkforceCommand extends $Command<
   DescribeWorkforceCommandInput,

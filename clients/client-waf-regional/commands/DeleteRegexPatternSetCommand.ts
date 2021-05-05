@@ -31,6 +31,20 @@ export interface DeleteRegexPatternSetCommandOutput extends DeleteRegexPatternSe
  *          </note>
  *          <p>Permanently deletes a <a>RegexPatternSet</a>. You can't delete a <code>RegexPatternSet</code> if it's still used in any <code>RegexMatchSet</code>
  *          or if the <code>RegexPatternSet</code> is not empty. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFRegionalClient, DeleteRegexPatternSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
+ * // const { WAFRegionalClient, DeleteRegexPatternSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * const client = new WAFRegionalClient(config);
+ * const command = new DeleteRegexPatternSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRegexPatternSetCommandInput} for command's `input` shape.
+ * @see {@link DeleteRegexPatternSetCommandOutput} for command's `response` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRegexPatternSetCommand extends $Command<
   DeleteRegexPatternSetCommandInput,

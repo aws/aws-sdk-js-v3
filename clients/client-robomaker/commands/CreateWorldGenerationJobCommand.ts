@@ -22,6 +22,20 @@ export interface CreateWorldGenerationJobCommandOutput extends CreateWorldGenera
 
 /**
  * <p>Creates worlds using the specified template.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RoboMakerClient, CreateWorldGenerationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
+ * // const { RoboMakerClient, CreateWorldGenerationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * const client = new RoboMakerClient(config);
+ * const command = new CreateWorldGenerationJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateWorldGenerationJobCommandInput} for command's `input` shape.
+ * @see {@link CreateWorldGenerationJobCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateWorldGenerationJobCommand extends $Command<
   CreateWorldGenerationJobCommandInput,

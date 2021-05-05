@@ -23,6 +23,20 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
 /**
  * <p>Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called trusted IP
  *       lists in the console user interface.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GuardDutyClient, DeleteIPSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, DeleteIPSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * const client = new GuardDutyClient(config);
+ * const command = new DeleteIPSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteIPSetCommandInput} for command's `input` shape.
+ * @see {@link DeleteIPSetCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteIPSetCommand extends $Command<
   DeleteIPSetCommandInput,

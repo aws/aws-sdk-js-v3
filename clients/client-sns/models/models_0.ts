@@ -27,6 +27,9 @@ export interface AddPermissionInput {
 }
 
 export namespace AddPermissionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddPermissionInput): any => ({
     ...obj,
   });
@@ -42,6 +45,9 @@ export interface AuthorizationErrorException extends __SmithyException, $Metadat
 }
 
 export namespace AuthorizationErrorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AuthorizationErrorException): any => ({
     ...obj,
   });
@@ -57,6 +63,9 @@ export interface InternalErrorException extends __SmithyException, $MetadataBear
 }
 
 export namespace InternalErrorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
     ...obj,
   });
@@ -73,6 +82,9 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidParameterException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
@@ -88,6 +100,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
@@ -104,6 +119,9 @@ export interface CheckIfPhoneNumberIsOptedOutInput {
 }
 
 export namespace CheckIfPhoneNumberIsOptedOutInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CheckIfPhoneNumberIsOptedOutInput): any => ({
     ...obj,
   });
@@ -132,6 +150,9 @@ export interface CheckIfPhoneNumberIsOptedOutResponse {
 }
 
 export namespace CheckIfPhoneNumberIsOptedOutResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CheckIfPhoneNumberIsOptedOutResponse): any => ({
     ...obj,
   });
@@ -151,6 +172,9 @@ export interface ThrottledException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ThrottledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottledException): any => ({
     ...obj,
   });
@@ -180,6 +204,9 @@ export interface ConfirmSubscriptionInput {
 }
 
 export namespace ConfirmSubscriptionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConfirmSubscriptionInput): any => ({
     ...obj,
   });
@@ -196,6 +223,9 @@ export interface ConfirmSubscriptionResponse {
 }
 
 export namespace ConfirmSubscriptionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConfirmSubscriptionResponse): any => ({
     ...obj,
   });
@@ -213,6 +243,9 @@ export interface FilterPolicyLimitExceededException extends __SmithyException, $
 }
 
 export namespace FilterPolicyLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FilterPolicyLimitExceededException): any => ({
     ...obj,
   });
@@ -229,6 +262,9 @@ export interface SubscriptionLimitExceededException extends __SmithyException, $
 }
 
 export namespace SubscriptionLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubscriptionLimitExceededException): any => ({
     ...obj,
   });
@@ -259,6 +295,9 @@ export interface CreatePlatformApplicationInput {
 }
 
 export namespace CreatePlatformApplicationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreatePlatformApplicationInput): any => ({
     ...obj,
   });
@@ -275,6 +314,9 @@ export interface CreatePlatformApplicationResponse {
 }
 
 export namespace CreatePlatformApplicationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreatePlatformApplicationResponse): any => ({
     ...obj,
   });
@@ -291,6 +333,9 @@ export interface CreateEndpointResponse {
 }
 
 export namespace CreateEndpointResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateEndpointResponse): any => ({
     ...obj,
   });
@@ -328,6 +373,9 @@ export interface CreatePlatformEndpointInput {
 }
 
 export namespace CreatePlatformEndpointInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreatePlatformEndpointInput): any => ({
     ...obj,
   });
@@ -344,6 +392,9 @@ export interface ConcurrentAccessException extends __SmithyException, $MetadataB
 }
 
 export namespace ConcurrentAccessException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConcurrentAccessException): any => ({
     ...obj,
   });
@@ -365,6 +416,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -465,6 +519,9 @@ export interface CreateTopicInput {
 }
 
 export namespace CreateTopicInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTopicInput): any => ({
     ...obj,
   });
@@ -481,6 +538,9 @@ export interface CreateTopicResponse {
 }
 
 export namespace CreateTopicResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTopicResponse): any => ({
     ...obj,
   });
@@ -497,6 +557,9 @@ export interface InvalidSecurityException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidSecurityException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidSecurityException): any => ({
     ...obj,
   });
@@ -513,6 +576,9 @@ export interface StaleTagException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace StaleTagException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StaleTagException): any => ({
     ...obj,
   });
@@ -528,6 +594,9 @@ export interface TagLimitExceededException extends __SmithyException, $MetadataB
 }
 
 export namespace TagLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagLimitExceededException): any => ({
     ...obj,
   });
@@ -544,6 +613,9 @@ export interface TagPolicyException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TagPolicyException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagPolicyException): any => ({
     ...obj,
   });
@@ -559,6 +631,9 @@ export interface TopicLimitExceededException extends __SmithyException, $Metadat
 }
 
 export namespace TopicLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TopicLimitExceededException): any => ({
     ...obj,
   });
@@ -575,6 +650,9 @@ export interface DeleteEndpointInput {
 }
 
 export namespace DeleteEndpointInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteEndpointInput): any => ({
     ...obj,
   });
@@ -591,6 +669,9 @@ export interface DeletePlatformApplicationInput {
 }
 
 export namespace DeletePlatformApplicationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeletePlatformApplicationInput): any => ({
     ...obj,
   });
@@ -604,6 +685,9 @@ export interface DeleteTopicInput {
 }
 
 export namespace DeleteTopicInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTopicInput): any => ({
     ...obj,
   });
@@ -620,6 +704,9 @@ export interface GetEndpointAttributesInput {
 }
 
 export namespace GetEndpointAttributesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEndpointAttributesInput): any => ({
     ...obj,
   });
@@ -661,6 +748,9 @@ export interface GetEndpointAttributesResponse {
 }
 
 export namespace GetEndpointAttributesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEndpointAttributesResponse): any => ({
     ...obj,
   });
@@ -677,6 +767,9 @@ export interface GetPlatformApplicationAttributesInput {
 }
 
 export namespace GetPlatformApplicationAttributesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetPlatformApplicationAttributesInput): any => ({
     ...obj,
   });
@@ -716,6 +809,9 @@ export interface GetPlatformApplicationAttributesResponse {
 }
 
 export namespace GetPlatformApplicationAttributesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetPlatformApplicationAttributesResponse): any => ({
     ...obj,
   });
@@ -735,6 +831,9 @@ export interface GetSMSAttributesInput {
 }
 
 export namespace GetSMSAttributesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSMSAttributesInput): any => ({
     ...obj,
   });
@@ -751,6 +850,9 @@ export interface GetSMSAttributesResponse {
 }
 
 export namespace GetSMSAttributesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSMSAttributesResponse): any => ({
     ...obj,
   });
@@ -767,6 +869,9 @@ export interface GetSubscriptionAttributesInput {
 }
 
 export namespace GetSubscriptionAttributesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSubscriptionAttributesInput): any => ({
     ...obj,
   });
@@ -855,6 +960,9 @@ export interface GetSubscriptionAttributesResponse {
 }
 
 export namespace GetSubscriptionAttributesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSubscriptionAttributesResponse): any => ({
     ...obj,
   });
@@ -871,6 +979,9 @@ export interface GetTopicAttributesInput {
 }
 
 export namespace GetTopicAttributesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTopicAttributesInput): any => ({
     ...obj,
   });
@@ -975,6 +1086,9 @@ export interface GetTopicAttributesResponse {
 }
 
 export namespace GetTopicAttributesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTopicAttributesResponse): any => ({
     ...obj,
   });
@@ -997,6 +1111,9 @@ export interface ListEndpointsByPlatformApplicationInput {
 }
 
 export namespace ListEndpointsByPlatformApplicationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEndpointsByPlatformApplicationInput): any => ({
     ...obj,
   });
@@ -1018,6 +1135,9 @@ export interface Endpoint {
 }
 
 export namespace Endpoint {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj,
   });
@@ -1040,6 +1160,9 @@ export interface ListEndpointsByPlatformApplicationResponse {
 }
 
 export namespace ListEndpointsByPlatformApplicationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEndpointsByPlatformApplicationResponse): any => ({
     ...obj,
   });
@@ -1058,6 +1181,9 @@ export interface ListPhoneNumbersOptedOutInput {
 }
 
 export namespace ListPhoneNumbersOptedOutInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPhoneNumbersOptedOutInput): any => ({
     ...obj,
   });
@@ -1082,6 +1208,9 @@ export interface ListPhoneNumbersOptedOutResponse {
 }
 
 export namespace ListPhoneNumbersOptedOutResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPhoneNumbersOptedOutResponse): any => ({
     ...obj,
   });
@@ -1099,6 +1228,9 @@ export interface ListPlatformApplicationsInput {
 }
 
 export namespace ListPlatformApplicationsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPlatformApplicationsInput): any => ({
     ...obj,
   });
@@ -1120,6 +1252,9 @@ export interface PlatformApplication {
 }
 
 export namespace PlatformApplication {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PlatformApplication): any => ({
     ...obj,
   });
@@ -1142,6 +1277,9 @@ export interface ListPlatformApplicationsResponse {
 }
 
 export namespace ListPlatformApplicationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPlatformApplicationsResponse): any => ({
     ...obj,
   });
@@ -1158,6 +1296,9 @@ export interface ListSubscriptionsInput {
 }
 
 export namespace ListSubscriptionsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSubscriptionsInput): any => ({
     ...obj,
   });
@@ -1194,6 +1335,9 @@ export interface Subscription {
 }
 
 export namespace Subscription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Subscription): any => ({
     ...obj,
   });
@@ -1216,6 +1360,9 @@ export interface ListSubscriptionsResponse {
 }
 
 export namespace ListSubscriptionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSubscriptionsResponse): any => ({
     ...obj,
   });
@@ -1237,6 +1384,9 @@ export interface ListSubscriptionsByTopicInput {
 }
 
 export namespace ListSubscriptionsByTopicInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSubscriptionsByTopicInput): any => ({
     ...obj,
   });
@@ -1259,6 +1409,9 @@ export interface ListSubscriptionsByTopicResponse {
 }
 
 export namespace ListSubscriptionsByTopicResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSubscriptionsByTopicResponse): any => ({
     ...obj,
   });
@@ -1272,6 +1425,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -1285,6 +1441,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -1300,6 +1459,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -1313,6 +1475,9 @@ export interface ListTopicsInput {
 }
 
 export namespace ListTopicsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTopicsInput): any => ({
     ...obj,
   });
@@ -1330,6 +1495,9 @@ export interface Topic {
 }
 
 export namespace Topic {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Topic): any => ({
     ...obj,
   });
@@ -1352,6 +1520,9 @@ export interface ListTopicsResponse {
 }
 
 export namespace ListTopicsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTopicsResponse): any => ({
     ...obj,
   });
@@ -1368,6 +1539,9 @@ export interface OptInPhoneNumberInput {
 }
 
 export namespace OptInPhoneNumberInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OptInPhoneNumberInput): any => ({
     ...obj,
   });
@@ -1379,6 +1553,9 @@ export namespace OptInPhoneNumberInput {
 export interface OptInPhoneNumberResponse {}
 
 export namespace OptInPhoneNumberResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OptInPhoneNumberResponse): any => ({
     ...obj,
   });
@@ -1397,6 +1574,9 @@ export interface EndpointDisabledException extends __SmithyException, $MetadataB
 }
 
 export namespace EndpointDisabledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EndpointDisabledException): any => ({
     ...obj,
   });
@@ -1416,6 +1596,9 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
 }
 
 export namespace InvalidParameterValueException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
@@ -1432,6 +1615,9 @@ export interface KMSAccessDeniedException extends __SmithyException, $MetadataBe
 }
 
 export namespace KMSAccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KMSAccessDeniedException): any => ({
     ...obj,
   });
@@ -1448,6 +1634,9 @@ export interface KMSDisabledException extends __SmithyException, $MetadataBearer
 }
 
 export namespace KMSDisabledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KMSDisabledException): any => ({
     ...obj,
   });
@@ -1466,6 +1655,9 @@ export interface KMSInvalidStateException extends __SmithyException, $MetadataBe
 }
 
 export namespace KMSInvalidStateException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KMSInvalidStateException): any => ({
     ...obj,
   });
@@ -1482,6 +1674,9 @@ export interface KMSNotFoundException extends __SmithyException, $MetadataBearer
 }
 
 export namespace KMSNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KMSNotFoundException): any => ({
     ...obj,
   });
@@ -1497,6 +1692,9 @@ export interface KMSOptInRequired extends __SmithyException, $MetadataBearer {
 }
 
 export namespace KMSOptInRequired {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KMSOptInRequired): any => ({
     ...obj,
   });
@@ -1515,6 +1713,9 @@ export interface KMSThrottlingException extends __SmithyException, $MetadataBear
 }
 
 export namespace KMSThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KMSThrottlingException): any => ({
     ...obj,
   });
@@ -1533,6 +1734,9 @@ export interface PlatformApplicationDisabledException extends __SmithyException,
 }
 
 export namespace PlatformApplicationDisabledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PlatformApplicationDisabledException): any => ({
     ...obj,
   });
@@ -1572,6 +1776,9 @@ export interface MessageAttributeValue {
 }
 
 export namespace MessageAttributeValue {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MessageAttributeValue): any => ({
     ...obj,
   });
@@ -1728,6 +1935,9 @@ export interface PublishInput {
 }
 
 export namespace PublishInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PublishInput): any => ({
     ...obj,
   });
@@ -1752,6 +1962,9 @@ export interface PublishResponse {
 }
 
 export namespace PublishResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PublishResponse): any => ({
     ...obj,
   });
@@ -1773,6 +1986,9 @@ export interface RemovePermissionInput {
 }
 
 export namespace RemovePermissionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemovePermissionInput): any => ({
     ...obj,
   });
@@ -1816,6 +2032,9 @@ export interface SetEndpointAttributesInput {
 }
 
 export namespace SetEndpointAttributesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetEndpointAttributesInput): any => ({
     ...obj,
   });
@@ -1895,6 +2114,9 @@ export interface SetPlatformApplicationAttributesInput {
 }
 
 export namespace SetPlatformApplicationAttributesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetPlatformApplicationAttributesInput): any => ({
     ...obj,
   });
@@ -1996,6 +2218,9 @@ export interface SetSMSAttributesInput {
 }
 
 export namespace SetSMSAttributesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetSMSAttributesInput): any => ({
     ...obj,
   });
@@ -2007,6 +2232,9 @@ export namespace SetSMSAttributesInput {
 export interface SetSMSAttributesResponse {}
 
 export namespace SetSMSAttributesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetSMSAttributesResponse): any => ({
     ...obj,
   });
@@ -2080,6 +2308,9 @@ export interface SetSubscriptionAttributesInput {
 }
 
 export namespace SetSubscriptionAttributesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetSubscriptionAttributesInput): any => ({
     ...obj,
   });
@@ -2164,6 +2395,9 @@ export interface SetTopicAttributesInput {
 }
 
 export namespace SetTopicAttributesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetTopicAttributesInput): any => ({
     ...obj,
   });
@@ -2331,6 +2565,9 @@ export interface SubscribeInput {
 }
 
 export namespace SubscribeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubscribeInput): any => ({
     ...obj,
   });
@@ -2350,6 +2587,9 @@ export interface SubscribeResponse {
 }
 
 export namespace SubscribeResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubscribeResponse): any => ({
     ...obj,
   });
@@ -2369,6 +2609,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -2377,6 +2620,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -2393,6 +2639,9 @@ export interface UnsubscribeInput {
 }
 
 export namespace UnsubscribeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsubscribeInput): any => ({
     ...obj,
   });
@@ -2411,6 +2660,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -2419,6 +2671,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });

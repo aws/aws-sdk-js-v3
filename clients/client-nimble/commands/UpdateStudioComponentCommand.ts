@@ -22,6 +22,20 @@ export interface UpdateStudioComponentCommandOutput extends UpdateStudioComponen
 
 /**
  * <p>Updates a studio component resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NimbleClient, UpdateStudioComponentCommand } from "@aws-sdk/client-nimble"; // ES Modules import
+ * // const { NimbleClient, UpdateStudioComponentCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * const client = new NimbleClient(config);
+ * const command = new UpdateStudioComponentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateStudioComponentCommandInput} for command's `input` shape.
+ * @see {@link UpdateStudioComponentCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateStudioComponentCommand extends $Command<
   UpdateStudioComponentCommandInput,

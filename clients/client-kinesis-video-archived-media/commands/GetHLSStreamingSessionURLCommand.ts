@@ -205,6 +205,20 @@ export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingS
  *                 the bottom of this topic, as well as <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html">Common Errors</a>.
  *             </p>
  *         </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisVideoArchivedMediaClient, GetHLSStreamingSessionURLCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
+ * // const { KinesisVideoArchivedMediaClient, GetHLSStreamingSessionURLCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
+ * const client = new KinesisVideoArchivedMediaClient(config);
+ * const command = new GetHLSStreamingSessionURLCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetHLSStreamingSessionURLCommandInput} for command's `input` shape.
+ * @see {@link GetHLSStreamingSessionURLCommandOutput} for command's `response` shape.
+ * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetHLSStreamingSessionURLCommand extends $Command<
   GetHLSStreamingSessionURLCommandInput,

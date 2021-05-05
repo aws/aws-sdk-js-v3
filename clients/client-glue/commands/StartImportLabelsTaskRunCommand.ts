@@ -46,6 +46,20 @@ export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabels
  *
  *          <p>You can check on the status of your task run by calling the <code>GetMLTaskRun</code>
  *       operation. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, StartImportLabelsTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, StartImportLabelsTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new StartImportLabelsTaskRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartImportLabelsTaskRunCommandInput} for command's `input` shape.
+ * @see {@link StartImportLabelsTaskRunCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartImportLabelsTaskRunCommand extends $Command<
   StartImportLabelsTaskRunCommandInput,

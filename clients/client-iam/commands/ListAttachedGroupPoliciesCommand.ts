@@ -31,6 +31,20 @@ export interface ListAttachedGroupPoliciesCommandOutput extends ListAttachedGrou
  *             policies to only those matching the specified path prefix. If there are no policies
  *             attached to the specified group (or none that match the specified path prefix), the
  *             operation returns an empty list.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, ListAttachedGroupPoliciesCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, ListAttachedGroupPoliciesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new ListAttachedGroupPoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAttachedGroupPoliciesCommandInput} for command's `input` shape.
+ * @see {@link ListAttachedGroupPoliciesCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAttachedGroupPoliciesCommand extends $Command<
   ListAttachedGroupPoliciesCommandInput,

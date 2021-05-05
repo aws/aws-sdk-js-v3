@@ -19,6 +19,20 @@ export interface GetSuiteCommandOutput extends GetSuiteResult, __MetadataBearer 
 
 /**
  * <p>Gets information about a suite.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, GetSuiteCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, GetSuiteCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new GetSuiteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSuiteCommandInput} for command's `input` shape.
+ * @see {@link GetSuiteCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSuiteCommand extends $Command<
   GetSuiteCommandInput,

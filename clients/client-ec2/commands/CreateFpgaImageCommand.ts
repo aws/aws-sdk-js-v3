@@ -24,6 +24,20 @@ export interface CreateFpgaImageCommandOutput extends CreateFpgaImageResult, __M
  *          <p>An AFI contains the FPGA bitstream that is ready to download to an FPGA.
  *          You can securely deploy an AFI on multiple FPGA-accelerated instances.
  *          For more information, see the <a href="https://github.com/aws/aws-fpga/">AWS FPGA Hardware Development Kit</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, CreateFpgaImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateFpgaImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new CreateFpgaImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFpgaImageCommandInput} for command's `input` shape.
+ * @see {@link CreateFpgaImageCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFpgaImageCommand extends $Command<
   CreateFpgaImageCommandInput,

@@ -27,6 +27,20 @@ export interface ListResourceServersCommandOutput extends ListResourceServersRes
 
 /**
  * <p>Lists the resource servers for a user pool.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, ListResourceServersCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, ListResourceServersCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new ListResourceServersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResourceServersCommandInput} for command's `input` shape.
+ * @see {@link ListResourceServersCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResourceServersCommand extends $Command<
   ListResourceServersCommandInput,

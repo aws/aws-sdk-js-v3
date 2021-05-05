@@ -31,6 +31,20 @@ export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescri
  *     </p>
  *          <p>EFS file system policies have a 20,000 character limit.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:PutFileSystemPolicy</code> action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EFSClient, PutFileSystemPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, PutFileSystemPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * const client = new EFSClient(config);
+ * const command = new PutFileSystemPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutFileSystemPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutFileSystemPolicyCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutFileSystemPolicyCommand extends $Command<
   PutFileSystemPolicyCommandInput,

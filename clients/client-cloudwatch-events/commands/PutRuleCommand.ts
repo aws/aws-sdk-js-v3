@@ -65,6 +65,20 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  *       budgeting, which alerts you when charges exceed your specified limit. For more information,
  *       see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html">Managing Your Costs with
  *         Budgets</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchEventsClient, PutRuleCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
+ * // const { CloudWatchEventsClient, PutRuleCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * const client = new CloudWatchEventsClient(config);
+ * const command = new PutRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutRuleCommandInput} for command's `input` shape.
+ * @see {@link PutRuleCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutRuleCommand extends $Command<
   PutRuleCommandInput,

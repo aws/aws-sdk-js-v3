@@ -25,6 +25,20 @@ export interface DeleteCoreDeviceCommandOutput extends __MetadataBearer {}
  *       device from the list of core devices. This operation doesn't delete the AWS IoT thing. For more
  *       information about how to delete the AWS IoT thing, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteThing.html">DeleteThing</a> in the
  *         <i>AWS IoT API Reference</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassV2Client, DeleteCoreDeviceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
+ * // const { GreengrassV2Client, DeleteCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
+ * const client = new GreengrassV2Client(config);
+ * const command = new DeleteCoreDeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCoreDeviceCommandInput} for command's `input` shape.
+ * @see {@link DeleteCoreDeviceCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCoreDeviceCommand extends $Command<
   DeleteCoreDeviceCommandInput,

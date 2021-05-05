@@ -24,6 +24,20 @@ export interface StartImagePipelineExecutionCommandOutput
 
 /**
  * <p> Manually triggers a pipeline to create an image.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ImagebuilderClient, StartImagePipelineExecutionCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, StartImagePipelineExecutionCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * const client = new ImagebuilderClient(config);
+ * const command = new StartImagePipelineExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartImagePipelineExecutionCommandInput} for command's `input` shape.
+ * @see {@link StartImagePipelineExecutionCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartImagePipelineExecutionCommand extends $Command<
   StartImagePipelineExecutionCommandInput,

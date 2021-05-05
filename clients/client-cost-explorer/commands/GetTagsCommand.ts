@@ -19,6 +19,20 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
 
 /**
  * <p>Queries for available tag keys and tag values for a specified period. You can search the tag values for an arbitrary string. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CostExplorerClient, GetTagsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
+ * // const { CostExplorerClient, GetTagsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * const client = new CostExplorerClient(config);
+ * const command = new GetTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTagsCommandInput} for command's `input` shape.
+ * @see {@link GetTagsCommandOutput} for command's `response` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTagsCommand extends $Command<
   GetTagsCommandInput,

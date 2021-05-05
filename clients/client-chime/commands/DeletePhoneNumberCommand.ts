@@ -30,6 +30,20 @@ export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
  * <b>Deletion queue</b>
  * for 7 days before they are deleted permanently.
  * </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, DeletePhoneNumberCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, DeletePhoneNumberCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new DeletePhoneNumberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePhoneNumberCommandInput} for command's `input` shape.
+ * @see {@link DeletePhoneNumberCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePhoneNumberCommand extends $Command<
   DeletePhoneNumberCommandInput,

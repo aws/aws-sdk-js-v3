@@ -22,6 +22,20 @@ export interface DeleteIntegrationResponseCommandOutput extends __MetadataBearer
 
 /**
  * <p>Represents a delete integration response.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, DeleteIntegrationResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, DeleteIntegrationResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new DeleteIntegrationResponseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteIntegrationResponseCommandInput} for command's `input` shape.
+ * @see {@link DeleteIntegrationResponseCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteIntegrationResponseCommand extends $Command<
   DeleteIntegrationResponseCommandInput,

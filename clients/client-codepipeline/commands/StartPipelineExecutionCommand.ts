@@ -23,6 +23,20 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
 /**
  * <p>Starts the specified pipeline. Specifically, it begins processing the latest commit
  *             to the source location specified as part of the pipeline.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodePipelineClient, StartPipelineExecutionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
+ * // const { CodePipelineClient, StartPipelineExecutionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
+ * const client = new CodePipelineClient(config);
+ * const command = new StartPipelineExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartPipelineExecutionCommandInput} for command's `input` shape.
+ * @see {@link StartPipelineExecutionCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartPipelineExecutionCommand extends $Command<
   StartPipelineExecutionCommandInput,

@@ -50,6 +50,20 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  *                <p>To list the secrets in an account, use <a>ListSecrets</a>.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecretsManagerClient, ListSecretVersionIdsCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
+ * // const { SecretsManagerClient, ListSecretVersionIdsCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * const client = new SecretsManagerClient(config);
+ * const command = new ListSecretVersionIdsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSecretVersionIdsCommandInput} for command's `input` shape.
+ * @see {@link ListSecretVersionIdsCommandOutput} for command's `response` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSecretVersionIdsCommand extends $Command<
   ListSecretVersionIdsCommandInput,

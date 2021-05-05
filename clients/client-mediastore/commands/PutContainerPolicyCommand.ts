@@ -28,6 +28,20 @@ export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutpu
  *          <p>For this release of the REST API, you can create only one policy for a container. If
  *          you enter <code>PutContainerPolicy</code> twice, the second command modifies the existing
  *          policy. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaStoreClient, PutContainerPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
+ * // const { MediaStoreClient, PutContainerPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
+ * const client = new MediaStoreClient(config);
+ * const command = new PutContainerPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutContainerPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutContainerPolicyCommandOutput} for command's `response` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutContainerPolicyCommand extends $Command<
   PutContainerPolicyCommandInput,

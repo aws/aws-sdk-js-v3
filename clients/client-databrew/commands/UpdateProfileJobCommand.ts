@@ -22,6 +22,20 @@ export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse,
 
 /**
  * <p>Modifies the definition of an existing profile job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataBrewClient, UpdateProfileJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
+ * // const { DataBrewClient, UpdateProfileJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
+ * const client = new DataBrewClient(config);
+ * const command = new UpdateProfileJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateProfileJobCommandInput} for command's `input` shape.
+ * @see {@link UpdateProfileJobCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateProfileJobCommand extends $Command<
   UpdateProfileJobCommandInput,

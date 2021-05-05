@@ -53,6 +53,20 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  *
  *          <p>This operation is idempotent, which means that it completes at most one time. If you
  *       attempt to create multiple load balancers with the same settings, each call succeeds.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticLoadBalancingV2Client, CreateLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, CreateLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new CreateLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLoadBalancerCommandInput} for command's `input` shape.
+ * @see {@link CreateLoadBalancerCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLoadBalancerCommand extends $Command<
   CreateLoadBalancerCommandInput,

@@ -22,6 +22,20 @@ export interface AddProfilePermissionCommandOutput extends AddProfilePermissionR
 
 /**
  * <p>Adds cross-account permissions to a signing profile.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SignerClient, AddProfilePermissionCommand } from "@aws-sdk/client-signer"; // ES Modules import
+ * // const { SignerClient, AddProfilePermissionCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * const client = new SignerClient(config);
+ * const command = new AddProfilePermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddProfilePermissionCommandInput} for command's `input` shape.
+ * @see {@link AddProfilePermissionCommandOutput} for command's `response` shape.
+ * @see {@link SignerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddProfilePermissionCommand extends $Command<
   AddProfilePermissionCommandInput,

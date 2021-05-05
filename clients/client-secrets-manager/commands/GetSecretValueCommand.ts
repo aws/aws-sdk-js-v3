@@ -49,6 +49,20 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  *                <p>To retrieve the non-encrypted details for the secret, use <a>DescribeSecret</a>.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecretsManagerClient, GetSecretValueCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
+ * // const { SecretsManagerClient, GetSecretValueCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * const client = new SecretsManagerClient(config);
+ * const command = new GetSecretValueCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSecretValueCommandInput} for command's `input` shape.
+ * @see {@link GetSecretValueCommandOutput} for command's `response` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSecretValueCommand extends $Command<
   GetSecretValueCommandInput,

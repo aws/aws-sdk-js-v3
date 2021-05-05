@@ -22,6 +22,20 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
 
 /**
  * <p>Retrieves detailed Job log with paging.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MgnClient, DescribeJobLogItemsCommand } from "@aws-sdk/client-mgn"; // ES Modules import
+ * // const { MgnClient, DescribeJobLogItemsCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * const client = new MgnClient(config);
+ * const command = new DescribeJobLogItemsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeJobLogItemsCommandInput} for command's `input` shape.
+ * @see {@link DescribeJobLogItemsCommandOutput} for command's `response` shape.
+ * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeJobLogItemsCommand extends $Command<
   DescribeJobLogItemsCommandInput,

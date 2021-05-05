@@ -36,6 +36,20 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  * 			destinations to receive traffic, or to specify individual port mappings that can receive
  * 			traffic, see the <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_AllowCustomRoutingTraffic.html">
  * 				AllowCustomRoutingTraffic</a> operation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlobalAcceleratorClient, AddCustomRoutingEndpointsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
+ * // const { GlobalAcceleratorClient, AddCustomRoutingEndpointsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new AddCustomRoutingEndpointsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddCustomRoutingEndpointsCommandInput} for command's `input` shape.
+ * @see {@link AddCustomRoutingEndpointsCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddCustomRoutingEndpointsCommand extends $Command<
   AddCustomRoutingEndpointsCommandInput,

@@ -60,6 +60,20 @@ export interface QueryObjectsCommandOutput extends QueryObjectsOutput, __Metadat
  * }
  *          </response>
  *         </examples>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataPipelineClient, QueryObjectsCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
+ * // const { DataPipelineClient, QueryObjectsCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * const client = new DataPipelineClient(config);
+ * const command = new QueryObjectsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link QueryObjectsCommandInput} for command's `input` shape.
+ * @see {@link QueryObjectsCommandOutput} for command's `response` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class QueryObjectsCommand extends $Command<
   QueryObjectsCommandInput,

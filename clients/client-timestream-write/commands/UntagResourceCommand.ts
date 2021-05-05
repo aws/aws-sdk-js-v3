@@ -24,6 +24,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * <p>
  *     Removes the association of tags from a Timestream resource.
  * </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TimestreamWriteClient, UntagResourceCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
+ * // const { TimestreamWriteClient, UntagResourceCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
+ * const client = new TimestreamWriteClient(config);
+ * const command = new UntagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UntagResourceCommandInput} for command's `input` shape.
+ * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @see {@link TimestreamWriteClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

@@ -17,6 +17,9 @@ export interface ParameterValue {
 }
 
 export namespace ParameterValue {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParameterValue): any => ({
     ...obj,
   });
@@ -43,6 +46,9 @@ export interface ActivatePipelineInput {
 }
 
 export namespace ActivatePipelineInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActivatePipelineInput): any => ({
     ...obj,
   });
@@ -54,6 +60,9 @@ export namespace ActivatePipelineInput {
 export interface ActivatePipelineOutput {}
 
 export namespace ActivatePipelineOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActivatePipelineOutput): any => ({
     ...obj,
   });
@@ -72,6 +81,9 @@ export interface InternalServiceError extends __SmithyException, $MetadataBearer
 }
 
 export namespace InternalServiceError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceError): any => ({
     ...obj,
   });
@@ -90,6 +102,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -108,6 +123,9 @@ export interface PipelineDeletedException extends __SmithyException, $MetadataBe
 }
 
 export namespace PipelineDeletedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PipelineDeletedException): any => ({
     ...obj,
   });
@@ -126,6 +144,9 @@ export interface PipelineNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace PipelineNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PipelineNotFoundException): any => ({
     ...obj,
   });
@@ -150,6 +171,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -171,6 +195,9 @@ export interface AddTagsInput {
 }
 
 export namespace AddTagsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddTagsInput): any => ({
     ...obj,
   });
@@ -182,6 +209,9 @@ export namespace AddTagsInput {
 export interface AddTagsOutput {}
 
 export namespace AddTagsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddTagsOutput): any => ({
     ...obj,
   });
@@ -223,6 +253,9 @@ export interface CreatePipelineInput {
 }
 
 export namespace CreatePipelineInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreatePipelineInput): any => ({
     ...obj,
   });
@@ -239,6 +272,9 @@ export interface CreatePipelineOutput {
 }
 
 export namespace CreatePipelineOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreatePipelineOutput): any => ({
     ...obj,
   });
@@ -263,6 +299,9 @@ export interface DeactivatePipelineInput {
 }
 
 export namespace DeactivatePipelineInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeactivatePipelineInput): any => ({
     ...obj,
   });
@@ -274,6 +313,9 @@ export namespace DeactivatePipelineInput {
 export interface DeactivatePipelineOutput {}
 
 export namespace DeactivatePipelineOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeactivatePipelineOutput): any => ({
     ...obj,
   });
@@ -290,6 +332,9 @@ export interface DeletePipelineInput {
 }
 
 export namespace DeletePipelineInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeletePipelineInput): any => ({
     ...obj,
   });
@@ -323,6 +368,9 @@ export interface DescribeObjectsInput {
 }
 
 export namespace DescribeObjectsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeObjectsInput): any => ({
     ...obj,
   });
@@ -349,6 +397,9 @@ export interface Field {
 }
 
 export namespace Field {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Field): any => ({
     ...obj,
   });
@@ -375,6 +426,9 @@ export interface PipelineObject {
 }
 
 export namespace PipelineObject {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PipelineObject): any => ({
     ...obj,
   });
@@ -402,6 +456,9 @@ export interface DescribeObjectsOutput {
 }
 
 export namespace DescribeObjectsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeObjectsOutput): any => ({
     ...obj,
   });
@@ -419,6 +476,9 @@ export interface DescribePipelinesInput {
 }
 
 export namespace DescribePipelinesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribePipelinesInput): any => ({
     ...obj,
   });
@@ -456,6 +516,9 @@ export interface PipelineDescription {
 }
 
 export namespace PipelineDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PipelineDescription): any => ({
     ...obj,
   });
@@ -472,6 +535,9 @@ export interface DescribePipelinesOutput {
 }
 
 export namespace DescribePipelinesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribePipelinesOutput): any => ({
     ...obj,
   });
@@ -498,6 +564,9 @@ export interface EvaluateExpressionInput {
 }
 
 export namespace EvaluateExpressionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EvaluateExpressionInput): any => ({
     ...obj,
   });
@@ -514,6 +583,9 @@ export interface EvaluateExpressionOutput {
 }
 
 export namespace EvaluateExpressionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EvaluateExpressionOutput): any => ({
     ...obj,
   });
@@ -532,6 +604,9 @@ export interface TaskNotFoundException extends __SmithyException, $MetadataBeare
 }
 
 export namespace TaskNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TaskNotFoundException): any => ({
     ...obj,
   });
@@ -555,6 +630,9 @@ export interface GetPipelineDefinitionInput {
 }
 
 export namespace GetPipelineDefinitionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetPipelineDefinitionInput): any => ({
     ...obj,
   });
@@ -576,6 +654,9 @@ export interface ParameterAttribute {
 }
 
 export namespace ParameterAttribute {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParameterAttribute): any => ({
     ...obj,
   });
@@ -597,6 +678,9 @@ export interface ParameterObject {
 }
 
 export namespace ParameterObject {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParameterObject): any => ({
     ...obj,
   });
@@ -623,6 +707,9 @@ export interface GetPipelineDefinitionOutput {
 }
 
 export namespace GetPipelineDefinitionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetPipelineDefinitionOutput): any => ({
     ...obj,
   });
@@ -641,6 +728,9 @@ export interface ListPipelinesInput {
 }
 
 export namespace ListPipelinesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPipelinesInput): any => ({
     ...obj,
   });
@@ -662,6 +752,9 @@ export interface PipelineIdName {
 }
 
 export namespace PipelineIdName {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PipelineIdName): any => ({
     ...obj,
   });
@@ -690,6 +783,9 @@ export interface ListPipelinesOutput {
 }
 
 export namespace ListPipelinesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPipelinesOutput): any => ({
     ...obj,
   });
@@ -713,6 +809,9 @@ export interface InstanceIdentity {
 }
 
 export namespace InstanceIdentity {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InstanceIdentity): any => ({
     ...obj,
   });
@@ -741,6 +840,9 @@ export interface PollForTaskInput {
 }
 
 export namespace PollForTaskInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PollForTaskInput): any => ({
     ...obj,
   });
@@ -772,6 +874,9 @@ export interface TaskObject {
 }
 
 export namespace TaskObject {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TaskObject): any => ({
     ...obj,
   });
@@ -790,6 +895,9 @@ export interface PollForTaskOutput {
 }
 
 export namespace PollForTaskOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PollForTaskOutput): any => ({
     ...obj,
   });
@@ -821,6 +929,9 @@ export interface PutPipelineDefinitionInput {
 }
 
 export namespace PutPipelineDefinitionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutPipelineDefinitionInput): any => ({
     ...obj,
   });
@@ -842,6 +953,9 @@ export interface ValidationError {
 }
 
 export namespace ValidationError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationError): any => ({
     ...obj,
   });
@@ -863,6 +977,9 @@ export interface ValidationWarning {
 }
 
 export namespace ValidationWarning {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationWarning): any => ({
     ...obj,
   });
@@ -890,6 +1007,9 @@ export interface PutPipelineDefinitionOutput {
 }
 
 export namespace PutPipelineDefinitionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutPipelineDefinitionOutput): any => ({
     ...obj,
   });
@@ -947,6 +1067,9 @@ export interface Operator {
 }
 
 export namespace Operator {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Operator): any => ({
     ...obj,
   });
@@ -968,6 +1091,9 @@ export interface Selector {
 }
 
 export namespace Selector {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Selector): any => ({
     ...obj,
   });
@@ -984,6 +1110,9 @@ export interface Query {
 }
 
 export namespace Query {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Query): any => ({
     ...obj,
   });
@@ -1025,6 +1154,9 @@ export interface QueryObjectsInput {
 }
 
 export namespace QueryObjectsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryObjectsInput): any => ({
     ...obj,
   });
@@ -1052,6 +1184,9 @@ export interface QueryObjectsOutput {
 }
 
 export namespace QueryObjectsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryObjectsOutput): any => ({
     ...obj,
   });
@@ -1073,6 +1208,9 @@ export interface RemoveTagsInput {
 }
 
 export namespace RemoveTagsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveTagsInput): any => ({
     ...obj,
   });
@@ -1084,6 +1222,9 @@ export namespace RemoveTagsInput {
 export interface RemoveTagsOutput {}
 
 export namespace RemoveTagsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveTagsOutput): any => ({
     ...obj,
   });
@@ -1105,6 +1246,9 @@ export interface ReportTaskProgressInput {
 }
 
 export namespace ReportTaskProgressInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReportTaskProgressInput): any => ({
     ...obj,
   });
@@ -1121,6 +1265,9 @@ export interface ReportTaskProgressOutput {
 }
 
 export namespace ReportTaskProgressOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReportTaskProgressOutput): any => ({
     ...obj,
   });
@@ -1151,6 +1298,9 @@ export interface ReportTaskRunnerHeartbeatInput {
 }
 
 export namespace ReportTaskRunnerHeartbeatInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReportTaskRunnerHeartbeatInput): any => ({
     ...obj,
   });
@@ -1167,6 +1317,9 @@ export interface ReportTaskRunnerHeartbeatOutput {
 }
 
 export namespace ReportTaskRunnerHeartbeatOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReportTaskRunnerHeartbeatOutput): any => ({
     ...obj,
   });
@@ -1194,6 +1347,9 @@ export interface SetStatusInput {
 }
 
 export namespace SetStatusInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetStatusInput): any => ({
     ...obj,
   });
@@ -1239,6 +1395,9 @@ export interface SetTaskStatusInput {
 }
 
 export namespace SetTaskStatusInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetTaskStatusInput): any => ({
     ...obj,
   });
@@ -1250,6 +1409,9 @@ export namespace SetTaskStatusInput {
 export interface SetTaskStatusOutput {}
 
 export namespace SetTaskStatusOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetTaskStatusOutput): any => ({
     ...obj,
   });
@@ -1281,6 +1443,9 @@ export interface ValidatePipelineDefinitionInput {
 }
 
 export namespace ValidatePipelineDefinitionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidatePipelineDefinitionInput): any => ({
     ...obj,
   });
@@ -1307,6 +1472,9 @@ export interface ValidatePipelineDefinitionOutput {
 }
 
 export namespace ValidatePipelineDefinitionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidatePipelineDefinitionOutput): any => ({
     ...obj,
   });

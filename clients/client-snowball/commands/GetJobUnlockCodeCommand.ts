@@ -34,6 +34,20 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  *         <code>UnlockCode</code> in the same location as the manifest file for that job. Saving these
  *       separately helps prevent unauthorized parties from gaining access to the Snow device associated
  *       with that job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SnowballClient, GetJobUnlockCodeCommand } from "@aws-sdk/client-snowball"; // ES Modules import
+ * // const { SnowballClient, GetJobUnlockCodeCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * const client = new SnowballClient(config);
+ * const command = new GetJobUnlockCodeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetJobUnlockCodeCommandInput} for command's `input` shape.
+ * @see {@link GetJobUnlockCodeCommandOutput} for command's `response` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetJobUnlockCodeCommand extends $Command<
   GetJobUnlockCodeCommandInput,

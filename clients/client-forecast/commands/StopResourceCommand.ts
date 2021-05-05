@@ -44,6 +44,20 @@ export interface StopResourceCommandOutput extends __MetadataBearer {}
  *                <p>Predictor Backtest Export Job</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ForecastClient, StopResourceCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, StopResourceCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * const client = new ForecastClient(config);
+ * const command = new StopResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopResourceCommandInput} for command's `input` shape.
+ * @see {@link StopResourceCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopResourceCommand extends $Command<
   StopResourceCommandInput,

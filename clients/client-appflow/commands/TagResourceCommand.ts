@@ -24,6 +24,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>
  *  Applies a tag to the specified flow.
  * </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppflowClient, TagResourceCommand } from "@aws-sdk/client-appflow"; // ES Modules import
+ * // const { AppflowClient, TagResourceCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * const client = new AppflowClient(config);
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

@@ -34,6 +34,20 @@ export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, _
  *             hypervisor.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html#instance-console-console-output">Instance
  *                 console output</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, GetConsoleOutputCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, GetConsoleOutputCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new GetConsoleOutputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetConsoleOutputCommandInput} for command's `input` shape.
+ * @see {@link GetConsoleOutputCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetConsoleOutputCommand extends $Command<
   GetConsoleOutputCommandInput,

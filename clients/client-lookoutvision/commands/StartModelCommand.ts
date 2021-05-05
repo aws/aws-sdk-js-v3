@@ -32,6 +32,20 @@ export interface StartModelCommandOutput extends StartModelResponse, __MetadataB
  *          </note>
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:StartModel</code> operation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LookoutVisionClient, StartModelCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
+ * // const { LookoutVisionClient, StartModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * const client = new LookoutVisionClient(config);
+ * const command = new StartModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartModelCommandInput} for command's `input` shape.
+ * @see {@link StartModelCommandOutput} for command's `response` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartModelCommand extends $Command<
   StartModelCommandInput,

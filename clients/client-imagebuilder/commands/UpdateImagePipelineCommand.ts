@@ -23,6 +23,20 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
 /**
  * <p> Updates a new image pipeline. Image pipelines enable you to automate the creation and
  *       distribution of images.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ImagebuilderClient, UpdateImagePipelineCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, UpdateImagePipelineCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * const client = new ImagebuilderClient(config);
+ * const command = new UpdateImagePipelineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateImagePipelineCommandInput} for command's `input` shape.
+ * @see {@link UpdateImagePipelineCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateImagePipelineCommand extends $Command<
   UpdateImagePipelineCommandInput,

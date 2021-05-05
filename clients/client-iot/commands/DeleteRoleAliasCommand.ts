@@ -22,6 +22,20 @@ export interface DeleteRoleAliasCommandOutput extends DeleteRoleAliasResponse, _
 
 /**
  * <p>Deletes a role alias</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, DeleteRoleAliasCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DeleteRoleAliasCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new DeleteRoleAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRoleAliasCommandInput} for command's `input` shape.
+ * @see {@link DeleteRoleAliasCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRoleAliasCommand extends $Command<
   DeleteRoleAliasCommandInput,

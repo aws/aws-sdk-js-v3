@@ -27,6 +27,20 @@ export interface DescribeDevicePolicyConfigurationCommandOutput
 
 /**
  * <p>Describes the device policy configuration for the specified fleet.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkLinkClient, DescribeDevicePolicyConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
+ * // const { WorkLinkClient, DescribeDevicePolicyConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * const client = new WorkLinkClient(config);
+ * const command = new DescribeDevicePolicyConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDevicePolicyConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeDevicePolicyConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDevicePolicyConfigurationCommand extends $Command<
   DescribeDevicePolicyConfigurationCommandInput,

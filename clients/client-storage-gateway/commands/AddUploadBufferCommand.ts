@@ -28,6 +28,20 @@ export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __M
  *          <p>In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to
  *          add upload buffer, and one or more disk IDs that you want to configure as upload
  *          buffer.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { StorageGatewayClient, AddUploadBufferCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, AddUploadBufferCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * const client = new StorageGatewayClient(config);
+ * const command = new AddUploadBufferCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddUploadBufferCommandInput} for command's `input` shape.
+ * @see {@link AddUploadBufferCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddUploadBufferCommand extends $Command<
   AddUploadBufferCommandInput,

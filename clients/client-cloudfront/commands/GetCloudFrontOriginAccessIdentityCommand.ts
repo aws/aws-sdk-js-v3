@@ -24,6 +24,20 @@ export interface GetCloudFrontOriginAccessIdentityCommandOutput
 
 /**
  * <p>Get the information about an origin access identity. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFrontClient, GetCloudFrontOriginAccessIdentityCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, GetCloudFrontOriginAccessIdentityCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * const client = new CloudFrontClient(config);
+ * const command = new GetCloudFrontOriginAccessIdentityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCloudFrontOriginAccessIdentityCommandInput} for command's `input` shape.
+ * @see {@link GetCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCloudFrontOriginAccessIdentityCommand extends $Command<
   GetCloudFrontOriginAccessIdentityCommandInput,

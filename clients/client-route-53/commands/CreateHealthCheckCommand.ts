@@ -55,6 +55,20 @@ export interface CreateHealthCheckCommandOutput extends CreateHealthCheckRespons
  * 					<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html">Amazon CloudWatch User Guide</a>.</p>
  * 			         </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53Client, CreateHealthCheckCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, CreateHealthCheckCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * const client = new Route53Client(config);
+ * const command = new CreateHealthCheckCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateHealthCheckCommandInput} for command's `input` shape.
+ * @see {@link CreateHealthCheckCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateHealthCheckCommand extends $Command<
   CreateHealthCheckCommandInput,

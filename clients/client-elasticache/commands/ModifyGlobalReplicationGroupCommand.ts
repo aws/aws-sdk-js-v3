@@ -24,6 +24,20 @@ export interface ModifyGlobalReplicationGroupCommandOutput
 
 /**
  * <p>Modifies the settings for a Global datastore.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElastiCacheClient, ModifyGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, ModifyGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * const client = new ElastiCacheClient(config);
+ * const command = new ModifyGlobalReplicationGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyGlobalReplicationGroupCommandInput} for command's `input` shape.
+ * @see {@link ModifyGlobalReplicationGroupCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyGlobalReplicationGroupCommand extends $Command<
   ModifyGlobalReplicationGroupCommandInput,

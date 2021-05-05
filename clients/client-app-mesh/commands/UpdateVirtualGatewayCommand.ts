@@ -22,6 +22,20 @@ export interface UpdateVirtualGatewayCommandOutput extends UpdateVirtualGatewayO
 
 /**
  * <p>Updates an existing virtual gateway in a specified service mesh.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppMeshClient, UpdateVirtualGatewayCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
+ * // const { AppMeshClient, UpdateVirtualGatewayCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * const client = new AppMeshClient(config);
+ * const command = new UpdateVirtualGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateVirtualGatewayCommandInput} for command's `input` shape.
+ * @see {@link UpdateVirtualGatewayCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateVirtualGatewayCommand extends $Command<
   UpdateVirtualGatewayCommandInput,

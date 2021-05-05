@@ -22,6 +22,20 @@ export interface StartFleetCommandOutput extends StartFleetResult, __MetadataBea
 
 /**
  * <p>Starts the specified fleet.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppStreamClient, StartFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
+ * // const { AppStreamClient, StartFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
+ * const client = new AppStreamClient(config);
+ * const command = new StartFleetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartFleetCommandInput} for command's `input` shape.
+ * @see {@link StartFleetCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartFleetCommand extends $Command<
   StartFleetCommandInput,

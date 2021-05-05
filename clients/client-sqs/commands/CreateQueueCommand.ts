@@ -68,6 +68,20 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  *          <note>
  *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant cross-account permissions to a role and a user name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SQSClient, CreateQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
+ * // const { SQSClient, CreateQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * const client = new SQSClient(config);
+ * const command = new CreateQueueCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateQueueCommandInput} for command's `input` shape.
+ * @see {@link CreateQueueCommandOutput} for command's `response` shape.
+ * @see {@link SQSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateQueueCommand extends $Command<
   CreateQueueCommandInput,

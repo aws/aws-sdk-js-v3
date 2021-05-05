@@ -22,6 +22,20 @@ export interface DescribeProjectCommandOutput extends DescribeProjectOutput, __M
 
 /**
  * <p>Describes the details of a project.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, DescribeProjectCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DescribeProjectCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeProjectCommandInput} for command's `input` shape.
+ * @see {@link DescribeProjectCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeProjectCommand extends $Command<
   DescribeProjectCommandInput,

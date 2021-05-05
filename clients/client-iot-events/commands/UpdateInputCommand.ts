@@ -22,6 +22,20 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
 
 /**
  * <p>Updates an input.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTEventsClient, UpdateInputCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
+ * // const { IoTEventsClient, UpdateInputCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * const client = new IoTEventsClient(config);
+ * const command = new UpdateInputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateInputCommandInput} for command's `input` shape.
+ * @see {@link UpdateInputCommandOutput} for command's `response` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateInputCommand extends $Command<
   UpdateInputCommandInput,

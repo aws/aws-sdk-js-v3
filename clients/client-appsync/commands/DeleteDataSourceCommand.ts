@@ -22,6 +22,20 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
 
 /**
  * <p>Deletes a <code>DataSource</code> object.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppSyncClient, DeleteDataSourceCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, DeleteDataSourceCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * const client = new AppSyncClient(config);
+ * const command = new DeleteDataSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDataSourceCommandInput} for command's `input` shape.
+ * @see {@link DeleteDataSourceCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDataSourceCommand extends $Command<
   DeleteDataSourceCommandInput,

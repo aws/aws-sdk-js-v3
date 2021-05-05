@@ -26,6 +26,20 @@ export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDe
 
 /**
  * <p>Lists the AWS Cost and Usage reports available to this account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CostAndUsageReportServiceClient, DescribeReportDefinitionsCommand } from "@aws-sdk/client-cost-and-usage-report-service"; // ES Modules import
+ * // const { CostAndUsageReportServiceClient, DescribeReportDefinitionsCommand } = require("@aws-sdk/client-cost-and-usage-report-service"); // CommonJS import
+ * const client = new CostAndUsageReportServiceClient(config);
+ * const command = new DescribeReportDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeReportDefinitionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeReportDefinitionsCommandOutput} for command's `response` shape.
+ * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeReportDefinitionsCommand extends $Command<
   DescribeReportDefinitionsCommandInput,

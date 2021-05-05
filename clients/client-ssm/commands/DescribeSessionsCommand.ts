@@ -23,6 +23,20 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
 /**
  * <p>Retrieves a list of all active sessions (both connected and disconnected) or terminated
  *    sessions from the past 30 days.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, DescribeSessionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DescribeSessionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new DescribeSessionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSessionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeSessionsCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSessionsCommand extends $Command<
   DescribeSessionsCommandInput,

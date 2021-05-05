@@ -22,6 +22,20 @@ export interface ListResourceTypesCommandOutput extends ListResourceTypesRespons
 
 /**
  * <p>Lists the shareable resource types supported by AWS RAM.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RAMClient, ListResourceTypesCommand } from "@aws-sdk/client-ram"; // ES Modules import
+ * // const { RAMClient, ListResourceTypesCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * const client = new RAMClient(config);
+ * const command = new ListResourceTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResourceTypesCommandInput} for command's `input` shape.
+ * @see {@link ListResourceTypesCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResourceTypesCommand extends $Command<
   ListResourceTypesCommandInput,

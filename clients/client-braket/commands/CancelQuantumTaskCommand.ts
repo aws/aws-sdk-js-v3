@@ -22,6 +22,20 @@ export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskRespons
 
 /**
  * <p>Cancels the specified task.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BraketClient, CancelQuantumTaskCommand } from "@aws-sdk/client-braket"; // ES Modules import
+ * // const { BraketClient, CancelQuantumTaskCommand } = require("@aws-sdk/client-braket"); // CommonJS import
+ * const client = new BraketClient(config);
+ * const command = new CancelQuantumTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelQuantumTaskCommandInput} for command's `input` shape.
+ * @see {@link CancelQuantumTaskCommandOutput} for command's `response` shape.
+ * @see {@link BraketClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelQuantumTaskCommand extends $Command<
   CancelQuantumTaskCommandInput,

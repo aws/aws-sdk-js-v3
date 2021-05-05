@@ -71,6 +71,20 @@ export interface DescribeIdentityUsageCommandOutput extends DescribeIdentityUsag
  *                </response>
  *          </example>
  *       </examples>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoSyncClient, DescribeIdentityUsageCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
+ * // const { CognitoSyncClient, DescribeIdentityUsageCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * const client = new CognitoSyncClient(config);
+ * const command = new DescribeIdentityUsageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeIdentityUsageCommandInput} for command's `input` shape.
+ * @see {@link DescribeIdentityUsageCommandOutput} for command's `response` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeIdentityUsageCommand extends $Command<
   DescribeIdentityUsageCommandInput,

@@ -109,6 +109,20 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  *                <p>To list the versions attached to a secret, use <a>ListSecretVersionIds</a>.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecretsManagerClient, PutSecretValueCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
+ * // const { SecretsManagerClient, PutSecretValueCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * const client = new SecretsManagerClient(config);
+ * const command = new PutSecretValueCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutSecretValueCommandInput} for command's `input` shape.
+ * @see {@link PutSecretValueCommandOutput} for command's `response` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutSecretValueCommand extends $Command<
   PutSecretValueCommandInput,

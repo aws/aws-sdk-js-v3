@@ -22,6 +22,20 @@ export interface DescribePackagingGroupCommandOutput extends DescribePackagingGr
 
 /**
  * Returns a description of a MediaPackage VOD PackagingGroup resource.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaPackageVodClient, DescribePackagingGroupCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
+ * // const { MediaPackageVodClient, DescribePackagingGroupCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
+ * const client = new MediaPackageVodClient(config);
+ * const command = new DescribePackagingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePackagingGroupCommandInput} for command's `input` shape.
+ * @see {@link DescribePackagingGroupCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageVodClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePackagingGroupCommand extends $Command<
   DescribePackagingGroupCommandInput,

@@ -22,6 +22,20 @@ export interface DescribePlaceIndexCommandOutput extends DescribePlaceIndexRespo
 
 /**
  * <p>Retrieves the Place index resource details.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LocationClient, DescribePlaceIndexCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, DescribePlaceIndexCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * const client = new LocationClient(config);
+ * const command = new DescribePlaceIndexCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePlaceIndexCommandInput} for command's `input` shape.
+ * @see {@link DescribePlaceIndexCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePlaceIndexCommand extends $Command<
   DescribePlaceIndexCommandInput,

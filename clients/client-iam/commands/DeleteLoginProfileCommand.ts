@@ -34,6 +34,20 @@ export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
  *                 making keys inactive or deleting them, see <a>UpdateAccessKey</a> and
  *                     <a>DeleteAccessKey</a>. </p>
  *         </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, DeleteLoginProfileCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, DeleteLoginProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new DeleteLoginProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteLoginProfileCommandInput} for command's `input` shape.
+ * @see {@link DeleteLoginProfileCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteLoginProfileCommand extends $Command<
   DeleteLoginProfileCommandInput,

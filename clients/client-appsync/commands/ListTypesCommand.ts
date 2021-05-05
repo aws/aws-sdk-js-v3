@@ -22,6 +22,20 @@ export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBea
 
 /**
  * <p>Lists the types for a given API.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppSyncClient, ListTypesCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, ListTypesCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * const client = new AppSyncClient(config);
+ * const command = new ListTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTypesCommandInput} for command's `input` shape.
+ * @see {@link ListTypesCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTypesCommand extends $Command<
   ListTypesCommandInput,

@@ -18,6 +18,9 @@ export interface CanaryCodeOutput {
 }
 
 export namespace CanaryCodeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CanaryCodeOutput): any => ({
     ...obj,
   });
@@ -45,6 +48,9 @@ export interface CanaryRunConfigOutput {
 }
 
 export namespace CanaryRunConfigOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CanaryRunConfigOutput): any => ({
     ...obj,
   });
@@ -76,6 +82,9 @@ export interface CanaryScheduleOutput {
 }
 
 export namespace CanaryScheduleOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CanaryScheduleOutput): any => ({
     ...obj,
   });
@@ -118,6 +127,9 @@ export interface CanaryStatus {
 }
 
 export namespace CanaryStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CanaryStatus): any => ({
     ...obj,
   });
@@ -149,6 +161,9 @@ export interface CanaryTimeline {
 }
 
 export namespace CanaryTimeline {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CanaryTimeline): any => ({
     ...obj,
   });
@@ -178,6 +193,9 @@ export interface VpcConfigOutput {
 }
 
 export namespace VpcConfigOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VpcConfigOutput): any => ({
     ...obj,
   });
@@ -275,6 +293,9 @@ export interface Canary {
 }
 
 export namespace Canary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Canary): any => ({
     ...obj,
   });
@@ -314,6 +335,9 @@ export interface CanaryRunStatus {
 }
 
 export namespace CanaryRunStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CanaryRunStatus): any => ({
     ...obj,
   });
@@ -335,6 +359,9 @@ export interface CanaryRunTimeline {
 }
 
 export namespace CanaryRunTimeline {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CanaryRunTimeline): any => ({
     ...obj,
   });
@@ -372,6 +399,9 @@ export interface CanaryRun {
 }
 
 export namespace CanaryRun {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CanaryRun): any => ({
     ...obj,
   });
@@ -393,6 +423,9 @@ export interface CanaryLastRun {
 }
 
 export namespace CanaryLastRun {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CanaryLastRun): any => ({
     ...obj,
   });
@@ -438,6 +471,9 @@ export interface CanaryCodeInput {
 }
 
 export namespace CanaryCodeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CanaryCodeInput): any => ({
     ...obj,
   });
@@ -486,6 +522,9 @@ export interface CanaryRunConfigInput {
 }
 
 export namespace CanaryRunConfigInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CanaryRunConfigInput): any => ({
     ...obj,
   });
@@ -518,6 +557,9 @@ export interface CanaryScheduleInput {
 }
 
 export namespace CanaryScheduleInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CanaryScheduleInput): any => ({
     ...obj,
   });
@@ -533,6 +575,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -557,6 +602,9 @@ export interface VpcConfigInput {
 }
 
 export namespace VpcConfigInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VpcConfigInput): any => ({
     ...obj,
   });
@@ -683,6 +731,9 @@ export interface CreateCanaryRequest {
 }
 
 export namespace CreateCanaryRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCanaryRequest): any => ({
     ...obj,
   });
@@ -696,6 +747,9 @@ export interface CreateCanaryResponse {
 }
 
 export namespace CreateCanaryResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCanaryResponse): any => ({
     ...obj,
   });
@@ -711,6 +765,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -726,6 +783,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -739,6 +799,9 @@ export interface DeleteCanaryRequest {
 }
 
 export namespace DeleteCanaryRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteCanaryRequest): any => ({
     ...obj,
   });
@@ -747,6 +810,9 @@ export namespace DeleteCanaryRequest {
 export interface DeleteCanaryResponse {}
 
 export namespace DeleteCanaryResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteCanaryResponse): any => ({
     ...obj,
   });
@@ -762,6 +828,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -783,6 +852,9 @@ export interface DescribeCanariesRequest {
 }
 
 export namespace DescribeCanariesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCanariesRequest): any => ({
     ...obj,
   });
@@ -804,6 +876,9 @@ export interface DescribeCanariesResponse {
 }
 
 export namespace DescribeCanariesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCanariesResponse): any => ({
     ...obj,
   });
@@ -825,6 +900,9 @@ export interface DescribeCanariesLastRunRequest {
 }
 
 export namespace DescribeCanariesLastRunRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCanariesLastRunRequest): any => ({
     ...obj,
   });
@@ -846,6 +924,9 @@ export interface DescribeCanariesLastRunResponse {
 }
 
 export namespace DescribeCanariesLastRunResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCanariesLastRunResponse): any => ({
     ...obj,
   });
@@ -867,6 +948,9 @@ export interface DescribeRuntimeVersionsRequest {
 }
 
 export namespace DescribeRuntimeVersionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeRuntimeVersionsRequest): any => ({
     ...obj,
   });
@@ -902,6 +986,9 @@ export interface RuntimeVersion {
 }
 
 export namespace RuntimeVersion {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RuntimeVersion): any => ({
     ...obj,
   });
@@ -923,6 +1010,9 @@ export interface DescribeRuntimeVersionsResponse {
 }
 
 export namespace DescribeRuntimeVersionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeRuntimeVersionsResponse): any => ({
     ...obj,
   });
@@ -936,6 +1026,9 @@ export interface GetCanaryRequest {
 }
 
 export namespace GetCanaryRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetCanaryRequest): any => ({
     ...obj,
   });
@@ -949,6 +1042,9 @@ export interface GetCanaryResponse {
 }
 
 export namespace GetCanaryResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetCanaryResponse): any => ({
     ...obj,
   });
@@ -975,6 +1071,9 @@ export interface GetCanaryRunsRequest {
 }
 
 export namespace GetCanaryRunsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetCanaryRunsRequest): any => ({
     ...obj,
   });
@@ -997,6 +1096,9 @@ export interface GetCanaryRunsResponse {
 }
 
 export namespace GetCanaryRunsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetCanaryRunsResponse): any => ({
     ...obj,
   });
@@ -1013,6 +1115,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -1026,6 +1131,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -1040,6 +1148,9 @@ export interface StartCanaryRequest {
 }
 
 export namespace StartCanaryRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartCanaryRequest): any => ({
     ...obj,
   });
@@ -1048,6 +1159,9 @@ export namespace StartCanaryRequest {
 export interface StartCanaryResponse {}
 
 export namespace StartCanaryResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartCanaryResponse): any => ({
     ...obj,
   });
@@ -1062,6 +1176,9 @@ export interface StopCanaryRequest {
 }
 
 export namespace StopCanaryRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopCanaryRequest): any => ({
     ...obj,
   });
@@ -1070,6 +1187,9 @@ export namespace StopCanaryRequest {
 export interface StopCanaryResponse {}
 
 export namespace StopCanaryResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopCanaryResponse): any => ({
     ...obj,
   });
@@ -1091,6 +1211,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -1099,6 +1222,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -1120,6 +1246,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -1128,6 +1257,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
@@ -1233,6 +1365,9 @@ export interface UpdateCanaryRequest {
 }
 
 export namespace UpdateCanaryRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCanaryRequest): any => ({
     ...obj,
   });
@@ -1241,6 +1376,9 @@ export namespace UpdateCanaryRequest {
 export interface UpdateCanaryResponse {}
 
 export namespace UpdateCanaryResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCanaryResponse): any => ({
     ...obj,
   });

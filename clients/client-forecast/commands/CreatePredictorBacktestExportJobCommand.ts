@@ -38,6 +38,20 @@ export interface CreatePredictorBacktestExportJobCommandOutput
  *             <p>The <code>Status</code> of the export job must be <code>ACTIVE</code> before
  *                 you can access the export in your Amazon S3 bucket. To get the status, use the <a>DescribePredictorBacktestExportJob</a> operation.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ForecastClient, CreatePredictorBacktestExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, CreatePredictorBacktestExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * const client = new ForecastClient(config);
+ * const command = new CreatePredictorBacktestExportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePredictorBacktestExportJobCommandInput} for command's `input` shape.
+ * @see {@link CreatePredictorBacktestExportJobCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePredictorBacktestExportJobCommand extends $Command<
   CreatePredictorBacktestExportJobCommandInput,

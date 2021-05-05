@@ -25,6 +25,20 @@ export interface DecreaseReplicationFactorCommandOutput extends DecreaseReplicat
  *         <note>
  *             <p>You cannot use <code>DecreaseReplicationFactor</code> to remove the last node in a DAX cluster. If you need to do this, use <code>DeleteCluster</code> instead.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DAXClient, DecreaseReplicationFactorCommand } from "@aws-sdk/client-dax"; // ES Modules import
+ * // const { DAXClient, DecreaseReplicationFactorCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * const client = new DAXClient(config);
+ * const command = new DecreaseReplicationFactorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DecreaseReplicationFactorCommandInput} for command's `input` shape.
+ * @see {@link DecreaseReplicationFactorCommandOutput} for command's `response` shape.
+ * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DecreaseReplicationFactorCommand extends $Command<
   DecreaseReplicationFactorCommandInput,

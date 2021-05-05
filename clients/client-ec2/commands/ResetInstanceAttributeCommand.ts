@@ -30,6 +30,20 @@ export interface ResetInstanceAttributeCommandOutput extends __MetadataBearer {}
  *             enabled. This value must be <code>false</code> for a NAT instance to perform NAT. For
  *             more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html">NAT Instances</a> in the
  *                 <i>Amazon VPC User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, ResetInstanceAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, ResetInstanceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new ResetInstanceAttributeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResetInstanceAttributeCommandInput} for command's `input` shape.
+ * @see {@link ResetInstanceAttributeCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResetInstanceAttributeCommand extends $Command<
   ResetInstanceAttributeCommandInput,

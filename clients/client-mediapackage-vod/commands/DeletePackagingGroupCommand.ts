@@ -22,6 +22,20 @@ export interface DeletePackagingGroupCommandOutput extends DeletePackagingGroupR
 
 /**
  * Deletes a MediaPackage VOD PackagingGroup resource.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaPackageVodClient, DeletePackagingGroupCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
+ * // const { MediaPackageVodClient, DeletePackagingGroupCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
+ * const client = new MediaPackageVodClient(config);
+ * const command = new DeletePackagingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePackagingGroupCommandInput} for command's `input` shape.
+ * @see {@link DeletePackagingGroupCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageVodClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePackagingGroupCommand extends $Command<
   DeletePackagingGroupCommandInput,

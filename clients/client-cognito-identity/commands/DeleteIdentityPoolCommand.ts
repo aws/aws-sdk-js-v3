@@ -25,6 +25,20 @@ export interface DeleteIdentityPoolCommandOutput extends __MetadataBearer {}
  * <p>Deletes an identity pool. Once a pool is deleted, users will not be able to
  *          authenticate with the pool.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityClient, DeleteIdentityPoolCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
+ * // const { CognitoIdentityClient, DeleteIdentityPoolCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * const client = new CognitoIdentityClient(config);
+ * const command = new DeleteIdentityPoolCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteIdentityPoolCommandInput} for command's `input` shape.
+ * @see {@link DeleteIdentityPoolCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteIdentityPoolCommand extends $Command<
   DeleteIdentityPoolCommandInput,

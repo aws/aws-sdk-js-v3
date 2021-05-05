@@ -22,6 +22,20 @@ export interface ListWorkerBlocksCommandOutput extends ListWorkerBlocksResponse,
 
 /**
  * <p>The <code>ListWorkersBlocks</code> operation retrieves a list of Workers who are blocked from working on your HITs.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MTurkClient, ListWorkerBlocksCommand } from "@aws-sdk/client-mturk"; // ES Modules import
+ * // const { MTurkClient, ListWorkerBlocksCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * const client = new MTurkClient(config);
+ * const command = new ListWorkerBlocksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListWorkerBlocksCommandInput} for command's `input` shape.
+ * @see {@link ListWorkerBlocksCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListWorkerBlocksCommand extends $Command<
   ListWorkerBlocksCommandInput,

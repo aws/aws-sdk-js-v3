@@ -34,6 +34,20 @@ export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
  * 			default maximum, the response is paginated. To get the next page of items, send a
  * 			subsequent request that specifies the <code>NextMarker</code> value from the current
  * 			response as the <code>Marker</code> value in the subsequent request.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFrontClient, ListDistributionsByOriginRequestPolicyIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, ListDistributionsByOriginRequestPolicyIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * const client = new CloudFrontClient(config);
+ * const command = new ListDistributionsByOriginRequestPolicyIdCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDistributionsByOriginRequestPolicyIdCommandInput} for command's `input` shape.
+ * @see {@link ListDistributionsByOriginRequestPolicyIdCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
   ListDistributionsByOriginRequestPolicyIdCommandInput,

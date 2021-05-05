@@ -28,6 +28,20 @@ export interface DescribeReportCreationCommandOutput extends DescribeReportCreat
  * <p>Describes the status of the <code>StartReportCreation</code> operation. </p>
  *         <p>You can call this operation only from the organization's
  *     management account and from the us-east-1 Region.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ResourceGroupsTaggingAPIClient, DescribeReportCreationCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
+ * // const { ResourceGroupsTaggingAPIClient, DescribeReportCreationCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
+ * const client = new ResourceGroupsTaggingAPIClient(config);
+ * const command = new DescribeReportCreationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeReportCreationCommandInput} for command's `input` shape.
+ * @see {@link DescribeReportCreationCommandOutput} for command's `response` shape.
+ * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeReportCreationCommand extends $Command<
   DescribeReportCreationCommandInput,

@@ -23,6 +23,20 @@ export interface UpdateQueueHoursOfOperationCommandOutput extends __MetadataBear
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the hours of operation for the specified queue.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, UpdateQueueHoursOfOperationCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, UpdateQueueHoursOfOperationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * const client = new ConnectClient(config);
+ * const command = new UpdateQueueHoursOfOperationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateQueueHoursOfOperationCommandInput} for command's `input` shape.
+ * @see {@link UpdateQueueHoursOfOperationCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateQueueHoursOfOperationCommand extends $Command<
   UpdateQueueHoursOfOperationCommandInput,

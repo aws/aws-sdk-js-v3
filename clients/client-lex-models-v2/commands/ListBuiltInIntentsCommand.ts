@@ -27,6 +27,20 @@ export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsRespo
  *          the built-in intent signature in the <code>parentIntentSignature</code>
  *          parameter when you call the <code>CreateIntent</code> operation. For
  *          more information, see <a>CreateIntent</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelsV2Client, ListBuiltInIntentsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, ListBuiltInIntentsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * const client = new LexModelsV2Client(config);
+ * const command = new ListBuiltInIntentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBuiltInIntentsCommandInput} for command's `input` shape.
+ * @see {@link ListBuiltInIntentsCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBuiltInIntentsCommand extends $Command<
   ListBuiltInIntentsCommandInput,

@@ -83,6 +83,20 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  *         predictor must be <code>ACTIVE</code>, signifying that training has completed. To get the
  *         status, use the <a>DescribePredictor</a> operation.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ForecastClient, CreatePredictorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, CreatePredictorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * const client = new ForecastClient(config);
+ * const command = new CreatePredictorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePredictorCommandInput} for command's `input` shape.
+ * @see {@link CreatePredictorCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePredictorCommand extends $Command<
   CreatePredictorCommandInput,

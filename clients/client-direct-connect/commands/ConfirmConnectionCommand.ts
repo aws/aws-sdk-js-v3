@@ -24,6 +24,20 @@ export interface ConfirmConnectionCommandOutput extends ConfirmConnectionRespons
  * <p>Confirms the creation of the specified hosted connection on an interconnect.</p>
  *          <p>Upon creation, the hosted connection is initially in the <code>Ordering</code> state, and
  *       remains in this state until the owner confirms creation of the hosted connection.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectConnectClient, ConfirmConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, ConfirmConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * const client = new DirectConnectClient(config);
+ * const command = new ConfirmConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ConfirmConnectionCommandInput} for command's `input` shape.
+ * @see {@link ConfirmConnectionCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ConfirmConnectionCommand extends $Command<
   ConfirmConnectionCommandInput,

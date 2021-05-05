@@ -13,6 +13,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -28,6 +31,9 @@ export interface CancelQueryRequest {
 }
 
 export namespace CancelQueryRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelQueryRequest): any => ({
     ...obj,
   });
@@ -43,6 +49,9 @@ export interface CancelQueryResponse {
 }
 
 export namespace CancelQueryResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelQueryResponse): any => ({
     ...obj,
   });
@@ -60,6 +69,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -75,6 +87,9 @@ export interface InvalidEndpointException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidEndpointException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidEndpointException): any => ({
     ...obj,
   });
@@ -90,6 +105,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -107,6 +125,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -138,6 +159,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -146,6 +170,9 @@ export namespace ConflictException {
 export interface DescribeEndpointsRequest {}
 
 export namespace DescribeEndpointsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEndpointsRequest): any => ({
     ...obj,
   });
@@ -167,6 +194,9 @@ export interface Endpoint {
 }
 
 export namespace Endpoint {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj,
   });
@@ -180,6 +210,9 @@ export interface DescribeEndpointsResponse {
 }
 
 export namespace DescribeEndpointsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
     ...obj,
   });
@@ -197,6 +230,9 @@ export interface QueryExecutionException extends __SmithyException, $MetadataBea
 }
 
 export namespace QueryExecutionException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryExecutionException): any => ({
     ...obj,
   });
@@ -256,6 +292,9 @@ export interface QueryRequest {
 }
 
 export namespace QueryRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryRequest): any => ({
     ...obj,
     ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
@@ -291,6 +330,9 @@ export interface QueryStatus {
 }
 
 export namespace QueryStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryStatus): any => ({
     ...obj,
   });
@@ -318,6 +360,9 @@ export interface ColumnInfo {
 }
 
 export namespace ColumnInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ColumnInfo): any => ({
     ...obj,
   });
@@ -349,6 +394,9 @@ export interface Type {
 }
 
 export namespace Type {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Type): any => ({
     ...obj,
   });
@@ -397,6 +445,9 @@ export interface Datum {
 }
 
 export namespace Datum {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Datum): any => ({
     ...obj,
   });
@@ -418,6 +469,9 @@ export interface TimeSeriesDataPoint {
 }
 
 export namespace TimeSeriesDataPoint {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TimeSeriesDataPoint): any => ({
     ...obj,
   });
@@ -434,6 +488,9 @@ export interface Row {
 }
 
 export namespace Row {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Row): any => ({
     ...obj,
   });
@@ -475,6 +532,9 @@ export interface QueryResponse {
 }
 
 export namespace QueryResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryResponse): any => ({
     ...obj,
   });

@@ -22,6 +22,20 @@ export interface GetEulaCommandOutput extends GetEulaResponse, __MetadataBearer 
 
 /**
  * <p>Get Eula.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NimbleClient, GetEulaCommand } from "@aws-sdk/client-nimble"; // ES Modules import
+ * // const { NimbleClient, GetEulaCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * const client = new NimbleClient(config);
+ * const command = new GetEulaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEulaCommandInput} for command's `input` shape.
+ * @see {@link GetEulaCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEulaCommand extends $Command<GetEulaCommandInput, GetEulaCommandOutput, NimbleClientResolvedConfig> {
   // Start section: command_properties

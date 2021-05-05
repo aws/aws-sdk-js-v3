@@ -23,6 +23,20 @@ export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspace
 /**
  * <p>Retrieves a list that describes the available WorkSpace bundles.</p>
  *          <p>You can filter the results using either bundle ID or owner, but not both.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkSpacesClient, DescribeWorkspaceBundlesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
+ * // const { WorkSpacesClient, DescribeWorkspaceBundlesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * const client = new WorkSpacesClient(config);
+ * const command = new DescribeWorkspaceBundlesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeWorkspaceBundlesCommandInput} for command's `input` shape.
+ * @see {@link DescribeWorkspaceBundlesCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeWorkspaceBundlesCommand extends $Command<
   DescribeWorkspaceBundlesCommandInput,

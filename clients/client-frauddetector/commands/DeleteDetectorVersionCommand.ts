@@ -23,6 +23,20 @@ export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersio
 /**
  * <p>Deletes the detector version. You cannot delete detector versions that are in <code>ACTIVE</code> status.</p>
  * 	  	     <p>When you delete a detector version, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FraudDetectorClient, DeleteDetectorVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, DeleteDetectorVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * const client = new FraudDetectorClient(config);
+ * const command = new DeleteDetectorVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDetectorVersionCommandInput} for command's `input` shape.
+ * @see {@link DeleteDetectorVersionCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDetectorVersionCommand extends $Command<
   DeleteDetectorVersionCommandInput,

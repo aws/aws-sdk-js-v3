@@ -26,6 +26,20 @@ export interface ListNotificationChannelsCommandOutput extends ListNotificationC
  *    		DevOps Guru generates an insight that contains information about how to improve your operations. The one
  *       	supported notification channel is Amazon Simple Notification Service (Amazon SNS).
  *    	</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DevOpsGuruClient, ListNotificationChannelsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
+ * // const { DevOpsGuruClient, ListNotificationChannelsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
+ * const client = new DevOpsGuruClient(config);
+ * const command = new ListNotificationChannelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListNotificationChannelsCommandInput} for command's `input` shape.
+ * @see {@link ListNotificationChannelsCommandOutput} for command's `response` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListNotificationChannelsCommand extends $Command<
   ListNotificationChannelsCommandInput,

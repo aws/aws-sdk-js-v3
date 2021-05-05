@@ -28,6 +28,20 @@ export interface DescribeContinuousExportsCommandOutput extends DescribeContinuo
  * <p>Lists exports as specified by ID. All continuous exports associated with your user
  *       account can be listed if you call <code>DescribeContinuousExports</code> as is without passing
  *       any parameters.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApplicationDiscoveryServiceClient, DescribeContinuousExportsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, DescribeContinuousExportsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new DescribeContinuousExportsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeContinuousExportsCommandInput} for command's `input` shape.
+ * @see {@link DescribeContinuousExportsCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeContinuousExportsCommand extends $Command<
   DescribeContinuousExportsCommandInput,

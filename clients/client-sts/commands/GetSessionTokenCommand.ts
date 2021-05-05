@@ -74,6 +74,20 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  *          credentials, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken">Temporary
  *             Credentials for Users in Untrusted Environments</a> in the
  *             <i>IAM User Guide</i>. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { STSClient, GetSessionTokenCommand } from "@aws-sdk/client-sts"; // ES Modules import
+ * // const { STSClient, GetSessionTokenCommand } = require("@aws-sdk/client-sts"); // CommonJS import
+ * const client = new STSClient(config);
+ * const command = new GetSessionTokenCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSessionTokenCommandInput} for command's `input` shape.
+ * @see {@link GetSessionTokenCommandOutput} for command's `response` shape.
+ * @see {@link STSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSessionTokenCommand extends $Command<
   GetSessionTokenCommandInput,

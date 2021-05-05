@@ -30,6 +30,20 @@ export interface ProvisionProductCommandOutput extends ProvisionProductOutput, _
  *          tag conflict for that key. Do not include conflicted keys as tags, or this causes
  *          the error "Parameter validation failed: Missing required parameter in
  *          Tags[<i>N</i>]:<i>Value</i>".</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, ProvisionProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, ProvisionProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new ProvisionProductCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ProvisionProductCommandInput} for command's `input` shape.
+ * @see {@link ProvisionProductCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ProvisionProductCommand extends $Command<
   ProvisionProductCommandInput,

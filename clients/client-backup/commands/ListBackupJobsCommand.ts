@@ -23,6 +23,20 @@ export interface ListBackupJobsCommandOutput extends ListBackupJobsOutput, __Met
 /**
  * <p>Returns a list of existing backup jobs for an authenticated account for the last 30
  *          days. For a longer period of time, consider using these <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">monitoring tools</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BackupClient, ListBackupJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, ListBackupJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * const client = new BackupClient(config);
+ * const command = new ListBackupJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBackupJobsCommandInput} for command's `input` shape.
+ * @see {@link ListBackupJobsCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBackupJobsCommand extends $Command<
   ListBackupJobsCommandInput,

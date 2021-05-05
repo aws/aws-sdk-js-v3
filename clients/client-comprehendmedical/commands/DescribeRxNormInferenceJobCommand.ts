@@ -27,6 +27,20 @@ export interface DescribeRxNormInferenceJobCommandOutput extends DescribeRxNormI
 /**
  * <p>Gets the properties associated with an InferRxNorm job. Use this operation to get the
  *       status of an inference job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ComprehendMedicalClient, DescribeRxNormInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
+ * // const { ComprehendMedicalClient, DescribeRxNormInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * const client = new ComprehendMedicalClient(config);
+ * const command = new DescribeRxNormInferenceJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRxNormInferenceJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeRxNormInferenceJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRxNormInferenceJobCommand extends $Command<
   DescribeRxNormInferenceJobCommandInput,

@@ -22,6 +22,20 @@ export interface StopStreamProcessorCommandOutput extends StopStreamProcessorRes
 
 /**
  * <p>Stops a running stream processor that was created by <a>CreateStreamProcessor</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RekognitionClient, StopStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, StopStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * const client = new RekognitionClient(config);
+ * const command = new StopStreamProcessorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopStreamProcessorCommandInput} for command's `input` shape.
+ * @see {@link StopStreamProcessorCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopStreamProcessorCommand extends $Command<
   StopStreamProcessorCommandInput,

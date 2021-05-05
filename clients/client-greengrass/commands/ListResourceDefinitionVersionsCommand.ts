@@ -24,6 +24,20 @@ export interface ListResourceDefinitionVersionsCommandOutput
 
 /**
  * Lists the versions of a resource definition.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassClient, ListResourceDefinitionVersionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, ListResourceDefinitionVersionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * const client = new GreengrassClient(config);
+ * const command = new ListResourceDefinitionVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResourceDefinitionVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListResourceDefinitionVersionsCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResourceDefinitionVersionsCommand extends $Command<
   ListResourceDefinitionVersionsCommandInput,

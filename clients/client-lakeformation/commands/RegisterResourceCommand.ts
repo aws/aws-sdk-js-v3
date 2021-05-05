@@ -37,6 +37,20 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  *          <p>
  *             <code>arn:aws:iam::12345:role/my-data-access-role</code>
  *          </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LakeFormationClient, RegisterResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
+ * // const { LakeFormationClient, RegisterResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
+ * const client = new LakeFormationClient(config);
+ * const command = new RegisterResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterResourceCommandInput} for command's `input` shape.
+ * @see {@link RegisterResourceCommandOutput} for command's `response` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterResourceCommand extends $Command<
   RegisterResourceCommandInput,

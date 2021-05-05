@@ -62,6 +62,20 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *                </li>
  *             </ol>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BatchClient, CreateComputeEnvironmentCommand } from "@aws-sdk/client-batch"; // ES Modules import
+ * // const { BatchClient, CreateComputeEnvironmentCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * const client = new BatchClient(config);
+ * const command = new CreateComputeEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateComputeEnvironmentCommandInput} for command's `input` shape.
+ * @see {@link CreateComputeEnvironmentCommandOutput} for command's `response` shape.
+ * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateComputeEnvironmentCommand extends $Command<
   CreateComputeEnvironmentCommandInput,

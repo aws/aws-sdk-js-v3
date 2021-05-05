@@ -22,6 +22,20 @@ export interface GetExportJobCommandOutput extends GetExportJobResponse, __Metad
 
 /**
  * <p>Retrieves information about the status and settings of a specific export job for an application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointClient, GetExportJobCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, GetExportJobCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * const client = new PinpointClient(config);
+ * const command = new GetExportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetExportJobCommandInput} for command's `input` shape.
+ * @see {@link GetExportJobCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetExportJobCommand extends $Command<
   GetExportJobCommandInput,

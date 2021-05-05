@@ -39,6 +39,20 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *         <p>Elastic Transcoder uses the H.264 video-compression format. For more information, see the International
  *             Telecommunication Union publication <i>Recommendation ITU-T H.264: Advanced video coding
  *                 for generic audiovisual services</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticTranscoderClient, CreatePresetCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
+ * // const { ElasticTranscoderClient, CreatePresetCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
+ * const client = new ElasticTranscoderClient(config);
+ * const command = new CreatePresetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePresetCommandInput} for command's `input` shape.
+ * @see {@link CreatePresetCommandOutput} for command's `response` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePresetCommand extends $Command<
   CreatePresetCommandInput,

@@ -22,6 +22,20 @@ export interface UnarchiveFindingsCommandOutput extends UnarchiveFindingsRespons
 
 /**
  * <p>Unarchives GuardDuty findings specified by the <code>findingIds</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GuardDutyClient, UnarchiveFindingsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, UnarchiveFindingsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * const client = new GuardDutyClient(config);
+ * const command = new UnarchiveFindingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UnarchiveFindingsCommandInput} for command's `input` shape.
+ * @see {@link UnarchiveFindingsCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UnarchiveFindingsCommand extends $Command<
   UnarchiveFindingsCommandInput,

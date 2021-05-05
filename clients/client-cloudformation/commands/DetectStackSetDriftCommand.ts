@@ -66,6 +66,20 @@ export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOut
  *          <p>To stop a drift detection stack set operation, use <code>
  *                <a>StopStackSetOperation</a>
  *             </code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFormationClient, DetectStackSetDriftCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, DetectStackSetDriftCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * const client = new CloudFormationClient(config);
+ * const command = new DetectStackSetDriftCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetectStackSetDriftCommandInput} for command's `input` shape.
+ * @see {@link DetectStackSetDriftCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetectStackSetDriftCommand extends $Command<
   DetectStackSetDriftCommandInput,

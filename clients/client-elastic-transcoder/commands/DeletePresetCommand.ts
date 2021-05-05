@@ -29,6 +29,20 @@ export interface DeletePresetCommandOutput extends DeletePresetResponse, __Metad
  *         <note>
  *             <p>You can't delete the default presets that are included with Elastic Transcoder.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticTranscoderClient, DeletePresetCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
+ * // const { ElasticTranscoderClient, DeletePresetCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
+ * const client = new ElasticTranscoderClient(config);
+ * const command = new DeletePresetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePresetCommandInput} for command's `input` shape.
+ * @see {@link DeletePresetCommandOutput} for command's `response` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePresetCommand extends $Command<
   DeletePresetCommandInput,

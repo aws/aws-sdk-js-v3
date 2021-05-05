@@ -24,6 +24,20 @@ export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __Metadat
  * <p>Returns a list of pronunciation lexicons stored in an AWS Region. For more information,
  *       see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing
  *         Lexicons</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PollyClient, ListLexiconsCommand } from "@aws-sdk/client-polly"; // ES Modules import
+ * // const { PollyClient, ListLexiconsCommand } = require("@aws-sdk/client-polly"); // CommonJS import
+ * const client = new PollyClient(config);
+ * const command = new ListLexiconsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListLexiconsCommandInput} for command's `input` shape.
+ * @see {@link ListLexiconsCommandOutput} for command's `response` shape.
+ * @see {@link PollyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListLexiconsCommand extends $Command<
   ListLexiconsCommandInput,

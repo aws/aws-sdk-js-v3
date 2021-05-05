@@ -26,6 +26,20 @@ export interface GetSSHPublicKeyCommandOutput extends GetSSHPublicKeyResponse, _
  *             associated IAM user to an AWS CodeCommit repository. For more information about using SSH keys
  *             to authenticate to an AWS CodeCommit repository, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html">Set up AWS CodeCommit for SSH
  *                 connections</a> in the <i>AWS CodeCommit User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, GetSSHPublicKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, GetSSHPublicKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new GetSSHPublicKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSSHPublicKeyCommandInput} for command's `input` shape.
+ * @see {@link GetSSHPublicKeyCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSSHPublicKeyCommand extends $Command<
   GetSSHPublicKeyCommandInput,

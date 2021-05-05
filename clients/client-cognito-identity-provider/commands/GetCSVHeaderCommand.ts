@@ -28,6 +28,20 @@ export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __Metad
 /**
  * <p>Gets the header information for the .csv file to be used as input for the user import
  *             job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, GetCSVHeaderCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, GetCSVHeaderCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new GetCSVHeaderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCSVHeaderCommandInput} for command's `input` shape.
+ * @see {@link GetCSVHeaderCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCSVHeaderCommand extends $Command<
   GetCSVHeaderCommandInput,

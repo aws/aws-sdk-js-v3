@@ -25,6 +25,20 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, _
  *             quantity for an offering, unless the renewal was overridden. The API returns a <code>NotEligible</code>
  *             error if the user is not permitted to invoke the operation. If you must be able to invoke this operation,
  *             contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, PurchaseOfferingCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, PurchaseOfferingCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new PurchaseOfferingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PurchaseOfferingCommandInput} for command's `input` shape.
+ * @see {@link PurchaseOfferingCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PurchaseOfferingCommand extends $Command<
   PurchaseOfferingCommandInput,

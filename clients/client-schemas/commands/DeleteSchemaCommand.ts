@@ -22,6 +22,20 @@ export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete a schema definition.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SchemasClient, DeleteSchemaCommand } from "@aws-sdk/client-schemas"; // ES Modules import
+ * // const { SchemasClient, DeleteSchemaCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * const client = new SchemasClient(config);
+ * const command = new DeleteSchemaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSchemaCommandInput} for command's `input` shape.
+ * @see {@link DeleteSchemaCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSchemaCommand extends $Command<
   DeleteSchemaCommandInput,

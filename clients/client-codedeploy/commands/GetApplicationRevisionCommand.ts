@@ -22,6 +22,20 @@ export interface GetApplicationRevisionCommandOutput extends GetApplicationRevis
 
 /**
  * <p>Gets information about an application revision.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeDeployClient, GetApplicationRevisionCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
+ * // const { CodeDeployClient, GetApplicationRevisionCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * const client = new CodeDeployClient(config);
+ * const command = new GetApplicationRevisionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetApplicationRevisionCommandInput} for command's `input` shape.
+ * @see {@link GetApplicationRevisionCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetApplicationRevisionCommand extends $Command<
   GetApplicationRevisionCommandInput,

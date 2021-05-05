@@ -28,6 +28,20 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  *             <p>You must specify either the <code>TemplateS3Uri</code> or the <code>TemplateBody</code> parameter, but not both.
  * 			If you provide both AWS Config uses the <code>TemplateS3Uri</code> parameter and ignores the <code>TemplateBody</code> parameter.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConfigServiceClient, PutConformancePackCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, PutConformancePackCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * const client = new ConfigServiceClient(config);
+ * const command = new PutConformancePackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutConformancePackCommandInput} for command's `input` shape.
+ * @see {@link PutConformancePackCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutConformancePackCommand extends $Command<
   PutConformancePackCommandInput,

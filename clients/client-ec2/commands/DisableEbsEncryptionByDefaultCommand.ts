@@ -30,6 +30,20 @@ export interface DisableEbsEncryptionByDefaultCommandOutput
  *       existing volumes.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the
  *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DisableEbsEncryptionByDefaultCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DisableEbsEncryptionByDefaultCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DisableEbsEncryptionByDefaultCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableEbsEncryptionByDefaultCommandInput} for command's `input` shape.
+ * @see {@link DisableEbsEncryptionByDefaultCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableEbsEncryptionByDefaultCommand extends $Command<
   DisableEbsEncryptionByDefaultCommandInput,

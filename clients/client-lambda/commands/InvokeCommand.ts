@@ -45,6 +45,20 @@ export interface InvokeCommandOutput extends InvocationResponse, __MetadataBeare
  *       connections with timeout or keep-alive settings.</p>
  *
  *          <p>This operation requires permission for the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html">lambda:InvokeFunction</a> action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, InvokeCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * const client = new LambdaClient(config);
+ * const command = new InvokeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InvokeCommandInput} for command's `input` shape.
+ * @see {@link InvokeCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOutput, LambdaClientResolvedConfig> {
   // Start section: command_properties

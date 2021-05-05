@@ -23,6 +23,20 @@ export interface DescribeTopicsDetectionJobCommandOutput extends DescribeTopicsD
 /**
  * <p>Gets the properties associated with a topic detection job. Use this operation to get
  *       the status of a detection job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ComprehendClient, DescribeTopicsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, DescribeTopicsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * const client = new ComprehendClient(config);
+ * const command = new DescribeTopicsDetectionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTopicsDetectionJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeTopicsDetectionJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTopicsDetectionJobCommand extends $Command<
   DescribeTopicsDetectionJobCommandInput,

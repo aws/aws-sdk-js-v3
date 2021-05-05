@@ -25,6 +25,20 @@ export interface GetAppReplicationConfigurationCommandOutput
 /**
  * <p>Retrieves the application replication configuration associated with the specified
  *             application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SMSClient, GetAppReplicationConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
+ * // const { SMSClient, GetAppReplicationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * const client = new SMSClient(config);
+ * const command = new GetAppReplicationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAppReplicationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetAppReplicationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAppReplicationConfigurationCommand extends $Command<
   GetAppReplicationConfigurationCommandInput,

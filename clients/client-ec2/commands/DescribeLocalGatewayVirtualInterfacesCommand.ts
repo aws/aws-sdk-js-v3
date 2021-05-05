@@ -28,6 +28,20 @@ export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
 
 /**
  * <p>Describes the specified local gateway virtual interfaces.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DescribeLocalGatewayVirtualInterfacesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeLocalGatewayVirtualInterfacesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DescribeLocalGatewayVirtualInterfacesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLocalGatewayVirtualInterfacesCommandInput} for command's `input` shape.
+ * @see {@link DescribeLocalGatewayVirtualInterfacesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
   DescribeLocalGatewayVirtualInterfacesCommandInput,

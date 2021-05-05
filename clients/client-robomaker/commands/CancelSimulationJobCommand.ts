@@ -22,6 +22,20 @@ export interface CancelSimulationJobCommandOutput extends CancelSimulationJobRes
 
 /**
  * <p>Cancels the specified simulation job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RoboMakerClient, CancelSimulationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
+ * // const { RoboMakerClient, CancelSimulationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * const client = new RoboMakerClient(config);
+ * const command = new CancelSimulationJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelSimulationJobCommandInput} for command's `input` shape.
+ * @see {@link CancelSimulationJobCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelSimulationJobCommand extends $Command<
   CancelSimulationJobCommandInput,

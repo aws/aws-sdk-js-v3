@@ -47,6 +47,20 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, DeleteObjectTaggingCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, DeleteObjectTaggingCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new DeleteObjectTaggingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteObjectTaggingCommandInput} for command's `input` shape.
+ * @see {@link DeleteObjectTaggingCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteObjectTaggingCommand extends $Command<
   DeleteObjectTaggingCommandInput,

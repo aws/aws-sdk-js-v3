@@ -23,6 +23,20 @@ export interface ListDetectorModelsCommandOutput extends ListDetectorModelsRespo
 /**
  * <p>Lists the detector models you have created. Only the metadata associated with each
  *       detector model is returned.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTEventsClient, ListDetectorModelsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
+ * // const { IoTEventsClient, ListDetectorModelsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * const client = new IoTEventsClient(config);
+ * const command = new ListDetectorModelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDetectorModelsCommandInput} for command's `input` shape.
+ * @see {@link ListDetectorModelsCommandOutput} for command's `response` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDetectorModelsCommand extends $Command<
   ListDetectorModelsCommandInput,

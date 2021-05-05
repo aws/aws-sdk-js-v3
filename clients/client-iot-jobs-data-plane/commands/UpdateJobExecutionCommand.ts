@@ -22,6 +22,20 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
 
 /**
  * <p>Updates the status of a job execution.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTJobsDataPlaneClient, UpdateJobExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
+ * // const { IoTJobsDataPlaneClient, UpdateJobExecutionCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
+ * const client = new IoTJobsDataPlaneClient(config);
+ * const command = new UpdateJobExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateJobExecutionCommandInput} for command's `input` shape.
+ * @see {@link UpdateJobExecutionCommandOutput} for command's `response` shape.
+ * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateJobExecutionCommand extends $Command<
   UpdateJobExecutionCommandInput,

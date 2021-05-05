@@ -22,6 +22,20 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
 
 /**
  * <p>Updates multiple LaunchConfigurations by Source Server ID.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MgnClient, UpdateLaunchConfigurationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
+ * // const { MgnClient, UpdateLaunchConfigurationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * const client = new MgnClient(config);
+ * const command = new UpdateLaunchConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateLaunchConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateLaunchConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateLaunchConfigurationCommand extends $Command<
   UpdateLaunchConfigurationCommandInput,

@@ -28,6 +28,20 @@ export interface SubmitAttachmentStateChangesCommandOutput
  *          </note>
  *          <p>Sent to
  * 			acknowledge that an attachment changed states.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECSClient, SubmitAttachmentStateChangesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, SubmitAttachmentStateChangesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * const client = new ECSClient(config);
+ * const command = new SubmitAttachmentStateChangesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SubmitAttachmentStateChangesCommandInput} for command's `input` shape.
+ * @see {@link SubmitAttachmentStateChangesCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SubmitAttachmentStateChangesCommand extends $Command<
   SubmitAttachmentStateChangesCommandInput,

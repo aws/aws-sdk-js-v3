@@ -31,6 +31,20 @@ export interface StopKeyPhrasesDetectionJobCommandOutput extends StopKeyPhrasesD
  *       Internal Request Exception. </p>
  *          <p>When a job is stopped, any documents already processed are written to the output
  *       location.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ComprehendClient, StopKeyPhrasesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, StopKeyPhrasesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * const client = new ComprehendClient(config);
+ * const command = new StopKeyPhrasesDetectionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopKeyPhrasesDetectionJobCommandInput} for command's `input` shape.
+ * @see {@link StopKeyPhrasesDetectionJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopKeyPhrasesDetectionJobCommand extends $Command<
   StopKeyPhrasesDetectionJobCommandInput,

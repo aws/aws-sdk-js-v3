@@ -28,6 +28,20 @@ export interface DescribeComponentConfigurationCommandOutput
 
 /**
  * <p>Describes the monitoring configuration of the component.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApplicationInsightsClient, DescribeComponentConfigurationCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
+ * // const { ApplicationInsightsClient, DescribeComponentConfigurationCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
+ * const client = new ApplicationInsightsClient(config);
+ * const command = new DescribeComponentConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeComponentConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeComponentConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeComponentConfigurationCommand extends $Command<
   DescribeComponentConfigurationCommandInput,

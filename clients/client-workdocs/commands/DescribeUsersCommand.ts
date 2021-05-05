@@ -26,6 +26,20 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  *         <p>By default, Amazon WorkDocs returns the first 24 active or pending users. If there
  *             are more results, the response includes a marker that you can use to request the next
  *             set of results.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkDocsClient, DescribeUsersCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
+ * // const { WorkDocsClient, DescribeUsersCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * const client = new WorkDocsClient(config);
+ * const command = new DescribeUsersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeUsersCommandInput} for command's `input` shape.
+ * @see {@link DescribeUsersCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeUsersCommand extends $Command<
   DescribeUsersCommandInput,

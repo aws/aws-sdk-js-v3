@@ -22,6 +22,20 @@ export interface GetEmailChannelCommandOutput extends GetEmailChannelResponse, _
 
 /**
  * <p>Retrieves information about the status and settings of the email channel for an application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointClient, GetEmailChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, GetEmailChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * const client = new PinpointClient(config);
+ * const command = new GetEmailChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEmailChannelCommandInput} for command's `input` shape.
+ * @see {@link GetEmailChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEmailChannelCommand extends $Command<
   GetEmailChannelCommandInput,

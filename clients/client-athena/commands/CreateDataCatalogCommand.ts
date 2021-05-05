@@ -23,6 +23,20 @@ export interface CreateDataCatalogCommandOutput extends CreateDataCatalogOutput,
 /**
  * <p>Creates (registers) a data catalog with the specified name and properties. Catalogs
  *             created are visible to all users of the same AWS account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AthenaClient, CreateDataCatalogCommand } from "@aws-sdk/client-athena"; // ES Modules import
+ * // const { AthenaClient, CreateDataCatalogCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * const client = new AthenaClient(config);
+ * const command = new CreateDataCatalogCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDataCatalogCommandInput} for command's `input` shape.
+ * @see {@link CreateDataCatalogCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDataCatalogCommand extends $Command<
   CreateDataCatalogCommandInput,

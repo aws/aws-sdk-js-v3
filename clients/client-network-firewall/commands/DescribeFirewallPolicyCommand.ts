@@ -22,6 +22,20 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
 
 /**
  * <p>Returns the data objects for the specified firewall policy. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NetworkFirewallClient, DescribeFirewallPolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
+ * // const { NetworkFirewallClient, DescribeFirewallPolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * const client = new NetworkFirewallClient(config);
+ * const command = new DescribeFirewallPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFirewallPolicyCommandInput} for command's `input` shape.
+ * @see {@link DescribeFirewallPolicyCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFirewallPolicyCommand extends $Command<
   DescribeFirewallPolicyCommandInput,

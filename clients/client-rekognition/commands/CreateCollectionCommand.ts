@@ -34,6 +34,20 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  *
  *          <p>This operation requires permissions to perform the
  *         <code>rekognition:CreateCollection</code> action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RekognitionClient, CreateCollectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, CreateCollectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * const client = new RekognitionClient(config);
+ * const command = new CreateCollectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCollectionCommandInput} for command's `input` shape.
+ * @see {@link CreateCollectionCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCollectionCommand extends $Command<
   CreateCollectionCommandInput,

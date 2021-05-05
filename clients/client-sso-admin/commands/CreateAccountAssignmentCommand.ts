@@ -31,6 +31,20 @@ export interface CreateAccountAssignmentCommandOutput extends CreateAccountAssig
  *                   <a>ProvisionPermissionSet</a>
  *                </code> to make these updates.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSOAdminClient, CreateAccountAssignmentCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
+ * // const { SSOAdminClient, CreateAccountAssignmentCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * const client = new SSOAdminClient(config);
+ * const command = new CreateAccountAssignmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAccountAssignmentCommandInput} for command's `input` shape.
+ * @see {@link CreateAccountAssignmentCommandOutput} for command's `response` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAccountAssignmentCommand extends $Command<
   CreateAccountAssignmentCommandInput,

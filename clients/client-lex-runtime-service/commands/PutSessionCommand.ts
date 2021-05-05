@@ -30,6 +30,20 @@ export interface PutSessionCommandOutput extends PutSessionResponse, __MetadataB
  *       bot.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html">Managing
  *         Sessions</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexRuntimeServiceClient, PutSessionCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
+ * // const { LexRuntimeServiceClient, PutSessionCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import
+ * const client = new LexRuntimeServiceClient(config);
+ * const command = new PutSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutSessionCommandInput} for command's `input` shape.
+ * @see {@link PutSessionCommandOutput} for command's `response` shape.
+ * @see {@link LexRuntimeServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutSessionCommand extends $Command<
   PutSessionCommandInput,

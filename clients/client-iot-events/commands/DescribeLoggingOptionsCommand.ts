@@ -22,6 +22,20 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
 
 /**
  * <p>Retrieves the current settings of the AWS IoT Events logging options.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTEventsClient, DescribeLoggingOptionsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
+ * // const { IoTEventsClient, DescribeLoggingOptionsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * const client = new IoTEventsClient(config);
+ * const command = new DescribeLoggingOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLoggingOptionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeLoggingOptionsCommandOutput} for command's `response` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLoggingOptionsCommand extends $Command<
   DescribeLoggingOptionsCommandInput,

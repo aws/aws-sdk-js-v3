@@ -36,6 +36,20 @@ export interface AttachRolePolicyCommandOutput extends __MetadataBearer {}
  *         <p>As a best practice, you can validate your IAM policies.
  *      To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html">Validating IAM policies</a>
  *             in the <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, AttachRolePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, AttachRolePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new AttachRolePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AttachRolePolicyCommandInput} for command's `input` shape.
+ * @see {@link AttachRolePolicyCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AttachRolePolicyCommand extends $Command<
   AttachRolePolicyCommandInput,

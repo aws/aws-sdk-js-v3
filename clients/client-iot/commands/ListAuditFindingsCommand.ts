@@ -23,6 +23,20 @@ export interface ListAuditFindingsCommandOutput extends ListAuditFindingsRespons
 /**
  * <p>Lists the findings (results) of a Device Defender audit or of the audits
  *         performed during a specified time period. (Findings are retained for 90 days.)</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, ListAuditFindingsCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListAuditFindingsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new ListAuditFindingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAuditFindingsCommandInput} for command's `input` shape.
+ * @see {@link ListAuditFindingsCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAuditFindingsCommand extends $Command<
   ListAuditFindingsCommandInput,

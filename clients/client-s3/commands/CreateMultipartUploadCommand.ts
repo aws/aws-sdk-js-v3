@@ -285,6 +285,20 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, CreateMultipartUploadCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, CreateMultipartUploadCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new CreateMultipartUploadCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMultipartUploadCommandInput} for command's `input` shape.
+ * @see {@link CreateMultipartUploadCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMultipartUploadCommand extends $Command<
   CreateMultipartUploadCommandInput,

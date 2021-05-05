@@ -25,6 +25,20 @@ export interface AssociateProductWithPortfolioCommandOutput
 /**
  * <p>Associates the specified product with the specified portfolio.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, AssociateProductWithPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, AssociateProductWithPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new AssociateProductWithPortfolioCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateProductWithPortfolioCommandInput} for command's `input` shape.
+ * @see {@link AssociateProductWithPortfolioCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateProductWithPortfolioCommand extends $Command<
   AssociateProductWithPortfolioCommandInput,

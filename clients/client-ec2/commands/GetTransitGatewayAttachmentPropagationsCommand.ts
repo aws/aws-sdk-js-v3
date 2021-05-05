@@ -28,6 +28,20 @@ export interface GetTransitGatewayAttachmentPropagationsCommandOutput
 
 /**
  * <p>Lists the route tables to which the specified resource attachment propagates routes.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, GetTransitGatewayAttachmentPropagationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, GetTransitGatewayAttachmentPropagationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new GetTransitGatewayAttachmentPropagationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTransitGatewayAttachmentPropagationsCommandInput} for command's `input` shape.
+ * @see {@link GetTransitGatewayAttachmentPropagationsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTransitGatewayAttachmentPropagationsCommand extends $Command<
   GetTransitGatewayAttachmentPropagationsCommandInput,

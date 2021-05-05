@@ -29,6 +29,20 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  *          <p>Once the index is active you can index your documents using the
  *         <code>BatchPutDocument</code> operation or using one of the supported
  *       data sources. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KendraClient, CreateIndexCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, CreateIndexCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * const client = new KendraClient(config);
+ * const command = new CreateIndexCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateIndexCommandInput} for command's `input` shape.
+ * @see {@link CreateIndexCommandOutput} for command's `response` shape.
+ * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateIndexCommand extends $Command<
   CreateIndexCommandInput,

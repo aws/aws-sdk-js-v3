@@ -29,6 +29,20 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesResult, _
  *        objects. Each <code>RepositorySummary</code> contains information about a repository in the specified AWS account and that matches the input
  *        parameters.
  *      </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeartifactClient, ListRepositoriesCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
+ * // const { CodeartifactClient, ListRepositoriesCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * const client = new CodeartifactClient(config);
+ * const command = new ListRepositoriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRepositoriesCommandInput} for command's `input` shape.
+ * @see {@link ListRepositoriesCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRepositoriesCommand extends $Command<
   ListRepositoriesCommandInput,

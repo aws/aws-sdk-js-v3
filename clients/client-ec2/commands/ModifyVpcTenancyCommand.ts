@@ -29,6 +29,20 @@ export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, _
  *             The tenancy of any existing instances in the VPC is not affected.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
  * 				<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, ModifyVpcTenancyCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, ModifyVpcTenancyCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new ModifyVpcTenancyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyVpcTenancyCommandInput} for command's `input` shape.
+ * @see {@link ModifyVpcTenancyCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyVpcTenancyCommand extends $Command<
   ModifyVpcTenancyCommandInput,

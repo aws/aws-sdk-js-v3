@@ -24,6 +24,20 @@ export interface GetWirelessGatewayStatisticsCommandOutput
 
 /**
  * <p>Gets operating information about a wireless gateway.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTWirelessClient, GetWirelessGatewayStatisticsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, GetWirelessGatewayStatisticsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * const client = new IoTWirelessClient(config);
+ * const command = new GetWirelessGatewayStatisticsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetWirelessGatewayStatisticsCommandInput} for command's `input` shape.
+ * @see {@link GetWirelessGatewayStatisticsCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetWirelessGatewayStatisticsCommand extends $Command<
   GetWirelessGatewayStatisticsCommandInput,

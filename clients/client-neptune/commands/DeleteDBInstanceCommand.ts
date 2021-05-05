@@ -35,6 +35,20 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  *       <code>true</code>.</p>
  *          <p>You can't delete a DB instance if it is the only instance in the DB cluster, or
  *       if it has deletion protection enabled.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NeptuneClient, DeleteDBInstanceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, DeleteDBInstanceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * const client = new NeptuneClient(config);
+ * const command = new DeleteDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDBInstanceCommandInput} for command's `input` shape.
+ * @see {@link DeleteDBInstanceCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDBInstanceCommand extends $Command<
   DeleteDBInstanceCommandInput,

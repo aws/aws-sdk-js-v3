@@ -23,6 +23,20 @@ export interface GetInstanceCommandOutput extends GetInstanceResult, __MetadataB
 /**
  * <p>Returns information about a specific Amazon Lightsail instance, which is a virtual private
  *       server.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LightsailClient, GetInstanceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetInstanceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * const client = new LightsailClient(config);
+ * const command = new GetInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetInstanceCommandInput} for command's `input` shape.
+ * @see {@link GetInstanceCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetInstanceCommand extends $Command<
   GetInstanceCommandInput,

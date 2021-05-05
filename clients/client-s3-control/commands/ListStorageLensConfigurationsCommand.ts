@@ -34,6 +34,20 @@ export interface ListStorageLensConfigurationsCommandOutput
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
  *          <i>Amazon Simple Storage Service User Guide</i>.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3ControlClient, ListStorageLensConfigurationsCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
+ * // const { S3ControlClient, ListStorageLensConfigurationsCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * const client = new S3ControlClient(config);
+ * const command = new ListStorageLensConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListStorageLensConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link ListStorageLensConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListStorageLensConfigurationsCommand extends $Command<
   ListStorageLensConfigurationsCommandInput,

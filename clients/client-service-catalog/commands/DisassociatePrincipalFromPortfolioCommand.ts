@@ -25,6 +25,20 @@ export interface DisassociatePrincipalFromPortfolioCommandOutput
 /**
  * <p>Disassociates a previously associated principal ARN from a specified
  *          portfolio.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, DisassociatePrincipalFromPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, DisassociatePrincipalFromPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DisassociatePrincipalFromPortfolioCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociatePrincipalFromPortfolioCommandInput} for command's `input` shape.
+ * @see {@link DisassociatePrincipalFromPortfolioCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociatePrincipalFromPortfolioCommand extends $Command<
   DisassociatePrincipalFromPortfolioCommandInput,

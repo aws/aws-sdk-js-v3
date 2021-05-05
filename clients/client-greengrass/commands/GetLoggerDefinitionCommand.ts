@@ -22,6 +22,20 @@ export interface GetLoggerDefinitionCommandOutput extends GetLoggerDefinitionRes
 
 /**
  * Retrieves information about a logger definition.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassClient, GetLoggerDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, GetLoggerDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * const client = new GreengrassClient(config);
+ * const command = new GetLoggerDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLoggerDefinitionCommandInput} for command's `input` shape.
+ * @see {@link GetLoggerDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLoggerDefinitionCommand extends $Command<
   GetLoggerDefinitionCommandInput,

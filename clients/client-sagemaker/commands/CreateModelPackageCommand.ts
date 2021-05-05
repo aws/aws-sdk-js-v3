@@ -41,6 +41,20 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *                 </li>
  *             </ul>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, CreateModelPackageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, CreateModelPackageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new CreateModelPackageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateModelPackageCommandInput} for command's `input` shape.
+ * @see {@link CreateModelPackageCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateModelPackageCommand extends $Command<
   CreateModelPackageCommandInput,

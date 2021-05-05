@@ -22,6 +22,20 @@ export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryRespons
 
 /**
  * <p>Deletes the stored query for a single AWS account and a single AWS Region.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConfigServiceClient, DeleteStoredQueryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, DeleteStoredQueryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * const client = new ConfigServiceClient(config);
+ * const command = new DeleteStoredQueryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteStoredQueryCommandInput} for command's `input` shape.
+ * @see {@link DeleteStoredQueryCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteStoredQueryCommand extends $Command<
   DeleteStoredQueryCommandInput,

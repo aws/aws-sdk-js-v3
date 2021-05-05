@@ -121,6 +121,20 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  *       passing image bytes isn't supported. The image must be formatted as a PNG or JPEG file. </p>
  *          <p>This operation requires permissions to perform the <code>rekognition:IndexFaces</code>
  *       action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RekognitionClient, IndexFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, IndexFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * const client = new RekognitionClient(config);
+ * const command = new IndexFacesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link IndexFacesCommandInput} for command's `input` shape.
+ * @see {@link IndexFacesCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class IndexFacesCommand extends $Command<
   IndexFacesCommandInput,

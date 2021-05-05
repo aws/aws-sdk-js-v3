@@ -22,6 +22,20 @@ export interface CreateVpcLinkCommandOutput extends CreateVpcLinkResponse, __Met
 
 /**
  * <p>Creates a VPC link.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApiGatewayV2Client, CreateVpcLinkCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
+ * // const { ApiGatewayV2Client, CreateVpcLinkCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new CreateVpcLinkCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVpcLinkCommandInput} for command's `input` shape.
+ * @see {@link CreateVpcLinkCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateVpcLinkCommand extends $Command<
   CreateVpcLinkCommandInput,

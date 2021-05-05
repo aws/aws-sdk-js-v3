@@ -42,6 +42,20 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  *       because groups are used by Ground Truth and Amazon A2I to create work teams.
  *       For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private-oidc.html">
  *       Create a Private Workforce (OIDC IdP)</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, CreateWorkforceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, CreateWorkforceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new CreateWorkforceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateWorkforceCommandInput} for command's `input` shape.
+ * @see {@link CreateWorkforceCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateWorkforceCommand extends $Command<
   CreateWorkforceCommandInput,

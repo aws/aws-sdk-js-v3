@@ -28,6 +28,20 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
 
 /**
  * <p>Associates a partner account with your AWS account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTWirelessClient, AssociateAwsAccountWithPartnerAccountCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, AssociateAwsAccountWithPartnerAccountCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * const client = new IoTWirelessClient(config);
+ * const command = new AssociateAwsAccountWithPartnerAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateAwsAccountWithPartnerAccountCommandInput} for command's `input` shape.
+ * @see {@link AssociateAwsAccountWithPartnerAccountCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateAwsAccountWithPartnerAccountCommand extends $Command<
   AssociateAwsAccountWithPartnerAccountCommandInput,

@@ -22,6 +22,20 @@ export interface CancelWorldGenerationJobCommandOutput extends CancelWorldGenera
 
 /**
  * <p>Cancels the specified world generator job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RoboMakerClient, CancelWorldGenerationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
+ * // const { RoboMakerClient, CancelWorldGenerationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * const client = new RoboMakerClient(config);
+ * const command = new CancelWorldGenerationJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelWorldGenerationJobCommandInput} for command's `input` shape.
+ * @see {@link CancelWorldGenerationJobCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelWorldGenerationJobCommand extends $Command<
   CancelWorldGenerationJobCommandInput,

@@ -32,6 +32,20 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  *          <p> You can use the inferred schema when configuring a streaming source for your application.
  *       When you create an application using the Kinesis Data Analytics console, the console uses this
  *       operation to infer a schema and show it in the console user interface. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisAnalyticsV2Client, DiscoverInputSchemaCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, DiscoverInputSchemaCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * const client = new KinesisAnalyticsV2Client(config);
+ * const command = new DiscoverInputSchemaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DiscoverInputSchemaCommandInput} for command's `input` shape.
+ * @see {@link DiscoverInputSchemaCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DiscoverInputSchemaCommand extends $Command<
   DiscoverInputSchemaCommandInput,

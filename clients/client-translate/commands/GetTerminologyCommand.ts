@@ -22,6 +22,20 @@ export interface GetTerminologyCommandOutput extends GetTerminologyResponse, __M
 
 /**
  * <p>Retrieves a custom terminology.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TranslateClient, GetTerminologyCommand } from "@aws-sdk/client-translate"; // ES Modules import
+ * // const { TranslateClient, GetTerminologyCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * const client = new TranslateClient(config);
+ * const command = new GetTerminologyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTerminologyCommandInput} for command's `input` shape.
+ * @see {@link GetTerminologyCommandOutput} for command's `response` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTerminologyCommand extends $Command<
   GetTerminologyCommandInput,

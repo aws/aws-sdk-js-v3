@@ -28,6 +28,20 @@ export interface StartOnDemandReplicationRunCommandOutput
  *             already scheduled.</p>
  *         <p>There is a limit on the number of on-demand replications runs that you can request
  *             in a 24-hour period.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SMSClient, StartOnDemandReplicationRunCommand } from "@aws-sdk/client-sms"; // ES Modules import
+ * // const { SMSClient, StartOnDemandReplicationRunCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * const client = new SMSClient(config);
+ * const command = new StartOnDemandReplicationRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartOnDemandReplicationRunCommandInput} for command's `input` shape.
+ * @see {@link StartOnDemandReplicationRunCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartOnDemandReplicationRunCommand extends $Command<
   StartOnDemandReplicationRunCommandInput,

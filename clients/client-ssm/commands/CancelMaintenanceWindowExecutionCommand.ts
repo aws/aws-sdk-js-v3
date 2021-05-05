@@ -26,6 +26,20 @@ export interface CancelMaintenanceWindowExecutionCommandOutput
  * <p>Stops a maintenance window execution that is already in progress and cancels any tasks in
  *    the window that have not already starting running. (Tasks already in progress will continue to
  *    completion.)</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, CancelMaintenanceWindowExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, CancelMaintenanceWindowExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new CancelMaintenanceWindowExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelMaintenanceWindowExecutionCommandInput} for command's `input` shape.
+ * @see {@link CancelMaintenanceWindowExecutionCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelMaintenanceWindowExecutionCommand extends $Command<
   CancelMaintenanceWindowExecutionCommandInput,

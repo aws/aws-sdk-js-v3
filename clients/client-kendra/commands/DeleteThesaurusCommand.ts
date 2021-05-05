@@ -23,6 +23,20 @@ export interface DeleteThesaurusCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes an existing Amazon Kendra thesaurus.
  *       </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KendraClient, DeleteThesaurusCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, DeleteThesaurusCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * const client = new KendraClient(config);
+ * const command = new DeleteThesaurusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteThesaurusCommandInput} for command's `input` shape.
+ * @see {@link DeleteThesaurusCommandOutput} for command's `response` shape.
+ * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteThesaurusCommand extends $Command<
   DeleteThesaurusCommandInput,

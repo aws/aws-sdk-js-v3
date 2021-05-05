@@ -26,6 +26,20 @@ export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomai
 
 /**
  * <p>Lists all packages associated with the Amazon ES domain.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticsearchServiceClient, ListPackagesForDomainCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
+ * // const { ElasticsearchServiceClient, ListPackagesForDomainCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new ListPackagesForDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPackagesForDomainCommandInput} for command's `input` shape.
+ * @see {@link ListPackagesForDomainCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPackagesForDomainCommand extends $Command<
   ListPackagesForDomainCommandInput,

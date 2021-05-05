@@ -22,6 +22,20 @@ export interface CloneBackendCommandOutput extends CloneBackendResponse, __Metad
 
 /**
  * <p>This operation clones an existing backend.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmplifyBackendClient, CloneBackendCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
+ * // const { AmplifyBackendClient, CloneBackendCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * const client = new AmplifyBackendClient(config);
+ * const command = new CloneBackendCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CloneBackendCommandInput} for command's `input` shape.
+ * @see {@link CloneBackendCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CloneBackendCommand extends $Command<
   CloneBackendCommandInput,

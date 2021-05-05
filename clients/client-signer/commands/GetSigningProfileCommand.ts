@@ -22,6 +22,20 @@ export interface GetSigningProfileCommandOutput extends GetSigningProfileRespons
 
 /**
  * <p>Returns information on a specific signing profile.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SignerClient, GetSigningProfileCommand } from "@aws-sdk/client-signer"; // ES Modules import
+ * // const { SignerClient, GetSigningProfileCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * const client = new SignerClient(config);
+ * const command = new GetSigningProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSigningProfileCommandInput} for command's `input` shape.
+ * @see {@link GetSigningProfileCommandOutput} for command's `response` shape.
+ * @see {@link SignerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSigningProfileCommand extends $Command<
   GetSigningProfileCommandInput,

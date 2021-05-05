@@ -27,6 +27,20 @@ export interface AssociateWirelessGatewayWithThingCommandOutput
 
 /**
  * <p>Associates a wireless gateway with a thing.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTWirelessClient, AssociateWirelessGatewayWithThingCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, AssociateWirelessGatewayWithThingCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * const client = new IoTWirelessClient(config);
+ * const command = new AssociateWirelessGatewayWithThingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateWirelessGatewayWithThingCommandInput} for command's `input` shape.
+ * @see {@link AssociateWirelessGatewayWithThingCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateWirelessGatewayWithThingCommand extends $Command<
   AssociateWirelessGatewayWithThingCommandInput,

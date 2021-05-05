@@ -29,6 +29,20 @@ export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyR
  *  <a href="https://docs.aws.amazon.com/serverlessrepo/latest/devguide/access-control-resource-based.html#application-permissions">Application
  *  Permissions</a>
  *  .</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServerlessApplicationRepositoryClient, PutApplicationPolicyCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
+ * // const { ServerlessApplicationRepositoryClient, PutApplicationPolicyCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
+ * const client = new ServerlessApplicationRepositoryClient(config);
+ * const command = new PutApplicationPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutApplicationPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutApplicationPolicyCommandOutput} for command's `response` shape.
+ * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutApplicationPolicyCommand extends $Command<
   PutApplicationPolicyCommandInput,

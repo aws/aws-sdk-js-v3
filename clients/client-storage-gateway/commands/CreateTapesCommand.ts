@@ -28,6 +28,20 @@ export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataB
  *             <p>Cache storage must be allocated to the gateway before you can create virtual tapes.
  *             Use the <a>AddCache</a> operation to add cache storage to a gateway.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { StorageGatewayClient, CreateTapesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, CreateTapesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * const client = new StorageGatewayClient(config);
+ * const command = new CreateTapesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTapesCommandInput} for command's `input` shape.
+ * @see {@link CreateTapesCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTapesCommand extends $Command<
   CreateTapesCommandInput,

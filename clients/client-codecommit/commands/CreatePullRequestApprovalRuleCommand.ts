@@ -24,6 +24,20 @@ export interface CreatePullRequestApprovalRuleCommandOutput
 
 /**
  * <p>Creates an approval rule for a pull request.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeCommitClient, CreatePullRequestApprovalRuleCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, CreatePullRequestApprovalRuleCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * const client = new CodeCommitClient(config);
+ * const command = new CreatePullRequestApprovalRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePullRequestApprovalRuleCommandInput} for command's `input` shape.
+ * @see {@link CreatePullRequestApprovalRuleCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePullRequestApprovalRuleCommand extends $Command<
   CreatePullRequestApprovalRuleCommandInput,

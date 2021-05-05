@@ -24,6 +24,20 @@ export interface AssociateDelegateToResourceCommandOutput
 
 /**
  * <p>Adds a member (user or group) to the resource's set of delegates.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkMailClient, AssociateDelegateToResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, AssociateDelegateToResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * const client = new WorkMailClient(config);
+ * const command = new AssociateDelegateToResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateDelegateToResourceCommandInput} for command's `input` shape.
+ * @see {@link AssociateDelegateToResourceCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateDelegateToResourceCommand extends $Command<
   AssociateDelegateToResourceCommandInput,

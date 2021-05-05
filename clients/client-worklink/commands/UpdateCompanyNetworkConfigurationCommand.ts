@@ -27,6 +27,20 @@ export interface UpdateCompanyNetworkConfigurationCommandOutput
 
 /**
  * <p>Updates the company network configuration for the fleet.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkLinkClient, UpdateCompanyNetworkConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
+ * // const { WorkLinkClient, UpdateCompanyNetworkConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * const client = new WorkLinkClient(config);
+ * const command = new UpdateCompanyNetworkConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateCompanyNetworkConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateCompanyNetworkConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateCompanyNetworkConfigurationCommand extends $Command<
   UpdateCompanyNetworkConfigurationCommandInput,

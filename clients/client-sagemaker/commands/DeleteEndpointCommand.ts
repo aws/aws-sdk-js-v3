@@ -25,6 +25,20 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  *             endpoint was created. </p>
  *         <p>Amazon SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't
  *             need to use the <a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html">RevokeGrant</a> API call.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, DeleteEndpointCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DeleteEndpointCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEndpointCommandInput} for command's `input` shape.
+ * @see {@link DeleteEndpointCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEndpointCommand extends $Command<
   DeleteEndpointCommandInput,

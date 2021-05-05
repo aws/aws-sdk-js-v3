@@ -64,6 +64,20 @@ export interface SendBulkTemplatedEmailCommandOutput extends SendBulkTemplatedEm
  *                     limited by your account's maximum sending rate.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESClient, SendBulkTemplatedEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
+ * // const { SESClient, SendBulkTemplatedEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * const client = new SESClient(config);
+ * const command = new SendBulkTemplatedEmailCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendBulkTemplatedEmailCommandInput} for command's `input` shape.
+ * @see {@link SendBulkTemplatedEmailCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendBulkTemplatedEmailCommand extends $Command<
   SendBulkTemplatedEmailCommandInput,

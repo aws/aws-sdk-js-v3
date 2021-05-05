@@ -27,6 +27,20 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  *       the SynthesizeSpeech operation.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing
  *         Lexicons</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PollyClient, PutLexiconCommand } from "@aws-sdk/client-polly"; // ES Modules import
+ * // const { PollyClient, PutLexiconCommand } = require("@aws-sdk/client-polly"); // CommonJS import
+ * const client = new PollyClient(config);
+ * const command = new PutLexiconCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutLexiconCommandInput} for command's `input` shape.
+ * @see {@link PutLexiconCommandOutput} for command's `response` shape.
+ * @see {@link PollyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutLexiconCommand extends $Command<
   PutLexiconCommandInput,

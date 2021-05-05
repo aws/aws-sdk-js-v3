@@ -23,6 +23,20 @@ export interface DescribeLocationsCommandOutput extends Locations, __MetadataBea
 /**
  * <p>Lists the AWS Direct Connect locations in the current AWS Region. These are the locations that can be selected when calling
  *       <a>CreateConnection</a> or <a>CreateInterconnect</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectConnectClient, DescribeLocationsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, DescribeLocationsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * const client = new DirectConnectClient(config);
+ * const command = new DescribeLocationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLocationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeLocationsCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLocationsCommand extends $Command<
   DescribeLocationsCommandInput,

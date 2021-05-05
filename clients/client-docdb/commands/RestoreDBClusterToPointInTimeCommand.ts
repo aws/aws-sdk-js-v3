@@ -28,6 +28,20 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *                 <code>BackupRetentionPeriod</code> days. The target cluster is created from the
  *             source cluster with the same configuration as the original cluster, except that
  *             the new cluster is created with the default security group. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DocDBClient, RestoreDBClusterToPointInTimeCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, RestoreDBClusterToPointInTimeCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * const client = new DocDBClient(config);
+ * const command = new RestoreDBClusterToPointInTimeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RestoreDBClusterToPointInTimeCommandInput} for command's `input` shape.
+ * @see {@link RestoreDBClusterToPointInTimeCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RestoreDBClusterToPointInTimeCommand extends $Command<
   RestoreDBClusterToPointInTimeCommandInput,

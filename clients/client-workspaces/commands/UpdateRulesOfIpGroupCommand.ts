@@ -23,6 +23,20 @@ export interface UpdateRulesOfIpGroupCommandOutput extends UpdateRulesOfIpGroupR
 /**
  * <p>Replaces the current rules of the specified IP access control group with the specified
  *          rules.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkSpacesClient, UpdateRulesOfIpGroupCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
+ * // const { WorkSpacesClient, UpdateRulesOfIpGroupCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * const client = new WorkSpacesClient(config);
+ * const command = new UpdateRulesOfIpGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRulesOfIpGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateRulesOfIpGroupCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRulesOfIpGroupCommand extends $Command<
   UpdateRulesOfIpGroupCommandInput,

@@ -30,6 +30,20 @@ export interface StartExportLabelsTaskRunCommandOutput extends StartExportLabels
  *       Service (Amazon S3) path to export the labels to. The operation returns a
  *         <code>TaskRunId</code>. You can check on the status of your task run by calling the
  *         <code>GetMLTaskRun</code> API.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, StartExportLabelsTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, StartExportLabelsTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new StartExportLabelsTaskRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartExportLabelsTaskRunCommandInput} for command's `input` shape.
+ * @see {@link StartExportLabelsTaskRunCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartExportLabelsTaskRunCommand extends $Command<
   StartExportLabelsTaskRunCommandInput,

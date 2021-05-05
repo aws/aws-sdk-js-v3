@@ -54,6 +54,20 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KMSClient, RevokeGrantCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, RevokeGrantCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * const client = new KMSClient(config);
+ * const command = new RevokeGrantCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RevokeGrantCommandInput} for command's `input` shape.
+ * @see {@link RevokeGrantCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RevokeGrantCommand extends $Command<
   RevokeGrantCommandInput,

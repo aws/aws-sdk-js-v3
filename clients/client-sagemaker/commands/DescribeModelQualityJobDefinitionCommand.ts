@@ -27,6 +27,20 @@ export interface DescribeModelQualityJobDefinitionCommandOutput
 
 /**
  * <p>Returns a description of a model quality job definition.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, DescribeModelQualityJobDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DescribeModelQualityJobDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeModelQualityJobDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeModelQualityJobDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DescribeModelQualityJobDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeModelQualityJobDefinitionCommand extends $Command<
   DescribeModelQualityJobDefinitionCommandInput,

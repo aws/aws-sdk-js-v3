@@ -22,6 +22,20 @@ export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __Met
 
 /**
  * <p>Creates a license.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LicenseManagerClient, CreateLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, CreateLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * const client = new LicenseManagerClient(config);
+ * const command = new CreateLicenseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLicenseCommandInput} for command's `input` shape.
+ * @see {@link CreateLicenseCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLicenseCommand extends $Command<
   CreateLicenseCommandInput,

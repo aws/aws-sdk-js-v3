@@ -47,6 +47,20 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
  *                 <p>Change from using BYODKIM to using Easy DKIM.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESv2Client, PutEmailIdentityDkimSigningAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, PutEmailIdentityDkimSigningAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * const client = new SESv2Client(config);
+ * const command = new PutEmailIdentityDkimSigningAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutEmailIdentityDkimSigningAttributesCommandInput} for command's `input` shape.
+ * @see {@link PutEmailIdentityDkimSigningAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<
   PutEmailIdentityDkimSigningAttributesCommandInput,

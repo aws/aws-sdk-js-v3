@@ -25,6 +25,20 @@ export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityRes
  *             AWS region and attempts to verify it. As a result of executing this operation, a
  *             verification email is sent to the specified address.</p>
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESClient, VerifyEmailIdentityCommand } from "@aws-sdk/client-ses"; // ES Modules import
+ * // const { SESClient, VerifyEmailIdentityCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * const client = new SESClient(config);
+ * const command = new VerifyEmailIdentityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link VerifyEmailIdentityCommandInput} for command's `input` shape.
+ * @see {@link VerifyEmailIdentityCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class VerifyEmailIdentityCommand extends $Command<
   VerifyEmailIdentityCommandInput,

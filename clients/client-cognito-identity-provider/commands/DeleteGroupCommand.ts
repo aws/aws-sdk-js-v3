@@ -28,6 +28,20 @@ export interface DeleteGroupCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes a group.</p>
  *         <p>Calling this action requires developer credentials.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, DeleteGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, DeleteGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new DeleteGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteGroupCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteGroupCommand extends $Command<
   DeleteGroupCommandInput,

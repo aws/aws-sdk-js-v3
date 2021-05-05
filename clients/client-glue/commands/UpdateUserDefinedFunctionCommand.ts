@@ -22,6 +22,20 @@ export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefine
 
 /**
  * <p>Updates an existing function definition in the Data Catalog.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, UpdateUserDefinedFunctionCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, UpdateUserDefinedFunctionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new UpdateUserDefinedFunctionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateUserDefinedFunctionCommandInput} for command's `input` shape.
+ * @see {@link UpdateUserDefinedFunctionCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateUserDefinedFunctionCommand extends $Command<
   UpdateUserDefinedFunctionCommandInput,

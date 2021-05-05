@@ -22,6 +22,20 @@ export interface GetGroupCommandOutput extends GetGroupResult, __MetadataBearer 
 
 /**
  * <p>Retrieves group resource details.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { XRayClient, GetGroupCommand } from "@aws-sdk/client-xray"; // ES Modules import
+ * // const { XRayClient, GetGroupCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * const client = new XRayClient(config);
+ * const command = new GetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetGroupCommandInput} for command's `input` shape.
+ * @see {@link GetGroupCommandOutput} for command's `response` shape.
+ * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupCommandOutput, XRayClientResolvedConfig> {
   // Start section: command_properties

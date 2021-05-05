@@ -22,6 +22,20 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
 
 /**
  * <p>Gets information about a Device Defender security profile.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, DescribeSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DescribeSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new DescribeSecurityProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSecurityProfileCommandInput} for command's `input` shape.
+ * @see {@link DescribeSecurityProfileCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSecurityProfileCommand extends $Command<
   DescribeSecurityProfileCommandInput,

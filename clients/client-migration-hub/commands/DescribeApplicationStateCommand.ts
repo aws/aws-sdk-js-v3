@@ -22,6 +22,20 @@ export interface DescribeApplicationStateCommandOutput extends DescribeApplicati
 
 /**
  * <p>Gets the migration status of an application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MigrationHubClient, DescribeApplicationStateCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
+ * // const { MigrationHubClient, DescribeApplicationStateCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * const client = new MigrationHubClient(config);
+ * const command = new DescribeApplicationStateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeApplicationStateCommandInput} for command's `input` shape.
+ * @see {@link DescribeApplicationStateCommandOutput} for command's `response` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeApplicationStateCommand extends $Command<
   DescribeApplicationStateCommandInput,

@@ -45,6 +45,20 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3ControlClient, PutBucketLifecycleConfigurationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
+ * // const { S3ControlClient, PutBucketLifecycleConfigurationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * const client = new S3ControlClient(config);
+ * const command = new PutBucketLifecycleConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutBucketLifecycleConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutBucketLifecycleConfigurationCommand extends $Command<
   PutBucketLifecycleConfigurationCommandInput,

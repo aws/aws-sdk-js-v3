@@ -26,6 +26,20 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  *             <p>The specified database subnet group must not be associated with any DB
  *                 instances.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DocDBClient, DeleteDBSubnetGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, DeleteDBSubnetGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * const client = new DocDBClient(config);
+ * const command = new DeleteDBSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDBSubnetGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteDBSubnetGroupCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDBSubnetGroupCommand extends $Command<
   DeleteDBSubnetGroupCommandInput,

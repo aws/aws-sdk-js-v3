@@ -23,6 +23,20 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
 /**
  * <p>Obtain information about the email-sending status and capabilities of your Amazon SES
  *             account in the current AWS Region.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESv2Client, GetAccountCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, GetAccountCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * const client = new SESv2Client(config);
+ * const command = new GetAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAccountCommandInput} for command's `input` shape.
+ * @see {@link GetAccountCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAccountCommand extends $Command<
   GetAccountCommandInput,

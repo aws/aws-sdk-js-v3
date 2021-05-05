@@ -40,6 +40,20 @@ export interface DescribeIdentityIdFormatCommandOutput extends DescribeIdentityI
  *           <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p>
  *          <p>These settings apply to the principal specified in the request. They do not apply to the
  *       principal that makes the request.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DescribeIdentityIdFormatCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeIdentityIdFormatCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DescribeIdentityIdFormatCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeIdentityIdFormatCommandInput} for command's `input` shape.
+ * @see {@link DescribeIdentityIdFormatCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeIdentityIdFormatCommand extends $Command<
   DescribeIdentityIdFormatCommandInput,

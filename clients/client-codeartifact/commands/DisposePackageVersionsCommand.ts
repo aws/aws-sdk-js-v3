@@ -41,6 +41,20 @@ export interface DisposePackageVersionsCommandOutput extends DisposePackageVersi
  *                <code>DescribePackageVersion</code>
  *             </a>..
  *     </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeartifactClient, DisposePackageVersionsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
+ * // const { CodeartifactClient, DisposePackageVersionsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * const client = new CodeartifactClient(config);
+ * const command = new DisposePackageVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisposePackageVersionsCommandInput} for command's `input` shape.
+ * @see {@link DisposePackageVersionsCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisposePackageVersionsCommand extends $Command<
   DisposePackageVersionsCommandInput,

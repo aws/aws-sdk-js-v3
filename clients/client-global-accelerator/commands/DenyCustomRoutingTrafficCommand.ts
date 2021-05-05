@@ -31,6 +31,20 @@ export interface DenyCustomRoutingTrafficCommandOutput extends __MetadataBearer 
  * 			or ports outside of the range that you configured for the endpoint group.</p>
  * 		       <p>After you make changes, you can verify that the updates are complete by checking the status of your
  * 			accelerator: the status changes from IN_PROGRESS to DEPLOYED.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlobalAcceleratorClient, DenyCustomRoutingTrafficCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
+ * // const { GlobalAcceleratorClient, DenyCustomRoutingTrafficCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new DenyCustomRoutingTrafficCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DenyCustomRoutingTrafficCommandInput} for command's `input` shape.
+ * @see {@link DenyCustomRoutingTrafficCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DenyCustomRoutingTrafficCommand extends $Command<
   DenyCustomRoutingTrafficCommandInput,

@@ -22,6 +22,20 @@ export interface DescribeDefaultAuthorizerCommandOutput extends DescribeDefaultA
 
 /**
  * <p>Describes the default authorizer.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, DescribeDefaultAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DescribeDefaultAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new DescribeDefaultAuthorizerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDefaultAuthorizerCommandInput} for command's `input` shape.
+ * @see {@link DescribeDefaultAuthorizerCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDefaultAuthorizerCommand extends $Command<
   DescribeDefaultAuthorizerCommandInput,

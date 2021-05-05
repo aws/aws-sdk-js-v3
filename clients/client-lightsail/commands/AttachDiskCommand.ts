@@ -26,6 +26,20 @@ export interface AttachDiskCommandOutput extends AttachDiskResult, __MetadataBea
  *          <p>The <code>attach disk</code> operation supports tag-based access control via resource tags
  *       applied to the resource identified by <code>disk name</code>. For more information, see the
  *         <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LightsailClient, AttachDiskCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, AttachDiskCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * const client = new LightsailClient(config);
+ * const command = new AttachDiskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AttachDiskCommandInput} for command's `input` shape.
+ * @see {@link AttachDiskCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AttachDiskCommand extends $Command<
   AttachDiskCommandInput,

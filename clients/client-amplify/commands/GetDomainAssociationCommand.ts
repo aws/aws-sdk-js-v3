@@ -22,6 +22,20 @@ export interface GetDomainAssociationCommandOutput extends GetDomainAssociationR
 
 /**
  * <p> Returns the domain information for an Amplify app. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmplifyClient, GetDomainAssociationCommand } from "@aws-sdk/client-amplify"; // ES Modules import
+ * // const { AmplifyClient, GetDomainAssociationCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * const client = new AmplifyClient(config);
+ * const command = new GetDomainAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDomainAssociationCommandInput} for command's `input` shape.
+ * @see {@link GetDomainAssociationCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDomainAssociationCommand extends $Command<
   GetDomainAssociationCommandInput,

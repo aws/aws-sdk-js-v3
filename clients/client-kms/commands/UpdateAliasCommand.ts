@@ -78,6 +78,20 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KMSClient, UpdateAliasCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, UpdateAliasCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * const client = new KMSClient(config);
+ * const command = new UpdateAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAliasCommandInput} for command's `input` shape.
+ * @see {@link UpdateAliasCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAliasCommand extends $Command<
   UpdateAliasCommandInput,

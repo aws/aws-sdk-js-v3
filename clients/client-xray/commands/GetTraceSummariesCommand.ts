@@ -38,6 +38,20 @@ export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult,
  *          <p>For a full list of indexed fields and keywords that you can use in filter expressions,
  *       see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html">Using Filter
  *         Expressions</a> in the <i>AWS X-Ray Developer Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { XRayClient, GetTraceSummariesCommand } from "@aws-sdk/client-xray"; // ES Modules import
+ * // const { XRayClient, GetTraceSummariesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * const client = new XRayClient(config);
+ * const command = new GetTraceSummariesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTraceSummariesCommandInput} for command's `input` shape.
+ * @see {@link GetTraceSummariesCommandOutput} for command's `response` shape.
+ * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTraceSummariesCommand extends $Command<
   GetTraceSummariesCommandInput,

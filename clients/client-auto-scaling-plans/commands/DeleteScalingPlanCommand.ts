@@ -26,6 +26,20 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  *          all of the scalable resources that are covered by the plan.</p>
  *          <p>If the plan has launched resources or has scaling activities in progress, you must
  *          delete those resources separately.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AutoScalingPlansClient, DeleteScalingPlanCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
+ * // const { AutoScalingPlansClient, DeleteScalingPlanCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
+ * const client = new AutoScalingPlansClient(config);
+ * const command = new DeleteScalingPlanCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteScalingPlanCommandInput} for command's `input` shape.
+ * @see {@link DeleteScalingPlanCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingPlansClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteScalingPlanCommand extends $Command<
   DeleteScalingPlanCommandInput,

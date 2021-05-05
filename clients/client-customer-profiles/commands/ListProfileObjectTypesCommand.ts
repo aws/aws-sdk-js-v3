@@ -22,6 +22,20 @@ export interface ListProfileObjectTypesCommandOutput extends ListProfileObjectTy
 
 /**
  * <p>Lists all of the templates available within the service.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CustomerProfilesClient, ListProfileObjectTypesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, ListProfileObjectTypesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * const client = new CustomerProfilesClient(config);
+ * const command = new ListProfileObjectTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProfileObjectTypesCommandInput} for command's `input` shape.
+ * @see {@link ListProfileObjectTypesCommandOutput} for command's `response` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProfileObjectTypesCommand extends $Command<
   ListProfileObjectTypesCommandInput,

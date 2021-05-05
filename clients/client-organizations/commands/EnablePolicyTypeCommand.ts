@@ -32,6 +32,20 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  *         <p>You can enable a policy type in a root only if that policy type is available in the
  *             organization. To view the status of available policy types in the organization, use
  *                 <a>DescribeOrganization</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OrganizationsClient, EnablePolicyTypeCommand } from "@aws-sdk/client-organizations"; // ES Modules import
+ * // const { OrganizationsClient, EnablePolicyTypeCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * const client = new OrganizationsClient(config);
+ * const command = new EnablePolicyTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnablePolicyTypeCommandInput} for command's `input` shape.
+ * @see {@link EnablePolicyTypeCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnablePolicyTypeCommand extends $Command<
   EnablePolicyTypeCommandInput,

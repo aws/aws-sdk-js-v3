@@ -23,6 +23,20 @@ export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscri
 /**
  * <p>Gets information about a work team provided by a vendor. It returns details about the
  *             subscription with a vendor in the AWS Marketplace.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, DescribeSubscribedWorkteamCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DescribeSubscribedWorkteamCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeSubscribedWorkteamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSubscribedWorkteamCommandInput} for command's `input` shape.
+ * @see {@link DescribeSubscribedWorkteamCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSubscribedWorkteamCommand extends $Command<
   DescribeSubscribedWorkteamCommandInput,

@@ -22,6 +22,20 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
 
 /**
  * <p>Deregisters an on-premises instance.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeDeployClient, DeregisterOnPremisesInstanceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
+ * // const { CodeDeployClient, DeregisterOnPremisesInstanceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * const client = new CodeDeployClient(config);
+ * const command = new DeregisterOnPremisesInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterOnPremisesInstanceCommandInput} for command's `input` shape.
+ * @see {@link DeregisterOnPremisesInstanceCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterOnPremisesInstanceCommand extends $Command<
   DeregisterOnPremisesInstanceCommandInput,

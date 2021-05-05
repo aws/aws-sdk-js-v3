@@ -22,6 +22,20 @@ export interface AddInstanceGroupsCommandOutput extends AddInstanceGroupsOutput,
 
 /**
  * <p>Adds one or more instance groups to a running cluster.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EMRClient, AddInstanceGroupsCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, AddInstanceGroupsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * const client = new EMRClient(config);
+ * const command = new AddInstanceGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddInstanceGroupsCommandInput} for command's `input` shape.
+ * @see {@link AddInstanceGroupsCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddInstanceGroupsCommand extends $Command<
   AddInstanceGroupsCommandInput,

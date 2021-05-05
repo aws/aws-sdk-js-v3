@@ -22,6 +22,20 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
 
 /**
  * <p>Cancels the specified replay.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EventBridgeClient, CancelReplayCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, CancelReplayCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * const client = new EventBridgeClient(config);
+ * const command = new CancelReplayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelReplayCommandInput} for command's `input` shape.
+ * @see {@link CancelReplayCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelReplayCommand extends $Command<
   CancelReplayCommandInput,

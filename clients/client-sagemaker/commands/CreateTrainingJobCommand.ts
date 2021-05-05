@@ -90,6 +90,20 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *             </li>
  *          </ul>
  *         <p> For more information about Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, CreateTrainingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, CreateTrainingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new CreateTrainingJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTrainingJobCommandInput} for command's `input` shape.
+ * @see {@link CreateTrainingJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTrainingJobCommand extends $Command<
   CreateTrainingJobCommandInput,

@@ -27,6 +27,20 @@ export interface DescribeDomainConfigurationCommandOutput
  *          <note>
  *             <p>The domain configuration feature is in public preview and is subject to change.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, DescribeDomainConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DescribeDomainConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new DescribeDomainConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDomainConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeDomainConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDomainConfigurationCommand extends $Command<
   DescribeDomainConfigurationCommandInput,

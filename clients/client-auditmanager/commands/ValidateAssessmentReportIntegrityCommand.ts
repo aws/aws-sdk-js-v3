@@ -29,6 +29,20 @@ export interface ValidateAssessmentReportIntegrityCommandOutput
  * <p>
  *    Validates the integrity of an assessment report in AWS Audit Manager.
  * </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AuditManagerClient, ValidateAssessmentReportIntegrityCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
+ * // const { AuditManagerClient, ValidateAssessmentReportIntegrityCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * const client = new AuditManagerClient(config);
+ * const command = new ValidateAssessmentReportIntegrityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ValidateAssessmentReportIntegrityCommandInput} for command's `input` shape.
+ * @see {@link ValidateAssessmentReportIntegrityCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ValidateAssessmentReportIntegrityCommand extends $Command<
   ValidateAssessmentReportIntegrityCommandInput,

@@ -25,6 +25,20 @@ export interface HttpPayloadWithMemberXmlNameCommandOutput
 /**
  * The following example serializes a payload that uses an XML name
  * on the member, changing the wrapper name.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestXmlProtocolClient, HttpPayloadWithMemberXmlNameCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, HttpPayloadWithMemberXmlNameCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import
+ * const client = new RestXmlProtocolClient(config);
+ * const command = new HttpPayloadWithMemberXmlNameCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link HttpPayloadWithMemberXmlNameCommandInput} for command's `input` shape.
+ * @see {@link HttpPayloadWithMemberXmlNameCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class HttpPayloadWithMemberXmlNameCommand extends $Command<
   HttpPayloadWithMemberXmlNameCommandInput,

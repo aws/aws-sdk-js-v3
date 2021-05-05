@@ -30,6 +30,20 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  *                 Lambda. </p>
  *         </note>
  *         <p> Lists the instance for a deployment associated with the IAM user or AWS account. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeDeployClient, ListDeploymentInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
+ * // const { CodeDeployClient, ListDeploymentInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * const client = new CodeDeployClient(config);
+ * const command = new ListDeploymentInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDeploymentInstancesCommandInput} for command's `input` shape.
+ * @see {@link ListDeploymentInstancesCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDeploymentInstancesCommand extends $Command<
   ListDeploymentInstancesCommandInput,

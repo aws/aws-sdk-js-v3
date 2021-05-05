@@ -46,6 +46,20 @@ export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, _
  *             secondary index immediately in the same eventually consistent way as a standard delete
  *             operation.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html">Time To Live</a> in the Amazon DynamoDB Developer Guide. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DynamoDBClient, UpdateTimeToLiveCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, UpdateTimeToLiveCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * const client = new DynamoDBClient(config);
+ * const command = new UpdateTimeToLiveCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTimeToLiveCommandInput} for command's `input` shape.
+ * @see {@link UpdateTimeToLiveCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTimeToLiveCommand extends $Command<
   UpdateTimeToLiveCommandInput,

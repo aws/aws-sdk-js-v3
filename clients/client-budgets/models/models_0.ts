@@ -14,6 +14,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -42,6 +45,9 @@ export interface ActionThreshold {
 }
 
 export namespace ActionThreshold {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActionThreshold): any => ({
     ...obj,
   });
@@ -94,6 +100,9 @@ export interface IamActionDefinition {
 }
 
 export namespace IamActionDefinition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IamActionDefinition): any => ({
     ...obj,
   });
@@ -121,6 +130,9 @@ export interface ScpActionDefinition {
 }
 
 export namespace ScpActionDefinition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ScpActionDefinition): any => ({
     ...obj,
   });
@@ -160,6 +172,9 @@ export interface SsmActionDefinition {
 }
 
 export namespace SsmActionDefinition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SsmActionDefinition): any => ({
     ...obj,
   });
@@ -194,6 +209,9 @@ export interface Definition {
 }
 
 export namespace Definition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Definition): any => ({
     ...obj,
   });
@@ -250,6 +268,9 @@ export interface Subscriber {
 }
 
 export namespace Subscriber {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Subscriber): any => ({
     ...obj,
     ...(obj.Address && { Address: SENSITIVE_STRING }),
@@ -328,6 +349,9 @@ export interface Action {
 }
 
 export namespace Action {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Action): any => ({
     ...obj,
     ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
@@ -354,6 +378,9 @@ export interface ActionHistoryDetails {
 }
 
 export namespace ActionHistoryDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActionHistoryDetails): any => ({
     ...obj,
     ...(obj.Action && { Action: Action.filterSensitiveLog(obj.Action) }),
@@ -402,6 +429,9 @@ export interface ActionHistory {
 }
 
 export namespace ActionHistory {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActionHistory): any => ({
     ...obj,
     ...(obj.ActionHistoryDetails && {
@@ -437,6 +467,9 @@ export interface Spend {
 }
 
 export namespace Spend {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Spend): any => ({
     ...obj,
   });
@@ -468,6 +501,9 @@ export interface CalculatedSpend {
 }
 
 export namespace CalculatedSpend {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CalculatedSpend): any => ({
     ...obj,
   });
@@ -547,6 +583,9 @@ export interface CostTypes {
 }
 
 export namespace CostTypes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CostTypes): any => ({
     ...obj,
   });
@@ -570,6 +609,9 @@ export interface TimePeriod {
 }
 
 export namespace TimePeriod {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TimePeriod): any => ({
     ...obj,
   });
@@ -676,6 +718,9 @@ export interface Budget {
 }
 
 export namespace Budget {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Budget): any => ({
     ...obj,
   });
@@ -743,6 +788,9 @@ export interface Notification {
 }
 
 export namespace Notification {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Notification): any => ({
     ...obj,
   });
@@ -764,6 +812,9 @@ export interface NotificationWithSubscribers {
 }
 
 export namespace NotificationWithSubscribers {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotificationWithSubscribers): any => ({
     ...obj,
     ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
@@ -791,6 +842,9 @@ export interface CreateBudgetRequest {
 }
 
 export namespace CreateBudgetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBudgetRequest): any => ({
     ...obj,
   });
@@ -802,6 +856,9 @@ export namespace CreateBudgetRequest {
 export interface CreateBudgetResponse {}
 
 export namespace CreateBudgetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBudgetResponse): any => ({
     ...obj,
   });
@@ -820,6 +877,9 @@ export interface CreationLimitExceededException extends __SmithyException, $Meta
 }
 
 export namespace CreationLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreationLimitExceededException): any => ({
     ...obj,
   });
@@ -838,6 +898,9 @@ export interface DuplicateRecordException extends __SmithyException, $MetadataBe
 }
 
 export namespace DuplicateRecordException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicateRecordException): any => ({
     ...obj,
   });
@@ -856,6 +919,9 @@ export interface InternalErrorException extends __SmithyException, $MetadataBear
 }
 
 export namespace InternalErrorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
     ...obj,
   });
@@ -874,6 +940,9 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidParameterException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
@@ -937,6 +1006,9 @@ export interface CreateBudgetActionRequest {
 }
 
 export namespace CreateBudgetActionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBudgetActionRequest): any => ({
     ...obj,
     ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
@@ -963,6 +1035,9 @@ export interface CreateBudgetActionResponse {
 }
 
 export namespace CreateBudgetActionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBudgetActionResponse): any => ({
     ...obj,
   });
@@ -981,6 +1056,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
@@ -1012,6 +1090,9 @@ export interface CreateNotificationRequest {
 }
 
 export namespace CreateNotificationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateNotificationRequest): any => ({
     ...obj,
     ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
@@ -1024,6 +1105,9 @@ export namespace CreateNotificationRequest {
 export interface CreateNotificationResponse {}
 
 export namespace CreateNotificationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateNotificationResponse): any => ({
     ...obj,
   });
@@ -1055,6 +1139,9 @@ export interface CreateSubscriberRequest {
 }
 
 export namespace CreateSubscriberRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateSubscriberRequest): any => ({
     ...obj,
     ...(obj.Subscriber && { Subscriber: Subscriber.filterSensitiveLog(obj.Subscriber) }),
@@ -1067,6 +1154,9 @@ export namespace CreateSubscriberRequest {
 export interface CreateSubscriberResponse {}
 
 export namespace CreateSubscriberResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateSubscriberResponse): any => ({
     ...obj,
   });
@@ -1088,6 +1178,9 @@ export interface DeleteBudgetRequest {
 }
 
 export namespace DeleteBudgetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBudgetRequest): any => ({
     ...obj,
   });
@@ -1099,6 +1192,9 @@ export namespace DeleteBudgetRequest {
 export interface DeleteBudgetResponse {}
 
 export namespace DeleteBudgetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBudgetResponse): any => ({
     ...obj,
   });
@@ -1124,6 +1220,9 @@ export interface DeleteBudgetActionRequest {
 }
 
 export namespace DeleteBudgetActionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBudgetActionRequest): any => ({
     ...obj,
   });
@@ -1149,6 +1248,9 @@ export interface DeleteBudgetActionResponse {
 }
 
 export namespace DeleteBudgetActionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBudgetActionResponse): any => ({
     ...obj,
     ...(obj.Action && { Action: Action.filterSensitiveLog(obj.Action) }),
@@ -1169,6 +1271,9 @@ export interface ResourceLockedException extends __SmithyException, $MetadataBea
 }
 
 export namespace ResourceLockedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceLockedException): any => ({
     ...obj,
   });
@@ -1195,6 +1300,9 @@ export interface DeleteNotificationRequest {
 }
 
 export namespace DeleteNotificationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteNotificationRequest): any => ({
     ...obj,
   });
@@ -1206,6 +1314,9 @@ export namespace DeleteNotificationRequest {
 export interface DeleteNotificationResponse {}
 
 export namespace DeleteNotificationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteNotificationResponse): any => ({
     ...obj,
   });
@@ -1237,6 +1348,9 @@ export interface DeleteSubscriberRequest {
 }
 
 export namespace DeleteSubscriberRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteSubscriberRequest): any => ({
     ...obj,
     ...(obj.Subscriber && { Subscriber: Subscriber.filterSensitiveLog(obj.Subscriber) }),
@@ -1249,6 +1363,9 @@ export namespace DeleteSubscriberRequest {
 export interface DeleteSubscriberResponse {}
 
 export namespace DeleteSubscriberResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteSubscriberResponse): any => ({
     ...obj,
   });
@@ -1270,6 +1387,9 @@ export interface DescribeBudgetRequest {
 }
 
 export namespace DescribeBudgetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBudgetRequest): any => ({
     ...obj,
   });
@@ -1286,6 +1406,9 @@ export interface DescribeBudgetResponse {
 }
 
 export namespace DescribeBudgetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBudgetResponse): any => ({
     ...obj,
   });
@@ -1311,6 +1434,9 @@ export interface DescribeBudgetActionRequest {
 }
 
 export namespace DescribeBudgetActionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBudgetActionRequest): any => ({
     ...obj,
   });
@@ -1336,6 +1462,9 @@ export interface DescribeBudgetActionResponse {
 }
 
 export namespace DescribeBudgetActionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBudgetActionResponse): any => ({
     ...obj,
     ...(obj.Action && { Action: Action.filterSensitiveLog(obj.Action) }),
@@ -1377,6 +1506,9 @@ export interface DescribeBudgetActionHistoriesRequest {
 }
 
 export namespace DescribeBudgetActionHistoriesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBudgetActionHistoriesRequest): any => ({
     ...obj,
   });
@@ -1397,6 +1529,9 @@ export interface DescribeBudgetActionHistoriesResponse {
 }
 
 export namespace DescribeBudgetActionHistoriesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBudgetActionHistoriesResponse): any => ({
     ...obj,
   });
@@ -1415,6 +1550,9 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidNextTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
@@ -1438,6 +1576,9 @@ export interface DescribeBudgetActionsForAccountRequest {
 }
 
 export namespace DescribeBudgetActionsForAccountRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBudgetActionsForAccountRequest): any => ({
     ...obj,
   });
@@ -1458,6 +1599,9 @@ export interface DescribeBudgetActionsForAccountResponse {
 }
 
 export namespace DescribeBudgetActionsForAccountResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBudgetActionsForAccountResponse): any => ({
     ...obj,
   });
@@ -1486,6 +1630,9 @@ export interface DescribeBudgetActionsForBudgetRequest {
 }
 
 export namespace DescribeBudgetActionsForBudgetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBudgetActionsForBudgetRequest): any => ({
     ...obj,
   });
@@ -1506,6 +1653,9 @@ export interface DescribeBudgetActionsForBudgetResponse {
 }
 
 export namespace DescribeBudgetActionsForBudgetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBudgetActionsForBudgetResponse): any => ({
     ...obj,
   });
@@ -1539,6 +1689,9 @@ export interface DescribeBudgetPerformanceHistoryRequest {
 }
 
 export namespace DescribeBudgetPerformanceHistoryRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBudgetPerformanceHistoryRequest): any => ({
     ...obj,
   });
@@ -1565,6 +1718,9 @@ export interface BudgetedAndActualAmounts {
 }
 
 export namespace BudgetedAndActualAmounts {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BudgetedAndActualAmounts): any => ({
     ...obj,
   });
@@ -1608,6 +1764,9 @@ export interface BudgetPerformanceHistory {
 }
 
 export namespace BudgetPerformanceHistory {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BudgetPerformanceHistory): any => ({
     ...obj,
   });
@@ -1627,6 +1786,9 @@ export interface DescribeBudgetPerformanceHistoryResponse {
 }
 
 export namespace DescribeBudgetPerformanceHistoryResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBudgetPerformanceHistoryResponse): any => ({
     ...obj,
   });
@@ -1645,6 +1807,9 @@ export interface ExpiredNextTokenException extends __SmithyException, $MetadataB
 }
 
 export namespace ExpiredNextTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExpiredNextTokenException): any => ({
     ...obj,
   });
@@ -1671,6 +1836,9 @@ export interface DescribeBudgetsRequest {
 }
 
 export namespace DescribeBudgetsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBudgetsRequest): any => ({
     ...obj,
   });
@@ -1692,6 +1860,9 @@ export interface DescribeBudgetsResponse {
 }
 
 export namespace DescribeBudgetsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBudgetsResponse): any => ({
     ...obj,
   });
@@ -1723,6 +1894,9 @@ export interface DescribeNotificationsForBudgetRequest {
 }
 
 export namespace DescribeNotificationsForBudgetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeNotificationsForBudgetRequest): any => ({
     ...obj,
   });
@@ -1744,6 +1918,9 @@ export interface DescribeNotificationsForBudgetResponse {
 }
 
 export namespace DescribeNotificationsForBudgetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeNotificationsForBudgetResponse): any => ({
     ...obj,
   });
@@ -1780,6 +1957,9 @@ export interface DescribeSubscribersForNotificationRequest {
 }
 
 export namespace DescribeSubscribersForNotificationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSubscribersForNotificationRequest): any => ({
     ...obj,
   });
@@ -1801,6 +1981,9 @@ export interface DescribeSubscribersForNotificationResponse {
 }
 
 export namespace DescribeSubscribersForNotificationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSubscribersForNotificationResponse): any => ({
     ...obj,
     ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
@@ -1841,6 +2024,9 @@ export interface ExecuteBudgetActionRequest {
 }
 
 export namespace ExecuteBudgetActionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteBudgetActionRequest): any => ({
     ...obj,
   });
@@ -1873,6 +2059,9 @@ export interface ExecuteBudgetActionResponse {
 }
 
 export namespace ExecuteBudgetActionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteBudgetActionResponse): any => ({
     ...obj,
   });
@@ -1894,6 +2083,9 @@ export interface UpdateBudgetRequest {
 }
 
 export namespace UpdateBudgetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBudgetRequest): any => ({
     ...obj,
   });
@@ -1905,6 +2097,9 @@ export namespace UpdateBudgetRequest {
 export interface UpdateBudgetResponse {}
 
 export namespace UpdateBudgetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBudgetResponse): any => ({
     ...obj,
   });
@@ -1968,6 +2163,9 @@ export interface UpdateBudgetActionRequest {
 }
 
 export namespace UpdateBudgetActionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBudgetActionRequest): any => ({
     ...obj,
     ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
@@ -2001,6 +2199,9 @@ export interface UpdateBudgetActionResponse {
 }
 
 export namespace UpdateBudgetActionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBudgetActionResponse): any => ({
     ...obj,
     ...(obj.OldAction && { OldAction: Action.filterSensitiveLog(obj.OldAction) }),
@@ -2034,6 +2235,9 @@ export interface UpdateNotificationRequest {
 }
 
 export namespace UpdateNotificationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateNotificationRequest): any => ({
     ...obj,
   });
@@ -2045,6 +2249,9 @@ export namespace UpdateNotificationRequest {
 export interface UpdateNotificationResponse {}
 
 export namespace UpdateNotificationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateNotificationResponse): any => ({
     ...obj,
   });
@@ -2081,6 +2288,9 @@ export interface UpdateSubscriberRequest {
 }
 
 export namespace UpdateSubscriberRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSubscriberRequest): any => ({
     ...obj,
     ...(obj.OldSubscriber && { OldSubscriber: Subscriber.filterSensitiveLog(obj.OldSubscriber) }),
@@ -2094,6 +2304,9 @@ export namespace UpdateSubscriberRequest {
 export interface UpdateSubscriberResponse {}
 
 export namespace UpdateSubscriberResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSubscriberResponse): any => ({
     ...obj,
   });

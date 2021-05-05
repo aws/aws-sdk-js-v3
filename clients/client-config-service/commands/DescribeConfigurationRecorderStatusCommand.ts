@@ -34,6 +34,20 @@ export interface DescribeConfigurationRecorderStatusCommandOutput
  * 			         <p>Currently, you can specify only one configuration recorder
  * 				per region in your account.</p>
  * 		       </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConfigServiceClient, DescribeConfigurationRecorderStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, DescribeConfigurationRecorderStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * const client = new ConfigServiceClient(config);
+ * const command = new DescribeConfigurationRecorderStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConfigurationRecorderStatusCommandInput} for command's `input` shape.
+ * @see {@link DescribeConfigurationRecorderStatusCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConfigurationRecorderStatusCommand extends $Command<
   DescribeConfigurationRecorderStatusCommandInput,

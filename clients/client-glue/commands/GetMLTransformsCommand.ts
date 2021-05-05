@@ -26,6 +26,20 @@ export interface GetMLTransformsCommandOutput extends GetMLTransformsResponse, _
  *       details of the transformation to be performed by learning from examples provided by humans.
  *       These transformations are then saved by AWS Glue, and you can retrieve their metadata by
  *       calling <code>GetMLTransforms</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, GetMLTransformsCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetMLTransformsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new GetMLTransformsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMLTransformsCommandInput} for command's `input` shape.
+ * @see {@link GetMLTransformsCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMLTransformsCommand extends $Command<
   GetMLTransformsCommandInput,

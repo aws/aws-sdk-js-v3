@@ -24,6 +24,20 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * <p>Declines invitations to become a member account.</p>
  *          <p>This operation is only used by accounts that are not part of an organization.
  *          Organization accounts do not receive invitations.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecurityHubClient, DeclineInvitationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, DeclineInvitationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * const client = new SecurityHubClient(config);
+ * const command = new DeclineInvitationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeclineInvitationsCommandInput} for command's `input` shape.
+ * @see {@link DeclineInvitationsCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeclineInvitationsCommand extends $Command<
   DeclineInvitationsCommandInput,

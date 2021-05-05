@@ -22,6 +22,20 @@ export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueRes
 
 /**
  * <p>Imports an existing Amazon Athena Data Catalog to AWS Glue</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, ImportCatalogToGlueCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, ImportCatalogToGlueCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new ImportCatalogToGlueCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportCatalogToGlueCommandInput} for command's `input` shape.
+ * @see {@link ImportCatalogToGlueCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ImportCatalogToGlueCommand extends $Command<
   ImportCatalogToGlueCommandInput,

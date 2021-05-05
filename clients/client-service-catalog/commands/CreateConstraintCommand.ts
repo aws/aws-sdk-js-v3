@@ -23,6 +23,20 @@ export interface CreateConstraintCommandOutput extends CreateConstraintOutput, _
 /**
  * <p>Creates a constraint.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, CreateConstraintCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, CreateConstraintCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new CreateConstraintCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateConstraintCommandInput} for command's `input` shape.
+ * @see {@link CreateConstraintCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateConstraintCommand extends $Command<
   CreateConstraintCommandInput,

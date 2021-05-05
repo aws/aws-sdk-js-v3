@@ -66,6 +66,20 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  *     maintenance window task and specify only a different <code>OutputS3BucketName</code> value, the
  *     values for <code>Comment</code> and <code>NotificationConfig</code> are removed.</p>
  *          </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, UpdateMaintenanceWindowTaskCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, UpdateMaintenanceWindowTaskCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new UpdateMaintenanceWindowTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMaintenanceWindowTaskCommandInput} for command's `input` shape.
+ * @see {@link UpdateMaintenanceWindowTaskCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMaintenanceWindowTaskCommand extends $Command<
   UpdateMaintenanceWindowTaskCommandInput,

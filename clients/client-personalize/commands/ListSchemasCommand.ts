@@ -24,6 +24,20 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * <p>Returns the list of schemas associated with the account. The response provides the
  *       properties for each schema, including the Amazon Resource Name (ARN).
  *       For more information on schemas, see <a>CreateSchema</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PersonalizeClient, ListSchemasCommand } from "@aws-sdk/client-personalize"; // ES Modules import
+ * // const { PersonalizeClient, ListSchemasCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * const client = new PersonalizeClient(config);
+ * const command = new ListSchemasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSchemasCommandInput} for command's `input` shape.
+ * @see {@link ListSchemasCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSchemasCommand extends $Command<
   ListSchemasCommandInput,

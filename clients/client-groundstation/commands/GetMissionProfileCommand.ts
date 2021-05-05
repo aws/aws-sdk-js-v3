@@ -22,6 +22,20 @@ export interface GetMissionProfileCommandOutput extends GetMissionProfileRespons
 
 /**
  * <p>Returns a mission profile.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GroundStationClient, GetMissionProfileCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
+ * // const { GroundStationClient, GetMissionProfileCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
+ * const client = new GroundStationClient(config);
+ * const command = new GetMissionProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMissionProfileCommandInput} for command's `input` shape.
+ * @see {@link GetMissionProfileCommandOutput} for command's `response` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMissionProfileCommand extends $Command<
   GetMissionProfileCommandInput,

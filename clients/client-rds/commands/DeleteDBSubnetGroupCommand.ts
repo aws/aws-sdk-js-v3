@@ -25,6 +25,20 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  *          <note>
  *             <p>The specified database subnet group must not be associated with any DB instances.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, DeleteDBSubnetGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DeleteDBSubnetGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new DeleteDBSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDBSubnetGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteDBSubnetGroupCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDBSubnetGroupCommand extends $Command<
   DeleteDBSubnetGroupCommandInput,

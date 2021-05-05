@@ -65,6 +65,20 @@ export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetRespo
  *                </response>
  *          </example>
  *       </examples>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoSyncClient, SubscribeToDatasetCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
+ * // const { CognitoSyncClient, SubscribeToDatasetCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * const client = new CognitoSyncClient(config);
+ * const command = new SubscribeToDatasetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SubscribeToDatasetCommandInput} for command's `input` shape.
+ * @see {@link SubscribeToDatasetCommandOutput} for command's `response` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SubscribeToDatasetCommand extends $Command<
   SubscribeToDatasetCommandInput,

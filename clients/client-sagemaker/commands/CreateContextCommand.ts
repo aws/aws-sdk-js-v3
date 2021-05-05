@@ -26,6 +26,20 @@ export interface CreateContextCommandOutput extends CreateContextResponse, __Met
  *         an endpoint and a model package. For more information, see
  *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon SageMaker
  *           ML Lineage Tracking</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, CreateContextCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, CreateContextCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new CreateContextCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateContextCommandInput} for command's `input` shape.
+ * @see {@link CreateContextCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateContextCommand extends $Command<
   CreateContextCommandInput,

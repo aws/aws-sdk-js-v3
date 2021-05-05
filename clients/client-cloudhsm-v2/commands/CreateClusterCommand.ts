@@ -22,6 +22,20 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
 
 /**
  * <p>Creates a new AWS CloudHSM cluster.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudHSMV2Client, CreateClusterCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
+ * // const { CloudHSMV2Client, CreateClusterCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * const client = new CloudHSMV2Client(config);
+ * const command = new CreateClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateClusterCommandInput} for command's `input` shape.
+ * @see {@link CreateClusterCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,

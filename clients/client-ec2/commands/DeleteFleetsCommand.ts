@@ -45,6 +45,20 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  *
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Deleting an EC2
  *          Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DeleteFleetsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DeleteFleetsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DeleteFleetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFleetsCommandInput} for command's `input` shape.
+ * @see {@link DeleteFleetsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFleetsCommand extends $Command<
   DeleteFleetsCommandInput,

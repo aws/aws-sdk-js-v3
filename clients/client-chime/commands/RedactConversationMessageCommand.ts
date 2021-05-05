@@ -22,6 +22,20 @@ export interface RedactConversationMessageCommandOutput extends RedactConversati
 
 /**
  * <p>Redacts the specified message from the specified Amazon Chime conversation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, RedactConversationMessageCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, RedactConversationMessageCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new RedactConversationMessageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RedactConversationMessageCommandInput} for command's `input` shape.
+ * @see {@link RedactConversationMessageCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RedactConversationMessageCommand extends $Command<
   RedactConversationMessageCommandInput,

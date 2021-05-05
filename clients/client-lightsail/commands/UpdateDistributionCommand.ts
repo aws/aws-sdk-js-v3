@@ -23,6 +23,20 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
 /**
  * <p>Updates an existing Amazon Lightsail content delivery network (CDN) distribution.</p>
  *          <p>Use this action to update the configuration of your existing distribution</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LightsailClient, UpdateDistributionCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, UpdateDistributionCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * const client = new LightsailClient(config);
+ * const command = new UpdateDistributionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDistributionCommandInput} for command's `input` shape.
+ * @see {@link UpdateDistributionCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDistributionCommand extends $Command<
   UpdateDistributionCommandInput,

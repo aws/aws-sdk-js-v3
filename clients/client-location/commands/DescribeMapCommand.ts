@@ -22,6 +22,20 @@ export interface DescribeMapCommandOutput extends DescribeMapResponse, __Metadat
 
 /**
  * <p>Retrieves the map resource details.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LocationClient, DescribeMapCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, DescribeMapCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * const client = new LocationClient(config);
+ * const command = new DescribeMapCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeMapCommandInput} for command's `input` shape.
+ * @see {@link DescribeMapCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeMapCommand extends $Command<
   DescribeMapCommandInput,

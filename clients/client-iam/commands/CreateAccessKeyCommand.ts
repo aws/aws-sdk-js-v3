@@ -35,6 +35,20 @@ export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, _
  *                 file) if you want to be able to access it again. If a secret key is lost, you can
  *                 delete the access keys for the associated user and then create new keys.</p>
  *         </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, CreateAccessKeyCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, CreateAccessKeyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new CreateAccessKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAccessKeyCommandInput} for command's `input` shape.
+ * @see {@link CreateAccessKeyCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAccessKeyCommand extends $Command<
   CreateAccessKeyCommandInput,

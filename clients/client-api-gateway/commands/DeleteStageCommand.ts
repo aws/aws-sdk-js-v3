@@ -22,6 +22,20 @@ export interface DeleteStageCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a <a>Stage</a> resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, DeleteStageCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, DeleteStageCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new DeleteStageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteStageCommandInput} for command's `input` shape.
+ * @see {@link DeleteStageCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteStageCommand extends $Command<
   DeleteStageCommandInput,

@@ -25,6 +25,20 @@ export interface RejectVpcPeeringConnectionCommandOutput extends RejectVpcPeerin
  * 				<code>pending-acceptance</code> state. Use the <a>DescribeVpcPeeringConnections</a> request
  * 			to view your outstanding VPC peering connection requests. To delete an active VPC peering
  * 			connection, or to delete a VPC peering connection request that you initiated, use	<a>DeleteVpcPeeringConnection</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, RejectVpcPeeringConnectionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, RejectVpcPeeringConnectionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new RejectVpcPeeringConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RejectVpcPeeringConnectionCommandInput} for command's `input` shape.
+ * @see {@link RejectVpcPeeringConnectionCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RejectVpcPeeringConnectionCommand extends $Command<
   RejectVpcPeeringConnectionCommandInput,

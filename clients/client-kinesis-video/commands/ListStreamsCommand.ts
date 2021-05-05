@@ -24,6 +24,20 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * <p>Returns an array of <code>StreamInfo</code> objects. Each object describes a
  *             stream. To retrieve only streams that satisfy a specific condition, you can specify a
  *                 <code>StreamNameCondition</code>. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisVideoClient, ListStreamsCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
+ * // const { KinesisVideoClient, ListStreamsCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * const client = new KinesisVideoClient(config);
+ * const command = new ListStreamsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListStreamsCommandInput} for command's `input` shape.
+ * @see {@link ListStreamsCommandOutput} for command's `response` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListStreamsCommand extends $Command<
   ListStreamsCommandInput,

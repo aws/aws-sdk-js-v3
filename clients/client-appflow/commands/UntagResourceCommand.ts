@@ -24,6 +24,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * <p>
  *  Removes a tag from the specified flow.
  * </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppflowClient, UntagResourceCommand } from "@aws-sdk/client-appflow"; // ES Modules import
+ * // const { AppflowClient, UntagResourceCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * const client = new AppflowClient(config);
+ * const command = new UntagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UntagResourceCommandInput} for command's `input` shape.
+ * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

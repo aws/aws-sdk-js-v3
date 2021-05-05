@@ -22,6 +22,20 @@ export interface DeleteSnapshotScheduleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a snapshot schedule.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, DeleteSnapshotScheduleCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, DeleteSnapshotScheduleCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new DeleteSnapshotScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSnapshotScheduleCommandInput} for command's `input` shape.
+ * @see {@link DeleteSnapshotScheduleCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSnapshotScheduleCommand extends $Command<
   DeleteSnapshotScheduleCommandInput,

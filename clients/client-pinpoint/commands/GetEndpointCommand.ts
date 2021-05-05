@@ -22,6 +22,20 @@ export interface GetEndpointCommandOutput extends GetEndpointResponse, __Metadat
 
 /**
  * <p>Retrieves information about the settings and attributes of a specific endpoint for an application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointClient, GetEndpointCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, GetEndpointCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * const client = new PinpointClient(config);
+ * const command = new GetEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEndpointCommandInput} for command's `input` shape.
+ * @see {@link GetEndpointCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEndpointCommand extends $Command<
   GetEndpointCommandInput,

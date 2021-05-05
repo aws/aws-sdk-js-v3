@@ -29,6 +29,20 @@ export interface CreateDeploymentJobCommandOutput extends CreateDeploymentJobRes
  *             <p>After 90 days, deployment jobs expire and will be deleted. They will no longer be
  *             accessible. </p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RoboMakerClient, CreateDeploymentJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
+ * // const { RoboMakerClient, CreateDeploymentJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * const client = new RoboMakerClient(config);
+ * const command = new CreateDeploymentJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDeploymentJobCommandInput} for command's `input` shape.
+ * @see {@link CreateDeploymentJobCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDeploymentJobCommand extends $Command<
   CreateDeploymentJobCommandInput,

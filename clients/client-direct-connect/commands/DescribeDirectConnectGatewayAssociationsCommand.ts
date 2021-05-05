@@ -50,6 +50,20 @@ export interface DescribeDirectConnectGatewayAssociationsCommandOutput
  *                <p>The response contains the association between the Direct Connect gateway and transit gateway.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectConnectClient, DescribeDirectConnectGatewayAssociationsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, DescribeDirectConnectGatewayAssociationsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * const client = new DirectConnectClient(config);
+ * const command = new DescribeDirectConnectGatewayAssociationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDirectConnectGatewayAssociationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeDirectConnectGatewayAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
   DescribeDirectConnectGatewayAssociationsCommandInput,

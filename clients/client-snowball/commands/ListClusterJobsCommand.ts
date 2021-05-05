@@ -24,6 +24,20 @@ export interface ListClusterJobsCommandOutput extends ListClusterJobsResult, __M
  * <p>Returns an array of <code>JobListEntry</code> objects of the specified length. Each
  *         <code>JobListEntry</code> object is for a job in the specified cluster and contains a job's
  *       state, a job's ID, and other information.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SnowballClient, ListClusterJobsCommand } from "@aws-sdk/client-snowball"; // ES Modules import
+ * // const { SnowballClient, ListClusterJobsCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * const client = new SnowballClient(config);
+ * const command = new ListClusterJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListClusterJobsCommandInput} for command's `input` shape.
+ * @see {@link ListClusterJobsCommandOutput} for command's `response` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListClusterJobsCommand extends $Command<
   ListClusterJobsCommandInput,

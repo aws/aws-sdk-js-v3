@@ -41,6 +41,20 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  *                         <code>Optimized</code>.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ComputeOptimizerClient, GetRecommendationSummariesCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
+ * // const { ComputeOptimizerClient, GetRecommendationSummariesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
+ * const client = new ComputeOptimizerClient(config);
+ * const command = new GetRecommendationSummariesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRecommendationSummariesCommandInput} for command's `input` shape.
+ * @see {@link GetRecommendationSummariesCommandOutput} for command's `response` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRecommendationSummariesCommand extends $Command<
   GetRecommendationSummariesCommandInput,

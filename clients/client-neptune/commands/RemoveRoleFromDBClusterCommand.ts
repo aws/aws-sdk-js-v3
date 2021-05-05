@@ -22,6 +22,20 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
 
 /**
  * <p>Disassociates an Identity and Access Management (IAM) role from a DB cluster.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NeptuneClient, RemoveRoleFromDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, RemoveRoleFromDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * const client = new NeptuneClient(config);
+ * const command = new RemoveRoleFromDBClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveRoleFromDBClusterCommandInput} for command's `input` shape.
+ * @see {@link RemoveRoleFromDBClusterCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveRoleFromDBClusterCommand extends $Command<
   RemoveRoleFromDBClusterCommandInput,

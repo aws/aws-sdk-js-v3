@@ -22,6 +22,20 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResult, _
 
 /**
  * <p>Lists all the user profiles configured for your AWS account in AWS CodeStar.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeStarClient, ListUserProfilesCommand } from "@aws-sdk/client-codestar"; // ES Modules import
+ * // const { CodeStarClient, ListUserProfilesCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * const client = new CodeStarClient(config);
+ * const command = new ListUserProfilesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListUserProfilesCommandInput} for command's `input` shape.
+ * @see {@link ListUserProfilesCommandOutput} for command's `response` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListUserProfilesCommand extends $Command<
   ListUserProfilesCommandInput,

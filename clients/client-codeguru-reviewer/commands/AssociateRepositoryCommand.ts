@@ -46,6 +46,20 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  *             started with CodeGuru Reviewer</a> in the <i>CodeGuru Reviewer User Guide.</i>
  *             </p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeGuruReviewerClient, AssociateRepositoryCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
+ * // const { CodeGuruReviewerClient, AssociateRepositoryCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * const client = new CodeGuruReviewerClient(config);
+ * const command = new AssociateRepositoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateRepositoryCommandInput} for command's `input` shape.
+ * @see {@link AssociateRepositoryCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateRepositoryCommand extends $Command<
   AssociateRepositoryCommandInput,

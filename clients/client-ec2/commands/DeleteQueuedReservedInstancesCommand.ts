@@ -24,6 +24,20 @@ export interface DeleteQueuedReservedInstancesCommandOutput
 
 /**
  * <p>Deletes the queued purchases for the specified Reserved Instances.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DeleteQueuedReservedInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DeleteQueuedReservedInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DeleteQueuedReservedInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteQueuedReservedInstancesCommandInput} for command's `input` shape.
+ * @see {@link DeleteQueuedReservedInstancesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteQueuedReservedInstancesCommand extends $Command<
   DeleteQueuedReservedInstancesCommandInput,

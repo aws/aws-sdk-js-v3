@@ -22,6 +22,20 @@ export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataB
 
 /**
  * <p>Retrieves information about the configuration, dimension, and other settings for a specific segment that's associated with an application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointClient, GetSegmentCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, GetSegmentCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * const client = new PinpointClient(config);
+ * const command = new GetSegmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSegmentCommandInput} for command's `input` shape.
+ * @see {@link GetSegmentCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSegmentCommand extends $Command<
   GetSegmentCommandInput,

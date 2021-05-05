@@ -22,6 +22,20 @@ export interface ListStreamingImagesCommandOutput extends ListStreamingImagesRes
 
 /**
  * <p>List the streaming image resources available to this studio.</p> <p>This list will contain both images provided by AWS, as well as streaming images that you have created in your studio.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NimbleClient, ListStreamingImagesCommand } from "@aws-sdk/client-nimble"; // ES Modules import
+ * // const { NimbleClient, ListStreamingImagesCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * const client = new NimbleClient(config);
+ * const command = new ListStreamingImagesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListStreamingImagesCommandInput} for command's `input` shape.
+ * @see {@link ListStreamingImagesCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListStreamingImagesCommand extends $Command<
   ListStreamingImagesCommandInput,

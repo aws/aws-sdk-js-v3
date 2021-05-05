@@ -22,6 +22,20 @@ export interface StopMetricStreamsCommandOutput extends StopMetricStreamsOutput,
 
 /**
  * <p>Stops the streaming of metrics for one or more of your metric streams.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchClient, StopMetricStreamsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
+ * // const { CloudWatchClient, StopMetricStreamsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * const client = new CloudWatchClient(config);
+ * const command = new StopMetricStreamsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopMetricStreamsCommandInput} for command's `input` shape.
+ * @see {@link StopMetricStreamsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopMetricStreamsCommand extends $Command<
   StopMetricStreamsCommandInput,

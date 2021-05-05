@@ -32,6 +32,20 @@ export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersRes
  *             group, call the <a>DetachLoadBalancers</a> API.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Elastic Load Balancing and
  *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AutoScalingClient, AttachLoadBalancersCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, AttachLoadBalancersCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * const client = new AutoScalingClient(config);
+ * const command = new AttachLoadBalancersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AttachLoadBalancersCommandInput} for command's `input` shape.
+ * @see {@link AttachLoadBalancersCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AttachLoadBalancersCommand extends $Command<
   AttachLoadBalancersCommandInput,

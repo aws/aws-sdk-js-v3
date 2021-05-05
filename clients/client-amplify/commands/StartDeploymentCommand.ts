@@ -23,6 +23,20 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResult, __M
 /**
  * <p> Starts a deployment for a manually deployed app. Manually deployed apps are not
  *             connected to a repository. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmplifyClient, StartDeploymentCommand } from "@aws-sdk/client-amplify"; // ES Modules import
+ * // const { AmplifyClient, StartDeploymentCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * const client = new AmplifyClient(config);
+ * const command = new StartDeploymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartDeploymentCommandInput} for command's `input` shape.
+ * @see {@link StartDeploymentCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartDeploymentCommand extends $Command<
   StartDeploymentCommandInput,

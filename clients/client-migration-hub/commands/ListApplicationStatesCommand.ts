@@ -24,6 +24,20 @@ export interface ListApplicationStatesCommandOutput extends ListApplicationState
  * <p>Lists all the migration statuses for your applications. If you use the optional
  *             <code>ApplicationIds</code> parameter, only the migration statuses for those
  *          applications will be returned.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MigrationHubClient, ListApplicationStatesCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
+ * // const { MigrationHubClient, ListApplicationStatesCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * const client = new MigrationHubClient(config);
+ * const command = new ListApplicationStatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListApplicationStatesCommandInput} for command's `input` shape.
+ * @see {@link ListApplicationStatesCommandOutput} for command's `response` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListApplicationStatesCommand extends $Command<
   ListApplicationStatesCommandInput,

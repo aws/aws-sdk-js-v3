@@ -28,6 +28,20 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
 
 /**
  * <p>Retrieves the quota increase requests for the specified quota.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceQuotasClient, ListRequestedServiceQuotaChangeHistoryByQuotaCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
+ * // const { ServiceQuotasClient, ListRequestedServiceQuotaChangeHistoryByQuotaCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
+ * const client = new ServiceQuotasClient(config);
+ * const command = new ListRequestedServiceQuotaChangeHistoryByQuotaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput} for command's `input` shape.
+ * @see {@link ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput} for command's `response` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Command<
   ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,

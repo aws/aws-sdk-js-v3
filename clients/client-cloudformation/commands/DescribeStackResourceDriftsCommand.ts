@@ -32,6 +32,20 @@ export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackR
  *          <p>Use <a>DetectStackResourceDrift</a> to detect drift on individual
  *          resources, or <a>DetectStackDrift</a> to detect drift on all supported resources
  *          for a given stack.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFormationClient, DescribeStackResourceDriftsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, DescribeStackResourceDriftsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * const client = new CloudFormationClient(config);
+ * const command = new DescribeStackResourceDriftsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeStackResourceDriftsCommandInput} for command's `input` shape.
+ * @see {@link DescribeStackResourceDriftsCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeStackResourceDriftsCommand extends $Command<
   DescribeStackResourceDriftsCommandInput,

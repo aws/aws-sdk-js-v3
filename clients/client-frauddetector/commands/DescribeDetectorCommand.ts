@@ -22,6 +22,20 @@ export interface DescribeDetectorCommandOutput extends DescribeDetectorResult, _
 
 /**
  * <p>Gets all versions for a specified detector.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FraudDetectorClient, DescribeDetectorCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, DescribeDetectorCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * const client = new FraudDetectorClient(config);
+ * const command = new DescribeDetectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDetectorCommandInput} for command's `input` shape.
+ * @see {@link DescribeDetectorCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDetectorCommand extends $Command<
   DescribeDetectorCommandInput,

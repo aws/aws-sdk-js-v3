@@ -20,6 +20,20 @@ export interface StopQueryCommandOutput extends StopQueryResponse, __MetadataBea
 /**
  * <p>Stops a CloudWatch Logs Insights query that is in progress. If the query has already ended, the operation
  *     returns an error indicating that the specified query is not running.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchLogsClient, StopQueryCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
+ * // const { CloudWatchLogsClient, StopQueryCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new StopQueryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopQueryCommandInput} for command's `input` shape.
+ * @see {@link StopQueryCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopQueryCommand extends $Command<
   StopQueryCommandInput,

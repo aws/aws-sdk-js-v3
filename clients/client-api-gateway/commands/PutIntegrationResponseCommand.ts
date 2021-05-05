@@ -22,6 +22,20 @@ export interface PutIntegrationResponseCommandOutput extends IntegrationResponse
 
 /**
  * <p>Represents a put integration.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, PutIntegrationResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, PutIntegrationResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new PutIntegrationResponseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutIntegrationResponseCommandInput} for command's `input` shape.
+ * @see {@link PutIntegrationResponseCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutIntegrationResponseCommand extends $Command<
   PutIntegrationResponseCommandInput,

@@ -31,6 +31,20 @@ export interface UpdateConnectionCommandOutput extends Connection, __MetadataBea
  *                <p>The connection's MAC Security (MACsec) encryption mode.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectConnectClient, UpdateConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, UpdateConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * const client = new DirectConnectClient(config);
+ * const command = new UpdateConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateConnectionCommandInput} for command's `input` shape.
+ * @see {@link UpdateConnectionCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateConnectionCommand extends $Command<
   UpdateConnectionCommandInput,

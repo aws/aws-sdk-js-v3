@@ -31,6 +31,20 @@ export interface AdminUpdateAuthEventFeedbackCommandOutput
  * <p>Provides feedback for an authentication event as to whether it was from a valid user.
  *             This feedback is used for improving the risk evaluation decision for the user pool as
  *             part of Amazon Cognito advanced security.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, AdminUpdateAuthEventFeedbackCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminUpdateAuthEventFeedbackCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new AdminUpdateAuthEventFeedbackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdminUpdateAuthEventFeedbackCommandInput} for command's `input` shape.
+ * @see {@link AdminUpdateAuthEventFeedbackCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdminUpdateAuthEventFeedbackCommand extends $Command<
   AdminUpdateAuthEventFeedbackCommandInput,

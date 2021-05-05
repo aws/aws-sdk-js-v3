@@ -24,6 +24,20 @@ export interface DeleteMonitoringSubscriptionCommandOutput
 
 /**
  * <p>Disables additional CloudWatch metrics for the specified CloudFront distribution.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFrontClient, DeleteMonitoringSubscriptionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, DeleteMonitoringSubscriptionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * const client = new CloudFrontClient(config);
+ * const command = new DeleteMonitoringSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMonitoringSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link DeleteMonitoringSubscriptionCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMonitoringSubscriptionCommand extends $Command<
   DeleteMonitoringSubscriptionCommandInput,

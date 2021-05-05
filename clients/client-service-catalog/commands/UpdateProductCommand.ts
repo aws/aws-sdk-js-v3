@@ -22,6 +22,20 @@ export interface UpdateProductCommandOutput extends UpdateProductOutput, __Metad
 
 /**
  * <p>Updates the specified product.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, UpdateProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, UpdateProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new UpdateProductCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateProductCommandInput} for command's `input` shape.
+ * @see {@link UpdateProductCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateProductCommand extends $Command<
   UpdateProductCommandInput,

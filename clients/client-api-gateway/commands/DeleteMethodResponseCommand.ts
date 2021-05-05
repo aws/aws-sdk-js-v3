@@ -22,6 +22,20 @@ export interface DeleteMethodResponseCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an existing <a>MethodResponse</a> resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, DeleteMethodResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, DeleteMethodResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new DeleteMethodResponseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMethodResponseCommandInput} for command's `input` shape.
+ * @see {@link DeleteMethodResponseCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMethodResponseCommand extends $Command<
   DeleteMethodResponseCommandInput,

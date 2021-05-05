@@ -22,6 +22,20 @@ export interface ListThingsInThingGroupCommandOutput extends ListThingsInThingGr
 
 /**
  * <p>Lists the things in the specified group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, ListThingsInThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListThingsInThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new ListThingsInThingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListThingsInThingGroupCommandInput} for command's `input` shape.
+ * @see {@link ListThingsInThingGroupCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListThingsInThingGroupCommand extends $Command<
   ListThingsInThingGroupCommandInput,

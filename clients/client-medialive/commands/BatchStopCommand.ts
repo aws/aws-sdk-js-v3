@@ -22,6 +22,20 @@ export interface BatchStopCommandOutput extends BatchStopResponse, __MetadataBea
 
 /**
  * Stops running resources
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaLiveClient, BatchStopCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, BatchStopCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * const client = new MediaLiveClient(config);
+ * const command = new BatchStopCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchStopCommandInput} for command's `input` shape.
+ * @see {@link BatchStopCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchStopCommand extends $Command<
   BatchStopCommandInput,

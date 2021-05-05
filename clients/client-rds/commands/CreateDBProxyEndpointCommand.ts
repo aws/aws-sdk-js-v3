@@ -26,6 +26,20 @@ export interface CreateDBProxyEndpointCommandOutput extends CreateDBProxyEndpoin
  *         You can use DB proxy endpoints to specify read/write or read-only access to the DB cluster. You can also use
  *         DB proxy endpoints to access a DB proxy through a different VPC than the proxy's default VPC.
  *       </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, CreateDBProxyEndpointCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, CreateDBProxyEndpointCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new CreateDBProxyEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDBProxyEndpointCommandInput} for command's `input` shape.
+ * @see {@link CreateDBProxyEndpointCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDBProxyEndpointCommand extends $Command<
   CreateDBProxyEndpointCommandInput,

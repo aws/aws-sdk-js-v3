@@ -24,6 +24,20 @@ export interface DisassociateConnectorCommandOutput extends DisassociateConnecto
  * <p>Disassociates the specified connector from AWS SMS.</p>
  *         <p>After you disassociate a connector, it is no longer available to support
  *             replication jobs.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SMSClient, DisassociateConnectorCommand } from "@aws-sdk/client-sms"; // ES Modules import
+ * // const { SMSClient, DisassociateConnectorCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * const client = new SMSClient(config);
+ * const command = new DisassociateConnectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateConnectorCommandInput} for command's `input` shape.
+ * @see {@link DisassociateConnectorCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateConnectorCommand extends $Command<
   DisassociateConnectorCommandInput,

@@ -22,6 +22,20 @@ export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefin
 
 /**
  * <p>Deregisters an AWS Batch job definition. Job definitions are permanently deleted after 180 days.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BatchClient, DeregisterJobDefinitionCommand } from "@aws-sdk/client-batch"; // ES Modules import
+ * // const { BatchClient, DeregisterJobDefinitionCommand } = require("@aws-sdk/client-batch"); // CommonJS import
+ * const client = new BatchClient(config);
+ * const command = new DeregisterJobDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterJobDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DeregisterJobDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterJobDefinitionCommand extends $Command<
   DeregisterJobDefinitionCommandInput,

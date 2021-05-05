@@ -23,6 +23,20 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
 /**
  * <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints
  *       must be deleted in order for the model to be deleted.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ComprehendClient, DeleteEndpointCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, DeleteEndpointCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * const client = new ComprehendClient(config);
+ * const command = new DeleteEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEndpointCommandInput} for command's `input` shape.
+ * @see {@link DeleteEndpointCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEndpointCommand extends $Command<
   DeleteEndpointCommandInput,

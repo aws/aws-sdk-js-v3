@@ -27,6 +27,20 @@ export interface GetOutcomesCommandOutput extends GetOutcomesResult, __MetadataB
  *          between 50 and 100. To get the next page results, provide the pagination token from the
  *         <code>GetOutcomesResult</code> as part of your request. A null pagination token
  *          fetches the records from the beginning. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FraudDetectorClient, GetOutcomesCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, GetOutcomesCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * const client = new FraudDetectorClient(config);
+ * const command = new GetOutcomesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOutcomesCommandInput} for command's `input` shape.
+ * @see {@link GetOutcomesCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOutcomesCommand extends $Command<
   GetOutcomesCommandInput,

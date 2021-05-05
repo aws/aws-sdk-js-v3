@@ -22,6 +22,20 @@ export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBe
 
 /**
  * Automatically adds idempotency tokens.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestXmlProtocolClient, QueryIdempotencyTokenAutoFillCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, QueryIdempotencyTokenAutoFillCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import
+ * const client = new RestXmlProtocolClient(config);
+ * const command = new QueryIdempotencyTokenAutoFillCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link QueryIdempotencyTokenAutoFillCommandInput} for command's `input` shape.
+ * @see {@link QueryIdempotencyTokenAutoFillCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class QueryIdempotencyTokenAutoFillCommand extends $Command<
   QueryIdempotencyTokenAutoFillCommandInput,

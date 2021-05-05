@@ -22,6 +22,20 @@ export interface UpdateContributorInsightsCommandOutput extends UpdateContributo
 
 /**
  * <p>Updates the status for contributor insights for a specific table or index.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DynamoDBClient, UpdateContributorInsightsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, UpdateContributorInsightsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * const client = new DynamoDBClient(config);
+ * const command = new UpdateContributorInsightsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateContributorInsightsCommandInput} for command's `input` shape.
+ * @see {@link UpdateContributorInsightsCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateContributorInsightsCommand extends $Command<
   UpdateContributorInsightsCommandInput,

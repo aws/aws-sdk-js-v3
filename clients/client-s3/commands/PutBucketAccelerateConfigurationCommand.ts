@@ -68,6 +68,20 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, PutBucketAccelerateConfigurationCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, PutBucketAccelerateConfigurationCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new PutBucketAccelerateConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutBucketAccelerateConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutBucketAccelerateConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutBucketAccelerateConfigurationCommand extends $Command<
   PutBucketAccelerateConfigurationCommandInput,

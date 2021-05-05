@@ -36,6 +36,20 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  *
  *          <p>To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke permissions
  *       to an account or AWS service, use <a>AddPermission</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LambdaClient, UpdateFunctionConfigurationCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, UpdateFunctionConfigurationCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * const client = new LambdaClient(config);
+ * const command = new UpdateFunctionConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFunctionConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateFunctionConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFunctionConfigurationCommand extends $Command<
   UpdateFunctionConfigurationCommandInput,

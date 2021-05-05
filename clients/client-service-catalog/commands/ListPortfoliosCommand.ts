@@ -22,6 +22,20 @@ export interface ListPortfoliosCommandOutput extends ListPortfoliosOutput, __Met
 
 /**
  * <p>Lists all portfolios in the catalog.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, ListPortfoliosCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, ListPortfoliosCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new ListPortfoliosCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPortfoliosCommandInput} for command's `input` shape.
+ * @see {@link ListPortfoliosCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPortfoliosCommand extends $Command<
   ListPortfoliosCommandInput,

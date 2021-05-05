@@ -24,6 +24,20 @@ export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumen
  * <p>Describes the permissions for a Systems Manager document. If you created the document, you are the
  *    owner. If a document is shared, it can either be shared privately (by specifying a user's AWS
  *    account ID) or publicly (<i>All</i>). </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, DescribeDocumentPermissionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DescribeDocumentPermissionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new DescribeDocumentPermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDocumentPermissionCommandInput} for command's `input` shape.
+ * @see {@link DescribeDocumentPermissionCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDocumentPermissionCommand extends $Command<
   DescribeDocumentPermissionCommandInput,

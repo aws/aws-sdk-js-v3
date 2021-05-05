@@ -22,6 +22,20 @@ export interface GetLaunchProfileCommandOutput extends GetLaunchProfileResponse,
 
 /**
  * <p>Get a launch profile.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NimbleClient, GetLaunchProfileCommand } from "@aws-sdk/client-nimble"; // ES Modules import
+ * // const { NimbleClient, GetLaunchProfileCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * const client = new NimbleClient(config);
+ * const command = new GetLaunchProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLaunchProfileCommandInput} for command's `input` shape.
+ * @see {@link GetLaunchProfileCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLaunchProfileCommand extends $Command<
   GetLaunchProfileCommandInput,

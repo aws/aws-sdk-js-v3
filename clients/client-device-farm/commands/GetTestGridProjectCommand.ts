@@ -22,6 +22,20 @@ export interface GetTestGridProjectCommandOutput extends GetTestGridProjectResul
 
 /**
  * <p>Retrieves information about a Selenium testing project.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, GetTestGridProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, GetTestGridProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new GetTestGridProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTestGridProjectCommandInput} for command's `input` shape.
+ * @see {@link GetTestGridProjectCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTestGridProjectCommand extends $Command<
   GetTestGridProjectCommandInput,

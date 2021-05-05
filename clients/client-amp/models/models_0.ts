@@ -14,6 +14,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -42,6 +45,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -63,6 +69,9 @@ export interface CreateWorkspaceRequest {
 }
 
 export namespace CreateWorkspaceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateWorkspaceRequest): any => ({
     ...obj,
   });
@@ -102,6 +111,9 @@ export interface WorkspaceStatus {
 }
 
 export namespace WorkspaceStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: WorkspaceStatus): any => ({
     ...obj,
   });
@@ -128,6 +140,9 @@ export interface CreateWorkspaceResponse {
 }
 
 export namespace CreateWorkspaceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateWorkspaceResponse): any => ({
     ...obj,
   });
@@ -152,6 +167,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -190,6 +208,9 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
 }
 
 export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
@@ -224,6 +245,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -245,6 +269,9 @@ export interface ValidationExceptionField {
 }
 
 export namespace ValidationExceptionField {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
     ...obj,
   });
@@ -280,6 +307,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -301,6 +331,9 @@ export interface DeleteWorkspaceRequest {
 }
 
 export namespace DeleteWorkspaceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteWorkspaceRequest): any => ({
     ...obj,
   });
@@ -329,6 +362,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -345,6 +381,9 @@ export interface DescribeWorkspaceRequest {
 }
 
 export namespace DescribeWorkspaceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeWorkspaceRequest): any => ({
     ...obj,
   });
@@ -386,6 +425,9 @@ export interface WorkspaceDescription {
 }
 
 export namespace WorkspaceDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: WorkspaceDescription): any => ({
     ...obj,
   });
@@ -402,6 +444,9 @@ export interface DescribeWorkspaceResponse {
 }
 
 export namespace DescribeWorkspaceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeWorkspaceResponse): any => ({
     ...obj,
   });
@@ -428,6 +473,9 @@ export interface ListWorkspacesRequest {
 }
 
 export namespace ListWorkspacesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListWorkspacesRequest): any => ({
     ...obj,
   });
@@ -464,6 +512,9 @@ export interface WorkspaceSummary {
 }
 
 export namespace WorkspaceSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: WorkspaceSummary): any => ({
     ...obj,
   });
@@ -485,6 +536,9 @@ export interface ListWorkspacesResponse {
 }
 
 export namespace ListWorkspacesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListWorkspacesResponse): any => ({
     ...obj,
   });
@@ -511,6 +565,9 @@ export interface UpdateWorkspaceAliasRequest {
 }
 
 export namespace UpdateWorkspaceAliasRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateWorkspaceAliasRequest): any => ({
     ...obj,
   });

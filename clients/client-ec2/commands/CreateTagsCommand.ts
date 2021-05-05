@@ -28,6 +28,20 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  *          creating IAM policies that control users' access to resources based on tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html">Supported
  *             Resource-Level Permissions for Amazon EC2 API Actions</a> in the <i>Amazon
  *             Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, CreateTagsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateTagsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new CreateTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTagsCommandInput} for command's `input` shape.
+ * @see {@link CreateTagsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTagsCommand extends $Command<
   CreateTagsCommandInput,

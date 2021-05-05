@@ -65,6 +65,20 @@ export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, _
  *                 <i>Amazon Kinesis Data Streams Developer Guide</i>. To request an
  *             increase in the call rate limit, the shard limit for this API, or your overall shard
  *             limit, use the <a href="https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase&limitType=service-code-kinesis">limits form</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisClient, UpdateShardCountCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
+ * // const { KinesisClient, UpdateShardCountCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * const client = new KinesisClient(config);
+ * const command = new UpdateShardCountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateShardCountCommandInput} for command's `input` shape.
+ * @see {@link UpdateShardCountCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateShardCountCommand extends $Command<
   UpdateShardCountCommandInput,

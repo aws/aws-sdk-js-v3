@@ -28,6 +28,20 @@ export interface DisassociateWebsiteCertificateAuthorityCommandOutput
 
 /**
  * <p>Removes a certificate authority (CA).</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkLinkClient, DisassociateWebsiteCertificateAuthorityCommand } from "@aws-sdk/client-worklink"; // ES Modules import
+ * // const { WorkLinkClient, DisassociateWebsiteCertificateAuthorityCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * const client = new WorkLinkClient(config);
+ * const command = new DisassociateWebsiteCertificateAuthorityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateWebsiteCertificateAuthorityCommandInput} for command's `input` shape.
+ * @see {@link DisassociateWebsiteCertificateAuthorityCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
   DisassociateWebsiteCertificateAuthorityCommandInput,

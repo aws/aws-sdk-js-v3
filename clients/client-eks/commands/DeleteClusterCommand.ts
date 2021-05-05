@@ -29,6 +29,20 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  *                 Cluster</a> in the <i>Amazon EKS User Guide</i>.</p>
  *         <p>If you have managed node groups or Fargate profiles attached to the cluster, you must
  *             delete them first. For more information, see <a>DeleteNodegroup</a> and <a>DeleteFargateProfile</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EKSClient, DeleteClusterCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, DeleteClusterCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * const client = new EKSClient(config);
+ * const command = new DeleteClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteClusterCommandInput} for command's `input` shape.
+ * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,

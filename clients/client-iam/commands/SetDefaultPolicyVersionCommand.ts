@@ -27,6 +27,20 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  *             list the users, groups, and roles that the policy is attached to, use <a>ListEntitiesForPolicy</a>.</p>
  *         <p>For information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, SetDefaultPolicyVersionCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, SetDefaultPolicyVersionCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new SetDefaultPolicyVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetDefaultPolicyVersionCommandInput} for command's `input` shape.
+ * @see {@link SetDefaultPolicyVersionCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetDefaultPolicyVersionCommand extends $Command<
   SetDefaultPolicyVersionCommandInput,

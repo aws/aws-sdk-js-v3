@@ -29,6 +29,20 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *          <p>If a DB cluster snapshot is specified, the target DB cluster is created from the source DB
  *       cluster restore point with the same configuration as the original source DB cluster, except
  *       that the new DB cluster is created with the default security group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NeptuneClient, RestoreDBClusterFromSnapshotCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, RestoreDBClusterFromSnapshotCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * const client = new NeptuneClient(config);
+ * const command = new RestoreDBClusterFromSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RestoreDBClusterFromSnapshotCommandInput} for command's `input` shape.
+ * @see {@link RestoreDBClusterFromSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RestoreDBClusterFromSnapshotCommand extends $Command<
   RestoreDBClusterFromSnapshotCommandInput,

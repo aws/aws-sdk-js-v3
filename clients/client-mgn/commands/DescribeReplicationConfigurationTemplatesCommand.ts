@@ -28,6 +28,20 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
 
 /**
  * <p>Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MgnClient, DescribeReplicationConfigurationTemplatesCommand } from "@aws-sdk/client-mgn"; // ES Modules import
+ * // const { MgnClient, DescribeReplicationConfigurationTemplatesCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * const client = new MgnClient(config);
+ * const command = new DescribeReplicationConfigurationTemplatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeReplicationConfigurationTemplatesCommandInput} for command's `input` shape.
+ * @see {@link DescribeReplicationConfigurationTemplatesCommandOutput} for command's `response` shape.
+ * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeReplicationConfigurationTemplatesCommand extends $Command<
   DescribeReplicationConfigurationTemplatesCommandInput,

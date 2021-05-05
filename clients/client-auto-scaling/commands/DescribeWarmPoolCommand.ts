@@ -22,6 +22,20 @@ export interface DescribeWarmPoolCommandOutput extends DescribeWarmPoolAnswer, _
 
 /**
  * <p>Describes a warm pool and its instances.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AutoScalingClient, DescribeWarmPoolCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, DescribeWarmPoolCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * const client = new AutoScalingClient(config);
+ * const command = new DescribeWarmPoolCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeWarmPoolCommandInput} for command's `input` shape.
+ * @see {@link DescribeWarmPoolCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeWarmPoolCommand extends $Command<
   DescribeWarmPoolCommandInput,

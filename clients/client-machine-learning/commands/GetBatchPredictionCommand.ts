@@ -23,6 +23,20 @@ export interface GetBatchPredictionCommandOutput extends GetBatchPredictionOutpu
 /**
  * <p>Returns a <code>BatchPrediction</code> that includes detailed metadata, status, and data file information for a
  *             <code>Batch Prediction</code> request.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MachineLearningClient, GetBatchPredictionCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
+ * // const { MachineLearningClient, GetBatchPredictionCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * const client = new MachineLearningClient(config);
+ * const command = new GetBatchPredictionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBatchPredictionCommandInput} for command's `input` shape.
+ * @see {@link GetBatchPredictionCommandOutput} for command's `response` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBatchPredictionCommand extends $Command<
   GetBatchPredictionCommandInput,

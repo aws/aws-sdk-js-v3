@@ -27,6 +27,20 @@ export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateR
  *          reboot, stop, start, rebuild, or restore. An AutoStop WorkSpace in this state is not
  *          stopped. Users cannot log into a WorkSpace in the <code>ADMIN_MAINTENANCE</code>
  *          state.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkSpacesClient, ModifyWorkspaceStateCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
+ * // const { WorkSpacesClient, ModifyWorkspaceStateCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
+ * const client = new WorkSpacesClient(config);
+ * const command = new ModifyWorkspaceStateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyWorkspaceStateCommandInput} for command's `input` shape.
+ * @see {@link ModifyWorkspaceStateCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyWorkspaceStateCommand extends $Command<
   ModifyWorkspaceStateCommandInput,

@@ -31,6 +31,20 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *       parameters are set to <code>pending-reboot</code> to take effect on the next DB instance
  *       restart or <a>RebootDBInstance</a> request. You must call <a>RebootDBInstance</a> for every DB instance in your DB cluster
  *       that you want the updated static parameter to apply to.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NeptuneClient, ResetDBClusterParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, ResetDBClusterParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * const client = new NeptuneClient(config);
+ * const command = new ResetDBClusterParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResetDBClusterParameterGroupCommandInput} for command's `input` shape.
+ * @see {@link ResetDBClusterParameterGroupCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResetDBClusterParameterGroupCommand extends $Command<
   ResetDBClusterParameterGroupCommandInput,

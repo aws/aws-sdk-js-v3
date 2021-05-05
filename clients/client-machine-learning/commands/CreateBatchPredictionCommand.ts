@@ -33,6 +33,20 @@ export interface CreateBatchPredictionCommandOutput extends CreateBatchPredictio
  *         </p>
  *         <p>You can poll for status updates by using the <a>GetBatchPrediction</a> operation and checking the <code>Status</code> parameter of the result. After the <code>COMPLETED</code> status appears,
  *             the results are available in the location specified by the <code>OutputUri</code> parameter.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MachineLearningClient, CreateBatchPredictionCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
+ * // const { MachineLearningClient, CreateBatchPredictionCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
+ * const client = new MachineLearningClient(config);
+ * const command = new CreateBatchPredictionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateBatchPredictionCommandInput} for command's `input` shape.
+ * @see {@link CreateBatchPredictionCommandOutput} for command's `response` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateBatchPredictionCommand extends $Command<
   CreateBatchPredictionCommandInput,

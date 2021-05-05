@@ -22,6 +22,20 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
 
 /**
  * <p>Returns a paginated list of the current filters.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GuardDutyClient, ListFiltersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, ListFiltersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * const client = new GuardDutyClient(config);
+ * const command = new ListFiltersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFiltersCommandInput} for command's `input` shape.
+ * @see {@link ListFiltersCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFiltersCommand extends $Command<
   ListFiltersCommandInput,

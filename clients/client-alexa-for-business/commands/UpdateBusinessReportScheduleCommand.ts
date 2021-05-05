@@ -25,6 +25,20 @@ export interface UpdateBusinessReportScheduleCommandOutput
 /**
  * <p>Updates the configuration of the report delivery schedule with the specified schedule
  *          ARN.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, UpdateBusinessReportScheduleCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, UpdateBusinessReportScheduleCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new UpdateBusinessReportScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateBusinessReportScheduleCommandInput} for command's `input` shape.
+ * @see {@link UpdateBusinessReportScheduleCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateBusinessReportScheduleCommand extends $Command<
   UpdateBusinessReportScheduleCommandInput,

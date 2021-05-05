@@ -25,6 +25,20 @@ export interface GetMedicalTranscriptionJobCommandOutput extends GetMedicalTrans
  *             job, check the <code>TranscriptionJobStatus</code> field. If the status is
  *                 <code>COMPLETED</code>, the job is finished. You find the results of the completed
  *             job in the <code>TranscriptFileUri</code> field.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TranscribeClient, GetMedicalTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
+ * // const { TranscribeClient, GetMedicalTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
+ * const client = new TranscribeClient(config);
+ * const command = new GetMedicalTranscriptionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMedicalTranscriptionJobCommandInput} for command's `input` shape.
+ * @see {@link GetMedicalTranscriptionJobCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMedicalTranscriptionJobCommand extends $Command<
   GetMedicalTranscriptionJobCommandInput,

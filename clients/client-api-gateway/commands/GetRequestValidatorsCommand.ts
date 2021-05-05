@@ -22,6 +22,20 @@ export interface GetRequestValidatorsCommandOutput extends RequestValidators, __
 
 /**
  * <p>Gets the <a>RequestValidators</a> collection of a given <a>RestApi</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, GetRequestValidatorsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, GetRequestValidatorsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new GetRequestValidatorsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRequestValidatorsCommandInput} for command's `input` shape.
+ * @see {@link GetRequestValidatorsCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRequestValidatorsCommand extends $Command<
   GetRequestValidatorsCommandInput,

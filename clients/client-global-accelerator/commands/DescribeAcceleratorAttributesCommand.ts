@@ -29,6 +29,20 @@ export interface DescribeAcceleratorAttributesCommandOutput
 /**
  * <p>Describe the attributes of an accelerator.
  * 		</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlobalAcceleratorClient, DescribeAcceleratorAttributesCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
+ * // const { GlobalAcceleratorClient, DescribeAcceleratorAttributesCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new DescribeAcceleratorAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAcceleratorAttributesCommandInput} for command's `input` shape.
+ * @see {@link DescribeAcceleratorAttributesCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAcceleratorAttributesCommand extends $Command<
   DescribeAcceleratorAttributesCommandInput,

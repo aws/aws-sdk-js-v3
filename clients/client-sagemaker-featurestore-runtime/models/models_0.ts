@@ -11,6 +11,9 @@ export interface AccessForbidden extends __SmithyException, $MetadataBearer {
 }
 
 export namespace AccessForbidden {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessForbidden): any => ({
     ...obj,
   });
@@ -36,6 +39,9 @@ export interface DeleteRecordRequest {
 }
 
 export namespace DeleteRecordRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteRecordRequest): any => ({
     ...obj,
   });
@@ -52,6 +58,9 @@ export interface InternalFailure extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InternalFailure {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalFailure): any => ({
     ...obj,
   });
@@ -67,6 +76,9 @@ export interface ServiceUnavailable extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServiceUnavailable {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailable): any => ({
     ...obj,
   });
@@ -82,6 +94,9 @@ export interface ValidationError extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ValidationError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationError): any => ({
     ...obj,
   });
@@ -107,6 +122,9 @@ export interface GetRecordRequest {
 }
 
 export namespace GetRecordRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRecordRequest): any => ({
     ...obj,
   });
@@ -129,6 +147,9 @@ export interface FeatureValue {
 }
 
 export namespace FeatureValue {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FeatureValue): any => ({
     ...obj,
   });
@@ -142,6 +163,9 @@ export interface GetRecordResponse {
 }
 
 export namespace GetRecordResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRecordResponse): any => ({
     ...obj,
   });
@@ -157,6 +181,9 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ResourceNotFound {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFound): any => ({
     ...obj,
   });
@@ -187,6 +214,9 @@ export interface PutRecordRequest {
 }
 
 export namespace PutRecordRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRecordRequest): any => ({
     ...obj,
   });

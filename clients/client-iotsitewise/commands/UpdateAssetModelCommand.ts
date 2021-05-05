@@ -34,6 +34,20 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *         asset associated with that hierarchy. You can't change the type or data type of an existing
  *         property.</p>
  *          </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTSiteWiseClient, UpdateAssetModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, UpdateAssetModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new UpdateAssetModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAssetModelCommandInput} for command's `input` shape.
+ * @see {@link UpdateAssetModelCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAssetModelCommand extends $Command<
   UpdateAssetModelCommandInput,

@@ -25,6 +25,20 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  *          to a security issue that requires attention or remediation.</p>
  *          <p>To group the related findings in the insight, use the
  *          <code>GroupByAttribute</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecurityHubClient, CreateInsightCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, CreateInsightCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * const client = new SecurityHubClient(config);
+ * const command = new CreateInsightCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateInsightCommandInput} for command's `input` shape.
+ * @see {@link CreateInsightCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateInsightCommand extends $Command<
   CreateInsightCommandInput,

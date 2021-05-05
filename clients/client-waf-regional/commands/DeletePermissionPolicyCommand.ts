@@ -31,6 +31,20 @@ export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPol
  *          </note>
  *          <p>Permanently deletes an IAM policy from the specified RuleGroup.</p>
  *          <p>The user making the request must be the owner of the RuleGroup.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFRegionalClient, DeletePermissionPolicyCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
+ * // const { WAFRegionalClient, DeletePermissionPolicyCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * const client = new WAFRegionalClient(config);
+ * const command = new DeletePermissionPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePermissionPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeletePermissionPolicyCommandOutput} for command's `response` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePermissionPolicyCommand extends $Command<
   DeletePermissionPolicyCommandInput,

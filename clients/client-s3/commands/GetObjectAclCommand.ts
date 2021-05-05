@@ -49,6 +49,20 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, GetObjectAclCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, GetObjectAclCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new GetObjectAclCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetObjectAclCommandInput} for command's `input` shape.
+ * @see {@link GetObjectAclCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetObjectAclCommand extends $Command<
   GetObjectAclCommandInput,

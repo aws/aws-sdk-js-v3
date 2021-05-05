@@ -22,6 +22,20 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
 
 /**
  * <p>Retrieves an array of your <a>LoggingConfiguration</a> objects.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFV2Client, ListLoggingConfigurationsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
+ * // const { WAFV2Client, ListLoggingConfigurationsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * const client = new WAFV2Client(config);
+ * const command = new ListLoggingConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListLoggingConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link ListLoggingConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListLoggingConfigurationsCommand extends $Command<
   ListLoggingConfigurationsCommandInput,

@@ -29,6 +29,20 @@ export interface CreateAttributeGroupCommandOutput extends CreateAttributeGroupR
  *       enables users to have full control over their cloud application's metadata in a rich
  *       machine-readable format to facilitate integration with automated workflows and third-party
  *       tools.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogAppRegistryClient, CreateAttributeGroupCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
+ * // const { ServiceCatalogAppRegistryClient, CreateAttributeGroupCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * const client = new ServiceCatalogAppRegistryClient(config);
+ * const command = new CreateAttributeGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAttributeGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateAttributeGroupCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAttributeGroupCommand extends $Command<
   CreateAttributeGroupCommandInput,

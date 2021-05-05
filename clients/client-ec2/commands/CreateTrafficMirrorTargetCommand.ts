@@ -27,6 +27,20 @@ export interface CreateTrafficMirrorTargetCommandOutput extends CreateTrafficMir
  *          different VPCs connected via VPC peering or a transit gateway.</p>
  *          <p>A Traffic Mirror target can be a network interface, or a Network Load Balancer.</p>
  *          <p>To use the target in a Traffic Mirror session, use  <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm">CreateTrafficMirrorSession</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, CreateTrafficMirrorTargetCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateTrafficMirrorTargetCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new CreateTrafficMirrorTargetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTrafficMirrorTargetCommandInput} for command's `input` shape.
+ * @see {@link CreateTrafficMirrorTargetCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTrafficMirrorTargetCommand extends $Command<
   CreateTrafficMirrorTargetCommandInput,

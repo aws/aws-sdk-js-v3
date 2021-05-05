@@ -63,6 +63,20 @@ export interface SuspendGameServerGroupCommandOutput extends SuspendGameServerGr
  *                     <a>DescribeGameServerInstances</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
  *          </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GameLiftClient, SuspendGameServerGroupCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
+ * // const { GameLiftClient, SuspendGameServerGroupCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * const client = new GameLiftClient(config);
+ * const command = new SuspendGameServerGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SuspendGameServerGroupCommandInput} for command's `input` shape.
+ * @see {@link SuspendGameServerGroupCommandOutput} for command's `response` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SuspendGameServerGroupCommand extends $Command<
   SuspendGameServerGroupCommandInput,

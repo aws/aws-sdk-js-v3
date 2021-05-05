@@ -22,6 +22,20 @@ export interface GetStudioComponentCommandOutput extends GetStudioComponentRespo
 
 /**
  * <p>Gets a studio component resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NimbleClient, GetStudioComponentCommand } from "@aws-sdk/client-nimble"; // ES Modules import
+ * // const { NimbleClient, GetStudioComponentCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * const client = new NimbleClient(config);
+ * const command = new GetStudioComponentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetStudioComponentCommandInput} for command's `input` shape.
+ * @see {@link GetStudioComponentCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetStudioComponentCommand extends $Command<
   GetStudioComponentCommandInput,

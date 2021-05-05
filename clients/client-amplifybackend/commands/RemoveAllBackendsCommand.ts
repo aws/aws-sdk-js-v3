@@ -22,6 +22,20 @@ export interface RemoveAllBackendsCommandOutput extends RemoveAllBackendsRespons
 
 /**
  * <p>Removes all backend environments from your Amplify project.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmplifyBackendClient, RemoveAllBackendsCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
+ * // const { AmplifyBackendClient, RemoveAllBackendsCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * const client = new AmplifyBackendClient(config);
+ * const command = new RemoveAllBackendsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveAllBackendsCommandInput} for command's `input` shape.
+ * @see {@link RemoveAllBackendsCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveAllBackendsCommand extends $Command<
   RemoveAllBackendsCommandInput,

@@ -26,6 +26,20 @@ export interface GetCommentsForPullRequestCommandOutput extends GetCommentsForPu
  *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
  *             reactions from active identities, use GetCommentReactions.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeCommitClient, GetCommentsForPullRequestCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, GetCommentsForPullRequestCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * const client = new CodeCommitClient(config);
+ * const command = new GetCommentsForPullRequestCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCommentsForPullRequestCommandInput} for command's `input` shape.
+ * @see {@link GetCommentsForPullRequestCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCommentsForPullRequestCommand extends $Command<
   GetCommentsForPullRequestCommandInput,

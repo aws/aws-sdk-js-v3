@@ -37,6 +37,20 @@ export interface UpdateAccountPasswordPolicyCommandOutput extends __MetadataBear
  *         </note>
  *         <p> For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM password
  *                 policy</a> in the <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, UpdateAccountPasswordPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, UpdateAccountPasswordPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new UpdateAccountPasswordPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAccountPasswordPolicyCommandInput} for command's `input` shape.
+ * @see {@link UpdateAccountPasswordPolicyCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAccountPasswordPolicyCommand extends $Command<
   UpdateAccountPasswordPolicyCommandInput,

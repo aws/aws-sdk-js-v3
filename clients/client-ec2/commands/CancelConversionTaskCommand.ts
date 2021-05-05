@@ -26,6 +26,20 @@ export interface CancelConversionTaskCommandOutput extends __MetadataBearer {}
  *    in the process of transferring the final disk image, the command fails and returns an exception.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html">Importing a Virtual Machine Using the Amazon
  *     EC2 CLI</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, CancelConversionTaskCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CancelConversionTaskCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new CancelConversionTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelConversionTaskCommandInput} for command's `input` shape.
+ * @see {@link CancelConversionTaskCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelConversionTaskCommand extends $Command<
   CancelConversionTaskCommandInput,

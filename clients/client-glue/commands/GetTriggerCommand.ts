@@ -22,6 +22,20 @@ export interface GetTriggerCommandOutput extends GetTriggerResponse, __MetadataB
 
 /**
  * <p>Retrieves the definition of a trigger.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, GetTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new GetTriggerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTriggerCommandInput} for command's `input` shape.
+ * @see {@link GetTriggerCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTriggerCommand extends $Command<
   GetTriggerCommandInput,

@@ -32,6 +32,20 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  *         <p>MeterUsage can optionally include multiple usage allocations, to provide customers
  *             with usage data split into buckets by tags that you define (or allow the customer to
  *             define).</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MarketplaceMeteringClient, MeterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
+ * // const { MarketplaceMeteringClient, MeterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import
+ * const client = new MarketplaceMeteringClient(config);
+ * const command = new MeterUsageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link MeterUsageCommandInput} for command's `input` shape.
+ * @see {@link MeterUsageCommandOutput} for command's `response` shape.
+ * @see {@link MarketplaceMeteringClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class MeterUsageCommand extends $Command<
   MeterUsageCommandInput,

@@ -22,6 +22,20 @@ export interface GetIndexingConfigurationCommandOutput extends GetIndexingConfig
 
 /**
  * <p>Gets the indexing configuration.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, GetIndexingConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, GetIndexingConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new GetIndexingConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetIndexingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetIndexingConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetIndexingConfigurationCommand extends $Command<
   GetIndexingConfigurationCommandInput,

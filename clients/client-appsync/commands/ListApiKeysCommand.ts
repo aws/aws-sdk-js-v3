@@ -28,6 +28,20 @@ export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __Metadat
  *             call <code>DeleteApiKey</code> to manually delete a key before it's automatically
  *             deleted.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppSyncClient, ListApiKeysCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, ListApiKeysCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * const client = new AppSyncClient(config);
+ * const command = new ListApiKeysCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListApiKeysCommandInput} for command's `input` shape.
+ * @see {@link ListApiKeysCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListApiKeysCommand extends $Command<
   ListApiKeysCommandInput,

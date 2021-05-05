@@ -24,6 +24,20 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * <p>Retrieves a list of gateway summaries. Use GetGateway to retrieve details of a specific
  *          gateway. An optional gateway group ARN can be provided to only retrieve gateway summaries
  *          of gateways that are associated with that gateway group ARN.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, ListGatewaysCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, ListGatewaysCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new ListGatewaysCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListGatewaysCommandInput} for command's `input` shape.
+ * @see {@link ListGatewaysCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListGatewaysCommand extends $Command<
   ListGatewaysCommandInput,

@@ -22,6 +22,20 @@ export interface ListFindingsReportsCommandOutput extends ListFindingsReportsRes
 
 /**
  * <p>List the available reports for a given profiling group and time range.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeGuruProfilerClient, ListFindingsReportsCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
+ * // const { CodeGuruProfilerClient, ListFindingsReportsCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
+ * const client = new CodeGuruProfilerClient(config);
+ * const command = new ListFindingsReportsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFindingsReportsCommandInput} for command's `input` shape.
+ * @see {@link ListFindingsReportsCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFindingsReportsCommand extends $Command<
   ListFindingsReportsCommandInput,

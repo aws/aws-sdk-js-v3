@@ -24,6 +24,20 @@ export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataB
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily removing
  *                 instances from your Auto Scaling group</a> in the
  *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AutoScalingClient, ExitStandbyCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, ExitStandbyCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * const client = new AutoScalingClient(config);
+ * const command = new ExitStandbyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ExitStandbyCommandInput} for command's `input` shape.
+ * @see {@link ExitStandbyCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ExitStandbyCommand extends $Command<
   ExitStandbyCommandInput,

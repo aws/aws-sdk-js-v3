@@ -22,6 +22,20 @@ export interface SendDataToWirelessDeviceCommandOutput extends SendDataToWireles
 
 /**
  * <p>Sends a decrypted application data frame to a device.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTWirelessClient, SendDataToWirelessDeviceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, SendDataToWirelessDeviceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * const client = new IoTWirelessClient(config);
+ * const command = new SendDataToWirelessDeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendDataToWirelessDeviceCommandInput} for command's `input` shape.
+ * @see {@link SendDataToWirelessDeviceCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendDataToWirelessDeviceCommand extends $Command<
   SendDataToWirelessDeviceCommandInput,

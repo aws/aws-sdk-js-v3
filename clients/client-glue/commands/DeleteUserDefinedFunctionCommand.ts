@@ -22,6 +22,20 @@ export interface DeleteUserDefinedFunctionCommandOutput extends DeleteUserDefine
 
 /**
  * <p>Deletes an existing function definition from the Data Catalog.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, DeleteUserDefinedFunctionCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, DeleteUserDefinedFunctionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new DeleteUserDefinedFunctionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteUserDefinedFunctionCommandInput} for command's `input` shape.
+ * @see {@link DeleteUserDefinedFunctionCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteUserDefinedFunctionCommand extends $Command<
   DeleteUserDefinedFunctionCommandInput,

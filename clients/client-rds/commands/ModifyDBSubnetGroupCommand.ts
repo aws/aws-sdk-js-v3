@@ -22,6 +22,20 @@ export interface ModifyDBSubnetGroupCommandOutput extends ModifyDBSubnetGroupRes
 
 /**
  * <p>Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the AWS Region.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, ModifyDBSubnetGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, ModifyDBSubnetGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new ModifyDBSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyDBSubnetGroupCommandInput} for command's `input` shape.
+ * @see {@link ModifyDBSubnetGroupCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyDBSubnetGroupCommand extends $Command<
   ModifyDBSubnetGroupCommandInput,

@@ -24,6 +24,20 @@ export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBea
 /**
  * <p>Modifies a usage limit in a cluster.
  *             You can't modify the feature type or period of a usage limit.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, ModifyUsageLimitCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, ModifyUsageLimitCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new ModifyUsageLimitCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyUsageLimitCommandInput} for command's `input` shape.
+ * @see {@link ModifyUsageLimitCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyUsageLimitCommand extends $Command<
   ModifyUsageLimitCommandInput,

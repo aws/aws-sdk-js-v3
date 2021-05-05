@@ -36,6 +36,20 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  *           operation is required to use this method. </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftDataClient, ListDatabasesCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
+ * // const { RedshiftDataClient, ListDatabasesCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
+ * const client = new RedshiftDataClient(config);
+ * const command = new ListDatabasesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDatabasesCommandInput} for command's `input` shape.
+ * @see {@link ListDatabasesCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftDataClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDatabasesCommand extends $Command<
   ListDatabasesCommandInput,

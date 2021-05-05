@@ -30,6 +30,20 @@ export interface ListSqlInjectionMatchSetsCommandOutput extends ListSqlInjection
  *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
  *          </note>
  * 		       <p>Returns an array of <a>SqlInjectionMatchSet</a> objects.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFClient, ListSqlInjectionMatchSetsCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, ListSqlInjectionMatchSetsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * const client = new WAFClient(config);
+ * const command = new ListSqlInjectionMatchSetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSqlInjectionMatchSetsCommandInput} for command's `input` shape.
+ * @see {@link ListSqlInjectionMatchSetsCommandOutput} for command's `response` shape.
+ * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSqlInjectionMatchSetsCommand extends $Command<
   ListSqlInjectionMatchSetsCommandInput,

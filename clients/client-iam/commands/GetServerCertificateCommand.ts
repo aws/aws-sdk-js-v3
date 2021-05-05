@@ -26,6 +26,20 @@ export interface GetServerCertificateCommandOutput extends GetServerCertificateR
  *                 with server certificates</a> in the <i>IAM User Guide</i>. This
  *             topic includes a list of AWS services that can use the server certificates that you
  *             manage with IAM.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, GetServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, GetServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new GetServerCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetServerCertificateCommandInput} for command's `input` shape.
+ * @see {@link GetServerCertificateCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetServerCertificateCommand extends $Command<
   GetServerCertificateCommandInput,

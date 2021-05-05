@@ -28,6 +28,20 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  *             <p>This operation can also return information for Amazon RDS clusters
  *     and Amazon DocDB clusters.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NeptuneClient, DescribeDBClustersCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, DescribeDBClustersCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * const client = new NeptuneClient(config);
+ * const command = new DescribeDBClustersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDBClustersCommandInput} for command's `input` shape.
+ * @see {@link DescribeDBClustersCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDBClustersCommand extends $Command<
   DescribeDBClustersCommandInput,

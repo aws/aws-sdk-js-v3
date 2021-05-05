@@ -22,6 +22,20 @@ export interface UpdateClusterConfigurationCommandOutput extends UpdateClusterCo
 
 /**
  * <p>Updates the cluster with the configuration that is specified in the request body.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KafkaClient, UpdateClusterConfigurationCommand } from "@aws-sdk/client-kafka"; // ES Modules import
+ * // const { KafkaClient, UpdateClusterConfigurationCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
+ * const client = new KafkaClient(config);
+ * const command = new UpdateClusterConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateClusterConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateClusterConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateClusterConfigurationCommand extends $Command<
   UpdateClusterConfigurationCommandInput,

@@ -24,6 +24,20 @@ export interface ListComplianceItemsCommandOutput extends ListComplianceItemsRes
  * <p>For a specified resource ID, this API action returns a list of compliance statuses for
  *    different resource types. Currently, you can only specify one resource ID per call. List results
  *    depend on the criteria specified in the filter.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, ListComplianceItemsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, ListComplianceItemsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new ListComplianceItemsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListComplianceItemsCommandInput} for command's `input` shape.
+ * @see {@link ListComplianceItemsCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListComplianceItemsCommand extends $Command<
   ListComplianceItemsCommandInput,

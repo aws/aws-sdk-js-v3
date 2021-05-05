@@ -23,6 +23,20 @@ export interface UpdateTagsForDomainCommandOutput extends UpdateTagsForDomainRes
 /**
  * <p>This operation adds or updates tags for a specified domain.</p>
  * 		       <p>All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53DomainsClient, UpdateTagsForDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
+ * // const { Route53DomainsClient, UpdateTagsForDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * const client = new Route53DomainsClient(config);
+ * const command = new UpdateTagsForDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTagsForDomainCommandInput} for command's `input` shape.
+ * @see {@link UpdateTagsForDomainCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTagsForDomainCommand extends $Command<
   UpdateTagsForDomainCommandInput,

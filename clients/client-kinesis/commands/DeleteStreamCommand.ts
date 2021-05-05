@@ -40,6 +40,20 @@ export interface DeleteStreamCommandOutput extends __MetadataBearer {}
  *         <p>
  *             <a>DeleteStream</a> has a limit of five transactions per second per
  *             account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisClient, DeleteStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
+ * // const { KinesisClient, DeleteStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * const client = new KinesisClient(config);
+ * const command = new DeleteStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteStreamCommandInput} for command's `input` shape.
+ * @see {@link DeleteStreamCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteStreamCommand extends $Command<
   DeleteStreamCommandInput,

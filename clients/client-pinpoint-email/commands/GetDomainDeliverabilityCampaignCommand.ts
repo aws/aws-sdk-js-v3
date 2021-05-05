@@ -27,6 +27,20 @@ export interface GetDomainDeliverabilityCampaignCommandOutput
  *             for a campaign only if the campaign sent email by using a domain that the
  *             Deliverability dashboard is enabled for (<code>PutDeliverabilityDashboardOption</code>
  *             operation).</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointEmailClient, GetDomainDeliverabilityCampaignCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
+ * // const { PinpointEmailClient, GetDomainDeliverabilityCampaignCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * const client = new PinpointEmailClient(config);
+ * const command = new GetDomainDeliverabilityCampaignCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDomainDeliverabilityCampaignCommandInput} for command's `input` shape.
+ * @see {@link GetDomainDeliverabilityCampaignCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDomainDeliverabilityCampaignCommand extends $Command<
   GetDomainDeliverabilityCampaignCommandInput,

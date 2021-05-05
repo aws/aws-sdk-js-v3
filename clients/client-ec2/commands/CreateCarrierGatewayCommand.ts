@@ -23,6 +23,20 @@ export interface CreateCarrierGatewayCommandOutput extends CreateCarrierGatewayR
 /**
  * <p>Creates a carrier gateway.   For more information about carrier gateways, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway">Carrier gateways</a> in the <i>AWS Wavelength Developer
  *                 Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, CreateCarrierGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateCarrierGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new CreateCarrierGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCarrierGatewayCommandInput} for command's `input` shape.
+ * @see {@link CreateCarrierGatewayCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCarrierGatewayCommand extends $Command<
   CreateCarrierGatewayCommandInput,

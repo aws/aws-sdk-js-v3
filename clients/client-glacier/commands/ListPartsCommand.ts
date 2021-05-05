@@ -43,6 +43,20 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *          <p>For conceptual information and the underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working
  *             with Archives in Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-parts.html">List Parts</a> in the
  *             <i>Amazon Glacier Developer Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlacierClient, ListPartsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
+ * // const { GlacierClient, ListPartsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * const client = new GlacierClient(config);
+ * const command = new ListPartsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPartsCommandInput} for command's `input` shape.
+ * @see {@link ListPartsCommandOutput} for command's `response` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPartsCommand extends $Command<
   ListPartsCommandInput,

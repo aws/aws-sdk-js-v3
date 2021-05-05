@@ -22,6 +22,20 @@ export interface UpdateWorkloadCommandOutput extends UpdateWorkloadOutput, __Met
 
 /**
  * <p>Update an existing workload.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WellArchitectedClient, UpdateWorkloadCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, UpdateWorkloadCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * const client = new WellArchitectedClient(config);
+ * const command = new UpdateWorkloadCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateWorkloadCommandInput} for command's `input` shape.
+ * @see {@link UpdateWorkloadCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateWorkloadCommand extends $Command<
   UpdateWorkloadCommandInput,

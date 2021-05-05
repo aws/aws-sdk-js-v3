@@ -22,6 +22,20 @@ export interface GetBackendEnvironmentCommandOutput extends GetBackendEnvironmen
 
 /**
  * <p> Returns a backend environment for an Amplify app. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmplifyClient, GetBackendEnvironmentCommand } from "@aws-sdk/client-amplify"; // ES Modules import
+ * // const { AmplifyClient, GetBackendEnvironmentCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * const client = new AmplifyClient(config);
+ * const command = new GetBackendEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBackendEnvironmentCommandInput} for command's `input` shape.
+ * @see {@link GetBackendEnvironmentCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBackendEnvironmentCommand extends $Command<
   GetBackendEnvironmentCommandInput,

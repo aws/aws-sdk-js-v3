@@ -26,6 +26,20 @@ export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __Met
  *       time for changes to take effect. If you do not specify a pattern to filter events sent to the
  *       archive, all events are sent to the archive except replayed events. Replayed events are not
  *       sent to an archive.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchEventsClient, CreateArchiveCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
+ * // const { CloudWatchEventsClient, CreateArchiveCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * const client = new CloudWatchEventsClient(config);
+ * const command = new CreateArchiveCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateArchiveCommandInput} for command's `input` shape.
+ * @see {@link CreateArchiveCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateArchiveCommand extends $Command<
   CreateArchiveCommandInput,

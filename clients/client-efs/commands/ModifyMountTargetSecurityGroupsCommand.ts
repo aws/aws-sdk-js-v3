@@ -41,6 +41,20 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  *           interface. </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EFSClient, ModifyMountTargetSecurityGroupsCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, ModifyMountTargetSecurityGroupsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * const client = new EFSClient(config);
+ * const command = new ModifyMountTargetSecurityGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyMountTargetSecurityGroupsCommandInput} for command's `input` shape.
+ * @see {@link ModifyMountTargetSecurityGroupsCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyMountTargetSecurityGroupsCommand extends $Command<
   ModifyMountTargetSecurityGroupsCommandInput,

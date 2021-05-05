@@ -28,6 +28,20 @@ export interface DisassociateTransitGatewayConnectPeerCommandOutput
 
 /**
  * <p>Disassociates a transit gateway Connect peer from a device and link.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NetworkManagerClient, DisassociateTransitGatewayConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
+ * // const { NetworkManagerClient, DisassociateTransitGatewayConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * const client = new NetworkManagerClient(config);
+ * const command = new DisassociateTransitGatewayConnectPeerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateTransitGatewayConnectPeerCommandInput} for command's `input` shape.
+ * @see {@link DisassociateTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateTransitGatewayConnectPeerCommand extends $Command<
   DisassociateTransitGatewayConnectPeerCommandInput,

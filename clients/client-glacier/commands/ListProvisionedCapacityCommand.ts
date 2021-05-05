@@ -23,6 +23,20 @@ export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCap
 /**
  * <p>This operation lists the provisioned capacity units for the specified AWS
  *          account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlacierClient, ListProvisionedCapacityCommand } from "@aws-sdk/client-glacier"; // ES Modules import
+ * // const { GlacierClient, ListProvisionedCapacityCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
+ * const client = new GlacierClient(config);
+ * const command = new ListProvisionedCapacityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProvisionedCapacityCommandInput} for command's `input` shape.
+ * @see {@link ListProvisionedCapacityCommandOutput} for command's `response` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProvisionedCapacityCommand extends $Command<
   ListProvisionedCapacityCommandInput,

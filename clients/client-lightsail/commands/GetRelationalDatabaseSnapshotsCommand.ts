@@ -24,6 +24,20 @@ export interface GetRelationalDatabaseSnapshotsCommandOutput
 
 /**
  * <p>Returns information about all of your database snapshots in Amazon Lightsail.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LightsailClient, GetRelationalDatabaseSnapshotsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetRelationalDatabaseSnapshotsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * const client = new LightsailClient(config);
+ * const command = new GetRelationalDatabaseSnapshotsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRelationalDatabaseSnapshotsCommandInput} for command's `input` shape.
+ * @see {@link GetRelationalDatabaseSnapshotsCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRelationalDatabaseSnapshotsCommand extends $Command<
   GetRelationalDatabaseSnapshotsCommandInput,

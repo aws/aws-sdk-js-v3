@@ -32,6 +32,20 @@ export interface CreateOutboundCrossClusterSearchConnectionCommandOutput
 
 /**
  * <p>Creates a new cross-cluster search connection from a source domain to a destination domain.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticsearchServiceClient, CreateOutboundCrossClusterSearchConnectionCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
+ * // const { ElasticsearchServiceClient, CreateOutboundCrossClusterSearchConnectionCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new CreateOutboundCrossClusterSearchConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateOutboundCrossClusterSearchConnectionCommandInput} for command's `input` shape.
+ * @see {@link CreateOutboundCrossClusterSearchConnectionCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateOutboundCrossClusterSearchConnectionCommand extends $Command<
   CreateOutboundCrossClusterSearchConnectionCommandInput,

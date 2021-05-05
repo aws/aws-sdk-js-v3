@@ -67,6 +67,20 @@ export interface ListHostedZonesByNameCommandOutput extends ListHostedZonesByNam
  * 					<code>NextHostedZoneId</code> in the <code>dnsname</code> and <code>hostedzoneid</code> parameters, respectively.</p>
  * 			         </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53Client, ListHostedZonesByNameCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, ListHostedZonesByNameCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * const client = new Route53Client(config);
+ * const command = new ListHostedZonesByNameCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListHostedZonesByNameCommandInput} for command's `input` shape.
+ * @see {@link ListHostedZonesByNameCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListHostedZonesByNameCommand extends $Command<
   ListHostedZonesByNameCommandInput,

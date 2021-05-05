@@ -22,6 +22,20 @@ export interface DeleteAdmChannelCommandOutput extends DeleteAdmChannelResponse,
 
 /**
  * <p>Disables the ADM channel for an application and deletes any existing settings for the channel.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointClient, DeleteAdmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, DeleteAdmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * const client = new PinpointClient(config);
+ * const command = new DeleteAdmChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAdmChannelCommandInput} for command's `input` shape.
+ * @see {@link DeleteAdmChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAdmChannelCommand extends $Command<
   DeleteAdmChannelCommandInput,

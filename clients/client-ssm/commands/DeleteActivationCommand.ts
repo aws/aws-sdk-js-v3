@@ -25,6 +25,20 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
  *    activation, you can no longer use it to register additional managed instances. Deleting an
  *    activation does not de-register managed instances. You must manually de-register managed
  *    instances.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, DeleteActivationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DeleteActivationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new DeleteActivationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteActivationCommandInput} for command's `input` shape.
+ * @see {@link DeleteActivationCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteActivationCommand extends $Command<
   DeleteActivationCommandInput,

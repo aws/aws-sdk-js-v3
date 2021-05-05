@@ -38,6 +38,20 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *             </li>
  *          </ul>
  *         <p>This operation can be called only from the organization's management account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OrganizationsClient, TagResourceCommand } from "@aws-sdk/client-organizations"; // ES Modules import
+ * // const { OrganizationsClient, TagResourceCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * const client = new OrganizationsClient(config);
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

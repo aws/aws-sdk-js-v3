@@ -24,6 +24,20 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * <p>Adds an integration between the service and a third-party service, which includes
  *          Amazon AppFlow and Amazon Connect.</p>
  *          <p>An integration can belong to only one domain.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CustomerProfilesClient, PutIntegrationCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, PutIntegrationCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * const client = new CustomerProfilesClient(config);
+ * const command = new PutIntegrationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutIntegrationCommandInput} for command's `input` shape.
+ * @see {@link PutIntegrationCommandOutput} for command's `response` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutIntegrationCommand extends $Command<
   PutIntegrationCommandInput,

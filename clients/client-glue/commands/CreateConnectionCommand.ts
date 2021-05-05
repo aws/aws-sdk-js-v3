@@ -22,6 +22,20 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
 
 /**
  * <p>Creates a connection definition in the Data Catalog.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, CreateConnectionCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, CreateConnectionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new CreateConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateConnectionCommandInput} for command's `input` shape.
+ * @see {@link CreateConnectionCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateConnectionCommand extends $Command<
   CreateConnectionCommandInput,

@@ -63,6 +63,20 @@ export interface GetReservationCoverageCommandOutput extends GetReservationCover
  *             </li>
  *          </ul>
  * 		       <p>To determine valid values for a dimension, use the <code>GetDimensionValues</code> operation. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CostExplorerClient, GetReservationCoverageCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
+ * // const { CostExplorerClient, GetReservationCoverageCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * const client = new CostExplorerClient(config);
+ * const command = new GetReservationCoverageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetReservationCoverageCommandInput} for command's `input` shape.
+ * @see {@link GetReservationCoverageCommandOutput} for command's `response` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetReservationCoverageCommand extends $Command<
   GetReservationCoverageCommandInput,

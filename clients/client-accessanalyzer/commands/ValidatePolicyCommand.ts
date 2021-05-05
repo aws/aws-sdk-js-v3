@@ -24,6 +24,20 @@ export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __M
  * <p>Requests the validation of a policy and returns a list of findings. The findings help
  *          you identify issues and provide actionable recommendations to resolve the issue and enable
  *          you to author functional policies that meet security best practices. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AccessAnalyzerClient, ValidatePolicyCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
+ * // const { AccessAnalyzerClient, ValidatePolicyCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * const client = new AccessAnalyzerClient(config);
+ * const command = new ValidatePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ValidatePolicyCommandInput} for command's `input` shape.
+ * @see {@link ValidatePolicyCommandOutput} for command's `response` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ValidatePolicyCommand extends $Command<
   ValidatePolicyCommandInput,

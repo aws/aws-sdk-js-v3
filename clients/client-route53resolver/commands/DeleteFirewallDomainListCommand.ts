@@ -22,6 +22,20 @@ export interface DeleteFirewallDomainListCommandOutput extends DeleteFirewallDom
 
 /**
  * <p>Deletes the specified domain list. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53ResolverClient, DeleteFirewallDomainListCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, DeleteFirewallDomainListCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * const client = new Route53ResolverClient(config);
+ * const command = new DeleteFirewallDomainListCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFirewallDomainListCommandInput} for command's `input` shape.
+ * @see {@link DeleteFirewallDomainListCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFirewallDomainListCommand extends $Command<
   DeleteFirewallDomainListCommandInput,

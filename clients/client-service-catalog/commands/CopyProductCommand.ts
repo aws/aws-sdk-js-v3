@@ -26,6 +26,20 @@ export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataB
  *          You can copy a product to the same region or another region.</p>
  *          <p>This operation is performed asynchronously. To track the progress of the
  *          operation, use <a>DescribeCopyProductStatus</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, CopyProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, CopyProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new CopyProductCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CopyProductCommandInput} for command's `input` shape.
+ * @see {@link CopyProductCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CopyProductCommand extends $Command<
   CopyProductCommandInput,

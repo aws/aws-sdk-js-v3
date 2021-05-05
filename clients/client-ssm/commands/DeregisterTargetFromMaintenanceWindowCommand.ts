@@ -28,6 +28,20 @@ export interface DeregisterTargetFromMaintenanceWindowCommandOutput
 
 /**
  * <p>Removes a target from a maintenance window.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, DeregisterTargetFromMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DeregisterTargetFromMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new DeregisterTargetFromMaintenanceWindowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterTargetFromMaintenanceWindowCommandInput} for command's `input` shape.
+ * @see {@link DeregisterTargetFromMaintenanceWindowCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterTargetFromMaintenanceWindowCommand extends $Command<
   DeregisterTargetFromMaintenanceWindowCommandInput,

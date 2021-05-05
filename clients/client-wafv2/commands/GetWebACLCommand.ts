@@ -19,6 +19,20 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
 
 /**
  * <p>Retrieves the specified <a>WebACL</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFV2Client, GetWebACLCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
+ * // const { WAFV2Client, GetWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * const client = new WAFV2Client(config);
+ * const command = new GetWebACLCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetWebACLCommandInput} for command's `input` shape.
+ * @see {@link GetWebACLCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetWebACLCommand extends $Command<
   GetWebACLCommandInput,

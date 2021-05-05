@@ -28,6 +28,20 @@ export interface ListFailuresForLicenseConfigurationOperationsCommandOutput
 
 /**
  * <p>Lists the license configuration operations that failed.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LicenseManagerClient, ListFailuresForLicenseConfigurationOperationsCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, ListFailuresForLicenseConfigurationOperationsCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * const client = new LicenseManagerClient(config);
+ * const command = new ListFailuresForLicenseConfigurationOperationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFailuresForLicenseConfigurationOperationsCommandInput} for command's `input` shape.
+ * @see {@link ListFailuresForLicenseConfigurationOperationsCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFailuresForLicenseConfigurationOperationsCommand extends $Command<
   ListFailuresForLicenseConfigurationOperationsCommandInput,

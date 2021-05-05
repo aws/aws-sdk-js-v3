@@ -22,6 +22,20 @@ export interface ImportApiKeysCommandOutput extends ApiKeyIds, __MetadataBearer 
 
 /**
  * <p>Import API keys from an external source, such as a CSV-formatted file.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, ImportApiKeysCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, ImportApiKeysCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new ImportApiKeysCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportApiKeysCommandInput} for command's `input` shape.
+ * @see {@link ImportApiKeysCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ImportApiKeysCommand extends $Command<
   ImportApiKeysCommandInput,

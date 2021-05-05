@@ -22,6 +22,20 @@ export interface AddTagsToOnPremisesInstancesCommandOutput extends __MetadataBea
 
 /**
  * <p>Adds tags to on-premises instances.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeDeployClient, AddTagsToOnPremisesInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
+ * // const { CodeDeployClient, AddTagsToOnPremisesInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * const client = new CodeDeployClient(config);
+ * const command = new AddTagsToOnPremisesInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddTagsToOnPremisesInstancesCommandInput} for command's `input` shape.
+ * @see {@link AddTagsToOnPremisesInstancesCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddTagsToOnPremisesInstancesCommand extends $Command<
   AddTagsToOnPremisesInstancesCommandInput,

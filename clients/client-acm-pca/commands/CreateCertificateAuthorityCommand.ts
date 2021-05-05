@@ -40,6 +40,20 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *                         thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html">Configure
  *                         Access to ACM Private CA</a>.</p>
  *                 </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ACMPCAClient, CreateCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
+ * // const { ACMPCAClient, CreateCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * const client = new ACMPCAClient(config);
+ * const command = new CreateCertificateAuthorityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCertificateAuthorityCommandInput} for command's `input` shape.
+ * @see {@link CreateCertificateAuthorityCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCertificateAuthorityCommand extends $Command<
   CreateCertificateAuthorityCommandInput,

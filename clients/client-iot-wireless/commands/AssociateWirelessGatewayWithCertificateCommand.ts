@@ -28,6 +28,20 @@ export interface AssociateWirelessGatewayWithCertificateCommandOutput
 
 /**
  * <p>Associates a wireless gateway with a certificate.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTWirelessClient, AssociateWirelessGatewayWithCertificateCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, AssociateWirelessGatewayWithCertificateCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * const client = new IoTWirelessClient(config);
+ * const command = new AssociateWirelessGatewayWithCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateWirelessGatewayWithCertificateCommandInput} for command's `input` shape.
+ * @see {@link AssociateWirelessGatewayWithCertificateCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateWirelessGatewayWithCertificateCommand extends $Command<
   AssociateWirelessGatewayWithCertificateCommandInput,

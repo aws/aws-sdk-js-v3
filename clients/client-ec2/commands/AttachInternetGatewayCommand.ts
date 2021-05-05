@@ -23,6 +23,20 @@ export interface AttachInternetGatewayCommandOutput extends __MetadataBearer {}
 /**
  * <p>Attaches an internet gateway or a virtual private gateway to a VPC, enabling connectivity between the internet and
  * 			the VPC. For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/">Amazon Virtual Private Cloud User Guide</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, AttachInternetGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, AttachInternetGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new AttachInternetGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AttachInternetGatewayCommandInput} for command's `input` shape.
+ * @see {@link AttachInternetGatewayCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AttachInternetGatewayCommand extends $Command<
   AttachInternetGatewayCommandInput,

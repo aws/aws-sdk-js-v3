@@ -14,6 +14,9 @@ export interface CertificateValidationException extends __SmithyException, $Meta
 }
 
 export namespace CertificateValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CertificateValidationException): any => ({
     ...obj,
   });
@@ -43,6 +46,9 @@ export interface DescribeJobExecutionRequest {
 }
 
 export namespace DescribeJobExecutionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeJobExecutionRequest): any => ({
     ...obj,
   });
@@ -124,6 +130,9 @@ export interface JobExecution {
 }
 
 export namespace JobExecution {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: JobExecution): any => ({
     ...obj,
   });
@@ -137,6 +146,9 @@ export interface DescribeJobExecutionResponse {
 }
 
 export namespace DescribeJobExecutionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeJobExecutionResponse): any => ({
     ...obj,
   });
@@ -155,6 +167,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -173,6 +188,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -191,6 +209,9 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
 }
 
 export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
@@ -206,6 +227,9 @@ export interface TerminalStateException extends __SmithyException, $MetadataBear
 }
 
 export namespace TerminalStateException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TerminalStateException): any => ({
     ...obj,
   });
@@ -229,6 +253,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -242,6 +269,9 @@ export interface GetPendingJobExecutionsRequest {
 }
 
 export namespace GetPendingJobExecutionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetPendingJobExecutionsRequest): any => ({
     ...obj,
   });
@@ -284,6 +314,9 @@ export interface JobExecutionSummary {
 }
 
 export namespace JobExecutionSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: JobExecutionSummary): any => ({
     ...obj,
   });
@@ -302,6 +335,9 @@ export interface GetPendingJobExecutionsResponse {
 }
 
 export namespace GetPendingJobExecutionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetPendingJobExecutionsResponse): any => ({
     ...obj,
   });
@@ -319,6 +355,9 @@ export interface InvalidStateTransitionException extends __SmithyException, $Met
 }
 
 export namespace InvalidStateTransitionException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidStateTransitionException): any => ({
     ...obj,
   });
@@ -349,6 +388,9 @@ export interface StartNextPendingJobExecutionRequest {
 }
 
 export namespace StartNextPendingJobExecutionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartNextPendingJobExecutionRequest): any => ({
     ...obj,
   });
@@ -362,6 +404,9 @@ export interface StartNextPendingJobExecutionResponse {
 }
 
 export namespace StartNextPendingJobExecutionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartNextPendingJobExecutionResponse): any => ({
     ...obj,
   });
@@ -428,6 +473,9 @@ export interface UpdateJobExecutionRequest {
 }
 
 export namespace UpdateJobExecutionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateJobExecutionRequest): any => ({
     ...obj,
   });
@@ -456,6 +504,9 @@ export interface JobExecutionState {
 }
 
 export namespace JobExecutionState {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: JobExecutionState): any => ({
     ...obj,
   });
@@ -474,6 +525,9 @@ export interface UpdateJobExecutionResponse {
 }
 
 export namespace UpdateJobExecutionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateJobExecutionResponse): any => ({
     ...obj,
   });

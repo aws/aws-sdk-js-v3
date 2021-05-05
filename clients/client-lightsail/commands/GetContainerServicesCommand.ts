@@ -22,6 +22,20 @@ export interface GetContainerServicesCommandOutput extends ContainerServicesList
 
 /**
  * <p>Returns information about one or more of your Amazon Lightsail container services.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LightsailClient, GetContainerServicesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetContainerServicesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * const client = new LightsailClient(config);
+ * const command = new GetContainerServicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetContainerServicesCommandInput} for command's `input` shape.
+ * @see {@link GetContainerServicesCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetContainerServicesCommand extends $Command<
   GetContainerServicesCommandInput,

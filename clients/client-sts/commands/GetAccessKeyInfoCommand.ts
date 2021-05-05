@@ -40,6 +40,20 @@ export interface GetAccessKeyInfoCommandOutput extends GetAccessKeyInfoResponse,
  *         <p>This operation does not indicate the state of the access key. The key might be active,
  *             inactive, or deleted. Active keys might not have permissions to perform an operation.
  *             Providing a deleted access key might return an error that the key doesn't exist.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { STSClient, GetAccessKeyInfoCommand } from "@aws-sdk/client-sts"; // ES Modules import
+ * // const { STSClient, GetAccessKeyInfoCommand } = require("@aws-sdk/client-sts"); // CommonJS import
+ * const client = new STSClient(config);
+ * const command = new GetAccessKeyInfoCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAccessKeyInfoCommandInput} for command's `input` shape.
+ * @see {@link GetAccessKeyInfoCommandOutput} for command's `response` shape.
+ * @see {@link STSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAccessKeyInfoCommand extends $Command<
   GetAccessKeyInfoCommandInput,

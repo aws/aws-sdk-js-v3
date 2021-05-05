@@ -29,6 +29,20 @@ export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBea
  *          <note>
  *             <p>A host cannot be deleted if it is in the VPC_CONFIG_INITIALIZING or VPC_CONFIG_DELETING state.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeStarConnectionsClient, DeleteHostCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
+ * // const { CodeStarConnectionsClient, DeleteHostCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
+ * const client = new CodeStarConnectionsClient(config);
+ * const command = new DeleteHostCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteHostCommandInput} for command's `input` shape.
+ * @see {@link DeleteHostCommandOutput} for command's `response` shape.
+ * @see {@link CodeStarConnectionsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteHostCommand extends $Command<
   DeleteHostCommandInput,

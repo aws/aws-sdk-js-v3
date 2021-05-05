@@ -27,6 +27,20 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  *             <b>Required Permissions</b>: To use this action, an IAM user must have an attached policy
  *       that explicitly grants permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
  *         Permissions</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OpsWorksClient, CreateStackCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
+ * // const { OpsWorksClient, CreateStackCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * const client = new OpsWorksClient(config);
+ * const command = new CreateStackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateStackCommandInput} for command's `input` shape.
+ * @see {@link CreateStackCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateStackCommand extends $Command<
   CreateStackCommandInput,

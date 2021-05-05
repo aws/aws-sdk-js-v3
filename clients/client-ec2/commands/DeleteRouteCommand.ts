@@ -19,6 +19,20 @@ export interface DeleteRouteCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified route from the specified route table.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DeleteRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DeleteRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DeleteRouteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRouteCommandInput} for command's `input` shape.
+ * @see {@link DeleteRouteCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRouteCommand extends $Command<
   DeleteRouteCommandInput,

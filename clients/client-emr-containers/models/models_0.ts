@@ -14,6 +14,9 @@ export interface CancelJobRunRequest {
 }
 
 export namespace CancelJobRunRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelJobRunRequest): any => ({
     ...obj,
   });
@@ -32,6 +35,9 @@ export interface CancelJobRunResponse {
 }
 
 export namespace CancelJobRunResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelJobRunResponse): any => ({
     ...obj,
   });
@@ -47,6 +53,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -62,6 +71,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -83,6 +95,9 @@ export interface CloudWatchMonitoringConfiguration {
 }
 
 export namespace CloudWatchMonitoringConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudWatchMonitoringConfiguration): any => ({
     ...obj,
   });
@@ -104,6 +119,9 @@ export interface S3MonitoringConfiguration {
 }
 
 export namespace S3MonitoringConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3MonitoringConfiguration): any => ({
     ...obj,
   });
@@ -130,6 +148,9 @@ export interface MonitoringConfiguration {
 }
 
 export namespace MonitoringConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MonitoringConfiguration): any => ({
     ...obj,
   });
@@ -158,6 +179,9 @@ export interface CreateManagedEndpointResponse {
 }
 
 export namespace CreateManagedEndpointResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateManagedEndpointResponse): any => ({
     ...obj,
   });
@@ -173,6 +197,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -189,6 +216,9 @@ export interface EksInfo {
 }
 
 export namespace EksInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EksInfo): any => ({
     ...obj,
   });
@@ -223,6 +253,9 @@ export namespace ContainerInfo {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ContainerInfo): any => {
     if (obj.eksInfo !== undefined) return { eksInfo: EksInfo.filterSensitiveLog(obj.eksInfo) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
@@ -254,6 +287,9 @@ export interface ContainerProvider {
 }
 
 export namespace ContainerProvider {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ContainerProvider): any => ({
     ...obj,
     ...(obj.info && { info: ContainerInfo.filterSensitiveLog(obj.info) }),
@@ -283,6 +319,9 @@ export interface CreateVirtualClusterRequest {
 }
 
 export namespace CreateVirtualClusterRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateVirtualClusterRequest): any => ({
     ...obj,
     ...(obj.containerProvider && { containerProvider: ContainerProvider.filterSensitiveLog(obj.containerProvider) }),
@@ -307,6 +346,9 @@ export interface CreateVirtualClusterResponse {
 }
 
 export namespace CreateVirtualClusterResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateVirtualClusterResponse): any => ({
     ...obj,
   });
@@ -325,6 +367,9 @@ export interface DeleteManagedEndpointRequest {
 }
 
 export namespace DeleteManagedEndpointRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteManagedEndpointRequest): any => ({
     ...obj,
   });
@@ -343,6 +388,9 @@ export interface DeleteManagedEndpointResponse {
 }
 
 export namespace DeleteManagedEndpointResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteManagedEndpointResponse): any => ({
     ...obj,
   });
@@ -356,6 +404,9 @@ export interface DeleteVirtualClusterRequest {
 }
 
 export namespace DeleteVirtualClusterRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteVirtualClusterRequest): any => ({
     ...obj,
   });
@@ -369,6 +420,9 @@ export interface DeleteVirtualClusterResponse {
 }
 
 export namespace DeleteVirtualClusterResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteVirtualClusterResponse): any => ({
     ...obj,
   });
@@ -387,6 +441,9 @@ export interface DescribeJobRunRequest {
 }
 
 export namespace DescribeJobRunRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeJobRunRequest): any => ({
     ...obj,
   });
@@ -420,6 +477,9 @@ export interface SparkSubmitJobDriver {
 }
 
 export namespace SparkSubmitJobDriver {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SparkSubmitJobDriver): any => ({
     ...obj,
     ...(obj.entryPoint && { entryPoint: SENSITIVE_STRING }),
@@ -439,6 +499,9 @@ export interface JobDriver {
 }
 
 export namespace JobDriver {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: JobDriver): any => ({
     ...obj,
     ...(obj.sparkSubmitJobDriver && {
@@ -470,6 +533,9 @@ export interface DescribeManagedEndpointRequest {
 }
 
 export namespace DescribeManagedEndpointRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeManagedEndpointRequest): any => ({
     ...obj,
   });
@@ -491,6 +557,9 @@ export interface DescribeVirtualClusterRequest {
 }
 
 export namespace DescribeVirtualClusterRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeVirtualClusterRequest): any => ({
     ...obj,
   });
@@ -544,6 +613,9 @@ export interface VirtualCluster {
 }
 
 export namespace VirtualCluster {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VirtualCluster): any => ({
     ...obj,
     ...(obj.containerProvider && { containerProvider: ContainerProvider.filterSensitiveLog(obj.containerProvider) }),
@@ -558,6 +630,9 @@ export interface DescribeVirtualClusterResponse {
 }
 
 export namespace DescribeVirtualClusterResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeVirtualClusterResponse): any => ({
     ...obj,
     ...(obj.virtualCluster && { virtualCluster: VirtualCluster.filterSensitiveLog(obj.virtualCluster) }),
@@ -602,6 +677,9 @@ export interface ListJobRunsRequest {
 }
 
 export namespace ListJobRunsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListJobRunsRequest): any => ({
     ...obj,
   });
@@ -645,6 +723,9 @@ export interface ListManagedEndpointsRequest {
 }
 
 export namespace ListManagedEndpointsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListManagedEndpointsRequest): any => ({
     ...obj,
   });
@@ -658,6 +739,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -671,6 +755,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -714,6 +801,9 @@ export interface ListVirtualClustersRequest {
 }
 
 export namespace ListVirtualClustersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListVirtualClustersRequest): any => ({
     ...obj,
   });
@@ -732,6 +822,9 @@ export interface ListVirtualClustersResponse {
 }
 
 export namespace ListVirtualClustersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListVirtualClustersResponse): any => ({
     ...obj,
     ...(obj.virtualClusters && {
@@ -763,6 +856,9 @@ export interface StartJobRunResponse {
 }
 
 export namespace StartJobRunResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartJobRunResponse): any => ({
     ...obj,
   });
@@ -781,6 +877,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -789,6 +888,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -807,6 +909,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -815,6 +920,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
@@ -841,6 +949,9 @@ export interface Configuration {
 }
 
 export namespace Configuration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Configuration): any => ({
     ...obj,
     ...(obj.properties && { properties: SENSITIVE_STRING }),
@@ -866,6 +977,9 @@ export interface ConfigurationOverrides {
 }
 
 export namespace ConfigurationOverrides {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConfigurationOverrides): any => ({
     ...obj,
     ...(obj.applicationConfiguration && {
@@ -923,6 +1037,9 @@ export interface CreateManagedEndpointRequest {
 }
 
 export namespace CreateManagedEndpointRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateManagedEndpointRequest): any => ({
     ...obj,
     ...(obj.configurationOverrides && {
@@ -1015,6 +1132,9 @@ export interface Endpoint {
 }
 
 export namespace Endpoint {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj,
     ...(obj.configurationOverrides && {
@@ -1109,6 +1229,9 @@ export interface JobRun {
 }
 
 export namespace JobRun {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: JobRun): any => ({
     ...obj,
     ...(obj.configurationOverrides && {
@@ -1161,6 +1284,9 @@ export interface StartJobRunRequest {
 }
 
 export namespace StartJobRunRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartJobRunRequest): any => ({
     ...obj,
     ...(obj.jobDriver && { jobDriver: JobDriver.filterSensitiveLog(obj.jobDriver) }),
@@ -1178,6 +1304,9 @@ export interface DescribeJobRunResponse {
 }
 
 export namespace DescribeJobRunResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeJobRunResponse): any => ({
     ...obj,
     ...(obj.jobRun && { jobRun: JobRun.filterSensitiveLog(obj.jobRun) }),
@@ -1192,6 +1321,9 @@ export interface DescribeManagedEndpointResponse {
 }
 
 export namespace DescribeManagedEndpointResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeManagedEndpointResponse): any => ({
     ...obj,
     ...(obj.endpoint && { endpoint: Endpoint.filterSensitiveLog(obj.endpoint) }),
@@ -1211,6 +1343,9 @@ export interface ListJobRunsResponse {
 }
 
 export namespace ListJobRunsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListJobRunsResponse): any => ({
     ...obj,
     ...(obj.jobRuns && { jobRuns: obj.jobRuns.map((item) => JobRun.filterSensitiveLog(item)) }),
@@ -1230,6 +1365,9 @@ export interface ListManagedEndpointsResponse {
 }
 
 export namespace ListManagedEndpointsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListManagedEndpointsResponse): any => ({
     ...obj,
   });

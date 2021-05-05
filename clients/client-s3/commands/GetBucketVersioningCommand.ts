@@ -47,6 +47,20 @@ export interface GetBucketVersioningCommandOutput extends GetBucketVersioningOut
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, GetBucketVersioningCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, GetBucketVersioningCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new GetBucketVersioningCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBucketVersioningCommandInput} for command's `input` shape.
+ * @see {@link GetBucketVersioningCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBucketVersioningCommand extends $Command<
   GetBucketVersioningCommandInput,

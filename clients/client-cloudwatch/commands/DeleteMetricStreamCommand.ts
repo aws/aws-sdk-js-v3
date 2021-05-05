@@ -22,6 +22,20 @@ export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutpu
 
 /**
  * <p>Permanently deletes the metric stream that you specify.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchClient, DeleteMetricStreamCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
+ * // const { CloudWatchClient, DeleteMetricStreamCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * const client = new CloudWatchClient(config);
+ * const command = new DeleteMetricStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMetricStreamCommandInput} for command's `input` shape.
+ * @see {@link DeleteMetricStreamCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMetricStreamCommand extends $Command<
   DeleteMetricStreamCommandInput,

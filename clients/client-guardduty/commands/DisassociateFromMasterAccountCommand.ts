@@ -24,6 +24,20 @@ export interface DisassociateFromMasterAccountCommandOutput
 
 /**
  * <p>Disassociates the current GuardDuty member account from its administrator account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GuardDutyClient, DisassociateFromMasterAccountCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, DisassociateFromMasterAccountCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * const client = new GuardDutyClient(config);
+ * const command = new DisassociateFromMasterAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateFromMasterAccountCommandInput} for command's `input` shape.
+ * @see {@link DisassociateFromMasterAccountCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateFromMasterAccountCommand extends $Command<
   DisassociateFromMasterAccountCommandInput,

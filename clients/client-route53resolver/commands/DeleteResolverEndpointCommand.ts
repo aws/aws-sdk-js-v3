@@ -34,6 +34,20 @@ export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpo
  *                   <b>Outbound</b>: DNS queries from a VPC are no longer routed to your network.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53ResolverClient, DeleteResolverEndpointCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, DeleteResolverEndpointCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * const client = new Route53ResolverClient(config);
+ * const command = new DeleteResolverEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteResolverEndpointCommandInput} for command's `input` shape.
+ * @see {@link DeleteResolverEndpointCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteResolverEndpointCommand extends $Command<
   DeleteResolverEndpointCommandInput,

@@ -41,6 +41,20 @@ export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __Met
  *                     the calling AWS account.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ResourceGroupsTaggingAPIClient, UntagResourcesCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
+ * // const { ResourceGroupsTaggingAPIClient, UntagResourcesCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
+ * const client = new ResourceGroupsTaggingAPIClient(config);
+ * const command = new UntagResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UntagResourcesCommandInput} for command's `input` shape.
+ * @see {@link UntagResourcesCommandOutput} for command's `response` shape.
+ * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UntagResourcesCommand extends $Command<
   UntagResourcesCommandInput,

@@ -22,6 +22,20 @@ export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __M
 
 /**
  * <p>Lists dashboards in an AWS account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QuickSightClient, ListDashboardsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, ListDashboardsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * const client = new QuickSightClient(config);
+ * const command = new ListDashboardsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDashboardsCommandInput} for command's `input` shape.
+ * @see {@link ListDashboardsCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDashboardsCommand extends $Command<
   ListDashboardsCommandInput,

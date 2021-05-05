@@ -28,6 +28,20 @@ export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
 
 /**
  * <p>Associates a self-service action with a provisioning artifact.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, AssociateServiceActionWithProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, AssociateServiceActionWithProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new AssociateServiceActionWithProvisioningArtifactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateServiceActionWithProvisioningArtifactCommandInput} for command's `input` shape.
+ * @see {@link AssociateServiceActionWithProvisioningArtifactCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateServiceActionWithProvisioningArtifactCommand extends $Command<
   AssociateServiceActionWithProvisioningArtifactCommandInput,

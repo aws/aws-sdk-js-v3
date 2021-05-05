@@ -22,6 +22,20 @@ export interface ResetDeploymentsCommandOutput extends ResetDeploymentsResponse,
 
 /**
  * Resets a group's deployments.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassClient, ResetDeploymentsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, ResetDeploymentsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * const client = new GreengrassClient(config);
+ * const command = new ResetDeploymentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResetDeploymentsCommandInput} for command's `input` shape.
+ * @see {@link ResetDeploymentsCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResetDeploymentsCommand extends $Command<
   ResetDeploymentsCommandInput,

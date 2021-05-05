@@ -24,6 +24,20 @@ export interface RenewOfferingCommandOutput extends RenewOfferingResult, __Metad
  * <p>Explicitly sets the quantity of devices to renew for an offering, starting from the
  *                 <code>effectiveDate</code> of the next period. The API returns a <code>NotEligible</code> error if the
  *             user is not permitted to invoke the operation. If you must be able to invoke this operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, RenewOfferingCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, RenewOfferingCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new RenewOfferingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RenewOfferingCommandInput} for command's `input` shape.
+ * @see {@link RenewOfferingCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RenewOfferingCommand extends $Command<
   RenewOfferingCommandInput,

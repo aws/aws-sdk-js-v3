@@ -37,6 +37,20 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
  * 			Linux AMI with the <code>ecs-init</code> service installed and running. For help
  * 			updating the Amazon ECS container agent on other operating systems, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually updating the Amazon ECS container agent</a> in the
  * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECSClient, UpdateContainerAgentCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, UpdateContainerAgentCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * const client = new ECSClient(config);
+ * const command = new UpdateContainerAgentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateContainerAgentCommandInput} for command's `input` shape.
+ * @see {@link UpdateContainerAgentCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateContainerAgentCommand extends $Command<
   UpdateContainerAgentCommandInput,

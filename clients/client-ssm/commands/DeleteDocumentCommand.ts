@@ -23,6 +23,20 @@ export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __Met
 /**
  * <p>Deletes the Systems Manager document and all instance associations to the document.</p>
  *          <p>Before you delete the document, we recommend that you use <a>DeleteAssociation</a> to disassociate all instances that are associated with the document.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, DeleteDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DeleteDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new DeleteDocumentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDocumentCommandInput} for command's `input` shape.
+ * @see {@link DeleteDocumentCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDocumentCommand extends $Command<
   DeleteDocumentCommandInput,

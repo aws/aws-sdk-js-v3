@@ -22,6 +22,20 @@ export interface CreateTagOptionCommandOutput extends CreateTagOptionOutput, __M
 
 /**
  * <p>Creates a TagOption.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, CreateTagOptionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, CreateTagOptionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new CreateTagOptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTagOptionCommandInput} for command's `input` shape.
+ * @see {@link CreateTagOptionCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTagOptionCommand extends $Command<
   CreateTagOptionCommandInput,

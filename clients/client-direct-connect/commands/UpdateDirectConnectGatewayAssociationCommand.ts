@@ -29,6 +29,20 @@ export interface UpdateDirectConnectGatewayAssociationCommandOutput
 /**
  * <p>Updates the specified attributes of the Direct Connect gateway association.</p>
  *          <p>Add or remove prefixes from the association.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectConnectClient, UpdateDirectConnectGatewayAssociationCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, UpdateDirectConnectGatewayAssociationCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * const client = new DirectConnectClient(config);
+ * const command = new UpdateDirectConnectGatewayAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDirectConnectGatewayAssociationCommandInput} for command's `input` shape.
+ * @see {@link UpdateDirectConnectGatewayAssociationCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDirectConnectGatewayAssociationCommand extends $Command<
   UpdateDirectConnectGatewayAssociationCommandInput,

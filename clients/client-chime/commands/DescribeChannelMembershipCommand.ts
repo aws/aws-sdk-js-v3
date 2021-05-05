@@ -28,6 +28,20 @@ export interface DescribeChannelMembershipCommandOutput extends DescribeChannelM
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
  *         the API call as the value in the header.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, DescribeChannelMembershipCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, DescribeChannelMembershipCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new DescribeChannelMembershipCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeChannelMembershipCommandInput} for command's `input` shape.
+ * @see {@link DescribeChannelMembershipCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeChannelMembershipCommand extends $Command<
   DescribeChannelMembershipCommandInput,

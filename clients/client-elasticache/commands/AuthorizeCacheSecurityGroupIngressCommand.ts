@@ -33,6 +33,20 @@ export interface AuthorizeCacheSecurityGroupIngressCommandOutput
  *             <p>You cannot authorize ingress from an Amazon EC2 security group in one region to an
  *             ElastiCache cluster in another region.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElastiCacheClient, AuthorizeCacheSecurityGroupIngressCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, AuthorizeCacheSecurityGroupIngressCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * const client = new ElastiCacheClient(config);
+ * const command = new AuthorizeCacheSecurityGroupIngressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AuthorizeCacheSecurityGroupIngressCommandInput} for command's `input` shape.
+ * @see {@link AuthorizeCacheSecurityGroupIngressCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
   AuthorizeCacheSecurityGroupIngressCommandInput,

@@ -29,6 +29,20 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  *         <p>For more information about managed policies in general, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
  *                 policies and inline policies</a> in the
  *             <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, CreatePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, CreatePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new CreatePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePolicyCommandInput} for command's `input` shape.
+ * @see {@link CreatePolicyCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePolicyCommand extends $Command<
   CreatePolicyCommandInput,

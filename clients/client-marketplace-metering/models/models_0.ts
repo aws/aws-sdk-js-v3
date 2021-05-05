@@ -19,6 +19,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -42,6 +45,9 @@ export interface UsageAllocation {
 }
 
 export namespace UsageAllocation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UsageAllocation): any => ({
     ...obj,
   });
@@ -88,6 +94,9 @@ export interface UsageRecord {
 }
 
 export namespace UsageRecord {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UsageRecord): any => ({
     ...obj,
   });
@@ -113,6 +122,9 @@ export interface BatchMeterUsageRequest {
 }
 
 export namespace BatchMeterUsageRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchMeterUsageRequest): any => ({
     ...obj,
   });
@@ -167,6 +179,9 @@ export interface UsageRecordResult {
 }
 
 export namespace UsageRecordResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UsageRecordResult): any => ({
     ...obj,
   });
@@ -192,6 +207,9 @@ export interface BatchMeterUsageResult {
 }
 
 export namespace BatchMeterUsageResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchMeterUsageResult): any => ({
     ...obj,
   });
@@ -207,6 +225,9 @@ export interface DisabledApiException extends __SmithyException, $MetadataBearer
 }
 
 export namespace DisabledApiException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisabledApiException): any => ({
     ...obj,
   });
@@ -223,6 +244,9 @@ export interface InternalServiceErrorException extends __SmithyException, $Metad
 }
 
 export namespace InternalServiceErrorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
     ...obj,
   });
@@ -238,6 +262,9 @@ export interface InvalidCustomerIdentifierException extends __SmithyException, $
 }
 
 export namespace InvalidCustomerIdentifierException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidCustomerIdentifierException): any => ({
     ...obj,
   });
@@ -254,6 +281,9 @@ export interface InvalidProductCodeException extends __SmithyException, $Metadat
 }
 
 export namespace InvalidProductCodeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidProductCodeException): any => ({
     ...obj,
   });
@@ -269,6 +299,9 @@ export interface InvalidTagException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace InvalidTagException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidTagException): any => ({
     ...obj,
   });
@@ -285,6 +318,9 @@ export interface InvalidUsageAllocationsException extends __SmithyException, $Me
 }
 
 export namespace InvalidUsageAllocationsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidUsageAllocationsException): any => ({
     ...obj,
   });
@@ -301,6 +337,9 @@ export interface InvalidUsageDimensionException extends __SmithyException, $Meta
 }
 
 export namespace InvalidUsageDimensionException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidUsageDimensionException): any => ({
     ...obj,
   });
@@ -316,6 +355,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -331,6 +373,9 @@ export interface TimestampOutOfBoundsException extends __SmithyException, $Metad
 }
 
 export namespace TimestampOutOfBoundsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TimestampOutOfBoundsException): any => ({
     ...obj,
   });
@@ -347,6 +392,9 @@ export interface CustomerNotEntitledException extends __SmithyException, $Metada
 }
 
 export namespace CustomerNotEntitledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomerNotEntitledException): any => ({
     ...obj,
   });
@@ -364,6 +412,9 @@ export interface DuplicateRequestException extends __SmithyException, $MetadataB
 }
 
 export namespace DuplicateRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicateRequestException): any => ({
     ...obj,
   });
@@ -381,6 +432,9 @@ export interface InvalidEndpointRegionException extends __SmithyException, $Meta
 }
 
 export namespace InvalidEndpointRegionException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidEndpointRegionException): any => ({
     ...obj,
   });
@@ -431,6 +485,9 @@ export interface MeterUsageRequest {
 }
 
 export namespace MeterUsageRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MeterUsageRequest): any => ({
     ...obj,
   });
@@ -444,6 +501,9 @@ export interface MeterUsageResult {
 }
 
 export namespace MeterUsageResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MeterUsageResult): any => ({
     ...obj,
   });
@@ -459,6 +519,9 @@ export interface InvalidPublicKeyVersionException extends __SmithyException, $Me
 }
 
 export namespace InvalidPublicKeyVersionException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidPublicKeyVersionException): any => ({
     ...obj,
   });
@@ -476,6 +539,9 @@ export interface InvalidRegionException extends __SmithyException, $MetadataBear
 }
 
 export namespace InvalidRegionException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRegionException): any => ({
     ...obj,
   });
@@ -492,6 +558,9 @@ export interface PlatformNotSupportedException extends __SmithyException, $Metad
 }
 
 export namespace PlatformNotSupportedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PlatformNotSupportedException): any => ({
     ...obj,
   });
@@ -518,6 +587,9 @@ export interface RegisterUsageRequest {
 }
 
 export namespace RegisterUsageRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterUsageRequest): any => ({
     ...obj,
   });
@@ -536,6 +608,9 @@ export interface RegisterUsageResult {
 }
 
 export namespace RegisterUsageResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterUsageResult): any => ({
     ...obj,
   });
@@ -555,6 +630,9 @@ export interface ExpiredTokenException extends __SmithyException, $MetadataBeare
 }
 
 export namespace ExpiredTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExpiredTokenException): any => ({
     ...obj,
   });
@@ -570,6 +648,9 @@ export interface InvalidTokenException extends __SmithyException, $MetadataBeare
 }
 
 export namespace InvalidTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidTokenException): any => ({
     ...obj,
   });
@@ -588,6 +669,9 @@ export interface ResolveCustomerRequest {
 }
 
 export namespace ResolveCustomerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResolveCustomerRequest): any => ({
     ...obj,
   });
@@ -614,6 +698,9 @@ export interface ResolveCustomerResult {
 }
 
 export namespace ResolveCustomerResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResolveCustomerResult): any => ({
     ...obj,
   });

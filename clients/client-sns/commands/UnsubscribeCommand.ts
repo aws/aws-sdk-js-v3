@@ -25,6 +25,20 @@ export interface UnsubscribeCommandOutput extends __MetadataBearer {}
  *             to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the
  *                 <code>Unsubscribe</code> request was unintended.</p>
  *         <p>This action is throttled at 100 transactions per second (TPS).</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SNSClient, UnsubscribeCommand } from "@aws-sdk/client-sns"; // ES Modules import
+ * // const { SNSClient, UnsubscribeCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * const client = new SNSClient(config);
+ * const command = new UnsubscribeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UnsubscribeCommandInput} for command's `input` shape.
+ * @see {@link UnsubscribeCommandOutput} for command's `response` shape.
+ * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UnsubscribeCommand extends $Command<
   UnsubscribeCommandInput,

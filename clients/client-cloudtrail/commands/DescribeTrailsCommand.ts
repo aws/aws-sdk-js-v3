@@ -22,6 +22,20 @@ export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __M
 
 /**
  * <p>Retrieves settings for one or more trails associated with the current region for your account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudTrailClient, DescribeTrailsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
+ * // const { CloudTrailClient, DescribeTrailsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * const client = new CloudTrailClient(config);
+ * const command = new DescribeTrailsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTrailsCommandInput} for command's `input` shape.
+ * @see {@link DescribeTrailsCommandOutput} for command's `response` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTrailsCommand extends $Command<
   DescribeTrailsCommandInput,

@@ -23,6 +23,20 @@ export interface SetSubscriptionAttributesCommandOutput extends __MetadataBearer
 /**
  * <p>Allows a subscription owner to set an attribute of the subscription to a new
  *             value.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SNSClient, SetSubscriptionAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
+ * // const { SNSClient, SetSubscriptionAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * const client = new SNSClient(config);
+ * const command = new SetSubscriptionAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetSubscriptionAttributesCommandInput} for command's `input` shape.
+ * @see {@link SetSubscriptionAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetSubscriptionAttributesCommand extends $Command<
   SetSubscriptionAttributesCommandInput,

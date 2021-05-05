@@ -26,6 +26,20 @@ export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataB
  *       the trials that associated with that trial component. The list can be filtered to show only
  *       trials that were created in a specific time range. The list can be sorted by trial name or
  *       creation time.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, ListTrialsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListTrialsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new ListTrialsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTrialsCommandInput} for command's `input` shape.
+ * @see {@link ListTrialsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTrialsCommand extends $Command<
   ListTrialsCommandInput,

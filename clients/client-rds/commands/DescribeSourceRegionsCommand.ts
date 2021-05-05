@@ -23,6 +23,20 @@ export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage,
 /**
  * <p>Returns a list of the source AWS Regions where the current AWS Region can create a read replica,
  *          copy a DB snapshot from, or replicate automated backups from. This API action supports pagination.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, DescribeSourceRegionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeSourceRegionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new DescribeSourceRegionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSourceRegionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeSourceRegionsCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSourceRegionsCommand extends $Command<
   DescribeSourceRegionsCommandInput,

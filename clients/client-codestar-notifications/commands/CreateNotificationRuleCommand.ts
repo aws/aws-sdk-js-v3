@@ -28,6 +28,20 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  * <p>Creates a notification rule for a resource. The rule specifies the events you want
  *             notifications about and the targets (such as SNS topics) where you want to receive
  *             them.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodestarNotificationsClient, CreateNotificationRuleCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
+ * // const { CodestarNotificationsClient, CreateNotificationRuleCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
+ * const client = new CodestarNotificationsClient(config);
+ * const command = new CreateNotificationRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateNotificationRuleCommandInput} for command's `input` shape.
+ * @see {@link CreateNotificationRuleCommandOutput} for command's `response` shape.
+ * @see {@link CodestarNotificationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateNotificationRuleCommand extends $Command<
   CreateNotificationRuleCommandInput,

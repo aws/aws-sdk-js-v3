@@ -22,6 +22,20 @@ export interface SearchProvisionedProductsCommandOutput extends SearchProvisione
 
 /**
  * <p>Gets information about the provisioned products that meet the specified criteria.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, SearchProvisionedProductsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, SearchProvisionedProductsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new SearchProvisionedProductsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchProvisionedProductsCommandInput} for command's `input` shape.
+ * @see {@link SearchProvisionedProductsCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchProvisionedProductsCommand extends $Command<
   SearchProvisionedProductsCommandInput,

@@ -21,6 +21,9 @@ export interface IpSet {
 }
 
 export namespace IpSet {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IpSet): any => ({
     ...obj,
   });
@@ -88,6 +91,9 @@ export interface Accelerator {
 }
 
 export namespace Accelerator {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Accelerator): any => ({
     ...obj,
   });
@@ -123,6 +129,9 @@ export interface AcceleratorAttributes {
 }
 
 export namespace AcceleratorAttributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AcceleratorAttributes): any => ({
     ...obj,
   });
@@ -138,6 +147,9 @@ export interface AcceleratorNotDisabledException extends __SmithyException, $Met
 }
 
 export namespace AcceleratorNotDisabledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AcceleratorNotDisabledException): any => ({
     ...obj,
   });
@@ -153,6 +165,9 @@ export interface AcceleratorNotFoundException extends __SmithyException, $Metada
 }
 
 export namespace AcceleratorNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AcceleratorNotFoundException): any => ({
     ...obj,
   });
@@ -168,6 +183,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -185,6 +203,9 @@ export interface CustomRoutingEndpointConfiguration {
 }
 
 export namespace CustomRoutingEndpointConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomRoutingEndpointConfiguration): any => ({
     ...obj,
   });
@@ -203,6 +224,9 @@ export interface AddCustomRoutingEndpointsRequest {
 }
 
 export namespace AddCustomRoutingEndpointsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddCustomRoutingEndpointsRequest): any => ({
     ...obj,
   });
@@ -221,6 +245,9 @@ export interface CustomRoutingEndpointDescription {
 }
 
 export namespace CustomRoutingEndpointDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomRoutingEndpointDescription): any => ({
     ...obj,
   });
@@ -239,6 +266,9 @@ export interface AddCustomRoutingEndpointsResponse {
 }
 
 export namespace AddCustomRoutingEndpointsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddCustomRoutingEndpointsResponse): any => ({
     ...obj,
   });
@@ -254,6 +284,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -269,6 +302,9 @@ export interface EndpointAlreadyExistsException extends __SmithyException, $Meta
 }
 
 export namespace EndpointAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EndpointAlreadyExistsException): any => ({
     ...obj,
   });
@@ -284,6 +320,9 @@ export interface EndpointGroupNotFoundException extends __SmithyException, $Meta
 }
 
 export namespace EndpointGroupNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EndpointGroupNotFoundException): any => ({
     ...obj,
   });
@@ -299,6 +338,9 @@ export interface InternalServiceErrorException extends __SmithyException, $Metad
 }
 
 export namespace InternalServiceErrorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
     ...obj,
   });
@@ -314,6 +356,9 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidArgumentException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj,
   });
@@ -329,6 +374,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -343,6 +391,9 @@ export interface AdvertiseByoipCidrRequest {
 }
 
 export namespace AdvertiseByoipCidrRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AdvertiseByoipCidrRequest): any => ({
     ...obj,
   });
@@ -368,6 +419,9 @@ export interface ByoipCidrEvent {
 }
 
 export namespace ByoipCidrEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ByoipCidrEvent): any => ({
     ...obj,
   });
@@ -478,6 +532,9 @@ export interface ByoipCidr {
 }
 
 export namespace ByoipCidr {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ByoipCidr): any => ({
     ...obj,
   });
@@ -491,6 +548,9 @@ export interface AdvertiseByoipCidrResponse {
 }
 
 export namespace AdvertiseByoipCidrResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AdvertiseByoipCidrResponse): any => ({
     ...obj,
   });
@@ -506,6 +566,9 @@ export interface ByoipCidrNotFoundException extends __SmithyException, $Metadata
 }
 
 export namespace ByoipCidrNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ByoipCidrNotFoundException): any => ({
     ...obj,
   });
@@ -522,6 +585,9 @@ export interface IncorrectCidrStateException extends __SmithyException, $Metadat
 }
 
 export namespace IncorrectCidrStateException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IncorrectCidrStateException): any => ({
     ...obj,
   });
@@ -566,6 +632,9 @@ export interface AllowCustomRoutingTrafficRequest {
 }
 
 export namespace AllowCustomRoutingTrafficRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AllowCustomRoutingTrafficRequest): any => ({
     ...obj,
   });
@@ -582,6 +651,9 @@ export interface AssociatedEndpointGroupFoundException extends __SmithyException
 }
 
 export namespace AssociatedEndpointGroupFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociatedEndpointGroupFoundException): any => ({
     ...obj,
   });
@@ -598,6 +670,9 @@ export interface AssociatedListenerFoundException extends __SmithyException, $Me
 }
 
 export namespace AssociatedListenerFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociatedListenerFoundException): any => ({
     ...obj,
   });
@@ -622,6 +697,9 @@ export interface CidrAuthorizationContext {
 }
 
 export namespace CidrAuthorizationContext {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CidrAuthorizationContext): any => ({
     ...obj,
   });
@@ -645,6 +723,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -697,6 +778,9 @@ export interface CreateAcceleratorRequest {
 }
 
 export namespace CreateAcceleratorRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateAcceleratorRequest): any => ({
     ...obj,
   });
@@ -710,6 +794,9 @@ export interface CreateAcceleratorResponse {
 }
 
 export namespace CreateAcceleratorResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateAcceleratorResponse): any => ({
     ...obj,
   });
@@ -762,6 +849,9 @@ export interface CreateCustomRoutingAcceleratorRequest {
 }
 
 export namespace CreateCustomRoutingAcceleratorRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCustomRoutingAcceleratorRequest): any => ({
     ...obj,
   });
@@ -827,6 +917,9 @@ export interface CustomRoutingAccelerator {
 }
 
 export namespace CustomRoutingAccelerator {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomRoutingAccelerator): any => ({
     ...obj,
   });
@@ -840,6 +933,9 @@ export interface CreateCustomRoutingAcceleratorResponse {
 }
 
 export namespace CreateCustomRoutingAcceleratorResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCustomRoutingAcceleratorResponse): any => ({
     ...obj,
   });
@@ -872,6 +968,9 @@ export interface CustomRoutingDestinationConfiguration {
 }
 
 export namespace CustomRoutingDestinationConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomRoutingDestinationConfiguration): any => ({
     ...obj,
   });
@@ -903,6 +1002,9 @@ export interface CreateCustomRoutingEndpointGroupRequest {
 }
 
 export namespace CreateCustomRoutingEndpointGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCustomRoutingEndpointGroupRequest): any => ({
     ...obj,
   });
@@ -935,6 +1037,9 @@ export interface CustomRoutingDestinationDescription {
 }
 
 export namespace CustomRoutingDestinationDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomRoutingDestinationDescription): any => ({
     ...obj,
   });
@@ -969,6 +1074,9 @@ export interface CustomRoutingEndpointGroup {
 }
 
 export namespace CustomRoutingEndpointGroup {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomRoutingEndpointGroup): any => ({
     ...obj,
   });
@@ -982,6 +1090,9 @@ export interface CreateCustomRoutingEndpointGroupResponse {
 }
 
 export namespace CreateCustomRoutingEndpointGroupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCustomRoutingEndpointGroupResponse): any => ({
     ...obj,
   });
@@ -997,6 +1108,9 @@ export interface EndpointGroupAlreadyExistsException extends __SmithyException, 
 }
 
 export namespace EndpointGroupAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EndpointGroupAlreadyExistsException): any => ({
     ...obj,
   });
@@ -1012,6 +1126,9 @@ export interface InvalidPortRangeException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidPortRangeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidPortRangeException): any => ({
     ...obj,
   });
@@ -1027,6 +1144,9 @@ export interface ListenerNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ListenerNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListenerNotFoundException): any => ({
     ...obj,
   });
@@ -1048,6 +1168,9 @@ export interface PortRange {
 }
 
 export namespace PortRange {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PortRange): any => ({
     ...obj,
   });
@@ -1074,6 +1197,9 @@ export interface CreateCustomRoutingListenerRequest {
 }
 
 export namespace CreateCustomRoutingListenerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCustomRoutingListenerRequest): any => ({
     ...obj,
   });
@@ -1097,6 +1223,9 @@ export interface CustomRoutingListener {
 }
 
 export namespace CustomRoutingListener {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomRoutingListener): any => ({
     ...obj,
   });
@@ -1110,6 +1239,9 @@ export interface CreateCustomRoutingListenerResponse {
 }
 
 export namespace CreateCustomRoutingListenerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCustomRoutingListenerResponse): any => ({
     ...obj,
   });
@@ -1149,6 +1281,9 @@ export interface EndpointConfiguration {
 }
 
 export namespace EndpointConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EndpointConfiguration): any => ({
     ...obj,
   });
@@ -1183,6 +1318,9 @@ export interface PortOverride {
 }
 
 export namespace PortOverride {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PortOverride): any => ({
     ...obj,
   });
@@ -1262,6 +1400,9 @@ export interface CreateEndpointGroupRequest {
 }
 
 export namespace CreateEndpointGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateEndpointGroupRequest): any => ({
     ...obj,
   });
@@ -1313,6 +1454,9 @@ export interface EndpointDescription {
 }
 
 export namespace EndpointDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EndpointDescription): any => ({
     ...obj,
   });
@@ -1388,6 +1532,9 @@ export interface EndpointGroup {
 }
 
 export namespace EndpointGroup {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EndpointGroup): any => ({
     ...obj,
   });
@@ -1401,6 +1548,9 @@ export interface CreateEndpointGroupResponse {
 }
 
 export namespace CreateEndpointGroupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateEndpointGroupResponse): any => ({
     ...obj,
   });
@@ -1446,6 +1596,9 @@ export interface CreateListenerRequest {
 }
 
 export namespace CreateListenerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateListenerRequest): any => ({
     ...obj,
   });
@@ -1488,6 +1641,9 @@ export interface Listener {
 }
 
 export namespace Listener {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Listener): any => ({
     ...obj,
   });
@@ -1501,6 +1657,9 @@ export interface CreateListenerResponse {
 }
 
 export namespace CreateListenerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateListenerResponse): any => ({
     ...obj,
   });
@@ -1536,6 +1695,9 @@ export interface CustomRoutingAcceleratorAttributes {
 }
 
 export namespace CustomRoutingAcceleratorAttributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomRoutingAcceleratorAttributes): any => ({
     ...obj,
   });
@@ -1554,6 +1716,9 @@ export interface DeleteAcceleratorRequest {
 }
 
 export namespace DeleteAcceleratorRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteAcceleratorRequest): any => ({
     ...obj,
   });
@@ -1567,6 +1732,9 @@ export interface DeleteCustomRoutingAcceleratorRequest {
 }
 
 export namespace DeleteCustomRoutingAcceleratorRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteCustomRoutingAcceleratorRequest): any => ({
     ...obj,
   });
@@ -1580,6 +1748,9 @@ export interface DeleteCustomRoutingEndpointGroupRequest {
 }
 
 export namespace DeleteCustomRoutingEndpointGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteCustomRoutingEndpointGroupRequest): any => ({
     ...obj,
   });
@@ -1593,6 +1764,9 @@ export interface DeleteCustomRoutingListenerRequest {
 }
 
 export namespace DeleteCustomRoutingListenerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteCustomRoutingListenerRequest): any => ({
     ...obj,
   });
@@ -1606,6 +1780,9 @@ export interface DeleteEndpointGroupRequest {
 }
 
 export namespace DeleteEndpointGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteEndpointGroupRequest): any => ({
     ...obj,
   });
@@ -1619,6 +1796,9 @@ export interface DeleteListenerRequest {
 }
 
 export namespace DeleteListenerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteListenerRequest): any => ({
     ...obj,
   });
@@ -1662,6 +1842,9 @@ export interface DenyCustomRoutingTrafficRequest {
 }
 
 export namespace DenyCustomRoutingTrafficRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DenyCustomRoutingTrafficRequest): any => ({
     ...obj,
   });
@@ -1676,6 +1859,9 @@ export interface DeprovisionByoipCidrRequest {
 }
 
 export namespace DeprovisionByoipCidrRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeprovisionByoipCidrRequest): any => ({
     ...obj,
   });
@@ -1689,6 +1875,9 @@ export interface DeprovisionByoipCidrResponse {
 }
 
 export namespace DeprovisionByoipCidrResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeprovisionByoipCidrResponse): any => ({
     ...obj,
   });
@@ -1702,6 +1891,9 @@ export interface DescribeAcceleratorRequest {
 }
 
 export namespace DescribeAcceleratorRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAcceleratorRequest): any => ({
     ...obj,
   });
@@ -1715,6 +1907,9 @@ export interface DescribeAcceleratorResponse {
 }
 
 export namespace DescribeAcceleratorResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAcceleratorResponse): any => ({
     ...obj,
   });
@@ -1728,6 +1923,9 @@ export interface DescribeAcceleratorAttributesRequest {
 }
 
 export namespace DescribeAcceleratorAttributesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAcceleratorAttributesRequest): any => ({
     ...obj,
   });
@@ -1741,6 +1939,9 @@ export interface DescribeAcceleratorAttributesResponse {
 }
 
 export namespace DescribeAcceleratorAttributesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAcceleratorAttributesResponse): any => ({
     ...obj,
   });
@@ -1754,6 +1955,9 @@ export interface DescribeCustomRoutingAcceleratorRequest {
 }
 
 export namespace DescribeCustomRoutingAcceleratorRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCustomRoutingAcceleratorRequest): any => ({
     ...obj,
   });
@@ -1767,6 +1971,9 @@ export interface DescribeCustomRoutingAcceleratorResponse {
 }
 
 export namespace DescribeCustomRoutingAcceleratorResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCustomRoutingAcceleratorResponse): any => ({
     ...obj,
   });
@@ -1780,6 +1987,9 @@ export interface DescribeCustomRoutingAcceleratorAttributesRequest {
 }
 
 export namespace DescribeCustomRoutingAcceleratorAttributesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCustomRoutingAcceleratorAttributesRequest): any => ({
     ...obj,
   });
@@ -1793,6 +2003,9 @@ export interface DescribeCustomRoutingAcceleratorAttributesResponse {
 }
 
 export namespace DescribeCustomRoutingAcceleratorAttributesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCustomRoutingAcceleratorAttributesResponse): any => ({
     ...obj,
   });
@@ -1806,6 +2019,9 @@ export interface DescribeCustomRoutingEndpointGroupRequest {
 }
 
 export namespace DescribeCustomRoutingEndpointGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCustomRoutingEndpointGroupRequest): any => ({
     ...obj,
   });
@@ -1819,6 +2035,9 @@ export interface DescribeCustomRoutingEndpointGroupResponse {
 }
 
 export namespace DescribeCustomRoutingEndpointGroupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCustomRoutingEndpointGroupResponse): any => ({
     ...obj,
   });
@@ -1832,6 +2051,9 @@ export interface DescribeCustomRoutingListenerRequest {
 }
 
 export namespace DescribeCustomRoutingListenerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCustomRoutingListenerRequest): any => ({
     ...obj,
   });
@@ -1845,6 +2067,9 @@ export interface DescribeCustomRoutingListenerResponse {
 }
 
 export namespace DescribeCustomRoutingListenerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCustomRoutingListenerResponse): any => ({
     ...obj,
   });
@@ -1858,6 +2083,9 @@ export interface DescribeEndpointGroupRequest {
 }
 
 export namespace DescribeEndpointGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEndpointGroupRequest): any => ({
     ...obj,
   });
@@ -1871,6 +2099,9 @@ export interface DescribeEndpointGroupResponse {
 }
 
 export namespace DescribeEndpointGroupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEndpointGroupResponse): any => ({
     ...obj,
   });
@@ -1884,6 +2115,9 @@ export interface DescribeListenerRequest {
 }
 
 export namespace DescribeListenerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeListenerRequest): any => ({
     ...obj,
   });
@@ -1897,6 +2131,9 @@ export interface DescribeListenerResponse {
 }
 
 export namespace DescribeListenerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeListenerResponse): any => ({
     ...obj,
   });
@@ -1918,6 +2155,9 @@ export interface SocketAddress {
 }
 
 export namespace SocketAddress {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SocketAddress): any => ({
     ...obj,
   });
@@ -1972,6 +2212,9 @@ export interface DestinationPortMapping {
 }
 
 export namespace DestinationPortMapping {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DestinationPortMapping): any => ({
     ...obj,
   });
@@ -1987,6 +2230,9 @@ export interface EndpointNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace EndpointNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EndpointNotFoundException): any => ({
     ...obj,
   });
@@ -2002,6 +2248,9 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidNextTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
@@ -2020,6 +2269,9 @@ export interface ListAcceleratorsRequest {
 }
 
 export namespace ListAcceleratorsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAcceleratorsRequest): any => ({
     ...obj,
   });
@@ -2038,6 +2290,9 @@ export interface ListAcceleratorsResponse {
 }
 
 export namespace ListAcceleratorsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAcceleratorsResponse): any => ({
     ...obj,
   });
@@ -2057,6 +2312,9 @@ export interface ListByoipCidrsRequest {
 }
 
 export namespace ListByoipCidrsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListByoipCidrsRequest): any => ({
     ...obj,
   });
@@ -2075,6 +2333,9 @@ export interface ListByoipCidrsResponse {
 }
 
 export namespace ListByoipCidrsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListByoipCidrsResponse): any => ({
     ...obj,
   });
@@ -2093,6 +2354,9 @@ export interface ListCustomRoutingAcceleratorsRequest {
 }
 
 export namespace ListCustomRoutingAcceleratorsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCustomRoutingAcceleratorsRequest): any => ({
     ...obj,
   });
@@ -2111,6 +2375,9 @@ export interface ListCustomRoutingAcceleratorsResponse {
 }
 
 export namespace ListCustomRoutingAcceleratorsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCustomRoutingAcceleratorsResponse): any => ({
     ...obj,
   });
@@ -2134,6 +2401,9 @@ export interface ListCustomRoutingEndpointGroupsRequest {
 }
 
 export namespace ListCustomRoutingEndpointGroupsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCustomRoutingEndpointGroupsRequest): any => ({
     ...obj,
   });
@@ -2152,6 +2422,9 @@ export interface ListCustomRoutingEndpointGroupsResponse {
 }
 
 export namespace ListCustomRoutingEndpointGroupsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCustomRoutingEndpointGroupsResponse): any => ({
     ...obj,
   });
@@ -2175,6 +2448,9 @@ export interface ListCustomRoutingListenersRequest {
 }
 
 export namespace ListCustomRoutingListenersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCustomRoutingListenersRequest): any => ({
     ...obj,
   });
@@ -2193,6 +2469,9 @@ export interface ListCustomRoutingListenersResponse {
 }
 
 export namespace ListCustomRoutingListenersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCustomRoutingListenersResponse): any => ({
     ...obj,
   });
@@ -2221,6 +2500,9 @@ export interface ListCustomRoutingPortMappingsRequest {
 }
 
 export namespace ListCustomRoutingPortMappingsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCustomRoutingPortMappingsRequest): any => ({
     ...obj,
   });
@@ -2266,6 +2548,9 @@ export interface PortMapping {
 }
 
 export namespace PortMapping {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PortMapping): any => ({
     ...obj,
   });
@@ -2284,6 +2569,9 @@ export interface ListCustomRoutingPortMappingsResponse {
 }
 
 export namespace ListCustomRoutingPortMappingsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCustomRoutingPortMappingsResponse): any => ({
     ...obj,
   });
@@ -2313,6 +2601,9 @@ export interface ListCustomRoutingPortMappingsByDestinationRequest {
 }
 
 export namespace ListCustomRoutingPortMappingsByDestinationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCustomRoutingPortMappingsByDestinationRequest): any => ({
     ...obj,
   });
@@ -2331,6 +2622,9 @@ export interface ListCustomRoutingPortMappingsByDestinationResponse {
 }
 
 export namespace ListCustomRoutingPortMappingsByDestinationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCustomRoutingPortMappingsByDestinationResponse): any => ({
     ...obj,
   });
@@ -2354,6 +2648,9 @@ export interface ListEndpointGroupsRequest {
 }
 
 export namespace ListEndpointGroupsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEndpointGroupsRequest): any => ({
     ...obj,
   });
@@ -2372,6 +2669,9 @@ export interface ListEndpointGroupsResponse {
 }
 
 export namespace ListEndpointGroupsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEndpointGroupsResponse): any => ({
     ...obj,
   });
@@ -2395,6 +2695,9 @@ export interface ListListenersRequest {
 }
 
 export namespace ListListenersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListListenersRequest): any => ({
     ...obj,
   });
@@ -2413,6 +2716,9 @@ export interface ListListenersResponse {
 }
 
 export namespace ListListenersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListListenersResponse): any => ({
     ...obj,
   });
@@ -2426,6 +2732,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -2439,6 +2748,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -2461,6 +2773,9 @@ export interface ProvisionByoipCidrRequest {
 }
 
 export namespace ProvisionByoipCidrRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProvisionByoipCidrRequest): any => ({
     ...obj,
   });
@@ -2474,6 +2789,9 @@ export interface ProvisionByoipCidrResponse {
 }
 
 export namespace ProvisionByoipCidrResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProvisionByoipCidrResponse): any => ({
     ...obj,
   });
@@ -2493,6 +2811,9 @@ export interface RemoveCustomRoutingEndpointsRequest {
 }
 
 export namespace RemoveCustomRoutingEndpointsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveCustomRoutingEndpointsRequest): any => ({
     ...obj,
   });
@@ -2511,6 +2832,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -2519,6 +2843,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -2537,6 +2864,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -2545,6 +2875,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
@@ -2575,6 +2908,9 @@ export interface UpdateAcceleratorRequest {
 }
 
 export namespace UpdateAcceleratorRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAcceleratorRequest): any => ({
     ...obj,
   });
@@ -2588,6 +2924,9 @@ export interface UpdateAcceleratorResponse {
 }
 
 export namespace UpdateAcceleratorResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAcceleratorResponse): any => ({
     ...obj,
   });
@@ -2625,6 +2964,9 @@ export interface UpdateAcceleratorAttributesRequest {
 }
 
 export namespace UpdateAcceleratorAttributesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAcceleratorAttributesRequest): any => ({
     ...obj,
   });
@@ -2638,6 +2980,9 @@ export interface UpdateAcceleratorAttributesResponse {
 }
 
 export namespace UpdateAcceleratorAttributesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAcceleratorAttributesResponse): any => ({
     ...obj,
   });
@@ -2668,6 +3013,9 @@ export interface UpdateCustomRoutingAcceleratorRequest {
 }
 
 export namespace UpdateCustomRoutingAcceleratorRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCustomRoutingAcceleratorRequest): any => ({
     ...obj,
   });
@@ -2681,6 +3029,9 @@ export interface UpdateCustomRoutingAcceleratorResponse {
 }
 
 export namespace UpdateCustomRoutingAcceleratorResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCustomRoutingAcceleratorResponse): any => ({
     ...obj,
   });
@@ -2718,6 +3069,9 @@ export interface UpdateCustomRoutingAcceleratorAttributesRequest {
 }
 
 export namespace UpdateCustomRoutingAcceleratorAttributesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCustomRoutingAcceleratorAttributesRequest): any => ({
     ...obj,
   });
@@ -2731,6 +3085,9 @@ export interface UpdateCustomRoutingAcceleratorAttributesResponse {
 }
 
 export namespace UpdateCustomRoutingAcceleratorAttributesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCustomRoutingAcceleratorAttributesResponse): any => ({
     ...obj,
   });
@@ -2752,6 +3109,9 @@ export interface UpdateCustomRoutingListenerRequest {
 }
 
 export namespace UpdateCustomRoutingListenerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCustomRoutingListenerRequest): any => ({
     ...obj,
   });
@@ -2765,6 +3125,9 @@ export interface UpdateCustomRoutingListenerResponse {
 }
 
 export namespace UpdateCustomRoutingListenerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCustomRoutingListenerResponse): any => ({
     ...obj,
   });
@@ -2832,6 +3195,9 @@ export interface UpdateEndpointGroupRequest {
 }
 
 export namespace UpdateEndpointGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateEndpointGroupRequest): any => ({
     ...obj,
   });
@@ -2845,6 +3211,9 @@ export interface UpdateEndpointGroupResponse {
 }
 
 export namespace UpdateEndpointGroupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateEndpointGroupResponse): any => ({
     ...obj,
   });
@@ -2884,6 +3253,9 @@ export interface UpdateListenerRequest {
 }
 
 export namespace UpdateListenerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateListenerRequest): any => ({
     ...obj,
   });
@@ -2897,6 +3269,9 @@ export interface UpdateListenerResponse {
 }
 
 export namespace UpdateListenerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateListenerResponse): any => ({
     ...obj,
   });
@@ -2910,6 +3285,9 @@ export interface WithdrawByoipCidrRequest {
 }
 
 export namespace WithdrawByoipCidrRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: WithdrawByoipCidrRequest): any => ({
     ...obj,
   });
@@ -2923,6 +3301,9 @@ export interface WithdrawByoipCidrResponse {
 }
 
 export namespace WithdrawByoipCidrResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: WithdrawByoipCidrResponse): any => ({
     ...obj,
   });

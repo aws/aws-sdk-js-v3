@@ -28,6 +28,20 @@ export interface ListEntitiesDetectionV2JobsCommandOutput
 
 /**
  * <p>Gets a list of medical entity detection jobs that you have submitted.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ComprehendMedicalClient, ListEntitiesDetectionV2JobsCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
+ * // const { ComprehendMedicalClient, ListEntitiesDetectionV2JobsCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * const client = new ComprehendMedicalClient(config);
+ * const command = new ListEntitiesDetectionV2JobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEntitiesDetectionV2JobsCommandInput} for command's `input` shape.
+ * @see {@link ListEntitiesDetectionV2JobsCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEntitiesDetectionV2JobsCommand extends $Command<
   ListEntitiesDetectionV2JobsCommandInput,

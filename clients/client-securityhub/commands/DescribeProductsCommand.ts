@@ -26,6 +26,20 @@ export interface DescribeProductsCommandOutput extends DescribeProductsResponse,
  *          the results only include that integration.</p>
  *          <p>If you do not provide an integration ARN, then the results include all of the available
  *          product integrations. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecurityHubClient, DescribeProductsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, DescribeProductsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * const client = new SecurityHubClient(config);
+ * const command = new DescribeProductsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeProductsCommandInput} for command's `input` shape.
+ * @see {@link DescribeProductsCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeProductsCommand extends $Command<
   DescribeProductsCommandInput,

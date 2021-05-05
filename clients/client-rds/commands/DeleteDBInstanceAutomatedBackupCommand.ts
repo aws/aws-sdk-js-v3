@@ -24,6 +24,20 @@ export interface DeleteDBInstanceAutomatedBackupCommandOutput
 
 /**
  * <p>Deletes automated backups using the <code>DbiResourceId</code> value of the source DB instance or the Amazon Resource Name (ARN) of the automated backups.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, DeleteDBInstanceAutomatedBackupCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DeleteDBInstanceAutomatedBackupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new DeleteDBInstanceAutomatedBackupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDBInstanceAutomatedBackupCommandInput} for command's `input` shape.
+ * @see {@link DeleteDBInstanceAutomatedBackupCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
   DeleteDBInstanceAutomatedBackupCommandInput,

@@ -32,6 +32,20 @@ export interface GetContainerLogCommandOutput extends GetContainerLogResult, __M
  *           <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail
  *           endpoints and quotas</a> in the <i>AWS General Reference</i>.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LightsailClient, GetContainerLogCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetContainerLogCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * const client = new LightsailClient(config);
+ * const command = new GetContainerLogCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetContainerLogCommandInput} for command's `input` shape.
+ * @see {@link GetContainerLogCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetContainerLogCommand extends $Command<
   GetContainerLogCommandInput,

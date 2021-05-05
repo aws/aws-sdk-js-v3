@@ -22,6 +22,20 @@ export interface GetPublicKeyConfigCommandOutput extends GetPublicKeyConfigResul
 
 /**
  * <p>Gets a public key configuration.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFrontClient, GetPublicKeyConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, GetPublicKeyConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * const client = new CloudFrontClient(config);
+ * const command = new GetPublicKeyConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPublicKeyConfigCommandInput} for command's `input` shape.
+ * @see {@link GetPublicKeyConfigCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPublicKeyConfigCommand extends $Command<
   GetPublicKeyConfigCommandInput,

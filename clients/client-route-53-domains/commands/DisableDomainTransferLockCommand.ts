@@ -27,6 +27,20 @@ export interface DisableDomainTransferLockCommandOutput extends DisableDomainTra
  * 			different registrar. Successful submission returns an operation ID that you can use to track
  * 			the progress and completion of the action. If the request is not completed successfully, the
  * 			domain registrant will be notified by email.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53DomainsClient, DisableDomainTransferLockCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
+ * // const { Route53DomainsClient, DisableDomainTransferLockCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * const client = new Route53DomainsClient(config);
+ * const command = new DisableDomainTransferLockCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableDomainTransferLockCommandInput} for command's `input` shape.
+ * @see {@link DisableDomainTransferLockCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableDomainTransferLockCommand extends $Command<
   DisableDomainTransferLockCommandInput,

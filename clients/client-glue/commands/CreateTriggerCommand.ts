@@ -22,6 +22,20 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
 
 /**
  * <p>Creates a new trigger.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, CreateTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, CreateTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new CreateTriggerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTriggerCommandInput} for command's `input` shape.
+ * @see {@link CreateTriggerCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTriggerCommand extends $Command<
   CreateTriggerCommandInput,

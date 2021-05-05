@@ -22,6 +22,20 @@ export interface ListMapsCommandOutput extends ListMapsResponse, __MetadataBeare
 
 /**
  * <p>Lists map resources in your AWS account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LocationClient, ListMapsCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, ListMapsCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * const client = new LocationClient(config);
+ * const command = new ListMapsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMapsCommandInput} for command's `input` shape.
+ * @see {@link ListMapsCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMapsCommand extends $Command<
   ListMapsCommandInput,

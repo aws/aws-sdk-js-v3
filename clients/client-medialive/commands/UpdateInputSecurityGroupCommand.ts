@@ -22,6 +22,20 @@ export interface UpdateInputSecurityGroupCommandOutput extends UpdateInputSecuri
 
 /**
  * Update an Input Security Group's Whilelists.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaLiveClient, UpdateInputSecurityGroupCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, UpdateInputSecurityGroupCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * const client = new MediaLiveClient(config);
+ * const command = new UpdateInputSecurityGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateInputSecurityGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateInputSecurityGroupCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateInputSecurityGroupCommand extends $Command<
   UpdateInputSecurityGroupCommandInput,

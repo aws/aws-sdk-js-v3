@@ -28,6 +28,20 @@ export interface ListApplicationDependenciesCommandOutput
 
 /**
  * <p>Retrieves the list of applications nested in the containing application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServerlessApplicationRepositoryClient, ListApplicationDependenciesCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
+ * // const { ServerlessApplicationRepositoryClient, ListApplicationDependenciesCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
+ * const client = new ServerlessApplicationRepositoryClient(config);
+ * const command = new ListApplicationDependenciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListApplicationDependenciesCommandInput} for command's `input` shape.
+ * @see {@link ListApplicationDependenciesCommandOutput} for command's `response` shape.
+ * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListApplicationDependenciesCommand extends $Command<
   ListApplicationDependenciesCommandInput,

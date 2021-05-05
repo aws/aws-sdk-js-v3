@@ -37,6 +37,20 @@ export interface GetContextKeysForPrincipalPolicyCommandOutput
  *         <p>Context keys are variables maintained by AWS and its services that provide details
  *             about the context of an API query request. Context keys can be evaluated by testing
  *             against a value in an IAM policy. Use <a>GetContextKeysForPrincipalPolicy</a> to understand what key names and values you must supply when you call <a>SimulatePrincipalPolicy</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, GetContextKeysForPrincipalPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, GetContextKeysForPrincipalPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new GetContextKeysForPrincipalPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetContextKeysForPrincipalPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetContextKeysForPrincipalPolicyCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetContextKeysForPrincipalPolicyCommand extends $Command<
   GetContextKeysForPrincipalPolicyCommandInput,

@@ -22,6 +22,20 @@ export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersio
 
 /**
  * <p>Deletes the specified version of a custom platform.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticBeanstalkClient, DeletePlatformVersionCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
+ * // const { ElasticBeanstalkClient, DeletePlatformVersionCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new DeletePlatformVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePlatformVersionCommandInput} for command's `input` shape.
+ * @see {@link DeletePlatformVersionCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePlatformVersionCommand extends $Command<
   DeletePlatformVersionCommandInput,

@@ -22,6 +22,20 @@ export interface UpdateMethodCommandOutput extends Method, __MetadataBearer {}
 
 /**
  * <p>Updates an existing <a>Method</a> resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, UpdateMethodCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, UpdateMethodCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new UpdateMethodCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMethodCommandInput} for command's `input` shape.
+ * @see {@link UpdateMethodCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMethodCommand extends $Command<
   UpdateMethodCommandInput,

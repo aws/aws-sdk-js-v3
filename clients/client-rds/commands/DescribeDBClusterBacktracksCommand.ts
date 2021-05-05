@@ -29,6 +29,20 @@ export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBackt
  *         <note>
  *             <p>This action only applies to Aurora MySQL DB clusters.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, DescribeDBClusterBacktracksCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeDBClusterBacktracksCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new DescribeDBClusterBacktracksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDBClusterBacktracksCommandInput} for command's `input` shape.
+ * @see {@link DescribeDBClusterBacktracksCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDBClusterBacktracksCommand extends $Command<
   DescribeDBClusterBacktracksCommandInput,

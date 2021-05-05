@@ -28,6 +28,20 @@ export interface GetMLTaskRunsCommandOutput extends GetMLTaskRunsResponse, __Met
  *       optional parameters as documented in this section.</p>
  *
  * 	        <p>This operation returns a list of historic runs and must be paginated.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, GetMLTaskRunsCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetMLTaskRunsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new GetMLTaskRunsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMLTaskRunsCommandInput} for command's `input` shape.
+ * @see {@link GetMLTaskRunsCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMLTaskRunsCommand extends $Command<
   GetMLTaskRunsCommandInput,

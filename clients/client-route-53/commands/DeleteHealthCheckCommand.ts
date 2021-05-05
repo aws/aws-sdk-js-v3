@@ -35,6 +35,20 @@ export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckRespons
  * 			you can't use the Route 53 <code>DeleteHealthCheck</code> command to delete the health check. The health check is deleted
  * 			automatically when you deregister the instance; there can be a delay of several hours before the health check is deleted
  * 			from Route 53. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53Client, DeleteHealthCheckCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, DeleteHealthCheckCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * const client = new Route53Client(config);
+ * const command = new DeleteHealthCheckCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteHealthCheckCommandInput} for command's `input` shape.
+ * @see {@link DeleteHealthCheckCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteHealthCheckCommand extends $Command<
   DeleteHealthCheckCommandInput,

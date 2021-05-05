@@ -40,6 +40,20 @@ export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwners
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, GetBucketOwnershipControlsCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, GetBucketOwnershipControlsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new GetBucketOwnershipControlsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBucketOwnershipControlsCommandInput} for command's `input` shape.
+ * @see {@link GetBucketOwnershipControlsCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBucketOwnershipControlsCommand extends $Command<
   GetBucketOwnershipControlsCommandInput,

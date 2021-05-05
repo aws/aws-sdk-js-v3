@@ -26,6 +26,20 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
 
 /**
  * <p>Provides the list of entities of a given type.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MarketplaceCatalogClient, ListEntitiesCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
+ * // const { MarketplaceCatalogClient, ListEntitiesCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * const client = new MarketplaceCatalogClient(config);
+ * const command = new ListEntitiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEntitiesCommandInput} for command's `input` shape.
+ * @see {@link ListEntitiesCommandOutput} for command's `response` shape.
+ * @see {@link MarketplaceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEntitiesCommand extends $Command<
   ListEntitiesCommandInput,

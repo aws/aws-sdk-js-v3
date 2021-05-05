@@ -32,6 +32,20 @@ export interface DescribeOrganizationConformancePacksCommandOutput
  * 			         <p>Limit and next token are not applicable if you specify organization conformance packs names. They are only applicable,
  * 			when you request all the organization conformance packs. </p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConfigServiceClient, DescribeOrganizationConformancePacksCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, DescribeOrganizationConformancePacksCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * const client = new ConfigServiceClient(config);
+ * const command = new DescribeOrganizationConformancePacksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeOrganizationConformancePacksCommandInput} for command's `input` shape.
+ * @see {@link DescribeOrganizationConformancePacksCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeOrganizationConformancePacksCommand extends $Command<
   DescribeOrganizationConformancePacksCommandInput,

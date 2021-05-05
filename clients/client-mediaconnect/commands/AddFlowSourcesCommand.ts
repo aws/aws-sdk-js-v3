@@ -22,6 +22,20 @@ export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __M
 
 /**
  * Adds Sources to flow
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaConnectClient, AddFlowSourcesCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
+ * // const { MediaConnectClient, AddFlowSourcesCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * const client = new MediaConnectClient(config);
+ * const command = new AddFlowSourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddFlowSourcesCommandInput} for command's `input` shape.
+ * @see {@link AddFlowSourcesCommandOutput} for command's `response` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddFlowSourcesCommand extends $Command<
   AddFlowSourcesCommandInput,

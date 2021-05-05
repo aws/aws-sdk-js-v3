@@ -26,6 +26,20 @@ export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __M
 
 /**
  * <p>Starts a human loop, provided that at least one activation condition is met.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerA2IRuntimeClient, StartHumanLoopCommand } from "@aws-sdk/client-sagemaker-a2i-runtime"; // ES Modules import
+ * // const { SageMakerA2IRuntimeClient, StartHumanLoopCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime"); // CommonJS import
+ * const client = new SageMakerA2IRuntimeClient(config);
+ * const command = new StartHumanLoopCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartHumanLoopCommandInput} for command's `input` shape.
+ * @see {@link StartHumanLoopCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartHumanLoopCommand extends $Command<
   StartHumanLoopCommandInput,

@@ -22,6 +22,20 @@ export interface CreateDetectorModelCommandOutput extends CreateDetectorModelRes
 
 /**
  * <p>Creates a detector model.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTEventsClient, CreateDetectorModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
+ * // const { IoTEventsClient, CreateDetectorModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * const client = new IoTEventsClient(config);
+ * const command = new CreateDetectorModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDetectorModelCommandInput} for command's `input` shape.
+ * @see {@link CreateDetectorModelCommandOutput} for command's `response` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDetectorModelCommand extends $Command<
   CreateDetectorModelCommandInput,

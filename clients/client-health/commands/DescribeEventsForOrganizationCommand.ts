@@ -55,6 +55,20 @@ export interface DescribeEventsForOrganizationCommandOutput
  *          <note>
  *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { HealthClient, DescribeEventsForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
+ * // const { HealthClient, DescribeEventsForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * const client = new HealthClient(config);
+ * const command = new DescribeEventsForOrganizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEventsForOrganizationCommandInput} for command's `input` shape.
+ * @see {@link DescribeEventsForOrganizationCommandOutput} for command's `response` shape.
+ * @see {@link HealthClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEventsForOrganizationCommand extends $Command<
   DescribeEventsForOrganizationCommandInput,

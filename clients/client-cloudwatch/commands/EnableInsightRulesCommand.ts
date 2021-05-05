@@ -22,6 +22,20 @@ export interface EnableInsightRulesCommandOutput extends EnableInsightRulesOutpu
 
 /**
  * <p>Enables the specified Contributor Insights rules. When rules are enabled, they immediately begin analyzing log data.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchClient, EnableInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
+ * // const { CloudWatchClient, EnableInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * const client = new CloudWatchClient(config);
+ * const command = new EnableInsightRulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableInsightRulesCommandInput} for command's `input` shape.
+ * @see {@link EnableInsightRulesCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableInsightRulesCommand extends $Command<
   EnableInsightRulesCommandInput,

@@ -22,6 +22,20 @@ export interface DeleteSiteCommandOutput extends DeleteSiteOutput, __MetadataBea
 
 /**
  * <p>Deletes the site.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OutpostsClient, DeleteSiteCommand } from "@aws-sdk/client-outposts"; // ES Modules import
+ * // const { OutpostsClient, DeleteSiteCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * const client = new OutpostsClient(config);
+ * const command = new DeleteSiteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSiteCommandInput} for command's `input` shape.
+ * @see {@link DeleteSiteCommandOutput} for command's `response` shape.
+ * @see {@link OutpostsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSiteCommand extends $Command<
   DeleteSiteCommandInput,

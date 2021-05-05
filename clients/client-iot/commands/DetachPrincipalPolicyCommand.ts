@@ -26,6 +26,20 @@ export interface DetachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  * <p>Removes the specified policy from the specified certificate.</p>
  *          <p>
  *             <b>Note:</b> This API is deprecated. Please use <a>DetachPolicy</a> instead.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, DetachPrincipalPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DetachPrincipalPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new DetachPrincipalPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetachPrincipalPolicyCommandInput} for command's `input` shape.
+ * @see {@link DetachPrincipalPolicyCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetachPrincipalPolicyCommand extends $Command<
   DetachPrincipalPolicyCommandInput,

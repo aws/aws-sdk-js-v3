@@ -34,6 +34,20 @@ export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
  *                   <code>ACCEPTED_BUT_DISABLED</code>. </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DetectiveClient, StartMonitoringMemberCommand } from "@aws-sdk/client-detective"; // ES Modules import
+ * // const { DetectiveClient, StartMonitoringMemberCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * const client = new DetectiveClient(config);
+ * const command = new StartMonitoringMemberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartMonitoringMemberCommandInput} for command's `input` shape.
+ * @see {@link StartMonitoringMemberCommandOutput} for command's `response` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartMonitoringMemberCommand extends $Command<
   StartMonitoringMemberCommandInput,

@@ -23,6 +23,20 @@ export interface DescribeTextTranslationJobCommandOutput extends DescribeTextTra
 /**
  * <p>Gets the properties associated with an asycnhronous batch translation job including name,
  *       ID, status, source and target languages, input/output S3 buckets, and so on.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TranslateClient, DescribeTextTranslationJobCommand } from "@aws-sdk/client-translate"; // ES Modules import
+ * // const { TranslateClient, DescribeTextTranslationJobCommand } = require("@aws-sdk/client-translate"); // CommonJS import
+ * const client = new TranslateClient(config);
+ * const command = new DescribeTextTranslationJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTextTranslationJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeTextTranslationJobCommandOutput} for command's `response` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTextTranslationJobCommand extends $Command<
   DescribeTextTranslationJobCommandInput,

@@ -27,6 +27,20 @@ export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBear
  *             reputation metrics (such as your bounce or complaint rates) reach certain
  *             thresholds.</p>
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESClient, UpdateAccountSendingEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
+ * // const { SESClient, UpdateAccountSendingEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * const client = new SESClient(config);
+ * const command = new UpdateAccountSendingEnabledCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAccountSendingEnabledCommandInput} for command's `input` shape.
+ * @see {@link UpdateAccountSendingEnabledCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAccountSendingEnabledCommand extends $Command<
   UpdateAccountSendingEnabledCommandInput,

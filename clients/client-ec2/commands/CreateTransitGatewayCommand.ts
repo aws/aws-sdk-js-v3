@@ -34,6 +34,20 @@ export interface CreateTransitGatewayCommandOutput extends CreateTransitGatewayR
  *          additional transit gateway route tables. If you disable automatic route propagation, we do not create a default transit gateway route table.
  *          You can use <a>EnableTransitGatewayRouteTablePropagation</a> to propagate routes from a resource
  *          attachment to a transit gateway route table. If you disable automatic associations, you can use <a>AssociateTransitGatewayRouteTable</a> to associate a resource attachment with a transit gateway route table.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, CreateTransitGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateTransitGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new CreateTransitGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTransitGatewayCommandInput} for command's `input` shape.
+ * @see {@link CreateTransitGatewayCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTransitGatewayCommand extends $Command<
   CreateTransitGatewayCommandInput,

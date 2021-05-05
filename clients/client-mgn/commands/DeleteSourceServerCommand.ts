@@ -22,6 +22,20 @@ export interface DeleteSourceServerCommandOutput extends DeleteSourceServerRespo
 
 /**
  * <p>Deletes a single source server by ID.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MgnClient, DeleteSourceServerCommand } from "@aws-sdk/client-mgn"; // ES Modules import
+ * // const { MgnClient, DeleteSourceServerCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * const client = new MgnClient(config);
+ * const command = new DeleteSourceServerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSourceServerCommandInput} for command's `input` shape.
+ * @see {@link DeleteSourceServerCommandOutput} for command's `response` shape.
+ * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSourceServerCommand extends $Command<
   DeleteSourceServerCommandInput,

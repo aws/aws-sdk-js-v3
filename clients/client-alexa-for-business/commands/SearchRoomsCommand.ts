@@ -23,6 +23,20 @@ export interface SearchRoomsCommandOutput extends SearchRoomsResponse, __Metadat
 /**
  * <p>Searches rooms and lists the ones that meet a set of filter and sort
  *          criteria.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, SearchRoomsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, SearchRoomsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new SearchRoomsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchRoomsCommandInput} for command's `input` shape.
+ * @see {@link SearchRoomsCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchRoomsCommand extends $Command<
   SearchRoomsCommandInput,

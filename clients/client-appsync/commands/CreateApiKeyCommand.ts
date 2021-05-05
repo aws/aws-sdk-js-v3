@@ -23,6 +23,20 @@ export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __Metad
 /**
  * <p>Creates a unique key that you can distribute to clients who are executing your
  *          API.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppSyncClient, CreateApiKeyCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, CreateApiKeyCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * const client = new AppSyncClient(config);
+ * const command = new CreateApiKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateApiKeyCommandInput} for command's `input` shape.
+ * @see {@link CreateApiKeyCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateApiKeyCommand extends $Command<
   CreateApiKeyCommandInput,

@@ -33,6 +33,20 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  *         <p>An analysis that's scheduled for deletion isn't accessible in the QuickSight console.
  *             To access it in the console, restore it. Deleting an analysis doesn't delete the
  *             dashboards that you publish from it.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QuickSightClient, DeleteAnalysisCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, DeleteAnalysisCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * const client = new QuickSightClient(config);
+ * const command = new DeleteAnalysisCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAnalysisCommandInput} for command's `input` shape.
+ * @see {@link DeleteAnalysisCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAnalysisCommand extends $Command<
   DeleteAnalysisCommandInput,

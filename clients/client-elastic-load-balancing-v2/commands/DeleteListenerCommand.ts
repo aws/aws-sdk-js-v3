@@ -28,6 +28,20 @@ export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __Met
  * <p>Deletes the specified listener.</p>
  *          <p>Alternatively, your listener is deleted when you delete the load balancer to which it is
  *         attached.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticLoadBalancingV2Client, DeleteListenerCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, DeleteListenerCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new DeleteListenerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteListenerCommandInput} for command's `input` shape.
+ * @see {@link DeleteListenerCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteListenerCommand extends $Command<
   DeleteListenerCommandInput,

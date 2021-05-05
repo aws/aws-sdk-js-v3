@@ -31,6 +31,20 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
  *             seconds, which gives you 60 seconds to establish a serial console connection to the
  *             instance using SSH. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-serial-console.html">EC2 Serial Console</a> in
  *             the <i>Amazon EC2 User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2InstanceConnectClient, SendSerialConsoleSSHPublicKeyCommand } from "@aws-sdk/client-ec2-instance-connect"; // ES Modules import
+ * // const { EC2InstanceConnectClient, SendSerialConsoleSSHPublicKeyCommand } = require("@aws-sdk/client-ec2-instance-connect"); // CommonJS import
+ * const client = new EC2InstanceConnectClient(config);
+ * const command = new SendSerialConsoleSSHPublicKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendSerialConsoleSSHPublicKeyCommandInput} for command's `input` shape.
+ * @see {@link SendSerialConsoleSSHPublicKeyCommandOutput} for command's `response` shape.
+ * @see {@link EC2InstanceConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendSerialConsoleSSHPublicKeyCommand extends $Command<
   SendSerialConsoleSSHPublicKeyCommandInput,

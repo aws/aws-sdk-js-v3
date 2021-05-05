@@ -25,6 +25,20 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  *       operation. For each dataset group, this operation returns a summary of its properties,
  *       including its Amazon Resource Name (ARN). You can retrieve the complete set of properties by
  *       using the dataset group ARN with the <a>DescribeDatasetGroup</a> operation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ForecastClient, ListDatasetGroupsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, ListDatasetGroupsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * const client = new ForecastClient(config);
+ * const command = new ListDatasetGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDatasetGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListDatasetGroupsCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDatasetGroupsCommand extends $Command<
   ListDatasetGroupsCommandInput,

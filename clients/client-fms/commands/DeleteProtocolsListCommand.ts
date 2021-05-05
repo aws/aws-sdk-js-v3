@@ -22,6 +22,20 @@ export interface DeleteProtocolsListCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Permanently deletes an AWS Firewall Manager protocols list.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FMSClient, DeleteProtocolsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
+ * // const { FMSClient, DeleteProtocolsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * const client = new FMSClient(config);
+ * const command = new DeleteProtocolsListCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteProtocolsListCommandInput} for command's `input` shape.
+ * @see {@link DeleteProtocolsListCommandOutput} for command's `response` shape.
+ * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteProtocolsListCommand extends $Command<
   DeleteProtocolsListCommandInput,

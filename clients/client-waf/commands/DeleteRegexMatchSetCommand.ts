@@ -45,6 +45,20 @@ export interface DeleteRegexMatchSetCommandOutput extends DeleteRegexMatchSetRes
  *                <p>Submit a <code>DeleteRegexMatchSet</code> request.</p>
  *             </li>
  *          </ol>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFClient, DeleteRegexMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, DeleteRegexMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * const client = new WAFClient(config);
+ * const command = new DeleteRegexMatchSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRegexMatchSetCommandInput} for command's `input` shape.
+ * @see {@link DeleteRegexMatchSetCommandOutput} for command's `response` shape.
+ * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRegexMatchSetCommand extends $Command<
   DeleteRegexMatchSetCommandInput,

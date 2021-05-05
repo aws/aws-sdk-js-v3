@@ -24,6 +24,20 @@ export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer 
  * <p>Disassociates the account that has been set as the AWS Firewall Manager administrator
  *       account. To set a different account as the administrator account, you must submit an
  *         <code>AssociateAdminAccount</code> request.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FMSClient, DisassociateAdminAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
+ * // const { FMSClient, DisassociateAdminAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * const client = new FMSClient(config);
+ * const command = new DisassociateAdminAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateAdminAccountCommandInput} for command's `input` shape.
+ * @see {@link DisassociateAdminAccountCommandOutput} for command's `response` shape.
+ * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateAdminAccountCommand extends $Command<
   DisassociateAdminAccountCommandInput,

@@ -35,6 +35,20 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  *          <p>If the locale doesn't exist in the bot, or if the locale hasn't been
  *          enables for the alias, you receive a
  *          <code>BadRequestException</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexRuntimeV2Client, DeleteSessionCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
+ * // const { LexRuntimeV2Client, DeleteSessionCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
+ * const client = new LexRuntimeV2Client(config);
+ * const command = new DeleteSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSessionCommandInput} for command's `input` shape.
+ * @see {@link DeleteSessionCommandOutput} for command's `response` shape.
+ * @see {@link LexRuntimeV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSessionCommand extends $Command<
   DeleteSessionCommandInput,

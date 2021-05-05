@@ -27,6 +27,20 @@ export interface DeleteApplicationsCommandOutput extends DeleteApplicationsRespo
 /**
  * <p>Deletes a list of applications and their associations with configuration
  *       items.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApplicationDiscoveryServiceClient, DeleteApplicationsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, DeleteApplicationsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new DeleteApplicationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteApplicationsCommandInput} for command's `input` shape.
+ * @see {@link DeleteApplicationsCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteApplicationsCommand extends $Command<
   DeleteApplicationsCommandInput,

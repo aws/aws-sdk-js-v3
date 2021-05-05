@@ -23,6 +23,20 @@ export interface DescribePortfolioCommandOutput extends DescribePortfolioOutput,
 /**
  * <p>Gets information about the specified portfolio.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, DescribePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, DescribePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DescribePortfolioCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePortfolioCommandInput} for command's `input` shape.
+ * @see {@link DescribePortfolioCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePortfolioCommand extends $Command<
   DescribePortfolioCommandInput,

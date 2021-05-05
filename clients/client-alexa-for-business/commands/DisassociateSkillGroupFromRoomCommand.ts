@@ -25,6 +25,20 @@ export interface DisassociateSkillGroupFromRoomCommandOutput
 /**
  * <p>Disassociates a skill group from a specified room. This disables all skills in the
  *          skill group on all devices in the room.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, DisassociateSkillGroupFromRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, DisassociateSkillGroupFromRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new DisassociateSkillGroupFromRoomCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateSkillGroupFromRoomCommandInput} for command's `input` shape.
+ * @see {@link DisassociateSkillGroupFromRoomCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateSkillGroupFromRoomCommand extends $Command<
   DisassociateSkillGroupFromRoomCommandInput,

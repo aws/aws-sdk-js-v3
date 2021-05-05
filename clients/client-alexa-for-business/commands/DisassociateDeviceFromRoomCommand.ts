@@ -24,6 +24,20 @@ export interface DisassociateDeviceFromRoomCommandOutput extends DisassociateDev
  * <p>Disassociates a device from its current room. The device continues to be connected to
  *          the Wi-Fi network and is still registered to the account. The device settings and skills
  *          are removed from the room.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, DisassociateDeviceFromRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, DisassociateDeviceFromRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new DisassociateDeviceFromRoomCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateDeviceFromRoomCommandInput} for command's `input` shape.
+ * @see {@link DisassociateDeviceFromRoomCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateDeviceFromRoomCommand extends $Command<
   DisassociateDeviceFromRoomCommandInput,

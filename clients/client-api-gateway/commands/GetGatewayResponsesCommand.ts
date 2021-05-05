@@ -22,6 +22,20 @@ export interface GetGatewayResponsesCommandOutput extends GatewayResponses, __Me
 
 /**
  * <p>Gets the <a>GatewayResponses</a> collection on the given <a>RestApi</a>. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default <a>GatewayResponses</a> collection for the supported response types.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, GetGatewayResponsesCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, GetGatewayResponsesCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new GetGatewayResponsesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetGatewayResponsesCommandInput} for command's `input` shape.
+ * @see {@link GetGatewayResponsesCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetGatewayResponsesCommand extends $Command<
   GetGatewayResponsesCommandInput,

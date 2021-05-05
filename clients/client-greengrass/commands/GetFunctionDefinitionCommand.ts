@@ -22,6 +22,20 @@ export interface GetFunctionDefinitionCommandOutput extends GetFunctionDefinitio
 
 /**
  * Retrieves information about a Lambda function definition, including its creation time and latest version.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassClient, GetFunctionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, GetFunctionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * const client = new GreengrassClient(config);
+ * const command = new GetFunctionDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFunctionDefinitionCommandInput} for command's `input` shape.
+ * @see {@link GetFunctionDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFunctionDefinitionCommand extends $Command<
   GetFunctionDefinitionCommandInput,

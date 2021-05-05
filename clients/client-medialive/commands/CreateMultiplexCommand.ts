@@ -22,6 +22,20 @@ export interface CreateMultiplexCommandOutput extends CreateMultiplexResponse, _
 
 /**
  * Create a new multiplex.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaLiveClient, CreateMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, CreateMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * const client = new MediaLiveClient(config);
+ * const command = new CreateMultiplexCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMultiplexCommandInput} for command's `input` shape.
+ * @see {@link CreateMultiplexCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMultiplexCommand extends $Command<
   CreateMultiplexCommandInput,

@@ -38,6 +38,20 @@ export interface RejectDomainTransferFromAnotherAwsAccountCommandOutput
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
  * 			provides additional information, for example, <code>Domain Transfer from Aws Account 111122223333 has been cancelled</code>.
  * 		</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53DomainsClient, RejectDomainTransferFromAnotherAwsAccountCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
+ * // const { Route53DomainsClient, RejectDomainTransferFromAnotherAwsAccountCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * const client = new Route53DomainsClient(config);
+ * const command = new RejectDomainTransferFromAnotherAwsAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RejectDomainTransferFromAnotherAwsAccountCommandInput} for command's `input` shape.
+ * @see {@link RejectDomainTransferFromAnotherAwsAccountCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command<
   RejectDomainTransferFromAnotherAwsAccountCommandInput,

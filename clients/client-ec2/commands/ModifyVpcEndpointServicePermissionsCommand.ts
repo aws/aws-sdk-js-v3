@@ -31,6 +31,20 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
  * 	        <p>If you grant permissions to all principals, the service is public. Any users who know the name of a
  * 	        public service can send a request to attach an endpoint. If the service does not require manual approval,
  * 	        attachments are automatically approved.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, ModifyVpcEndpointServicePermissionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, ModifyVpcEndpointServicePermissionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new ModifyVpcEndpointServicePermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyVpcEndpointServicePermissionsCommandInput} for command's `input` shape.
+ * @see {@link ModifyVpcEndpointServicePermissionsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyVpcEndpointServicePermissionsCommand extends $Command<
   ModifyVpcEndpointServicePermissionsCommandInput,

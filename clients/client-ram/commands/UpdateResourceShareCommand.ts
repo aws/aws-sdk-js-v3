@@ -22,6 +22,20 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
 
 /**
  * <p>Updates the specified resource share that you own.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RAMClient, UpdateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
+ * // const { RAMClient, UpdateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * const client = new RAMClient(config);
+ * const command = new UpdateResourceShareCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateResourceShareCommandInput} for command's `input` shape.
+ * @see {@link UpdateResourceShareCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateResourceShareCommand extends $Command<
   UpdateResourceShareCommandInput,

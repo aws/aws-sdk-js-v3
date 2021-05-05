@@ -26,6 +26,20 @@ export interface ReadJobCommandOutput extends ReadJobResponse, __MetadataBearer 
 
 /**
  * <p>The ReadJob operation returns detailed information about a job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticTranscoderClient, ReadJobCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
+ * // const { ElasticTranscoderClient, ReadJobCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
+ * const client = new ElasticTranscoderClient(config);
+ * const command = new ReadJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReadJobCommandInput} for command's `input` shape.
+ * @see {@link ReadJobCommandOutput} for command's `response` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReadJobCommand extends $Command<
   ReadJobCommandInput,

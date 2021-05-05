@@ -22,6 +22,20 @@ export interface ListTemplateAliasesCommandOutput extends ListTemplateAliasesRes
 
 /**
  * <p>Lists all the aliases of a template.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QuickSightClient, ListTemplateAliasesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, ListTemplateAliasesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * const client = new QuickSightClient(config);
+ * const command = new ListTemplateAliasesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTemplateAliasesCommandInput} for command's `input` shape.
+ * @see {@link ListTemplateAliasesCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTemplateAliasesCommand extends $Command<
   ListTemplateAliasesCommandInput,

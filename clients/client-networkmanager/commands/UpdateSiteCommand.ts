@@ -23,6 +23,20 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
 /**
  * <p>Updates the information for an existing site. To remove information for any of the
  *             parameters, specify an empty string.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NetworkManagerClient, UpdateSiteCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
+ * // const { NetworkManagerClient, UpdateSiteCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * const client = new NetworkManagerClient(config);
+ * const command = new UpdateSiteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSiteCommandInput} for command's `input` shape.
+ * @see {@link UpdateSiteCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSiteCommand extends $Command<
   UpdateSiteCommandInput,

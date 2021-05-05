@@ -22,6 +22,20 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
 
 /**
  * <p>Describes the properties of a specific channel.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaTailorClient, DescribeChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
+ * // const { MediaTailorClient, DescribeChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * const client = new MediaTailorClient(config);
+ * const command = new DescribeChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeChannelCommandInput} for command's `input` shape.
+ * @see {@link DescribeChannelCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeChannelCommand extends $Command<
   DescribeChannelCommandInput,

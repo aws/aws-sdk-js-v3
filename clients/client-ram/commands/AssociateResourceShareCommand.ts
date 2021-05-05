@@ -22,6 +22,20 @@ export interface AssociateResourceShareCommandOutput extends AssociateResourceSh
 
 /**
  * <p>Associates the specified resource share with the specified principals and resources.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RAMClient, AssociateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
+ * // const { RAMClient, AssociateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
+ * const client = new RAMClient(config);
+ * const command = new AssociateResourceShareCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateResourceShareCommandInput} for command's `input` shape.
+ * @see {@link AssociateResourceShareCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateResourceShareCommand extends $Command<
   AssociateResourceShareCommandInput,

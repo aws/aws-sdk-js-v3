@@ -22,6 +22,20 @@ export interface GetDetectorVersionCommandOutput extends GetDetectorVersionResul
 
 /**
  * <p>Gets a particular detector version. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FraudDetectorClient, GetDetectorVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, GetDetectorVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * const client = new FraudDetectorClient(config);
+ * const command = new GetDetectorVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDetectorVersionCommandInput} for command's `input` shape.
+ * @see {@link GetDetectorVersionCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDetectorVersionCommand extends $Command<
   GetDetectorVersionCommandInput,

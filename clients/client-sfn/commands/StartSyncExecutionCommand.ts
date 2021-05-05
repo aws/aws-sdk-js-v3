@@ -22,6 +22,20 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
 
 /**
  * <p>Starts a Synchronous Express state machine execution.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SFNClient, StartSyncExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
+ * // const { SFNClient, StartSyncExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * const client = new SFNClient(config);
+ * const command = new StartSyncExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartSyncExecutionCommandInput} for command's `input` shape.
+ * @see {@link StartSyncExecutionCommandOutput} for command's `response` shape.
+ * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartSyncExecutionCommand extends $Command<
   StartSyncExecutionCommandInput,

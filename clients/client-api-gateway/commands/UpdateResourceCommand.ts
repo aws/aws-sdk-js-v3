@@ -22,6 +22,20 @@ export interface UpdateResourceCommandOutput extends Resource, __MetadataBearer 
 
 /**
  * <p>Changes information about a <a>Resource</a> resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, UpdateResourceCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, UpdateResourceCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new UpdateResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateResourceCommandInput} for command's `input` shape.
+ * @see {@link UpdateResourceCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateResourceCommand extends $Command<
   UpdateResourceCommandInput,

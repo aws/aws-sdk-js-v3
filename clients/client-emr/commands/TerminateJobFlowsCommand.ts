@@ -29,6 +29,20 @@ export interface TerminateJobFlowsCommandOutput extends __MetadataBearer {}
  *          is asynchronous. Depending on the configuration of the cluster, it may take up to 1-5
  *          minutes for the cluster to completely terminate and release allocated resources, such as
  *          Amazon EC2 instances.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EMRClient, TerminateJobFlowsCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, TerminateJobFlowsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * const client = new EMRClient(config);
+ * const command = new TerminateJobFlowsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TerminateJobFlowsCommandInput} for command's `input` shape.
+ * @see {@link TerminateJobFlowsCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TerminateJobFlowsCommand extends $Command<
   TerminateJobFlowsCommandInput,

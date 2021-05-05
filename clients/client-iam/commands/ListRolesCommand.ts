@@ -27,6 +27,20 @@ export interface ListRolesCommandOutput extends ListRolesResponse, __MetadataBea
  *         </note>
  *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, ListRolesCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, ListRolesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new ListRolesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRolesCommandInput} for command's `input` shape.
+ * @see {@link ListRolesCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesCommandOutput, IAMClientResolvedConfig> {
   // Start section: command_properties

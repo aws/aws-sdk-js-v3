@@ -22,6 +22,20 @@ export interface UpdateTypedLinkFacetCommandOutput extends UpdateTypedLinkFacetR
 
 /**
  * <p>Updates a <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudDirectoryClient, UpdateTypedLinkFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, UpdateTypedLinkFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * const client = new CloudDirectoryClient(config);
+ * const command = new UpdateTypedLinkFacetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTypedLinkFacetCommandInput} for command's `input` shape.
+ * @see {@link UpdateTypedLinkFacetCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTypedLinkFacetCommand extends $Command<
   UpdateTypedLinkFacetCommandInput,

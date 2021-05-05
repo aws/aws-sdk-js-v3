@@ -22,6 +22,20 @@ export interface UpdateDomainMetadataCommandOutput extends UpdateDomainMetadataR
 
 /**
  * <p>Updates domain metadata, such as DisplayName.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkLinkClient, UpdateDomainMetadataCommand } from "@aws-sdk/client-worklink"; // ES Modules import
+ * // const { WorkLinkClient, UpdateDomainMetadataCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * const client = new WorkLinkClient(config);
+ * const command = new UpdateDomainMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDomainMetadataCommandInput} for command's `input` shape.
+ * @see {@link UpdateDomainMetadataCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDomainMetadataCommand extends $Command<
   UpdateDomainMetadataCommandInput,

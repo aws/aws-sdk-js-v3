@@ -22,6 +22,20 @@ export interface GetDeploymentGroupCommandOutput extends GetDeploymentGroupOutpu
 
 /**
  * <p>Gets information about a deployment group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeDeployClient, GetDeploymentGroupCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
+ * // const { CodeDeployClient, GetDeploymentGroupCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
+ * const client = new CodeDeployClient(config);
+ * const command = new GetDeploymentGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDeploymentGroupCommandInput} for command's `input` shape.
+ * @see {@link GetDeploymentGroupCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDeploymentGroupCommand extends $Command<
   GetDeploymentGroupCommandInput,

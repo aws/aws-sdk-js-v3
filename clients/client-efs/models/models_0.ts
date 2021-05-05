@@ -14,6 +14,9 @@ export interface AccessPointAlreadyExists extends __SmithyException, $MetadataBe
 }
 
 export namespace AccessPointAlreadyExists {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessPointAlreadyExists): any => ({
     ...obj,
   });
@@ -50,6 +53,9 @@ export interface PosixUser {
 }
 
 export namespace PosixUser {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PosixUser): any => ({
     ...obj,
   });
@@ -87,6 +93,9 @@ export interface CreationInfo {
 }
 
 export namespace CreationInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreationInfo): any => ({
     ...obj,
   });
@@ -121,6 +130,9 @@ export interface RootDirectory {
 }
 
 export namespace RootDirectory {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RootDirectory): any => ({
     ...obj,
   });
@@ -144,6 +156,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -206,6 +221,9 @@ export interface AccessPointDescription {
 }
 
 export namespace AccessPointDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessPointDescription): any => ({
     ...obj,
   });
@@ -223,6 +241,9 @@ export interface AccessPointLimitExceeded extends __SmithyException, $MetadataBe
 }
 
 export namespace AccessPointLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessPointLimitExceeded): any => ({
     ...obj,
   });
@@ -240,6 +261,9 @@ export interface AccessPointNotFound extends __SmithyException, $MetadataBearer 
 }
 
 export namespace AccessPointNotFound {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessPointNotFound): any => ({
     ...obj,
   });
@@ -257,6 +281,9 @@ export interface AvailabilityZonesMismatch extends __SmithyException, $MetadataB
 }
 
 export namespace AvailabilityZonesMismatch {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AvailabilityZonesMismatch): any => ({
     ...obj,
   });
@@ -307,6 +334,9 @@ export interface BackupPolicy {
 }
 
 export namespace BackupPolicy {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupPolicy): any => ({
     ...obj,
   });
@@ -320,6 +350,9 @@ export interface BackupPolicyDescription {
 }
 
 export namespace BackupPolicyDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupPolicyDescription): any => ({
     ...obj,
   });
@@ -337,6 +370,9 @@ export interface BadRequest extends __SmithyException, $MetadataBearer {
 }
 
 export namespace BadRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BadRequest): any => ({
     ...obj,
   });
@@ -380,6 +416,9 @@ export interface CreateAccessPointRequest {
 }
 
 export namespace CreateAccessPointRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateAccessPointRequest): any => ({
     ...obj,
   });
@@ -397,6 +436,9 @@ export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace FileSystemNotFound {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FileSystemNotFound): any => ({
     ...obj,
   });
@@ -413,6 +455,9 @@ export interface IncorrectFileSystemLifeCycleState extends __SmithyException, $M
 }
 
 export namespace IncorrectFileSystemLifeCycleState {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IncorrectFileSystemLifeCycleState): any => ({
     ...obj,
   });
@@ -429,6 +474,9 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
 }
 
 export namespace InternalServerError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
@@ -559,6 +607,9 @@ export interface CreateFileSystemRequest {
 }
 
 export namespace CreateFileSystemRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateFileSystemRequest): any => ({
     ...obj,
   });
@@ -577,6 +628,9 @@ export interface FileSystemAlreadyExists extends __SmithyException, $MetadataBea
 }
 
 export namespace FileSystemAlreadyExists {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FileSystemAlreadyExists): any => ({
     ...obj,
   });
@@ -617,6 +671,9 @@ export interface FileSystemSize {
 }
 
 export namespace FileSystemSize {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FileSystemSize): any => ({
     ...obj,
   });
@@ -739,6 +796,9 @@ export interface FileSystemDescription {
 }
 
 export namespace FileSystemDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FileSystemDescription): any => ({
     ...obj,
   });
@@ -756,6 +816,9 @@ export interface FileSystemLimitExceeded extends __SmithyException, $MetadataBea
 }
 
 export namespace FileSystemLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FileSystemLimitExceeded): any => ({
     ...obj,
   });
@@ -776,6 +839,9 @@ export interface InsufficientThroughputCapacity extends __SmithyException, $Meta
 }
 
 export namespace InsufficientThroughputCapacity {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InsufficientThroughputCapacity): any => ({
     ...obj,
   });
@@ -793,6 +859,9 @@ export interface ThroughputLimitExceeded extends __SmithyException, $MetadataBea
 }
 
 export namespace ThroughputLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThroughputLimitExceeded): any => ({
     ...obj,
   });
@@ -809,6 +878,9 @@ export interface UnsupportedAvailabilityZone extends __SmithyException, $Metadat
 }
 
 export namespace UnsupportedAvailabilityZone {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedAvailabilityZone): any => ({
     ...obj,
   });
@@ -842,6 +914,9 @@ export interface CreateMountTargetRequest {
 }
 
 export namespace CreateMountTargetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateMountTargetRequest): any => ({
     ...obj,
   });
@@ -859,6 +934,9 @@ export interface IpAddressInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace IpAddressInUse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IpAddressInUse): any => ({
     ...obj,
   });
@@ -876,6 +954,9 @@ export interface MountTargetConflict extends __SmithyException, $MetadataBearer 
 }
 
 export namespace MountTargetConflict {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MountTargetConflict): any => ({
     ...obj,
   });
@@ -941,6 +1022,9 @@ export interface MountTargetDescription {
 }
 
 export namespace MountTargetDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MountTargetDescription): any => ({
     ...obj,
   });
@@ -961,6 +1045,9 @@ export interface NetworkInterfaceLimitExceeded extends __SmithyException, $Metad
 }
 
 export namespace NetworkInterfaceLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NetworkInterfaceLimitExceeded): any => ({
     ...obj,
   });
@@ -978,6 +1065,9 @@ export interface NoFreeAddressesInSubnet extends __SmithyException, $MetadataBea
 }
 
 export namespace NoFreeAddressesInSubnet {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NoFreeAddressesInSubnet): any => ({
     ...obj,
   });
@@ -995,6 +1085,9 @@ export interface SecurityGroupLimitExceeded extends __SmithyException, $Metadata
 }
 
 export namespace SecurityGroupLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SecurityGroupLimitExceeded): any => ({
     ...obj,
   });
@@ -1012,6 +1105,9 @@ export interface SecurityGroupNotFound extends __SmithyException, $MetadataBeare
 }
 
 export namespace SecurityGroupNotFound {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SecurityGroupNotFound): any => ({
     ...obj,
   });
@@ -1029,6 +1125,9 @@ export interface SubnetNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SubnetNotFound {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubnetNotFound): any => ({
     ...obj,
   });
@@ -1052,6 +1151,9 @@ export interface CreateTagsRequest {
 }
 
 export namespace CreateTagsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
     ...obj,
   });
@@ -1065,6 +1167,9 @@ export interface DeleteAccessPointRequest {
 }
 
 export namespace DeleteAccessPointRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteAccessPointRequest): any => ({
     ...obj,
   });
@@ -1081,6 +1186,9 @@ export interface DeleteFileSystemRequest {
 }
 
 export namespace DeleteFileSystemRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteFileSystemRequest): any => ({
     ...obj,
   });
@@ -1097,6 +1205,9 @@ export interface FileSystemInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace FileSystemInUse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FileSystemInUse): any => ({
     ...obj,
   });
@@ -1110,6 +1221,9 @@ export interface DeleteFileSystemPolicyRequest {
 }
 
 export namespace DeleteFileSystemPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteFileSystemPolicyRequest): any => ({
     ...obj,
   });
@@ -1126,6 +1240,9 @@ export interface DeleteMountTargetRequest {
 }
 
 export namespace DeleteMountTargetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteMountTargetRequest): any => ({
     ...obj,
   });
@@ -1143,6 +1260,9 @@ export interface DependencyTimeout extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DependencyTimeout {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DependencyTimeout): any => ({
     ...obj,
   });
@@ -1160,6 +1280,9 @@ export interface MountTargetNotFound extends __SmithyException, $MetadataBearer 
 }
 
 export namespace MountTargetNotFound {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MountTargetNotFound): any => ({
     ...obj,
   });
@@ -1181,6 +1304,9 @@ export interface DeleteTagsRequest {
 }
 
 export namespace DeleteTagsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
     ...obj,
   });
@@ -1212,6 +1338,9 @@ export interface DescribeAccessPointsRequest {
 }
 
 export namespace DescribeAccessPointsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAccessPointsRequest): any => ({
     ...obj,
   });
@@ -1231,6 +1360,9 @@ export interface DescribeAccessPointsResponse {
 }
 
 export namespace DescribeAccessPointsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAccessPointsResponse): any => ({
     ...obj,
   });
@@ -1244,6 +1376,9 @@ export interface DescribeBackupPolicyRequest {
 }
 
 export namespace DescribeBackupPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBackupPolicyRequest): any => ({
     ...obj,
   });
@@ -1260,6 +1395,9 @@ export interface PolicyNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace PolicyNotFound {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyNotFound): any => ({
     ...obj,
   });
@@ -1276,6 +1414,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -1289,6 +1430,9 @@ export interface DescribeFileSystemPolicyRequest {
 }
 
 export namespace DescribeFileSystemPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFileSystemPolicyRequest): any => ({
     ...obj,
   });
@@ -1307,6 +1451,9 @@ export interface FileSystemPolicyDescription {
 }
 
 export namespace FileSystemPolicyDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FileSystemPolicyDescription): any => ({
     ...obj,
   });
@@ -1344,6 +1491,9 @@ export interface DescribeFileSystemsRequest {
 }
 
 export namespace DescribeFileSystemsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFileSystemsRequest): any => ({
     ...obj,
   });
@@ -1368,6 +1518,9 @@ export interface DescribeFileSystemsResponse {
 }
 
 export namespace DescribeFileSystemsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFileSystemsResponse): any => ({
     ...obj,
   });
@@ -1382,6 +1535,9 @@ export interface DescribeLifecycleConfigurationRequest {
 }
 
 export namespace DescribeLifecycleConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeLifecycleConfigurationRequest): any => ({
     ...obj,
   });
@@ -1410,6 +1566,9 @@ export interface LifecyclePolicy {
 }
 
 export namespace LifecyclePolicy {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LifecyclePolicy): any => ({
     ...obj,
   });
@@ -1424,6 +1583,9 @@ export interface LifecycleConfigurationDescription {
 }
 
 export namespace LifecycleConfigurationDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LifecycleConfigurationDescription): any => ({
     ...obj,
   });
@@ -1467,6 +1629,9 @@ export interface DescribeMountTargetsRequest {
 }
 
 export namespace DescribeMountTargetsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeMountTargetsRequest): any => ({
     ...obj,
   });
@@ -1497,6 +1662,9 @@ export interface DescribeMountTargetsResponse {
 }
 
 export namespace DescribeMountTargetsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeMountTargetsResponse): any => ({
     ...obj,
   });
@@ -1513,6 +1681,9 @@ export interface DescribeMountTargetSecurityGroupsRequest {
 }
 
 export namespace DescribeMountTargetSecurityGroupsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeMountTargetSecurityGroupsRequest): any => ({
     ...obj,
   });
@@ -1526,6 +1697,9 @@ export interface DescribeMountTargetSecurityGroupsResponse {
 }
 
 export namespace DescribeMountTargetSecurityGroupsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeMountTargetSecurityGroupsResponse): any => ({
     ...obj,
   });
@@ -1543,6 +1717,9 @@ export interface IncorrectMountTargetState extends __SmithyException, $MetadataB
 }
 
 export namespace IncorrectMountTargetState {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IncorrectMountTargetState): any => ({
     ...obj,
   });
@@ -1573,6 +1750,9 @@ export interface DescribeTagsRequest {
 }
 
 export namespace DescribeTagsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
     ...obj,
   });
@@ -1603,6 +1783,9 @@ export interface DescribeTagsResponse {
 }
 
 export namespace DescribeTagsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTagsResponse): any => ({
     ...obj,
   });
@@ -1620,6 +1803,9 @@ export interface InvalidPolicyException extends __SmithyException, $MetadataBear
 }
 
 export namespace InvalidPolicyException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidPolicyException): any => ({
     ...obj,
   });
@@ -1643,6 +1829,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -1662,6 +1851,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -1683,6 +1875,9 @@ export interface ModifyMountTargetSecurityGroupsRequest {
 }
 
 export namespace ModifyMountTargetSecurityGroupsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyMountTargetSecurityGroupsRequest): any => ({
     ...obj,
   });
@@ -1701,6 +1896,9 @@ export interface PutBackupPolicyRequest {
 }
 
 export namespace PutBackupPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutBackupPolicyRequest): any => ({
     ...obj,
   });
@@ -1733,6 +1931,9 @@ export interface PutFileSystemPolicyRequest {
 }
 
 export namespace PutFileSystemPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutFileSystemPolicyRequest): any => ({
     ...obj,
   });
@@ -1755,6 +1956,9 @@ export interface PutLifecycleConfigurationRequest {
 }
 
 export namespace PutLifecycleConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutLifecycleConfigurationRequest): any => ({
     ...obj,
   });
@@ -1773,6 +1977,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -1792,6 +1999,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -1809,6 +2019,9 @@ export interface TooManyRequests extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TooManyRequests {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyRequests): any => ({
     ...obj,
   });
@@ -1838,6 +2051,9 @@ export interface UpdateFileSystemRequest {
 }
 
 export namespace UpdateFileSystemRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateFileSystemRequest): any => ({
     ...obj,
   });

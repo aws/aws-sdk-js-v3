@@ -22,6 +22,20 @@ export interface CreateSourceLocationCommandOutput extends CreateSourceLocationR
 
 /**
  * <p>Creates a source location on a specific channel.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaTailorClient, CreateSourceLocationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
+ * // const { MediaTailorClient, CreateSourceLocationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * const client = new MediaTailorClient(config);
+ * const command = new CreateSourceLocationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSourceLocationCommandInput} for command's `input` shape.
+ * @see {@link CreateSourceLocationCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSourceLocationCommand extends $Command<
   CreateSourceLocationCommandInput,

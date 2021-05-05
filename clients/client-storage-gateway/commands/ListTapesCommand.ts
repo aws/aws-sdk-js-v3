@@ -29,6 +29,20 @@ export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBeare
  *          truncated, the response includes a <code>Marker</code> element that you can use in your
  *          subsequent request to retrieve the next set of tapes. This operation is only supported in
  *          the tape gateway type.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { StorageGatewayClient, ListTapesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, ListTapesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * const client = new StorageGatewayClient(config);
+ * const command = new ListTapesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTapesCommandInput} for command's `input` shape.
+ * @see {@link ListTapesCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTapesCommand extends $Command<
   ListTapesCommandInput,

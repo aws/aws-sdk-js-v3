@@ -24,6 +24,20 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
 
 /**
  * <p>Sets the amount of time in days that a given <code>AppInstance</code> retains data.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, PutAppInstanceRetentionSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, PutAppInstanceRetentionSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new PutAppInstanceRetentionSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAppInstanceRetentionSettingsCommandInput} for command's `input` shape.
+ * @see {@link PutAppInstanceRetentionSettingsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAppInstanceRetentionSettingsCommand extends $Command<
   PutAppInstanceRetentionSettingsCommandInput,

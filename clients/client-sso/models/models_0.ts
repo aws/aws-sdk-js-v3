@@ -22,6 +22,9 @@ export interface AccountInfo {
 }
 
 export namespace AccountInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccountInfo): any => ({
     ...obj,
   });
@@ -46,6 +49,9 @@ export interface GetRoleCredentialsRequest {
 }
 
 export namespace GetRoleCredentialsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRoleCredentialsRequest): any => ({
     ...obj,
     ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
@@ -82,6 +88,9 @@ export interface RoleCredentials {
 }
 
 export namespace RoleCredentials {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RoleCredentials): any => ({
     ...obj,
     ...(obj.secretAccessKey && { secretAccessKey: SENSITIVE_STRING }),
@@ -97,6 +106,9 @@ export interface GetRoleCredentialsResponse {
 }
 
 export namespace GetRoleCredentialsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRoleCredentialsResponse): any => ({
     ...obj,
     ...(obj.roleCredentials && { roleCredentials: RoleCredentials.filterSensitiveLog(obj.roleCredentials) }),
@@ -114,6 +126,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -129,6 +144,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -144,6 +162,9 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
 }
 
 export namespace TooManyRequestsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
@@ -159,6 +180,9 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace UnauthorizedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj,
   });
@@ -188,6 +212,9 @@ export interface ListAccountRolesRequest {
 }
 
 export namespace ListAccountRolesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAccountRolesRequest): any => ({
     ...obj,
     ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
@@ -210,6 +237,9 @@ export interface RoleInfo {
 }
 
 export namespace RoleInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RoleInfo): any => ({
     ...obj,
   });
@@ -228,6 +258,9 @@ export interface ListAccountRolesResponse {
 }
 
 export namespace ListAccountRolesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAccountRolesResponse): any => ({
     ...obj,
   });
@@ -252,6 +285,9 @@ export interface ListAccountsRequest {
 }
 
 export namespace ListAccountsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAccountsRequest): any => ({
     ...obj,
     ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
@@ -271,6 +307,9 @@ export interface ListAccountsResponse {
 }
 
 export namespace ListAccountsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAccountsResponse): any => ({
     ...obj,
   });
@@ -285,6 +324,9 @@ export interface LogoutRequest {
 }
 
 export namespace LogoutRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LogoutRequest): any => ({
     ...obj,
     ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),

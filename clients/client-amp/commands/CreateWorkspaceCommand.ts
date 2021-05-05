@@ -22,6 +22,20 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
 
 /**
  * Creates a new AMP workspace.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmpClient, CreateWorkspaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
+ * // const { AmpClient, CreateWorkspaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * const client = new AmpClient(config);
+ * const command = new CreateWorkspaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateWorkspaceCommandInput} for command's `input` shape.
+ * @see {@link CreateWorkspaceCommandOutput} for command's `response` shape.
+ * @see {@link AmpClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateWorkspaceCommand extends $Command<
   CreateWorkspaceCommandInput,

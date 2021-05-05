@@ -25,6 +25,20 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  * no request or response members.
  *
  * While this should be rare, code generators must support this.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QueryProtocolClient, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-query"; // ES Modules import
+ * // const { QueryProtocolClient, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-query"); // CommonJS import
+ * const client = new QueryProtocolClient(config);
+ * const command = new EmptyInputAndEmptyOutputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EmptyInputAndEmptyOutputCommandInput} for command's `input` shape.
+ * @see {@link EmptyInputAndEmptyOutputCommandOutput} for command's `response` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EmptyInputAndEmptyOutputCommand extends $Command<
   EmptyInputAndEmptyOutputCommandInput,

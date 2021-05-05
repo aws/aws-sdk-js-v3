@@ -22,6 +22,20 @@ export interface TagMeetingCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Applies the specified tags to the specified Amazon Chime SDK meeting.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, TagMeetingCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, TagMeetingCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new TagMeetingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagMeetingCommandInput} for command's `input` shape.
+ * @see {@link TagMeetingCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagMeetingCommand extends $Command<
   TagMeetingCommandInput,

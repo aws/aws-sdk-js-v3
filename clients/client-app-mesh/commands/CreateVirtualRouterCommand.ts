@@ -28,6 +28,20 @@ export interface CreateVirtualRouterCommandOutput extends CreateVirtualRouterOut
  *          create your virtual router, create and associate routes for your virtual router that direct
  *          incoming requests to different virtual nodes.</p>
  *          <p>For more information about virtual routers, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_routers.html">Virtual routers</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppMeshClient, CreateVirtualRouterCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
+ * // const { AppMeshClient, CreateVirtualRouterCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * const client = new AppMeshClient(config);
+ * const command = new CreateVirtualRouterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVirtualRouterCommandInput} for command's `input` shape.
+ * @see {@link CreateVirtualRouterCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateVirtualRouterCommand extends $Command<
   CreateVirtualRouterCommandInput,

@@ -22,6 +22,20 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
 
 /**
  * <p>Provides information regarding the user.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkMailClient, DescribeUserCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, DescribeUserCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * const client = new WorkMailClient(config);
+ * const command = new DescribeUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeUserCommandInput} for command's `input` shape.
+ * @see {@link DescribeUserCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeUserCommand extends $Command<
   DescribeUserCommandInput,

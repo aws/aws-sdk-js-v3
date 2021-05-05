@@ -27,6 +27,20 @@ export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCol
  *                 geofence collection is the target of a tracker resource, the devices will no longer
  *                 be monitored.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LocationClient, DeleteGeofenceCollectionCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, DeleteGeofenceCollectionCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * const client = new LocationClient(config);
+ * const command = new DeleteGeofenceCollectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteGeofenceCollectionCommandInput} for command's `input` shape.
+ * @see {@link DeleteGeofenceCollectionCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteGeofenceCollectionCommand extends $Command<
   DeleteGeofenceCollectionCommandInput,

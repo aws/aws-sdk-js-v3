@@ -22,6 +22,20 @@ export interface TagProjectCommandOutput extends TagProjectResult, __MetadataBea
 
 /**
  * <p>Adds tags to a project.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeStarClient, TagProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
+ * // const { CodeStarClient, TagProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
+ * const client = new CodeStarClient(config);
+ * const command = new TagProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagProjectCommandInput} for command's `input` shape.
+ * @see {@link TagProjectCommandOutput} for command's `response` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagProjectCommand extends $Command<
   TagProjectCommandInput,

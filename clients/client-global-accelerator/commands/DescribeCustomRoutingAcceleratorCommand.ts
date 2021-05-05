@@ -28,6 +28,20 @@ export interface DescribeCustomRoutingAcceleratorCommandOutput
 
 /**
  * <p>Describe a custom routing accelerator. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlobalAcceleratorClient, DescribeCustomRoutingAcceleratorCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
+ * // const { GlobalAcceleratorClient, DescribeCustomRoutingAcceleratorCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new DescribeCustomRoutingAcceleratorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCustomRoutingAcceleratorCommandInput} for command's `input` shape.
+ * @see {@link DescribeCustomRoutingAcceleratorCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCustomRoutingAcceleratorCommand extends $Command<
   DescribeCustomRoutingAcceleratorCommandInput,

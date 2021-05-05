@@ -22,6 +22,20 @@ export interface ListConstraintsForPortfolioCommandOutput extends ListConstraint
 
 /**
  * <p>Lists the constraints for the specified portfolio and product.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, ListConstraintsForPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, ListConstraintsForPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new ListConstraintsForPortfolioCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListConstraintsForPortfolioCommandInput} for command's `input` shape.
+ * @see {@link ListConstraintsForPortfolioCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListConstraintsForPortfolioCommand extends $Command<
   ListConstraintsForPortfolioCommandInput,

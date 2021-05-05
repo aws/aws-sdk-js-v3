@@ -115,6 +115,20 @@ export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleRes
  *          <p>For more information about how to use the AWS WAF API to allow or block HTTP requests,
  *          see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
  *             Guide</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFClient, CreateRateBasedRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, CreateRateBasedRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * const client = new WAFClient(config);
+ * const command = new CreateRateBasedRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRateBasedRuleCommandInput} for command's `input` shape.
+ * @see {@link CreateRateBasedRuleCommandOutput} for command's `response` shape.
+ * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRateBasedRuleCommand extends $Command<
   CreateRateBasedRuleCommandInput,

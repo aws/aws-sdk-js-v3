@@ -23,6 +23,20 @@ export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, 
 /**
  * <p>Launches an AWS Elastic Beanstalk environment for the specified application using the specified
  *       configuration.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticBeanstalkClient, CreateEnvironmentCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
+ * // const { ElasticBeanstalkClient, CreateEnvironmentCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new CreateEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
+ * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateEnvironmentCommand extends $Command<
   CreateEnvironmentCommandInput,

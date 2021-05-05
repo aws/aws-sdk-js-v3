@@ -43,6 +43,20 @@ export interface StopDeliveryStreamEncryptionCommandOutput
  *             <code>StartDeliveryStreamEncryption</code> 13 times and
  *             <code>StopDeliveryStreamEncryption</code> 12 times for the same delivery stream in a
  *          24-hour period.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FirehoseClient, StopDeliveryStreamEncryptionCommand } from "@aws-sdk/client-firehose"; // ES Modules import
+ * // const { FirehoseClient, StopDeliveryStreamEncryptionCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
+ * const client = new FirehoseClient(config);
+ * const command = new StopDeliveryStreamEncryptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopDeliveryStreamEncryptionCommandInput} for command's `input` shape.
+ * @see {@link StopDeliveryStreamEncryptionCommandOutput} for command's `response` shape.
+ * @see {@link FirehoseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopDeliveryStreamEncryptionCommand extends $Command<
   StopDeliveryStreamEncryptionCommandInput,

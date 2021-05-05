@@ -44,6 +44,20 @@ export interface DescribeBandwidthRateLimitScheduleCommandOutput
  *          If no bandwidth rate limit schedule intervals are set for the gateway, this operation returns an
  *          empty response. To specify which gateway to describe, use the Amazon Resource Name (ARN)
  *          of the gateway in your request.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { StorageGatewayClient, DescribeBandwidthRateLimitScheduleCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, DescribeBandwidthRateLimitScheduleCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * const client = new StorageGatewayClient(config);
+ * const command = new DescribeBandwidthRateLimitScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeBandwidthRateLimitScheduleCommandInput} for command's `input` shape.
+ * @see {@link DescribeBandwidthRateLimitScheduleCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeBandwidthRateLimitScheduleCommand extends $Command<
   DescribeBandwidthRateLimitScheduleCommandInput,

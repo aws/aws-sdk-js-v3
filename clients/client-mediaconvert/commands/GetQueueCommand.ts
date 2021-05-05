@@ -22,6 +22,20 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
 
 /**
  * Retrieve the JSON for a specific queue.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaConvertClient, GetQueueCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
+ * // const { MediaConvertClient, GetQueueCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * const client = new MediaConvertClient(config);
+ * const command = new GetQueueCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetQueueCommandInput} for command's `input` shape.
+ * @see {@link GetQueueCommandOutput} for command's `response` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetQueueCommand extends $Command<
   GetQueueCommandInput,

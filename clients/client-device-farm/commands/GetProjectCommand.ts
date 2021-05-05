@@ -22,6 +22,20 @@ export interface GetProjectCommandOutput extends GetProjectResult, __MetadataBea
 
 /**
  * <p>Gets information about a project.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, GetProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, GetProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new GetProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetProjectCommandInput} for command's `input` shape.
+ * @see {@link GetProjectCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetProjectCommand extends $Command<
   GetProjectCommandInput,

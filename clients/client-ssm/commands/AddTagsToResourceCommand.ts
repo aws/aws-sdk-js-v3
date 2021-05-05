@@ -37,6 +37,20 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  *    to and are interpreted strictly as a string of characters. </p>
  *          <p>For more information about using tags with EC2 instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2 resources</a> in the
  *     <i>Amazon EC2 User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, AddTagsToResourceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, AddTagsToResourceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new AddTagsToResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
+ * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddTagsToResourceCommand extends $Command<
   AddTagsToResourceCommandInput,

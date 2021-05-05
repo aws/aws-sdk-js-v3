@@ -63,6 +63,20 @@ export interface UndeprecateActivityTypeCommandOutput extends __MetadataBearer {
  *       event attribute's <code>cause</code> parameter is set to <code>OPERATION_NOT_PERMITTED</code>.
  *       For details and example IAM policies, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF
  *         Workflows</a> in the <i>Amazon SWF Developer Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SWFClient, UndeprecateActivityTypeCommand } from "@aws-sdk/client-swf"; // ES Modules import
+ * // const { SWFClient, UndeprecateActivityTypeCommand } = require("@aws-sdk/client-swf"); // CommonJS import
+ * const client = new SWFClient(config);
+ * const command = new UndeprecateActivityTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UndeprecateActivityTypeCommandInput} for command's `input` shape.
+ * @see {@link UndeprecateActivityTypeCommandOutput} for command's `response` shape.
+ * @see {@link SWFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UndeprecateActivityTypeCommand extends $Command<
   UndeprecateActivityTypeCommandInput,

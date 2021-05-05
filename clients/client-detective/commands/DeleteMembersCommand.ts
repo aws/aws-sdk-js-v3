@@ -26,6 +26,20 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  *             <code>DeleteMembers</code> to delete their own account from the behavior graph. To
  *          disable a behavior graph, the administrator account uses the <code>DeleteGraph</code> API
  *          method.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DetectiveClient, DeleteMembersCommand } from "@aws-sdk/client-detective"; // ES Modules import
+ * // const { DetectiveClient, DeleteMembersCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * const client = new DetectiveClient(config);
+ * const command = new DeleteMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMembersCommandInput} for command's `input` shape.
+ * @see {@link DeleteMembersCommandOutput} for command's `response` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMembersCommand extends $Command<
   DeleteMembersCommandInput,

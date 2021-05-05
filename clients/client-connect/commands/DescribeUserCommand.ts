@@ -24,6 +24,20 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * <p>Describes the specified user account. You can find the instance ID in the console (it’s the
  *    final part of the ARN). The console does not display the user IDs. Instead, list the users and
  *    note the IDs provided in the output.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, DescribeUserCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DescribeUserCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * const client = new ConnectClient(config);
+ * const command = new DescribeUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeUserCommandInput} for command's `input` shape.
+ * @see {@link DescribeUserCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeUserCommand extends $Command<
   DescribeUserCommandInput,

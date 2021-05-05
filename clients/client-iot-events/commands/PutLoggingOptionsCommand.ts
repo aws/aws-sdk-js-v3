@@ -26,6 +26,20 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  *       minute for the change to take effect. If you change the policy attached to the role you
  *       specified in the <code>roleArn</code> field (for example, to correct an invalid policy), it
  *       takes up to five minutes for that change to take effect.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTEventsClient, PutLoggingOptionsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
+ * // const { IoTEventsClient, PutLoggingOptionsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
+ * const client = new IoTEventsClient(config);
+ * const command = new PutLoggingOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutLoggingOptionsCommandInput} for command's `input` shape.
+ * @see {@link PutLoggingOptionsCommandOutput} for command's `response` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutLoggingOptionsCommand extends $Command<
   PutLoggingOptionsCommandInput,

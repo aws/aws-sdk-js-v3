@@ -27,6 +27,20 @@ export interface AssociateServiceQuotaTemplateCommandOutput
  *       created in your organization, the quota increase requests in the template are automatically
  *       applied to the account. You can add a quota increase request for any adjustable quota to your
  *       template.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceQuotasClient, AssociateServiceQuotaTemplateCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
+ * // const { ServiceQuotasClient, AssociateServiceQuotaTemplateCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
+ * const client = new ServiceQuotasClient(config);
+ * const command = new AssociateServiceQuotaTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateServiceQuotaTemplateCommandInput} for command's `input` shape.
+ * @see {@link AssociateServiceQuotaTemplateCommandOutput} for command's `response` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateServiceQuotaTemplateCommand extends $Command<
   AssociateServiceQuotaTemplateCommandInput,

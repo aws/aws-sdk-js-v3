@@ -23,6 +23,20 @@ export interface UpdateDataSetPermissionsCommandOutput extends UpdateDataSetPerm
 /**
  * <p>Updates the permissions on a dataset.</p>
  * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QuickSightClient, UpdateDataSetPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, UpdateDataSetPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * const client = new QuickSightClient(config);
+ * const command = new UpdateDataSetPermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDataSetPermissionsCommandInput} for command's `input` shape.
+ * @see {@link UpdateDataSetPermissionsCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDataSetPermissionsCommand extends $Command<
   UpdateDataSetPermissionsCommandInput,

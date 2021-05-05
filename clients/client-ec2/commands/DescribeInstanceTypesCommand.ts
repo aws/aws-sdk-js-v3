@@ -23,6 +23,20 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
 /**
  * <p>Describes the details of the instance types that are offered in a location. The results can be filtered by the
  *    attributes of the instance types.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DescribeInstanceTypesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeInstanceTypesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DescribeInstanceTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeInstanceTypesCommandInput} for command's `input` shape.
+ * @see {@link DescribeInstanceTypesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeInstanceTypesCommand extends $Command<
   DescribeInstanceTypesCommandInput,

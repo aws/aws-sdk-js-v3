@@ -30,6 +30,20 @@ export interface CreateDataRepositoryTaskCommandOutput extends CreateDataReposit
  *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html">Data Repository Tasks</a>.
  *             To learn more about linking a data repository to your file system, see
  *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-fs-linked-data-repo.html">Linking your file system to an S3 bucket</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FSxClient, CreateDataRepositoryTaskCommand } from "@aws-sdk/client-fsx"; // ES Modules import
+ * // const { FSxClient, CreateDataRepositoryTaskCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * const client = new FSxClient(config);
+ * const command = new CreateDataRepositoryTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDataRepositoryTaskCommandInput} for command's `input` shape.
+ * @see {@link CreateDataRepositoryTaskCommandOutput} for command's `response` shape.
+ * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDataRepositoryTaskCommand extends $Command<
   CreateDataRepositoryTaskCommandInput,

@@ -33,6 +33,20 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  *             <p>For more information,
  *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging.html">Using Cost Allocation Tags in Amazon ElastiCache</a>
  *             in the <i>ElastiCache User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElastiCacheClient, AddTagsToResourceCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, AddTagsToResourceCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * const client = new ElastiCacheClient(config);
+ * const command = new AddTagsToResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
+ * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddTagsToResourceCommand extends $Command<
   AddTagsToResourceCommandInput,

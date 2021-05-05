@@ -22,6 +22,20 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
 
 /**
  * <p>Lists data sources in current AWS Region that belong to this AWS account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QuickSightClient, ListDataSourcesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, ListDataSourcesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * const client = new QuickSightClient(config);
+ * const command = new ListDataSourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDataSourcesCommandInput} for command's `input` shape.
+ * @see {@link ListDataSourcesCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDataSourcesCommand extends $Command<
   ListDataSourcesCommandInput,

@@ -25,6 +25,20 @@ export interface DisassociateDiscoveredResourceCommandOutput
 /**
  * <p>Disassociate an Application Discovery Service discovered resource from a migration
  *          task.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MigrationHubClient, DisassociateDiscoveredResourceCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
+ * // const { MigrationHubClient, DisassociateDiscoveredResourceCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
+ * const client = new MigrationHubClient(config);
+ * const command = new DisassociateDiscoveredResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateDiscoveredResourceCommandInput} for command's `input` shape.
+ * @see {@link DisassociateDiscoveredResourceCommandOutput} for command's `response` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateDiscoveredResourceCommand extends $Command<
   DisassociateDiscoveredResourceCommandInput,

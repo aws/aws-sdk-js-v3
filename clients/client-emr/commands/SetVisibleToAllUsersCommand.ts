@@ -30,6 +30,20 @@ export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
  *          action works on running clusters. You can override the default <code>true</code> setting
  *          when you create a cluster by using the <code>VisibleToAllUsers</code> parameter with
  *             <code>RunJobFlow</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EMRClient, SetVisibleToAllUsersCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, SetVisibleToAllUsersCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * const client = new EMRClient(config);
+ * const command = new SetVisibleToAllUsersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetVisibleToAllUsersCommandInput} for command's `input` shape.
+ * @see {@link SetVisibleToAllUsersCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetVisibleToAllUsersCommand extends $Command<
   SetVisibleToAllUsersCommandInput,

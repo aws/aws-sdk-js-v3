@@ -33,6 +33,9 @@ export interface AssociateTeamMemberRequest {
 }
 
 export namespace AssociateTeamMemberRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateTeamMemberRequest): any => ({
     ...obj,
   });
@@ -47,6 +50,9 @@ export interface AssociateTeamMemberResult {
 }
 
 export namespace AssociateTeamMemberResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateTeamMemberResult): any => ({
     ...obj,
   });
@@ -63,6 +69,9 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
 }
 
 export namespace ConcurrentModificationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
@@ -78,6 +87,9 @@ export interface InvalidServiceRoleException extends __SmithyException, $Metadat
 }
 
 export namespace InvalidServiceRoleException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidServiceRoleException): any => ({
     ...obj,
   });
@@ -93,6 +105,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -108,6 +123,9 @@ export interface ProjectConfigurationException extends __SmithyException, $Metad
 }
 
 export namespace ProjectConfigurationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProjectConfigurationException): any => ({
     ...obj,
   });
@@ -123,6 +141,9 @@ export interface ProjectNotFoundException extends __SmithyException, $MetadataBe
 }
 
 export namespace ProjectNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProjectNotFoundException): any => ({
     ...obj,
   });
@@ -138,6 +159,9 @@ export interface TeamMemberAlreadyAssociatedException extends __SmithyException,
 }
 
 export namespace TeamMemberAlreadyAssociatedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TeamMemberAlreadyAssociatedException): any => ({
     ...obj,
   });
@@ -153,6 +177,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -170,6 +197,9 @@ export interface CodeCommitCodeDestination {
 }
 
 export namespace CodeCommitCodeDestination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CodeCommitCodeDestination): any => ({
     ...obj,
   });
@@ -219,6 +249,9 @@ export interface GitHubCodeDestination {
 }
 
 export namespace GitHubCodeDestination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GitHubCodeDestination): any => ({
     ...obj,
     ...(obj.token && { token: SENSITIVE_STRING }),
@@ -244,6 +277,9 @@ export interface CodeDestination {
 }
 
 export namespace CodeDestination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CodeDestination): any => ({
     ...obj,
     ...(obj.gitHub && { gitHub: GitHubCodeDestination.filterSensitiveLog(obj.gitHub) }),
@@ -269,6 +305,9 @@ export interface S3Location {
 }
 
 export namespace S3Location {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3Location): any => ({
     ...obj,
   });
@@ -287,6 +326,9 @@ export interface CodeSource {
 }
 
 export namespace CodeSource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CodeSource): any => ({
     ...obj,
   });
@@ -312,6 +354,9 @@ export interface Code {
 }
 
 export namespace Code {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Code): any => ({
     ...obj,
     ...(obj.destination && { destination: CodeDestination.filterSensitiveLog(obj.destination) }),
@@ -331,6 +376,9 @@ export interface ToolchainSource {
 }
 
 export namespace ToolchainSource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ToolchainSource): any => ({
     ...obj,
   });
@@ -361,6 +409,9 @@ export interface Toolchain {
 }
 
 export namespace Toolchain {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Toolchain): any => ({
     ...obj,
     ...(obj.stackParameters && { stackParameters: SENSITIVE_STRING }),
@@ -408,6 +459,9 @@ export interface CreateProjectRequest {
 }
 
 export namespace CreateProjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
     ...obj,
     ...(obj.name && { name: SENSITIVE_STRING }),
@@ -441,6 +495,9 @@ export interface CreateProjectResult {
 }
 
 export namespace CreateProjectResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateProjectResult): any => ({
     ...obj,
   });
@@ -457,6 +514,9 @@ export interface ProjectAlreadyExistsException extends __SmithyException, $Metad
 }
 
 export namespace ProjectAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProjectAlreadyExistsException): any => ({
     ...obj,
   });
@@ -473,6 +533,9 @@ export interface ProjectCreationFailedException extends __SmithyException, $Meta
 }
 
 export namespace ProjectCreationFailedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProjectCreationFailedException): any => ({
     ...obj,
   });
@@ -504,6 +567,9 @@ export interface CreateUserProfileRequest {
 }
 
 export namespace CreateUserProfileRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateUserProfileRequest): any => ({
     ...obj,
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
@@ -546,6 +612,9 @@ export interface CreateUserProfileResult {
 }
 
 export namespace CreateUserProfileResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateUserProfileResult): any => ({
     ...obj,
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
@@ -564,6 +633,9 @@ export interface UserProfileAlreadyExistsException extends __SmithyException, $M
 }
 
 export namespace UserProfileAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UserProfileAlreadyExistsException): any => ({
     ...obj,
   });
@@ -591,6 +663,9 @@ export interface DeleteProjectRequest {
 }
 
 export namespace DeleteProjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
     ...obj,
   });
@@ -610,6 +685,9 @@ export interface DeleteProjectResult {
 }
 
 export namespace DeleteProjectResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteProjectResult): any => ({
     ...obj,
   });
@@ -623,6 +701,9 @@ export interface DeleteUserProfileRequest {
 }
 
 export namespace DeleteUserProfileRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteUserProfileRequest): any => ({
     ...obj,
   });
@@ -636,6 +717,9 @@ export interface DeleteUserProfileResult {
 }
 
 export namespace DeleteUserProfileResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteUserProfileResult): any => ({
     ...obj,
   });
@@ -649,6 +733,9 @@ export interface DescribeProjectRequest {
 }
 
 export namespace DescribeProjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeProjectRequest): any => ({
     ...obj,
   });
@@ -672,6 +759,9 @@ export interface ProjectStatus {
 }
 
 export namespace ProjectStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProjectStatus): any => ({
     ...obj,
   });
@@ -727,6 +817,9 @@ export interface DescribeProjectResult {
 }
 
 export namespace DescribeProjectResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeProjectResult): any => ({
     ...obj,
     ...(obj.name && { name: SENSITIVE_STRING }),
@@ -742,6 +835,9 @@ export interface DescribeUserProfileRequest {
 }
 
 export namespace DescribeUserProfileRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeUserProfileRequest): any => ({
     ...obj,
   });
@@ -792,6 +888,9 @@ export interface DescribeUserProfileResult {
 }
 
 export namespace DescribeUserProfileResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeUserProfileResult): any => ({
     ...obj,
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
@@ -809,6 +908,9 @@ export interface UserProfileNotFoundException extends __SmithyException, $Metada
 }
 
 export namespace UserProfileNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UserProfileNotFoundException): any => ({
     ...obj,
   });
@@ -828,6 +930,9 @@ export interface DisassociateTeamMemberRequest {
 }
 
 export namespace DisassociateTeamMemberRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateTeamMemberRequest): any => ({
     ...obj,
   });
@@ -836,6 +941,9 @@ export namespace DisassociateTeamMemberRequest {
 export interface DisassociateTeamMemberResult {}
 
 export namespace DisassociateTeamMemberResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateTeamMemberResult): any => ({
     ...obj,
   });
@@ -851,6 +959,9 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidNextTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
@@ -870,6 +981,9 @@ export interface ListProjectsRequest {
 }
 
 export namespace ListProjectsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
     ...obj,
   });
@@ -891,6 +1005,9 @@ export interface ProjectSummary {
 }
 
 export namespace ProjectSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProjectSummary): any => ({
     ...obj,
   });
@@ -910,6 +1027,9 @@ export interface ListProjectsResult {
 }
 
 export namespace ListProjectsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
     ...obj,
   });
@@ -934,6 +1054,9 @@ export interface ListResourcesRequest {
 }
 
 export namespace ListResourcesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
     ...obj,
   });
@@ -950,6 +1073,9 @@ export interface Resource {
 }
 
 export namespace Resource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj,
   });
@@ -969,6 +1095,9 @@ export interface ListResourcesResult {
 }
 
 export namespace ListResourcesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListResourcesResult): any => ({
     ...obj,
   });
@@ -992,6 +1121,9 @@ export interface ListTagsForProjectRequest {
 }
 
 export namespace ListTagsForProjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForProjectRequest): any => ({
     ...obj,
   });
@@ -1010,6 +1142,9 @@ export interface ListTagsForProjectResult {
 }
 
 export namespace ListTagsForProjectResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForProjectResult): any => ({
     ...obj,
   });
@@ -1034,6 +1169,9 @@ export interface ListTeamMembersRequest {
 }
 
 export namespace ListTeamMembersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTeamMembersRequest): any => ({
     ...obj,
   });
@@ -1063,6 +1201,9 @@ export interface TeamMember {
 }
 
 export namespace TeamMember {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TeamMember): any => ({
     ...obj,
   });
@@ -1082,6 +1223,9 @@ export interface ListTeamMembersResult {
 }
 
 export namespace ListTeamMembersResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTeamMembersResult): any => ({
     ...obj,
   });
@@ -1101,6 +1245,9 @@ export interface ListUserProfilesRequest {
 }
 
 export namespace ListUserProfilesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListUserProfilesRequest): any => ({
     ...obj,
   });
@@ -1141,6 +1288,9 @@ export interface UserProfileSummary {
 }
 
 export namespace UserProfileSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UserProfileSummary): any => ({
     ...obj,
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
@@ -1162,6 +1312,9 @@ export interface ListUserProfilesResult {
 }
 
 export namespace ListUserProfilesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListUserProfilesResult): any => ({
     ...obj,
     ...(obj.userProfiles && {
@@ -1183,6 +1336,9 @@ export interface TagProjectRequest {
 }
 
 export namespace TagProjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagProjectRequest): any => ({
     ...obj,
   });
@@ -1196,6 +1352,9 @@ export interface TagProjectResult {
 }
 
 export namespace TagProjectResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagProjectResult): any => ({
     ...obj,
   });
@@ -1214,6 +1373,9 @@ export interface UntagProjectRequest {
 }
 
 export namespace UntagProjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagProjectRequest): any => ({
     ...obj,
   });
@@ -1222,6 +1384,9 @@ export namespace UntagProjectRequest {
 export interface UntagProjectResult {}
 
 export namespace UntagProjectResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagProjectResult): any => ({
     ...obj,
   });
@@ -1245,6 +1410,9 @@ export interface UpdateProjectRequest {
 }
 
 export namespace UpdateProjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
     ...obj,
     ...(obj.name && { name: SENSITIVE_STRING }),
@@ -1255,6 +1423,9 @@ export namespace UpdateProjectRequest {
 export interface UpdateProjectResult {}
 
 export namespace UpdateProjectResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateProjectResult): any => ({
     ...obj,
   });
@@ -1270,6 +1441,9 @@ export interface TeamMemberNotFoundException extends __SmithyException, $Metadat
 }
 
 export namespace TeamMemberNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TeamMemberNotFoundException): any => ({
     ...obj,
   });
@@ -1303,6 +1477,9 @@ export interface UpdateTeamMemberRequest {
 }
 
 export namespace UpdateTeamMemberRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTeamMemberRequest): any => ({
     ...obj,
   });
@@ -1328,6 +1505,9 @@ export interface UpdateTeamMemberResult {
 }
 
 export namespace UpdateTeamMemberResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTeamMemberResult): any => ({
     ...obj,
   });
@@ -1360,6 +1540,9 @@ export interface UpdateUserProfileRequest {
 }
 
 export namespace UpdateUserProfileRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateUserProfileRequest): any => ({
     ...obj,
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),
@@ -1403,6 +1586,9 @@ export interface UpdateUserProfileResult {
 }
 
 export namespace UpdateUserProfileResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateUserProfileResult): any => ({
     ...obj,
     ...(obj.displayName && { displayName: SENSITIVE_STRING }),

@@ -22,6 +22,20 @@ export interface GetStaticIpsCommandOutput extends GetStaticIpsResult, __Metadat
 
 /**
  * <p>Returns information about all static IPs in the user's account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LightsailClient, GetStaticIpsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetStaticIpsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * const client = new LightsailClient(config);
+ * const command = new GetStaticIpsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetStaticIpsCommandInput} for command's `input` shape.
+ * @see {@link GetStaticIpsCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetStaticIpsCommand extends $Command<
   GetStaticIpsCommandInput,

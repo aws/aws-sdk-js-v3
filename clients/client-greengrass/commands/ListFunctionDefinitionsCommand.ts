@@ -22,6 +22,20 @@ export interface ListFunctionDefinitionsCommandOutput extends ListFunctionDefini
 
 /**
  * Retrieves a list of Lambda function definitions.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassClient, ListFunctionDefinitionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, ListFunctionDefinitionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * const client = new GreengrassClient(config);
+ * const command = new ListFunctionDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFunctionDefinitionsCommandInput} for command's `input` shape.
+ * @see {@link ListFunctionDefinitionsCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFunctionDefinitionsCommand extends $Command<
   ListFunctionDefinitionsCommandInput,

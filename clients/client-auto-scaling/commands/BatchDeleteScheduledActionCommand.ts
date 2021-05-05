@@ -22,6 +22,20 @@ export interface BatchDeleteScheduledActionCommandOutput extends BatchDeleteSche
 
 /**
  * <p>Deletes one or more scheduled actions for the specified Auto Scaling group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AutoScalingClient, BatchDeleteScheduledActionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, BatchDeleteScheduledActionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * const client = new AutoScalingClient(config);
+ * const command = new BatchDeleteScheduledActionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDeleteScheduledActionCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteScheduledActionCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDeleteScheduledActionCommand extends $Command<
   BatchDeleteScheduledActionCommandInput,

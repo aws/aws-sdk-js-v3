@@ -14,6 +14,9 @@ export interface AttributeValue {
 }
 
 export namespace AttributeValue {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttributeValue): any => ({
     ...obj,
   });
@@ -47,6 +50,9 @@ export interface DescribeServicesRequest {
 }
 
 export namespace DescribeServicesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeServicesRequest): any => ({
     ...obj,
   });
@@ -68,6 +74,9 @@ export interface Service {
 }
 
 export namespace Service {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Service): any => ({
     ...obj,
   });
@@ -91,6 +100,9 @@ export interface DescribeServicesResponse {
 }
 
 export namespace DescribeServicesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeServicesResponse): any => ({
     ...obj,
   });
@@ -106,6 +118,9 @@ export interface ExpiredNextTokenException extends __SmithyException, $MetadataB
 }
 
 export namespace ExpiredNextTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExpiredNextTokenException): any => ({
     ...obj,
   });
@@ -121,6 +136,9 @@ export interface InternalErrorException extends __SmithyException, $MetadataBear
 }
 
 export namespace InternalErrorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
     ...obj,
   });
@@ -136,6 +154,9 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidNextTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
@@ -151,6 +172,9 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidParameterException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
@@ -166,6 +190,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
@@ -195,6 +222,9 @@ export interface GetAttributeValuesRequest {
 }
 
 export namespace GetAttributeValuesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetAttributeValuesRequest): any => ({
     ...obj,
   });
@@ -215,6 +245,9 @@ export interface GetAttributeValuesResponse {
 }
 
 export namespace GetAttributeValuesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetAttributeValuesResponse): any => ({
     ...obj,
   });
@@ -257,6 +290,9 @@ export interface Filter {
 }
 
 export namespace Filter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
@@ -293,6 +329,9 @@ export interface GetProductsRequest {
 }
 
 export namespace GetProductsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetProductsRequest): any => ({
     ...obj,
   });
@@ -317,6 +356,9 @@ export interface GetProductsResponse {
 }
 
 export namespace GetProductsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetProductsResponse): any => ({
     ...obj,
   });

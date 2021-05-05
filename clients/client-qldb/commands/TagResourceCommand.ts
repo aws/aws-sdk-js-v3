@@ -24,6 +24,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>Adds one or more tags to a specified Amazon QLDB resource.</p>
  *          <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a
  *          resource, your request fails and returns an error.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QLDBClient, TagResourceCommand } from "@aws-sdk/client-qldb"; // ES Modules import
+ * // const { QLDBClient, TagResourceCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * const client = new QLDBClient(config);
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

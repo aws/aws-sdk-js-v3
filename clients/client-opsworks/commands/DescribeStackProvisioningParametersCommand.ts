@@ -32,6 +32,20 @@ export interface DescribeStackProvisioningParametersCommandOutput
  *       Manage permissions level for the stack or an attached policy that explicitly grants
  *       permissions. For more information about user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
  *         Permissions</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OpsWorksClient, DescribeStackProvisioningParametersCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
+ * // const { OpsWorksClient, DescribeStackProvisioningParametersCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * const client = new OpsWorksClient(config);
+ * const command = new DescribeStackProvisioningParametersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeStackProvisioningParametersCommandInput} for command's `input` shape.
+ * @see {@link DescribeStackProvisioningParametersCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeStackProvisioningParametersCommand extends $Command<
   DescribeStackProvisioningParametersCommandInput,

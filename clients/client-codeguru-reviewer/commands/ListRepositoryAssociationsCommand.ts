@@ -39,6 +39,20 @@ export interface ListRepositoryAssociationsCommandOutput extends ListRepositoryA
  *                <code>Owner</code>
  *             </a>.
  *       </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeGuruReviewerClient, ListRepositoryAssociationsCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
+ * // const { CodeGuruReviewerClient, ListRepositoryAssociationsCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * const client = new CodeGuruReviewerClient(config);
+ * const command = new ListRepositoryAssociationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRepositoryAssociationsCommandInput} for command's `input` shape.
+ * @see {@link ListRepositoryAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRepositoryAssociationsCommand extends $Command<
   ListRepositoryAssociationsCommandInput,

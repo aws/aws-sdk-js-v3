@@ -43,6 +43,20 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput,
  *
  *          <p>You can create a maximum of 50 tags for each resource. Virtual tapes and storage volumes
  *          that are recovered to a new gateway maintain their tags.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { StorageGatewayClient, AddTagsToResourceCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, AddTagsToResourceCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * const client = new StorageGatewayClient(config);
+ * const command = new AddTagsToResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
+ * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddTagsToResourceCommand extends $Command<
   AddTagsToResourceCommandInput,

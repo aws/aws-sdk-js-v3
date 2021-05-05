@@ -27,6 +27,20 @@ export interface DescribeTableRestoreStatusCommandOutput extends TableRestoreSta
  *             requests ordered by the date and time of the request in ascending order. Otherwise
  *                 <code>DescribeTableRestoreStatus</code> returns the status of the table specified by
  *                 <code>TableRestoreRequestId</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, DescribeTableRestoreStatusCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, DescribeTableRestoreStatusCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new DescribeTableRestoreStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTableRestoreStatusCommandInput} for command's `input` shape.
+ * @see {@link DescribeTableRestoreStatusCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTableRestoreStatusCommand extends $Command<
   DescribeTableRestoreStatusCommandInput,

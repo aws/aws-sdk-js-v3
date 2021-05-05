@@ -22,6 +22,20 @@ export interface DescribeConstraintCommandOutput extends DescribeConstraintOutpu
 
 /**
  * <p>Gets information about the specified constraint.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, DescribeConstraintCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, DescribeConstraintCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DescribeConstraintCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConstraintCommandInput} for command's `input` shape.
+ * @see {@link DescribeConstraintCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConstraintCommand extends $Command<
   DescribeConstraintCommandInput,

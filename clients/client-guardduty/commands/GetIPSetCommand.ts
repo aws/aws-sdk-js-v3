@@ -22,6 +22,20 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
 
 /**
  * <p>Retrieves the IPSet specified by the <code>ipSetId</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GuardDutyClient, GetIPSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, GetIPSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
+ * const client = new GuardDutyClient(config);
+ * const command = new GetIPSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetIPSetCommandInput} for command's `input` shape.
+ * @see {@link GetIPSetCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetIPSetCommand extends $Command<
   GetIPSetCommandInput,

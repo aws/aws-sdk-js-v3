@@ -89,6 +89,20 @@ export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput,
  *        your global table.
  *     </p>
  *          </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DynamoDBClient, CreateGlobalTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, CreateGlobalTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+ * const client = new DynamoDBClient(config);
+ * const command = new CreateGlobalTableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateGlobalTableCommandInput} for command's `input` shape.
+ * @see {@link CreateGlobalTableCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateGlobalTableCommand extends $Command<
   CreateGlobalTableCommandInput,

@@ -24,6 +24,20 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
  * <p>Provides information about the phone numbers for the specified Amazon Connect instance. </p>
  *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your
  *     Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, ListPhoneNumbersCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ListPhoneNumbersCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * const client = new ConnectClient(config);
+ * const command = new ListPhoneNumbersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPhoneNumbersCommandInput} for command's `input` shape.
+ * @see {@link ListPhoneNumbersCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPhoneNumbersCommand extends $Command<
   ListPhoneNumbersCommandInput,

@@ -41,6 +41,20 @@ export interface CreateSlotTypeVersionCommandOutput extends CreateSlotTypeVersio
  *
  *          <p>This operation requires permissions for the
  *         <code>lex:CreateSlotTypeVersion</code> action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelBuildingServiceClient, CreateSlotTypeVersionCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
+ * // const { LexModelBuildingServiceClient, CreateSlotTypeVersionCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new CreateSlotTypeVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSlotTypeVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateSlotTypeVersionCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSlotTypeVersionCommand extends $Command<
   CreateSlotTypeVersionCommandInput,

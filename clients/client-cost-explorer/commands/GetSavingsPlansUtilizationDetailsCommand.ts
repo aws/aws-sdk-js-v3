@@ -31,6 +31,20 @@ export interface GetSavingsPlansUtilizationDetailsCommandOutput
  *             <p>
  *                <code>GetSavingsPlanUtilizationDetails</code> internally groups data by <code>SavingsPlansArn</code>.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CostExplorerClient, GetSavingsPlansUtilizationDetailsCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
+ * // const { CostExplorerClient, GetSavingsPlansUtilizationDetailsCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * const client = new CostExplorerClient(config);
+ * const command = new GetSavingsPlansUtilizationDetailsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSavingsPlansUtilizationDetailsCommandInput} for command's `input` shape.
+ * @see {@link GetSavingsPlansUtilizationDetailsCommandOutput} for command's `response` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
   GetSavingsPlansUtilizationDetailsCommandInput,

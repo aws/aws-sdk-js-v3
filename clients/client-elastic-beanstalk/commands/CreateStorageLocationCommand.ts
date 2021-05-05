@@ -26,6 +26,20 @@ export interface CreateStorageLocationCommandOutput extends CreateStorageLocatio
  *       first time you create an environment in a region. If the storage location already exists,
  *         <code>CreateStorageLocation</code> still returns the bucket name but does not create a new
  *       bucket.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticBeanstalkClient, CreateStorageLocationCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
+ * // const { ElasticBeanstalkClient, CreateStorageLocationCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new CreateStorageLocationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateStorageLocationCommandInput} for command's `input` shape.
+ * @see {@link CreateStorageLocationCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateStorageLocationCommand extends $Command<
   CreateStorageLocationCommandInput,

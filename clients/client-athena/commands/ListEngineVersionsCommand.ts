@@ -23,6 +23,20 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutpu
 /**
  * <p>Returns a list of engine versions that are available to choose from, including the
  *             Auto option.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AthenaClient, ListEngineVersionsCommand } from "@aws-sdk/client-athena"; // ES Modules import
+ * // const { AthenaClient, ListEngineVersionsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * const client = new AthenaClient(config);
+ * const command = new ListEngineVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEngineVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListEngineVersionsCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEngineVersionsCommand extends $Command<
   ListEngineVersionsCommandInput,

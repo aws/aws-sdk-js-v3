@@ -25,6 +25,20 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  * Activates an existing flow. For on-demand flows, this operation runs the flow immediately. For schedule and event-triggered flows, this operation activates the flow.
  *
  * </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppflowClient, StartFlowCommand } from "@aws-sdk/client-appflow"; // ES Modules import
+ * // const { AppflowClient, StartFlowCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * const client = new AppflowClient(config);
+ * const command = new StartFlowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartFlowCommandInput} for command's `input` shape.
+ * @see {@link StartFlowCommandOutput} for command's `response` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartFlowCommand extends $Command<
   StartFlowCommandInput,

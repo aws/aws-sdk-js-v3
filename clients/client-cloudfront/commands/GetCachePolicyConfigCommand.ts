@@ -27,6 +27,20 @@ export interface GetCachePolicyConfigCommandOutput extends GetCachePolicyConfigR
  * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
  * 			cache policy is not attached to a cache behavior, you can get the identifier using
  * 			<code>ListCachePolicies</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFrontClient, GetCachePolicyConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, GetCachePolicyConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * const client = new CloudFrontClient(config);
+ * const command = new GetCachePolicyConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCachePolicyConfigCommandInput} for command's `input` shape.
+ * @see {@link GetCachePolicyConfigCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCachePolicyConfigCommand extends $Command<
   GetCachePolicyConfigCommandInput,

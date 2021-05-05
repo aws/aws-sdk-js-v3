@@ -29,6 +29,20 @@ export interface GetBehaviorModelTrainingSummariesCommandOutput
  * <p>
  *       Returns a Device Defender's ML Detect Security Profile training model's status.
  *     </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, GetBehaviorModelTrainingSummariesCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, GetBehaviorModelTrainingSummariesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new GetBehaviorModelTrainingSummariesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBehaviorModelTrainingSummariesCommandInput} for command's `input` shape.
+ * @see {@link GetBehaviorModelTrainingSummariesCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBehaviorModelTrainingSummariesCommand extends $Command<
   GetBehaviorModelTrainingSummariesCommandInput,

@@ -23,6 +23,20 @@ export interface ListSimulationApplicationsCommandOutput extends ListSimulationA
 /**
  * <p>Returns a list of simulation applications. You can optionally provide filters to
  *          retrieve specific simulation applications. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RoboMakerClient, ListSimulationApplicationsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
+ * // const { RoboMakerClient, ListSimulationApplicationsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * const client = new RoboMakerClient(config);
+ * const command = new ListSimulationApplicationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSimulationApplicationsCommandInput} for command's `input` shape.
+ * @see {@link ListSimulationApplicationsCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSimulationApplicationsCommand extends $Command<
   ListSimulationApplicationsCommandInput,

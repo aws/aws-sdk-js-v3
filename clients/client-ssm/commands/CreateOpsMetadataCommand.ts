@@ -23,6 +23,20 @@ export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult,
 /**
  * <p>If you create a new application in Application Manager, Systems Manager calls this API action to specify
  *    information about the new application, including the application type.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, CreateOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, CreateOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new CreateOpsMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateOpsMetadataCommandInput} for command's `input` shape.
+ * @see {@link CreateOpsMetadataCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateOpsMetadataCommand extends $Command<
   CreateOpsMetadataCommandInput,

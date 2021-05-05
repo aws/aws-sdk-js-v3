@@ -25,6 +25,20 @@ export interface GetAccountPasswordPolicyCommandOutput extends GetAccountPasswor
  *             requirements and mandatory rotation periods for the IAM user passwords in your account.
  *             For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM password
  *                 policy</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, GetAccountPasswordPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, GetAccountPasswordPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new GetAccountPasswordPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAccountPasswordPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetAccountPasswordPolicyCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAccountPasswordPolicyCommand extends $Command<
   GetAccountPasswordPolicyCommandInput,

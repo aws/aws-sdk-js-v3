@@ -22,6 +22,20 @@ export interface DescribePatchGroupStateCommandOutput extends DescribePatchGroup
 
 /**
  * <p>Returns high-level aggregated patch compliance state for a patch group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, DescribePatchGroupStateCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DescribePatchGroupStateCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new DescribePatchGroupStateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePatchGroupStateCommandInput} for command's `input` shape.
+ * @see {@link DescribePatchGroupStateCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePatchGroupStateCommand extends $Command<
   DescribePatchGroupStateCommandInput,

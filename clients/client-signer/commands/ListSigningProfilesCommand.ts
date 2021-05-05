@@ -29,6 +29,20 @@ export interface ListSigningProfilesCommandOutput extends ListSigningProfilesRes
  * 				<code>ListSigningJobs</code> with your <code>maxResults</code> parameter and with
  * 			new values that code signing returns in the <code>nextToken</code> parameter until all of your
  * 			signing jobs have been returned.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SignerClient, ListSigningProfilesCommand } from "@aws-sdk/client-signer"; // ES Modules import
+ * // const { SignerClient, ListSigningProfilesCommand } = require("@aws-sdk/client-signer"); // CommonJS import
+ * const client = new SignerClient(config);
+ * const command = new ListSigningProfilesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSigningProfilesCommandInput} for command's `input` shape.
+ * @see {@link ListSigningProfilesCommandOutput} for command's `response` shape.
+ * @see {@link SignerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSigningProfilesCommand extends $Command<
   ListSigningProfilesCommandInput,

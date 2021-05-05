@@ -24,6 +24,20 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResponse, __M
  * <p>Creates a <code>Function</code> object.</p>
  *          <p>A function is a reusable entity. Multiple functions can be used to compose the resolver
  *          logic.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppSyncClient, CreateFunctionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, CreateFunctionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * const client = new AppSyncClient(config);
+ * const command = new CreateFunctionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFunctionCommandInput} for command's `input` shape.
+ * @see {@link CreateFunctionCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFunctionCommand extends $Command<
   CreateFunctionCommandInput,

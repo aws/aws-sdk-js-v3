@@ -11,6 +11,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -31,6 +34,9 @@ export interface CancelChangeSetRequest {
 }
 
 export namespace CancelChangeSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelChangeSetRequest): any => ({
     ...obj,
   });
@@ -49,6 +55,9 @@ export interface CancelChangeSetResponse {
 }
 
 export namespace CancelChangeSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelChangeSetResponse): any => ({
     ...obj,
   });
@@ -64,6 +73,9 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
 }
 
 export namespace InternalServiceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
@@ -79,6 +91,9 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
 }
 
 export namespace ResourceInUseException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
@@ -94,6 +109,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -109,6 +127,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -124,6 +145,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -145,6 +169,9 @@ export interface DescribeChangeSetRequest {
 }
 
 export namespace DescribeChangeSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeChangeSetRequest): any => ({
     ...obj,
   });
@@ -167,6 +194,9 @@ export interface Entity {
 }
 
 export namespace Entity {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Entity): any => ({
     ...obj,
   });
@@ -188,6 +218,9 @@ export interface ErrorDetail {
 }
 
 export namespace ErrorDetail {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ErrorDetail): any => ({
     ...obj,
   });
@@ -221,6 +254,9 @@ export interface ChangeSummary {
 }
 
 export namespace ChangeSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ChangeSummary): any => ({
     ...obj,
   });
@@ -296,6 +332,9 @@ export interface DescribeChangeSetResponse {
 }
 
 export namespace DescribeChangeSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeChangeSetResponse): any => ({
     ...obj,
   });
@@ -316,6 +355,9 @@ export interface DescribeEntityRequest {
 }
 
 export namespace DescribeEntityRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEntityRequest): any => ({
     ...obj,
   });
@@ -352,6 +394,9 @@ export interface DescribeEntityResponse {
 }
 
 export namespace DescribeEntityResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEntityResponse): any => ({
     ...obj,
   });
@@ -367,6 +412,9 @@ export interface ResourceNotSupportedException extends __SmithyException, $Metad
 }
 
 export namespace ResourceNotSupportedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotSupportedException): any => ({
     ...obj,
   });
@@ -434,6 +482,9 @@ export interface Filter {
 }
 
 export namespace Filter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
@@ -467,6 +518,9 @@ export interface Sort {
 }
 
 export namespace Sort {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Sort): any => ({
     ...obj,
   });
@@ -505,6 +559,9 @@ export interface ListChangeSetsRequest {
 }
 
 export namespace ListChangeSetsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListChangeSetsRequest): any => ({
     ...obj,
   });
@@ -564,6 +621,9 @@ export interface ChangeSetSummaryListItem {
 }
 
 export namespace ChangeSetSummaryListItem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ChangeSetSummaryListItem): any => ({
     ...obj,
   });
@@ -582,6 +642,9 @@ export interface ListChangeSetsResponse {
 }
 
 export namespace ListChangeSetsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListChangeSetsResponse): any => ({
     ...obj,
   });
@@ -624,6 +687,9 @@ export interface ListEntitiesRequest {
 }
 
 export namespace ListEntitiesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEntitiesRequest): any => ({
     ...obj,
   });
@@ -676,6 +742,9 @@ export interface EntitySummary {
 }
 
 export namespace EntitySummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EntitySummary): any => ({
     ...obj,
   });
@@ -694,6 +763,9 @@ export interface ListEntitiesResponse {
 }
 
 export namespace ListEntitiesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEntitiesResponse): any => ({
     ...obj,
   });
@@ -709,6 +781,9 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
 }
 
 export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
@@ -739,6 +814,9 @@ export interface Change {
 }
 
 export namespace Change {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Change): any => ({
     ...obj,
   });
@@ -769,6 +847,9 @@ export interface StartChangeSetRequest {
 }
 
 export namespace StartChangeSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartChangeSetRequest): any => ({
     ...obj,
   });
@@ -787,6 +868,9 @@ export interface StartChangeSetResponse {
 }
 
 export namespace StartChangeSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartChangeSetResponse): any => ({
     ...obj,
   });

@@ -22,6 +22,20 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
 
 /**
  * Updates an existing OriginEndpoint.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaPackageClient, UpdateOriginEndpointCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
+ * // const { MediaPackageClient, UpdateOriginEndpointCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * const client = new MediaPackageClient(config);
+ * const command = new UpdateOriginEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateOriginEndpointCommandInput} for command's `input` shape.
+ * @see {@link UpdateOriginEndpointCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateOriginEndpointCommand extends $Command<
   UpdateOriginEndpointCommandInput,

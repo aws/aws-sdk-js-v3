@@ -35,6 +35,20 @@ export interface AssociateConnectionWithLagCommandOutput extends Connection, __M
  *          <p>For interconnects, any hosted connections are automatically re-associated with the
  *       LAG. If the interconnect was originally associated with a different LAG, the hosted
  *       connections remain associated with the original LAG.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectConnectClient, AssociateConnectionWithLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, AssociateConnectionWithLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * const client = new DirectConnectClient(config);
+ * const command = new AssociateConnectionWithLagCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateConnectionWithLagCommandInput} for command's `input` shape.
+ * @see {@link AssociateConnectionWithLagCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateConnectionWithLagCommand extends $Command<
   AssociateConnectionWithLagCommandInput,

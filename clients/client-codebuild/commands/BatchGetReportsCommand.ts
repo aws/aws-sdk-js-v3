@@ -24,6 +24,20 @@ export interface BatchGetReportsCommandOutput extends BatchGetReportsOutput, __M
  * <p>
  *       Returns an array of reports.
  *     </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeBuildClient, BatchGetReportsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
+ * // const { CodeBuildClient, BatchGetReportsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * const client = new CodeBuildClient(config);
+ * const command = new BatchGetReportsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetReportsCommandInput} for command's `input` shape.
+ * @see {@link BatchGetReportsCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetReportsCommand extends $Command<
   BatchGetReportsCommandInput,

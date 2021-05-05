@@ -29,6 +29,20 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  *       tag to your file system, Amazon EFS returns it in the response to the <a>DescribeFileSystems</a> operation. </p>
  *          <p>This operation requires permission for the <code>elasticfilesystem:CreateTags</code>
  *       action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EFSClient, CreateTagsCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, CreateTagsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * const client = new EFSClient(config);
+ * const command = new CreateTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTagsCommandInput} for command's `input` shape.
+ * @see {@link CreateTagsCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTagsCommand extends $Command<
   CreateTagsCommandInput,

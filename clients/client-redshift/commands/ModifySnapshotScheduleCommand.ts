@@ -24,6 +24,20 @@ export interface ModifySnapshotScheduleCommandOutput extends SnapshotSchedule, _
 /**
  * <p>Modifies a snapshot schedule. Any schedule associated with a cluster is modified
  *             asynchronously.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, ModifySnapshotScheduleCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, ModifySnapshotScheduleCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new ModifySnapshotScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifySnapshotScheduleCommandInput} for command's `input` shape.
+ * @see {@link ModifySnapshotScheduleCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifySnapshotScheduleCommand extends $Command<
   ModifySnapshotScheduleCommandInput,

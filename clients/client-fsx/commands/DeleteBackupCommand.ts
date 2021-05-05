@@ -30,6 +30,20 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  *             <p>The data in a deleted backup is also deleted and can't be recovered by any
  *                 means.</p>
  *         </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FSxClient, DeleteBackupCommand } from "@aws-sdk/client-fsx"; // ES Modules import
+ * // const { FSxClient, DeleteBackupCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * const client = new FSxClient(config);
+ * const command = new DeleteBackupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBackupCommandInput} for command's `input` shape.
+ * @see {@link DeleteBackupCommandOutput} for command's `response` shape.
+ * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBackupCommand extends $Command<
   DeleteBackupCommandInput,

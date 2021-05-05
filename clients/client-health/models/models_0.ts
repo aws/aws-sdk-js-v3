@@ -61,6 +61,9 @@ export interface AffectedEntity {
 }
 
 export namespace AffectedEntity {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AffectedEntity): any => ({
     ...obj,
   });
@@ -89,6 +92,9 @@ export interface DescribeAffectedAccountsForOrganizationRequest {
 }
 
 export namespace DescribeAffectedAccountsForOrganizationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAffectedAccountsForOrganizationRequest): any => ({
     ...obj,
   });
@@ -139,6 +145,9 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
 }
 
 export namespace DescribeAffectedAccountsForOrganizationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAffectedAccountsForOrganizationResponse): any => ({
     ...obj,
   });
@@ -154,6 +163,9 @@ export interface InvalidPaginationToken extends __SmithyException, $MetadataBear
 }
 
 export namespace InvalidPaginationToken {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidPaginationToken): any => ({
     ...obj,
   });
@@ -182,6 +194,9 @@ export interface DateTimeRange {
 }
 
 export namespace DateTimeRange {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DateTimeRange): any => ({
     ...obj,
   });
@@ -229,6 +244,9 @@ export interface EntityFilter {
 }
 
 export namespace EntityFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EntityFilter): any => ({
     ...obj,
   });
@@ -260,6 +278,9 @@ export interface DescribeAffectedEntitiesRequest {
 }
 
 export namespace DescribeAffectedEntitiesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAffectedEntitiesRequest): any => ({
     ...obj,
   });
@@ -281,6 +302,9 @@ export interface DescribeAffectedEntitiesResponse {
 }
 
 export namespace DescribeAffectedEntitiesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAffectedEntitiesResponse): any => ({
     ...obj,
   });
@@ -296,6 +320,9 @@ export interface UnsupportedLocale extends __SmithyException, $MetadataBearer {
 }
 
 export namespace UnsupportedLocale {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedLocale): any => ({
     ...obj,
   });
@@ -320,6 +347,9 @@ export interface EventAccountFilter {
 }
 
 export namespace EventAccountFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventAccountFilter): any => ({
     ...obj,
   });
@@ -352,6 +382,9 @@ export interface DescribeAffectedEntitiesForOrganizationRequest {
 }
 
 export namespace DescribeAffectedEntitiesForOrganizationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAffectedEntitiesForOrganizationRequest): any => ({
     ...obj,
   });
@@ -388,6 +421,9 @@ export interface OrganizationAffectedEntitiesErrorItem {
 }
 
 export namespace OrganizationAffectedEntitiesErrorItem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OrganizationAffectedEntitiesErrorItem): any => ({
     ...obj,
   });
@@ -417,6 +453,9 @@ export interface DescribeAffectedEntitiesForOrganizationResponse {
 }
 
 export namespace DescribeAffectedEntitiesForOrganizationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAffectedEntitiesForOrganizationResponse): any => ({
     ...obj,
   });
@@ -431,6 +470,9 @@ export interface DescribeEntityAggregatesRequest {
 }
 
 export namespace DescribeEntityAggregatesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEntityAggregatesRequest): any => ({
     ...obj,
   });
@@ -455,6 +497,9 @@ export interface EntityAggregate {
 }
 
 export namespace EntityAggregate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EntityAggregate): any => ({
     ...obj,
   });
@@ -468,6 +513,9 @@ export interface DescribeEntityAggregatesResponse {
 }
 
 export namespace DescribeEntityAggregatesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEntityAggregatesResponse): any => ({
     ...obj,
   });
@@ -569,6 +617,9 @@ export interface EventFilter {
 }
 
 export namespace EventFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventFilter): any => ({
     ...obj,
   });
@@ -600,6 +651,9 @@ export interface DescribeEventAggregatesRequest {
 }
 
 export namespace DescribeEventAggregatesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEventAggregatesRequest): any => ({
     ...obj,
   });
@@ -621,6 +675,9 @@ export interface EventAggregate {
 }
 
 export namespace EventAggregate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventAggregate): any => ({
     ...obj,
   });
@@ -642,6 +699,9 @@ export interface DescribeEventAggregatesResponse {
 }
 
 export namespace DescribeEventAggregatesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEventAggregatesResponse): any => ({
     ...obj,
   });
@@ -661,6 +721,9 @@ export interface DescribeEventDetailsRequest {
 }
 
 export namespace DescribeEventDetailsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEventDetailsRequest): any => ({
     ...obj,
   });
@@ -690,6 +753,9 @@ export interface EventDetailsErrorItem {
 }
 
 export namespace EventDetailsErrorItem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventDetailsErrorItem): any => ({
     ...obj,
   });
@@ -798,6 +864,9 @@ export interface Event {
 }
 
 export namespace Event {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Event): any => ({
     ...obj,
   });
@@ -814,6 +883,9 @@ export interface EventDescription {
 }
 
 export namespace EventDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventDescription): any => ({
     ...obj,
   });
@@ -842,6 +914,9 @@ export interface EventDetails {
 }
 
 export namespace EventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventDetails): any => ({
     ...obj,
   });
@@ -860,6 +935,9 @@ export interface DescribeEventDetailsResponse {
 }
 
 export namespace DescribeEventDetailsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEventDetailsResponse): any => ({
     ...obj,
   });
@@ -879,6 +957,9 @@ export interface DescribeEventDetailsForOrganizationRequest {
 }
 
 export namespace DescribeEventDetailsForOrganizationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEventDetailsForOrganizationRequest): any => ({
     ...obj,
   });
@@ -914,6 +995,9 @@ export interface OrganizationEventDetailsErrorItem {
 }
 
 export namespace OrganizationEventDetailsErrorItem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OrganizationEventDetailsErrorItem): any => ({
     ...obj,
   });
@@ -966,6 +1050,9 @@ export interface OrganizationEventDetails {
 }
 
 export namespace OrganizationEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OrganizationEventDetails): any => ({
     ...obj,
   });
@@ -984,6 +1071,9 @@ export interface DescribeEventDetailsForOrganizationResponse {
 }
 
 export namespace DescribeEventDetailsForOrganizationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEventDetailsForOrganizationResponse): any => ({
     ...obj,
   });
@@ -1015,6 +1105,9 @@ export interface DescribeEventsRequest {
 }
 
 export namespace DescribeEventsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEventsRequest): any => ({
     ...obj,
   });
@@ -1036,6 +1129,9 @@ export interface DescribeEventsResponse {
 }
 
 export namespace DescribeEventsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEventsResponse): any => ({
     ...obj,
   });
@@ -1125,6 +1221,9 @@ export interface OrganizationEventFilter {
 }
 
 export namespace OrganizationEventFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OrganizationEventFilter): any => ({
     ...obj,
   });
@@ -1156,6 +1255,9 @@ export interface DescribeEventsForOrganizationRequest {
 }
 
 export namespace DescribeEventsForOrganizationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEventsForOrganizationRequest): any => ({
     ...obj,
   });
@@ -1240,6 +1342,9 @@ export interface OrganizationEvent {
 }
 
 export namespace OrganizationEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OrganizationEvent): any => ({
     ...obj,
   });
@@ -1261,6 +1366,9 @@ export interface DescribeEventsForOrganizationResponse {
 }
 
 export namespace DescribeEventsForOrganizationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEventsForOrganizationResponse): any => ({
     ...obj,
   });
@@ -1289,6 +1397,9 @@ export interface EventTypeFilter {
 }
 
 export namespace EventTypeFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventTypeFilter): any => ({
     ...obj,
   });
@@ -1320,6 +1431,9 @@ export interface DescribeEventTypesRequest {
 }
 
 export namespace DescribeEventTypesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEventTypesRequest): any => ({
     ...obj,
   });
@@ -1357,6 +1471,9 @@ export interface EventType {
 }
 
 export namespace EventType {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventType): any => ({
     ...obj,
   });
@@ -1384,6 +1501,9 @@ export interface DescribeEventTypesResponse {
 }
 
 export namespace DescribeEventTypesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEventTypesResponse): any => ({
     ...obj,
   });
@@ -1399,6 +1519,9 @@ export interface DescribeHealthServiceStatusForOrganizationResponse {
 }
 
 export namespace DescribeHealthServiceStatusForOrganizationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeHealthServiceStatusForOrganizationResponse): any => ({
     ...obj,
   });
@@ -1416,6 +1539,9 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
 }
 
 export namespace ConcurrentModificationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });

@@ -22,6 +22,20 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __Met
 
 /**
  * <p>Modifies AWS CloudHSM cluster.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudHSMV2Client, ModifyClusterCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
+ * // const { CloudHSMV2Client, ModifyClusterCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
+ * const client = new CloudHSMV2Client(config);
+ * const command = new ModifyClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyClusterCommandInput} for command's `input` shape.
+ * @see {@link ModifyClusterCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyClusterCommand extends $Command<
   ModifyClusterCommandInput,

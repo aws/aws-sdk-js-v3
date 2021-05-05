@@ -45,6 +45,20 @@ export interface PutAccountSettingCommandOutput extends PutAccountSettingRespons
  * 			have Container Insights enabled unless you disable it during cluster creation. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">CloudWatch
  * 				Container Insights</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECSClient, PutAccountSettingCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, PutAccountSettingCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * const client = new ECSClient(config);
+ * const command = new PutAccountSettingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAccountSettingCommandInput} for command's `input` shape.
+ * @see {@link PutAccountSettingCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAccountSettingCommand extends $Command<
   PutAccountSettingCommandInput,

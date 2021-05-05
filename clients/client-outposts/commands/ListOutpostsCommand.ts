@@ -22,6 +22,20 @@ export interface ListOutpostsCommandOutput extends ListOutpostsOutput, __Metadat
 
 /**
  * <p>List the Outposts for your AWS account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OutpostsClient, ListOutpostsCommand } from "@aws-sdk/client-outposts"; // ES Modules import
+ * // const { OutpostsClient, ListOutpostsCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
+ * const client = new OutpostsClient(config);
+ * const command = new ListOutpostsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListOutpostsCommandInput} for command's `input` shape.
+ * @see {@link ListOutpostsCommandOutput} for command's `response` shape.
+ * @see {@link OutpostsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListOutpostsCommand extends $Command<
   ListOutpostsCommandInput,

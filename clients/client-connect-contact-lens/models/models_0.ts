@@ -11,6 +11,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -26,6 +29,9 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
 }
 
 export namespace InternalServiceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
@@ -41,6 +47,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -70,6 +79,9 @@ export interface ListRealtimeContactAnalysisSegmentsRequest {
 }
 
 export namespace ListRealtimeContactAnalysisSegmentsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRealtimeContactAnalysisSegmentsRequest): any => ({
     ...obj,
   });
@@ -91,6 +103,9 @@ export interface PointOfInterest {
 }
 
 export namespace PointOfInterest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PointOfInterest): any => ({
     ...obj,
   });
@@ -107,6 +122,9 @@ export interface CategoryDetails {
 }
 
 export namespace CategoryDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CategoryDetails): any => ({
     ...obj,
   });
@@ -129,6 +147,9 @@ export interface Categories {
 }
 
 export namespace Categories {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Categories): any => ({
     ...obj,
   });
@@ -150,6 +171,9 @@ export interface CharacterOffsets {
 }
 
 export namespace CharacterOffsets {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CharacterOffsets): any => ({
     ...obj,
   });
@@ -167,6 +191,9 @@ export interface IssueDetected {
 }
 
 export namespace IssueDetected {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IssueDetected): any => ({
     ...obj,
   });
@@ -224,6 +251,9 @@ export interface Transcript {
 }
 
 export namespace Transcript {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Transcript): any => ({
     ...obj,
   });
@@ -245,6 +275,9 @@ export interface RealtimeContactAnalysisSegment {
 }
 
 export namespace RealtimeContactAnalysisSegment {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RealtimeContactAnalysisSegment): any => ({
     ...obj,
   });
@@ -274,6 +307,9 @@ export interface ListRealtimeContactAnalysisSegmentsResponse {
 }
 
 export namespace ListRealtimeContactAnalysisSegmentsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRealtimeContactAnalysisSegmentsResponse): any => ({
     ...obj,
   });
@@ -289,6 +325,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -304,6 +343,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });

@@ -29,6 +29,20 @@ export interface DescribeDetectMitigationActionsTaskCommandOutput
  * <p>
  *       Gets information about a Device Defender ML Detect mitigation action.
  *     </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, DescribeDetectMitigationActionsTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DescribeDetectMitigationActionsTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new DescribeDetectMitigationActionsTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDetectMitigationActionsTaskCommandInput} for command's `input` shape.
+ * @see {@link DescribeDetectMitigationActionsTaskCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDetectMitigationActionsTaskCommand extends $Command<
   DescribeDetectMitigationActionsTaskCommandInput,

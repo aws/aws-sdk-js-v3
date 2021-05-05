@@ -41,6 +41,20 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  *
  *          <p>To get a list of all your dataset import jobs, filtered by specified criteria, use the
  *         <a>ListDatasetImportJobs</a> operation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ForecastClient, CreateDatasetImportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, CreateDatasetImportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
+ * const client = new ForecastClient(config);
+ * const command = new CreateDatasetImportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDatasetImportJobCommandInput} for command's `input` shape.
+ * @see {@link CreateDatasetImportJobCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDatasetImportJobCommand extends $Command<
   CreateDatasetImportJobCommandInput,

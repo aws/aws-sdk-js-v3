@@ -34,6 +34,20 @@ export interface BatchUpsertTableRowsCommandOutput extends BatchUpsertTableRowsR
  *             column will not be updated for that row. To clear out the data in a specific cell, you need to set the value
  *             as an empty string ("").
  *         </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { HoneycodeClient, BatchUpsertTableRowsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
+ * // const { HoneycodeClient, BatchUpsertTableRowsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
+ * const client = new HoneycodeClient(config);
+ * const command = new BatchUpsertTableRowsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchUpsertTableRowsCommandInput} for command's `input` shape.
+ * @see {@link BatchUpsertTableRowsCommandOutput} for command's `response` shape.
+ * @see {@link HoneycodeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchUpsertTableRowsCommand extends $Command<
   BatchUpsertTableRowsCommandInput,

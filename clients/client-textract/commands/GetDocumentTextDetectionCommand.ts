@@ -46,6 +46,20 @@ export interface GetDocumentTextDetectionCommandOutput extends GetDocumentTextDe
  *          parameter with the token value that's returned from the previous call to
  *             <code>GetDocumentTextDetection</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document Text Detection</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TextractClient, GetDocumentTextDetectionCommand } from "@aws-sdk/client-textract"; // ES Modules import
+ * // const { TextractClient, GetDocumentTextDetectionCommand } = require("@aws-sdk/client-textract"); // CommonJS import
+ * const client = new TextractClient(config);
+ * const command = new GetDocumentTextDetectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDocumentTextDetectionCommandInput} for command's `input` shape.
+ * @see {@link GetDocumentTextDetectionCommandOutput} for command's `response` shape.
+ * @see {@link TextractClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDocumentTextDetectionCommand extends $Command<
   GetDocumentTextDetectionCommandInput,

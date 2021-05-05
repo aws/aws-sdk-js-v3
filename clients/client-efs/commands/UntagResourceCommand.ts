@@ -23,6 +23,20 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes tags from an EFS resource. You can remove tags from EFS file systems and access points using this API operation.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:UntagResource</code> action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EFSClient, UntagResourceCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, UntagResourceCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * const client = new EFSClient(config);
+ * const command = new UntagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UntagResourceCommandInput} for command's `input` shape.
+ * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

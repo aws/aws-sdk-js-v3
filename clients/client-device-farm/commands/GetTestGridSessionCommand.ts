@@ -31,6 +31,20 @@ export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResul
  *             </li>
  *          </ul>
  *          <p></p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, GetTestGridSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, GetTestGridSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new GetTestGridSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTestGridSessionCommandInput} for command's `input` shape.
+ * @see {@link GetTestGridSessionCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTestGridSessionCommand extends $Command<
   GetTestGridSessionCommandInput,

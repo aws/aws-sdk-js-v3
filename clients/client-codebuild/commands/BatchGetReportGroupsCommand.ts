@@ -24,6 +24,20 @@ export interface BatchGetReportGroupsCommandOutput extends BatchGetReportGroupsO
  * <p>
  *       Returns an array of report groups.
  *     </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeBuildClient, BatchGetReportGroupsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
+ * // const { CodeBuildClient, BatchGetReportGroupsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * const client = new CodeBuildClient(config);
+ * const command = new BatchGetReportGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetReportGroupsCommandInput} for command's `input` shape.
+ * @see {@link BatchGetReportGroupsCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetReportGroupsCommand extends $Command<
   BatchGetReportGroupsCommandInput,

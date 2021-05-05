@@ -92,6 +92,20 @@ export interface DescribeEC2InstanceLimitsCommandOutput extends DescribeEC2Insta
  *                     <a>DeleteFleet</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GameLiftClient, DescribeEC2InstanceLimitsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
+ * // const { GameLiftClient, DescribeEC2InstanceLimitsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * const client = new GameLiftClient(config);
+ * const command = new DescribeEC2InstanceLimitsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEC2InstanceLimitsCommandInput} for command's `input` shape.
+ * @see {@link DescribeEC2InstanceLimitsCommandOutput} for command's `response` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEC2InstanceLimitsCommand extends $Command<
   DescribeEC2InstanceLimitsCommandInput,

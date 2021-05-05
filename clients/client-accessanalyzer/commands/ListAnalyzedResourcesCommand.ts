@@ -23,6 +23,20 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
 /**
  * <p>Retrieves a list of resources of the specified type that have been analyzed by the
  *          specified analyzer..</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AccessAnalyzerClient, ListAnalyzedResourcesCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
+ * // const { AccessAnalyzerClient, ListAnalyzedResourcesCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * const client = new AccessAnalyzerClient(config);
+ * const command = new ListAnalyzedResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAnalyzedResourcesCommandInput} for command's `input` shape.
+ * @see {@link ListAnalyzedResourcesCommandOutput} for command's `response` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAnalyzedResourcesCommand extends $Command<
   ListAnalyzedResourcesCommandInput,

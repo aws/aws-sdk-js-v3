@@ -30,6 +30,20 @@ export interface DescribeNotebookInstanceLifecycleConfigCommandOutput
  * <p>Returns a description of a notebook instance lifecycle configuration.</p>
  *         <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
  *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, DescribeNotebookInstanceLifecycleConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DescribeNotebookInstanceLifecycleConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeNotebookInstanceLifecycleConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeNotebookInstanceLifecycleConfigCommandInput} for command's `input` shape.
+ * @see {@link DescribeNotebookInstanceLifecycleConfigCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command<
   DescribeNotebookInstanceLifecycleConfigCommandInput,

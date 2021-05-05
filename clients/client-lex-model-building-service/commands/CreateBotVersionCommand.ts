@@ -38,6 +38,20 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  *       to 1. Subsequent versions increment by 1. For more information, see <a>versioning-intro</a>. </p>
  *          <p> This operation requires permission for the
  *         <code>lex:CreateBotVersion</code> action. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelBuildingServiceClient, CreateBotVersionCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
+ * // const { LexModelBuildingServiceClient, CreateBotVersionCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new CreateBotVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateBotVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateBotVersionCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateBotVersionCommand extends $Command<
   CreateBotVersionCommandInput,

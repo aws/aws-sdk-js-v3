@@ -24,6 +24,20 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  * <p>Disassociates the specified member accounts from the associated administrator account.</p>
  *          <p>Can be used to disassociate both accounts that are managed using Organizations and accounts that
  *          were invited manually.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecurityHubClient, DisassociateMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, DisassociateMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * const client = new SecurityHubClient(config);
+ * const command = new DisassociateMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateMembersCommandInput} for command's `input` shape.
+ * @see {@link DisassociateMembersCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateMembersCommand extends $Command<
   DisassociateMembersCommandInput,

@@ -22,6 +22,20 @@ export interface UpdateMetricSetCommandOutput extends UpdateMetricSetResponse, _
 
 /**
  * <p>Updates a dataset.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LookoutMetricsClient, UpdateMetricSetCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
+ * // const { LookoutMetricsClient, UpdateMetricSetCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
+ * const client = new LookoutMetricsClient(config);
+ * const command = new UpdateMetricSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMetricSetCommandInput} for command's `input` shape.
+ * @see {@link UpdateMetricSetCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMetricSetCommand extends $Command<
   UpdateMetricSetCommandInput,

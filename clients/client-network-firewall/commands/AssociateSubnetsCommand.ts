@@ -27,6 +27,20 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  *          enable the firewall's protections, you must also modify the VPC's route tables for each
  *          subnet's Availability Zone, to redirect the traffic that's coming into and going out of the
  *          zone through the firewall endpoint. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NetworkFirewallClient, AssociateSubnetsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
+ * // const { NetworkFirewallClient, AssociateSubnetsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * const client = new NetworkFirewallClient(config);
+ * const command = new AssociateSubnetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateSubnetsCommandInput} for command's `input` shape.
+ * @see {@link AssociateSubnetsCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateSubnetsCommand extends $Command<
   AssociateSubnetsCommandInput,

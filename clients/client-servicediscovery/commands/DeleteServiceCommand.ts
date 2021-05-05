@@ -23,6 +23,20 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
 /**
  * <p>Deletes a specified service. If the service still contains one or more registered instances, the request
  *    fails.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceDiscoveryClient, DeleteServiceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
+ * // const { ServiceDiscoveryClient, DeleteServiceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * const client = new ServiceDiscoveryClient(config);
+ * const command = new DeleteServiceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteServiceCommandInput} for command's `input` shape.
+ * @see {@link DeleteServiceCommandOutput} for command's `response` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteServiceCommand extends $Command<
   DeleteServiceCommandInput,

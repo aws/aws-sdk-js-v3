@@ -25,6 +25,20 @@ export interface DescribeReservedCacheNodesOfferingsCommandOutput
 /**
  * <p>Lists available reserved cache
  *             node offerings.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElastiCacheClient, DescribeReservedCacheNodesOfferingsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, DescribeReservedCacheNodesOfferingsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
+ * const client = new ElastiCacheClient(config);
+ * const command = new DescribeReservedCacheNodesOfferingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeReservedCacheNodesOfferingsCommandInput} for command's `input` shape.
+ * @see {@link DescribeReservedCacheNodesOfferingsCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
   DescribeReservedCacheNodesOfferingsCommandInput,

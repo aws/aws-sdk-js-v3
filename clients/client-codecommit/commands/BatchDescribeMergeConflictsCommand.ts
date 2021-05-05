@@ -22,6 +22,20 @@ export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeM
 
 /**
  * <p>Returns information about one or more merge conflicts in the attempted merge of two commit specifiers using the squash or three-way merge strategy.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeCommitClient, BatchDescribeMergeConflictsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, BatchDescribeMergeConflictsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * const client = new CodeCommitClient(config);
+ * const command = new BatchDescribeMergeConflictsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDescribeMergeConflictsCommandInput} for command's `input` shape.
+ * @see {@link BatchDescribeMergeConflictsCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDescribeMergeConflictsCommand extends $Command<
   BatchDescribeMergeConflictsCommandInput,

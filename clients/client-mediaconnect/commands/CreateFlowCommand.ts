@@ -22,6 +22,20 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
 
 /**
  * Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaConnectClient, CreateFlowCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
+ * // const { MediaConnectClient, CreateFlowCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * const client = new MediaConnectClient(config);
+ * const command = new CreateFlowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFlowCommandInput} for command's `input` shape.
+ * @see {@link CreateFlowCommandOutput} for command's `response` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFlowCommand extends $Command<
   CreateFlowCommandInput,

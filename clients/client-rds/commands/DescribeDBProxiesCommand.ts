@@ -22,6 +22,20 @@ export interface DescribeDBProxiesCommandOutput extends DescribeDBProxiesRespons
 
 /**
  * <p>Returns information about DB proxies.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, DescribeDBProxiesCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeDBProxiesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new DescribeDBProxiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDBProxiesCommandInput} for command's `input` shape.
+ * @see {@link DescribeDBProxiesCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDBProxiesCommand extends $Command<
   DescribeDBProxiesCommandInput,

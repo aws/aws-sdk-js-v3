@@ -22,6 +22,20 @@ export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionR
 
 /**
  * <p>Applies a schema extension to a Microsoft AD directory.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectoryServiceClient, StartSchemaExtensionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
+ * // const { DirectoryServiceClient, StartSchemaExtensionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * const client = new DirectoryServiceClient(config);
+ * const command = new StartSchemaExtensionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartSchemaExtensionCommandInput} for command's `input` shape.
+ * @see {@link StartSchemaExtensionCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartSchemaExtensionCommand extends $Command<
   StartSchemaExtensionCommandInput,

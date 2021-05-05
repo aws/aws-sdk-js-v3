@@ -22,6 +22,20 @@ export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
 
 /**
  * Updates an AMP workspace alias.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmpClient, UpdateWorkspaceAliasCommand } from "@aws-sdk/client-amp"; // ES Modules import
+ * // const { AmpClient, UpdateWorkspaceAliasCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * const client = new AmpClient(config);
+ * const command = new UpdateWorkspaceAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateWorkspaceAliasCommandInput} for command's `input` shape.
+ * @see {@link UpdateWorkspaceAliasCommandOutput} for command's `response` shape.
+ * @see {@link AmpClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateWorkspaceAliasCommand extends $Command<
   UpdateWorkspaceAliasCommandInput,

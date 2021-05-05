@@ -22,6 +22,20 @@ export interface CreateExportJobCommandOutput extends CreateExportJobResponse, _
 
 /**
  * <p>Creates an export job for an application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointClient, CreateExportJobCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, CreateExportJobCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * const client = new PinpointClient(config);
+ * const command = new CreateExportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateExportJobCommandInput} for command's `input` shape.
+ * @see {@link CreateExportJobCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateExportJobCommand extends $Command<
   CreateExportJobCommandInput,

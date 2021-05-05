@@ -24,6 +24,20 @@ export interface ListIdentityProviderConfigsCommandOutput
 
 /**
  * <p>A list of identity provider configurations.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EKSClient, ListIdentityProviderConfigsCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, ListIdentityProviderConfigsCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * const client = new EKSClient(config);
+ * const command = new ListIdentityProviderConfigsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListIdentityProviderConfigsCommandInput} for command's `input` shape.
+ * @see {@link ListIdentityProviderConfigsCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListIdentityProviderConfigsCommand extends $Command<
   ListIdentityProviderConfigsCommandInput,

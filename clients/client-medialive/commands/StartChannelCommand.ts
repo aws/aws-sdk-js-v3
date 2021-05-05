@@ -22,6 +22,20 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
 
 /**
  * Starts an existing channel
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaLiveClient, StartChannelCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, StartChannelCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * const client = new MediaLiveClient(config);
+ * const command = new StartChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartChannelCommandInput} for command's `input` shape.
+ * @see {@link StartChannelCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartChannelCommand extends $Command<
   StartChannelCommandInput,

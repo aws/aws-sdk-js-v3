@@ -42,6 +42,20 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *
  *          <p>For more information about chat, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat.html">Chat</a> in the <i>Amazon Connect Administrator
  *     Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, StartChatContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, StartChatContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * const client = new ConnectClient(config);
+ * const command = new StartChatContactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartChatContactCommandInput} for command's `input` shape.
+ * @see {@link StartChatContactCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartChatContactCommand extends $Command<
   StartChatContactCommandInput,

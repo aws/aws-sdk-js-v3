@@ -22,6 +22,20 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
 
 /**
  * Retrieve the JSON for a specific job template.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaConvertClient, GetJobTemplateCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
+ * // const { MediaConvertClient, GetJobTemplateCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
+ * const client = new MediaConvertClient(config);
+ * const command = new GetJobTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetJobTemplateCommandInput} for command's `input` shape.
+ * @see {@link GetJobTemplateCommandOutput} for command's `response` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetJobTemplateCommand extends $Command<
   GetJobTemplateCommandInput,

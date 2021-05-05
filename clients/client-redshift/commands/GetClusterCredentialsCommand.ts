@@ -43,6 +43,20 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  *             privilege.</p>
  *         <p>If the <code>DbName</code> parameter is specified, the IAM policy must allow access
  *             to the resource <code>dbname</code> for the specified database name. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, GetClusterCredentialsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, GetClusterCredentialsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new GetClusterCredentialsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetClusterCredentialsCommandInput} for command's `input` shape.
+ * @see {@link GetClusterCredentialsCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetClusterCredentialsCommand extends $Command<
   GetClusterCredentialsCommandInput,

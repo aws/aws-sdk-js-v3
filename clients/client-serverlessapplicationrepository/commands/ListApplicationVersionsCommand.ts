@@ -26,6 +26,20 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
 
 /**
  * <p>Lists versions for the specified application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServerlessApplicationRepositoryClient, ListApplicationVersionsCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
+ * // const { ServerlessApplicationRepositoryClient, ListApplicationVersionsCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
+ * const client = new ServerlessApplicationRepositoryClient(config);
+ * const command = new ListApplicationVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListApplicationVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListApplicationVersionsCommandOutput} for command's `response` shape.
+ * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListApplicationVersionsCommand extends $Command<
   ListApplicationVersionsCommandInput,

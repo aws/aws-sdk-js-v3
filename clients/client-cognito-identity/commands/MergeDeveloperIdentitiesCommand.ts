@@ -35,6 +35,20 @@ export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIde
  *          <code>DestinationUserIdentifier</code>, together should not be larger than 20.
  *          Otherwise, an exception will be thrown.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityClient, MergeDeveloperIdentitiesCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
+ * // const { CognitoIdentityClient, MergeDeveloperIdentitiesCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * const client = new CognitoIdentityClient(config);
+ * const command = new MergeDeveloperIdentitiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link MergeDeveloperIdentitiesCommandInput} for command's `input` shape.
+ * @see {@link MergeDeveloperIdentitiesCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class MergeDeveloperIdentitiesCommand extends $Command<
   MergeDeveloperIdentitiesCommandInput,

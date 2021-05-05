@@ -26,6 +26,20 @@ export interface DisassociateLensesCommandOutput extends __MetadataBearer {}
  *             <p>The AWS Well-Architected Framework lens (<code>wellarchitected</code>) cannot be
  *                 removed from a workload.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WellArchitectedClient, DisassociateLensesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, DisassociateLensesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * const client = new WellArchitectedClient(config);
+ * const command = new DisassociateLensesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateLensesCommandInput} for command's `input` shape.
+ * @see {@link DisassociateLensesCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateLensesCommand extends $Command<
   DisassociateLensesCommandInput,

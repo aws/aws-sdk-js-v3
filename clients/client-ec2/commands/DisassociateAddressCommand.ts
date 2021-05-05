@@ -26,6 +26,20 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
  * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP
  * 				Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DisassociateAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DisassociateAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DisassociateAddressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateAddressCommandInput} for command's `input` shape.
+ * @see {@link DisassociateAddressCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateAddressCommand extends $Command<
   DisassociateAddressCommandInput,

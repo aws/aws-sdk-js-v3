@@ -89,6 +89,9 @@ export interface UpdatePatchBaselineResult {
 }
 
 export namespace UpdatePatchBaselineResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdatePatchBaselineResult): any => ({
     ...obj,
     ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSource.filterSensitiveLog(item)) }),
@@ -106,6 +109,9 @@ export interface ResourceDataSyncConflictException extends __SmithyException, $M
 }
 
 export namespace ResourceDataSyncConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceDataSyncConflictException): any => ({
     ...obj,
   });
@@ -130,6 +136,9 @@ export interface UpdateResourceDataSyncRequest {
 }
 
 export namespace UpdateResourceDataSyncRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateResourceDataSyncRequest): any => ({
     ...obj,
   });
@@ -138,6 +147,9 @@ export namespace UpdateResourceDataSyncRequest {
 export interface UpdateResourceDataSyncResult {}
 
 export namespace UpdateResourceDataSyncResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateResourceDataSyncResult): any => ({
     ...obj,
   });
@@ -208,6 +220,9 @@ export interface UpdateServiceSettingRequest {
 }
 
 export namespace UpdateServiceSettingRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateServiceSettingRequest): any => ({
     ...obj,
   });
@@ -219,6 +234,9 @@ export namespace UpdateServiceSettingRequest {
 export interface UpdateServiceSettingResult {}
 
 export namespace UpdateServiceSettingResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateServiceSettingResult): any => ({
     ...obj,
   });
@@ -246,6 +264,9 @@ export interface InventoryAggregator {
 }
 
 export namespace InventoryAggregator {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InventoryAggregator): any => ({
     ...obj,
   });
@@ -289,6 +310,9 @@ export interface OpsAggregator {
 }
 
 export namespace OpsAggregator {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OpsAggregator): any => ({
     ...obj,
   });
@@ -327,6 +351,9 @@ export interface GetInventoryRequest {
 }
 
 export namespace GetInventoryRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetInventoryRequest): any => ({
     ...obj,
   });
@@ -366,6 +393,9 @@ export interface GetOpsSummaryRequest {
 }
 
 export namespace GetOpsSummaryRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetOpsSummaryRequest): any => ({
     ...obj,
   });

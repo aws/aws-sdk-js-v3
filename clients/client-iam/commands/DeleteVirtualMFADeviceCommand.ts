@@ -26,6 +26,20 @@ export interface DeleteVirtualMFADeviceCommandOutput extends __MetadataBearer {}
  *             <p> You must deactivate a user's virtual MFA device before you can delete it. For
  *                 information about deactivating MFA devices, see <a>DeactivateMFADevice</a>. </p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, DeleteVirtualMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, DeleteVirtualMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new DeleteVirtualMFADeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVirtualMFADeviceCommandInput} for command's `input` shape.
+ * @see {@link DeleteVirtualMFADeviceCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVirtualMFADeviceCommand extends $Command<
   DeleteVirtualMFADeviceCommandInput,

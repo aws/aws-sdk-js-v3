@@ -29,6 +29,20 @@ export interface DeleteIntentVersionCommandOutput extends __MetadataBearer {}
  *       a intent, use the <a>DeleteIntent</a> operation. </p>
  *          <p>This operation requires permissions for the
  *         <code>lex:DeleteIntentVersion</code> action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelBuildingServiceClient, DeleteIntentVersionCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
+ * // const { LexModelBuildingServiceClient, DeleteIntentVersionCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new DeleteIntentVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteIntentVersionCommandInput} for command's `input` shape.
+ * @see {@link DeleteIntentVersionCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteIntentVersionCommand extends $Command<
   DeleteIntentVersionCommandInput,

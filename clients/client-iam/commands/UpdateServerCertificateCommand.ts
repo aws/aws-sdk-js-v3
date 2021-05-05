@@ -41,6 +41,20 @@ export interface UpdateServerCertificateCommandOutput extends __MetadataBearer {
  *                 the <code>ProdCert</code> certificate, then the update fails. For more information
  *                 about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management</a> in the <i>IAM User Guide</i>.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, UpdateServerCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, UpdateServerCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new UpdateServerCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateServerCertificateCommandInput} for command's `input` shape.
+ * @see {@link UpdateServerCertificateCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateServerCertificateCommand extends $Command<
   UpdateServerCertificateCommandInput,

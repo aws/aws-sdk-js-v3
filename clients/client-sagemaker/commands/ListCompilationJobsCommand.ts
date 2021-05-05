@@ -24,6 +24,20 @@ export interface ListCompilationJobsCommandOutput extends ListCompilationJobsRes
  * <p>Lists model compilation jobs that satisfy various filters.</p>
  *         <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
  *             information about a particular model compilation job you have created, use <a>DescribeCompilationJob</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, ListCompilationJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListCompilationJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new ListCompilationJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCompilationJobsCommandInput} for command's `input` shape.
+ * @see {@link ListCompilationJobsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCompilationJobsCommand extends $Command<
   ListCompilationJobsCommandInput,

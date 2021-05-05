@@ -22,6 +22,20 @@ export interface GetRemoteAccessSessionCommandOutput extends GetRemoteAccessSess
 
 /**
  * <p>Returns a link to a currently running remote access session.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, GetRemoteAccessSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, GetRemoteAccessSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new GetRemoteAccessSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRemoteAccessSessionCommandInput} for command's `input` shape.
+ * @see {@link GetRemoteAccessSessionCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRemoteAccessSessionCommand extends $Command<
   GetRemoteAccessSessionCommandInput,

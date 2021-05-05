@@ -22,6 +22,20 @@ export interface ListSlotsCommandOutput extends ListSlotsResponse, __MetadataBea
 
 /**
  * <p>Gets a list of slots that match the specified criteria.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelsV2Client, ListSlotsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, ListSlotsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * const client = new LexModelsV2Client(config);
+ * const command = new ListSlotsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSlotsCommandInput} for command's `input` shape.
+ * @see {@link ListSlotsCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSlotsCommand extends $Command<
   ListSlotsCommandInput,

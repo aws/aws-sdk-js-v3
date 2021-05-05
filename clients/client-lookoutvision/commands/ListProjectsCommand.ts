@@ -24,6 +24,20 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * <p>Lists the Amazon Lookout for Vision projects in your AWS account.</p>
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:ListProjects</code> operation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LookoutVisionClient, ListProjectsCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
+ * // const { LookoutVisionClient, ListProjectsCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * const client = new LookoutVisionClient(config);
+ * const command = new ListProjectsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProjectsCommandInput} for command's `input` shape.
+ * @see {@link ListProjectsCommandOutput} for command's `response` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProjectsCommand extends $Command<
   ListProjectsCommandInput,

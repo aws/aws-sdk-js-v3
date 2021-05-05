@@ -17,6 +17,9 @@ export interface Term {
 }
 
 export namespace Term {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Term): any => ({
     ...obj,
   });
@@ -44,6 +47,9 @@ export interface AppliedTerminology {
 }
 
 export namespace AppliedTerminology {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AppliedTerminology): any => ({
     ...obj,
   });
@@ -59,6 +65,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -85,6 +94,9 @@ export interface EncryptionKey {
 }
 
 export namespace EncryptionKey {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EncryptionKey): any => ({
     ...obj,
   });
@@ -113,6 +125,9 @@ export interface ParallelDataConfig {
 }
 
 export namespace ParallelDataConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParallelDataConfig): any => ({
     ...obj,
   });
@@ -148,6 +163,9 @@ export interface CreateParallelDataRequest {
 }
 
 export namespace CreateParallelDataRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateParallelDataRequest): any => ({
     ...obj,
   });
@@ -175,6 +193,9 @@ export interface CreateParallelDataResponse {
 }
 
 export namespace CreateParallelDataResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateParallelDataResponse): any => ({
     ...obj,
   });
@@ -190,6 +211,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -206,6 +230,9 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
 }
 
 export namespace InvalidParameterValueException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
@@ -222,6 +249,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -238,6 +268,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -254,6 +287,9 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
 }
 
 export namespace TooManyRequestsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
@@ -270,6 +306,9 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
 }
 
 export namespace ConcurrentModificationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
@@ -283,6 +322,9 @@ export interface DeleteParallelDataRequest {
 }
 
 export namespace DeleteParallelDataRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteParallelDataRequest): any => ({
     ...obj,
   });
@@ -301,6 +343,9 @@ export interface DeleteParallelDataResponse {
 }
 
 export namespace DeleteParallelDataResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteParallelDataResponse): any => ({
     ...obj,
   });
@@ -318,6 +363,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -331,6 +379,9 @@ export interface DeleteTerminologyRequest {
 }
 
 export namespace DeleteTerminologyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTerminologyRequest): any => ({
     ...obj,
   });
@@ -345,6 +396,9 @@ export interface DescribeTextTranslationJobRequest {
 }
 
 export namespace DescribeTextTranslationJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTextTranslationJobRequest): any => ({
     ...obj,
   });
@@ -402,6 +456,9 @@ export interface InputDataConfig {
 }
 
 export namespace InputDataConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InputDataConfig): any => ({
     ...obj,
   });
@@ -429,6 +486,9 @@ export interface JobDetails {
 }
 
 export namespace JobDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: JobDetails): any => ({
     ...obj,
   });
@@ -456,6 +516,9 @@ export interface OutputDataConfig {
 }
 
 export namespace OutputDataConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OutputDataConfig): any => ({
     ...obj,
   });
@@ -544,6 +607,9 @@ export interface TextTranslationJobProperties {
 }
 
 export namespace TextTranslationJobProperties {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TextTranslationJobProperties): any => ({
     ...obj,
   });
@@ -558,6 +624,9 @@ export interface DescribeTextTranslationJobResponse {
 }
 
 export namespace DescribeTextTranslationJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTextTranslationJobResponse): any => ({
     ...obj,
   });
@@ -571,6 +640,9 @@ export interface GetParallelDataRequest {
 }
 
 export namespace GetParallelDataRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetParallelDataRequest): any => ({
     ...obj,
   });
@@ -594,6 +666,9 @@ export interface ParallelDataDataLocation {
 }
 
 export namespace ParallelDataDataLocation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParallelDataDataLocation): any => ({
     ...obj,
   });
@@ -697,6 +772,9 @@ export interface ParallelDataProperties {
 }
 
 export namespace ParallelDataProperties {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParallelDataProperties): any => ({
     ...obj,
   });
@@ -733,6 +811,9 @@ export interface GetParallelDataResponse {
 }
 
 export namespace GetParallelDataResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetParallelDataResponse): any => ({
     ...obj,
   });
@@ -756,6 +837,9 @@ export interface GetTerminologyRequest {
 }
 
 export namespace GetTerminologyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTerminologyRequest): any => ({
     ...obj,
   });
@@ -777,6 +861,9 @@ export interface TerminologyDataLocation {
 }
 
 export namespace TerminologyDataLocation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TerminologyDataLocation): any => ({
     ...obj,
   });
@@ -840,6 +927,9 @@ export interface TerminologyProperties {
 }
 
 export namespace TerminologyProperties {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TerminologyProperties): any => ({
     ...obj,
   });
@@ -859,6 +949,9 @@ export interface GetTerminologyResponse {
 }
 
 export namespace GetTerminologyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTerminologyResponse): any => ({
     ...obj,
   });
@@ -886,6 +979,9 @@ export interface TerminologyData {
 }
 
 export namespace TerminologyData {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TerminologyData): any => ({
     ...obj,
     ...(obj.File && { File: SENSITIVE_STRING }),
@@ -922,6 +1018,9 @@ export interface ImportTerminologyRequest {
 }
 
 export namespace ImportTerminologyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImportTerminologyRequest): any => ({
     ...obj,
     ...(obj.TerminologyData && { TerminologyData: TerminologyData.filterSensitiveLog(obj.TerminologyData) }),
@@ -936,6 +1035,9 @@ export interface ImportTerminologyResponse {
 }
 
 export namespace ImportTerminologyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImportTerminologyResponse): any => ({
     ...obj,
   });
@@ -954,6 +1056,9 @@ export interface ListParallelDataRequest {
 }
 
 export namespace ListParallelDataRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListParallelDataRequest): any => ({
     ...obj,
   });
@@ -973,6 +1078,9 @@ export interface ListParallelDataResponse {
 }
 
 export namespace ListParallelDataResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListParallelDataResponse): any => ({
     ...obj,
   });
@@ -992,6 +1100,9 @@ export interface ListTerminologiesRequest {
 }
 
 export namespace ListTerminologiesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTerminologiesRequest): any => ({
     ...obj,
   });
@@ -1011,6 +1122,9 @@ export interface ListTerminologiesResponse {
 }
 
 export namespace ListTerminologiesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTerminologiesResponse): any => ({
     ...obj,
   });
@@ -1026,6 +1140,9 @@ export interface InvalidFilterException extends __SmithyException, $MetadataBear
 }
 
 export namespace InvalidFilterException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidFilterException): any => ({
     ...obj,
   });
@@ -1062,6 +1179,9 @@ export interface TextTranslationJobFilter {
 }
 
 export namespace TextTranslationJobFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TextTranslationJobFilter): any => ({
     ...obj,
   });
@@ -1086,6 +1206,9 @@ export interface ListTextTranslationJobsRequest {
 }
 
 export namespace ListTextTranslationJobsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTextTranslationJobsRequest): any => ({
     ...obj,
   });
@@ -1105,6 +1228,9 @@ export interface ListTextTranslationJobsResponse {
 }
 
 export namespace ListTextTranslationJobsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTextTranslationJobsResponse): any => ({
     ...obj,
   });
@@ -1167,6 +1293,9 @@ export interface StartTextTranslationJobRequest {
 }
 
 export namespace StartTextTranslationJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartTextTranslationJobRequest): any => ({
     ...obj,
   });
@@ -1220,6 +1349,9 @@ export interface StartTextTranslationJobResponse {
 }
 
 export namespace StartTextTranslationJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartTextTranslationJobResponse): any => ({
     ...obj,
   });
@@ -1245,6 +1377,9 @@ export interface UnsupportedLanguagePairException extends __SmithyException, $Me
 }
 
 export namespace UnsupportedLanguagePairException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedLanguagePairException): any => ({
     ...obj,
   });
@@ -1258,6 +1393,9 @@ export interface StopTextTranslationJobRequest {
 }
 
 export namespace StopTextTranslationJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopTextTranslationJobRequest): any => ({
     ...obj,
   });
@@ -1277,6 +1415,9 @@ export interface StopTextTranslationJobResponse {
 }
 
 export namespace StopTextTranslationJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopTextTranslationJobResponse): any => ({
     ...obj,
   });
@@ -1299,6 +1440,9 @@ export interface DetectedLanguageLowConfidenceException extends __SmithyExceptio
 }
 
 export namespace DetectedLanguageLowConfidenceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectedLanguageLowConfidenceException): any => ({
     ...obj,
   });
@@ -1315,6 +1459,9 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
 }
 
 export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
@@ -1331,6 +1478,9 @@ export interface TextSizeLimitExceededException extends __SmithyException, $Meta
 }
 
 export namespace TextSizeLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TextSizeLimitExceededException): any => ({
     ...obj,
   });
@@ -1368,6 +1518,9 @@ export interface TranslateTextRequest {
 }
 
 export namespace TranslateTextRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TranslateTextRequest): any => ({
     ...obj,
   });
@@ -1397,6 +1550,9 @@ export interface TranslateTextResponse {
 }
 
 export namespace TranslateTextResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TranslateTextResponse): any => ({
     ...obj,
   });
@@ -1426,6 +1582,9 @@ export interface UpdateParallelDataRequest {
 }
 
 export namespace UpdateParallelDataRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateParallelDataRequest): any => ({
     ...obj,
   });
@@ -1457,6 +1616,9 @@ export interface UpdateParallelDataResponse {
 }
 
 export namespace UpdateParallelDataResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateParallelDataResponse): any => ({
     ...obj,
   });

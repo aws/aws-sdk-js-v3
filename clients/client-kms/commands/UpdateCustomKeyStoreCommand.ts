@@ -94,6 +94,20 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KMSClient, UpdateCustomKeyStoreCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, UpdateCustomKeyStoreCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * const client = new KMSClient(config);
+ * const command = new UpdateCustomKeyStoreCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateCustomKeyStoreCommandInput} for command's `input` shape.
+ * @see {@link UpdateCustomKeyStoreCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateCustomKeyStoreCommand extends $Command<
   UpdateCustomKeyStoreCommandInput,

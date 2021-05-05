@@ -22,6 +22,20 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
 
 /**
  * <p>Creates a new container recipe. Container recipes define how images are configured, tested, and assessed.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ImagebuilderClient, CreateContainerRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, CreateContainerRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * const client = new ImagebuilderClient(config);
+ * const command = new CreateContainerRecipeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateContainerRecipeCommandInput} for command's `input` shape.
+ * @see {@link CreateContainerRecipeCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateContainerRecipeCommand extends $Command<
   CreateContainerRecipeCommandInput,

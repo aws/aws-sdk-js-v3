@@ -153,6 +153,20 @@ export interface AssumeRoleWithSAMLCommandOutput extends AssumeRoleWithSAMLRespo
  *                   <i>IAM User Guide</i>. </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { STSClient, AssumeRoleWithSAMLCommand } from "@aws-sdk/client-sts"; // ES Modules import
+ * // const { STSClient, AssumeRoleWithSAMLCommand } = require("@aws-sdk/client-sts"); // CommonJS import
+ * const client = new STSClient(config);
+ * const command = new AssumeRoleWithSAMLCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssumeRoleWithSAMLCommandInput} for command's `input` shape.
+ * @see {@link AssumeRoleWithSAMLCommandOutput} for command's `response` shape.
+ * @see {@link STSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssumeRoleWithSAMLCommand extends $Command<
   AssumeRoleWithSAMLCommandInput,

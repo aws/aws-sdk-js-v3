@@ -22,6 +22,20 @@ export interface DisassociateRoleFromGroupCommandOutput extends DisassociateRole
 
 /**
  * Disassociates the role from a group.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassClient, DisassociateRoleFromGroupCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, DisassociateRoleFromGroupCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * const client = new GreengrassClient(config);
+ * const command = new DisassociateRoleFromGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateRoleFromGroupCommandInput} for command's `input` shape.
+ * @see {@link DisassociateRoleFromGroupCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateRoleFromGroupCommand extends $Command<
   DisassociateRoleFromGroupCommandInput,

@@ -22,6 +22,20 @@ export interface ListDomainAssociationsCommandOutput extends ListDomainAssociati
 
 /**
  * <p> Returns the domain associations for an Amplify app. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmplifyClient, ListDomainAssociationsCommand } from "@aws-sdk/client-amplify"; // ES Modules import
+ * // const { AmplifyClient, ListDomainAssociationsCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * const client = new AmplifyClient(config);
+ * const command = new ListDomainAssociationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDomainAssociationsCommandInput} for command's `input` shape.
+ * @see {@link ListDomainAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDomainAssociationsCommand extends $Command<
   ListDomainAssociationsCommandInput,

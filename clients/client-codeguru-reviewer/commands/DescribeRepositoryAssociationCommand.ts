@@ -29,6 +29,20 @@ export interface DescribeRepositoryAssociationCommandOutput
  *             </a> object
  *          that contains information about the requested repository association.
  *       </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeGuruReviewerClient, DescribeRepositoryAssociationCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
+ * // const { CodeGuruReviewerClient, DescribeRepositoryAssociationCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * const client = new CodeGuruReviewerClient(config);
+ * const command = new DescribeRepositoryAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRepositoryAssociationCommandInput} for command's `input` shape.
+ * @see {@link DescribeRepositoryAssociationCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRepositoryAssociationCommand extends $Command<
   DescribeRepositoryAssociationCommandInput,

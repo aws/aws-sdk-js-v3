@@ -22,6 +22,20 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
 
 /**
  * <p>Creates a new instance.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DocDBClient, CreateDBInstanceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, CreateDBInstanceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * const client = new DocDBClient(config);
+ * const command = new CreateDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDBInstanceCommandInput} for command's `input` shape.
+ * @see {@link CreateDBInstanceCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDBInstanceCommand extends $Command<
   CreateDBInstanceCommandInput,

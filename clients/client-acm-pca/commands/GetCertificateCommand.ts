@@ -29,6 +29,20 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  * 			the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a> action to create a report that
  * 			contains information about all of the certificates issued and revoked by your private
  * 			CA. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ACMPCAClient, GetCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
+ * // const { ACMPCAClient, GetCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * const client = new ACMPCAClient(config);
+ * const command = new GetCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCertificateCommandInput} for command's `input` shape.
+ * @see {@link GetCertificateCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCertificateCommand extends $Command<
   GetCertificateCommandInput,

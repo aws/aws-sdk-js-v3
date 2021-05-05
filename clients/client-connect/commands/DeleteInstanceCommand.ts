@@ -23,6 +23,20 @@ export interface DeleteInstanceCommandOutput extends __MetadataBearer {}
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Deletes the Amazon Connect instance.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, DeleteInstanceCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DeleteInstanceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * const client = new ConnectClient(config);
+ * const command = new DeleteInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteInstanceCommandInput} for command's `input` shape.
+ * @see {@link DeleteInstanceCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteInstanceCommand extends $Command<
   DeleteInstanceCommandInput,

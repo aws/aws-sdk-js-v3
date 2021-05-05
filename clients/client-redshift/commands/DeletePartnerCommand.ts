@@ -22,6 +22,20 @@ export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMess
 
 /**
  * <p>Deletes a partner integration from a cluster. Data can still flow to the cluster until the integration is deleted at the partner's website.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, DeletePartnerCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, DeletePartnerCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new DeletePartnerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePartnerCommandInput} for command's `input` shape.
+ * @see {@link DeletePartnerCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePartnerCommand extends $Command<
   DeletePartnerCommandInput,

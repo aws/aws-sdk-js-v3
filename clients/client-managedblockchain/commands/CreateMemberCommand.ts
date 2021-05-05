@@ -27,6 +27,20 @@ export interface CreateMemberCommandOutput extends CreateMemberOutput, __Metadat
 /**
  * <p>Creates a member within a Managed Blockchain network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ManagedBlockchainClient, CreateMemberCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
+ * // const { ManagedBlockchainClient, CreateMemberCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * const client = new ManagedBlockchainClient(config);
+ * const command = new CreateMemberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMemberCommandInput} for command's `input` shape.
+ * @see {@link CreateMemberCommandOutput} for command's `response` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMemberCommand extends $Command<
   CreateMemberCommandInput,

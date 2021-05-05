@@ -27,6 +27,20 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
 
 /**
  * <p>Creates an identity provider for a user pool.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, CreateIdentityProviderCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, CreateIdentityProviderCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new CreateIdentityProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateIdentityProviderCommandInput} for command's `input` shape.
+ * @see {@link CreateIdentityProviderCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateIdentityProviderCommand extends $Command<
   CreateIdentityProviderCommandInput,

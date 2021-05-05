@@ -22,6 +22,20 @@ export interface SearchSystemInstancesCommandOutput extends SearchSystemInstance
 
 /**
  * <p>Searches for system instances in the user's account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTThingsGraphClient, SearchSystemInstancesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
+ * // const { IoTThingsGraphClient, SearchSystemInstancesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * const client = new IoTThingsGraphClient(config);
+ * const command = new SearchSystemInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchSystemInstancesCommandInput} for command's `input` shape.
+ * @see {@link SearchSystemInstancesCommandOutput} for command's `response` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchSystemInstancesCommand extends $Command<
   SearchSystemInstancesCommandInput,

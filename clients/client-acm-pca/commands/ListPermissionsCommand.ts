@@ -49,6 +49,20 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * 			Based Policy with ACM Private CA</a>.</p>
  * 		          </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ACMPCAClient, ListPermissionsCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
+ * // const { ACMPCAClient, ListPermissionsCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * const client = new ACMPCAClient(config);
+ * const command = new ListPermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPermissionsCommandInput} for command's `input` shape.
+ * @see {@link ListPermissionsCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPermissionsCommand extends $Command<
   ListPermissionsCommandInput,

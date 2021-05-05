@@ -19,6 +19,20 @@ export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBeare
 
 /**
  * <p>Gets a list of FAQ lists associated with an index.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KendraClient, ListFaqsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, ListFaqsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
+ * const client = new KendraClient(config);
+ * const command = new ListFaqsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFaqsCommandInput} for command's `input` shape.
+ * @see {@link ListFaqsCommandOutput} for command's `response` shape.
+ * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsCommandOutput, KendraClientResolvedConfig> {
   // Start section: command_properties

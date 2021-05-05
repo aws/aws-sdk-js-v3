@@ -22,6 +22,20 @@ export interface DeleteExperimentTemplateCommandOutput extends DeleteExperimentT
 
 /**
  * <p>Deletes the specified experiment template.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FisClient, DeleteExperimentTemplateCommand } from "@aws-sdk/client-fis"; // ES Modules import
+ * // const { FisClient, DeleteExperimentTemplateCommand } = require("@aws-sdk/client-fis"); // CommonJS import
+ * const client = new FisClient(config);
+ * const command = new DeleteExperimentTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteExperimentTemplateCommandInput} for command's `input` shape.
+ * @see {@link DeleteExperimentTemplateCommandOutput} for command's `response` shape.
+ * @see {@link FisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteExperimentTemplateCommand extends $Command<
   DeleteExperimentTemplateCommandInput,

@@ -22,6 +22,20 @@ export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHo
 
 /**
  * <p>Describes the lifecycle hooks for the specified Auto Scaling group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AutoScalingClient, DescribeLifecycleHooksCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, DescribeLifecycleHooksCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * const client = new AutoScalingClient(config);
+ * const command = new DescribeLifecycleHooksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLifecycleHooksCommandInput} for command's `input` shape.
+ * @see {@link DescribeLifecycleHooksCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLifecycleHooksCommand extends $Command<
   DescribeLifecycleHooksCommandInput,

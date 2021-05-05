@@ -22,6 +22,20 @@ export interface StopEdgePackagingJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Request to stop an edge packaging job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, StopEdgePackagingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, StopEdgePackagingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new StopEdgePackagingJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopEdgePackagingJobCommandInput} for command's `input` shape.
+ * @see {@link StopEdgePackagingJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopEdgePackagingJobCommand extends $Command<
   StopEdgePackagingJobCommandInput,

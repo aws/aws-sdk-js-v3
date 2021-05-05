@@ -22,6 +22,20 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
 
 /**
  * <p>JSON blob that describes the environment to create.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MWAAClient, CreateEnvironmentCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
+ * // const { MWAAClient, CreateEnvironmentCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import
+ * const client = new MWAAClient(config);
+ * const command = new CreateEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
+ * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
+ * @see {@link MWAAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateEnvironmentCommand extends $Command<
   CreateEnvironmentCommandInput,

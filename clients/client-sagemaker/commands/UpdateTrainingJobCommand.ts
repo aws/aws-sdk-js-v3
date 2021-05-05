@@ -22,6 +22,20 @@ export interface UpdateTrainingJobCommandOutput extends UpdateTrainingJobRespons
 
 /**
  * <p>Update a model training job to request a new Debugger profiling configuration.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, UpdateTrainingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, UpdateTrainingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new UpdateTrainingJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTrainingJobCommandInput} for command's `input` shape.
+ * @see {@link UpdateTrainingJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTrainingJobCommand extends $Command<
   UpdateTrainingJobCommandInput,

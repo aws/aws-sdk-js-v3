@@ -41,6 +41,20 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *             <p>This action only applies to Aurora DB clusters. The source DB engine must be
  *                 MySQL.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, RestoreDBClusterFromS3Command } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, RestoreDBClusterFromS3Command } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new RestoreDBClusterFromS3Command(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RestoreDBClusterFromS3CommandInput} for command's `input` shape.
+ * @see {@link RestoreDBClusterFromS3CommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RestoreDBClusterFromS3Command extends $Command<
   RestoreDBClusterFromS3CommandInput,

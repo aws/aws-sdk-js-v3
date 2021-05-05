@@ -24,6 +24,20 @@ export interface ListIdentityPoolsCommandOutput extends ListIdentityPoolsRespons
 /**
  * <p>Lists all of the Cognito identity pools registered for your account.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityClient, ListIdentityPoolsCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
+ * // const { CognitoIdentityClient, ListIdentityPoolsCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+ * const client = new CognitoIdentityClient(config);
+ * const command = new ListIdentityPoolsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListIdentityPoolsCommandInput} for command's `input` shape.
+ * @see {@link ListIdentityPoolsCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListIdentityPoolsCommand extends $Command<
   ListIdentityPoolsCommandInput,

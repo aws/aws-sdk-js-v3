@@ -37,6 +37,20 @@ export interface AddTagsToCertificateCommandOutput extends __MetadataBearer {}
  *
  *          <p>To remove one or more tags, use the <a>RemoveTagsFromCertificate</a> action. To
  *       view all of the tags that have been applied to the certificate, use the <a>ListTagsForCertificate</a> action. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ACMClient, AddTagsToCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
+ * // const { ACMClient, AddTagsToCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * const client = new ACMClient(config);
+ * const command = new AddTagsToCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddTagsToCertificateCommandInput} for command's `input` shape.
+ * @see {@link AddTagsToCertificateCommandOutput} for command's `response` shape.
+ * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddTagsToCertificateCommand extends $Command<
   AddTagsToCertificateCommandInput,

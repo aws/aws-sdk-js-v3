@@ -24,6 +24,20 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, _
  * <p>Deletes a directory. Only disabled directories can be deleted. A deleted directory cannot be undone. Exercise extreme
  *         caution
  *         when deleting directories.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudDirectoryClient, DeleteDirectoryCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, DeleteDirectoryCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * const client = new CloudDirectoryClient(config);
+ * const command = new DeleteDirectoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDirectoryCommandInput} for command's `input` shape.
+ * @see {@link DeleteDirectoryCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDirectoryCommand extends $Command<
   DeleteDirectoryCommandInput,

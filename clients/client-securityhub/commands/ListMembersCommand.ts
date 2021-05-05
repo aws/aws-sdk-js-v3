@@ -25,6 +25,20 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  *          account.</p>
  *          <p>The results include both member accounts that belong to an organization and member
  *          accounts that were invited manually.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecurityHubClient, ListMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, ListMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * const client = new SecurityHubClient(config);
+ * const command = new ListMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMembersCommandInput} for command's `input` shape.
+ * @see {@link ListMembersCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMembersCommand extends $Command<
   ListMembersCommandInput,

@@ -22,6 +22,20 @@ export interface DeleteModelPackageGroupCommandOutput extends __MetadataBearer {
 
 /**
  * <p>Deletes the specified model group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, DeleteModelPackageGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DeleteModelPackageGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteModelPackageGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteModelPackageGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteModelPackageGroupCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteModelPackageGroupCommand extends $Command<
   DeleteModelPackageGroupCommandInput,

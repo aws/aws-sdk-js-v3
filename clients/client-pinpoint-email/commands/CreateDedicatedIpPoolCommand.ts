@@ -25,6 +25,20 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  *             IP addresses that are associated with your Amazon Pinpoint account. You can associate a pool with
  *             a configuration set. When you send an email that uses that configuration set, Amazon Pinpoint
  *             sends it using only the IP addresses in the associated pool.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointEmailClient, CreateDedicatedIpPoolCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
+ * // const { PinpointEmailClient, CreateDedicatedIpPoolCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * const client = new PinpointEmailClient(config);
+ * const command = new CreateDedicatedIpPoolCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDedicatedIpPoolCommandInput} for command's `input` shape.
+ * @see {@link CreateDedicatedIpPoolCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDedicatedIpPoolCommand extends $Command<
   CreateDedicatedIpPoolCommandInput,

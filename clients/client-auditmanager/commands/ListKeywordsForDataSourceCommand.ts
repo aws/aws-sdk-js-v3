@@ -24,6 +24,20 @@ export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForD
  * <p>
  * Returns a list of keywords that pre-mapped to the specified control data source.
  * </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AuditManagerClient, ListKeywordsForDataSourceCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
+ * // const { AuditManagerClient, ListKeywordsForDataSourceCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * const client = new AuditManagerClient(config);
+ * const command = new ListKeywordsForDataSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListKeywordsForDataSourceCommandInput} for command's `input` shape.
+ * @see {@link ListKeywordsForDataSourceCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListKeywordsForDataSourceCommand extends $Command<
   ListKeywordsForDataSourceCommandInput,

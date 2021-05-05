@@ -33,6 +33,9 @@ export interface AddPermissionRequest {
 }
 
 export namespace AddPermissionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddPermissionRequest): any => ({
     ...obj,
   });
@@ -50,6 +53,9 @@ export interface OverLimit extends __SmithyException, $MetadataBearer {
 }
 
 export namespace OverLimit {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OverLimit): any => ({
     ...obj,
   });
@@ -76,6 +82,9 @@ export interface ChangeMessageVisibilityRequest {
 }
 
 export namespace ChangeMessageVisibilityRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ChangeMessageVisibilityRequest): any => ({
     ...obj,
   });
@@ -90,6 +99,9 @@ export interface MessageNotInflight extends __SmithyException, $MetadataBearer {
 }
 
 export namespace MessageNotInflight {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MessageNotInflight): any => ({
     ...obj,
   });
@@ -104,6 +116,9 @@ export interface ReceiptHandleIsInvalid extends __SmithyException, $MetadataBear
 }
 
 export namespace ReceiptHandleIsInvalid {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReceiptHandleIsInvalid): any => ({
     ...obj,
   });
@@ -118,6 +133,9 @@ export interface BatchEntryIdsNotDistinct extends __SmithyException, $MetadataBe
 }
 
 export namespace BatchEntryIdsNotDistinct {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchEntryIdsNotDistinct): any => ({
     ...obj,
   });
@@ -162,6 +180,9 @@ export interface ChangeMessageVisibilityBatchRequestEntry {
 }
 
 export namespace ChangeMessageVisibilityBatchRequestEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ChangeMessageVisibilityBatchRequestEntry): any => ({
     ...obj,
   });
@@ -184,6 +205,9 @@ export interface ChangeMessageVisibilityBatchRequest {
 }
 
 export namespace ChangeMessageVisibilityBatchRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ChangeMessageVisibilityBatchRequest): any => ({
     ...obj,
   });
@@ -216,6 +240,9 @@ export interface BatchResultErrorEntry {
 }
 
 export namespace BatchResultErrorEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchResultErrorEntry): any => ({
     ...obj,
   });
@@ -234,6 +261,9 @@ export interface ChangeMessageVisibilityBatchResultEntry {
 }
 
 export namespace ChangeMessageVisibilityBatchResultEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ChangeMessageVisibilityBatchResultEntry): any => ({
     ...obj,
   });
@@ -263,6 +293,9 @@ export interface ChangeMessageVisibilityBatchResult {
 }
 
 export namespace ChangeMessageVisibilityBatchResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ChangeMessageVisibilityBatchResult): any => ({
     ...obj,
   });
@@ -277,6 +310,9 @@ export interface EmptyBatchRequest extends __SmithyException, $MetadataBearer {
 }
 
 export namespace EmptyBatchRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EmptyBatchRequest): any => ({
     ...obj,
   });
@@ -291,6 +327,9 @@ export interface InvalidBatchEntryId extends __SmithyException, $MetadataBearer 
 }
 
 export namespace InvalidBatchEntryId {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidBatchEntryId): any => ({
     ...obj,
   });
@@ -305,6 +344,9 @@ export interface TooManyEntriesInBatchRequest extends __SmithyException, $Metada
 }
 
 export namespace TooManyEntriesInBatchRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyEntriesInBatchRequest): any => ({
     ...obj,
   });
@@ -566,6 +608,9 @@ export interface CreateQueueRequest {
 }
 
 export namespace CreateQueueRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateQueueRequest): any => ({
     ...obj,
   });
@@ -582,6 +627,9 @@ export interface CreateQueueResult {
 }
 
 export namespace CreateQueueResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateQueueResult): any => ({
     ...obj,
   });
@@ -597,6 +645,9 @@ export interface QueueDeletedRecently extends __SmithyException, $MetadataBearer
 }
 
 export namespace QueueDeletedRecently {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueueDeletedRecently): any => ({
     ...obj,
   });
@@ -612,6 +663,9 @@ export interface QueueNameExists extends __SmithyException, $MetadataBearer {
 }
 
 export namespace QueueNameExists {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueueNameExists): any => ({
     ...obj,
   });
@@ -634,6 +688,9 @@ export interface DeleteMessageRequest {
 }
 
 export namespace DeleteMessageRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteMessageRequest): any => ({
     ...obj,
   });
@@ -648,6 +705,9 @@ export interface InvalidIdFormat extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidIdFormat {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidIdFormat): any => ({
     ...obj,
   });
@@ -673,6 +733,9 @@ export interface DeleteMessageBatchRequestEntry {
 }
 
 export namespace DeleteMessageBatchRequestEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteMessageBatchRequestEntry): any => ({
     ...obj,
   });
@@ -695,6 +758,9 @@ export interface DeleteMessageBatchRequest {
 }
 
 export namespace DeleteMessageBatchRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteMessageBatchRequest): any => ({
     ...obj,
   });
@@ -713,6 +779,9 @@ export interface DeleteMessageBatchResultEntry {
 }
 
 export namespace DeleteMessageBatchResultEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteMessageBatchResultEntry): any => ({
     ...obj,
   });
@@ -742,6 +811,9 @@ export interface DeleteMessageBatchResult {
 }
 
 export namespace DeleteMessageBatchResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteMessageBatchResult): any => ({
     ...obj,
   });
@@ -759,6 +831,9 @@ export interface DeleteQueueRequest {
 }
 
 export namespace DeleteQueueRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteQueueRequest): any => ({
     ...obj,
   });
@@ -965,6 +1040,9 @@ export interface GetQueueAttributesRequest {
 }
 
 export namespace GetQueueAttributesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetQueueAttributesRequest): any => ({
     ...obj,
   });
@@ -981,6 +1059,9 @@ export interface GetQueueAttributesResult {
 }
 
 export namespace GetQueueAttributesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetQueueAttributesResult): any => ({
     ...obj,
   });
@@ -995,6 +1076,9 @@ export interface InvalidAttributeName extends __SmithyException, $MetadataBearer
 }
 
 export namespace InvalidAttributeName {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidAttributeName): any => ({
     ...obj,
   });
@@ -1017,6 +1101,9 @@ export interface GetQueueUrlRequest {
 }
 
 export namespace GetQueueUrlRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetQueueUrlRequest): any => ({
     ...obj,
   });
@@ -1033,6 +1120,9 @@ export interface GetQueueUrlResult {
 }
 
 export namespace GetQueueUrlResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetQueueUrlResult): any => ({
     ...obj,
   });
@@ -1047,6 +1137,9 @@ export interface QueueDoesNotExist extends __SmithyException, $MetadataBearer {
 }
 
 export namespace QueueDoesNotExist {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueueDoesNotExist): any => ({
     ...obj,
   });
@@ -1075,6 +1168,9 @@ export interface ListDeadLetterSourceQueuesRequest {
 }
 
 export namespace ListDeadLetterSourceQueuesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDeadLetterSourceQueuesRequest): any => ({
     ...obj,
   });
@@ -1097,6 +1193,9 @@ export interface ListDeadLetterSourceQueuesResult {
 }
 
 export namespace ListDeadLetterSourceQueuesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDeadLetterSourceQueuesResult): any => ({
     ...obj,
   });
@@ -1125,6 +1224,9 @@ export interface ListQueuesRequest {
 }
 
 export namespace ListQueuesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListQueuesRequest): any => ({
     ...obj,
   });
@@ -1147,6 +1249,9 @@ export interface ListQueuesResult {
 }
 
 export namespace ListQueuesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListQueuesResult): any => ({
     ...obj,
   });
@@ -1160,6 +1265,9 @@ export interface ListQueueTagsRequest {
 }
 
 export namespace ListQueueTagsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListQueueTagsRequest): any => ({
     ...obj,
   });
@@ -1173,6 +1281,9 @@ export interface ListQueueTagsResult {
 }
 
 export namespace ListQueueTagsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListQueueTagsResult): any => ({
     ...obj,
   });
@@ -1187,6 +1298,9 @@ export interface PurgeQueueInProgress extends __SmithyException, $MetadataBearer
 }
 
 export namespace PurgeQueueInProgress {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PurgeQueueInProgress): any => ({
     ...obj,
   });
@@ -1204,6 +1318,9 @@ export interface PurgeQueueRequest {
 }
 
 export namespace PurgeQueueRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PurgeQueueRequest): any => ({
     ...obj,
   });
@@ -1378,6 +1495,9 @@ export interface ReceiveMessageRequest {
 }
 
 export namespace ReceiveMessageRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReceiveMessageRequest): any => ({
     ...obj,
   });
@@ -1429,6 +1549,9 @@ export interface MessageAttributeValue {
 }
 
 export namespace MessageAttributeValue {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MessageAttributeValue): any => ({
     ...obj,
   });
@@ -1518,6 +1641,9 @@ export interface Message {
 }
 
 export namespace Message {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Message): any => ({
     ...obj,
   });
@@ -1534,6 +1660,9 @@ export interface ReceiveMessageResult {
 }
 
 export namespace ReceiveMessageResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReceiveMessageResult): any => ({
     ...obj,
   });
@@ -1558,6 +1687,9 @@ export interface RemovePermissionRequest {
 }
 
 export namespace RemovePermissionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemovePermissionRequest): any => ({
     ...obj,
   });
@@ -1572,6 +1704,9 @@ export interface InvalidMessageContents extends __SmithyException, $MetadataBear
 }
 
 export namespace InvalidMessageContents {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidMessageContents): any => ({
     ...obj,
   });
@@ -1615,6 +1750,9 @@ export interface MessageSystemAttributeValue {
 }
 
 export namespace MessageSystemAttributeValue {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MessageSystemAttributeValue): any => ({
     ...obj,
   });
@@ -1758,6 +1896,9 @@ export interface SendMessageRequest {
 }
 
 export namespace SendMessageRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendMessageRequest): any => ({
     ...obj,
   });
@@ -1798,6 +1939,9 @@ export interface SendMessageResult {
 }
 
 export namespace SendMessageResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendMessageResult): any => ({
     ...obj,
   });
@@ -1812,6 +1956,9 @@ export interface UnsupportedOperation extends __SmithyException, $MetadataBearer
 }
 
 export namespace UnsupportedOperation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedOperation): any => ({
     ...obj,
   });
@@ -1826,6 +1973,9 @@ export interface BatchRequestTooLong extends __SmithyException, $MetadataBearer 
 }
 
 export namespace BatchRequestTooLong {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchRequestTooLong): any => ({
     ...obj,
   });
@@ -1965,6 +2115,9 @@ export interface SendMessageBatchRequestEntry {
 }
 
 export namespace SendMessageBatchRequestEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendMessageBatchRequestEntry): any => ({
     ...obj,
   });
@@ -1989,6 +2142,9 @@ export interface SendMessageBatchRequest {
 }
 
 export namespace SendMessageBatchRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendMessageBatchRequest): any => ({
     ...obj,
   });
@@ -2034,6 +2190,9 @@ export interface SendMessageBatchResultEntry {
 }
 
 export namespace SendMessageBatchResultEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendMessageBatchResultEntry): any => ({
     ...obj,
   });
@@ -2063,6 +2222,9 @@ export interface SendMessageBatchResult {
 }
 
 export namespace SendMessageBatchResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendMessageBatchResult): any => ({
     ...obj,
   });
@@ -2256,6 +2418,9 @@ export interface SetQueueAttributesRequest {
 }
 
 export namespace SetQueueAttributesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetQueueAttributesRequest): any => ({
     ...obj,
   });
@@ -2274,6 +2439,9 @@ export interface TagQueueRequest {
 }
 
 export namespace TagQueueRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagQueueRequest): any => ({
     ...obj,
   });
@@ -2292,6 +2460,9 @@ export interface UntagQueueRequest {
 }
 
 export namespace UntagQueueRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagQueueRequest): any => ({
     ...obj,
   });

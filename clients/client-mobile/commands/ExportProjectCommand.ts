@@ -26,6 +26,20 @@ export interface ExportProjectCommandOutput extends ExportProjectResult, __Metad
  *             Note that mobile app push credentials are encrypted in exported projects, so they
  *             can only be shared successfully within the same AWS account.
  *         </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MobileClient, ExportProjectCommand } from "@aws-sdk/client-mobile"; // ES Modules import
+ * // const { MobileClient, ExportProjectCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
+ * const client = new MobileClient(config);
+ * const command = new ExportProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ExportProjectCommandInput} for command's `input` shape.
+ * @see {@link ExportProjectCommandOutput} for command's `response` shape.
+ * @see {@link MobileClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ExportProjectCommand extends $Command<
   ExportProjectCommandInput,

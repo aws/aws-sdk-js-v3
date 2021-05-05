@@ -26,6 +26,20 @@ export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, _
  *          recovery points for resources.</p>
  *          <p>If you call <code>CreateBackupPlan</code> with a plan that already exists, an
  *             <code>AlreadyExistsException</code> is returned.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BackupClient, CreateBackupPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, CreateBackupPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * const client = new BackupClient(config);
+ * const command = new CreateBackupPlanCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateBackupPlanCommandInput} for command's `input` shape.
+ * @see {@link CreateBackupPlanCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateBackupPlanCommand extends $Command<
   CreateBackupPlanCommandInput,

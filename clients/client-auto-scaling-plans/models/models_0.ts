@@ -12,6 +12,9 @@ export interface ConcurrentUpdateException extends __SmithyException, $MetadataB
 }
 
 export namespace ConcurrentUpdateException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConcurrentUpdateException): any => ({
     ...obj,
   });
@@ -33,6 +36,9 @@ export interface TagFilter {
 }
 
 export namespace TagFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagFilter): any => ({
     ...obj,
   });
@@ -54,6 +60,9 @@ export interface ApplicationSource {
 }
 
 export namespace ApplicationSource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ApplicationSource): any => ({
     ...obj,
   });
@@ -75,6 +84,9 @@ export interface MetricDimension {
 }
 
 export namespace MetricDimension {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MetricDimension): any => ({
     ...obj,
   });
@@ -144,6 +156,9 @@ export interface CustomizedLoadMetricSpecification {
 }
 
 export namespace CustomizedLoadMetricSpecification {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomizedLoadMetricSpecification): any => ({
     ...obj,
   });
@@ -197,6 +212,9 @@ export interface PredefinedLoadMetricSpecification {
 }
 
 export namespace PredefinedLoadMetricSpecification {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PredefinedLoadMetricSpecification): any => ({
     ...obj,
   });
@@ -288,6 +306,9 @@ export interface CustomizedScalingMetricSpecification {
 }
 
 export namespace CustomizedScalingMetricSpecification {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomizedScalingMetricSpecification): any => ({
     ...obj,
   });
@@ -349,6 +370,9 @@ export interface PredefinedScalingMetricSpecification {
 }
 
 export namespace PredefinedScalingMetricSpecification {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PredefinedScalingMetricSpecification): any => ({
     ...obj,
   });
@@ -418,6 +442,9 @@ export interface TargetTrackingConfiguration {
 }
 
 export namespace TargetTrackingConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TargetTrackingConfiguration): any => ({
     ...obj,
   });
@@ -634,6 +661,9 @@ export interface ScalingInstruction {
 }
 
 export namespace ScalingInstruction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ScalingInstruction): any => ({
     ...obj,
   });
@@ -661,6 +691,9 @@ export interface CreateScalingPlanRequest {
 }
 
 export namespace CreateScalingPlanRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateScalingPlanRequest): any => ({
     ...obj,
   });
@@ -675,6 +708,9 @@ export interface CreateScalingPlanResponse {
 }
 
 export namespace CreateScalingPlanResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateScalingPlanResponse): any => ({
     ...obj,
   });
@@ -690,6 +726,9 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
 }
 
 export namespace InternalServiceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
@@ -706,6 +745,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -721,6 +763,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -740,6 +785,9 @@ export interface DeleteScalingPlanRequest {
 }
 
 export namespace DeleteScalingPlanRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteScalingPlanRequest): any => ({
     ...obj,
   });
@@ -748,6 +796,9 @@ export namespace DeleteScalingPlanRequest {
 export interface DeleteScalingPlanResponse {}
 
 export namespace DeleteScalingPlanResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteScalingPlanResponse): any => ({
     ...obj,
   });
@@ -763,6 +814,9 @@ export interface ObjectNotFoundException extends __SmithyException, $MetadataBea
 }
 
 export namespace ObjectNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ObjectNotFoundException): any => ({
     ...obj,
   });
@@ -793,6 +847,9 @@ export interface DescribeScalingPlanResourcesRequest {
 }
 
 export namespace DescribeScalingPlanResourcesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeScalingPlanResourcesRequest): any => ({
     ...obj,
   });
@@ -824,6 +881,9 @@ export interface ScalingPolicy {
 }
 
 export namespace ScalingPolicy {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ScalingPolicy): any => ({
     ...obj,
   });
@@ -960,6 +1020,9 @@ export interface ScalingPlanResource {
 }
 
 export namespace ScalingPlanResource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ScalingPlanResource): any => ({
     ...obj,
   });
@@ -979,6 +1042,9 @@ export interface DescribeScalingPlanResourcesResponse {
 }
 
 export namespace DescribeScalingPlanResourcesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeScalingPlanResourcesResponse): any => ({
     ...obj,
   });
@@ -994,6 +1060,9 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidNextTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
@@ -1035,6 +1104,9 @@ export interface DescribeScalingPlansRequest {
 }
 
 export namespace DescribeScalingPlansRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeScalingPlansRequest): any => ({
     ...obj,
   });
@@ -1133,6 +1205,9 @@ export interface ScalingPlan {
 }
 
 export namespace ScalingPlan {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ScalingPlan): any => ({
     ...obj,
   });
@@ -1152,6 +1227,9 @@ export interface DescribeScalingPlansResponse {
 }
 
 export namespace DescribeScalingPlansResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeScalingPlansResponse): any => ({
     ...obj,
   });
@@ -1239,6 +1317,9 @@ export interface GetScalingPlanResourceForecastDataRequest {
 }
 
 export namespace GetScalingPlanResourceForecastDataRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetScalingPlanResourceForecastDataRequest): any => ({
     ...obj,
   });
@@ -1260,6 +1341,9 @@ export interface Datapoint {
 }
 
 export namespace Datapoint {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Datapoint): any => ({
     ...obj,
   });
@@ -1273,6 +1357,9 @@ export interface GetScalingPlanResourceForecastDataResponse {
 }
 
 export namespace GetScalingPlanResourceForecastDataResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetScalingPlanResourceForecastDataResponse): any => ({
     ...obj,
   });
@@ -1304,6 +1391,9 @@ export interface UpdateScalingPlanRequest {
 }
 
 export namespace UpdateScalingPlanRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateScalingPlanRequest): any => ({
     ...obj,
   });
@@ -1312,6 +1402,9 @@ export namespace UpdateScalingPlanRequest {
 export interface UpdateScalingPlanResponse {}
 
 export namespace UpdateScalingPlanResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateScalingPlanResponse): any => ({
     ...obj,
   });

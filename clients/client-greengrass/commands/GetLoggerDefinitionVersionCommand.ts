@@ -22,6 +22,20 @@ export interface GetLoggerDefinitionVersionCommandOutput extends GetLoggerDefini
 
 /**
  * Retrieves information about a logger definition version.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassClient, GetLoggerDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, GetLoggerDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * const client = new GreengrassClient(config);
+ * const command = new GetLoggerDefinitionVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLoggerDefinitionVersionCommandInput} for command's `input` shape.
+ * @see {@link GetLoggerDefinitionVersionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLoggerDefinitionVersionCommand extends $Command<
   GetLoggerDefinitionVersionCommandInput,

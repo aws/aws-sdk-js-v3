@@ -19,6 +19,9 @@ export interface UntagPolicyRequest {
 }
 
 export namespace UntagPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagPolicyRequest): any => ({
     ...obj,
   });
@@ -40,6 +43,9 @@ export interface UntagRoleRequest {
 }
 
 export namespace UntagRoleRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagRoleRequest): any => ({
     ...obj,
   });
@@ -62,6 +68,9 @@ export interface UntagSAMLProviderRequest {
 }
 
 export namespace UntagSAMLProviderRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagSAMLProviderRequest): any => ({
     ...obj,
   });
@@ -83,6 +92,9 @@ export interface UntagServerCertificateRequest {
 }
 
 export namespace UntagServerCertificateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagServerCertificateRequest): any => ({
     ...obj,
   });
@@ -104,6 +116,9 @@ export interface UntagUserRequest {
 }
 
 export namespace UntagUserRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagUserRequest): any => ({
     ...obj,
   });
@@ -133,6 +148,9 @@ export interface UpdateAccessKeyRequest {
 }
 
 export namespace UpdateAccessKeyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAccessKeyRequest): any => ({
     ...obj,
   });
@@ -220,6 +238,9 @@ export interface UpdateAccountPasswordPolicyRequest {
 }
 
 export namespace UpdateAccountPasswordPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAccountPasswordPolicyRequest): any => ({
     ...obj,
   });
@@ -260,6 +281,9 @@ export interface UpdateAssumeRolePolicyRequest {
 }
 
 export namespace UpdateAssumeRolePolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAssumeRolePolicyRequest): any => ({
     ...obj,
   });
@@ -293,6 +317,9 @@ export interface UpdateGroupRequest {
 }
 
 export namespace UpdateGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGroupRequest): any => ({
     ...obj,
   });
@@ -337,6 +364,9 @@ export interface UpdateLoginProfileRequest {
 }
 
 export namespace UpdateLoginProfileRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateLoginProfileRequest): any => ({
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
@@ -360,6 +390,9 @@ export interface UpdateOpenIDConnectProviderThumbprintRequest {
 }
 
 export namespace UpdateOpenIDConnectProviderThumbprintRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateOpenIDConnectProviderThumbprintRequest): any => ({
     ...obj,
   });
@@ -395,6 +428,9 @@ export interface UpdateRoleRequest {
 }
 
 export namespace UpdateRoleRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateRoleRequest): any => ({
     ...obj,
   });
@@ -403,6 +439,9 @@ export namespace UpdateRoleRequest {
 export interface UpdateRoleResponse {}
 
 export namespace UpdateRoleResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateRoleResponse): any => ({
     ...obj,
   });
@@ -421,6 +460,9 @@ export interface UpdateRoleDescriptionRequest {
 }
 
 export namespace UpdateRoleDescriptionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateRoleDescriptionRequest): any => ({
     ...obj,
   });
@@ -434,6 +476,9 @@ export interface UpdateRoleDescriptionResponse {
 }
 
 export namespace UpdateRoleDescriptionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateRoleDescriptionResponse): any => ({
     ...obj,
   });
@@ -457,6 +502,9 @@ export interface UpdateSAMLProviderRequest {
 }
 
 export namespace UpdateSAMLProviderRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSAMLProviderRequest): any => ({
     ...obj,
   });
@@ -474,6 +522,9 @@ export interface UpdateSAMLProviderResponse {
 }
 
 export namespace UpdateSAMLProviderResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSAMLProviderResponse): any => ({
     ...obj,
   });
@@ -507,6 +558,9 @@ export interface UpdateServerCertificateRequest {
 }
 
 export namespace UpdateServerCertificateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateServerCertificateRequest): any => ({
     ...obj,
   });
@@ -536,6 +590,9 @@ export interface UpdateServiceSpecificCredentialRequest {
 }
 
 export namespace UpdateServiceSpecificCredentialRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateServiceSpecificCredentialRequest): any => ({
     ...obj,
   });
@@ -565,6 +622,9 @@ export interface UpdateSigningCertificateRequest {
 }
 
 export namespace UpdateSigningCertificateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSigningCertificateRequest): any => ({
     ...obj,
   });
@@ -594,6 +654,9 @@ export interface UpdateSSHPublicKeyRequest {
 }
 
 export namespace UpdateSSHPublicKeyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSSHPublicKeyRequest): any => ({
     ...obj,
   });
@@ -629,6 +692,9 @@ export interface UpdateUserRequest {
 }
 
 export namespace UpdateUserRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
     ...obj,
   });
@@ -645,6 +711,9 @@ export interface KeyPairMismatchException extends __SmithyException, $MetadataBe
 }
 
 export namespace KeyPairMismatchException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KeyPairMismatchException): any => ({
     ...obj,
   });
@@ -661,6 +730,9 @@ export interface MalformedCertificateException extends __SmithyException, $Metad
 }
 
 export namespace MalformedCertificateException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MalformedCertificateException): any => ({
     ...obj,
   });
@@ -769,6 +841,9 @@ export interface UploadServerCertificateRequest {
 }
 
 export namespace UploadServerCertificateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UploadServerCertificateRequest): any => ({
     ...obj,
     ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
@@ -795,6 +870,9 @@ export interface UploadServerCertificateResponse {
 }
 
 export namespace UploadServerCertificateResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UploadServerCertificateResponse): any => ({
     ...obj,
   });
@@ -811,6 +889,9 @@ export interface DuplicateCertificateException extends __SmithyException, $Metad
 }
 
 export namespace DuplicateCertificateException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicateCertificateException): any => ({
     ...obj,
   });
@@ -826,6 +907,9 @@ export interface InvalidCertificateException extends __SmithyException, $Metadat
 }
 
 export namespace InvalidCertificateException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidCertificateException): any => ({
     ...obj,
   });
@@ -862,6 +946,9 @@ export interface UploadSigningCertificateRequest {
 }
 
 export namespace UploadSigningCertificateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UploadSigningCertificateRequest): any => ({
     ...obj,
   });
@@ -879,6 +966,9 @@ export interface UploadSigningCertificateResponse {
 }
 
 export namespace UploadSigningCertificateResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UploadSigningCertificateResponse): any => ({
     ...obj,
   });
@@ -895,6 +985,9 @@ export interface DuplicateSSHPublicKeyException extends __SmithyException, $Meta
 }
 
 export namespace DuplicateSSHPublicKeyException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicateSSHPublicKeyException): any => ({
     ...obj,
   });
@@ -910,6 +1003,9 @@ export interface InvalidPublicKeyException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidPublicKeyException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidPublicKeyException): any => ({
     ...obj,
   });
@@ -948,6 +1044,9 @@ export interface UploadSSHPublicKeyRequest {
 }
 
 export namespace UploadSSHPublicKeyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UploadSSHPublicKeyRequest): any => ({
     ...obj,
   });
@@ -965,6 +1064,9 @@ export interface UploadSSHPublicKeyResponse {
 }
 
 export namespace UploadSSHPublicKeyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UploadSSHPublicKeyResponse): any => ({
     ...obj,
   });

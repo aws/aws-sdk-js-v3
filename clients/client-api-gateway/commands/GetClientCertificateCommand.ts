@@ -22,6 +22,20 @@ export interface GetClientCertificateCommandOutput extends ClientCertificate, __
 
 /**
  * <p>Gets information about the current <a>ClientCertificate</a> resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, GetClientCertificateCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, GetClientCertificateCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new GetClientCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetClientCertificateCommandInput} for command's `input` shape.
+ * @see {@link GetClientCertificateCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetClientCertificateCommand extends $Command<
   GetClientCertificateCommandInput,

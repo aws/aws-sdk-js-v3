@@ -26,6 +26,20 @@ export interface RenewCertificateCommandOutput extends __MetadataBearer {}
  *       first <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html">grant the ACM
  *         service principal permission to do so</a>. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html">Testing Managed Renewal</a>
  *       in the ACM User Guide.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ACMClient, RenewCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
+ * // const { ACMClient, RenewCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
+ * const client = new ACMClient(config);
+ * const command = new RenewCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RenewCertificateCommandInput} for command's `input` shape.
+ * @see {@link RenewCertificateCommandOutput} for command's `response` shape.
+ * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RenewCertificateCommand extends $Command<
   RenewCertificateCommandInput,

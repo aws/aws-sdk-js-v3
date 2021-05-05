@@ -22,6 +22,20 @@ export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __M
 
 /**
  * <p>Retrieves a paginated list of dashboards for an AWS IoT SiteWise Monitor project.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTSiteWiseClient, ListDashboardsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, ListDashboardsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new ListDashboardsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDashboardsCommandInput} for command's `input` shape.
+ * @see {@link ListDashboardsCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDashboardsCommand extends $Command<
   ListDashboardsCommandInput,

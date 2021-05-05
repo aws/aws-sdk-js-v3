@@ -49,6 +49,20 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  * 		       <p>When you use <code>PutMetricStream</code> to create a new metric stream, the stream
  * 		is created in the <code>running</code> state. If you use it to update an existing stream,
  * 		the state of the stream is not changed.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchClient, PutMetricStreamCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
+ * // const { CloudWatchClient, PutMetricStreamCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * const client = new CloudWatchClient(config);
+ * const command = new PutMetricStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutMetricStreamCommandInput} for command's `input` shape.
+ * @see {@link PutMetricStreamCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutMetricStreamCommand extends $Command<
   PutMetricStreamCommandInput,

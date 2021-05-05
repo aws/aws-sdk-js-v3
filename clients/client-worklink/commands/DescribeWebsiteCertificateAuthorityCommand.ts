@@ -27,6 +27,20 @@ export interface DescribeWebsiteCertificateAuthorityCommandOutput
 
 /**
  * <p>Provides information about the certificate authority.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkLinkClient, DescribeWebsiteCertificateAuthorityCommand } from "@aws-sdk/client-worklink"; // ES Modules import
+ * // const { WorkLinkClient, DescribeWebsiteCertificateAuthorityCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * const client = new WorkLinkClient(config);
+ * const command = new DescribeWebsiteCertificateAuthorityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeWebsiteCertificateAuthorityCommandInput} for command's `input` shape.
+ * @see {@link DescribeWebsiteCertificateAuthorityCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeWebsiteCertificateAuthorityCommand extends $Command<
   DescribeWebsiteCertificateAuthorityCommandInput,

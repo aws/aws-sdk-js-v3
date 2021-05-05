@@ -31,6 +31,20 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *         <p> When you reset the entire group, dynamic parameters are updated immediately and
  *             static parameters are set to <code>pending-reboot</code> to take effect on the next DB
  *             instance reboot.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DocDBClient, ResetDBClusterParameterGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, ResetDBClusterParameterGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
+ * const client = new DocDBClient(config);
+ * const command = new ResetDBClusterParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResetDBClusterParameterGroupCommandInput} for command's `input` shape.
+ * @see {@link ResetDBClusterParameterGroupCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResetDBClusterParameterGroupCommand extends $Command<
   ResetDBClusterParameterGroupCommandInput,

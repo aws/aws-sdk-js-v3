@@ -38,6 +38,20 @@ export interface CreateTrialComponentCommandOutput extends CreateTrialComponentR
  *         notebooks. A call to <code>CreateTrialComponent</code> from outside one of these
  *         environments results in an error.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, CreateTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, CreateTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new CreateTrialComponentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTrialComponentCommandInput} for command's `input` shape.
+ * @see {@link CreateTrialComponentCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTrialComponentCommand extends $Command<
   CreateTrialComponentCommandInput,

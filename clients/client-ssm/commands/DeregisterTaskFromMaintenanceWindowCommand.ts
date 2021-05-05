@@ -27,6 +27,20 @@ export interface DeregisterTaskFromMaintenanceWindowCommandOutput
 
 /**
  * <p>Removes a task from a maintenance window.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, DeregisterTaskFromMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DeregisterTaskFromMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new DeregisterTaskFromMaintenanceWindowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterTaskFromMaintenanceWindowCommandInput} for command's `input` shape.
+ * @see {@link DeregisterTaskFromMaintenanceWindowCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterTaskFromMaintenanceWindowCommand extends $Command<
   DeregisterTaskFromMaintenanceWindowCommandInput,

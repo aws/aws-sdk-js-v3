@@ -33,6 +33,20 @@ export interface StartSupportDataExportCommandOutput extends StartSupportDataExp
  *         be overwritten by the new file.
  *         Requires a Role with an attached permissions policy providing Allow permissions for the following actions:
  *         s3:PutObject, s3:GetBucketLocation, sns:GetTopicAttributes, sns:Publish, iam:GetRolePolicy.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MarketplaceCommerceAnalyticsClient, StartSupportDataExportCommand } from "@aws-sdk/client-marketplace-commerce-analytics"; // ES Modules import
+ * // const { MarketplaceCommerceAnalyticsClient, StartSupportDataExportCommand } = require("@aws-sdk/client-marketplace-commerce-analytics"); // CommonJS import
+ * const client = new MarketplaceCommerceAnalyticsClient(config);
+ * const command = new StartSupportDataExportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartSupportDataExportCommandInput} for command's `input` shape.
+ * @see {@link StartSupportDataExportCommandOutput} for command's `response` shape.
+ * @see {@link MarketplaceCommerceAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartSupportDataExportCommand extends $Command<
   StartSupportDataExportCommandInput,

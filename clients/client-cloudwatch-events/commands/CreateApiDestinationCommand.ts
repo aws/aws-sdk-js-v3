@@ -23,6 +23,20 @@ export interface CreateApiDestinationCommandOutput extends CreateApiDestinationR
 /**
  * <p>Creates an API destination, which is an HTTP invocation endpoint configured as a target
  *       for events.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchEventsClient, CreateApiDestinationCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
+ * // const { CloudWatchEventsClient, CreateApiDestinationCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * const client = new CloudWatchEventsClient(config);
+ * const command = new CreateApiDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateApiDestinationCommandInput} for command's `input` shape.
+ * @see {@link CreateApiDestinationCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateApiDestinationCommand extends $Command<
   CreateApiDestinationCommandInput,

@@ -19,6 +19,20 @@ export interface GetAppCommandOutput extends GetAppResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve information about the specified application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SMSClient, GetAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
+ * // const { SMSClient, GetAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * const client = new SMSClient(config);
+ * const command = new GetAppCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAppCommandInput} for command's `input` shape.
+ * @see {@link GetAppCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOutput, SMSClientResolvedConfig> {
   // Start section: command_properties

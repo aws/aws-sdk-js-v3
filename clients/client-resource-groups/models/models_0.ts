@@ -11,6 +11,9 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace BadRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
@@ -38,6 +41,9 @@ export interface GroupConfigurationParameter {
 }
 
 export namespace GroupConfigurationParameter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GroupConfigurationParameter): any => ({
     ...obj,
   });
@@ -66,6 +72,9 @@ export interface GroupConfigurationItem {
 }
 
 export namespace GroupConfigurationItem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GroupConfigurationItem): any => ({
     ...obj,
   });
@@ -259,6 +268,9 @@ export interface ResourceQuery {
 }
 
 export namespace ResourceQuery {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceQuery): any => ({
     ...obj,
   });
@@ -311,6 +323,9 @@ export interface CreateGroupInput {
 }
 
 export namespace CreateGroupInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateGroupInput): any => ({
     ...obj,
   });
@@ -353,6 +368,9 @@ export interface Group {
 }
 
 export namespace Group {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Group): any => ({
     ...obj,
   });
@@ -396,6 +414,9 @@ export interface GroupConfiguration {
 }
 
 export namespace GroupConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GroupConfiguration): any => ({
     ...obj,
   });
@@ -428,6 +449,9 @@ export interface CreateGroupOutput {
 }
 
 export namespace CreateGroupOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateGroupOutput): any => ({
     ...obj,
   });
@@ -443,6 +467,9 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
@@ -458,6 +485,9 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
 }
 
 export namespace InternalServerErrorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
     ...obj,
   });
@@ -473,6 +503,9 @@ export interface MethodNotAllowedException extends __SmithyException, $MetadataB
 }
 
 export namespace MethodNotAllowedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MethodNotAllowedException): any => ({
     ...obj,
   });
@@ -489,6 +522,9 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
 }
 
 export namespace TooManyRequestsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
@@ -509,6 +545,9 @@ export interface DeleteGroupInput {
 }
 
 export namespace DeleteGroupInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteGroupInput): any => ({
     ...obj,
   });
@@ -522,6 +561,9 @@ export interface DeleteGroupOutput {
 }
 
 export namespace DeleteGroupOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteGroupOutput): any => ({
     ...obj,
   });
@@ -537,6 +579,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
@@ -557,6 +602,9 @@ export interface GetGroupInput {
 }
 
 export namespace GetGroupInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetGroupInput): any => ({
     ...obj,
   });
@@ -570,6 +618,9 @@ export interface GetGroupOutput {
 }
 
 export namespace GetGroupOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetGroupOutput): any => ({
     ...obj,
   });
@@ -583,6 +634,9 @@ export interface GetGroupConfigurationInput {
 }
 
 export namespace GetGroupConfigurationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetGroupConfigurationInput): any => ({
     ...obj,
   });
@@ -598,6 +652,9 @@ export interface GetGroupConfigurationOutput {
 }
 
 export namespace GetGroupConfigurationOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetGroupConfigurationOutput): any => ({
     ...obj,
   });
@@ -618,6 +675,9 @@ export interface GetGroupQueryInput {
 }
 
 export namespace GetGroupQueryInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetGroupQueryInput): any => ({
     ...obj,
   });
@@ -642,6 +702,9 @@ export interface GroupQuery {
 }
 
 export namespace GroupQuery {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GroupQuery): any => ({
     ...obj,
   });
@@ -657,6 +720,9 @@ export interface GetGroupQueryOutput {
 }
 
 export namespace GetGroupQueryOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetGroupQueryOutput): any => ({
     ...obj,
   });
@@ -670,6 +736,9 @@ export interface GetTagsInput {
 }
 
 export namespace GetTagsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTagsInput): any => ({
     ...obj,
   });
@@ -688,6 +757,9 @@ export interface GetTagsOutput {
 }
 
 export namespace GetTagsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTagsOutput): any => ({
     ...obj,
   });
@@ -706,6 +778,9 @@ export interface GroupResourcesInput {
 }
 
 export namespace GroupResourcesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GroupResourcesInput): any => ({
     ...obj,
   });
@@ -732,6 +807,9 @@ export interface FailedResource {
 }
 
 export namespace FailedResource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FailedResource): any => ({
     ...obj,
   });
@@ -750,6 +828,9 @@ export interface PendingResource {
 }
 
 export namespace PendingResource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PendingResource): any => ({
     ...obj,
   });
@@ -780,6 +861,9 @@ export interface GroupResourcesOutput {
 }
 
 export namespace GroupResourcesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GroupResourcesOutput): any => ({
     ...obj,
   });
@@ -807,6 +891,9 @@ export interface ResourceFilter {
 }
 
 export namespace ResourceFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceFilter): any => ({
     ...obj,
   });
@@ -887,6 +974,9 @@ export interface ListGroupResourcesInput {
 }
 
 export namespace ListGroupResourcesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGroupResourcesInput): any => ({
     ...obj,
   });
@@ -923,6 +1013,9 @@ export interface QueryError {
 }
 
 export namespace QueryError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryError): any => ({
     ...obj,
   });
@@ -944,6 +1037,9 @@ export interface ResourceIdentifier {
 }
 
 export namespace ResourceIdentifier {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceIdentifier): any => ({
     ...obj,
   });
@@ -967,6 +1063,9 @@ export interface ResourceStatus {
 }
 
 export namespace ResourceStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceStatus): any => ({
     ...obj,
   });
@@ -995,6 +1094,9 @@ export interface ListGroupResourcesItem {
 }
 
 export namespace ListGroupResourcesItem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGroupResourcesItem): any => ({
     ...obj,
   });
@@ -1040,6 +1142,9 @@ export interface ListGroupResourcesOutput {
 }
 
 export namespace ListGroupResourcesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGroupResourcesOutput): any => ({
     ...obj,
   });
@@ -1056,6 +1161,9 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace UnauthorizedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj,
   });
@@ -1084,6 +1192,9 @@ export interface GroupFilter {
 }
 
 export namespace GroupFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GroupFilter): any => ({
     ...obj,
   });
@@ -1147,6 +1258,9 @@ export interface ListGroupsInput {
 }
 
 export namespace ListGroupsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGroupsInput): any => ({
     ...obj,
   });
@@ -1168,6 +1282,9 @@ export interface GroupIdentifier {
 }
 
 export namespace GroupIdentifier {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GroupIdentifier): any => ({
     ...obj,
   });
@@ -1205,6 +1322,9 @@ export interface ListGroupsOutput {
 }
 
 export namespace ListGroupsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGroupsOutput): any => ({
     ...obj,
   });
@@ -1232,6 +1352,9 @@ export interface PutGroupConfigurationInput {
 }
 
 export namespace PutGroupConfigurationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutGroupConfigurationInput): any => ({
     ...obj,
   });
@@ -1240,6 +1363,9 @@ export namespace PutGroupConfigurationInput {
 export interface PutGroupConfigurationOutput {}
 
 export namespace PutGroupConfigurationOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutGroupConfigurationOutput): any => ({
     ...obj,
   });
@@ -1274,6 +1400,9 @@ export interface SearchResourcesInput {
 }
 
 export namespace SearchResourcesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchResourcesInput): any => ({
     ...obj,
   });
@@ -1304,6 +1433,9 @@ export interface SearchResourcesOutput {
 }
 
 export namespace SearchResourcesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchResourcesOutput): any => ({
     ...obj,
   });
@@ -1323,6 +1455,9 @@ export interface TagInput {
 }
 
 export namespace TagInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagInput): any => ({
     ...obj,
   });
@@ -1341,6 +1476,9 @@ export interface TagOutput {
 }
 
 export namespace TagOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagOutput): any => ({
     ...obj,
   });
@@ -1359,6 +1497,9 @@ export interface UngroupResourcesInput {
 }
 
 export namespace UngroupResourcesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UngroupResourcesInput): any => ({
     ...obj,
   });
@@ -1389,6 +1530,9 @@ export interface UngroupResourcesOutput {
 }
 
 export namespace UngroupResourcesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UngroupResourcesOutput): any => ({
     ...obj,
   });
@@ -1408,6 +1552,9 @@ export interface UntagInput {
 }
 
 export namespace UntagInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagInput): any => ({
     ...obj,
   });
@@ -1426,6 +1573,9 @@ export interface UntagOutput {
 }
 
 export namespace UntagOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagOutput): any => ({
     ...obj,
   });
@@ -1452,6 +1602,9 @@ export interface UpdateGroupInput {
 }
 
 export namespace UpdateGroupInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGroupInput): any => ({
     ...obj,
   });
@@ -1465,6 +1618,9 @@ export interface UpdateGroupOutput {
 }
 
 export namespace UpdateGroupOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGroupOutput): any => ({
     ...obj,
   });
@@ -1495,6 +1651,9 @@ export interface UpdateGroupQueryInput {
 }
 
 export namespace UpdateGroupQueryInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGroupQueryInput): any => ({
     ...obj,
   });
@@ -1508,6 +1667,9 @@ export interface UpdateGroupQueryOutput {
 }
 
 export namespace UpdateGroupQueryOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGroupQueryOutput): any => ({
     ...obj,
   });

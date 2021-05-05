@@ -28,6 +28,20 @@ export interface ListProvisioningArtifactsForServiceActionCommandOutput
 
 /**
  * <p>Lists all provisioning artifacts (also known as versions) for the specified self-service action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, ListProvisioningArtifactsForServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, ListProvisioningArtifactsForServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new ListProvisioningArtifactsForServiceActionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProvisioningArtifactsForServiceActionCommandInput} for command's `input` shape.
+ * @see {@link ListProvisioningArtifactsForServiceActionCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProvisioningArtifactsForServiceActionCommand extends $Command<
   ListProvisioningArtifactsForServiceActionCommandInput,

@@ -23,6 +23,20 @@ export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Activates a partner event source that has been deactivated. Once activated, your matching
  *       event bus will start receiving events from the event source.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchEventsClient, ActivateEventSourceCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
+ * // const { CloudWatchEventsClient, ActivateEventSourceCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
+ * const client = new CloudWatchEventsClient(config);
+ * const command = new ActivateEventSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ActivateEventSourceCommandInput} for command's `input` shape.
+ * @see {@link ActivateEventSourceCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ActivateEventSourceCommand extends $Command<
   ActivateEventSourceCommandInput,

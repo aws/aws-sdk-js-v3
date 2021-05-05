@@ -23,6 +23,20 @@ export interface UpdateExperimentCommandOutput extends UpdateExperimentResponse,
 /**
  * <p>Adds, updates, or removes the description of an experiment. Updates the display name of an
  *       experiment.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, UpdateExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, UpdateExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new UpdateExperimentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateExperimentCommandInput} for command's `input` shape.
+ * @see {@link UpdateExperimentCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateExperimentCommand extends $Command<
   UpdateExperimentCommandInput,

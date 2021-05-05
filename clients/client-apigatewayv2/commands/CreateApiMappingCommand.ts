@@ -22,6 +22,20 @@ export interface CreateApiMappingCommandOutput extends CreateApiMappingResponse,
 
 /**
  * <p>Creates an API mapping.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApiGatewayV2Client, CreateApiMappingCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
+ * // const { ApiGatewayV2Client, CreateApiMappingCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new CreateApiMappingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateApiMappingCommandInput} for command's `input` shape.
+ * @see {@link CreateApiMappingCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateApiMappingCommand extends $Command<
   CreateApiMappingCommandInput,

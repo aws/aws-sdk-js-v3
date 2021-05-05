@@ -23,6 +23,20 @@ export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberRespo
 /**
  * <p>Moves a phone number from the <b>Deletion queue</b> back into the
  *             phone number <b>Inventory</b>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, RestorePhoneNumberCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, RestorePhoneNumberCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new RestorePhoneNumberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RestorePhoneNumberCommandInput} for command's `input` shape.
+ * @see {@link RestorePhoneNumberCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RestorePhoneNumberCommand extends $Command<
   RestorePhoneNumberCommandInput,

@@ -24,6 +24,20 @@ export interface UpdateQueueOutboundCallerConfigCommandOutput extends __Metadata
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the outbound caller ID name, number, and outbound whisper flow for a specified
  *    queue.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, UpdateQueueOutboundCallerConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, UpdateQueueOutboundCallerConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * const client = new ConnectClient(config);
+ * const command = new UpdateQueueOutboundCallerConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateQueueOutboundCallerConfigCommandInput} for command's `input` shape.
+ * @see {@link UpdateQueueOutboundCallerConfigCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateQueueOutboundCallerConfigCommand extends $Command<
   UpdateQueueOutboundCallerConfigCommandInput,

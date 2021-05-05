@@ -54,6 +54,9 @@ export interface Trait {
 }
 
 export namespace Trait {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Trait): any => ({
     ...obj,
   });
@@ -162,6 +165,9 @@ export interface Attribute {
 }
 
 export namespace Attribute {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Attribute): any => ({
     ...obj,
   });
@@ -177,6 +183,9 @@ export interface DescribeEntitiesDetectionV2JobRequest {
 }
 
 export namespace DescribeEntitiesDetectionV2JobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEntitiesDetectionV2JobRequest): any => ({
     ...obj,
   });
@@ -202,6 +211,9 @@ export interface InputDataConfig {
 }
 
 export namespace InputDataConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InputDataConfig): any => ({
     ...obj,
   });
@@ -242,6 +254,9 @@ export interface OutputDataConfig {
 }
 
 export namespace OutputDataConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OutputDataConfig): any => ({
     ...obj,
   });
@@ -329,6 +344,9 @@ export interface ComprehendMedicalAsyncJobProperties {
 }
 
 export namespace ComprehendMedicalAsyncJobProperties {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ComprehendMedicalAsyncJobProperties): any => ({
     ...obj,
   });
@@ -342,6 +360,9 @@ export interface DescribeEntitiesDetectionV2JobResponse {
 }
 
 export namespace DescribeEntitiesDetectionV2JobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEntitiesDetectionV2JobResponse): any => ({
     ...obj,
   });
@@ -357,6 +378,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -373,6 +397,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -389,6 +416,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -406,6 +436,9 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
 }
 
 export namespace TooManyRequestsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
@@ -420,6 +453,9 @@ export interface DescribeICD10CMInferenceJobRequest {
 }
 
 export namespace DescribeICD10CMInferenceJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeICD10CMInferenceJobRequest): any => ({
     ...obj,
   });
@@ -433,6 +469,9 @@ export interface DescribeICD10CMInferenceJobResponse {
 }
 
 export namespace DescribeICD10CMInferenceJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeICD10CMInferenceJobResponse): any => ({
     ...obj,
   });
@@ -447,6 +486,9 @@ export interface DescribePHIDetectionJobRequest {
 }
 
 export namespace DescribePHIDetectionJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribePHIDetectionJobRequest): any => ({
     ...obj,
   });
@@ -460,6 +502,9 @@ export interface DescribePHIDetectionJobResponse {
 }
 
 export namespace DescribePHIDetectionJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribePHIDetectionJobResponse): any => ({
     ...obj,
   });
@@ -474,6 +519,9 @@ export interface DescribeRxNormInferenceJobRequest {
 }
 
 export namespace DescribeRxNormInferenceJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeRxNormInferenceJobRequest): any => ({
     ...obj,
   });
@@ -487,6 +535,9 @@ export interface DescribeRxNormInferenceJobResponse {
 }
 
 export namespace DescribeRxNormInferenceJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeRxNormInferenceJobResponse): any => ({
     ...obj,
   });
@@ -501,6 +552,9 @@ export interface DetectEntitiesRequest {
 }
 
 export namespace DetectEntitiesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectEntitiesRequest): any => ({
     ...obj,
   });
@@ -560,6 +614,9 @@ export interface Entity {
 }
 
 export namespace Entity {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Entity): any => ({
     ...obj,
   });
@@ -583,6 +640,9 @@ export interface UnmappedAttribute {
 }
 
 export namespace UnmappedAttribute {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnmappedAttribute): any => ({
     ...obj,
   });
@@ -618,6 +678,9 @@ export interface DetectEntitiesResponse {
 }
 
 export namespace DetectEntitiesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectEntitiesResponse): any => ({
     ...obj,
   });
@@ -634,6 +697,9 @@ export interface InvalidEncodingException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidEncodingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidEncodingException): any => ({
     ...obj,
   });
@@ -650,6 +716,9 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
 }
 
 export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
@@ -666,6 +735,9 @@ export interface TextSizeLimitExceededException extends __SmithyException, $Meta
 }
 
 export namespace TextSizeLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TextSizeLimitExceededException): any => ({
     ...obj,
   });
@@ -680,6 +752,9 @@ export interface DetectEntitiesV2Request {
 }
 
 export namespace DetectEntitiesV2Request {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectEntitiesV2Request): any => ({
     ...obj,
   });
@@ -714,6 +789,9 @@ export interface DetectEntitiesV2Response {
 }
 
 export namespace DetectEntitiesV2Response {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectEntitiesV2Response): any => ({
     ...obj,
   });
@@ -728,6 +806,9 @@ export interface DetectPHIRequest {
 }
 
 export namespace DetectPHIRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectPHIRequest): any => ({
     ...obj,
   });
@@ -757,6 +838,9 @@ export interface DetectPHIResponse {
 }
 
 export namespace DetectPHIResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectPHIResponse): any => ({
     ...obj,
   });
@@ -771,6 +855,9 @@ export interface InferICD10CMRequest {
 }
 
 export namespace InferICD10CMRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InferICD10CMRequest): any => ({
     ...obj,
   });
@@ -812,6 +899,9 @@ export interface ICD10CMTrait {
 }
 
 export namespace ICD10CMTrait {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ICD10CMTrait): any => ({
     ...obj,
   });
@@ -895,6 +985,9 @@ export interface ICD10CMAttribute {
 }
 
 export namespace ICD10CMAttribute {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ICD10CMAttribute): any => ({
     ...obj,
   });
@@ -928,6 +1021,9 @@ export interface ICD10CMConcept {
 }
 
 export namespace ICD10CMConcept {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ICD10CMConcept): any => ({
     ...obj,
   });
@@ -1005,6 +1101,9 @@ export interface ICD10CMEntity {
 }
 
 export namespace ICD10CMEntity {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ICD10CMEntity): any => ({
     ...obj,
   });
@@ -1033,6 +1132,9 @@ export interface InferICD10CMResponse {
 }
 
 export namespace InferICD10CMResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InferICD10CMResponse): any => ({
     ...obj,
   });
@@ -1047,6 +1149,9 @@ export interface InferRxNormRequest {
 }
 
 export namespace InferRxNormRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InferRxNormRequest): any => ({
     ...obj,
   });
@@ -1075,6 +1180,9 @@ export interface RxNormTrait {
 }
 
 export namespace RxNormTrait {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RxNormTrait): any => ({
     ...obj,
   });
@@ -1146,6 +1254,9 @@ export interface RxNormAttribute {
 }
 
 export namespace RxNormAttribute {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RxNormAttribute): any => ({
     ...obj,
   });
@@ -1178,6 +1289,9 @@ export interface RxNormConcept {
 }
 
 export namespace RxNormConcept {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RxNormConcept): any => ({
     ...obj,
   });
@@ -1258,6 +1372,9 @@ export interface RxNormEntity {
 }
 
 export namespace RxNormEntity {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RxNormEntity): any => ({
     ...obj,
   });
@@ -1286,6 +1403,9 @@ export interface InferRxNormResponse {
 }
 
 export namespace InferRxNormResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InferRxNormResponse): any => ({
     ...obj,
   });
@@ -1322,6 +1442,9 @@ export interface ComprehendMedicalAsyncJobFilter {
 }
 
 export namespace ComprehendMedicalAsyncJobFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ComprehendMedicalAsyncJobFilter): any => ({
     ...obj,
   });
@@ -1346,6 +1469,9 @@ export interface ListEntitiesDetectionV2JobsRequest {
 }
 
 export namespace ListEntitiesDetectionV2JobsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEntitiesDetectionV2JobsRequest): any => ({
     ...obj,
   });
@@ -1364,6 +1490,9 @@ export interface ListEntitiesDetectionV2JobsResponse {
 }
 
 export namespace ListEntitiesDetectionV2JobsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEntitiesDetectionV2JobsResponse): any => ({
     ...obj,
   });
@@ -1380,6 +1509,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -1404,6 +1536,9 @@ export interface ListICD10CMInferenceJobsRequest {
 }
 
 export namespace ListICD10CMInferenceJobsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListICD10CMInferenceJobsRequest): any => ({
     ...obj,
   });
@@ -1422,6 +1557,9 @@ export interface ListICD10CMInferenceJobsResponse {
 }
 
 export namespace ListICD10CMInferenceJobsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListICD10CMInferenceJobsResponse): any => ({
     ...obj,
   });
@@ -1446,6 +1584,9 @@ export interface ListPHIDetectionJobsRequest {
 }
 
 export namespace ListPHIDetectionJobsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPHIDetectionJobsRequest): any => ({
     ...obj,
   });
@@ -1464,6 +1605,9 @@ export interface ListPHIDetectionJobsResponse {
 }
 
 export namespace ListPHIDetectionJobsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPHIDetectionJobsResponse): any => ({
     ...obj,
   });
@@ -1488,6 +1632,9 @@ export interface ListRxNormInferenceJobsRequest {
 }
 
 export namespace ListRxNormInferenceJobsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRxNormInferenceJobsRequest): any => ({
     ...obj,
   });
@@ -1506,6 +1653,9 @@ export interface ListRxNormInferenceJobsResponse {
 }
 
 export namespace ListRxNormInferenceJobsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRxNormInferenceJobsResponse): any => ({
     ...obj,
   });
@@ -1552,6 +1702,9 @@ export interface StartEntitiesDetectionV2JobRequest {
 }
 
 export namespace StartEntitiesDetectionV2JobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartEntitiesDetectionV2JobRequest): any => ({
     ...obj,
   });
@@ -1566,6 +1719,9 @@ export interface StartEntitiesDetectionV2JobResponse {
 }
 
 export namespace StartEntitiesDetectionV2JobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartEntitiesDetectionV2JobResponse): any => ({
     ...obj,
   });
@@ -1612,6 +1768,9 @@ export interface StartICD10CMInferenceJobRequest {
 }
 
 export namespace StartICD10CMInferenceJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartICD10CMInferenceJobRequest): any => ({
     ...obj,
   });
@@ -1626,6 +1785,9 @@ export interface StartICD10CMInferenceJobResponse {
 }
 
 export namespace StartICD10CMInferenceJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartICD10CMInferenceJobResponse): any => ({
     ...obj,
   });
@@ -1672,6 +1834,9 @@ export interface StartPHIDetectionJobRequest {
 }
 
 export namespace StartPHIDetectionJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartPHIDetectionJobRequest): any => ({
     ...obj,
   });
@@ -1686,6 +1851,9 @@ export interface StartPHIDetectionJobResponse {
 }
 
 export namespace StartPHIDetectionJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartPHIDetectionJobResponse): any => ({
     ...obj,
   });
@@ -1732,6 +1900,9 @@ export interface StartRxNormInferenceJobRequest {
 }
 
 export namespace StartRxNormInferenceJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartRxNormInferenceJobRequest): any => ({
     ...obj,
   });
@@ -1745,6 +1916,9 @@ export interface StartRxNormInferenceJobResponse {
 }
 
 export namespace StartRxNormInferenceJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartRxNormInferenceJobResponse): any => ({
     ...obj,
   });
@@ -1758,6 +1932,9 @@ export interface StopEntitiesDetectionV2JobRequest {
 }
 
 export namespace StopEntitiesDetectionV2JobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopEntitiesDetectionV2JobRequest): any => ({
     ...obj,
   });
@@ -1771,6 +1948,9 @@ export interface StopEntitiesDetectionV2JobResponse {
 }
 
 export namespace StopEntitiesDetectionV2JobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopEntitiesDetectionV2JobResponse): any => ({
     ...obj,
   });
@@ -1784,6 +1964,9 @@ export interface StopICD10CMInferenceJobRequest {
 }
 
 export namespace StopICD10CMInferenceJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopICD10CMInferenceJobRequest): any => ({
     ...obj,
   });
@@ -1798,6 +1981,9 @@ export interface StopICD10CMInferenceJobResponse {
 }
 
 export namespace StopICD10CMInferenceJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopICD10CMInferenceJobResponse): any => ({
     ...obj,
   });
@@ -1811,6 +1997,9 @@ export interface StopPHIDetectionJobRequest {
 }
 
 export namespace StopPHIDetectionJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopPHIDetectionJobRequest): any => ({
     ...obj,
   });
@@ -1824,6 +2013,9 @@ export interface StopPHIDetectionJobResponse {
 }
 
 export namespace StopPHIDetectionJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopPHIDetectionJobResponse): any => ({
     ...obj,
   });
@@ -1837,6 +2029,9 @@ export interface StopRxNormInferenceJobRequest {
 }
 
 export namespace StopRxNormInferenceJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopRxNormInferenceJobRequest): any => ({
     ...obj,
   });
@@ -1851,6 +2046,9 @@ export interface StopRxNormInferenceJobResponse {
 }
 
 export namespace StopRxNormInferenceJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopRxNormInferenceJobResponse): any => ({
     ...obj,
   });

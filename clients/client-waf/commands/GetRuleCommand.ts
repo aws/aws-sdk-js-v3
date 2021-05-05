@@ -27,6 +27,20 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
  *          </note>
  * 		       <p>Returns the <a>Rule</a> that is specified by the <code>RuleId</code> that you included in the <code>GetRule</code> request.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFClient, GetRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, GetRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * const client = new WAFClient(config);
+ * const command = new GetRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRuleCommandInput} for command's `input` shape.
+ * @see {@link GetRuleCommandOutput} for command's `response` shape.
+ * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRuleCommand extends $Command<GetRuleCommandInput, GetRuleCommandOutput, WAFClientResolvedConfig> {
   // Start section: command_properties

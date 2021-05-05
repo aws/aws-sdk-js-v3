@@ -22,6 +22,20 @@ export interface DeleteAppInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an <code>AppInstance</code> and all associated data asynchronously.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, DeleteAppInstanceCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, DeleteAppInstanceCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new DeleteAppInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAppInstanceCommandInput} for command's `input` shape.
+ * @see {@link DeleteAppInstanceCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAppInstanceCommand extends $Command<
   DeleteAppInstanceCommandInput,

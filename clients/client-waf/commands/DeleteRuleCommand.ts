@@ -45,6 +45,20 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  *                <p>Submit a <code>DeleteRule</code> request.</p>
  *             </li>
  *          </ol>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFClient, DeleteRuleCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, DeleteRuleCommand } = require("@aws-sdk/client-waf"); // CommonJS import
+ * const client = new WAFClient(config);
+ * const command = new DeleteRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRuleCommandInput} for command's `input` shape.
+ * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
+ * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRuleCommand extends $Command<
   DeleteRuleCommandInput,

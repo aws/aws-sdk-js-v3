@@ -22,6 +22,20 @@ export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput,
 
 /**
  * <p>Lists the metadata for the tables in the specified data catalog database.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AthenaClient, ListTableMetadataCommand } from "@aws-sdk/client-athena"; // ES Modules import
+ * // const { AthenaClient, ListTableMetadataCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * const client = new AthenaClient(config);
+ * const command = new ListTableMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTableMetadataCommandInput} for command's `input` shape.
+ * @see {@link ListTableMetadataCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTableMetadataCommand extends $Command<
   ListTableMetadataCommandInput,

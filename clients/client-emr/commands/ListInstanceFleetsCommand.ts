@@ -26,6 +26,20 @@ export interface ListInstanceFleetsCommandOutput extends ListInstanceFleetsOutpu
  *             <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
  *             later, excluding 5.0.x versions.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EMRClient, ListInstanceFleetsCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, ListInstanceFleetsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * const client = new EMRClient(config);
+ * const command = new ListInstanceFleetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListInstanceFleetsCommandInput} for command's `input` shape.
+ * @see {@link ListInstanceFleetsCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListInstanceFleetsCommand extends $Command<
   ListInstanceFleetsCommandInput,

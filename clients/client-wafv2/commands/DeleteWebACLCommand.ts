@@ -23,6 +23,20 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
 /**
  * <p>Deletes the specified <a>WebACL</a>.</p>
  *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified <a>WebACL</a>.  </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFV2Client, DeleteWebACLCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
+ * // const { WAFV2Client, DeleteWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
+ * const client = new WAFV2Client(config);
+ * const command = new DeleteWebACLCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteWebACLCommandInput} for command's `input` shape.
+ * @see {@link DeleteWebACLCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteWebACLCommand extends $Command<
   DeleteWebACLCommandInput,

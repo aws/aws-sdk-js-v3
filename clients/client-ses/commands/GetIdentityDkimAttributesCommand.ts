@@ -44,6 +44,20 @@ export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimA
  *         <p>This operation is throttled at one request per second and can only get DKIM attributes
  *             for up to 100 identities at a time.</p>
  *         <p>For more information about creating DNS records using DKIM tokens, go to the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon SES Developer Guide</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESClient, GetIdentityDkimAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
+ * // const { SESClient, GetIdentityDkimAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * const client = new SESClient(config);
+ * const command = new GetIdentityDkimAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetIdentityDkimAttributesCommandInput} for command's `input` shape.
+ * @see {@link GetIdentityDkimAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetIdentityDkimAttributesCommand extends $Command<
   GetIdentityDkimAttributesCommandInput,

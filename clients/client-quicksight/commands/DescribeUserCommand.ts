@@ -22,6 +22,20 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
 
 /**
  * <p>Returns information about a user, given the user name. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QuickSightClient, DescribeUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, DescribeUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * const client = new QuickSightClient(config);
+ * const command = new DescribeUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeUserCommandInput} for command's `input` shape.
+ * @see {@link DescribeUserCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeUserCommand extends $Command<
   DescribeUserCommandInput,

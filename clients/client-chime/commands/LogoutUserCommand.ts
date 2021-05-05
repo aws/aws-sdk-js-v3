@@ -22,6 +22,20 @@ export interface LogoutUserCommandOutput extends LogoutUserResponse, __MetadataB
 
 /**
  * <p>Logs out the specified user from all of the devices they are currently logged into.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, LogoutUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, LogoutUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new LogoutUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link LogoutUserCommandInput} for command's `input` shape.
+ * @see {@link LogoutUserCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class LogoutUserCommand extends $Command<
   LogoutUserCommandInput,

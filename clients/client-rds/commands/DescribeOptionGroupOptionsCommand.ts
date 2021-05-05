@@ -22,6 +22,20 @@ export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOpti
 
 /**
  * <p>Describes all available options.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, DescribeOptionGroupOptionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeOptionGroupOptionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new DescribeOptionGroupOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeOptionGroupOptionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeOptionGroupOptionsCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeOptionGroupOptionsCommand extends $Command<
   DescribeOptionGroupOptionsCommandInput,

@@ -29,6 +29,20 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  *       A <code>ResourceNotFoundException</code> is thrown when the backup does not exist.
  *       A <code>ValidationException</code> is thrown when parameters of the request are not valid.
  *     </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OpsWorksCMClient, DeleteBackupCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
+ * // const { OpsWorksCMClient, DeleteBackupCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
+ * const client = new OpsWorksCMClient(config);
+ * const command = new DeleteBackupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBackupCommandInput} for command's `input` shape.
+ * @see {@link DeleteBackupCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBackupCommand extends $Command<
   DeleteBackupCommandInput,

@@ -22,6 +22,20 @@ export interface ImportRestApiCommandOutput extends RestApi, __MetadataBearer {}
 
 /**
  * <p>A feature of the API Gateway control service for creating a new API from an external API definition file.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, ImportRestApiCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, ImportRestApiCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new ImportRestApiCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportRestApiCommandInput} for command's `input` shape.
+ * @see {@link ImportRestApiCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ImportRestApiCommand extends $Command<
   ImportRestApiCommandInput,

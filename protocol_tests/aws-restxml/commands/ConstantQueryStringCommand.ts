@@ -25,6 +25,20 @@ export interface ConstantQueryStringCommandOutput extends __MetadataBearer {}
  * This simply tests that labels and query string parameters are
  * compatible. The fixed query string parameter named "hello" should
  * in no way conflict with the label, `{hello}`.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestXmlProtocolClient, ConstantQueryStringCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, ConstantQueryStringCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import
+ * const client = new RestXmlProtocolClient(config);
+ * const command = new ConstantQueryStringCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ConstantQueryStringCommandInput} for command's `input` shape.
+ * @see {@link ConstantQueryStringCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ConstantQueryStringCommand extends $Command<
   ConstantQueryStringCommandInput,

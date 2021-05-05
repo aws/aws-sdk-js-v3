@@ -30,6 +30,20 @@ export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __Metad
  *          tape pools returned in the response is truncated, the response includes a
  *             <code>Marker</code> element that you can use in your subsequent request to retrieve the
  *          next set of tape pools.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { StorageGatewayClient, ListTapePoolsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, ListTapePoolsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * const client = new StorageGatewayClient(config);
+ * const command = new ListTapePoolsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTapePoolsCommandInput} for command's `input` shape.
+ * @see {@link ListTapePoolsCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTapePoolsCommand extends $Command<
   ListTapePoolsCommandInput,

@@ -28,6 +28,20 @@ export interface DescribeRefreshSchemasStatusCommandOutput
 
 /**
  * <p>Returns the status of the RefreshSchemas operation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DatabaseMigrationServiceClient, DescribeRefreshSchemasStatusCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeRefreshSchemasStatusCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DescribeRefreshSchemasStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRefreshSchemasStatusCommandInput} for command's `input` shape.
+ * @see {@link DescribeRefreshSchemasStatusCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRefreshSchemasStatusCommand extends $Command<
   DescribeRefreshSchemasStatusCommandInput,

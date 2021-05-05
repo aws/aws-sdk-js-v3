@@ -22,6 +22,20 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  *             date, path, unique ID, and ARN.</p>
  *         <p>If you do not specify a user name, IAM determines the user name implicitly based on
  *             the AWS access key ID used to sign the request to this operation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, GetUserCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, GetUserCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new GetUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetUserCommandInput} for command's `input` shape.
+ * @see {@link GetUserCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommandOutput, IAMClientResolvedConfig> {
   // Start section: command_properties

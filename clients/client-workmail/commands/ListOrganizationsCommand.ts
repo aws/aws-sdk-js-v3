@@ -22,6 +22,20 @@ export interface ListOrganizationsCommandOutput extends ListOrganizationsRespons
 
 /**
  * <p>Returns summaries of the customer's organizations.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkMailClient, ListOrganizationsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, ListOrganizationsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * const client = new WorkMailClient(config);
+ * const command = new ListOrganizationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListOrganizationsCommandInput} for command's `input` shape.
+ * @see {@link ListOrganizationsCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListOrganizationsCommand extends $Command<
   ListOrganizationsCommandInput,

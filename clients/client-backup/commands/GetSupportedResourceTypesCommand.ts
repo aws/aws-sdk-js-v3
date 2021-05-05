@@ -22,6 +22,20 @@ export interface GetSupportedResourceTypesCommandOutput extends GetSupportedReso
 
 /**
  * <p>Returns the AWS resource types supported by AWS Backup.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BackupClient, GetSupportedResourceTypesCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, GetSupportedResourceTypesCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * const client = new BackupClient(config);
+ * const command = new GetSupportedResourceTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSupportedResourceTypesCommandInput} for command's `input` shape.
+ * @see {@link GetSupportedResourceTypesCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSupportedResourceTypesCommand extends $Command<
   GetSupportedResourceTypesCommandInput,

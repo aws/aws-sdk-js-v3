@@ -11,6 +11,9 @@ export interface AuthException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace AuthException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AuthException): any => ({
     ...obj,
   });
@@ -26,6 +29,9 @@ export interface EC2InstanceNotFoundException extends __SmithyException, $Metada
 }
 
 export namespace EC2InstanceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EC2InstanceNotFoundException): any => ({
     ...obj,
   });
@@ -42,6 +48,9 @@ export interface EC2InstanceTypeInvalidException extends __SmithyException, $Met
 }
 
 export namespace EC2InstanceTypeInvalidException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EC2InstanceTypeInvalidException): any => ({
     ...obj,
   });
@@ -57,6 +66,9 @@ export interface InvalidArgsException extends __SmithyException, $MetadataBearer
 }
 
 export namespace InvalidArgsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidArgsException): any => ({
     ...obj,
   });
@@ -83,6 +95,9 @@ export interface SendSerialConsoleSSHPublicKeyRequest {
 }
 
 export namespace SendSerialConsoleSSHPublicKeyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendSerialConsoleSSHPublicKeyRequest): any => ({
     ...obj,
   });
@@ -101,6 +116,9 @@ export interface SendSerialConsoleSSHPublicKeyResponse {
 }
 
 export namespace SendSerialConsoleSSHPublicKeyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendSerialConsoleSSHPublicKeyResponse): any => ({
     ...obj,
   });
@@ -118,6 +136,9 @@ export interface SerialConsoleAccessDisabledException extends __SmithyException,
 }
 
 export namespace SerialConsoleAccessDisabledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SerialConsoleAccessDisabledException): any => ({
     ...obj,
   });
@@ -133,6 +154,9 @@ export interface SerialConsoleSessionLimitExceededException extends __SmithyExce
 }
 
 export namespace SerialConsoleSessionLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SerialConsoleSessionLimitExceededException): any => ({
     ...obj,
   });
@@ -148,6 +172,9 @@ export interface SerialConsoleSessionUnavailableException extends __SmithyExcept
 }
 
 export namespace SerialConsoleSessionUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SerialConsoleSessionUnavailableException): any => ({
     ...obj,
   });
@@ -163,6 +190,9 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServiceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceException): any => ({
     ...obj,
   });
@@ -179,6 +209,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -207,6 +240,9 @@ export interface SendSSHPublicKeyRequest {
 }
 
 export namespace SendSSHPublicKeyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendSSHPublicKeyRequest): any => ({
     ...obj,
   });
@@ -225,6 +261,9 @@ export interface SendSSHPublicKeyResponse {
 }
 
 export namespace SendSSHPublicKeyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendSSHPublicKeyResponse): any => ({
     ...obj,
   });

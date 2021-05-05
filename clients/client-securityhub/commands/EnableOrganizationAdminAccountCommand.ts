@@ -25,6 +25,20 @@ export interface EnableOrganizationAdminAccountCommandOutput
 /**
  * <p>Designates the Security Hub administrator account for an organization. Can only be called by
  *          the organization management account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecurityHubClient, EnableOrganizationAdminAccountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, EnableOrganizationAdminAccountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * const client = new SecurityHubClient(config);
+ * const command = new EnableOrganizationAdminAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableOrganizationAdminAccountCommandInput} for command's `input` shape.
+ * @see {@link EnableOrganizationAdminAccountCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableOrganizationAdminAccountCommand extends $Command<
   EnableOrganizationAdminAccountCommandInput,

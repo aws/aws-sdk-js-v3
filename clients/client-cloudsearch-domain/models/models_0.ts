@@ -15,6 +15,9 @@ export interface SearchException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SearchException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchException): any => ({
     ...obj,
   });
@@ -309,6 +312,9 @@ export interface SearchRequest {
 }
 
 export namespace SearchRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchRequest): any => ({
     ...obj,
   });
@@ -330,6 +336,9 @@ export interface Bucket {
 }
 
 export namespace Bucket {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Bucket): any => ({
     ...obj,
   });
@@ -346,6 +355,9 @@ export interface BucketInfo {
 }
 
 export namespace BucketInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BucketInfo): any => ({
     ...obj,
   });
@@ -377,6 +389,9 @@ export interface Hit {
 }
 
 export namespace Hit {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Hit): any => ({
     ...obj,
   });
@@ -408,6 +423,9 @@ export interface Hits {
 }
 
 export namespace Hits {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Hits): any => ({
     ...obj,
   });
@@ -462,6 +480,9 @@ export interface FieldStats {
 }
 
 export namespace FieldStats {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FieldStats): any => ({
     ...obj,
   });
@@ -483,6 +504,9 @@ export interface SearchStatus {
 }
 
 export namespace SearchStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchStatus): any => ({
     ...obj,
   });
@@ -514,6 +538,9 @@ export interface SearchResponse {
 }
 
 export namespace SearchResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchResponse): any => ({
     ...obj,
   });
@@ -540,6 +567,9 @@ export interface SuggestRequest {
 }
 
 export namespace SuggestRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SuggestRequest): any => ({
     ...obj,
   });
@@ -561,6 +591,9 @@ export interface SuggestStatus {
 }
 
 export namespace SuggestStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SuggestStatus): any => ({
     ...obj,
   });
@@ -587,6 +620,9 @@ export interface SuggestionMatch {
 }
 
 export namespace SuggestionMatch {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SuggestionMatch): any => ({
     ...obj,
   });
@@ -613,6 +649,9 @@ export interface SuggestModel {
 }
 
 export namespace SuggestModel {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SuggestModel): any => ({
     ...obj,
   });
@@ -634,6 +673,9 @@ export interface SuggestResponse {
 }
 
 export namespace SuggestResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SuggestResponse): any => ({
     ...obj,
   });
@@ -657,6 +699,9 @@ export interface DocumentServiceException extends __SmithyException, $MetadataBe
 }
 
 export namespace DocumentServiceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DocumentServiceException): any => ({
     ...obj,
   });
@@ -684,6 +729,9 @@ export interface UploadDocumentsRequest {
 }
 
 export namespace UploadDocumentsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UploadDocumentsRequest): any => ({
     ...obj,
   });
@@ -700,6 +748,9 @@ export interface DocumentServiceWarning {
 }
 
 export namespace DocumentServiceWarning {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DocumentServiceWarning): any => ({
     ...obj,
   });
@@ -731,6 +782,9 @@ export interface UploadDocumentsResponse {
 }
 
 export namespace UploadDocumentsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UploadDocumentsResponse): any => ({
     ...obj,
   });

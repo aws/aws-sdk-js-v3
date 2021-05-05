@@ -22,6 +22,20 @@ export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete a distribution. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFrontClient, DeleteDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, DeleteDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * const client = new CloudFrontClient(config);
+ * const command = new DeleteDistributionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDistributionCommandInput} for command's `input` shape.
+ * @see {@link DeleteDistributionCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDistributionCommand extends $Command<
   DeleteDistributionCommandInput,

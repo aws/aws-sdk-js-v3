@@ -26,6 +26,20 @@ export interface ListHyperParameterTuningJobsCommandOutput
  * <p>Gets a list of <a>HyperParameterTuningJobSummary</a> objects that
  *             describe
  *             the hyperparameter tuning jobs launched in your account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, ListHyperParameterTuningJobsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListHyperParameterTuningJobsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new ListHyperParameterTuningJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListHyperParameterTuningJobsCommandInput} for command's `input` shape.
+ * @see {@link ListHyperParameterTuningJobsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListHyperParameterTuningJobsCommand extends $Command<
   ListHyperParameterTuningJobsCommandInput,

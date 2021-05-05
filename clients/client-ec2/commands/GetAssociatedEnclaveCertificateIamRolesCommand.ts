@@ -31,6 +31,20 @@ export interface GetAssociatedEnclaveCertificateIamRolesCommandOutput
  * 			It also returns the name of the Amazon S3 bucket and the Amazon S3 object key where the certificate, certificate chain,
  * 			and encrypted private key bundle are stored, and the ARN of the AWS Key Management Service (KMS) customer master key (CMK)
  * 			that's used to encrypt the private key.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, GetAssociatedEnclaveCertificateIamRolesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, GetAssociatedEnclaveCertificateIamRolesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new GetAssociatedEnclaveCertificateIamRolesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAssociatedEnclaveCertificateIamRolesCommandInput} for command's `input` shape.
+ * @see {@link GetAssociatedEnclaveCertificateIamRolesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAssociatedEnclaveCertificateIamRolesCommand extends $Command<
   GetAssociatedEnclaveCertificateIamRolesCommandInput,

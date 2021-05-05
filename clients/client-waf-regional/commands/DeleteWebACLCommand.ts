@@ -43,6 +43,20 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  *                <p>Submit a <code>DeleteWebACL</code> request.</p>
  *             </li>
  *          </ol>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WAFRegionalClient, DeleteWebACLCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
+ * // const { WAFRegionalClient, DeleteWebACLCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
+ * const client = new WAFRegionalClient(config);
+ * const command = new DeleteWebACLCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteWebACLCommandInput} for command's `input` shape.
+ * @see {@link DeleteWebACLCommandOutput} for command's `response` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteWebACLCommand extends $Command<
   DeleteWebACLCommandInput,

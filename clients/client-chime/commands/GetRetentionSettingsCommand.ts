@@ -28,6 +28,20 @@ export interface GetRetentionSettingsCommandOutput extends GetRetentionSettingsR
  * <i>Amazon Chime Administration Guide</i>
  * .
  * </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, GetRetentionSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, GetRetentionSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new GetRetentionSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRetentionSettingsCommandInput} for command's `input` shape.
+ * @see {@link GetRetentionSettingsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRetentionSettingsCommand extends $Command<
   GetRetentionSettingsCommandInput,

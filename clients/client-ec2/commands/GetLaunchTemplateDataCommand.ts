@@ -26,6 +26,20 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  *         <p>This action calls on other describe actions to get instance information. Depending on your instance configuration, you may need to allow the following
  *             actions in your IAM policy: DescribeSpotInstanceRequests, DescribeInstanceCreditSpecifications, DescribeVolumes, DescribeInstanceAttribute, and DescribeElasticGpus. Or, you can allow
  *         <code>describe*</code> depending on your instance requirements.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, GetLaunchTemplateDataCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, GetLaunchTemplateDataCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new GetLaunchTemplateDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLaunchTemplateDataCommandInput} for command's `input` shape.
+ * @see {@link GetLaunchTemplateDataCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLaunchTemplateDataCommand extends $Command<
   GetLaunchTemplateDataCommandInput,

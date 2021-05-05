@@ -22,6 +22,20 @@ export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __Metad
 
 /**
  * <p>Creates a new ledger in your AWS account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QLDBClient, CreateLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
+ * // const { QLDBClient, CreateLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * const client = new QLDBClient(config);
+ * const command = new CreateLedgerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLedgerCommandInput} for command's `input` shape.
+ * @see {@link CreateLedgerCommandOutput} for command's `response` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLedgerCommand extends $Command<
   CreateLedgerCommandInput,

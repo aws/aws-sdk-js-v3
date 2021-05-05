@@ -22,6 +22,20 @@ export interface DeleteHostedConfigurationVersionCommandOutput extends __Metadat
 
 /**
  * <p>Delete a version of a configuration from the AppConfig configuration store.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppConfigClient, DeleteHostedConfigurationVersionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
+ * // const { AppConfigClient, DeleteHostedConfigurationVersionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * const client = new AppConfigClient(config);
+ * const command = new DeleteHostedConfigurationVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteHostedConfigurationVersionCommandInput} for command's `input` shape.
+ * @see {@link DeleteHostedConfigurationVersionCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteHostedConfigurationVersionCommand extends $Command<
   DeleteHostedConfigurationVersionCommandInput,

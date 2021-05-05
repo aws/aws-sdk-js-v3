@@ -24,6 +24,20 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
 
 /**
  * <p>Describes the target groups for the specified Auto Scaling group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AutoScalingClient, DescribeLoadBalancerTargetGroupsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, DescribeLoadBalancerTargetGroupsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * const client = new AutoScalingClient(config);
+ * const command = new DescribeLoadBalancerTargetGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLoadBalancerTargetGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeLoadBalancerTargetGroupsCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
   DescribeLoadBalancerTargetGroupsCommandInput,

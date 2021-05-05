@@ -31,6 +31,20 @@ export interface UpdateAcceleratorCommandOutput extends UpdateAcceleratorRespons
  * 			         <p>Global Accelerator is a global service that supports endpoints in multiple AWS Regions but you must specify the
  * 				US West (Oregon) Region to create or update accelerators.</p>
  * 		       </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlobalAcceleratorClient, UpdateAcceleratorCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
+ * // const { GlobalAcceleratorClient, UpdateAcceleratorCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new UpdateAcceleratorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAcceleratorCommandInput} for command's `input` shape.
+ * @see {@link UpdateAcceleratorCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAcceleratorCommand extends $Command<
   UpdateAcceleratorCommandInput,

@@ -34,6 +34,20 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  *           <a href="https://docs.aws.amazon.com/step-functions/latest/dg/bp-activity-pollers.html">Avoid
  *           Latency When Polling for Activity Tasks</a> in the Step Functions Developer Guide.</p>
  *          </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SFNClient, GetActivityTaskCommand } from "@aws-sdk/client-sfn"; // ES Modules import
+ * // const { SFNClient, GetActivityTaskCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * const client = new SFNClient(config);
+ * const command = new GetActivityTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetActivityTaskCommandInput} for command's `input` shape.
+ * @see {@link GetActivityTaskCommandOutput} for command's `response` shape.
+ * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetActivityTaskCommand extends $Command<
   GetActivityTaskCommandInput,

@@ -34,6 +34,20 @@ export interface GetConfigurationCommandOutput extends Configuration, __Metadata
  *             calls to <code>GetConfiguration</code> must pass this value by using the
  *                <code>ClientConfigurationVersion</code> parameter. </p>
  *          </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppConfigClient, GetConfigurationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
+ * // const { AppConfigClient, GetConfigurationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * const client = new AppConfigClient(config);
+ * const command = new GetConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetConfigurationCommand extends $Command<
   GetConfigurationCommandInput,

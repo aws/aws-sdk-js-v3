@@ -32,6 +32,20 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  *                <code>GetRecords</code> can retrieve a maximum of 1 MB of data or 1000 stream records,
  *         whichever comes first.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DynamoDBStreamsClient, GetRecordsCommand } from "@aws-sdk/client-dynamodb-streams"; // ES Modules import
+ * // const { DynamoDBStreamsClient, GetRecordsCommand } = require("@aws-sdk/client-dynamodb-streams"); // CommonJS import
+ * const client = new DynamoDBStreamsClient(config);
+ * const command = new GetRecordsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRecordsCommandInput} for command's `input` shape.
+ * @see {@link GetRecordsCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBStreamsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRecordsCommand extends $Command<
   GetRecordsCommandInput,

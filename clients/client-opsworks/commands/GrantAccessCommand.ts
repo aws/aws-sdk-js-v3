@@ -25,6 +25,20 @@ export interface GrantAccessCommandOutput extends GrantAccessResult, __MetadataB
  *             <p>This action can be used only with Windows stacks.</p>
  *          </note>
  *          <p>Grants RDP access to a Windows instance for a specified time period.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OpsWorksClient, GrantAccessCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
+ * // const { OpsWorksClient, GrantAccessCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
+ * const client = new OpsWorksClient(config);
+ * const command = new GrantAccessCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GrantAccessCommandInput} for command's `input` shape.
+ * @see {@link GrantAccessCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GrantAccessCommand extends $Command<
   GrantAccessCommandInput,

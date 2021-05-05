@@ -24,6 +24,20 @@ export interface JsonTimestampsCommandOutput extends JsonTimestampsInputOutput, 
  * This tests how timestamps are serialized, including using the
  * default format of date-time and various @timestampFormat trait
  * values.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, JsonTimestampsCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, JsonTimestampsCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new JsonTimestampsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link JsonTimestampsCommandInput} for command's `input` shape.
+ * @see {@link JsonTimestampsCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class JsonTimestampsCommand extends $Command<
   JsonTimestampsCommandInput,

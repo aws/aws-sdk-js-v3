@@ -22,6 +22,20 @@ export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBe
 
 /**
  * Automatically adds idempotency tokens.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2ProtocolClient, QueryIdempotencyTokenAutoFillCommand } from "@aws-sdk/aws-ec2"; // ES Modules import
+ * // const { EC2ProtocolClient, QueryIdempotencyTokenAutoFillCommand } = require("@aws-sdk/aws-ec2"); // CommonJS import
+ * const client = new EC2ProtocolClient(config);
+ * const command = new QueryIdempotencyTokenAutoFillCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link QueryIdempotencyTokenAutoFillCommandInput} for command's `input` shape.
+ * @see {@link QueryIdempotencyTokenAutoFillCommandOutput} for command's `response` shape.
+ * @see {@link EC2ProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class QueryIdempotencyTokenAutoFillCommand extends $Command<
   QueryIdempotencyTokenAutoFillCommandInput,

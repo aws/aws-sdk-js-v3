@@ -29,6 +29,20 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  *             parameters are updated immediately and static parameters are set to
  *                 <code>pending-reboot</code> to take effect on the next DB instance restart or
  *                 <code>RebootDBInstance</code> request. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, ResetDBParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, ResetDBParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new ResetDBParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResetDBParameterGroupCommandInput} for command's `input` shape.
+ * @see {@link ResetDBParameterGroupCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResetDBParameterGroupCommand extends $Command<
   ResetDBParameterGroupCommandInput,

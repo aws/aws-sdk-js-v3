@@ -22,6 +22,20 @@ export interface GetSuiteRunCommandOutput extends GetSuiteRunResponse, __Metadat
 
 /**
  * <p>Gets information about a Device Advisor test suite run.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IotDeviceAdvisorClient, GetSuiteRunCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
+ * // const { IotDeviceAdvisorClient, GetSuiteRunCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
+ * const client = new IotDeviceAdvisorClient(config);
+ * const command = new GetSuiteRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSuiteRunCommandInput} for command's `input` shape.
+ * @see {@link GetSuiteRunCommandOutput} for command's `response` shape.
+ * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSuiteRunCommand extends $Command<
   GetSuiteRunCommandInput,

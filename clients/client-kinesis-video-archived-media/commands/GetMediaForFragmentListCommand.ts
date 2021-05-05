@@ -62,6 +62,20 @@ export interface GetMediaForFragmentListCommandOutput extends GetMediaForFragmen
  *                 the bottom of this topic, as well as <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html">Common Errors</a>.
  *             </p>
  *         </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisVideoArchivedMediaClient, GetMediaForFragmentListCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
+ * // const { KinesisVideoArchivedMediaClient, GetMediaForFragmentListCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import
+ * const client = new KinesisVideoArchivedMediaClient(config);
+ * const command = new GetMediaForFragmentListCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMediaForFragmentListCommandInput} for command's `input` shape.
+ * @see {@link GetMediaForFragmentListCommandOutput} for command's `response` shape.
+ * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMediaForFragmentListCommand extends $Command<
   GetMediaForFragmentListCommandInput,

@@ -27,6 +27,20 @@ export interface EnableImportFindingsForProductCommandOutput
  *          findings to Security Hub.</p>
  *          <p>When you enable a product integration, a permissions policy that grants permission for
  *          the product to send findings to Security Hub is applied.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecurityHubClient, EnableImportFindingsForProductCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, EnableImportFindingsForProductCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * const client = new SecurityHubClient(config);
+ * const command = new EnableImportFindingsForProductCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableImportFindingsForProductCommandInput} for command's `input` shape.
+ * @see {@link EnableImportFindingsForProductCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableImportFindingsForProductCommand extends $Command<
   EnableImportFindingsForProductCommandInput,

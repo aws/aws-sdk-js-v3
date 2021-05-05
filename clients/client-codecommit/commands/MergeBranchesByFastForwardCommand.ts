@@ -22,6 +22,20 @@ export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesBy
 
 /**
  * <p>Merges two branches using the fast-forward merge strategy.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeCommitClient, MergeBranchesByFastForwardCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, MergeBranchesByFastForwardCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * const client = new CodeCommitClient(config);
+ * const command = new MergeBranchesByFastForwardCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link MergeBranchesByFastForwardCommandInput} for command's `input` shape.
+ * @see {@link MergeBranchesByFastForwardCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class MergeBranchesByFastForwardCommand extends $Command<
   MergeBranchesByFastForwardCommandInput,

@@ -22,6 +22,20 @@ export interface CreateVoiceTemplateCommandOutput extends CreateVoiceTemplateRes
 
 /**
  * <p>Creates a message template for messages that are sent through the voice channel.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointClient, CreateVoiceTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, CreateVoiceTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
+ * const client = new PinpointClient(config);
+ * const command = new CreateVoiceTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVoiceTemplateCommandInput} for command's `input` shape.
+ * @see {@link CreateVoiceTemplateCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateVoiceTemplateCommand extends $Command<
   CreateVoiceTemplateCommandInput,

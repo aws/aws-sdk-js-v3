@@ -19,6 +19,20 @@ export interface DeleteKeyPairCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified key pair, by removing the public key from Amazon EC2.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DeleteKeyPairCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DeleteKeyPairCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DeleteKeyPairCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteKeyPairCommandInput} for command's `input` shape.
+ * @see {@link DeleteKeyPairCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteKeyPairCommand extends $Command<
   DeleteKeyPairCommandInput,

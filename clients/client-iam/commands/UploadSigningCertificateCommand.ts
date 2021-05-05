@@ -41,6 +41,20 @@ export interface UploadSigningCertificateCommandOutput extends UploadSigningCert
  *                 general information about using the Query API with IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making query
  *                     requests</a> in the <i>IAM User Guide</i>.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, UploadSigningCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, UploadSigningCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new UploadSigningCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UploadSigningCertificateCommandInput} for command's `input` shape.
+ * @see {@link UploadSigningCertificateCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UploadSigningCertificateCommand extends $Command<
   UploadSigningCertificateCommandInput,

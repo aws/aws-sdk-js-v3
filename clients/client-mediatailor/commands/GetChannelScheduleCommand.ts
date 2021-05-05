@@ -22,6 +22,20 @@ export interface GetChannelScheduleCommandOutput extends GetChannelScheduleRespo
 
 /**
  * <p>Retrieves information about your channel's schedule.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaTailorClient, GetChannelScheduleCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
+ * // const { MediaTailorClient, GetChannelScheduleCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * const client = new MediaTailorClient(config);
+ * const command = new GetChannelScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetChannelScheduleCommandInput} for command's `input` shape.
+ * @see {@link GetChannelScheduleCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetChannelScheduleCommand extends $Command<
   GetChannelScheduleCommandInput,

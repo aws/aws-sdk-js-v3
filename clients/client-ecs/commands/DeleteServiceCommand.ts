@@ -42,6 +42,20 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * 				in either <code>ACTIVE</code> or <code>DRAINING</code> status, you receive an
  * 				error.</p>
  * 		       </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECSClient, DeleteServiceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, DeleteServiceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * const client = new ECSClient(config);
+ * const command = new DeleteServiceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteServiceCommandInput} for command's `input` shape.
+ * @see {@link DeleteServiceCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteServiceCommand extends $Command<
   DeleteServiceCommandInput,

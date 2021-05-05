@@ -23,6 +23,9 @@ export interface AcceptDomainTransferFromAnotherAwsAccountRequest {
 }
 
 export namespace AcceptDomainTransferFromAnotherAwsAccountRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AcceptDomainTransferFromAnotherAwsAccountRequest): any => ({
     ...obj,
   });
@@ -40,6 +43,9 @@ export interface AcceptDomainTransferFromAnotherAwsAccountResponse {
 }
 
 export namespace AcceptDomainTransferFromAnotherAwsAccountResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AcceptDomainTransferFromAnotherAwsAccountResponse): any => ({
     ...obj,
   });
@@ -58,6 +64,9 @@ export interface DomainLimitExceeded extends __SmithyException, $MetadataBearer 
 }
 
 export namespace DomainLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DomainLimitExceeded): any => ({
     ...obj,
   });
@@ -79,6 +88,9 @@ export interface InvalidInput extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidInput): any => ({
     ...obj,
   });
@@ -97,6 +109,9 @@ export interface OperationLimitExceeded extends __SmithyException, $MetadataBear
 }
 
 export namespace OperationLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OperationLimitExceeded): any => ({
     ...obj,
   });
@@ -159,6 +174,9 @@ export interface BillingRecord {
 }
 
 export namespace BillingRecord {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BillingRecord): any => ({
     ...obj,
   });
@@ -175,6 +193,9 @@ export interface CancelDomainTransferToAnotherAwsAccountRequest {
 }
 
 export namespace CancelDomainTransferToAnotherAwsAccountRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelDomainTransferToAnotherAwsAccountRequest): any => ({
     ...obj,
   });
@@ -193,6 +214,9 @@ export interface CancelDomainTransferToAnotherAwsAccountResponse {
 }
 
 export namespace CancelDomainTransferToAnotherAwsAccountResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelDomainTransferToAnotherAwsAccountResponse): any => ({
     ...obj,
   });
@@ -238,6 +262,9 @@ export interface CheckDomainAvailabilityRequest {
 }
 
 export namespace CheckDomainAvailabilityRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CheckDomainAvailabilityRequest): any => ({
     ...obj,
   });
@@ -309,6 +336,9 @@ export interface CheckDomainAvailabilityResponse {
 }
 
 export namespace CheckDomainAvailabilityResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CheckDomainAvailabilityResponse): any => ({
     ...obj,
   });
@@ -327,6 +357,9 @@ export interface UnsupportedTLD extends __SmithyException, $MetadataBearer {
 }
 
 export namespace UnsupportedTLD {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedTLD): any => ({
     ...obj,
   });
@@ -367,6 +400,9 @@ export interface CheckDomainTransferabilityRequest {
 }
 
 export namespace CheckDomainTransferabilityRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CheckDomainTransferabilityRequest): any => ({
     ...obj,
     ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
@@ -409,6 +445,9 @@ export interface DomainTransferability {
 }
 
 export namespace DomainTransferability {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DomainTransferability): any => ({
     ...obj,
   });
@@ -425,6 +464,9 @@ export interface CheckDomainTransferabilityResponse {
 }
 
 export namespace CheckDomainTransferabilityResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CheckDomainTransferabilityResponse): any => ({
     ...obj,
   });
@@ -1476,6 +1518,9 @@ export interface ExtraParam {
 }
 
 export namespace ExtraParam {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExtraParam): any => ({
     ...obj,
   });
@@ -1578,6 +1623,9 @@ export interface ContactDetail {
 }
 
 export namespace ContactDetail {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ContactDetail): any => ({
     ...obj,
   });
@@ -1599,6 +1647,9 @@ export interface DeleteTagsForDomainRequest {
 }
 
 export namespace DeleteTagsForDomainRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTagsForDomainRequest): any => ({
     ...obj,
   });
@@ -1607,6 +1658,9 @@ export namespace DeleteTagsForDomainRequest {
 export interface DeleteTagsForDomainResponse {}
 
 export namespace DeleteTagsForDomainResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTagsForDomainResponse): any => ({
     ...obj,
   });
@@ -1620,6 +1674,9 @@ export interface DisableDomainAutoRenewRequest {
 }
 
 export namespace DisableDomainAutoRenewRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisableDomainAutoRenewRequest): any => ({
     ...obj,
   });
@@ -1628,6 +1685,9 @@ export namespace DisableDomainAutoRenewRequest {
 export interface DisableDomainAutoRenewResponse {}
 
 export namespace DisableDomainAutoRenewResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisableDomainAutoRenewResponse): any => ({
     ...obj,
   });
@@ -1644,6 +1704,9 @@ export interface DisableDomainTransferLockRequest {
 }
 
 export namespace DisableDomainTransferLockRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisableDomainTransferLockRequest): any => ({
     ...obj,
   });
@@ -1661,6 +1724,9 @@ export interface DisableDomainTransferLockResponse {
 }
 
 export namespace DisableDomainTransferLockResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisableDomainTransferLockResponse): any => ({
     ...obj,
   });
@@ -1679,6 +1745,9 @@ export interface DuplicateRequest extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DuplicateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicateRequest): any => ({
     ...obj,
   });
@@ -1697,6 +1766,9 @@ export interface TLDRulesViolation extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TLDRulesViolation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TLDRulesViolation): any => ({
     ...obj,
   });
@@ -1763,6 +1835,9 @@ export interface DomainSuggestion {
 }
 
 export namespace DomainSuggestion {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DomainSuggestion): any => ({
     ...obj,
   });
@@ -1794,6 +1869,9 @@ export interface DomainSummary {
 }
 
 export namespace DomainSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DomainSummary): any => ({
     ...obj,
   });
@@ -1807,6 +1885,9 @@ export interface EnableDomainAutoRenewRequest {
 }
 
 export namespace EnableDomainAutoRenewRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnableDomainAutoRenewRequest): any => ({
     ...obj,
   });
@@ -1815,6 +1896,9 @@ export namespace EnableDomainAutoRenewRequest {
 export interface EnableDomainAutoRenewResponse {}
 
 export namespace EnableDomainAutoRenewResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnableDomainAutoRenewResponse): any => ({
     ...obj,
   });
@@ -1831,6 +1915,9 @@ export interface EnableDomainTransferLockRequest {
 }
 
 export namespace EnableDomainTransferLockRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnableDomainTransferLockRequest): any => ({
     ...obj,
   });
@@ -1847,6 +1934,9 @@ export interface EnableDomainTransferLockResponse {
 }
 
 export namespace EnableDomainTransferLockResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnableDomainTransferLockResponse): any => ({
     ...obj,
   });
@@ -1860,6 +1950,9 @@ export interface GetContactReachabilityStatusRequest {
 }
 
 export namespace GetContactReachabilityStatusRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetContactReachabilityStatusRequest): any => ({
     ...obj,
   });
@@ -1898,6 +1991,9 @@ export interface GetContactReachabilityStatusResponse {
 }
 
 export namespace GetContactReachabilityStatusResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetContactReachabilityStatusResponse): any => ({
     ...obj,
   });
@@ -1914,6 +2010,9 @@ export interface GetDomainDetailRequest {
 }
 
 export namespace GetDomainDetailRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDomainDetailRequest): any => ({
     ...obj,
   });
@@ -1939,6 +2038,9 @@ export interface Nameserver {
 }
 
 export namespace Nameserver {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Nameserver): any => ({
     ...obj,
   });
@@ -2078,6 +2180,9 @@ export interface GetDomainDetailResponse {
 }
 
 export namespace GetDomainDetailResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDomainDetailResponse): any => ({
     ...obj,
     ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
@@ -2129,6 +2234,9 @@ export interface GetDomainSuggestionsRequest {
 }
 
 export namespace GetDomainSuggestionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDomainSuggestionsRequest): any => ({
     ...obj,
   });
@@ -2143,6 +2251,9 @@ export interface GetDomainSuggestionsResponse {
 }
 
 export namespace GetDomainSuggestionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDomainSuggestionsResponse): any => ({
     ...obj,
   });
@@ -2162,6 +2273,9 @@ export interface GetOperationDetailRequest {
 }
 
 export namespace GetOperationDetailRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetOperationDetailRequest): any => ({
     ...obj,
   });
@@ -2205,6 +2319,9 @@ export interface GetOperationDetailResponse {
 }
 
 export namespace GetOperationDetailResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetOperationDetailResponse): any => ({
     ...obj,
   });
@@ -2232,6 +2349,9 @@ export interface ListDomainsRequest {
 }
 
 export namespace ListDomainsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDomainsRequest): any => ({
     ...obj,
   });
@@ -2254,6 +2374,9 @@ export interface ListDomainsResponse {
 }
 
 export namespace ListDomainsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDomainsResponse): any => ({
     ...obj,
   });
@@ -2285,6 +2408,9 @@ export interface ListOperationsRequest {
 }
 
 export namespace ListOperationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListOperationsRequest): any => ({
     ...obj,
   });
@@ -2316,6 +2442,9 @@ export interface OperationSummary {
 }
 
 export namespace OperationSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OperationSummary): any => ({
     ...obj,
   });
@@ -2338,6 +2467,9 @@ export interface ListOperationsResponse {
 }
 
 export namespace ListOperationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListOperationsResponse): any => ({
     ...obj,
   });
@@ -2354,6 +2486,9 @@ export interface ListTagsForDomainRequest {
 }
 
 export namespace ListTagsForDomainRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForDomainRequest): any => ({
     ...obj,
   });
@@ -2379,6 +2514,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -2395,6 +2533,9 @@ export interface ListTagsForDomainResponse {
 }
 
 export namespace ListTagsForDomainResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForDomainResponse): any => ({
     ...obj,
   });
@@ -2505,6 +2646,9 @@ export interface RegisterDomainRequest {
 }
 
 export namespace RegisterDomainRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterDomainRequest): any => ({
     ...obj,
     ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
@@ -2525,6 +2669,9 @@ export interface RegisterDomainResponse {
 }
 
 export namespace RegisterDomainResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterDomainResponse): any => ({
     ...obj,
   });
@@ -2544,6 +2691,9 @@ export interface RejectDomainTransferFromAnotherAwsAccountRequest {
 }
 
 export namespace RejectDomainTransferFromAnotherAwsAccountRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RejectDomainTransferFromAnotherAwsAccountRequest): any => ({
     ...obj,
   });
@@ -2562,6 +2712,9 @@ export interface RejectDomainTransferFromAnotherAwsAccountResponse {
 }
 
 export namespace RejectDomainTransferFromAnotherAwsAccountResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RejectDomainTransferFromAnotherAwsAccountResponse): any => ({
     ...obj,
   });
@@ -2592,6 +2745,9 @@ export interface RenewDomainRequest {
 }
 
 export namespace RenewDomainRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RenewDomainRequest): any => ({
     ...obj,
   });
@@ -2606,6 +2762,9 @@ export interface RenewDomainResponse {
 }
 
 export namespace RenewDomainResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RenewDomainResponse): any => ({
     ...obj,
   });
@@ -2619,6 +2778,9 @@ export interface ResendContactReachabilityEmailRequest {
 }
 
 export namespace ResendContactReachabilityEmailRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResendContactReachabilityEmailRequest): any => ({
     ...obj,
   });
@@ -2644,6 +2806,9 @@ export interface ResendContactReachabilityEmailResponse {
 }
 
 export namespace ResendContactReachabilityEmailResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResendContactReachabilityEmailResponse): any => ({
     ...obj,
   });
@@ -2661,6 +2826,9 @@ export interface RetrieveDomainAuthCodeRequest {
 }
 
 export namespace RetrieveDomainAuthCodeRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RetrieveDomainAuthCodeRequest): any => ({
     ...obj,
   });
@@ -2677,6 +2845,9 @@ export interface RetrieveDomainAuthCodeResponse {
 }
 
 export namespace RetrieveDomainAuthCodeResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RetrieveDomainAuthCodeResponse): any => ({
     ...obj,
     ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
@@ -2786,6 +2957,9 @@ export interface TransferDomainRequest {
 }
 
 export namespace TransferDomainRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TransferDomainRequest): any => ({
     ...obj,
     ...(obj.AuthCode && { AuthCode: SENSITIVE_STRING }),
@@ -2807,6 +2981,9 @@ export interface TransferDomainResponse {
 }
 
 export namespace TransferDomainResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TransferDomainResponse): any => ({
     ...obj,
   });
@@ -2828,6 +3005,9 @@ export interface TransferDomainToAnotherAwsAccountRequest {
 }
 
 export namespace TransferDomainToAnotherAwsAccountRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TransferDomainToAnotherAwsAccountRequest): any => ({
     ...obj,
   });
@@ -2853,6 +3033,9 @@ export interface TransferDomainToAnotherAwsAccountResponse {
 }
 
 export namespace TransferDomainToAnotherAwsAccountResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TransferDomainToAnotherAwsAccountResponse): any => ({
     ...obj,
   });
@@ -2884,6 +3067,9 @@ export interface UpdateDomainContactRequest {
 }
 
 export namespace UpdateDomainContactRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDomainContactRequest): any => ({
     ...obj,
     ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
@@ -2904,6 +3090,9 @@ export interface UpdateDomainContactResponse {
 }
 
 export namespace UpdateDomainContactResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDomainContactResponse): any => ({
     ...obj,
   });
@@ -2944,6 +3133,9 @@ export interface UpdateDomainContactPrivacyRequest {
 }
 
 export namespace UpdateDomainContactPrivacyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDomainContactPrivacyRequest): any => ({
     ...obj,
   });
@@ -2960,6 +3152,9 @@ export interface UpdateDomainContactPrivacyResponse {
 }
 
 export namespace UpdateDomainContactPrivacyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDomainContactPrivacyResponse): any => ({
     ...obj,
   });
@@ -2991,6 +3186,9 @@ export interface UpdateDomainNameserversRequest {
 }
 
 export namespace UpdateDomainNameserversRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDomainNameserversRequest): any => ({
     ...obj,
   });
@@ -3008,6 +3206,9 @@ export interface UpdateDomainNameserversResponse {
 }
 
 export namespace UpdateDomainNameserversResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDomainNameserversResponse): any => ({
     ...obj,
   });
@@ -3030,6 +3231,9 @@ export interface UpdateTagsForDomainRequest {
 }
 
 export namespace UpdateTagsForDomainRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTagsForDomainRequest): any => ({
     ...obj,
   });
@@ -3038,6 +3242,9 @@ export namespace UpdateTagsForDomainRequest {
 export interface UpdateTagsForDomainResponse {}
 
 export namespace UpdateTagsForDomainResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTagsForDomainResponse): any => ({
     ...obj,
   });
@@ -3078,6 +3285,9 @@ export interface ViewBillingRequest {
 }
 
 export namespace ViewBillingRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ViewBillingRequest): any => ({
     ...obj,
   });
@@ -3100,6 +3310,9 @@ export interface ViewBillingResponse {
 }
 
 export namespace ViewBillingResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ViewBillingResponse): any => ({
     ...obj,
   });

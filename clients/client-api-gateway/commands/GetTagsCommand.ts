@@ -22,6 +22,20 @@ export interface GetTagsCommandOutput extends Tags, __MetadataBearer {}
 
 /**
  * <p>Gets the <a>Tags</a> collection for a given resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, GetTagsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, GetTagsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new GetTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTagsCommandInput} for command's `input` shape.
+ * @see {@link GetTagsCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTagsCommand extends $Command<
   GetTagsCommandInput,

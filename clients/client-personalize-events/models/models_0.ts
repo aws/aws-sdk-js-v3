@@ -11,6 +11,9 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
 }
 
 export namespace InvalidInputException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
@@ -77,6 +80,9 @@ export interface Event {
 }
 
 export namespace Event {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Event): any => ({
     ...obj,
   });
@@ -109,6 +115,9 @@ export interface PutEventsRequest {
 }
 
 export namespace PutEventsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutEventsRequest): any => ({
     ...obj,
   });
@@ -138,6 +147,9 @@ export interface Item {
 }
 
 export namespace Item {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Item): any => ({
     ...obj,
   });
@@ -156,6 +168,9 @@ export interface PutItemsRequest {
 }
 
 export namespace PutItemsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutItemsRequest): any => ({
     ...obj,
   });
@@ -171,6 +186,9 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
 }
 
 export namespace ResourceInUseException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
@@ -186,6 +204,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -215,6 +236,9 @@ export interface User {
 }
 
 export namespace User {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: User): any => ({
     ...obj,
   });
@@ -233,6 +257,9 @@ export interface PutUsersRequest {
 }
 
 export namespace PutUsersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutUsersRequest): any => ({
     ...obj,
   });

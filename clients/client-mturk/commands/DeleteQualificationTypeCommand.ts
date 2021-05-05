@@ -40,6 +40,20 @@ export interface DeleteQualificationTypeCommandOutput extends DeleteQualificatio
  *                 the unique name of the Qualification type is available for reuse with
  *                 CreateQualificationType.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MTurkClient, DeleteQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
+ * // const { MTurkClient, DeleteQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * const client = new MTurkClient(config);
+ * const command = new DeleteQualificationTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteQualificationTypeCommandInput} for command's `input` shape.
+ * @see {@link DeleteQualificationTypeCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteQualificationTypeCommand extends $Command<
   DeleteQualificationTypeCommandInput,

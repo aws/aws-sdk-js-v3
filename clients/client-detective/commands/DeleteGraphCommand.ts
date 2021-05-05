@@ -26,6 +26,20 @@ export interface DeleteGraphCommandOutput extends __MetadataBearer {}
  *          <p>
  *             <code>DeleteGraph</code> can only be called by the administrator account for a behavior
  *          graph.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DetectiveClient, DeleteGraphCommand } from "@aws-sdk/client-detective"; // ES Modules import
+ * // const { DetectiveClient, DeleteGraphCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * const client = new DetectiveClient(config);
+ * const command = new DeleteGraphCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteGraphCommandInput} for command's `input` shape.
+ * @see {@link DeleteGraphCommandOutput} for command's `response` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteGraphCommand extends $Command<
   DeleteGraphCommandInput,

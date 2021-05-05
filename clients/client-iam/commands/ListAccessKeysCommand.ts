@@ -34,6 +34,20 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
  *             <p>To ensure the security of your AWS account, the secret access key is accessible
  *                 only during key and user creation.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, ListAccessKeysCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, ListAccessKeysCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new ListAccessKeysCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAccessKeysCommandInput} for command's `input` shape.
+ * @see {@link ListAccessKeysCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAccessKeysCommand extends $Command<
   ListAccessKeysCommandInput,

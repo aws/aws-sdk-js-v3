@@ -24,6 +24,20 @@ export interface PutSessionCommandOutput extends PutSessionResponse, __MetadataB
  * <p>Creates a new session or modifies an existing session with an Amazon Lex
  *          bot. Use this operation to enable your application to set the state of
  *          the bot.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexRuntimeV2Client, PutSessionCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
+ * // const { LexRuntimeV2Client, PutSessionCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
+ * const client = new LexRuntimeV2Client(config);
+ * const command = new PutSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutSessionCommandInput} for command's `input` shape.
+ * @see {@link PutSessionCommandOutput} for command's `response` shape.
+ * @see {@link LexRuntimeV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutSessionCommand extends $Command<
   PutSessionCommandInput,

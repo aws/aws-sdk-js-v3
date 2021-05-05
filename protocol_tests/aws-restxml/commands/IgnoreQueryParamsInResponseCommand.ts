@@ -24,6 +24,20 @@ export interface IgnoreQueryParamsInResponseCommandOutput extends IgnoreQueryPar
  * This example ensures that query string bound request parameters are
  * serialized in the body of responses if the structure is used in both
  * the request and response.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestXmlProtocolClient, IgnoreQueryParamsInResponseCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, IgnoreQueryParamsInResponseCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import
+ * const client = new RestXmlProtocolClient(config);
+ * const command = new IgnoreQueryParamsInResponseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link IgnoreQueryParamsInResponseCommandInput} for command's `input` shape.
+ * @see {@link IgnoreQueryParamsInResponseCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class IgnoreQueryParamsInResponseCommand extends $Command<
   IgnoreQueryParamsInResponseCommandInput,

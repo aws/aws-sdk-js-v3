@@ -80,6 +80,20 @@ export interface ListIdentityPoolUsageCommandOutput extends ListIdentityPoolUsag
  *                </response>
  *          </example>
  *       </examples>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoSyncClient, ListIdentityPoolUsageCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
+ * // const { CognitoSyncClient, ListIdentityPoolUsageCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * const client = new CognitoSyncClient(config);
+ * const command = new ListIdentityPoolUsageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListIdentityPoolUsageCommandInput} for command's `input` shape.
+ * @see {@link ListIdentityPoolUsageCommandOutput} for command's `response` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListIdentityPoolUsageCommand extends $Command<
   ListIdentityPoolUsageCommandInput,

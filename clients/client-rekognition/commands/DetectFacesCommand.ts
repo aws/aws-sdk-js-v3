@@ -44,6 +44,20 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  *
  *          <p>This operation requires permissions to perform the
  *       <code>rekognition:DetectFaces</code> action. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RekognitionClient, DetectFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, DetectFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * const client = new RekognitionClient(config);
+ * const command = new DetectFacesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetectFacesCommandInput} for command's `input` shape.
+ * @see {@link DetectFacesCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetectFacesCommand extends $Command<
   DetectFacesCommandInput,

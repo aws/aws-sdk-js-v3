@@ -64,6 +64,20 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, ListPartsCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, ListPartsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new ListPartsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPartsCommandInput} for command's `input` shape.
+ * @see {@link ListPartsCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsCommandOutput, S3ClientResolvedConfig> {
   // Start section: command_properties

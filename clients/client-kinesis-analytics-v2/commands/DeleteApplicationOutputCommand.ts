@@ -28,6 +28,20 @@ export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationO
  * <p>Deletes the output destination configuration from your SQL-based Kinesis Data Analytics application's configuration.
  *       Kinesis Data Analytics will no longer write data from
  *       the corresponding in-application stream to the external output destination.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisAnalyticsV2Client, DeleteApplicationOutputCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, DeleteApplicationOutputCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * const client = new KinesisAnalyticsV2Client(config);
+ * const command = new DeleteApplicationOutputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteApplicationOutputCommandInput} for command's `input` shape.
+ * @see {@link DeleteApplicationOutputCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteApplicationOutputCommand extends $Command<
   DeleteApplicationOutputCommandInput,

@@ -22,6 +22,20 @@ export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, _
 
 /**
  * <p>Checks out the specified license.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LicenseManagerClient, CheckoutLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, CheckoutLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * const client = new LicenseManagerClient(config);
+ * const command = new CheckoutLicenseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CheckoutLicenseCommandInput} for command's `input` shape.
+ * @see {@link CheckoutLicenseCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CheckoutLicenseCommand extends $Command<
   CheckoutLicenseCommandInput,

@@ -34,6 +34,20 @@ export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
  * 			         <p>Additionally, the evaluation of composite alarms stops if CloudWatch detects a cycle in the evaluation path.
  * 			</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchClient, DeleteAlarmsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
+ * // const { CloudWatchClient, DeleteAlarmsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * const client = new CloudWatchClient(config);
+ * const command = new DeleteAlarmsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAlarmsCommandInput} for command's `input` shape.
+ * @see {@link DeleteAlarmsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAlarmsCommand extends $Command<
   DeleteAlarmsCommandInput,

@@ -25,6 +25,20 @@ export interface DisassociatePhoneNumberFromUserCommandOutput
 /**
  * <p>Disassociates the primary provisioned phone number from the specified Amazon Chime
  *             user.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, DisassociatePhoneNumberFromUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, DisassociatePhoneNumberFromUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new DisassociatePhoneNumberFromUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociatePhoneNumberFromUserCommandInput} for command's `input` shape.
+ * @see {@link DisassociatePhoneNumberFromUserCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociatePhoneNumberFromUserCommand extends $Command<
   DisassociatePhoneNumberFromUserCommandInput,

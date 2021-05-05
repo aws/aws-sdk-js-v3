@@ -22,6 +22,20 @@ export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUse
 
 /**
  * <p>Updates the details of an <code>AppInstanceUser</code>. You can update names and metadata.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, UpdateAppInstanceUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, UpdateAppInstanceUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new UpdateAppInstanceUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAppInstanceUserCommandInput} for command's `input` shape.
+ * @see {@link UpdateAppInstanceUserCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAppInstanceUserCommand extends $Command<
   UpdateAppInstanceUserCommandInput,

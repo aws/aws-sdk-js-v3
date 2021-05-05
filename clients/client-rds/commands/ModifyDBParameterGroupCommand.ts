@@ -41,6 +41,20 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  *             <i>DescribeDBParameters</i> command to verify
  *             that your DB parameter group has been created or modified.</p>
  *          </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, ModifyDBParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, ModifyDBParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new ModifyDBParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyDBParameterGroupCommandInput} for command's `input` shape.
+ * @see {@link ModifyDBParameterGroupCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyDBParameterGroupCommand extends $Command<
   ModifyDBParameterGroupCommandInput,

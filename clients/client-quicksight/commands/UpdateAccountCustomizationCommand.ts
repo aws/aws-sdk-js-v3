@@ -27,6 +27,20 @@ export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCu
  *             QuickSight namespace instead. Customizations that apply to a namespace override
  *             customizations that apply to an AWS account. To find out which customizations apply, use
  *             the <code>DescribeAccountCustomization</code> API operation. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QuickSightClient, UpdateAccountCustomizationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, UpdateAccountCustomizationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * const client = new QuickSightClient(config);
+ * const command = new UpdateAccountCustomizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAccountCustomizationCommandInput} for command's `input` shape.
+ * @see {@link UpdateAccountCustomizationCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAccountCustomizationCommand extends $Command<
   UpdateAccountCustomizationCommandInput,

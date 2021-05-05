@@ -22,6 +22,20 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
 
 /**
  * <p>Updates a registry.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SchemasClient, UpdateRegistryCommand } from "@aws-sdk/client-schemas"; // ES Modules import
+ * // const { SchemasClient, UpdateRegistryCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * const client = new SchemasClient(config);
+ * const command = new UpdateRegistryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRegistryCommandInput} for command's `input` shape.
+ * @see {@link UpdateRegistryCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRegistryCommand extends $Command<
   UpdateRegistryCommandInput,

@@ -22,6 +22,20 @@ export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __Metad
 
 /**
  * <p>Get lens review.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WellArchitectedClient, GetLensReviewCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, GetLensReviewCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * const client = new WellArchitectedClient(config);
+ * const command = new GetLensReviewCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLensReviewCommandInput} for command's `input` shape.
+ * @see {@link GetLensReviewCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLensReviewCommand extends $Command<
   GetLensReviewCommandInput,

@@ -11,6 +11,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -45,6 +48,9 @@ export interface ApplicationState {
 }
 
 export namespace ApplicationState {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ApplicationState): any => ({
     ...obj,
   });
@@ -68,6 +74,9 @@ export interface CreatedArtifact {
 }
 
 export namespace CreatedArtifact {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreatedArtifact): any => ({
     ...obj,
   });
@@ -100,6 +109,9 @@ export interface AssociateCreatedArtifactRequest {
 }
 
 export namespace AssociateCreatedArtifactRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateCreatedArtifactRequest): any => ({
     ...obj,
   });
@@ -108,6 +120,9 @@ export namespace AssociateCreatedArtifactRequest {
 export interface AssociateCreatedArtifactResult {}
 
 export namespace AssociateCreatedArtifactResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateCreatedArtifactResult): any => ({
     ...obj,
   });
@@ -124,6 +139,9 @@ export interface DryRunOperation extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DryRunOperation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DryRunOperation): any => ({
     ...obj,
   });
@@ -139,6 +157,9 @@ export interface HomeRegionNotSetException extends __SmithyException, $MetadataB
 }
 
 export namespace HomeRegionNotSetException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HomeRegionNotSetException): any => ({
     ...obj,
   });
@@ -155,6 +176,9 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
 }
 
 export namespace InternalServerError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
@@ -171,6 +195,9 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
 }
 
 export namespace InvalidInputException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
@@ -188,6 +215,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -204,6 +234,9 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
 }
 
 export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
@@ -227,6 +260,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -243,6 +279,9 @@ export interface UnauthorizedOperation extends __SmithyException, $MetadataBeare
 }
 
 export namespace UnauthorizedOperation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnauthorizedOperation): any => ({
     ...obj,
   });
@@ -266,6 +305,9 @@ export interface DiscoveredResource {
 }
 
 export namespace DiscoveredResource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DiscoveredResource): any => ({
     ...obj,
   });
@@ -297,6 +339,9 @@ export interface AssociateDiscoveredResourceRequest {
 }
 
 export namespace AssociateDiscoveredResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateDiscoveredResourceRequest): any => ({
     ...obj,
   });
@@ -305,6 +350,9 @@ export namespace AssociateDiscoveredResourceRequest {
 export interface AssociateDiscoveredResourceResult {}
 
 export namespace AssociateDiscoveredResourceResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateDiscoveredResourceResult): any => ({
     ...obj,
   });
@@ -322,6 +370,9 @@ export interface PolicyErrorException extends __SmithyException, $MetadataBearer
 }
 
 export namespace PolicyErrorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyErrorException): any => ({
     ...obj,
   });
@@ -343,6 +394,9 @@ export interface CreateProgressUpdateStreamRequest {
 }
 
 export namespace CreateProgressUpdateStreamRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateProgressUpdateStreamRequest): any => ({
     ...obj,
   });
@@ -351,6 +405,9 @@ export namespace CreateProgressUpdateStreamRequest {
 export interface CreateProgressUpdateStreamResult {}
 
 export namespace CreateProgressUpdateStreamResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateProgressUpdateStreamResult): any => ({
     ...obj,
   });
@@ -372,6 +429,9 @@ export interface DeleteProgressUpdateStreamRequest {
 }
 
 export namespace DeleteProgressUpdateStreamRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteProgressUpdateStreamRequest): any => ({
     ...obj,
   });
@@ -380,6 +440,9 @@ export namespace DeleteProgressUpdateStreamRequest {
 export interface DeleteProgressUpdateStreamResult {}
 
 export namespace DeleteProgressUpdateStreamResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteProgressUpdateStreamResult): any => ({
     ...obj,
   });
@@ -394,6 +457,9 @@ export interface DescribeApplicationStateRequest {
 }
 
 export namespace DescribeApplicationStateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeApplicationStateRequest): any => ({
     ...obj,
   });
@@ -412,6 +478,9 @@ export interface DescribeApplicationStateResult {
 }
 
 export namespace DescribeApplicationStateResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeApplicationStateResult): any => ({
     ...obj,
   });
@@ -432,6 +501,9 @@ export interface DescribeMigrationTaskRequest {
 }
 
 export namespace DescribeMigrationTaskRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeMigrationTaskRequest): any => ({
     ...obj,
   });
@@ -502,6 +574,9 @@ export interface ResourceAttribute {
 }
 
 export namespace ResourceAttribute {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceAttribute): any => ({
     ...obj,
   });
@@ -537,6 +612,9 @@ export interface Task {
 }
 
 export namespace Task {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Task): any => ({
     ...obj,
   });
@@ -576,6 +654,9 @@ export interface MigrationTask {
 }
 
 export namespace MigrationTask {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MigrationTask): any => ({
     ...obj,
   });
@@ -589,6 +670,9 @@ export interface DescribeMigrationTaskResult {
 }
 
 export namespace DescribeMigrationTaskResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeMigrationTaskResult): any => ({
     ...obj,
   });
@@ -621,6 +705,9 @@ export interface DisassociateCreatedArtifactRequest {
 }
 
 export namespace DisassociateCreatedArtifactRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateCreatedArtifactRequest): any => ({
     ...obj,
   });
@@ -629,6 +716,9 @@ export namespace DisassociateCreatedArtifactRequest {
 export interface DisassociateCreatedArtifactResult {}
 
 export namespace DisassociateCreatedArtifactResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateCreatedArtifactResult): any => ({
     ...obj,
   });
@@ -661,6 +751,9 @@ export interface DisassociateDiscoveredResourceRequest {
 }
 
 export namespace DisassociateDiscoveredResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateDiscoveredResourceRequest): any => ({
     ...obj,
   });
@@ -669,6 +762,9 @@ export namespace DisassociateDiscoveredResourceRequest {
 export interface DisassociateDiscoveredResourceResult {}
 
 export namespace DisassociateDiscoveredResourceResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateDiscoveredResourceResult): any => ({
     ...obj,
   });
@@ -695,6 +791,9 @@ export interface ImportMigrationTaskRequest {
 }
 
 export namespace ImportMigrationTaskRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImportMigrationTaskRequest): any => ({
     ...obj,
   });
@@ -703,6 +802,9 @@ export namespace ImportMigrationTaskRequest {
 export interface ImportMigrationTaskResult {}
 
 export namespace ImportMigrationTaskResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImportMigrationTaskResult): any => ({
     ...obj,
   });
@@ -729,6 +831,9 @@ export interface ListApplicationStatesRequest {
 }
 
 export namespace ListApplicationStatesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListApplicationStatesRequest): any => ({
     ...obj,
   });
@@ -749,6 +854,9 @@ export interface ListApplicationStatesResult {
 }
 
 export namespace ListApplicationStatesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListApplicationStatesResult): any => ({
     ...obj,
   });
@@ -781,6 +889,9 @@ export interface ListCreatedArtifactsRequest {
 }
 
 export namespace ListCreatedArtifactsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCreatedArtifactsRequest): any => ({
     ...obj,
   });
@@ -801,6 +912,9 @@ export interface ListCreatedArtifactsResult {
 }
 
 export namespace ListCreatedArtifactsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCreatedArtifactsResult): any => ({
     ...obj,
   });
@@ -833,6 +947,9 @@ export interface ListDiscoveredResourcesRequest {
 }
 
 export namespace ListDiscoveredResourcesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDiscoveredResourcesRequest): any => ({
     ...obj,
   });
@@ -852,6 +969,9 @@ export interface ListDiscoveredResourcesResult {
 }
 
 export namespace ListDiscoveredResourcesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDiscoveredResourcesResult): any => ({
     ...obj,
   });
@@ -877,6 +997,9 @@ export interface ListMigrationTasksRequest {
 }
 
 export namespace ListMigrationTasksRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListMigrationTasksRequest): any => ({
     ...obj,
   });
@@ -923,6 +1046,9 @@ export interface MigrationTaskSummary {
 }
 
 export namespace MigrationTaskSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MigrationTaskSummary): any => ({
     ...obj,
   });
@@ -944,6 +1070,9 @@ export interface ListMigrationTasksResult {
 }
 
 export namespace ListMigrationTasksResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListMigrationTasksResult): any => ({
     ...obj,
   });
@@ -964,6 +1093,9 @@ export interface ListProgressUpdateStreamsRequest {
 }
 
 export namespace ListProgressUpdateStreamsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListProgressUpdateStreamsRequest): any => ({
     ...obj,
   });
@@ -983,6 +1115,9 @@ export interface ProgressUpdateStreamSummary {
 }
 
 export namespace ProgressUpdateStreamSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProgressUpdateStreamSummary): any => ({
     ...obj,
   });
@@ -1003,6 +1138,9 @@ export interface ListProgressUpdateStreamsResult {
 }
 
 export namespace ListProgressUpdateStreamsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListProgressUpdateStreamsResult): any => ({
     ...obj,
   });
@@ -1033,6 +1171,9 @@ export interface NotifyApplicationStateRequest {
 }
 
 export namespace NotifyApplicationStateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotifyApplicationStateRequest): any => ({
     ...obj,
   });
@@ -1041,6 +1182,9 @@ export namespace NotifyApplicationStateRequest {
 export interface NotifyApplicationStateResult {}
 
 export namespace NotifyApplicationStateResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotifyApplicationStateResult): any => ({
     ...obj,
   });
@@ -1084,6 +1228,9 @@ export interface NotifyMigrationTaskStateRequest {
 }
 
 export namespace NotifyMigrationTaskStateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotifyMigrationTaskStateRequest): any => ({
     ...obj,
   });
@@ -1092,6 +1239,9 @@ export namespace NotifyMigrationTaskStateRequest {
 export interface NotifyMigrationTaskStateResult {}
 
 export namespace NotifyMigrationTaskStateResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotifyMigrationTaskStateResult): any => ({
     ...obj,
   });
@@ -1150,6 +1300,9 @@ export interface PutResourceAttributesRequest {
 }
 
 export namespace PutResourceAttributesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutResourceAttributesRequest): any => ({
     ...obj,
   });
@@ -1158,6 +1311,9 @@ export namespace PutResourceAttributesRequest {
 export interface PutResourceAttributesResult {}
 
 export namespace PutResourceAttributesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutResourceAttributesResult): any => ({
     ...obj,
   });

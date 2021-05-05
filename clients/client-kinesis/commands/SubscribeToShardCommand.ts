@@ -44,6 +44,20 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  *             call will take over the subscription.</p>
  *         <p>For an example of how to use this operations, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
  *                 Using the Kinesis Data Streams API</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisClient, SubscribeToShardCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
+ * // const { KinesisClient, SubscribeToShardCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
+ * const client = new KinesisClient(config);
+ * const command = new SubscribeToShardCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SubscribeToShardCommandInput} for command's `input` shape.
+ * @see {@link SubscribeToShardCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SubscribeToShardCommand extends $Command<
   SubscribeToShardCommandInput,

@@ -47,6 +47,20 @@ export interface RegisterDomainCommandOutput extends RegisterDomainResponse, __M
  * 					<a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53 Pricing</a>.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53DomainsClient, RegisterDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
+ * // const { Route53DomainsClient, RegisterDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * const client = new Route53DomainsClient(config);
+ * const command = new RegisterDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterDomainCommandInput} for command's `input` shape.
+ * @see {@link RegisterDomainCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterDomainCommand extends $Command<
   RegisterDomainCommandInput,

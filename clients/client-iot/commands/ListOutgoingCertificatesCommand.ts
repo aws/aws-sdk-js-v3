@@ -22,6 +22,20 @@ export interface ListOutgoingCertificatesCommandOutput extends ListOutgoingCerti
 
 /**
  * <p>Lists certificates that are being transferred but not yet accepted.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, ListOutgoingCertificatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListOutgoingCertificatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new ListOutgoingCertificatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListOutgoingCertificatesCommandInput} for command's `input` shape.
+ * @see {@link ListOutgoingCertificatesCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListOutgoingCertificatesCommand extends $Command<
   ListOutgoingCertificatesCommandInput,

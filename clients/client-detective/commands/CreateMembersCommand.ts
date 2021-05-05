@@ -43,6 +43,20 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *                graph.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DetectiveClient, CreateMembersCommand } from "@aws-sdk/client-detective"; // ES Modules import
+ * // const { DetectiveClient, CreateMembersCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * const client = new DetectiveClient(config);
+ * const command = new CreateMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMembersCommandInput} for command's `input` shape.
+ * @see {@link CreateMembersCommandOutput} for command's `response` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMembersCommand extends $Command<
   CreateMembersCommandInput,

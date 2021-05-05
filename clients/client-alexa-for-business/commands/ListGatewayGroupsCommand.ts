@@ -23,6 +23,20 @@ export interface ListGatewayGroupsCommandOutput extends ListGatewayGroupsRespons
 /**
  * <p>Retrieves a list of gateway group summaries. Use GetGatewayGroup to retrieve details of
  *          a specific gateway group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, ListGatewayGroupsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, ListGatewayGroupsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new ListGatewayGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListGatewayGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListGatewayGroupsCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListGatewayGroupsCommand extends $Command<
   ListGatewayGroupsCommandInput,

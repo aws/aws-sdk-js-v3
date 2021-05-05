@@ -22,6 +22,20 @@ export interface DeleteRoomCommandOutput extends DeleteRoomResponse, __MetadataB
 
 /**
  * <p>Deletes a room by the room ARN.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, DeleteRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, DeleteRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new DeleteRoomCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRoomCommandInput} for command's `input` shape.
+ * @see {@link DeleteRoomCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRoomCommand extends $Command<
   DeleteRoomCommandInput,

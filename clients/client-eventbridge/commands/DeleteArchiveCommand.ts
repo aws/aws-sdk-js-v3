@@ -22,6 +22,20 @@ export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __Met
 
 /**
  * <p>Deletes the specified archive.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EventBridgeClient, DeleteArchiveCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, DeleteArchiveCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * const client = new EventBridgeClient(config);
+ * const command = new DeleteArchiveCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteArchiveCommandInput} for command's `input` shape.
+ * @see {@link DeleteArchiveCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteArchiveCommand extends $Command<
   DeleteArchiveCommandInput,

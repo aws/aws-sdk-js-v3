@@ -23,6 +23,20 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
 
 /**
  * <p>Gets the user attributes and metadata for a user.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoIdentityProviderClient, GetUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, GetUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new GetUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetUserCommandInput} for command's `input` shape.
+ * @see {@link GetUserCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetUserCommand extends $Command<
   GetUserCommandInput,

@@ -24,6 +24,20 @@ export interface UpdatePhoneNumberSettingsCommandOutput extends __MetadataBearer
  * <p>Updates the phone number settings for the administrator's AWS account, such as the default
  *             outbound calling name. You can update the default outbound calling name once every seven
  *             days. Outbound calling names can take up to 72 hours to update.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, UpdatePhoneNumberSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, UpdatePhoneNumberSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new UpdatePhoneNumberSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePhoneNumberSettingsCommandInput} for command's `input` shape.
+ * @see {@link UpdatePhoneNumberSettingsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePhoneNumberSettingsCommand extends $Command<
   UpdatePhoneNumberSettingsCommandInput,

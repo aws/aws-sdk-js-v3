@@ -28,6 +28,20 @@ export interface RejectCertificateTransferCommandOutput extends __MetadataBearer
  *          to enumerate your certificates.</p>
  *          <p>This operation can only be called by the transfer destination. After it is called,
  *          the certificate will be returned to the source's account in the INACTIVE state.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, RejectCertificateTransferCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, RejectCertificateTransferCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new RejectCertificateTransferCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RejectCertificateTransferCommandInput} for command's `input` shape.
+ * @see {@link RejectCertificateTransferCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RejectCertificateTransferCommand extends $Command<
   RejectCertificateTransferCommandInput,

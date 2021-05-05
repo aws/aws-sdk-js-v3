@@ -26,6 +26,20 @@ export interface CancelAuditMitigationActionsTaskCommandOutput
  * <p>Cancels a mitigation action task that is in progress. If the task
  *       is not
  *       in progress, an InvalidRequestException occurs.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, CancelAuditMitigationActionsTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, CancelAuditMitigationActionsTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new CancelAuditMitigationActionsTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelAuditMitigationActionsTaskCommandInput} for command's `input` shape.
+ * @see {@link CancelAuditMitigationActionsTaskCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelAuditMitigationActionsTaskCommand extends $Command<
   CancelAuditMitigationActionsTaskCommandInput,

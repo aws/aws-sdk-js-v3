@@ -24,6 +24,20 @@ export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBe
 /**
  * <p>Stops logging information, such as queries and connection attempts, for the
  *             specified Amazon Redshift cluster.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, DisableLoggingCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, DisableLoggingCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new DisableLoggingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableLoggingCommandInput} for command's `input` shape.
+ * @see {@link DisableLoggingCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableLoggingCommand extends $Command<
   DisableLoggingCommandInput,

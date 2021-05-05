@@ -22,6 +22,20 @@ export interface UpdateGraphqlApiCommandOutput extends UpdateGraphqlApiResponse,
 
 /**
  * <p>Updates a <code>GraphqlApi</code> object.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppSyncClient, UpdateGraphqlApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, UpdateGraphqlApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * const client = new AppSyncClient(config);
+ * const command = new UpdateGraphqlApiCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateGraphqlApiCommandInput} for command's `input` shape.
+ * @see {@link UpdateGraphqlApiCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateGraphqlApiCommand extends $Command<
   UpdateGraphqlApiCommandInput,

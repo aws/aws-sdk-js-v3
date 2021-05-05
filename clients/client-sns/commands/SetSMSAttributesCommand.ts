@@ -31,6 +31,20 @@ export interface SetSMSAttributesCommandOutput extends SetSMSAttributesResponse,
  *             <p>To use this operation, you must grant the Amazon SNS service principal (<code>sns.amazonaws.com</code>)
  *                 permission to perform the <code>s3:ListBucket</code> action. </p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SNSClient, SetSMSAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
+ * // const { SNSClient, SetSMSAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * const client = new SNSClient(config);
+ * const command = new SetSMSAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetSMSAttributesCommandInput} for command's `input` shape.
+ * @see {@link SetSMSAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetSMSAttributesCommand extends $Command<
   SetSMSAttributesCommandInput,

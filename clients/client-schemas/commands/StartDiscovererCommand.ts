@@ -22,6 +22,20 @@ export interface StartDiscovererCommandOutput extends StartDiscovererResponse, _
 
 /**
  * <p>Starts the discoverer</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SchemasClient, StartDiscovererCommand } from "@aws-sdk/client-schemas"; // ES Modules import
+ * // const { SchemasClient, StartDiscovererCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * const client = new SchemasClient(config);
+ * const command = new StartDiscovererCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartDiscovererCommandInput} for command's `input` shape.
+ * @see {@link StartDiscovererCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartDiscovererCommand extends $Command<
   StartDiscovererCommandInput,

@@ -26,6 +26,20 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  *          <note>
  *             <p>The DB snapshot must be in the <code>available</code> state to be deleted.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, DeleteDBSnapshotCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DeleteDBSnapshotCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new DeleteDBSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDBSnapshotCommandInput} for command's `input` shape.
+ * @see {@link DeleteDBSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDBSnapshotCommand extends $Command<
   DeleteDBSnapshotCommandInput,

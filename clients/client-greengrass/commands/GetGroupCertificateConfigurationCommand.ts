@@ -24,6 +24,20 @@ export interface GetGroupCertificateConfigurationCommandOutput
 
 /**
  * Retrieves the current configuration for the CA used by the group.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassClient, GetGroupCertificateConfigurationCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, GetGroupCertificateConfigurationCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * const client = new GreengrassClient(config);
+ * const command = new GetGroupCertificateConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetGroupCertificateConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetGroupCertificateConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetGroupCertificateConfigurationCommand extends $Command<
   GetGroupCertificateConfigurationCommandInput,

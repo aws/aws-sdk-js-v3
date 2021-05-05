@@ -30,6 +30,20 @@ export interface AuthorizeSecurityGroupEgressCommandOutput extends __MetadataBea
  *        You can use -1 for the type or code to mean all types or all codes.</p>
  *          <p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p>
  *          <p>For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Limits</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, AuthorizeSecurityGroupEgressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, AuthorizeSecurityGroupEgressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new AuthorizeSecurityGroupEgressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AuthorizeSecurityGroupEgressCommandInput} for command's `input` shape.
+ * @see {@link AuthorizeSecurityGroupEgressCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AuthorizeSecurityGroupEgressCommand extends $Command<
   AuthorizeSecurityGroupEgressCommandInput,

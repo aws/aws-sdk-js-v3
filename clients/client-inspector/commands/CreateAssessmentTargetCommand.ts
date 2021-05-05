@@ -29,6 +29,20 @@ export interface CreateAssessmentTargetCommandOutput extends CreateAssessmentTar
  *          perform security assessments. You can create up to 50 assessment targets per AWS account.
  *          You can run up to 500 concurrent agents per AWS account. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html">
  *             Amazon Inspector Assessment Targets</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { InspectorClient, CreateAssessmentTargetCommand } from "@aws-sdk/client-inspector"; // ES Modules import
+ * // const { InspectorClient, CreateAssessmentTargetCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * const client = new InspectorClient(config);
+ * const command = new CreateAssessmentTargetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAssessmentTargetCommandInput} for command's `input` shape.
+ * @see {@link CreateAssessmentTargetCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAssessmentTargetCommand extends $Command<
   CreateAssessmentTargetCommandInput,

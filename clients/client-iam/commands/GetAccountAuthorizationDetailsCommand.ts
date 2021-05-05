@@ -37,6 +37,20 @@ export interface GetAccountAuthorizationDetailsCommandOutput
  *         <p>You can optionally filter the results using the <code>Filter</code> parameter. You can
  *             paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, GetAccountAuthorizationDetailsCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, GetAccountAuthorizationDetailsCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new GetAccountAuthorizationDetailsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAccountAuthorizationDetailsCommandInput} for command's `input` shape.
+ * @see {@link GetAccountAuthorizationDetailsCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAccountAuthorizationDetailsCommand extends $Command<
   GetAccountAuthorizationDetailsCommandInput,

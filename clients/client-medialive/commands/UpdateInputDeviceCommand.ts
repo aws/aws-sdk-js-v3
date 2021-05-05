@@ -22,6 +22,20 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
 
 /**
  * Updates the parameters for the input device.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaLiveClient, UpdateInputDeviceCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, UpdateInputDeviceCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * const client = new MediaLiveClient(config);
+ * const command = new UpdateInputDeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateInputDeviceCommandInput} for command's `input` shape.
+ * @see {@link UpdateInputDeviceCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateInputDeviceCommand extends $Command<
   UpdateInputDeviceCommandInput,

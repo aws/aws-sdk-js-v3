@@ -11,6 +11,9 @@ export interface InternalFailure extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InternalFailure {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalFailure): any => ({
     ...obj,
   });
@@ -91,6 +94,9 @@ export interface InvokeEndpointInput {
 }
 
 export namespace InvokeEndpointInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvokeEndpointInput): any => ({
     ...obj,
     ...(obj.Body && { Body: SENSITIVE_STRING }),
@@ -138,6 +144,9 @@ export interface InvokeEndpointOutput {
 }
 
 export namespace InvokeEndpointOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvokeEndpointOutput): any => ({
     ...obj,
     ...(obj.Body && { Body: SENSITIVE_STRING }),
@@ -170,6 +179,9 @@ export interface ModelError extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ModelError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModelError): any => ({
     ...obj,
   });
@@ -185,6 +197,9 @@ export interface ServiceUnavailable extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServiceUnavailable {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailable): any => ({
     ...obj,
   });
@@ -200,6 +215,9 @@ export interface ValidationError extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ValidationError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationError): any => ({
     ...obj,
   });

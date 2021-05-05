@@ -30,6 +30,20 @@ export interface GetCertificateAuthorityCertificateCommandOutput
  * 			(CA) or one that has been shared with you. Both the certificate and the chain are base64
  * 			PEM-encoded. The chain does not include the CA certificate. Each certificate in the
  * 			chain signs the one before it. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ACMPCAClient, GetCertificateAuthorityCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
+ * // const { ACMPCAClient, GetCertificateAuthorityCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * const client = new ACMPCAClient(config);
+ * const command = new GetCertificateAuthorityCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCertificateAuthorityCertificateCommandInput} for command's `input` shape.
+ * @see {@link GetCertificateAuthorityCertificateCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCertificateAuthorityCertificateCommand extends $Command<
   GetCertificateAuthorityCertificateCommandInput,

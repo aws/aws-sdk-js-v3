@@ -24,6 +24,20 @@ export interface StartOnDemandAppReplicationCommandOutput
 
 /**
  * <p>Starts an on-demand replication run for the specified application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SMSClient, StartOnDemandAppReplicationCommand } from "@aws-sdk/client-sms"; // ES Modules import
+ * // const { SMSClient, StartOnDemandAppReplicationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * const client = new SMSClient(config);
+ * const command = new StartOnDemandAppReplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartOnDemandAppReplicationCommandInput} for command's `input` shape.
+ * @see {@link StartOnDemandAppReplicationCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartOnDemandAppReplicationCommand extends $Command<
   StartOnDemandAppReplicationCommandInput,

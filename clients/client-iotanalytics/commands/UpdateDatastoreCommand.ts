@@ -22,6 +22,20 @@ export interface UpdateDatastoreCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the settings of a data store.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTAnalyticsClient, UpdateDatastoreCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
+ * // const { IoTAnalyticsClient, UpdateDatastoreCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * const client = new IoTAnalyticsClient(config);
+ * const command = new UpdateDatastoreCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDatastoreCommandInput} for command's `input` shape.
+ * @see {@link UpdateDatastoreCommandOutput} for command's `response` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDatastoreCommand extends $Command<
   UpdateDatastoreCommandInput,

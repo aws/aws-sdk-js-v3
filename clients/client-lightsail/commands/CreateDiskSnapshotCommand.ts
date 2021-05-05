@@ -41,6 +41,20 @@ export interface CreateDiskSnapshotCommandOutput extends CreateDiskSnapshotResul
  *
  *          <p>The <code>create disk snapshot</code> operation supports tag-based access control via
  *       request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LightsailClient, CreateDiskSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, CreateDiskSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * const client = new LightsailClient(config);
+ * const command = new CreateDiskSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDiskSnapshotCommandInput} for command's `input` shape.
+ * @see {@link CreateDiskSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDiskSnapshotCommand extends $Command<
   CreateDiskSnapshotCommandInput,

@@ -26,6 +26,20 @@ export interface DescribeJournalKinesisStreamCommandOutput
  * <p>Returns detailed information about a given Amazon QLDB journal stream. The output
  *          includes the Amazon Resource Name (ARN), stream name, current status, creation time, and
  *          the parameters of your original stream creation request.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QLDBClient, DescribeJournalKinesisStreamCommand } from "@aws-sdk/client-qldb"; // ES Modules import
+ * // const { QLDBClient, DescribeJournalKinesisStreamCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
+ * const client = new QLDBClient(config);
+ * const command = new DescribeJournalKinesisStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeJournalKinesisStreamCommandInput} for command's `input` shape.
+ * @see {@link DescribeJournalKinesisStreamCommandOutput} for command's `response` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeJournalKinesisStreamCommand extends $Command<
   DescribeJournalKinesisStreamCommandInput,

@@ -40,6 +40,20 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *             on a specific number of instances. However, if you configure a mixed instances policy
  *             that defines weights for the instance types, you must specify these sizes with the same
  *             units that you use for weighting instances.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AutoScalingClient, CreateAutoScalingGroupCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, CreateAutoScalingGroupCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * const client = new AutoScalingClient(config);
+ * const command = new CreateAutoScalingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAutoScalingGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateAutoScalingGroupCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAutoScalingGroupCommand extends $Command<
   CreateAutoScalingGroupCommandInput,

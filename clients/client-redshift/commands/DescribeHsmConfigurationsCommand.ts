@@ -32,6 +32,20 @@ export interface DescribeHsmConfigurationsCommandOutput extends HsmConfiguration
  *         <p>If both tag keys and values are omitted from the request, HSM connections are
  *             returned regardless of whether they have tag keys or values associated with
  *             them.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RedshiftClient, DescribeHsmConfigurationsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, DescribeHsmConfigurationsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
+ * const client = new RedshiftClient(config);
+ * const command = new DescribeHsmConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeHsmConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeHsmConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeHsmConfigurationsCommand extends $Command<
   DescribeHsmConfigurationsCommandInput,

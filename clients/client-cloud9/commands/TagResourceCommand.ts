@@ -25,6 +25,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *          <important>
  *             <p>Tags that you add to an AWS Cloud9 environment by using this method will NOT be automatically propagated to underlying resources.</p>
  *          </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Cloud9Client, TagResourceCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
+ * // const { Cloud9Client, TagResourceCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
+ * const client = new Cloud9Client(config);
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link Cloud9ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

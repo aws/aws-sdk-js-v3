@@ -23,6 +23,20 @@ export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemp
 /**
  * <p>Lists the assessment templates that correspond to the assessment targets that are
  *          specified by the ARNs of the assessment targets.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { InspectorClient, ListAssessmentTemplatesCommand } from "@aws-sdk/client-inspector"; // ES Modules import
+ * // const { InspectorClient, ListAssessmentTemplatesCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
+ * const client = new InspectorClient(config);
+ * const command = new ListAssessmentTemplatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAssessmentTemplatesCommandInput} for command's `input` shape.
+ * @see {@link ListAssessmentTemplatesCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAssessmentTemplatesCommand extends $Command<
   ListAssessmentTemplatesCommandInput,

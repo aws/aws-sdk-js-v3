@@ -24,6 +24,20 @@ export interface CreateMobileDeviceAccessRuleCommandOutput
 
 /**
  * <p>Creates a new mobile device access rule for the specified Amazon WorkMail organization.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkMailClient, CreateMobileDeviceAccessRuleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, CreateMobileDeviceAccessRuleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * const client = new WorkMailClient(config);
+ * const command = new CreateMobileDeviceAccessRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMobileDeviceAccessRuleCommandInput} for command's `input` shape.
+ * @see {@link CreateMobileDeviceAccessRuleCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMobileDeviceAccessRuleCommand extends $Command<
   CreateMobileDeviceAccessRuleCommandInput,

@@ -30,6 +30,20 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  *          events.
  *       </p>
  *          <p></p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexRuntimeV2Client, StartConversationCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
+ * // const { LexRuntimeV2Client, StartConversationCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
+ * const client = new LexRuntimeV2Client(config);
+ * const command = new StartConversationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartConversationCommandInput} for command's `input` shape.
+ * @see {@link StartConversationCommandOutput} for command's `response` shape.
+ * @see {@link LexRuntimeV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartConversationCommand extends $Command<
   StartConversationCommandInput,

@@ -22,6 +22,20 @@ export interface DescribeCommentsCommandOutput extends DescribeCommentsResponse,
 
 /**
  * <p>List all the comments for the specified document version.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkDocsClient, DescribeCommentsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
+ * // const { WorkDocsClient, DescribeCommentsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * const client = new WorkDocsClient(config);
+ * const command = new DescribeCommentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCommentsCommandInput} for command's `input` shape.
+ * @see {@link DescribeCommentsCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCommentsCommand extends $Command<
   DescribeCommentsCommandInput,

@@ -61,6 +61,20 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, ListObjectVersionsCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, ListObjectVersionsCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new ListObjectVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListObjectVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListObjectVersionsCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListObjectVersionsCommand extends $Command<
   ListObjectVersionsCommandInput,

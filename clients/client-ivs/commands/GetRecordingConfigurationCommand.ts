@@ -22,6 +22,20 @@ export interface GetRecordingConfigurationCommandOutput extends GetRecordingConf
 
 /**
  * <p>Gets the recording configuration for the specified ARN.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IvsClient, GetRecordingConfigurationCommand } from "@aws-sdk/client-ivs"; // ES Modules import
+ * // const { IvsClient, GetRecordingConfigurationCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
+ * const client = new IvsClient(config);
+ * const command = new GetRecordingConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRecordingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetRecordingConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link IvsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRecordingConfigurationCommand extends $Command<
   GetRecordingConfigurationCommandInput,

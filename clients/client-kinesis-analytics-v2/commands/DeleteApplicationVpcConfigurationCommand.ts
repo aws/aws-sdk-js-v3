@@ -31,6 +31,20 @@ export interface DeleteApplicationVpcConfigurationCommandOutput
 
 /**
  * <p>Removes a VPC configuration from a Kinesis Data Analytics application.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KinesisAnalyticsV2Client, DeleteApplicationVpcConfigurationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, DeleteApplicationVpcConfigurationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
+ * const client = new KinesisAnalyticsV2Client(config);
+ * const command = new DeleteApplicationVpcConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteApplicationVpcConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteApplicationVpcConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteApplicationVpcConfigurationCommand extends $Command<
   DeleteApplicationVpcConfigurationCommandInput,

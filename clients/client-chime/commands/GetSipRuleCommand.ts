@@ -22,6 +22,20 @@ export interface GetSipRuleCommandOutput extends GetSipRuleResponse, __MetadataB
 
 /**
  * <p>Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and target endpoints.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, GetSipRuleCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, GetSipRuleCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new GetSipRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSipRuleCommandInput} for command's `input` shape.
+ * @see {@link GetSipRuleCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSipRuleCommand extends $Command<
   GetSipRuleCommandInput,

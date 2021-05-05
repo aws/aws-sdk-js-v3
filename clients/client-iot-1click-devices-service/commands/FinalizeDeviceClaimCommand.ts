@@ -30,6 +30,20 @@ export interface FinalizeDeviceClaimCommandOutput extends FinalizeDeviceClaimRes
  *  and finalizing the claim. For a device of type button, a device event can
  *  be published by simply clicking the device.</p>
  *  </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoT1ClickDevicesServiceClient, FinalizeDeviceClaimCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
+ * // const { IoT1ClickDevicesServiceClient, FinalizeDeviceClaimCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
+ * const client = new IoT1ClickDevicesServiceClient(config);
+ * const command = new FinalizeDeviceClaimCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link FinalizeDeviceClaimCommandInput} for command's `input` shape.
+ * @see {@link FinalizeDeviceClaimCommandOutput} for command's `response` shape.
+ * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class FinalizeDeviceClaimCommand extends $Command<
   FinalizeDeviceClaimCommandInput,

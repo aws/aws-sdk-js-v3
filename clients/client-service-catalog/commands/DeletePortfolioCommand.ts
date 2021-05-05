@@ -25,6 +25,20 @@ export interface DeletePortfolioCommandOutput extends DeletePortfolioOutput, __M
  *          <p>You cannot delete a portfolio if it was shared with you or if it has associated
  *          products, users, constraints, or shared accounts.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceCatalogClient, DeletePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, DeletePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DeletePortfolioCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePortfolioCommandInput} for command's `input` shape.
+ * @see {@link DeletePortfolioCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePortfolioCommand extends $Command<
   DeletePortfolioCommandInput,

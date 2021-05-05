@@ -28,6 +28,20 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
 /**
  * <p>Enable or disable email sending for messages that use a particular configuration set
  *             in a specific AWS Region.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PinpointEmailClient, PutConfigurationSetSendingOptionsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
+ * // const { PinpointEmailClient, PutConfigurationSetSendingOptionsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
+ * const client = new PinpointEmailClient(config);
+ * const command = new PutConfigurationSetSendingOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutConfigurationSetSendingOptionsCommandInput} for command's `input` shape.
+ * @see {@link PutConfigurationSetSendingOptionsCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutConfigurationSetSendingOptionsCommand extends $Command<
   PutConfigurationSetSendingOptionsCommandInput,

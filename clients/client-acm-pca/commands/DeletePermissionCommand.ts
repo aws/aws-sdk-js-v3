@@ -50,6 +50,20 @@ export interface DeletePermissionCommandOutput extends __MetadataBearer {}
  * 			Based Policy with ACM Private CA</a>.</p>
  * 		          </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ACMPCAClient, DeletePermissionCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
+ * // const { ACMPCAClient, DeletePermissionCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
+ * const client = new ACMPCAClient(config);
+ * const command = new DeletePermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePermissionCommandInput} for command's `input` shape.
+ * @see {@link DeletePermissionCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePermissionCommand extends $Command<
   DeletePermissionCommandInput,

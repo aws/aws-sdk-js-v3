@@ -67,6 +67,20 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PersonalizeClient, CreateEventTrackerCommand } from "@aws-sdk/client-personalize"; // ES Modules import
+ * // const { PersonalizeClient, CreateEventTrackerCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * const client = new PersonalizeClient(config);
+ * const command = new CreateEventTrackerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateEventTrackerCommandInput} for command's `input` shape.
+ * @see {@link CreateEventTrackerCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateEventTrackerCommand extends $Command<
   CreateEventTrackerCommandInput,

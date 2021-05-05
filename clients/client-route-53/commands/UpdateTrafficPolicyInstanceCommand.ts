@@ -40,6 +40,20 @@ export interface UpdateTrafficPolicyInstanceCommandOutput
  * 				           <p>Route 53 deletes the old group of resource record sets that are associated with the root resource record set name.</p>
  * 			         </li>
  *          </ol>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53Client, UpdateTrafficPolicyInstanceCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, UpdateTrafficPolicyInstanceCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * const client = new Route53Client(config);
+ * const command = new UpdateTrafficPolicyInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTrafficPolicyInstanceCommandInput} for command's `input` shape.
+ * @see {@link UpdateTrafficPolicyInstanceCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTrafficPolicyInstanceCommand extends $Command<
   UpdateTrafficPolicyInstanceCommandInput,

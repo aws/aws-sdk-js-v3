@@ -25,6 +25,20 @@ export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __M
  *             Amazon Cognito user pools. You must first create the user pools before you can create a work
  *             team.</p>
  *         <p>You cannot create more than 25 work teams in an account and region.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, CreateWorkteamCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, CreateWorkteamCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new CreateWorkteamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateWorkteamCommandInput} for command's `input` shape.
+ * @see {@link CreateWorkteamCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateWorkteamCommand extends $Command<
   CreateWorkteamCommandInput,

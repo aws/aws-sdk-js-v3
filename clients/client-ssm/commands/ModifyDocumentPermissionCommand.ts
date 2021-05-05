@@ -24,6 +24,20 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
  * <p>Shares a Systems Manager document publicly or privately. If you share a document privately, you must
  *    specify the AWS user account IDs for those people who can use the document. If you share a
  *    document publicly, you must specify <i>All</i> as the account ID.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, ModifyDocumentPermissionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, ModifyDocumentPermissionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new ModifyDocumentPermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyDocumentPermissionCommandInput} for command's `input` shape.
+ * @see {@link ModifyDocumentPermissionCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyDocumentPermissionCommand extends $Command<
   ModifyDocumentPermissionCommandInput,

@@ -24,6 +24,20 @@ export interface BatchPutScheduledUpdateGroupActionCommandOutput
 
 /**
  * <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AutoScalingClient, BatchPutScheduledUpdateGroupActionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, BatchPutScheduledUpdateGroupActionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * const client = new AutoScalingClient(config);
+ * const command = new BatchPutScheduledUpdateGroupActionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchPutScheduledUpdateGroupActionCommandInput} for command's `input` shape.
+ * @see {@link BatchPutScheduledUpdateGroupActionCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
   BatchPutScheduledUpdateGroupActionCommandInput,

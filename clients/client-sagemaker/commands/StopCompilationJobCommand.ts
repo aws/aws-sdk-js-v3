@@ -27,6 +27,20 @@ export interface StopCompilationJobCommandOutput extends __MetadataBearer {}
  *         <p>When it receives a <code>StopCompilationJob</code> request, Amazon SageMaker changes the <a>CompilationJobSummary$CompilationJobStatus</a> of the job to
  *             <code>Stopping</code>. After Amazon SageMaker stops the job, it sets the <a>CompilationJobSummary$CompilationJobStatus</a> to <code>Stopped</code>.
  *         </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, StopCompilationJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, StopCompilationJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new StopCompilationJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopCompilationJobCommandInput} for command's `input` shape.
+ * @see {@link StopCompilationJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopCompilationJobCommand extends $Command<
   StopCompilationJobCommandInput,

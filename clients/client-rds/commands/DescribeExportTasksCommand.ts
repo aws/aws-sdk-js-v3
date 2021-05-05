@@ -23,6 +23,20 @@ export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __
 /**
  * <p>Returns information about a snapshot export to Amazon S3. This API operation supports
  *             pagination. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, DescribeExportTasksCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeExportTasksCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new DescribeExportTasksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeExportTasksCommandInput} for command's `input` shape.
+ * @see {@link DescribeExportTasksCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeExportTasksCommand extends $Command<
   DescribeExportTasksCommandInput,

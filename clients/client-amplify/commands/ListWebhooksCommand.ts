@@ -22,6 +22,20 @@ export interface ListWebhooksCommandOutput extends ListWebhooksResult, __Metadat
 
 /**
  * <p> Returns a list of webhooks for an Amplify app. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmplifyClient, ListWebhooksCommand } from "@aws-sdk/client-amplify"; // ES Modules import
+ * // const { AmplifyClient, ListWebhooksCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
+ * const client = new AmplifyClient(config);
+ * const command = new ListWebhooksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListWebhooksCommandInput} for command's `input` shape.
+ * @see {@link ListWebhooksCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListWebhooksCommand extends $Command<
   ListWebhooksCommandInput,

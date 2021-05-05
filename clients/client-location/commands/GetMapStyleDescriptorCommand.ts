@@ -25,6 +25,20 @@ export interface GetMapStyleDescriptorCommandOutput extends GetMapStyleDescripto
  *         <p>The style descriptor contains speciﬁcations on how features render on a map. For
  *             example, what data to display, what order to display the data in, and the style for the
  *             data. Style descriptors follow the Mapbox Style Specification.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LocationClient, GetMapStyleDescriptorCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, GetMapStyleDescriptorCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * const client = new LocationClient(config);
+ * const command = new GetMapStyleDescriptorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMapStyleDescriptorCommandInput} for command's `input` shape.
+ * @see {@link GetMapStyleDescriptorCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMapStyleDescriptorCommand extends $Command<
   GetMapStyleDescriptorCommandInput,

@@ -24,6 +24,20 @@ export interface UpdateAuditSuppressionCommandOutput extends UpdateAuditSuppress
  * <p>
  *       Updates a Device Defender audit suppression.
  *     </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, UpdateAuditSuppressionCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, UpdateAuditSuppressionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new UpdateAuditSuppressionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAuditSuppressionCommandInput} for command's `input` shape.
+ * @see {@link UpdateAuditSuppressionCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAuditSuppressionCommand extends $Command<
   UpdateAuditSuppressionCommandInput,

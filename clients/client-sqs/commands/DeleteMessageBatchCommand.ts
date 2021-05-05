@@ -33,6 +33,20 @@ export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResul
  *          <p>
  *             <code>&AttributeName.2=second</code>
  *          </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SQSClient, DeleteMessageBatchCommand } from "@aws-sdk/client-sqs"; // ES Modules import
+ * // const { SQSClient, DeleteMessageBatchCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
+ * const client = new SQSClient(config);
+ * const command = new DeleteMessageBatchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMessageBatchCommandInput} for command's `input` shape.
+ * @see {@link DeleteMessageBatchCommandOutput} for command's `response` shape.
+ * @see {@link SQSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMessageBatchCommand extends $Command<
   DeleteMessageBatchCommandInput,

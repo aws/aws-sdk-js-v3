@@ -22,6 +22,20 @@ export interface DeleteSamplingRuleCommandOutput extends DeleteSamplingRuleResul
 
 /**
  * <p>Deletes a sampling rule.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { XRayClient, DeleteSamplingRuleCommand } from "@aws-sdk/client-xray"; // ES Modules import
+ * // const { XRayClient, DeleteSamplingRuleCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * const client = new XRayClient(config);
+ * const command = new DeleteSamplingRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSamplingRuleCommandInput} for command's `input` shape.
+ * @see {@link DeleteSamplingRuleCommandOutput} for command's `response` shape.
+ * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSamplingRuleCommand extends $Command<
   DeleteSamplingRuleCommandInput,

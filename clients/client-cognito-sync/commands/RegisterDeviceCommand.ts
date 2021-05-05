@@ -66,6 +66,20 @@ export interface RegisterDeviceCommandOutput extends RegisterDeviceResponse, __M
  *                </response>
  *          </example>
  *       </examples>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CognitoSyncClient, RegisterDeviceCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
+ * // const { CognitoSyncClient, RegisterDeviceCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
+ * const client = new CognitoSyncClient(config);
+ * const command = new RegisterDeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterDeviceCommandInput} for command's `input` shape.
+ * @see {@link RegisterDeviceCommandOutput} for command's `response` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterDeviceCommand extends $Command<
   RegisterDeviceCommandInput,

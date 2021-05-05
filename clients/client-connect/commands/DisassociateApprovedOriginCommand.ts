@@ -23,6 +23,20 @@ export interface DisassociateApprovedOriginCommandOutput extends __MetadataBeare
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Revokes access to integrated applications from Amazon Connect.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, DisassociateApprovedOriginCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DisassociateApprovedOriginCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * const client = new ConnectClient(config);
+ * const command = new DisassociateApprovedOriginCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateApprovedOriginCommandInput} for command's `input` shape.
+ * @see {@link DisassociateApprovedOriginCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateApprovedOriginCommand extends $Command<
   DisassociateApprovedOriginCommandInput,

@@ -22,6 +22,20 @@ export interface UpdateUploadCommandOutput extends UpdateUploadResult, __Metadat
 
 /**
  * <p>Updates an uploaded test spec.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, UpdateUploadCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, UpdateUploadCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new UpdateUploadCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateUploadCommandInput} for command's `input` shape.
+ * @see {@link UpdateUploadCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateUploadCommand extends $Command<
   UpdateUploadCommandInput,

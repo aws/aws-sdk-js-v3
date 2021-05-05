@@ -22,6 +22,20 @@ export interface DisableProactiveEngagementCommandOutput extends DisableProactiv
 
 /**
  * <p>Removes authorization from the DDoS Response Team (DRT) to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ShieldClient, DisableProactiveEngagementCommand } from "@aws-sdk/client-shield"; // ES Modules import
+ * // const { ShieldClient, DisableProactiveEngagementCommand } = require("@aws-sdk/client-shield"); // CommonJS import
+ * const client = new ShieldClient(config);
+ * const command = new DisableProactiveEngagementCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableProactiveEngagementCommandInput} for command's `input` shape.
+ * @see {@link DisableProactiveEngagementCommandOutput} for command's `response` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableProactiveEngagementCommand extends $Command<
   DisableProactiveEngagementCommandInput,

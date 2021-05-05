@@ -36,6 +36,20 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  *                 enabled and disabled in a root. To see the availability of a policy type in an
  *                 organization, use <a>DescribeOrganization</a>.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OrganizationsClient, ListRootsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
+ * // const { OrganizationsClient, ListRootsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
+ * const client = new OrganizationsClient(config);
+ * const command = new ListRootsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRootsCommandInput} for command's `input` shape.
+ * @see {@link ListRootsCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRootsCommand extends $Command<
   ListRootsCommandInput,

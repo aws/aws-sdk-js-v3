@@ -143,6 +143,20 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KMSClient, EncryptCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, EncryptCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * const client = new KMSClient(config);
+ * const command = new EncryptCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EncryptCommandInput} for command's `input` shape.
+ * @see {@link EncryptCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties

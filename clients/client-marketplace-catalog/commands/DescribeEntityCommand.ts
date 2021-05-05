@@ -26,6 +26,20 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
 
 /**
  * <p>Returns the metadata and content of the entity.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MarketplaceCatalogClient, DescribeEntityCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
+ * // const { MarketplaceCatalogClient, DescribeEntityCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * const client = new MarketplaceCatalogClient(config);
+ * const command = new DescribeEntityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEntityCommandInput} for command's `input` shape.
+ * @see {@link DescribeEntityCommandOutput} for command's `response` shape.
+ * @see {@link MarketplaceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEntityCommand extends $Command<
   DescribeEntityCommandInput,

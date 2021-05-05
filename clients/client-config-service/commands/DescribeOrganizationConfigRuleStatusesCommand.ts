@@ -36,6 +36,20 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
  * 			Limit and next token are not applicable if you specify organization config rule names.
  * 			It is only applicable, when you request all the organization config rules.</p>
  * 			      </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConfigServiceClient, DescribeOrganizationConfigRuleStatusesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, DescribeOrganizationConfigRuleStatusesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * const client = new ConfigServiceClient(config);
+ * const command = new DescribeOrganizationConfigRuleStatusesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeOrganizationConfigRuleStatusesCommandInput} for command's `input` shape.
+ * @see {@link DescribeOrganizationConfigRuleStatusesCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeOrganizationConfigRuleStatusesCommand extends $Command<
   DescribeOrganizationConfigRuleStatusesCommandInput,

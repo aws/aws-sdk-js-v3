@@ -29,6 +29,20 @@ export interface CreateThingCommandOutput extends CreateThingResponse, __Metadat
  * 			         <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for
  * 				information about authorizing control plane actions.</p>
  * 		       </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, CreateThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, CreateThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new CreateThingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateThingCommandInput} for command's `input` shape.
+ * @see {@link CreateThingCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateThingCommand extends $Command<
   CreateThingCommandInput,

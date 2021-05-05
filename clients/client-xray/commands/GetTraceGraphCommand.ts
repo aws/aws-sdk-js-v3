@@ -22,6 +22,20 @@ export interface GetTraceGraphCommandOutput extends GetTraceGraphResult, __Metad
 
 /**
  * <p>Retrieves a service graph for one or more specific trace IDs.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { XRayClient, GetTraceGraphCommand } from "@aws-sdk/client-xray"; // ES Modules import
+ * // const { XRayClient, GetTraceGraphCommand } = require("@aws-sdk/client-xray"); // CommonJS import
+ * const client = new XRayClient(config);
+ * const command = new GetTraceGraphCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTraceGraphCommandInput} for command's `input` shape.
+ * @see {@link GetTraceGraphCommandOutput} for command's `response` shape.
+ * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTraceGraphCommand extends $Command<
   GetTraceGraphCommandInput,

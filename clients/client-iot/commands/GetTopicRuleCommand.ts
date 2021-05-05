@@ -22,6 +22,20 @@ export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __Metad
 
 /**
  * <p>Gets information about the rule.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, GetTopicRuleCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, GetTopicRuleCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new GetTopicRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTopicRuleCommandInput} for command's `input` shape.
+ * @see {@link GetTopicRuleCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTopicRuleCommand extends $Command<
   GetTopicRuleCommandInput,

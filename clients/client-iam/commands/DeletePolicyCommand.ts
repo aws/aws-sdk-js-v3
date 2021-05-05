@@ -43,6 +43,20 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  *          </ul>
  *         <p>For information about managed policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed policies and inline
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, DeletePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, DeletePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new DeletePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePolicyCommandInput} for command's `input` shape.
+ * @see {@link DeletePolicyCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePolicyCommand extends $Command<
   DeletePolicyCommandInput,

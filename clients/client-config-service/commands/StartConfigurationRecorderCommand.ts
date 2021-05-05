@@ -25,6 +25,20 @@ export interface StartConfigurationRecorderCommandOutput extends __MetadataBeare
  * 			selected to record in your AWS account.</p>
  * 		       <p>You must have created at least one delivery channel to
  * 			successfully start the configuration recorder.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConfigServiceClient, StartConfigurationRecorderCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, StartConfigurationRecorderCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * const client = new ConfigServiceClient(config);
+ * const command = new StartConfigurationRecorderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartConfigurationRecorderCommandInput} for command's `input` shape.
+ * @see {@link StartConfigurationRecorderCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartConfigurationRecorderCommand extends $Command<
   StartConfigurationRecorderCommandInput,

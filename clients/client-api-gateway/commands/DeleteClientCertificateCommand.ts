@@ -22,6 +22,20 @@ export interface DeleteClientCertificateCommandOutput extends __MetadataBearer {
 
 /**
  * <p>Deletes the <a>ClientCertificate</a> resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, DeleteClientCertificateCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, DeleteClientCertificateCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new DeleteClientCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteClientCertificateCommandInput} for command's `input` shape.
+ * @see {@link DeleteClientCertificateCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteClientCertificateCommand extends $Command<
   DeleteClientCertificateCommandInput,

@@ -34,6 +34,20 @@ export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
  *          <p>It can take up to 5 minutes for this operation to take effect.</p>
  *          <p>If you attempt to associate a CMK with a log group but the CMK does not exist or the
  *       CMK is disabled, you receive an <code>InvalidParameterException</code> error. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchLogsClient, AssociateKmsKeyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
+ * // const { CloudWatchLogsClient, AssociateKmsKeyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new AssociateKmsKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateKmsKeyCommandInput} for command's `input` shape.
+ * @see {@link AssociateKmsKeyCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateKmsKeyCommand extends $Command<
   AssociateKmsKeyCommandInput,

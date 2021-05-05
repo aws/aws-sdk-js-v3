@@ -22,6 +22,20 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
 
 /**
  * <p>Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTThingsGraphClient, SearchEntitiesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
+ * // const { IoTThingsGraphClient, SearchEntitiesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * const client = new IoTThingsGraphClient(config);
+ * const command = new SearchEntitiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchEntitiesCommandInput} for command's `input` shape.
+ * @see {@link SearchEntitiesCommandOutput} for command's `response` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchEntitiesCommand extends $Command<
   SearchEntitiesCommandInput,

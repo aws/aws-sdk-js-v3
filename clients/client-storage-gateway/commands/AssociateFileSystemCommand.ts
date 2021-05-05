@@ -25,6 +25,20 @@ export interface AssociateFileSystemCommandOutput extends AssociateFileSystemOut
  *          association process is complete, the file shares on the Amazon FSx file system are
  *          available for access through the gateway. This operation only supports the Amazon FSx file
  *          gateway type.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { StorageGatewayClient, AssociateFileSystemCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, AssociateFileSystemCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * const client = new StorageGatewayClient(config);
+ * const command = new AssociateFileSystemCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateFileSystemCommandInput} for command's `input` shape.
+ * @see {@link AssociateFileSystemCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateFileSystemCommand extends $Command<
   AssociateFileSystemCommandInput,

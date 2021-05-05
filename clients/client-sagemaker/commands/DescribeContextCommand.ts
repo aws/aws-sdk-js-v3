@@ -22,6 +22,20 @@ export interface DescribeContextCommandOutput extends DescribeContextResponse, _
 
 /**
  * <p>Describes a context.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, DescribeContextCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DescribeContextCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeContextCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeContextCommandInput} for command's `input` shape.
+ * @see {@link DescribeContextCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeContextCommand extends $Command<
   DescribeContextCommandInput,

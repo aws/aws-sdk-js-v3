@@ -22,6 +22,20 @@ export interface CreateMemberCommandOutput extends CreateMemberResponse, __Metad
 
 /**
  * <p>Associates an account with an Amazon Macie administrator account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Macie2Client, CreateMemberCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, CreateMemberCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * const client = new Macie2Client(config);
+ * const command = new CreateMemberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMemberCommandInput} for command's `input` shape.
+ * @see {@link CreateMemberCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMemberCommand extends $Command<
   CreateMemberCommandInput,

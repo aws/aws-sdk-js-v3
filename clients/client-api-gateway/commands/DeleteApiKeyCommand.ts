@@ -22,6 +22,20 @@ export interface DeleteApiKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the <a>ApiKey</a> resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, DeleteApiKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, DeleteApiKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new DeleteApiKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteApiKeyCommandInput} for command's `input` shape.
+ * @see {@link DeleteApiKeyCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteApiKeyCommand extends $Command<
   DeleteApiKeyCommandInput,

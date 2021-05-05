@@ -22,6 +22,20 @@ export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __Met
 
 /**
  * Changes the Channel's properities to configure log subscription
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaPackageClient, ConfigureLogsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
+ * // const { MediaPackageClient, ConfigureLogsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
+ * const client = new MediaPackageClient(config);
+ * const command = new ConfigureLogsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ConfigureLogsCommandInput} for command's `input` shape.
+ * @see {@link ConfigureLogsCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ConfigureLogsCommand extends $Command<
   ConfigureLogsCommandInput,

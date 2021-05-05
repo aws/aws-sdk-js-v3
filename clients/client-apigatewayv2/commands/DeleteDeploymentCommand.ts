@@ -22,6 +22,20 @@ export interface DeleteDeploymentCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a Deployment.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ApiGatewayV2Client, DeleteDeploymentCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
+ * // const { ApiGatewayV2Client, DeleteDeploymentCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new DeleteDeploymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDeploymentCommandInput} for command's `input` shape.
+ * @see {@link DeleteDeploymentCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDeploymentCommand extends $Command<
   DeleteDeploymentCommandInput,

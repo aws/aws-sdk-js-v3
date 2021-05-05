@@ -25,6 +25,20 @@ export interface PutAutoScalingPolicyCommandOutput extends PutAutoScalingPolicyO
  *          instance group in an Amazon EMR cluster. The automatic scaling policy defines how an
  *          instance group dynamically adds and terminates EC2 instances in response to the value of a
  *          CloudWatch metric.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EMRClient, PutAutoScalingPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, PutAutoScalingPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * const client = new EMRClient(config);
+ * const command = new PutAutoScalingPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAutoScalingPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutAutoScalingPolicyCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAutoScalingPolicyCommand extends $Command<
   PutAutoScalingPolicyCommandInput,

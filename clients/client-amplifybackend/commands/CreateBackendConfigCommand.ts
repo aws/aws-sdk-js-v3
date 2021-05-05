@@ -22,6 +22,20 @@ export interface CreateBackendConfigCommandOutput extends CreateBackendConfigRes
 
 /**
  * <p>Creates a config object for a backend.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmplifyBackendClient, CreateBackendConfigCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
+ * // const { AmplifyBackendClient, CreateBackendConfigCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * const client = new AmplifyBackendClient(config);
+ * const command = new CreateBackendConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateBackendConfigCommandInput} for command's `input` shape.
+ * @see {@link CreateBackendConfigCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateBackendConfigCommand extends $Command<
   CreateBackendConfigCommandInput,

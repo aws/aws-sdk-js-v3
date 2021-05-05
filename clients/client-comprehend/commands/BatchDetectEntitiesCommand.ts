@@ -24,6 +24,20 @@ export interface BatchDetectEntitiesCommandOutput extends BatchDetectEntitiesRes
  * <p>Inspects the text of a batch of documents for named entities and returns information
  *       about them. For more information about named entities, see <a>how-entities</a>
  *          </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ComprehendClient, BatchDetectEntitiesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, BatchDetectEntitiesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * const client = new ComprehendClient(config);
+ * const command = new BatchDetectEntitiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDetectEntitiesCommandInput} for command's `input` shape.
+ * @see {@link BatchDetectEntitiesCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDetectEntitiesCommand extends $Command<
   BatchDetectEntitiesCommandInput,

@@ -31,6 +31,20 @@ export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersio
  *                <p>Change <code>ACTIVE</code>to <code>INACTIVE</code>.</p>
  *             </li>
  *          </ol>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FraudDetectorClient, UpdateModelVersionStatusCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, UpdateModelVersionStatusCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
+ * const client = new FraudDetectorClient(config);
+ * const command = new UpdateModelVersionStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateModelVersionStatusCommandInput} for command's `input` shape.
+ * @see {@link UpdateModelVersionStatusCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateModelVersionStatusCommand extends $Command<
   UpdateModelVersionStatusCommandInput,

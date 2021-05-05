@@ -24,6 +24,20 @@ export interface ListProvisioningTemplateVersionsCommandOutput
 
 /**
  * <p>A list of fleet provisioning template versions.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, ListProvisioningTemplateVersionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListProvisioningTemplateVersionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new ListProvisioningTemplateVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProvisioningTemplateVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListProvisioningTemplateVersionsCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProvisioningTemplateVersionsCommand extends $Command<
   ListProvisioningTemplateVersionsCommandInput,

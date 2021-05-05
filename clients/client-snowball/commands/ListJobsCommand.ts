@@ -23,6 +23,20 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  *       indicates whether the job is a job part, in the case of export jobs. Calling this API action
  *       in one of the US regions will return jobs from the list of all jobs associated with this
  *       account in all US regions.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SnowballClient, ListJobsCommand } from "@aws-sdk/client-snowball"; // ES Modules import
+ * // const { SnowballClient, ListJobsCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
+ * const client = new SnowballClient(config);
+ * const command = new ListJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListJobsCommandInput} for command's `input` shape.
+ * @see {@link ListJobsCommandOutput} for command's `response` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListJobsCommand extends $Command<
   ListJobsCommandInput,

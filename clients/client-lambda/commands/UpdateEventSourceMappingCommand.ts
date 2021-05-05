@@ -45,6 +45,20 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *                   <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LambdaClient, UpdateEventSourceMappingCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, UpdateEventSourceMappingCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
+ * const client = new LambdaClient(config);
+ * const command = new UpdateEventSourceMappingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateEventSourceMappingCommandInput} for command's `input` shape.
+ * @see {@link UpdateEventSourceMappingCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateEventSourceMappingCommand extends $Command<
   UpdateEventSourceMappingCommandInput,

@@ -47,6 +47,20 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  *             configuration for your domain. For some DNS providers, it can take 72 hours or more to
  *             complete the domain verification process.</p>
  *         <p>Additionally, you can associate an existing configuration set with the email identity that you're verifying.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESv2Client, CreateEmailIdentityCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, CreateEmailIdentityCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * const client = new SESv2Client(config);
+ * const command = new CreateEmailIdentityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateEmailIdentityCommandInput} for command's `input` shape.
+ * @see {@link CreateEmailIdentityCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateEmailIdentityCommand extends $Command<
   CreateEmailIdentityCommandInput,

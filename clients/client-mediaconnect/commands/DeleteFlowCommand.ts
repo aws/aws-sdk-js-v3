@@ -22,6 +22,20 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
 
 /**
  * Deletes a flow. Before you can delete a flow, you must stop the flow.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaConnectClient, DeleteFlowCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
+ * // const { MediaConnectClient, DeleteFlowCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
+ * const client = new MediaConnectClient(config);
+ * const command = new DeleteFlowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFlowCommandInput} for command's `input` shape.
+ * @see {@link DeleteFlowCommandOutput} for command's `response` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFlowCommand extends $Command<
   DeleteFlowCommandInput,

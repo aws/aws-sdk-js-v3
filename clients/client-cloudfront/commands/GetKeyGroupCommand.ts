@@ -27,6 +27,20 @@ export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataB
  * 			using <code>ListDistributions</code> or <code>GetDistribution</code>. If the key group
  * 			is not referenced in a cache behavior, you can get the identifier using
  * 			<code>ListKeyGroups</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFrontClient, GetKeyGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, GetKeyGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * const client = new CloudFrontClient(config);
+ * const command = new GetKeyGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetKeyGroupCommandInput} for command's `input` shape.
+ * @see {@link GetKeyGroupCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetKeyGroupCommand extends $Command<
   GetKeyGroupCommandInput,

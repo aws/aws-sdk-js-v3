@@ -26,6 +26,20 @@ export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBea
  *             <p>This action deletes the resource permanently. You cannot undo this action. If the map is being
  *                 used in an application, the map may not render.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LocationClient, DeleteMapCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, DeleteMapCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * const client = new LocationClient(config);
+ * const command = new DeleteMapCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMapCommandInput} for command's `input` shape.
+ * @see {@link DeleteMapCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMapCommand extends $Command<
   DeleteMapCommandInput,

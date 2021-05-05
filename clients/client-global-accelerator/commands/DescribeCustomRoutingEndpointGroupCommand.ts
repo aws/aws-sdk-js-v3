@@ -31,6 +31,20 @@ export interface DescribeCustomRoutingEndpointGroupCommandOutput
 
 /**
  * <p>Describe an endpoint group for a custom routing accelerator. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlobalAcceleratorClient, DescribeCustomRoutingEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
+ * // const { GlobalAcceleratorClient, DescribeCustomRoutingEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new DescribeCustomRoutingEndpointGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCustomRoutingEndpointGroupCommandInput} for command's `input` shape.
+ * @see {@link DescribeCustomRoutingEndpointGroupCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCustomRoutingEndpointGroupCommand extends $Command<
   DescribeCustomRoutingEndpointGroupCommandInput,

@@ -32,6 +32,20 @@ export interface DisassociateFileSystemAliasesCommandOutput
  *             Use the  API
  *             operation to monitor the status of the aliases Amazon FSx is
  *             disassociating with the file system.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FSxClient, DisassociateFileSystemAliasesCommand } from "@aws-sdk/client-fsx"; // ES Modules import
+ * // const { FSxClient, DisassociateFileSystemAliasesCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * const client = new FSxClient(config);
+ * const command = new DisassociateFileSystemAliasesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateFileSystemAliasesCommandInput} for command's `input` shape.
+ * @see {@link DisassociateFileSystemAliasesCommandOutput} for command's `response` shape.
+ * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateFileSystemAliasesCommand extends $Command<
   DisassociateFileSystemAliasesCommandInput,

@@ -22,6 +22,20 @@ export interface DescribeWorldTemplateCommandOutput extends DescribeWorldTemplat
 
 /**
  * <p>Describes a world template.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RoboMakerClient, DescribeWorldTemplateCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
+ * // const { RoboMakerClient, DescribeWorldTemplateCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * const client = new RoboMakerClient(config);
+ * const command = new DescribeWorldTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeWorldTemplateCommandInput} for command's `input` shape.
+ * @see {@link DescribeWorldTemplateCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeWorldTemplateCommand extends $Command<
   DescribeWorldTemplateCommandInput,

@@ -22,6 +22,20 @@ export interface GetApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
 
 /**
  * <p>Gets information about the current <a>ApiKey</a> resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, GetApiKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, GetApiKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new GetApiKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetApiKeyCommandInput} for command's `input` shape.
+ * @see {@link GetApiKeyCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetApiKeyCommand extends $Command<
   GetApiKeyCommandInput,

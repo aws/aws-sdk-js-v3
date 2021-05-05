@@ -27,6 +27,20 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
  * 				You can create one data feed per AWS account. For more information, see
  *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot Instance data feed</a>
  *         in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, CreateSpotDatafeedSubscriptionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateSpotDatafeedSubscriptionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new CreateSpotDatafeedSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSpotDatafeedSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link CreateSpotDatafeedSubscriptionCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSpotDatafeedSubscriptionCommand extends $Command<
   CreateSpotDatafeedSubscriptionCommandInput,

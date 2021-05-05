@@ -24,6 +24,20 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __Met
  * <p>Returns the ID and status of each active change set for a stack. For example, AWS
  *          CloudFormation lists change sets that are in the <code>CREATE_IN_PROGRESS</code> or
  *             <code>CREATE_PENDING</code> state.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFormationClient, ListChangeSetsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, ListChangeSetsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * const client = new CloudFormationClient(config);
+ * const command = new ListChangeSetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListChangeSetsCommandInput} for command's `input` shape.
+ * @see {@link ListChangeSetsCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListChangeSetsCommand extends $Command<
   ListChangeSetsCommandInput,

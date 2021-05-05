@@ -33,6 +33,20 @@ export interface UpdateFacetCommandOutput extends UpdateFacetResponse, __Metadat
  *                <p>Deletes existing <code>Attributes</code>, <code>Rules</code>, or <code>ObjectTypes</code>.</p>
  *             </li>
  *          </ol>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudDirectoryClient, UpdateFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, UpdateFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
+ * const client = new CloudDirectoryClient(config);
+ * const command = new UpdateFacetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFacetCommandInput} for command's `input` shape.
+ * @see {@link UpdateFacetCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFacetCommand extends $Command<
   UpdateFacetCommandInput,

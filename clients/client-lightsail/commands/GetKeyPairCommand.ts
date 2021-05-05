@@ -22,6 +22,20 @@ export interface GetKeyPairCommandOutput extends GetKeyPairResult, __MetadataBea
 
 /**
  * <p>Returns information about a specific key pair.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LightsailClient, GetKeyPairCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetKeyPairCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * const client = new LightsailClient(config);
+ * const command = new GetKeyPairCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetKeyPairCommandInput} for command's `input` shape.
+ * @see {@link GetKeyPairCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetKeyPairCommand extends $Command<
   GetKeyPairCommandInput,

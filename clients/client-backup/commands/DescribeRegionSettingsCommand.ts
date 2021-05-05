@@ -26,6 +26,20 @@ export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSetti
  *          the resource is included in an on-demand backup or scheduled backup plan. Otherwise, AWS
  *          Backup does not try to protect that service's resources in this Region, AWS Backup does not
  *          try to protect that service's resources in this Region.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BackupClient, DescribeRegionSettingsCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, DescribeRegionSettingsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * const client = new BackupClient(config);
+ * const command = new DescribeRegionSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRegionSettingsCommandInput} for command's `input` shape.
+ * @see {@link DescribeRegionSettingsCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRegionSettingsCommand extends $Command<
   DescribeRegionSettingsCommandInput,

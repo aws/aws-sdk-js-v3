@@ -29,6 +29,20 @@ export interface ListInstanceProfilesForRoleCommandOutput
  *             profiles</a>.</p>
  *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, ListInstanceProfilesForRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, ListInstanceProfilesForRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new ListInstanceProfilesForRoleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListInstanceProfilesForRoleCommandInput} for command's `input` shape.
+ * @see {@link ListInstanceProfilesForRoleCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListInstanceProfilesForRoleCommand extends $Command<
   ListInstanceProfilesForRoleCommandInput,

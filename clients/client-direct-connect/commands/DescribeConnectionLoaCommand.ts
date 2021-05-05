@@ -29,6 +29,20 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  *       service provider uses when establishing your cross connect to AWS at the colocation facility. For more information,
  *       see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting Cross Connects
  *       at AWS Direct Connect Locations</a> in the <i>AWS Direct Connect User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectConnectClient, DescribeConnectionLoaCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, DescribeConnectionLoaCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * const client = new DirectConnectClient(config);
+ * const command = new DescribeConnectionLoaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConnectionLoaCommandInput} for command's `input` shape.
+ * @see {@link DescribeConnectionLoaCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConnectionLoaCommand extends $Command<
   DescribeConnectionLoaCommandInput,

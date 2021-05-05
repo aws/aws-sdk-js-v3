@@ -22,6 +22,20 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
 
 /**
  * Updates a channel.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaLiveClient, UpdateChannelCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, UpdateChannelCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
+ * const client = new MediaLiveClient(config);
+ * const command = new UpdateChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateChannelCommandInput} for command's `input` shape.
+ * @see {@link UpdateChannelCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateChannelCommand extends $Command<
   UpdateChannelCommandInput,

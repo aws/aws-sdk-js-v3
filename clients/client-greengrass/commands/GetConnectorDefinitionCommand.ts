@@ -22,6 +22,20 @@ export interface GetConnectorDefinitionCommandOutput extends GetConnectorDefinit
 
 /**
  * Retrieves information about a connector definition.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassClient, GetConnectorDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, GetConnectorDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * const client = new GreengrassClient(config);
+ * const command = new GetConnectorDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetConnectorDefinitionCommandInput} for command's `input` shape.
+ * @see {@link GetConnectorDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetConnectorDefinitionCommand extends $Command<
   GetConnectorDefinitionCommandInput,

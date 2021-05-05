@@ -24,6 +24,20 @@ export interface CreateFunctionDefinitionVersionCommandOutput
 
 /**
  * Creates a version of a Lambda function definition that has already been defined.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GreengrassClient, CreateFunctionDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, CreateFunctionDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
+ * const client = new GreengrassClient(config);
+ * const command = new CreateFunctionDefinitionVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFunctionDefinitionVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateFunctionDefinitionVersionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFunctionDefinitionVersionCommand extends $Command<
   CreateFunctionDefinitionVersionCommandInput,

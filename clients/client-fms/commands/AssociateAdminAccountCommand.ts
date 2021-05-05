@@ -28,6 +28,20 @@ export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
  *       the given member account.</p>
  *          <p>The account that you associate with AWS Firewall Manager is called the AWS Firewall
  *       Manager administrator account. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FMSClient, AssociateAdminAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
+ * // const { FMSClient, AssociateAdminAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
+ * const client = new FMSClient(config);
+ * const command = new AssociateAdminAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateAdminAccountCommandInput} for command's `input` shape.
+ * @see {@link AssociateAdminAccountCommandOutput} for command's `response` shape.
+ * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateAdminAccountCommand extends $Command<
   AssociateAdminAccountCommandInput,

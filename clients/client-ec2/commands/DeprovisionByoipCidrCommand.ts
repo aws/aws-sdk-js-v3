@@ -25,6 +25,20 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  *          through bring your own IP addresses (BYOIP) and deletes the corresponding address pool.</p>
  *          <p>Before you can release an address range, you must stop advertising it using <a>WithdrawByoipCidr</a> and you must not have any IP addresses allocated from its
  *          address range.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DeprovisionByoipCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DeprovisionByoipCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DeprovisionByoipCidrCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeprovisionByoipCidrCommandInput} for command's `input` shape.
+ * @see {@link DeprovisionByoipCidrCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeprovisionByoipCidrCommand extends $Command<
   DeprovisionByoipCidrCommandInput,

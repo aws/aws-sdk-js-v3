@@ -30,6 +30,20 @@ export interface DescribeRootFoldersCommandOutput extends DescribeRootFoldersRes
  *                 Control for User Applications</a> in the
  *             <i>Amazon
  *             WorkDocs Developer Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkDocsClient, DescribeRootFoldersCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
+ * // const { WorkDocsClient, DescribeRootFoldersCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
+ * const client = new WorkDocsClient(config);
+ * const command = new DescribeRootFoldersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRootFoldersCommandInput} for command's `input` shape.
+ * @see {@link DescribeRootFoldersCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRootFoldersCommand extends $Command<
   DescribeRootFoldersCommandInput,

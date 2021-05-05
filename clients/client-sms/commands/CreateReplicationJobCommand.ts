@@ -24,6 +24,20 @@ export interface CreateReplicationJobCommandOutput extends CreateReplicationJobR
  * <p>Creates a replication job. The replication job schedules periodic replication runs
  *             to replicate your server to AWS. Each replication run creates an Amazon Machine Image
  *             (AMI).</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SMSClient, CreateReplicationJobCommand } from "@aws-sdk/client-sms"; // ES Modules import
+ * // const { SMSClient, CreateReplicationJobCommand } = require("@aws-sdk/client-sms"); // CommonJS import
+ * const client = new SMSClient(config);
+ * const command = new CreateReplicationJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateReplicationJobCommandInput} for command's `input` shape.
+ * @see {@link CreateReplicationJobCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateReplicationJobCommand extends $Command<
   CreateReplicationJobCommandInput,

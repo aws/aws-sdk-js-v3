@@ -23,6 +23,20 @@ export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __
 /**
  * <p>Updates the throughput mode or the amount of provisioned throughput of an existing file
  *       system.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EFSClient, UpdateFileSystemCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, UpdateFileSystemCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * const client = new EFSClient(config);
+ * const command = new UpdateFileSystemCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFileSystemCommandInput} for command's `input` shape.
+ * @see {@link UpdateFileSystemCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFileSystemCommand extends $Command<
   UpdateFileSystemCommandInput,

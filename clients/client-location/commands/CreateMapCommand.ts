@@ -29,6 +29,20 @@ export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBea
  *                 currently using. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon
  *                 Location Service. </p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LocationClient, CreateMapCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, CreateMapCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * const client = new LocationClient(config);
+ * const command = new CreateMapCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMapCommandInput} for command's `input` shape.
+ * @see {@link CreateMapCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMapCommand extends $Command<
   CreateMapCommandInput,

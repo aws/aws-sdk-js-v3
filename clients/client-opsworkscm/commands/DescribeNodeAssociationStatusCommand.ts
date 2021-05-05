@@ -30,6 +30,20 @@ export interface DescribeNodeAssociationStatusCommandOutput
  *       A <code>ResourceNotFoundException</code> is thrown when no recent association or disassociation request with the specified token is found,
  *       or when the server does not exist. A <code>ValidationException</code> is raised when parameters of the request are not valid.
  *     </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OpsWorksCMClient, DescribeNodeAssociationStatusCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
+ * // const { OpsWorksCMClient, DescribeNodeAssociationStatusCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
+ * const client = new OpsWorksCMClient(config);
+ * const command = new DescribeNodeAssociationStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeNodeAssociationStatusCommandInput} for command's `input` shape.
+ * @see {@link DescribeNodeAssociationStatusCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeNodeAssociationStatusCommand extends $Command<
   DescribeNodeAssociationStatusCommandInput,

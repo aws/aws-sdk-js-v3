@@ -25,6 +25,20 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESClient, CreateTemplateCommand } from "@aws-sdk/client-ses"; // ES Modules import
+ * // const { SESClient, CreateTemplateCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * const client = new SESClient(config);
+ * const command = new CreateTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTemplateCommandInput} for command's `input` shape.
+ * @see {@link CreateTemplateCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTemplateCommand extends $Command<
   CreateTemplateCommandInput,

@@ -22,6 +22,20 @@ export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsRes
 
 /**
  * <p>Lists the partner accounts associated with your AWS account.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTWirelessClient, ListPartnerAccountsCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, ListPartnerAccountsCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * const client = new IoTWirelessClient(config);
+ * const command = new ListPartnerAccountsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPartnerAccountsCommandInput} for command's `input` shape.
+ * @see {@link ListPartnerAccountsCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPartnerAccountsCommand extends $Command<
   ListPartnerAccountsCommandInput,

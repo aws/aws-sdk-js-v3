@@ -22,6 +22,20 @@ export interface UpdateBackendAuthCommandOutput extends UpdateBackendAuthRespons
 
 /**
  * <p>Updates an existing backend authentication resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmplifyBackendClient, UpdateBackendAuthCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
+ * // const { AmplifyBackendClient, UpdateBackendAuthCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
+ * const client = new AmplifyBackendClient(config);
+ * const command = new UpdateBackendAuthCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateBackendAuthCommandInput} for command's `input` shape.
+ * @see {@link UpdateBackendAuthCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateBackendAuthCommand extends $Command<
   UpdateBackendAuthCommandInput,

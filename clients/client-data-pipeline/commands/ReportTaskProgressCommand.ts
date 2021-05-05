@@ -59,6 +59,20 @@ export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutpu
  *
  * </response>
  *         </examples>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DataPipelineClient, ReportTaskProgressCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
+ * // const { DataPipelineClient, ReportTaskProgressCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
+ * const client = new DataPipelineClient(config);
+ * const command = new ReportTaskProgressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReportTaskProgressCommandInput} for command's `input` shape.
+ * @see {@link ReportTaskProgressCommandOutput} for command's `response` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReportTaskProgressCommand extends $Command<
   ReportTaskProgressCommandInput,

@@ -32,6 +32,20 @@ export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse,
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
  *          <p>Deletes a client.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudHSMClient, DeleteLunaClientCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
+ * // const { CloudHSMClient, DeleteLunaClientCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
+ * const client = new CloudHSMClient(config);
+ * const command = new DeleteLunaClientCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteLunaClientCommandInput} for command's `input` shape.
+ * @see {@link DeleteLunaClientCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteLunaClientCommand extends $Command<
   DeleteLunaClientCommandInput,

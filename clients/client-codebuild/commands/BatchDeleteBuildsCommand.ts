@@ -22,6 +22,20 @@ export interface BatchDeleteBuildsCommandOutput extends BatchDeleteBuildsOutput,
 
 /**
  * <p>Deletes one or more builds.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeBuildClient, BatchDeleteBuildsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
+ * // const { CodeBuildClient, BatchDeleteBuildsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
+ * const client = new CodeBuildClient(config);
+ * const command = new BatchDeleteBuildsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDeleteBuildsCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteBuildsCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDeleteBuildsCommand extends $Command<
   BatchDeleteBuildsCommandInput,

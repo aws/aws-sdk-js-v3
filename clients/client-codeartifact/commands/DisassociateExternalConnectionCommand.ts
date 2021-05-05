@@ -26,6 +26,20 @@ export interface DisassociateExternalConnectionCommandOutput
  * <p>
  *       Removes an existing external connection from a repository.
  *     </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeartifactClient, DisassociateExternalConnectionCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
+ * // const { CodeartifactClient, DisassociateExternalConnectionCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
+ * const client = new CodeartifactClient(config);
+ * const command = new DisassociateExternalConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateExternalConnectionCommandInput} for command's `input` shape.
+ * @see {@link DisassociateExternalConnectionCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateExternalConnectionCommand extends $Command<
   DisassociateExternalConnectionCommandInput,

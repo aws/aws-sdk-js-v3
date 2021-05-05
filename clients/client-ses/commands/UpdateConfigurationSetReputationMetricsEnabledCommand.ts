@@ -27,6 +27,20 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput ext
  *             and complaint rates. These metrics are published to Amazon CloudWatch. By using CloudWatch, you can
  *             create alarms when bounce or complaint rates exceed certain thresholds.</p>
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESClient, UpdateConfigurationSetReputationMetricsEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
+ * // const { SESClient, UpdateConfigurationSetReputationMetricsEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
+ * const client = new SESClient(config);
+ * const command = new UpdateConfigurationSetReputationMetricsEnabledCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateConfigurationSetReputationMetricsEnabledCommandInput} for command's `input` shape.
+ * @see {@link UpdateConfigurationSetReputationMetricsEnabledCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Command<
   UpdateConfigurationSetReputationMetricsEnabledCommandInput,

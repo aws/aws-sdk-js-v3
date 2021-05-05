@@ -27,6 +27,20 @@ export interface PutFindingsPublicationConfigurationCommandOutput
 
 /**
  * <p>Updates the configuration settings for publishing findings to AWS Security Hub.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Macie2Client, PutFindingsPublicationConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, PutFindingsPublicationConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * const client = new Macie2Client(config);
+ * const command = new PutFindingsPublicationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutFindingsPublicationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutFindingsPublicationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutFindingsPublicationConfigurationCommand extends $Command<
   PutFindingsPublicationConfigurationCommandInput,

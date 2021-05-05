@@ -24,6 +24,20 @@ export interface ListTargetsForSecurityProfileCommandOutput
 
 /**
  * <p>Lists the targets (thing groups) associated with a given Device Defender security profile.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, ListTargetsForSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListTargetsForSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new ListTargetsForSecurityProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTargetsForSecurityProfileCommandInput} for command's `input` shape.
+ * @see {@link ListTargetsForSecurityProfileCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTargetsForSecurityProfileCommand extends $Command<
   ListTargetsForSecurityProfileCommandInput,

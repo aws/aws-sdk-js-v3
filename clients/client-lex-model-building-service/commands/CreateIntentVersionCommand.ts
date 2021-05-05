@@ -39,6 +39,20 @@ export interface CreateIntentVersionCommandOutput extends CreateIntentVersionRes
  *       1. Subsequent versions increment by 1. For more information, see <a>versioning-intro</a>. </p>
  *          <p>This operation requires permissions to perform the
  *         <code>lex:CreateIntentVersion</code> action. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelBuildingServiceClient, CreateIntentVersionCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
+ * // const { LexModelBuildingServiceClient, CreateIntentVersionCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new CreateIntentVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateIntentVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateIntentVersionCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateIntentVersionCommand extends $Command<
   CreateIntentVersionCommandInput,

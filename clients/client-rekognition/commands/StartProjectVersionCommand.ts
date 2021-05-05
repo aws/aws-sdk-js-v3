@@ -31,6 +31,20 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
  *          </note>
  *          <p>This operation requires permissions to perform the
  *          <code>rekognition:StartProjectVersion</code> action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RekognitionClient, StartProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, StartProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
+ * const client = new RekognitionClient(config);
+ * const command = new StartProjectVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartProjectVersionCommandInput} for command's `input` shape.
+ * @see {@link StartProjectVersionCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartProjectVersionCommand extends $Command<
   StartProjectVersionCommandInput,

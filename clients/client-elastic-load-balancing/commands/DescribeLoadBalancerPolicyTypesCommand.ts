@@ -35,6 +35,20 @@ export interface DescribeLoadBalancerPolicyTypesCommandOutput
  *          <p>You can use <a>CreateLoadBalancerPolicy</a> to create a policy configuration for any of these policy types.
  *            Then, depending on the policy type, use either <a>SetLoadBalancerPoliciesOfListener</a> or
  *            <a>SetLoadBalancerPoliciesForBackendServer</a> to set the policy.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticLoadBalancingClient, DescribeLoadBalancerPolicyTypesCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
+ * // const { ElasticLoadBalancingClient, DescribeLoadBalancerPolicyTypesCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
+ * const client = new ElasticLoadBalancingClient(config);
+ * const command = new DescribeLoadBalancerPolicyTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLoadBalancerPolicyTypesCommandInput} for command's `input` shape.
+ * @see {@link DescribeLoadBalancerPolicyTypesCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLoadBalancerPolicyTypesCommand extends $Command<
   DescribeLoadBalancerPolicyTypesCommandInput,

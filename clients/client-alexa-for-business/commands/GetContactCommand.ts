@@ -22,6 +22,20 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
 
 /**
  * <p>Gets the contact details by the contact ARN.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, GetContactCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, GetContactCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new GetContactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetContactCommandInput} for command's `input` shape.
+ * @see {@link GetContactCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetContactCommand extends $Command<
   GetContactCommandInput,

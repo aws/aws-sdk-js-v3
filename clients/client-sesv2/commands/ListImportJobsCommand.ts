@@ -22,6 +22,20 @@ export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __M
 
 /**
  * <p>Lists all of the import jobs.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SESv2Client, ListImportJobsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, ListImportJobsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
+ * const client = new SESv2Client(config);
+ * const command = new ListImportJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListImportJobsCommandInput} for command's `input` shape.
+ * @see {@link ListImportJobsCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListImportJobsCommand extends $Command<
   ListImportJobsCommandInput,

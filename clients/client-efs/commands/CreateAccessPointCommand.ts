@@ -29,6 +29,20 @@ export interface CreateAccessPointCommandOutput extends AccessPointDescription, 
  *       in its own directory and below. To learn more, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">Mounting a file system using EFS access
  *         points</a>.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:CreateAccessPoint</code> action.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EFSClient, CreateAccessPointCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, CreateAccessPointCommand } = require("@aws-sdk/client-efs"); // CommonJS import
+ * const client = new EFSClient(config);
+ * const command = new CreateAccessPointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAccessPointCommandInput} for command's `input` shape.
+ * @see {@link CreateAccessPointCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAccessPointCommand extends $Command<
   CreateAccessPointCommandInput,

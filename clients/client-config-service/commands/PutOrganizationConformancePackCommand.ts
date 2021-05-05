@@ -44,6 +44,20 @@ export interface PutOrganizationConformancePackCommandOutput
  * 				You cannot update a conformance pack while it is in this state.</p>
  * 			         <p>You can create 50 conformance packs with 25 AWS Config rules in each pack and 3 delegated administrator per organization. </p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConfigServiceClient, PutOrganizationConformancePackCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, PutOrganizationConformancePackCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * const client = new ConfigServiceClient(config);
+ * const command = new PutOrganizationConformancePackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutOrganizationConformancePackCommandInput} for command's `input` shape.
+ * @see {@link PutOrganizationConformancePackCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutOrganizationConformancePackCommand extends $Command<
   PutOrganizationConformancePackCommandInput,

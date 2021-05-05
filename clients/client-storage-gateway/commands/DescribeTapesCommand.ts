@@ -25,6 +25,20 @@ export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __Metad
  *             <code>TapeARN</code> is not specified, returns a description of all virtual tapes
  *          associated with the specified gateway. This operation is only supported in the tape gateway
  *          type.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { StorageGatewayClient, DescribeTapesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, DescribeTapesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * const client = new StorageGatewayClient(config);
+ * const command = new DescribeTapesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTapesCommandInput} for command's `input` shape.
+ * @see {@link DescribeTapesCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTapesCommand extends $Command<
   DescribeTapesCommandInput,

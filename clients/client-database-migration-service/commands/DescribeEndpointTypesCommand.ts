@@ -26,6 +26,20 @@ export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointType
 
 /**
  * <p>Returns information about the type of endpoints available.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DatabaseMigrationServiceClient, DescribeEndpointTypesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeEndpointTypesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DescribeEndpointTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEndpointTypesCommandInput} for command's `input` shape.
+ * @see {@link DescribeEndpointTypesCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEndpointTypesCommand extends $Command<
   DescribeEndpointTypesCommandInput,

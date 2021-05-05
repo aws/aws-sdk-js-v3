@@ -30,6 +30,20 @@ export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceR
  *          <p>For cloud deployments, this action requires a <code>flowActionsRoleArn</code> value. This is an IAM role
  *       that has permissions to access AWS services, such as AWS Lambda and AWS IoT, that the flow uses when it executes.</p>
  *          <p>If the definition document doesn't specify a version of the user's namespace, the latest version will be used by default.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTThingsGraphClient, CreateSystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
+ * // const { IoTThingsGraphClient, CreateSystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
+ * const client = new IoTThingsGraphClient(config);
+ * const command = new CreateSystemInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSystemInstanceCommandInput} for command's `input` shape.
+ * @see {@link CreateSystemInstanceCommandOutput} for command's `response` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSystemInstanceCommand extends $Command<
   CreateSystemInstanceCommandInput,

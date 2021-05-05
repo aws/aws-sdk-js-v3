@@ -31,6 +31,20 @@ export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsR
  *             <p>This operation supports resource-level permissions. You can use this operation to allow or deny access to specific AWS Health events. For more
  *                   information, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions">Resource- and action-based conditions</a> in the <i>AWS Health User Guide</i>.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { HealthClient, DescribeEventDetailsCommand } from "@aws-sdk/client-health"; // ES Modules import
+ * // const { HealthClient, DescribeEventDetailsCommand } = require("@aws-sdk/client-health"); // CommonJS import
+ * const client = new HealthClient(config);
+ * const command = new DescribeEventDetailsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEventDetailsCommandInput} for command's `input` shape.
+ * @see {@link DescribeEventDetailsCommandOutput} for command's `response` shape.
+ * @see {@link HealthClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEventDetailsCommand extends $Command<
   DescribeEventDetailsCommandInput,

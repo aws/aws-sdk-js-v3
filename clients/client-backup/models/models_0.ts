@@ -32,6 +32,9 @@ export interface AdvancedBackupSetting {
 }
 
 export namespace AdvancedBackupSetting {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AdvancedBackupSetting): any => ({
     ...obj,
   });
@@ -67,6 +70,9 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
 }
 
 export namespace AlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
     ...obj,
   });
@@ -102,6 +108,9 @@ export interface RecoveryPointCreator {
 }
 
 export namespace RecoveryPointCreator {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecoveryPointCreator): any => ({
     ...obj,
   });
@@ -257,6 +266,9 @@ export interface BackupJob {
 }
 
 export namespace BackupJob {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupJob): any => ({
     ...obj,
   });
@@ -286,6 +298,9 @@ export interface Lifecycle {
 }
 
 export namespace Lifecycle {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Lifecycle): any => ({
     ...obj,
   });
@@ -315,6 +330,9 @@ export interface CopyAction {
 }
 
 export namespace CopyAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CopyAction): any => ({
     ...obj,
   });
@@ -396,6 +414,9 @@ export interface BackupRule {
 }
 
 export namespace BackupRule {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupRule): any => ({
     ...obj,
     ...(obj.RecoveryPointTags && { RecoveryPointTags: SENSITIVE_STRING }),
@@ -426,6 +447,9 @@ export interface BackupPlan {
 }
 
 export namespace BackupPlan {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupPlan): any => ({
     ...obj,
     ...(obj.Rules && { Rules: obj.Rules.map((item) => BackupRule.filterSensitiveLog(item)) }),
@@ -498,6 +522,9 @@ export interface BackupRuleInput {
 }
 
 export namespace BackupRuleInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupRuleInput): any => ({
     ...obj,
     ...(obj.RecoveryPointTags && { RecoveryPointTags: SENSITIVE_STRING }),
@@ -529,6 +556,9 @@ export interface BackupPlanInput {
 }
 
 export namespace BackupPlanInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupPlanInput): any => ({
     ...obj,
     ...(obj.Rules && { Rules: obj.Rules.map((item) => BackupRuleInput.filterSensitiveLog(item)) }),
@@ -598,6 +628,9 @@ export interface BackupPlansListMember {
 }
 
 export namespace BackupPlansListMember {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupPlansListMember): any => ({
     ...obj,
   });
@@ -619,6 +652,9 @@ export interface BackupPlanTemplatesListMember {
 }
 
 export namespace BackupPlanTemplatesListMember {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupPlanTemplatesListMember): any => ({
     ...obj,
   });
@@ -654,6 +690,9 @@ export interface Condition {
 }
 
 export namespace Condition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Condition): any => ({
     ...obj,
   });
@@ -690,6 +729,9 @@ export interface BackupSelection {
 }
 
 export namespace BackupSelection {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupSelection): any => ({
     ...obj,
   });
@@ -736,6 +778,9 @@ export interface BackupSelectionsListMember {
 }
 
 export namespace BackupSelectionsListMember {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupSelectionsListMember): any => ({
     ...obj,
   });
@@ -803,6 +848,9 @@ export interface BackupVaultListMember {
 }
 
 export namespace BackupVaultListMember {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupVaultListMember): any => ({
     ...obj,
   });
@@ -833,6 +881,9 @@ export interface CalculatedLifecycle {
 }
 
 export namespace CalculatedLifecycle {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CalculatedLifecycle): any => ({
     ...obj,
   });
@@ -938,6 +989,9 @@ export interface CopyJob {
 }
 
 export namespace CopyJob {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CopyJob): any => ({
     ...obj,
   });
@@ -966,6 +1020,9 @@ export interface CreateBackupPlanInput {
 }
 
 export namespace CreateBackupPlanInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackupPlanInput): any => ({
     ...obj,
     ...(obj.BackupPlan && { BackupPlan: BackupPlanInput.filterSensitiveLog(obj.BackupPlan) }),
@@ -1007,6 +1064,9 @@ export interface CreateBackupPlanOutput {
 }
 
 export namespace CreateBackupPlanOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackupPlanOutput): any => ({
     ...obj,
   });
@@ -1033,6 +1093,9 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
 }
 
 export namespace InvalidParameterValueException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
@@ -1059,6 +1122,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -1084,6 +1150,9 @@ export interface MissingParameterValueException extends __SmithyException, $Meta
 }
 
 export namespace MissingParameterValueException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MissingParameterValueException): any => ({
     ...obj,
   });
@@ -1109,6 +1178,9 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
 }
 
 export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
@@ -1134,6 +1206,9 @@ export interface CreateBackupSelectionInput {
 }
 
 export namespace CreateBackupSelectionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackupSelectionInput): any => ({
     ...obj,
   });
@@ -1161,6 +1236,9 @@ export interface CreateBackupSelectionOutput {
 }
 
 export namespace CreateBackupSelectionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackupSelectionOutput): any => ({
     ...obj,
   });
@@ -1194,6 +1272,9 @@ export interface CreateBackupVaultInput {
 }
 
 export namespace CreateBackupVaultInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackupVaultInput): any => ({
     ...obj,
     ...(obj.BackupVaultTags && { BackupVaultTags: SENSITIVE_STRING }),
@@ -1224,6 +1305,9 @@ export interface CreateBackupVaultOutput {
 }
 
 export namespace CreateBackupVaultOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackupVaultOutput): any => ({
     ...obj,
   });
@@ -1237,6 +1321,9 @@ export interface DeleteBackupPlanInput {
 }
 
 export namespace DeleteBackupPlanInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackupPlanInput): any => ({
     ...obj,
   });
@@ -1270,6 +1357,9 @@ export interface DeleteBackupPlanOutput {
 }
 
 export namespace DeleteBackupPlanOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackupPlanOutput): any => ({
     ...obj,
   });
@@ -1296,6 +1386,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -1321,6 +1414,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -1340,6 +1436,9 @@ export interface DeleteBackupSelectionInput {
 }
 
 export namespace DeleteBackupSelectionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackupSelectionInput): any => ({
     ...obj,
   });
@@ -1355,6 +1454,9 @@ export interface DeleteBackupVaultInput {
 }
 
 export namespace DeleteBackupVaultInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackupVaultInput): any => ({
     ...obj,
   });
@@ -1370,6 +1472,9 @@ export interface DeleteBackupVaultAccessPolicyInput {
 }
 
 export namespace DeleteBackupVaultAccessPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackupVaultAccessPolicyInput): any => ({
     ...obj,
   });
@@ -1385,6 +1490,9 @@ export interface DeleteBackupVaultNotificationsInput {
 }
 
 export namespace DeleteBackupVaultNotificationsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackupVaultNotificationsInput): any => ({
     ...obj,
   });
@@ -1406,6 +1514,9 @@ export interface DeleteRecoveryPointInput {
 }
 
 export namespace DeleteRecoveryPointInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteRecoveryPointInput): any => ({
     ...obj,
   });
@@ -1432,6 +1543,9 @@ export interface InvalidResourceStateException extends __SmithyException, $Metad
 }
 
 export namespace InvalidResourceStateException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidResourceStateException): any => ({
     ...obj,
   });
@@ -1458,6 +1572,9 @@ export interface DependencyFailureException extends __SmithyException, $Metadata
 }
 
 export namespace DependencyFailureException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DependencyFailureException): any => ({
     ...obj,
   });
@@ -1471,6 +1588,9 @@ export interface DescribeBackupJobInput {
 }
 
 export namespace DescribeBackupJobInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBackupJobInput): any => ({
     ...obj,
   });
@@ -1607,6 +1727,9 @@ export interface DescribeBackupJobOutput {
 }
 
 export namespace DescribeBackupJobOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBackupJobOutput): any => ({
     ...obj,
   });
@@ -1622,6 +1745,9 @@ export interface DescribeBackupVaultInput {
 }
 
 export namespace DescribeBackupVaultInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBackupVaultInput): any => ({
     ...obj,
   });
@@ -1668,6 +1794,9 @@ export interface DescribeBackupVaultOutput {
 }
 
 export namespace DescribeBackupVaultOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBackupVaultOutput): any => ({
     ...obj,
   });
@@ -1681,6 +1810,9 @@ export interface DescribeCopyJobInput {
 }
 
 export namespace DescribeCopyJobInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCopyJobInput): any => ({
     ...obj,
   });
@@ -1694,6 +1826,9 @@ export interface DescribeCopyJobOutput {
 }
 
 export namespace DescribeCopyJobOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCopyJobOutput): any => ({
     ...obj,
   });
@@ -1702,6 +1837,9 @@ export namespace DescribeCopyJobOutput {
 export interface DescribeGlobalSettingsInput {}
 
 export namespace DescribeGlobalSettingsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeGlobalSettingsInput): any => ({
     ...obj,
   });
@@ -1723,6 +1861,9 @@ export interface DescribeGlobalSettingsOutput {
 }
 
 export namespace DescribeGlobalSettingsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeGlobalSettingsOutput): any => ({
     ...obj,
   });
@@ -1737,6 +1878,9 @@ export interface DescribeProtectedResourceInput {
 }
 
 export namespace DescribeProtectedResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeProtectedResourceInput): any => ({
     ...obj,
   });
@@ -1765,6 +1909,9 @@ export interface DescribeProtectedResourceOutput {
 }
 
 export namespace DescribeProtectedResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeProtectedResourceOutput): any => ({
     ...obj,
   });
@@ -1786,6 +1933,9 @@ export interface DescribeRecoveryPointInput {
 }
 
 export namespace DescribeRecoveryPointInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeRecoveryPointInput): any => ({
     ...obj,
   });
@@ -1934,6 +2084,9 @@ export interface DescribeRecoveryPointOutput {
 }
 
 export namespace DescribeRecoveryPointOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeRecoveryPointOutput): any => ({
     ...obj,
   });
@@ -1942,6 +2095,9 @@ export namespace DescribeRecoveryPointOutput {
 export interface DescribeRegionSettingsInput {}
 
 export namespace DescribeRegionSettingsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeRegionSettingsInput): any => ({
     ...obj,
   });
@@ -1955,6 +2111,9 @@ export interface DescribeRegionSettingsOutput {
 }
 
 export namespace DescribeRegionSettingsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeRegionSettingsOutput): any => ({
     ...obj,
   });
@@ -1968,6 +2127,9 @@ export interface DescribeRestoreJobInput {
 }
 
 export namespace DescribeRestoreJobInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeRestoreJobInput): any => ({
     ...obj,
   });
@@ -2062,6 +2224,9 @@ export interface DescribeRestoreJobOutput {
 }
 
 export namespace DescribeRestoreJobOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeRestoreJobOutput): any => ({
     ...obj,
   });
@@ -2081,6 +2246,9 @@ export interface DisassociateRecoveryPointInput {
 }
 
 export namespace DisassociateRecoveryPointInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateRecoveryPointInput): any => ({
     ...obj,
   });
@@ -2094,6 +2262,9 @@ export interface ExportBackupPlanTemplateInput {
 }
 
 export namespace ExportBackupPlanTemplateInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportBackupPlanTemplateInput): any => ({
     ...obj,
   });
@@ -2112,6 +2283,9 @@ export interface ExportBackupPlanTemplateOutput {
 }
 
 export namespace ExportBackupPlanTemplateOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportBackupPlanTemplateOutput): any => ({
     ...obj,
   });
@@ -2131,6 +2305,9 @@ export interface GetBackupPlanInput {
 }
 
 export namespace GetBackupPlanInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackupPlanInput): any => ({
     ...obj,
   });
@@ -2198,6 +2375,9 @@ export interface GetBackupPlanOutput {
 }
 
 export namespace GetBackupPlanOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackupPlanOutput): any => ({
     ...obj,
     ...(obj.BackupPlan && { BackupPlan: BackupPlan.filterSensitiveLog(obj.BackupPlan) }),
@@ -2212,6 +2392,9 @@ export interface GetBackupPlanFromJSONInput {
 }
 
 export namespace GetBackupPlanFromJSONInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackupPlanFromJSONInput): any => ({
     ...obj,
   });
@@ -2226,6 +2409,9 @@ export interface GetBackupPlanFromJSONOutput {
 }
 
 export namespace GetBackupPlanFromJSONOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackupPlanFromJSONOutput): any => ({
     ...obj,
     ...(obj.BackupPlan && { BackupPlan: BackupPlan.filterSensitiveLog(obj.BackupPlan) }),
@@ -2240,6 +2426,9 @@ export interface GetBackupPlanFromTemplateInput {
 }
 
 export namespace GetBackupPlanFromTemplateInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackupPlanFromTemplateInput): any => ({
     ...obj,
   });
@@ -2254,6 +2443,9 @@ export interface GetBackupPlanFromTemplateOutput {
 }
 
 export namespace GetBackupPlanFromTemplateOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackupPlanFromTemplateOutput): any => ({
     ...obj,
     ...(obj.BackupPlanDocument && { BackupPlanDocument: BackupPlan.filterSensitiveLog(obj.BackupPlanDocument) }),
@@ -2274,6 +2466,9 @@ export interface GetBackupSelectionInput {
 }
 
 export namespace GetBackupSelectionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackupSelectionInput): any => ({
     ...obj,
   });
@@ -2312,6 +2507,9 @@ export interface GetBackupSelectionOutput {
 }
 
 export namespace GetBackupSelectionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackupSelectionOutput): any => ({
     ...obj,
   });
@@ -2327,6 +2525,9 @@ export interface GetBackupVaultAccessPolicyInput {
 }
 
 export namespace GetBackupVaultAccessPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackupVaultAccessPolicyInput): any => ({
     ...obj,
   });
@@ -2353,6 +2554,9 @@ export interface GetBackupVaultAccessPolicyOutput {
 }
 
 export namespace GetBackupVaultAccessPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackupVaultAccessPolicyOutput): any => ({
     ...obj,
   });
@@ -2368,6 +2572,9 @@ export interface GetBackupVaultNotificationsInput {
 }
 
 export namespace GetBackupVaultNotificationsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackupVaultNotificationsInput): any => ({
     ...obj,
   });
@@ -2401,6 +2608,9 @@ export interface GetBackupVaultNotificationsOutput {
 }
 
 export namespace GetBackupVaultNotificationsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackupVaultNotificationsOutput): any => ({
     ...obj,
   });
@@ -2422,6 +2632,9 @@ export interface GetRecoveryPointRestoreMetadataInput {
 }
 
 export namespace GetRecoveryPointRestoreMetadataInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRecoveryPointRestoreMetadataInput): any => ({
     ...obj,
   });
@@ -2449,6 +2662,9 @@ export interface GetRecoveryPointRestoreMetadataOutput {
 }
 
 export namespace GetRecoveryPointRestoreMetadataOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRecoveryPointRestoreMetadataOutput): any => ({
     ...obj,
     ...(obj.RestoreMetadata && { RestoreMetadata: SENSITIVE_STRING }),
@@ -2493,6 +2709,9 @@ export interface GetSupportedResourceTypesOutput {
 }
 
 export namespace GetSupportedResourceTypesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSupportedResourceTypesOutput): any => ({
     ...obj,
   });
@@ -2586,6 +2805,9 @@ export interface ListBackupJobsInput {
 }
 
 export namespace ListBackupJobsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBackupJobsInput): any => ({
     ...obj,
   });
@@ -2608,6 +2830,9 @@ export interface ListBackupJobsOutput {
 }
 
 export namespace ListBackupJobsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBackupJobsOutput): any => ({
     ...obj,
   });
@@ -2635,6 +2860,9 @@ export interface ListBackupPlansInput {
 }
 
 export namespace ListBackupPlansInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBackupPlansInput): any => ({
     ...obj,
   });
@@ -2657,6 +2885,9 @@ export interface ListBackupPlansOutput {
 }
 
 export namespace ListBackupPlansOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBackupPlansOutput): any => ({
     ...obj,
   });
@@ -2678,6 +2909,9 @@ export interface ListBackupPlanTemplatesInput {
 }
 
 export namespace ListBackupPlanTemplatesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBackupPlanTemplatesInput): any => ({
     ...obj,
   });
@@ -2699,6 +2933,9 @@ export interface ListBackupPlanTemplatesOutput {
 }
 
 export namespace ListBackupPlanTemplatesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBackupPlanTemplatesOutput): any => ({
     ...obj,
   });
@@ -2725,6 +2962,9 @@ export interface ListBackupPlanVersionsInput {
 }
 
 export namespace ListBackupPlanVersionsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBackupPlanVersionsInput): any => ({
     ...obj,
   });
@@ -2746,6 +2986,9 @@ export interface ListBackupPlanVersionsOutput {
 }
 
 export namespace ListBackupPlanVersionsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBackupPlanVersionsOutput): any => ({
     ...obj,
   });
@@ -2772,6 +3015,9 @@ export interface ListBackupSelectionsInput {
 }
 
 export namespace ListBackupSelectionsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBackupSelectionsInput): any => ({
     ...obj,
   });
@@ -2794,6 +3040,9 @@ export interface ListBackupSelectionsOutput {
 }
 
 export namespace ListBackupSelectionsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBackupSelectionsOutput): any => ({
     ...obj,
   });
@@ -2815,6 +3064,9 @@ export interface ListBackupVaultsInput {
 }
 
 export namespace ListBackupVaultsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBackupVaultsInput): any => ({
     ...obj,
   });
@@ -2838,6 +3090,9 @@ export interface ListBackupVaultsOutput {
 }
 
 export namespace ListBackupVaultsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBackupVaultsOutput): any => ({
     ...obj,
   });
@@ -2927,6 +3182,9 @@ export interface ListCopyJobsInput {
 }
 
 export namespace ListCopyJobsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCopyJobsInput): any => ({
     ...obj,
   });
@@ -2948,6 +3206,9 @@ export interface ListCopyJobsOutput {
 }
 
 export namespace ListCopyJobsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCopyJobsOutput): any => ({
     ...obj,
   });
@@ -2969,6 +3230,9 @@ export interface ListProtectedResourcesInput {
 }
 
 export namespace ListProtectedResourcesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListProtectedResourcesInput): any => ({
     ...obj,
   });
@@ -3001,6 +3265,9 @@ export interface ProtectedResource {
 }
 
 export namespace ProtectedResource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProtectedResource): any => ({
     ...obj,
   });
@@ -3024,6 +3291,9 @@ export interface ListProtectedResourcesOutput {
 }
 
 export namespace ListProtectedResourcesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListProtectedResourcesOutput): any => ({
     ...obj,
   });
@@ -3078,6 +3348,9 @@ export interface ListRecoveryPointsByBackupVaultInput {
 }
 
 export namespace ListRecoveryPointsByBackupVaultInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRecoveryPointsByBackupVaultInput): any => ({
     ...obj,
   });
@@ -3204,6 +3477,9 @@ export interface RecoveryPointByBackupVault {
 }
 
 export namespace RecoveryPointByBackupVault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecoveryPointByBackupVault): any => ({
     ...obj,
   });
@@ -3226,6 +3502,9 @@ export interface ListRecoveryPointsByBackupVaultOutput {
 }
 
 export namespace ListRecoveryPointsByBackupVaultOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRecoveryPointsByBackupVaultOutput): any => ({
     ...obj,
   });
@@ -3253,6 +3532,9 @@ export interface ListRecoveryPointsByResourceInput {
 }
 
 export namespace ListRecoveryPointsByResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRecoveryPointsByResourceInput): any => ({
     ...obj,
   });
@@ -3301,6 +3583,9 @@ export interface RecoveryPointByResource {
 }
 
 export namespace RecoveryPointByResource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecoveryPointByResource): any => ({
     ...obj,
   });
@@ -3323,6 +3608,9 @@ export interface ListRecoveryPointsByResourceOutput {
 }
 
 export namespace ListRecoveryPointsByResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRecoveryPointsByResourceOutput): any => ({
     ...obj,
   });
@@ -3365,6 +3653,9 @@ export interface ListRestoreJobsInput {
 }
 
 export namespace ListRestoreJobsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRestoreJobsInput): any => ({
     ...obj,
   });
@@ -3455,6 +3746,9 @@ export interface RestoreJobsListMember {
 }
 
 export namespace RestoreJobsListMember {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreJobsListMember): any => ({
     ...obj,
   });
@@ -3477,6 +3771,9 @@ export interface ListRestoreJobsOutput {
 }
 
 export namespace ListRestoreJobsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRestoreJobsOutput): any => ({
     ...obj,
   });
@@ -3505,6 +3802,9 @@ export interface ListTagsInput {
 }
 
 export namespace ListTagsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsInput): any => ({
     ...obj,
   });
@@ -3527,6 +3827,9 @@ export interface ListTagsOutput {
 }
 
 export namespace ListTagsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsOutput): any => ({
     ...obj,
     ...(obj.Tags && { Tags: SENSITIVE_STRING }),
@@ -3548,6 +3851,9 @@ export interface PutBackupVaultAccessPolicyInput {
 }
 
 export namespace PutBackupVaultAccessPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutBackupVaultAccessPolicyInput): any => ({
     ...obj,
   });
@@ -3575,6 +3881,9 @@ export interface PutBackupVaultNotificationsInput {
 }
 
 export namespace PutBackupVaultNotificationsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutBackupVaultNotificationsInput): any => ({
     ...obj,
   });
@@ -3649,6 +3958,9 @@ export interface StartBackupJobInput {
 }
 
 export namespace StartBackupJobInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartBackupJobInput): any => ({
     ...obj,
     ...(obj.RecoveryPointTags && { RecoveryPointTags: SENSITIVE_STRING }),
@@ -3677,6 +3989,9 @@ export interface StartBackupJobOutput {
 }
 
 export namespace StartBackupJobOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartBackupJobOutput): any => ({
     ...obj,
   });
@@ -3729,6 +4044,9 @@ export interface StartCopyJobInput {
 }
 
 export namespace StartCopyJobInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartCopyJobInput): any => ({
     ...obj,
   });
@@ -3750,6 +4068,9 @@ export interface StartCopyJobOutput {
 }
 
 export namespace StartCopyJobOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartCopyJobOutput): any => ({
     ...obj,
   });
@@ -3865,6 +4186,9 @@ export interface StartRestoreJobInput {
 }
 
 export namespace StartRestoreJobInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartRestoreJobInput): any => ({
     ...obj,
     ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
@@ -3879,6 +4203,9 @@ export interface StartRestoreJobOutput {
 }
 
 export namespace StartRestoreJobOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartRestoreJobOutput): any => ({
     ...obj,
   });
@@ -3892,6 +4219,9 @@ export interface StopBackupJobInput {
 }
 
 export namespace StopBackupJobInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopBackupJobInput): any => ({
     ...obj,
   });
@@ -3912,6 +4242,9 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
     ...(obj.Tags && { Tags: SENSITIVE_STRING }),
@@ -3932,6 +4265,9 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
     ...(obj.TagKeyList && { TagKeyList: SENSITIVE_STRING }),
@@ -3952,6 +4288,9 @@ export interface UpdateBackupPlanInput {
 }
 
 export namespace UpdateBackupPlanInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackupPlanInput): any => ({
     ...obj,
     ...(obj.BackupPlan && { BackupPlan: BackupPlanInput.filterSensitiveLog(obj.BackupPlan) }),
@@ -3991,6 +4330,9 @@ export interface UpdateBackupPlanOutput {
 }
 
 export namespace UpdateBackupPlanOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackupPlanOutput): any => ({
     ...obj,
   });
@@ -4004,6 +4346,9 @@ export interface UpdateGlobalSettingsInput {
 }
 
 export namespace UpdateGlobalSettingsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGlobalSettingsInput): any => ({
     ...obj,
   });
@@ -4036,6 +4381,9 @@ export interface UpdateRecoveryPointLifecycleInput {
 }
 
 export namespace UpdateRecoveryPointLifecycleInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateRecoveryPointLifecycleInput): any => ({
     ...obj,
   });
@@ -4074,6 +4422,9 @@ export interface UpdateRecoveryPointLifecycleOutput {
 }
 
 export namespace UpdateRecoveryPointLifecycleOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateRecoveryPointLifecycleOutput): any => ({
     ...obj,
   });
@@ -4087,6 +4438,9 @@ export interface UpdateRegionSettingsInput {
 }
 
 export namespace UpdateRegionSettingsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateRegionSettingsInput): any => ({
     ...obj,
   });

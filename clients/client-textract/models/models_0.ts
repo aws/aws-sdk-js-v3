@@ -13,6 +13,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -47,6 +50,9 @@ export interface S3Object {
 }
 
 export namespace S3Object {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3Object): any => ({
     ...obj,
   });
@@ -88,6 +94,9 @@ export interface Document {
 }
 
 export namespace Document {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Document): any => ({
     ...obj,
   });
@@ -115,6 +124,9 @@ export interface HumanLoopDataAttributes {
 }
 
 export namespace HumanLoopDataAttributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HumanLoopDataAttributes): any => ({
     ...obj,
   });
@@ -142,6 +154,9 @@ export interface HumanLoopConfig {
 }
 
 export namespace HumanLoopConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HumanLoopConfig): any => ({
     ...obj,
   });
@@ -173,6 +188,9 @@ export interface AnalyzeDocumentRequest {
 }
 
 export namespace AnalyzeDocumentRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AnalyzeDocumentRequest): any => ({
     ...obj,
   });
@@ -234,6 +252,9 @@ export interface BoundingBox {
 }
 
 export namespace BoundingBox {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BoundingBox): any => ({
     ...obj,
   });
@@ -263,6 +284,9 @@ export interface Point {
 }
 
 export namespace Point {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Point): any => ({
     ...obj,
   });
@@ -286,6 +310,9 @@ export interface Geometry {
 }
 
 export namespace Geometry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Geometry): any => ({
     ...obj,
   });
@@ -323,6 +350,9 @@ export interface Relationship {
 }
 
 export namespace Relationship {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Relationship): any => ({
     ...obj,
   });
@@ -527,6 +557,9 @@ export interface Block {
 }
 
 export namespace Block {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Block): any => ({
     ...obj,
   });
@@ -543,6 +576,9 @@ export interface DocumentMetadata {
 }
 
 export namespace DocumentMetadata {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DocumentMetadata): any => ({
     ...obj,
   });
@@ -570,6 +606,9 @@ export interface HumanLoopActivationOutput {
 }
 
 export namespace HumanLoopActivationOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HumanLoopActivationOutput): any => ({
     ...obj,
   });
@@ -598,6 +637,9 @@ export interface AnalyzeDocumentResponse {
 }
 
 export namespace AnalyzeDocumentResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AnalyzeDocumentResponse): any => ({
     ...obj,
   });
@@ -615,6 +657,9 @@ export interface BadDocumentException extends __SmithyException, $MetadataBearer
 }
 
 export namespace BadDocumentException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BadDocumentException): any => ({
     ...obj,
   });
@@ -633,6 +678,9 @@ export interface DocumentTooLargeException extends __SmithyException, $MetadataB
 }
 
 export namespace DocumentTooLargeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DocumentTooLargeException): any => ({
     ...obj,
   });
@@ -664,6 +712,9 @@ export interface HumanLoopQuotaExceededException extends __SmithyException, $Met
 }
 
 export namespace HumanLoopQuotaExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HumanLoopQuotaExceededException): any => ({
     ...obj,
   });
@@ -680,6 +731,9 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
 }
 
 export namespace InternalServerError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
@@ -700,6 +754,9 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidParameterException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
@@ -719,6 +776,9 @@ export interface InvalidS3ObjectException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidS3ObjectException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidS3ObjectException): any => ({
     ...obj,
   });
@@ -736,6 +796,9 @@ export interface ProvisionedThroughputExceededException extends __SmithyExceptio
 }
 
 export namespace ProvisionedThroughputExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProvisionedThroughputExceededException): any => ({
     ...obj,
   });
@@ -752,6 +815,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -769,6 +835,9 @@ export interface UnsupportedDocumentException extends __SmithyException, $Metada
 }
 
 export namespace UnsupportedDocumentException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedDocumentException): any => ({
     ...obj,
   });
@@ -786,6 +855,9 @@ export interface DetectDocumentTextRequest {
 }
 
 export namespace DetectDocumentTextRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectDocumentTextRequest): any => ({
     ...obj,
   });
@@ -811,6 +883,9 @@ export interface DetectDocumentTextResponse {
 }
 
 export namespace DetectDocumentTextResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectDocumentTextResponse): any => ({
     ...obj,
   });
@@ -830,6 +905,9 @@ export interface DocumentLocation {
 }
 
 export namespace DocumentLocation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DocumentLocation): any => ({
     ...obj,
   });
@@ -857,6 +935,9 @@ export interface GetDocumentAnalysisRequest {
 }
 
 export namespace GetDocumentAnalysisRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDocumentAnalysisRequest): any => ({
     ...obj,
   });
@@ -885,6 +966,9 @@ export interface Warning {
 }
 
 export namespace Warning {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Warning): any => ({
     ...obj,
   });
@@ -930,6 +1014,9 @@ export interface GetDocumentAnalysisResponse {
 }
 
 export namespace GetDocumentAnalysisResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDocumentAnalysisResponse): any => ({
     ...obj,
   });
@@ -947,6 +1034,9 @@ export interface InvalidJobIdException extends __SmithyException, $MetadataBeare
 }
 
 export namespace InvalidJobIdException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidJobIdException): any => ({
     ...obj,
   });
@@ -974,6 +1064,9 @@ export interface GetDocumentTextDetectionRequest {
 }
 
 export namespace GetDocumentTextDetectionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDocumentTextDetectionRequest): any => ({
     ...obj,
   });
@@ -1020,6 +1113,9 @@ export interface GetDocumentTextDetectionResponse {
 }
 
 export namespace GetDocumentTextDetectionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDocumentTextDetectionResponse): any => ({
     ...obj,
   });
@@ -1038,6 +1134,9 @@ export interface IdempotentParameterMismatchException extends __SmithyException,
 }
 
 export namespace IdempotentParameterMismatchException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
     ...obj,
   });
@@ -1055,6 +1154,9 @@ export interface InvalidKMSKeyException extends __SmithyException, $MetadataBear
 }
 
 export namespace InvalidKMSKeyException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidKMSKeyException): any => ({
     ...obj,
   });
@@ -1075,6 +1177,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -1097,6 +1202,9 @@ export interface NotificationChannel {
 }
 
 export namespace NotificationChannel {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotificationChannel): any => ({
     ...obj,
   });
@@ -1121,6 +1229,9 @@ export interface OutputConfig {
 }
 
 export namespace OutputConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OutputConfig): any => ({
     ...obj,
   });
@@ -1182,6 +1293,9 @@ export interface StartDocumentAnalysisRequest {
 }
 
 export namespace StartDocumentAnalysisRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartDocumentAnalysisRequest): any => ({
     ...obj,
   });
@@ -1197,6 +1311,9 @@ export interface StartDocumentAnalysisResponse {
 }
 
 export namespace StartDocumentAnalysisResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartDocumentAnalysisResponse): any => ({
     ...obj,
   });
@@ -1248,6 +1365,9 @@ export interface StartDocumentTextDetectionRequest {
 }
 
 export namespace StartDocumentTextDetectionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartDocumentTextDetectionRequest): any => ({
     ...obj,
   });
@@ -1263,6 +1383,9 @@ export interface StartDocumentTextDetectionResponse {
 }
 
 export namespace StartDocumentTextDetectionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartDocumentTextDetectionResponse): any => ({
     ...obj,
   });

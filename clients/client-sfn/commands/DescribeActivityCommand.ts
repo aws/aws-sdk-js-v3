@@ -25,6 +25,20 @@ export interface DescribeActivityCommandOutput extends DescribeActivityOutput, _
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
  *          </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SFNClient, DescribeActivityCommand } from "@aws-sdk/client-sfn"; // ES Modules import
+ * // const { SFNClient, DescribeActivityCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * const client = new SFNClient(config);
+ * const command = new DescribeActivityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeActivityCommandInput} for command's `input` shape.
+ * @see {@link DescribeActivityCommandOutput} for command's `response` shape.
+ * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeActivityCommand extends $Command<
   DescribeActivityCommandInput,

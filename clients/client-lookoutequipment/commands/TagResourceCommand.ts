@@ -26,6 +26,20 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *          resources as well as helping you to search and filter by tag. Multiple tags can be added to
  *          a resource, either when you create it, or later. Up to 50 tags can be associated with each
  *          resource. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LookoutEquipmentClient, TagResourceCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, TagResourceCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * const client = new LookoutEquipmentClient(config);
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

@@ -32,6 +32,20 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
  *                   <code>INSYNC</code> indicates that the changes have propagated to all Route 53 DNS servers. </p>
  * 			         </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53Client, GetChangeCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, GetChangeCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * const client = new Route53Client(config);
+ * const command = new GetChangeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetChangeCommandInput} for command's `input` shape.
+ * @see {@link GetChangeCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetChangeCommand extends $Command<
   GetChangeCommandInput,

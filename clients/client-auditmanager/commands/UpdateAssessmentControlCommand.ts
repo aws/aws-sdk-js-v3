@@ -24,6 +24,20 @@ export interface UpdateAssessmentControlCommandOutput extends UpdateAssessmentCo
  * <p>
  * Updates a control within an assessment in AWS Audit Manager.
  * </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AuditManagerClient, UpdateAssessmentControlCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
+ * // const { AuditManagerClient, UpdateAssessmentControlCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
+ * const client = new AuditManagerClient(config);
+ * const command = new UpdateAssessmentControlCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAssessmentControlCommandInput} for command's `input` shape.
+ * @see {@link UpdateAssessmentControlCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAssessmentControlCommand extends $Command<
   UpdateAssessmentControlCommandInput,

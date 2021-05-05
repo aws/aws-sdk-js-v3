@@ -47,6 +47,20 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KMSClient, EnableKeyRotationCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, EnableKeyRotationCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * const client = new KMSClient(config);
+ * const command = new EnableKeyRotationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableKeyRotationCommandInput} for command's `input` shape.
+ * @see {@link EnableKeyRotationCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableKeyRotationCommand extends $Command<
   EnableKeyRotationCommandInput,

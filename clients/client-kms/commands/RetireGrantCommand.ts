@@ -74,6 +74,20 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KMSClient, RetireGrantCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, RetireGrantCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * const client = new KMSClient(config);
+ * const command = new RetireGrantCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RetireGrantCommandInput} for command's `input` shape.
+ * @see {@link RetireGrantCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RetireGrantCommand extends $Command<
   RetireGrantCommandInput,

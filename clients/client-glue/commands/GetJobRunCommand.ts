@@ -19,6 +19,20 @@ export interface GetJobRunCommandOutput extends GetJobRunResponse, __MetadataBea
 
 /**
  * <p>Retrieves the metadata for a given job run.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, GetJobRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetJobRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new GetJobRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetJobRunCommandInput} for command's `input` shape.
+ * @see {@link GetJobRunCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetJobRunCommand extends $Command<
   GetJobRunCommandInput,

@@ -49,6 +49,20 @@ export interface GetResourcesCommandOutput extends GetResourcesOutput, __Metadat
  *     <code>PaginationToken</code> response parameter value as an input to the next request until you
  *     recieve a <code>null</code> value. A null value for <code>PaginationToken</code> indicates that
  *     there are no more results waiting to be returned.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ResourceGroupsTaggingAPIClient, GetResourcesCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
+ * // const { ResourceGroupsTaggingAPIClient, GetResourcesCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
+ * const client = new ResourceGroupsTaggingAPIClient(config);
+ * const command = new GetResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetResourcesCommandInput} for command's `input` shape.
+ * @see {@link GetResourcesCommandOutput} for command's `response` shape.
+ * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetResourcesCommand extends $Command<
   GetResourcesCommandInput,

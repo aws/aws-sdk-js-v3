@@ -22,6 +22,20 @@ export interface ListTypeRegistrationsCommandOutput extends ListTypeRegistration
 
 /**
  * <p>Returns a list of registration tokens for the specified extension(s).</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudFormationClient, ListTypeRegistrationsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, ListTypeRegistrationsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
+ * const client = new CloudFormationClient(config);
+ * const command = new ListTypeRegistrationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTypeRegistrationsCommandInput} for command's `input` shape.
+ * @see {@link ListTypeRegistrationsCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTypeRegistrationsCommand extends $Command<
   ListTypeRegistrationsCommandInput,

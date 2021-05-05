@@ -22,6 +22,20 @@ export interface DeleteDatasetContentCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the content of the specified dataset.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTAnalyticsClient, DeleteDatasetContentCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
+ * // const { IoTAnalyticsClient, DeleteDatasetContentCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
+ * const client = new IoTAnalyticsClient(config);
+ * const command = new DeleteDatasetContentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDatasetContentCommandInput} for command's `input` shape.
+ * @see {@link DeleteDatasetContentCommandOutput} for command's `response` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDatasetContentCommand extends $Command<
   DeleteDatasetContentCommandInput,

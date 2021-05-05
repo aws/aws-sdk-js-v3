@@ -22,6 +22,20 @@ export interface BatchGetPartitionCommandOutput extends BatchGetPartitionRespons
 
 /**
  * <p>Retrieves partitions in a batch request.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, BatchGetPartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, BatchGetPartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new BatchGetPartitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetPartitionCommandInput} for command's `input` shape.
+ * @see {@link BatchGetPartitionCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetPartitionCommand extends $Command<
   BatchGetPartitionCommandInput,

@@ -26,6 +26,20 @@ export interface CreateIngestionCommandOutput extends CreateIngestionResponse, _
  * 		       <p>Any ingestions operating on tagged datasets inherit the same tags automatically for use in
  * 			access control. For an example, see <a href="http://aws.amazon.com/premiumsupport/knowledge-center/iam-ec2-resource-tags/">How do I create an IAM policy to control access to Amazon EC2 resources using
  * 				tags?</a> in the AWS Knowledge Center. Tags are visible on the tagged dataset, but not on the ingestion resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QuickSightClient, CreateIngestionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, CreateIngestionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * const client = new QuickSightClient(config);
+ * const command = new CreateIngestionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateIngestionCommandInput} for command's `input` shape.
+ * @see {@link CreateIngestionCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateIngestionCommand extends $Command<
   CreateIngestionCommandInput,

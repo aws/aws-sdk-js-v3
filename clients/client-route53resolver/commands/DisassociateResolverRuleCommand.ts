@@ -26,6 +26,20 @@ export interface DisassociateResolverRuleCommandOutput extends DisassociateResol
  * 			         <p>If you disassociate a Resolver rule from a VPC, Resolver stops forwarding DNS queries for the
  * 				domain name that you specified in the Resolver rule. </p>
  * 		       </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53ResolverClient, DisassociateResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, DisassociateResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
+ * const client = new Route53ResolverClient(config);
+ * const command = new DisassociateResolverRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateResolverRuleCommandInput} for command's `input` shape.
+ * @see {@link DisassociateResolverRuleCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateResolverRuleCommand extends $Command<
   DisassociateResolverRuleCommandInput,

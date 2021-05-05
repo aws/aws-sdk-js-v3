@@ -28,6 +28,20 @@ export interface ListPermissionSetProvisioningStatusCommandOutput
 /**
  * <p>Lists the status of the permission set provisioning requests for a specified SSO
  *       instance.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSOAdminClient, ListPermissionSetProvisioningStatusCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
+ * // const { SSOAdminClient, ListPermissionSetProvisioningStatusCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
+ * const client = new SSOAdminClient(config);
+ * const command = new ListPermissionSetProvisioningStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPermissionSetProvisioningStatusCommandInput} for command's `input` shape.
+ * @see {@link ListPermissionSetProvisioningStatusCommandOutput} for command's `response` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPermissionSetProvisioningStatusCommand extends $Command<
   ListPermissionSetProvisioningStatusCommandInput,

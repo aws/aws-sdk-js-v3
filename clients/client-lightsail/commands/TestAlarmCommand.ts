@@ -26,6 +26,20 @@ export interface TestAlarmCommandOutput extends TestAlarmResult, __MetadataBeare
  *       condition is met, the alarm can notify you by email, SMS text message, and a banner displayed
  *       on the Amazon Lightsail console. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms">Alarms
  *         in Amazon Lightsail</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LightsailClient, TestAlarmCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, TestAlarmCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * const client = new LightsailClient(config);
+ * const command = new TestAlarmCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TestAlarmCommandInput} for command's `input` shape.
+ * @see {@link TestAlarmCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TestAlarmCommand extends $Command<
   TestAlarmCommandInput,

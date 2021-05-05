@@ -22,6 +22,20 @@ export interface DescribeVirtualRouterCommandOutput extends DescribeVirtualRoute
 
 /**
  * <p>Describes an existing virtual router.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppMeshClient, DescribeVirtualRouterCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
+ * // const { AppMeshClient, DescribeVirtualRouterCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
+ * const client = new AppMeshClient(config);
+ * const command = new DescribeVirtualRouterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeVirtualRouterCommandInput} for command's `input` shape.
+ * @see {@link DescribeVirtualRouterCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeVirtualRouterCommand extends $Command<
   DescribeVirtualRouterCommandInput,

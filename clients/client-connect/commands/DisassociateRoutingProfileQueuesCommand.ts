@@ -22,6 +22,20 @@ export interface DisassociateRoutingProfileQueuesCommandOutput extends __Metadat
 
 /**
  * <p>Disassociates a set of queues from a routing profile.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, DisassociateRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DisassociateRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * const client = new ConnectClient(config);
+ * const command = new DisassociateRoutingProfileQueuesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateRoutingProfileQueuesCommandInput} for command's `input` shape.
+ * @see {@link DisassociateRoutingProfileQueuesCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateRoutingProfileQueuesCommand extends $Command<
   DisassociateRoutingProfileQueuesCommandInput,

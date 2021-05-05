@@ -24,6 +24,20 @@ export interface DescribeNotificationsForBudgetCommandOutput
 
 /**
  * <p>Lists the notifications that are associated with a budget.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BudgetsClient, DescribeNotificationsForBudgetCommand } from "@aws-sdk/client-budgets"; // ES Modules import
+ * // const { BudgetsClient, DescribeNotificationsForBudgetCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
+ * const client = new BudgetsClient(config);
+ * const command = new DescribeNotificationsForBudgetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeNotificationsForBudgetCommandInput} for command's `input` shape.
+ * @see {@link DescribeNotificationsForBudgetCommandOutput} for command's `response` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeNotificationsForBudgetCommand extends $Command<
   DescribeNotificationsForBudgetCommandInput,

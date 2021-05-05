@@ -22,6 +22,20 @@ export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsO
 
 /**
  * <p>Provides information about the bootstrap actions associated with a cluster.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EMRClient, ListBootstrapActionsCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, ListBootstrapActionsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * const client = new EMRClient(config);
+ * const command = new ListBootstrapActionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBootstrapActionsCommandInput} for command's `input` shape.
+ * @see {@link ListBootstrapActionsCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBootstrapActionsCommand extends $Command<
   ListBootstrapActionsCommandInput,

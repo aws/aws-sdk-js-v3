@@ -44,6 +44,20 @@ export interface GetAccessPointCommandOutput extends GetAccessPointResult, __Met
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3ControlClient, GetAccessPointCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
+ * // const { S3ControlClient, GetAccessPointCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
+ * const client = new S3ControlClient(config);
+ * const command = new GetAccessPointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAccessPointCommandInput} for command's `input` shape.
+ * @see {@link GetAccessPointCommandOutput} for command's `response` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAccessPointCommand extends $Command<
   GetAccessPointCommandInput,

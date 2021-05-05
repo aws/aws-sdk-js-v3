@@ -24,6 +24,20 @@ export interface DescribeDBProxyTargetGroupsCommandOutput
 
 /**
  * <p>Returns information about DB proxy target groups, represented by <code>DBProxyTargetGroup</code> data structures.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RDSClient, DescribeDBProxyTargetGroupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeDBProxyTargetGroupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * const client = new RDSClient(config);
+ * const command = new DescribeDBProxyTargetGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDBProxyTargetGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeDBProxyTargetGroupsCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDBProxyTargetGroupsCommand extends $Command<
   DescribeDBProxyTargetGroupsCommandInput,

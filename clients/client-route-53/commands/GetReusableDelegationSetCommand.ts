@@ -24,6 +24,20 @@ export interface GetReusableDelegationSetCommandOutput extends GetReusableDelega
 /**
  * <p>Retrieves information about a specified reusable delegation set, including the four name servers that are assigned
  * 			to the delegation set.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53Client, GetReusableDelegationSetCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, GetReusableDelegationSetCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * const client = new Route53Client(config);
+ * const command = new GetReusableDelegationSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetReusableDelegationSetCommandInput} for command's `input` shape.
+ * @see {@link GetReusableDelegationSetCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetReusableDelegationSetCommand extends $Command<
   GetReusableDelegationSetCommandInput,

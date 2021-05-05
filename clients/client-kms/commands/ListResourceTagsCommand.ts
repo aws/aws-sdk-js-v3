@@ -46,6 +46,20 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KMSClient, ListResourceTagsCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, ListResourceTagsCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * const client = new KMSClient(config);
+ * const command = new ListResourceTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResourceTagsCommandInput} for command's `input` shape.
+ * @see {@link ListResourceTagsCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResourceTagsCommand extends $Command<
   ListResourceTagsCommandInput,

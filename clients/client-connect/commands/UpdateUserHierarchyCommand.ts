@@ -22,6 +22,20 @@ export interface UpdateUserHierarchyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Assigns the specified hierarchy group to the specified user.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, UpdateUserHierarchyCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, UpdateUserHierarchyCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * const client = new ConnectClient(config);
+ * const command = new UpdateUserHierarchyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateUserHierarchyCommandInput} for command's `input` shape.
+ * @see {@link UpdateUserHierarchyCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateUserHierarchyCommand extends $Command<
   UpdateUserHierarchyCommandInput,

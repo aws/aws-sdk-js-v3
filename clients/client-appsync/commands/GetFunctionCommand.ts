@@ -22,6 +22,20 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
 
 /**
  * <p>Get a <code>Function</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppSyncClient, GetFunctionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, GetFunctionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * const client = new AppSyncClient(config);
+ * const command = new GetFunctionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFunctionCommandInput} for command's `input` shape.
+ * @see {@link GetFunctionCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFunctionCommand extends $Command<
   GetFunctionCommandInput,

@@ -23,6 +23,20 @@ export interface ApproveSkillCommandOutput extends ApproveSkillResponse, __Metad
 /**
  * <p>Associates a skill with the organization under the customer's AWS account. If a skill
  *          is private, the user implicitly accepts access to this skill during enablement.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, ApproveSkillCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, ApproveSkillCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new ApproveSkillCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ApproveSkillCommandInput} for command's `input` shape.
+ * @see {@link ApproveSkillCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ApproveSkillCommand extends $Command<
   ApproveSkillCommandInput,

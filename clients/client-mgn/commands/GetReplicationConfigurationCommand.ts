@@ -22,6 +22,20 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
 
 /**
  * <p>Lists all ReplicationConfigurations, filtered by Source Server ID.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MgnClient, GetReplicationConfigurationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
+ * // const { MgnClient, GetReplicationConfigurationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * const client = new MgnClient(config);
+ * const command = new GetReplicationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetReplicationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetReplicationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetReplicationConfigurationCommand extends $Command<
   GetReplicationConfigurationCommandInput,

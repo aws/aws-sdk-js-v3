@@ -46,6 +46,20 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  *          <p>AWS IoT SiteWise authorizes access to each <code>BatchPutAssetPropertyValue</code> entry individually.
  *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action">BatchPutAssetPropertyValue authorization</a> in the
  *       <i>AWS IoT SiteWise User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTSiteWiseClient, BatchPutAssetPropertyValueCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, BatchPutAssetPropertyValueCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new BatchPutAssetPropertyValueCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchPutAssetPropertyValueCommandInput} for command's `input` shape.
+ * @see {@link BatchPutAssetPropertyValueCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchPutAssetPropertyValueCommand extends $Command<
   BatchPutAssetPropertyValueCommandInput,

@@ -27,6 +27,20 @@ export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsRespons
  *             operation retrieves the amounts of bonuses you have paid to Workers
  *             for a given HIT or assignment.
  *         </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MTurkClient, ListBonusPaymentsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
+ * // const { MTurkClient, ListBonusPaymentsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
+ * const client = new MTurkClient(config);
+ * const command = new ListBonusPaymentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBonusPaymentsCommandInput} for command's `input` shape.
+ * @see {@link ListBonusPaymentsCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBonusPaymentsCommand extends $Command<
   ListBonusPaymentsCommandInput,

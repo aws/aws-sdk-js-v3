@@ -37,6 +37,9 @@ export interface ArchivalSummary {
 }
 
 export namespace ArchivalSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ArchivalSummary): any => ({
     ...obj,
   });
@@ -76,6 +79,9 @@ export interface AttributeDefinition {
 }
 
 export namespace AttributeDefinition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttributeDefinition): any => ({
     ...obj,
   });
@@ -119,6 +125,9 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationDescription 
 }
 
 export namespace AutoScalingTargetTrackingScalingPolicyConfigurationDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AutoScalingTargetTrackingScalingPolicyConfigurationDescription): any => ({
     ...obj,
   });
@@ -140,6 +149,9 @@ export interface AutoScalingPolicyDescription {
 }
 
 export namespace AutoScalingPolicyDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AutoScalingPolicyDescription): any => ({
     ...obj,
   });
@@ -183,6 +195,9 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
 }
 
 export namespace AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AutoScalingTargetTrackingScalingPolicyConfigurationUpdate): any => ({
     ...obj,
   });
@@ -204,6 +219,9 @@ export interface AutoScalingPolicyUpdate {
 }
 
 export namespace AutoScalingPolicyUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AutoScalingPolicyUpdate): any => ({
     ...obj,
   });
@@ -241,6 +259,9 @@ export interface AutoScalingSettingsDescription {
 }
 
 export namespace AutoScalingSettingsDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AutoScalingSettingsDescription): any => ({
     ...obj,
   });
@@ -278,6 +299,9 @@ export interface AutoScalingSettingsUpdate {
 }
 
 export namespace AutoScalingSettingsUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AutoScalingSettingsUpdate): any => ({
     ...obj,
   });
@@ -350,6 +374,9 @@ export interface BackupDetails {
 }
 
 export namespace BackupDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupDetails): any => ({
     ...obj,
   });
@@ -399,6 +426,9 @@ export interface KeySchemaElement {
 }
 
 export namespace KeySchemaElement {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KeySchemaElement): any => ({
     ...obj,
   });
@@ -428,6 +458,9 @@ export interface ProvisionedThroughput {
 }
 
 export namespace ProvisionedThroughput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProvisionedThroughput): any => ({
     ...obj,
   });
@@ -495,6 +528,9 @@ export interface SourceTableDetails {
 }
 
 export namespace SourceTableDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SourceTableDetails): any => ({
     ...obj,
   });
@@ -536,6 +572,9 @@ export interface Projection {
 }
 
 export namespace Projection {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Projection): any => ({
     ...obj,
   });
@@ -589,6 +628,9 @@ export interface GlobalSecondaryIndexInfo {
 }
 
 export namespace GlobalSecondaryIndexInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GlobalSecondaryIndexInfo): any => ({
     ...obj,
   });
@@ -634,6 +676,9 @@ export interface LocalSecondaryIndexInfo {
 }
 
 export namespace LocalSecondaryIndexInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LocalSecondaryIndexInfo): any => ({
     ...obj,
   });
@@ -691,6 +736,9 @@ export interface SSEDescription {
 }
 
 export namespace SSEDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SSEDescription): any => ({
     ...obj,
   });
@@ -738,6 +786,9 @@ export interface StreamSpecification {
 }
 
 export namespace StreamSpecification {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StreamSpecification): any => ({
     ...obj,
   });
@@ -761,6 +812,9 @@ export interface TimeToLiveDescription {
 }
 
 export namespace TimeToLiveDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TimeToLiveDescription): any => ({
     ...obj,
   });
@@ -799,6 +853,9 @@ export interface SourceTableFeatureDetails {
 }
 
 export namespace SourceTableFeatureDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SourceTableFeatureDetails): any => ({
     ...obj,
   });
@@ -825,6 +882,9 @@ export interface BackupDescription {
 }
 
 export namespace BackupDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupDescription): any => ({
     ...obj,
   });
@@ -840,6 +900,9 @@ export interface BackupInUseException extends __SmithyException, $MetadataBearer
 }
 
 export namespace BackupInUseException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupInUseException): any => ({
     ...obj,
   });
@@ -855,6 +918,9 @@ export interface BackupNotFoundException extends __SmithyException, $MetadataBea
 }
 
 export namespace BackupNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupNotFoundException): any => ({
     ...obj,
   });
@@ -935,6 +1001,9 @@ export interface BackupSummary {
 }
 
 export namespace BackupSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupSummary): any => ({
     ...obj,
   });
@@ -983,6 +1052,9 @@ export interface BatchStatementError {
 }
 
 export namespace BatchStatementError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchStatementError): any => ({
     ...obj,
   });
@@ -1001,6 +1073,9 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
 }
 
 export namespace InternalServerError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
@@ -1016,6 +1091,9 @@ export interface RequestLimitExceeded extends __SmithyException, $MetadataBearer
 }
 
 export namespace RequestLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RequestLimitExceeded): any => ({
     ...obj,
   });
@@ -1044,6 +1122,9 @@ export interface Capacity {
 }
 
 export namespace Capacity {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Capacity): any => ({
     ...obj,
   });
@@ -1094,6 +1175,9 @@ export interface ConsumedCapacity {
 }
 
 export namespace ConsumedCapacity {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConsumedCapacity): any => ({
     ...obj,
   });
@@ -1106,6 +1190,9 @@ export interface InvalidEndpointException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidEndpointException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidEndpointException): any => ({
     ...obj,
   });
@@ -1128,6 +1215,9 @@ export interface ProvisionedThroughputExceededException extends __SmithyExceptio
 }
 
 export namespace ProvisionedThroughputExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProvisionedThroughputExceededException): any => ({
     ...obj,
   });
@@ -1147,6 +1237,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -1167,6 +1260,9 @@ export interface ItemCollectionSizeLimitExceededException extends __SmithyExcept
 }
 
 export namespace ItemCollectionSizeLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ItemCollectionSizeLimitExceededException): any => ({
     ...obj,
   });
@@ -1199,6 +1295,9 @@ export interface BillingModeSummary {
 }
 
 export namespace BillingModeSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BillingModeSummary): any => ({
     ...obj,
   });
@@ -1232,6 +1331,9 @@ export interface ConditionalCheckFailedException extends __SmithyException, $Met
 }
 
 export namespace ConditionalCheckFailedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConditionalCheckFailedException): any => ({
     ...obj,
   });
@@ -1283,6 +1385,9 @@ export interface PointInTimeRecoveryDescription {
 }
 
 export namespace PointInTimeRecoveryDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PointInTimeRecoveryDescription): any => ({
     ...obj,
   });
@@ -1306,6 +1411,9 @@ export interface ContinuousBackupsDescription {
 }
 
 export namespace ContinuousBackupsDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ContinuousBackupsDescription): any => ({
     ...obj,
   });
@@ -1321,6 +1429,9 @@ export interface ContinuousBackupsUnavailableException extends __SmithyException
 }
 
 export namespace ContinuousBackupsUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ContinuousBackupsUnavailableException): any => ({
     ...obj,
   });
@@ -1351,6 +1462,9 @@ export interface ContributorInsightsSummary {
 }
 
 export namespace ContributorInsightsSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ContributorInsightsSummary): any => ({
     ...obj,
   });
@@ -1369,6 +1483,9 @@ export interface CreateBackupInput {
 }
 
 export namespace CreateBackupInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackupInput): any => ({
     ...obj,
   });
@@ -1382,6 +1499,9 @@ export interface CreateBackupOutput {
 }
 
 export namespace CreateBackupOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackupOutput): any => ({
     ...obj,
   });
@@ -1408,6 +1528,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -1423,6 +1546,9 @@ export interface TableInUseException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace TableInUseException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TableInUseException): any => ({
     ...obj,
   });
@@ -1438,6 +1564,9 @@ export interface TableNotFoundException extends __SmithyException, $MetadataBear
 }
 
 export namespace TableNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TableNotFoundException): any => ({
     ...obj,
   });
@@ -1472,6 +1601,9 @@ export interface CreateGlobalSecondaryIndexAction {
 }
 
 export namespace CreateGlobalSecondaryIndexAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateGlobalSecondaryIndexAction): any => ({
     ...obj,
   });
@@ -1488,6 +1620,9 @@ export interface Replica {
 }
 
 export namespace Replica {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Replica): any => ({
     ...obj,
   });
@@ -1506,6 +1641,9 @@ export interface CreateGlobalTableInput {
 }
 
 export namespace CreateGlobalTableInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateGlobalTableInput): any => ({
     ...obj,
   });
@@ -1526,6 +1664,9 @@ export interface ProvisionedThroughputOverride {
 }
 
 export namespace ProvisionedThroughputOverride {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProvisionedThroughputOverride): any => ({
     ...obj,
   });
@@ -1547,6 +1688,9 @@ export interface ReplicaGlobalSecondaryIndexDescription {
 }
 
 export namespace ReplicaGlobalSecondaryIndexDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicaGlobalSecondaryIndexDescription): any => ({
     ...obj,
   });
@@ -1642,6 +1786,9 @@ export interface ReplicaDescription {
 }
 
 export namespace ReplicaDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicaDescription): any => ({
     ...obj,
   });
@@ -1696,6 +1843,9 @@ export interface GlobalTableDescription {
 }
 
 export namespace GlobalTableDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GlobalTableDescription): any => ({
     ...obj,
   });
@@ -1709,6 +1859,9 @@ export interface CreateGlobalTableOutput {
 }
 
 export namespace CreateGlobalTableOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateGlobalTableOutput): any => ({
     ...obj,
   });
@@ -1724,6 +1877,9 @@ export interface GlobalTableAlreadyExistsException extends __SmithyException, $M
 }
 
 export namespace GlobalTableAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GlobalTableAlreadyExistsException): any => ({
     ...obj,
   });
@@ -1740,6 +1896,9 @@ export interface CreateReplicaAction {
 }
 
 export namespace CreateReplicaAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateReplicaAction): any => ({
     ...obj,
   });
@@ -1762,6 +1921,9 @@ export interface ReplicaGlobalSecondaryIndex {
 }
 
 export namespace ReplicaGlobalSecondaryIndex {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicaGlobalSecondaryIndex): any => ({
     ...obj,
   });
@@ -1797,6 +1959,9 @@ export interface CreateReplicationGroupMemberAction {
 }
 
 export namespace CreateReplicationGroupMemberAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateReplicationGroupMemberAction): any => ({
     ...obj,
   });
@@ -1849,6 +2014,9 @@ export interface GlobalSecondaryIndex {
 }
 
 export namespace GlobalSecondaryIndex {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GlobalSecondaryIndex): any => ({
     ...obj,
   });
@@ -1895,6 +2063,9 @@ export interface LocalSecondaryIndex {
 }
 
 export namespace LocalSecondaryIndex {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LocalSecondaryIndex): any => ({
     ...obj,
   });
@@ -1934,6 +2105,9 @@ export interface SSESpecification {
 }
 
 export namespace SSESpecification {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SSESpecification): any => ({
     ...obj,
   });
@@ -1965,6 +2139,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -2229,6 +2406,9 @@ export interface CreateTableInput {
 }
 
 export namespace CreateTableInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTableInput): any => ({
     ...obj,
   });
@@ -2272,6 +2452,9 @@ export interface ProvisionedThroughputDescription {
 }
 
 export namespace ProvisionedThroughputDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProvisionedThroughputDescription): any => ({
     ...obj,
   });
@@ -2377,6 +2560,9 @@ export interface GlobalSecondaryIndexDescription {
 }
 
 export namespace GlobalSecondaryIndexDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GlobalSecondaryIndexDescription): any => ({
     ...obj,
   });
@@ -2438,6 +2624,9 @@ export interface LocalSecondaryIndexDescription {
 }
 
 export namespace LocalSecondaryIndexDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LocalSecondaryIndexDescription): any => ({
     ...obj,
   });
@@ -2469,6 +2658,9 @@ export interface RestoreSummary {
 }
 
 export namespace RestoreSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreSummary): any => ({
     ...obj,
   });
@@ -2858,6 +3050,9 @@ export interface TableDescription {
 }
 
 export namespace TableDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TableDescription): any => ({
     ...obj,
   });
@@ -2874,6 +3069,9 @@ export interface CreateTableOutput {
 }
 
 export namespace CreateTableOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTableOutput): any => ({
     ...obj,
   });
@@ -2894,6 +3092,9 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
 }
 
 export namespace ResourceInUseException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
@@ -2907,6 +3108,9 @@ export interface DeleteBackupInput {
 }
 
 export namespace DeleteBackupInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackupInput): any => ({
     ...obj,
   });
@@ -2920,6 +3124,9 @@ export interface DeleteBackupOutput {
 }
 
 export namespace DeleteBackupOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackupOutput): any => ({
     ...obj,
   });
@@ -2936,6 +3143,9 @@ export interface DeleteGlobalSecondaryIndexAction {
 }
 
 export namespace DeleteGlobalSecondaryIndexAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteGlobalSecondaryIndexAction): any => ({
     ...obj,
   });
@@ -2953,6 +3163,9 @@ export interface TransactionConflictException extends __SmithyException, $Metada
 }
 
 export namespace TransactionConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TransactionConflictException): any => ({
     ...obj,
   });
@@ -2969,6 +3182,9 @@ export interface DeleteReplicaAction {
 }
 
 export namespace DeleteReplicaAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteReplicaAction): any => ({
     ...obj,
   });
@@ -2985,6 +3201,9 @@ export interface DeleteReplicationGroupMemberAction {
 }
 
 export namespace DeleteReplicationGroupMemberAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteReplicationGroupMemberAction): any => ({
     ...obj,
   });
@@ -3001,6 +3220,9 @@ export interface DeleteTableInput {
 }
 
 export namespace DeleteTableInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTableInput): any => ({
     ...obj,
   });
@@ -3017,6 +3239,9 @@ export interface DeleteTableOutput {
 }
 
 export namespace DeleteTableOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTableOutput): any => ({
     ...obj,
   });
@@ -3030,6 +3255,9 @@ export interface DescribeBackupInput {
 }
 
 export namespace DescribeBackupInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBackupInput): any => ({
     ...obj,
   });
@@ -3043,6 +3271,9 @@ export interface DescribeBackupOutput {
 }
 
 export namespace DescribeBackupOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBackupOutput): any => ({
     ...obj,
   });
@@ -3056,6 +3287,9 @@ export interface DescribeContinuousBackupsInput {
 }
 
 export namespace DescribeContinuousBackupsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeContinuousBackupsInput): any => ({
     ...obj,
   });
@@ -3069,6 +3303,9 @@ export interface DescribeContinuousBackupsOutput {
 }
 
 export namespace DescribeContinuousBackupsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeContinuousBackupsOutput): any => ({
     ...obj,
   });
@@ -3087,6 +3324,9 @@ export interface DescribeContributorInsightsInput {
 }
 
 export namespace DescribeContributorInsightsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeContributorInsightsInput): any => ({
     ...obj,
   });
@@ -3108,6 +3348,9 @@ export interface FailureException {
 }
 
 export namespace FailureException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FailureException): any => ({
     ...obj,
   });
@@ -3162,6 +3405,9 @@ export interface DescribeContributorInsightsOutput {
 }
 
 export namespace DescribeContributorInsightsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeContributorInsightsOutput): any => ({
     ...obj,
   });
@@ -3170,6 +3416,9 @@ export namespace DescribeContributorInsightsOutput {
 export interface DescribeEndpointsRequest {}
 
 export namespace DescribeEndpointsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEndpointsRequest): any => ({
     ...obj,
   });
@@ -3191,6 +3440,9 @@ export interface Endpoint {
 }
 
 export namespace Endpoint {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj,
   });
@@ -3204,6 +3456,9 @@ export interface DescribeEndpointsResponse {
 }
 
 export namespace DescribeEndpointsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
     ...obj,
   });
@@ -3217,6 +3472,9 @@ export interface DescribeExportInput {
 }
 
 export namespace DescribeExportInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeExportInput): any => ({
     ...obj,
   });
@@ -3352,6 +3610,9 @@ export interface ExportDescription {
 }
 
 export namespace ExportDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportDescription): any => ({
     ...obj,
   });
@@ -3365,6 +3626,9 @@ export interface DescribeExportOutput {
 }
 
 export namespace DescribeExportOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeExportOutput): any => ({
     ...obj,
   });
@@ -3380,6 +3644,9 @@ export interface ExportNotFoundException extends __SmithyException, $MetadataBea
 }
 
 export namespace ExportNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportNotFoundException): any => ({
     ...obj,
   });
@@ -3393,6 +3660,9 @@ export interface DescribeGlobalTableInput {
 }
 
 export namespace DescribeGlobalTableInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeGlobalTableInput): any => ({
     ...obj,
   });
@@ -3406,6 +3676,9 @@ export interface DescribeGlobalTableOutput {
 }
 
 export namespace DescribeGlobalTableOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeGlobalTableOutput): any => ({
     ...obj,
   });
@@ -3421,6 +3694,9 @@ export interface GlobalTableNotFoundException extends __SmithyException, $Metada
 }
 
 export namespace GlobalTableNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GlobalTableNotFoundException): any => ({
     ...obj,
   });
@@ -3434,6 +3710,9 @@ export interface DescribeGlobalTableSettingsInput {
 }
 
 export namespace DescribeGlobalTableSettingsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeGlobalTableSettingsInput): any => ({
     ...obj,
   });
@@ -3495,6 +3774,9 @@ export interface ReplicaGlobalSecondaryIndexSettingsDescription {
 }
 
 export namespace ReplicaGlobalSecondaryIndexSettingsDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicaGlobalSecondaryIndexSettingsDescription): any => ({
     ...obj,
   });
@@ -3569,6 +3851,9 @@ export interface ReplicaSettingsDescription {
 }
 
 export namespace ReplicaSettingsDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicaSettingsDescription): any => ({
     ...obj,
   });
@@ -3587,6 +3872,9 @@ export interface DescribeGlobalTableSettingsOutput {
 }
 
 export namespace DescribeGlobalTableSettingsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeGlobalTableSettingsOutput): any => ({
     ...obj,
   });
@@ -3600,6 +3888,9 @@ export interface DescribeKinesisStreamingDestinationInput {
 }
 
 export namespace DescribeKinesisStreamingDestinationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeKinesisStreamingDestinationInput): any => ({
     ...obj,
   });
@@ -3628,6 +3919,9 @@ export interface KinesisDataStreamDestination {
 }
 
 export namespace KinesisDataStreamDestination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KinesisDataStreamDestination): any => ({
     ...obj,
   });
@@ -3646,6 +3940,9 @@ export interface DescribeKinesisStreamingDestinationOutput {
 }
 
 export namespace DescribeKinesisStreamingDestinationOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeKinesisStreamingDestinationOutput): any => ({
     ...obj,
   });
@@ -3657,6 +3954,9 @@ export namespace DescribeKinesisStreamingDestinationOutput {
 export interface DescribeLimitsInput {}
 
 export namespace DescribeLimitsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeLimitsInput): any => ({
     ...obj,
   });
@@ -3694,6 +3994,9 @@ export interface DescribeLimitsOutput {
 }
 
 export namespace DescribeLimitsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeLimitsOutput): any => ({
     ...obj,
   });
@@ -3710,6 +4013,9 @@ export interface DescribeTableInput {
 }
 
 export namespace DescribeTableInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTableInput): any => ({
     ...obj,
   });
@@ -3726,6 +4032,9 @@ export interface DescribeTableOutput {
 }
 
 export namespace DescribeTableOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTableOutput): any => ({
     ...obj,
   });
@@ -3739,6 +4048,9 @@ export interface DescribeTableReplicaAutoScalingInput {
 }
 
 export namespace DescribeTableReplicaAutoScalingInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTableReplicaAutoScalingInput): any => ({
     ...obj,
   });
@@ -3790,6 +4102,9 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingDescription {
 }
 
 export namespace ReplicaGlobalSecondaryIndexAutoScalingDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicaGlobalSecondaryIndexAutoScalingDescription): any => ({
     ...obj,
   });
@@ -3846,6 +4161,9 @@ export interface ReplicaAutoScalingDescription {
 }
 
 export namespace ReplicaAutoScalingDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicaAutoScalingDescription): any => ({
     ...obj,
   });
@@ -3890,6 +4208,9 @@ export interface TableAutoScalingDescription {
 }
 
 export namespace TableAutoScalingDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TableAutoScalingDescription): any => ({
     ...obj,
   });
@@ -3903,6 +4224,9 @@ export interface DescribeTableReplicaAutoScalingOutput {
 }
 
 export namespace DescribeTableReplicaAutoScalingOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTableReplicaAutoScalingOutput): any => ({
     ...obj,
   });
@@ -3916,6 +4240,9 @@ export interface DescribeTimeToLiveInput {
 }
 
 export namespace DescribeTimeToLiveInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTimeToLiveInput): any => ({
     ...obj,
   });
@@ -3929,6 +4256,9 @@ export interface DescribeTimeToLiveOutput {
 }
 
 export namespace DescribeTimeToLiveOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTimeToLiveOutput): any => ({
     ...obj,
   });
@@ -3947,6 +4277,9 @@ export interface KinesisStreamingDestinationInput {
 }
 
 export namespace KinesisStreamingDestinationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KinesisStreamingDestinationInput): any => ({
     ...obj,
   });
@@ -3970,6 +4303,9 @@ export interface KinesisStreamingDestinationOutput {
 }
 
 export namespace KinesisStreamingDestinationOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KinesisStreamingDestinationOutput): any => ({
     ...obj,
   });
@@ -3987,6 +4323,9 @@ export interface DuplicateItemException extends __SmithyException, $MetadataBear
 }
 
 export namespace DuplicateItemException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicateItemException): any => ({
     ...obj,
   });
@@ -4003,6 +4342,9 @@ export interface IdempotentParameterMismatchException extends __SmithyException,
 }
 
 export namespace IdempotentParameterMismatchException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
     ...obj,
   });
@@ -4018,6 +4360,9 @@ export interface TransactionInProgressException extends __SmithyException, $Meta
 }
 
 export namespace TransactionInProgressException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TransactionInProgressException): any => ({
     ...obj,
   });
@@ -4033,6 +4378,9 @@ export interface ExportConflictException extends __SmithyException, $MetadataBea
 }
 
 export namespace ExportConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportConflictException): any => ({
     ...obj,
   });
@@ -4110,6 +4458,9 @@ export interface ExportTableToPointInTimeInput {
 }
 
 export namespace ExportTableToPointInTimeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportTableToPointInTimeInput): any => ({
     ...obj,
   });
@@ -4123,6 +4474,9 @@ export interface ExportTableToPointInTimeOutput {
 }
 
 export namespace ExportTableToPointInTimeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportTableToPointInTimeOutput): any => ({
     ...obj,
   });
@@ -4139,6 +4493,9 @@ export interface InvalidExportTimeException extends __SmithyException, $Metadata
 }
 
 export namespace InvalidExportTimeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidExportTimeException): any => ({
     ...obj,
   });
@@ -4154,6 +4511,9 @@ export interface PointInTimeRecoveryUnavailableException extends __SmithyExcepti
 }
 
 export namespace PointInTimeRecoveryUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PointInTimeRecoveryUnavailableException): any => ({
     ...obj,
   });
@@ -4212,6 +4572,9 @@ export interface ListBackupsInput {
 }
 
 export namespace ListBackupsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBackupsInput): any => ({
     ...obj,
   });
@@ -4241,6 +4604,9 @@ export interface ListBackupsOutput {
 }
 
 export namespace ListBackupsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBackupsOutput): any => ({
     ...obj,
   });
@@ -4264,6 +4630,9 @@ export interface ListContributorInsightsInput {
 }
 
 export namespace ListContributorInsightsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListContributorInsightsInput): any => ({
     ...obj,
   });
@@ -4282,6 +4651,9 @@ export interface ListContributorInsightsOutput {
 }
 
 export namespace ListContributorInsightsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListContributorInsightsOutput): any => ({
     ...obj,
   });
@@ -4307,6 +4679,9 @@ export interface ListExportsInput {
 }
 
 export namespace ListExportsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListExportsInput): any => ({
     ...obj,
   });
@@ -4328,6 +4703,9 @@ export interface ExportSummary {
 }
 
 export namespace ExportSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportSummary): any => ({
     ...obj,
   });
@@ -4348,6 +4726,9 @@ export interface ListExportsOutput {
 }
 
 export namespace ListExportsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListExportsOutput): any => ({
     ...obj,
   });
@@ -4373,6 +4754,9 @@ export interface ListGlobalTablesInput {
 }
 
 export namespace ListGlobalTablesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGlobalTablesInput): any => ({
     ...obj,
   });
@@ -4394,6 +4778,9 @@ export interface GlobalTable {
 }
 
 export namespace GlobalTable {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GlobalTable): any => ({
     ...obj,
   });
@@ -4412,6 +4799,9 @@ export interface ListGlobalTablesOutput {
 }
 
 export namespace ListGlobalTablesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGlobalTablesOutput): any => ({
     ...obj,
   });
@@ -4435,6 +4825,9 @@ export interface ListTablesInput {
 }
 
 export namespace ListTablesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTablesInput): any => ({
     ...obj,
   });
@@ -4463,6 +4856,9 @@ export interface ListTablesOutput {
 }
 
 export namespace ListTablesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTablesOutput): any => ({
     ...obj,
   });
@@ -4482,6 +4878,9 @@ export interface ListTagsOfResourceInput {
 }
 
 export namespace ListTagsOfResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsOfResourceInput): any => ({
     ...obj,
   });
@@ -4501,6 +4900,9 @@ export interface ListTagsOfResourceOutput {
 }
 
 export namespace ListTagsOfResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsOfResourceOutput): any => ({
     ...obj,
   });
@@ -4550,6 +4952,9 @@ export interface RestoreTableFromBackupInput {
 }
 
 export namespace RestoreTableFromBackupInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreTableFromBackupInput): any => ({
     ...obj,
   });
@@ -4563,6 +4968,9 @@ export interface RestoreTableFromBackupOutput {
 }
 
 export namespace RestoreTableFromBackupOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreTableFromBackupOutput): any => ({
     ...obj,
   });
@@ -4578,6 +4986,9 @@ export interface TableAlreadyExistsException extends __SmithyException, $Metadat
 }
 
 export namespace TableAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TableAlreadyExistsException): any => ({
     ...obj,
   });
@@ -4593,6 +5004,9 @@ export interface InvalidRestoreTimeException extends __SmithyException, $Metadat
 }
 
 export namespace InvalidRestoreTimeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRestoreTimeException): any => ({
     ...obj,
   });
@@ -4657,6 +5071,9 @@ export interface RestoreTableToPointInTimeInput {
 }
 
 export namespace RestoreTableToPointInTimeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreTableToPointInTimeInput): any => ({
     ...obj,
   });
@@ -4670,6 +5087,9 @@ export interface RestoreTableToPointInTimeOutput {
 }
 
 export namespace RestoreTableToPointInTimeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreTableToPointInTimeOutput): any => ({
     ...obj,
   });
@@ -4688,6 +5108,9 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
@@ -4708,6 +5131,9 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
@@ -4724,6 +5150,9 @@ export interface PointInTimeRecoverySpecification {
 }
 
 export namespace PointInTimeRecoverySpecification {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PointInTimeRecoverySpecification): any => ({
     ...obj,
   });
@@ -4742,6 +5171,9 @@ export interface UpdateContinuousBackupsInput {
 }
 
 export namespace UpdateContinuousBackupsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateContinuousBackupsInput): any => ({
     ...obj,
   });
@@ -4755,6 +5187,9 @@ export interface UpdateContinuousBackupsOutput {
 }
 
 export namespace UpdateContinuousBackupsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateContinuousBackupsOutput): any => ({
     ...obj,
   });
@@ -4778,6 +5213,9 @@ export interface UpdateContributorInsightsInput {
 }
 
 export namespace UpdateContributorInsightsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateContributorInsightsInput): any => ({
     ...obj,
   });
@@ -4801,6 +5239,9 @@ export interface UpdateContributorInsightsOutput {
 }
 
 export namespace UpdateContributorInsightsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateContributorInsightsOutput): any => ({
     ...obj,
   });
@@ -4816,6 +5257,9 @@ export interface ReplicaAlreadyExistsException extends __SmithyException, $Metad
 }
 
 export namespace ReplicaAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicaAlreadyExistsException): any => ({
     ...obj,
   });
@@ -4831,6 +5275,9 @@ export interface ReplicaNotFoundException extends __SmithyException, $MetadataBe
 }
 
 export namespace ReplicaNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicaNotFoundException): any => ({
     ...obj,
   });
@@ -4863,6 +5310,9 @@ export interface ReplicaUpdate {
 }
 
 export namespace ReplicaUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicaUpdate): any => ({
     ...obj,
   });
@@ -4881,6 +5331,9 @@ export interface UpdateGlobalTableInput {
 }
 
 export namespace UpdateGlobalTableInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGlobalTableInput): any => ({
     ...obj,
   });
@@ -4894,6 +5347,9 @@ export interface UpdateGlobalTableOutput {
 }
 
 export namespace UpdateGlobalTableOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGlobalTableOutput): any => ({
     ...obj,
   });
@@ -4909,6 +5365,9 @@ export interface IndexNotFoundException extends __SmithyException, $MetadataBear
 }
 
 export namespace IndexNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IndexNotFoundException): any => ({
     ...obj,
   });
@@ -4937,6 +5396,9 @@ export interface GlobalTableGlobalSecondaryIndexSettingsUpdate {
 }
 
 export namespace GlobalTableGlobalSecondaryIndexSettingsUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GlobalTableGlobalSecondaryIndexSettingsUpdate): any => ({
     ...obj,
   });
@@ -4964,6 +5426,9 @@ export interface ReplicaGlobalSecondaryIndexSettingsUpdate {
 }
 
 export namespace ReplicaGlobalSecondaryIndexSettingsUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicaGlobalSecondaryIndexSettingsUpdate): any => ({
     ...obj,
   });
@@ -4998,6 +5463,9 @@ export interface ReplicaSettingsUpdate {
 }
 
 export namespace ReplicaSettingsUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicaSettingsUpdate): any => ({
     ...obj,
   });
@@ -5049,6 +5517,9 @@ export interface UpdateGlobalTableSettingsInput {
 }
 
 export namespace UpdateGlobalTableSettingsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGlobalTableSettingsInput): any => ({
     ...obj,
   });
@@ -5067,6 +5538,9 @@ export interface UpdateGlobalTableSettingsOutput {
 }
 
 export namespace UpdateGlobalTableSettingsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGlobalTableSettingsOutput): any => ({
     ...obj,
   });
@@ -5089,6 +5563,9 @@ export interface UpdateGlobalSecondaryIndexAction {
 }
 
 export namespace UpdateGlobalSecondaryIndexAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGlobalSecondaryIndexAction): any => ({
     ...obj,
   });
@@ -5153,6 +5630,9 @@ export interface GlobalSecondaryIndexUpdate {
 }
 
 export namespace GlobalSecondaryIndexUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GlobalSecondaryIndexUpdate): any => ({
     ...obj,
   });
@@ -5188,6 +5668,9 @@ export interface UpdateReplicationGroupMemberAction {
 }
 
 export namespace UpdateReplicationGroupMemberAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateReplicationGroupMemberAction): any => ({
     ...obj,
   });
@@ -5230,6 +5713,9 @@ export interface ReplicationGroupUpdate {
 }
 
 export namespace ReplicationGroupUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicationGroupUpdate): any => ({
     ...obj,
   });
@@ -5320,6 +5806,9 @@ export interface UpdateTableInput {
 }
 
 export namespace UpdateTableInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTableInput): any => ({
     ...obj,
   });
@@ -5336,6 +5825,9 @@ export interface UpdateTableOutput {
 }
 
 export namespace UpdateTableOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTableOutput): any => ({
     ...obj,
   });
@@ -5359,6 +5851,9 @@ export interface GlobalSecondaryIndexAutoScalingUpdate {
 }
 
 export namespace GlobalSecondaryIndexAutoScalingUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GlobalSecondaryIndexAutoScalingUpdate): any => ({
     ...obj,
   });
@@ -5382,6 +5877,9 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingUpdate {
 }
 
 export namespace ReplicaGlobalSecondaryIndexAutoScalingUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicaGlobalSecondaryIndexAutoScalingUpdate): any => ({
     ...obj,
   });
@@ -5410,6 +5908,9 @@ export interface ReplicaAutoScalingUpdate {
 }
 
 export namespace ReplicaAutoScalingUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReplicaAutoScalingUpdate): any => ({
     ...obj,
   });
@@ -5441,6 +5942,9 @@ export interface UpdateTableReplicaAutoScalingInput {
 }
 
 export namespace UpdateTableReplicaAutoScalingInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTableReplicaAutoScalingInput): any => ({
     ...obj,
   });
@@ -5454,6 +5958,9 @@ export interface UpdateTableReplicaAutoScalingOutput {
 }
 
 export namespace UpdateTableReplicaAutoScalingOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTableReplicaAutoScalingOutput): any => ({
     ...obj,
   });
@@ -5477,6 +5984,9 @@ export interface TimeToLiveSpecification {
 }
 
 export namespace TimeToLiveSpecification {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TimeToLiveSpecification): any => ({
     ...obj,
   });
@@ -5498,6 +6008,9 @@ export interface UpdateTimeToLiveInput {
 }
 
 export namespace UpdateTimeToLiveInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTimeToLiveInput): any => ({
     ...obj,
   });
@@ -5511,6 +6024,9 @@ export interface UpdateTimeToLiveOutput {
 }
 
 export namespace UpdateTimeToLiveOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTimeToLiveOutput): any => ({
     ...obj,
   });
@@ -5780,6 +6296,9 @@ export namespace AttributeValue {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttributeValue): any => {
     if (obj.S !== undefined) return { S: obj.S };
     if (obj.N !== undefined) return { N: obj.N };
@@ -5918,6 +6437,9 @@ export interface AttributeValueUpdate {
 }
 
 export namespace AttributeValueUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttributeValueUpdate): any => ({
     ...obj,
     ...(obj.Value && { Value: AttributeValue.filterSensitiveLog(obj.Value) }),
@@ -5953,6 +6475,9 @@ export interface BatchStatementRequest {
 }
 
 export namespace BatchStatementRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchStatementRequest): any => ({
     ...obj,
     ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => AttributeValue.filterSensitiveLog(item)) }),
@@ -5988,6 +6513,9 @@ export interface BatchStatementResponse {
 }
 
 export namespace BatchStatementResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchStatementResponse): any => ({
     ...obj,
     ...(obj.Item && {
@@ -6027,6 +6555,9 @@ export interface CancellationReason {
 }
 
 export namespace CancellationReason {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancellationReason): any => ({
     ...obj,
     ...(obj.Item && {
@@ -6227,6 +6758,9 @@ export interface Condition {
 }
 
 export namespace Condition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Condition): any => ({
     ...obj,
     ...(obj.AttributeValueList && {
@@ -6246,6 +6780,9 @@ export interface DeleteRequest {
 }
 
 export namespace DeleteRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteRequest): any => ({
     ...obj,
     ...(obj.Key && {
@@ -6291,6 +6828,9 @@ export interface ExecuteStatementInput {
 }
 
 export namespace ExecuteStatementInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteStatementInput): any => ({
     ...obj,
     ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => AttributeValue.filterSensitiveLog(item)) }),
@@ -6330,6 +6870,9 @@ export interface Get {
 }
 
 export namespace Get {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Get): any => ({
     ...obj,
     ...(obj.Key && {
@@ -6447,6 +6990,9 @@ export interface GetItemInput {
 }
 
 export namespace GetItemInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetItemInput): any => ({
     ...obj,
     ...(obj.Key && {
@@ -6483,6 +7029,9 @@ export interface GetItemOutput {
 }
 
 export namespace GetItemOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetItemOutput): any => ({
     ...obj,
     ...(obj.Item && {
@@ -6516,6 +7065,9 @@ export interface ItemCollectionMetrics {
 }
 
 export namespace ItemCollectionMetrics {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ItemCollectionMetrics): any => ({
     ...obj,
     ...(obj.ItemCollectionKey && {
@@ -6541,6 +7093,9 @@ export interface ItemResponse {
 }
 
 export namespace ItemResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ItemResponse): any => ({
     ...obj,
     ...(obj.Item && {
@@ -6577,6 +7132,9 @@ export interface ParameterizedStatement {
 }
 
 export namespace ParameterizedStatement {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParameterizedStatement): any => ({
     ...obj,
     ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => AttributeValue.filterSensitiveLog(item)) }),
@@ -6598,6 +7156,9 @@ export interface PutRequest {
 }
 
 export namespace PutRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRequest): any => ({
     ...obj,
     ...(obj.Item && {
@@ -6629,6 +7190,9 @@ export interface ExecuteStatementOutput {
 }
 
 export namespace ExecuteStatementOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteStatementOutput): any => ({
     ...obj,
     ...(obj.Items && {
@@ -6724,6 +7288,9 @@ export interface KeysAndAttributes {
 }
 
 export namespace KeysAndAttributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KeysAndAttributes): any => ({
     ...obj,
     ...(obj.Keys && {
@@ -6753,6 +7320,9 @@ export interface TransactGetItem {
 }
 
 export namespace TransactGetItem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TransactGetItem): any => ({
     ...obj,
     ...(obj.Get && { Get: Get.filterSensitiveLog(obj.Get) }),
@@ -6769,6 +7339,9 @@ export interface BatchExecuteStatementInput {
 }
 
 export namespace BatchExecuteStatementInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchExecuteStatementInput): any => ({
     ...obj,
     ...(obj.Statements && { Statements: obj.Statements.map((item) => BatchStatementRequest.filterSensitiveLog(item)) }),
@@ -6785,6 +7358,9 @@ export interface BatchExecuteStatementOutput {
 }
 
 export namespace BatchExecuteStatementOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchExecuteStatementOutput): any => ({
     ...obj,
     ...(obj.Responses && { Responses: obj.Responses.map((item) => BatchStatementResponse.filterSensitiveLog(item)) }),
@@ -6808,6 +7384,9 @@ export interface ExecuteTransactionInput {
 }
 
 export namespace ExecuteTransactionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteTransactionInput): any => ({
     ...obj,
     ...(obj.TransactStatements && {
@@ -6826,6 +7405,9 @@ export interface ExecuteTransactionOutput {
 }
 
 export namespace ExecuteTransactionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteTransactionOutput): any => ({
     ...obj,
     ...(obj.Responses && { Responses: obj.Responses.map((item) => ItemResponse.filterSensitiveLog(item)) }),
@@ -6856,6 +7438,9 @@ export interface TransactGetItemsOutput {
 }
 
 export namespace TransactGetItemsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TransactGetItemsOutput): any => ({
     ...obj,
     ...(obj.Responses && { Responses: obj.Responses.map((item) => ItemResponse.filterSensitiveLog(item)) }),
@@ -7078,6 +7663,9 @@ export interface TransactionCanceledException extends __SmithyException, $Metada
 }
 
 export namespace TransactionCanceledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TransactionCanceledException): any => ({
     ...obj,
     ...(obj.CancellationReasons && {
@@ -7196,6 +7784,9 @@ export interface BatchGetItemInput {
 }
 
 export namespace BatchGetItemInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchGetItemInput): any => ({
     ...obj,
     ...(obj.RequestItems && {
@@ -7443,6 +8034,9 @@ export interface ExpectedAttributeValue {
 }
 
 export namespace ExpectedAttributeValue {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExpectedAttributeValue): any => ({
     ...obj,
     ...(obj.Value && { Value: AttributeValue.filterSensitiveLog(obj.Value) }),
@@ -7468,6 +8062,9 @@ export interface TransactGetItemsInput {
 }
 
 export namespace TransactGetItemsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TransactGetItemsInput): any => ({
     ...obj,
     ...(obj.TransactItems && {
@@ -7495,6 +8092,9 @@ export interface TransactWriteItemsOutput {
 }
 
 export namespace TransactWriteItemsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TransactWriteItemsOutput): any => ({
     ...obj,
     ...(obj.ItemCollectionMetrics && {
@@ -7550,6 +8150,9 @@ export interface ConditionCheck {
 }
 
 export namespace ConditionCheck {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConditionCheck): any => ({
     ...obj,
     ...(obj.Key && {
@@ -7613,6 +8216,9 @@ export interface Delete {
 }
 
 export namespace Delete {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Delete): any => ({
     ...obj,
     ...(obj.Key && {
@@ -7679,6 +8285,9 @@ export interface Put {
 }
 
 export namespace Put {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Put): any => ({
     ...obj,
     ...(obj.Item && {
@@ -7749,6 +8358,9 @@ export interface Update {
 }
 
 export namespace Update {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Update): any => ({
     ...obj,
     ...(obj.Key && {
@@ -7825,6 +8437,9 @@ export interface DeleteItemOutput {
 }
 
 export namespace DeleteItemOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteItemOutput): any => ({
     ...obj,
     ...(obj.Attributes && {
@@ -7893,6 +8508,9 @@ export interface PutItemOutput {
 }
 
 export namespace PutItemOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutItemOutput): any => ({
     ...obj,
     ...(obj.Attributes && {
@@ -7958,6 +8576,9 @@ export interface QueryOutput {
 }
 
 export namespace QueryOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryOutput): any => ({
     ...obj,
     ...(obj.Items && {
@@ -8036,6 +8657,9 @@ export interface ScanOutput {
 }
 
 export namespace ScanOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ScanOutput): any => ({
     ...obj,
     ...(obj.Items && {
@@ -8114,6 +8738,9 @@ export interface UpdateItemOutput {
 }
 
 export namespace UpdateItemOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateItemOutput): any => ({
     ...obj,
     ...(obj.Attributes && {
@@ -8150,6 +8777,9 @@ export interface WriteRequest {
 }
 
 export namespace WriteRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: WriteRequest): any => ({
     ...obj,
     ...(obj.PutRequest && { PutRequest: PutRequest.filterSensitiveLog(obj.PutRequest) }),
@@ -8215,6 +8845,9 @@ export interface BatchGetItemOutput {
 }
 
 export namespace BatchGetItemOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchGetItemOutput): any => ({
     ...obj,
     ...(obj.Responses && {
@@ -8516,6 +9149,9 @@ export interface ScanInput {
 }
 
 export namespace ScanInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ScanInput): any => ({
     ...obj,
     ...(obj.ScanFilter && {
@@ -8621,6 +9257,9 @@ export interface BatchWriteItemInput {
 }
 
 export namespace BatchWriteItemInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchWriteItemInput): any => ({
     ...obj,
     ...(obj.RequestItems && {
@@ -8804,6 +9443,9 @@ export interface DeleteItemInput {
 }
 
 export namespace DeleteItemInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteItemInput): any => ({
     ...obj,
     ...(obj.Key && {
@@ -9011,6 +9653,9 @@ export interface PutItemInput {
 }
 
 export namespace PutItemInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutItemInput): any => ({
     ...obj,
     ...(obj.Item && {
@@ -9404,6 +10049,9 @@ export interface QueryInput {
 }
 
 export namespace QueryInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryInput): any => ({
     ...obj,
     ...(obj.KeyConditions && {
@@ -9533,6 +10181,9 @@ export interface BatchWriteItemOutput {
 }
 
 export namespace BatchWriteItemOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchWriteItemOutput): any => ({
     ...obj,
     ...(obj.UnprocessedItems && {
@@ -9839,6 +10490,9 @@ export interface UpdateItemInput {
 }
 
 export namespace UpdateItemInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateItemInput): any => ({
     ...obj,
     ...(obj.Key && {
@@ -9906,6 +10560,9 @@ export interface TransactWriteItem {
 }
 
 export namespace TransactWriteItem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TransactWriteItem): any => ({
     ...obj,
     ...(obj.ConditionCheck && { ConditionCheck: ConditionCheck.filterSensitiveLog(obj.ConditionCheck) }),
@@ -9976,6 +10633,9 @@ export interface TransactWriteItemsInput {
 }
 
 export namespace TransactWriteItemsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TransactWriteItemsInput): any => ({
     ...obj,
     ...(obj.TransactItems && {

@@ -22,6 +22,20 @@ export interface ListMitigationActionsCommandOutput extends ListMitigationAction
 
 /**
  * <p>Gets a list of all mitigation actions that match the specified filter criteria.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, ListMitigationActionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListMitigationActionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new ListMitigationActionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMitigationActionsCommandInput} for command's `input` shape.
+ * @see {@link ListMitigationActionsCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMitigationActionsCommand extends $Command<
   ListMitigationActionsCommandInput,

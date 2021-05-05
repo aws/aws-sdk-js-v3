@@ -24,6 +24,20 @@ export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
  * <p>Deletes a schema. Before deleting a schema, you must delete all
  *       datasets referencing the schema. For more information on schemas, see
  *       <a>CreateSchema</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { PersonalizeClient, DeleteSchemaCommand } from "@aws-sdk/client-personalize"; // ES Modules import
+ * // const { PersonalizeClient, DeleteSchemaCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
+ * const client = new PersonalizeClient(config);
+ * const command = new DeleteSchemaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSchemaCommandInput} for command's `input` shape.
+ * @see {@link DeleteSchemaCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSchemaCommand extends $Command<
   DeleteSchemaCommandInput,

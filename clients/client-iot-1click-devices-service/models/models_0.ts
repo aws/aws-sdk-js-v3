@@ -41,6 +41,9 @@ export interface DeviceDescription {
 }
 
 export namespace DeviceDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeviceDescription): any => ({
     ...obj,
   });
@@ -49,6 +52,9 @@ export namespace DeviceDescription {
 export interface Attributes {}
 
 export namespace Attributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Attributes): any => ({
     ...obj,
   });
@@ -72,6 +78,9 @@ export interface Device {
 }
 
 export namespace Device {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Device): any => ({
     ...obj,
   });
@@ -90,6 +99,9 @@ export interface DeviceEvent {
 }
 
 export namespace DeviceEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeviceEvent): any => ({
     ...obj,
   });
@@ -108,6 +120,9 @@ export interface DeviceMethod {
 }
 
 export namespace DeviceMethod {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeviceMethod): any => ({
     ...obj,
   });
@@ -121,6 +136,9 @@ export interface ClaimDevicesByClaimCodeRequest {
 }
 
 export namespace ClaimDevicesByClaimCodeRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ClaimDevicesByClaimCodeRequest): any => ({
     ...obj,
   });
@@ -140,6 +158,9 @@ export interface ClaimDevicesByClaimCodeResponse {
 }
 
 export namespace ClaimDevicesByClaimCodeResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ClaimDevicesByClaimCodeResponse): any => ({
     ...obj,
   });
@@ -160,6 +181,9 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
@@ -180,6 +204,9 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
 }
 
 export namespace InternalFailureException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
@@ -200,6 +227,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -213,6 +243,9 @@ export interface DescribeDeviceRequest {
 }
 
 export namespace DescribeDeviceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDeviceRequest): any => ({
     ...obj,
   });
@@ -226,6 +259,9 @@ export interface DescribeDeviceResponse {
 }
 
 export namespace DescribeDeviceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDeviceResponse): any => ({
     ...obj,
   });
@@ -246,6 +282,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -268,6 +307,9 @@ export interface FinalizeDeviceClaimRequest {
 }
 
 export namespace FinalizeDeviceClaimRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FinalizeDeviceClaimRequest): any => ({
     ...obj,
   });
@@ -281,6 +323,9 @@ export interface FinalizeDeviceClaimResponse {
 }
 
 export namespace FinalizeDeviceClaimResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FinalizeDeviceClaimResponse): any => ({
     ...obj,
   });
@@ -301,6 +346,9 @@ export interface PreconditionFailedException extends __SmithyException, $Metadat
 }
 
 export namespace PreconditionFailedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PreconditionFailedException): any => ({
     ...obj,
   });
@@ -321,6 +369,9 @@ export interface ResourceConflictException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
     ...obj,
   });
@@ -334,6 +385,9 @@ export interface GetDeviceMethodsRequest {
 }
 
 export namespace GetDeviceMethodsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDeviceMethodsRequest): any => ({
     ...obj,
   });
@@ -347,6 +401,9 @@ export interface GetDeviceMethodsResponse {
 }
 
 export namespace GetDeviceMethodsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDeviceMethodsResponse): any => ({
     ...obj,
   });
@@ -360,6 +417,9 @@ export interface InitiateDeviceClaimRequest {
 }
 
 export namespace InitiateDeviceClaimRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InitiateDeviceClaimRequest): any => ({
     ...obj,
   });
@@ -373,6 +433,9 @@ export interface InitiateDeviceClaimResponse {
 }
 
 export namespace InitiateDeviceClaimResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InitiateDeviceClaimResponse): any => ({
     ...obj,
   });
@@ -396,6 +459,9 @@ export interface InvokeDeviceMethodRequest {
 }
 
 export namespace InvokeDeviceMethodRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvokeDeviceMethodRequest): any => ({
     ...obj,
   });
@@ -409,6 +475,9 @@ export interface InvokeDeviceMethodResponse {
 }
 
 export namespace InvokeDeviceMethodResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvokeDeviceMethodResponse): any => ({
     ...obj,
   });
@@ -430,6 +499,9 @@ export interface RangeNotSatisfiableException extends __SmithyException, $Metada
 }
 
 export namespace RangeNotSatisfiableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RangeNotSatisfiableException): any => ({
     ...obj,
   });
@@ -468,6 +540,9 @@ export interface ListDeviceEventsRequest {
 }
 
 export namespace ListDeviceEventsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDeviceEventsRequest): any => ({
     ...obj,
   });
@@ -487,6 +562,9 @@ export interface ListDeviceEventsResponse {
 }
 
 export namespace ListDeviceEventsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDeviceEventsResponse): any => ({
     ...obj,
   });
@@ -511,6 +589,9 @@ export interface ListDevicesRequest {
 }
 
 export namespace ListDevicesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDevicesRequest): any => ({
     ...obj,
   });
@@ -529,6 +610,9 @@ export interface ListDevicesResponse {
 }
 
 export namespace ListDevicesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDevicesResponse): any => ({
     ...obj,
   });
@@ -542,6 +626,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -559,6 +646,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -581,6 +671,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -594,6 +687,9 @@ export interface UnclaimDeviceRequest {
 }
 
 export namespace UnclaimDeviceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnclaimDeviceRequest): any => ({
     ...obj,
   });
@@ -607,6 +703,9 @@ export interface UnclaimDeviceResponse {
 }
 
 export namespace UnclaimDeviceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnclaimDeviceResponse): any => ({
     ...obj,
   });
@@ -625,6 +724,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -644,6 +746,9 @@ export interface UpdateDeviceStateRequest {
 }
 
 export namespace UpdateDeviceStateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDeviceStateRequest): any => ({
     ...obj,
   });
@@ -652,6 +757,9 @@ export namespace UpdateDeviceStateRequest {
 export interface UpdateDeviceStateResponse {}
 
 export namespace UpdateDeviceStateResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDeviceStateResponse): any => ({
     ...obj,
   });

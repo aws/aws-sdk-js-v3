@@ -22,6 +22,20 @@ export interface ListWorkloadSharesCommandOutput extends ListWorkloadSharesOutpu
 
 /**
  * <p>List the workload shares associated with the workload.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WellArchitectedClient, ListWorkloadSharesCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, ListWorkloadSharesCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * const client = new WellArchitectedClient(config);
+ * const command = new ListWorkloadSharesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListWorkloadSharesCommandInput} for command's `input` shape.
+ * @see {@link ListWorkloadSharesCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListWorkloadSharesCommand extends $Command<
   ListWorkloadSharesCommandInput,

@@ -27,6 +27,20 @@ export interface ListNodesCommandOutput extends ListNodesOutput, __MetadataBeare
 /**
  * <p>Returns information about the nodes within a network.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ManagedBlockchainClient, ListNodesCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
+ * // const { ManagedBlockchainClient, ListNodesCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
+ * const client = new ManagedBlockchainClient(config);
+ * const command = new ListNodesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListNodesCommandInput} for command's `input` shape.
+ * @see {@link ListNodesCommandOutput} for command's `response` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListNodesCommand extends $Command<
   ListNodesCommandInput,

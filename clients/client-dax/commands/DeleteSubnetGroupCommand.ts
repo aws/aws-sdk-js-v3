@@ -26,6 +26,20 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  *             <p>You cannot delete a subnet group if it is associated with any DAX
  *                 clusters.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DAXClient, DeleteSubnetGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
+ * // const { DAXClient, DeleteSubnetGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
+ * const client = new DAXClient(config);
+ * const command = new DeleteSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSubnetGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteSubnetGroupCommandOutput} for command's `response` shape.
+ * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSubnetGroupCommand extends $Command<
   DeleteSubnetGroupCommandInput,

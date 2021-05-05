@@ -22,6 +22,20 @@ export interface ListSkillsStoreCategoriesCommandOutput extends ListSkillsStoreC
 
 /**
  * <p>Lists all categories in the Alexa skill store.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, ListSkillsStoreCategoriesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, ListSkillsStoreCategoriesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new ListSkillsStoreCategoriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSkillsStoreCategoriesCommandInput} for command's `input` shape.
+ * @see {@link ListSkillsStoreCategoriesCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSkillsStoreCategoriesCommand extends $Command<
   ListSkillsStoreCategoriesCommandInput,

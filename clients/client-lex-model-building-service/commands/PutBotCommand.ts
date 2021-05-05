@@ -40,6 +40,20 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  *
  *          <p>This operation requires permissions for the <code>lex:PutBot</code>
  *       action. For more information, see <a>security-iam</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelBuildingServiceClient, PutBotCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
+ * // const { LexModelBuildingServiceClient, PutBotCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new PutBotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutBotCommandInput} for command's `input` shape.
+ * @see {@link PutBotCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutBotCommand extends $Command<
   PutBotCommandInput,

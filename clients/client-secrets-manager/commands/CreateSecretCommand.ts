@@ -109,6 +109,20 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *           value.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SecretsManagerClient, CreateSecretCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
+ * // const { SecretsManagerClient, CreateSecretCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
+ * const client = new SecretsManagerClient(config);
+ * const command = new CreateSecretCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSecretCommandInput} for command's `input` shape.
+ * @see {@link CreateSecretCommandOutput} for command's `response` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSecretCommand extends $Command<
   CreateSecretCommandInput,

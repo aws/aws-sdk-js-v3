@@ -22,6 +22,20 @@ export interface ListAssociationVersionsCommandOutput extends ListAssociationVer
 
 /**
  * <p>Retrieves all versions of an association for a specific association ID.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SSMClient, ListAssociationVersionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, ListAssociationVersionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * const client = new SSMClient(config);
+ * const command = new ListAssociationVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAssociationVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListAssociationVersionsCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAssociationVersionsCommand extends $Command<
   ListAssociationVersionsCommandInput,

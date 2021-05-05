@@ -32,6 +32,20 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  *       items.</p>
  *          <p>You can also specify a maximum number of return results with the <code>Limit</code>
  *       parameter.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectoryServiceClient, DescribeDirectoriesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
+ * // const { DirectoryServiceClient, DescribeDirectoriesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
+ * const client = new DirectoryServiceClient(config);
+ * const command = new DescribeDirectoriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDirectoriesCommandInput} for command's `input` shape.
+ * @see {@link DescribeDirectoriesCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDirectoriesCommand extends $Command<
   DescribeDirectoriesCommandInput,

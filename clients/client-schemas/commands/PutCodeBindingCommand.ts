@@ -22,6 +22,20 @@ export interface PutCodeBindingCommandOutput extends PutCodeBindingResponse, __M
 
 /**
  * <p>Put code binding URI</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SchemasClient, PutCodeBindingCommand } from "@aws-sdk/client-schemas"; // ES Modules import
+ * // const { SchemasClient, PutCodeBindingCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * const client = new SchemasClient(config);
+ * const command = new PutCodeBindingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutCodeBindingCommandInput} for command's `input` shape.
+ * @see {@link PutCodeBindingCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutCodeBindingCommand extends $Command<
   PutCodeBindingCommandInput,

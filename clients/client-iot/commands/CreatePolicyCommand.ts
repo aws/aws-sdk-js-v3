@@ -25,6 +25,20 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  *          <p>The created policy is the default version for the policy. This operation creates a
  *          policy version with a version identifier of <b>1</b> and sets
  *             <b>1</b> as the policy's default version.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, CreatePolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, CreatePolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new CreatePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePolicyCommandInput} for command's `input` shape.
+ * @see {@link CreatePolicyCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePolicyCommand extends $Command<
   CreatePolicyCommandInput,

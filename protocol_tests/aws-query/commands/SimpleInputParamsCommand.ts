@@ -22,6 +22,20 @@ export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
 
 /**
  * This test serializes strings, numbers, and boolean values.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { QueryProtocolClient, SimpleInputParamsCommand } from "@aws-sdk/aws-query"; // ES Modules import
+ * // const { QueryProtocolClient, SimpleInputParamsCommand } = require("@aws-sdk/aws-query"); // CommonJS import
+ * const client = new QueryProtocolClient(config);
+ * const command = new SimpleInputParamsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SimpleInputParamsCommandInput} for command's `input` shape.
+ * @see {@link SimpleInputParamsCommandOutput} for command's `response` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SimpleInputParamsCommand extends $Command<
   SimpleInputParamsCommandInput,

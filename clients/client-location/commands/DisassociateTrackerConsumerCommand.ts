@@ -28,6 +28,20 @@ export interface DisassociateTrackerConsumerCommandOutput
  *             <p>Once you unlink a tracker resource from a geofence collection, the tracker
  *                 positions will no longer be automatically evaluated against geofences.</p>
  *         </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LocationClient, DisassociateTrackerConsumerCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, DisassociateTrackerConsumerCommand } = require("@aws-sdk/client-location"); // CommonJS import
+ * const client = new LocationClient(config);
+ * const command = new DisassociateTrackerConsumerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateTrackerConsumerCommandInput} for command's `input` shape.
+ * @see {@link DisassociateTrackerConsumerCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateTrackerConsumerCommand extends $Command<
   DisassociateTrackerConsumerCommandInput,

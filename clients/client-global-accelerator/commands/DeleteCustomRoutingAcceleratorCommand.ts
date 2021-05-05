@@ -39,6 +39,20 @@ export interface DeleteCustomRoutingAcceleratorCommandOutput extends __MetadataB
  * 			see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/auth-and-access-control.html">Authentication and Access Control</a> in
  * 			the <i>AWS Global Accelerator Developer Guide</i>.</p>
  *          </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlobalAcceleratorClient, DeleteCustomRoutingAcceleratorCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
+ * // const { GlobalAcceleratorClient, DeleteCustomRoutingAcceleratorCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new DeleteCustomRoutingAcceleratorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCustomRoutingAcceleratorCommandInput} for command's `input` shape.
+ * @see {@link DeleteCustomRoutingAcceleratorCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCustomRoutingAcceleratorCommand extends $Command<
   DeleteCustomRoutingAcceleratorCommandInput,

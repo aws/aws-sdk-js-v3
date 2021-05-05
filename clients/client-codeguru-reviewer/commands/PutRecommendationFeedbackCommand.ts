@@ -24,6 +24,20 @@ export interface PutRecommendationFeedbackCommandOutput extends PutRecommendatio
  * <p>
  *          Stores customer feedback for a CodeGuru Reviewer recommendation. When this API is called again with different reactions the previous feedback is overwritten.
  *       </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeGuruReviewerClient, PutRecommendationFeedbackCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
+ * // const { CodeGuruReviewerClient, PutRecommendationFeedbackCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
+ * const client = new CodeGuruReviewerClient(config);
+ * const command = new PutRecommendationFeedbackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutRecommendationFeedbackCommandInput} for command's `input` shape.
+ * @see {@link PutRecommendationFeedbackCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutRecommendationFeedbackCommand extends $Command<
   PutRecommendationFeedbackCommandInput,

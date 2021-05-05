@@ -18,6 +18,9 @@ export interface AccountActionRequiredException extends __SmithyException, $Meta
 }
 
 export namespace AccountActionRequiredException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccountActionRequiredException): any => ({
     ...obj,
   });
@@ -41,6 +44,9 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace BadRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
@@ -85,6 +91,9 @@ export interface CreateProjectRequest {
 }
 
 export namespace CreateProjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
     ...obj,
   });
@@ -133,6 +142,9 @@ export interface Resource {
 }
 
 export namespace Resource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj,
   });
@@ -208,6 +220,9 @@ export interface ProjectDetails {
 }
 
 export namespace ProjectDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProjectDetails): any => ({
     ...obj,
   });
@@ -228,6 +243,9 @@ export interface CreateProjectResult {
 }
 
 export namespace CreateProjectResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateProjectResult): any => ({
     ...obj,
   });
@@ -251,6 +269,9 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
 }
 
 export namespace InternalFailureException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
@@ -283,6 +304,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -305,6 +329,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
@@ -335,6 +362,9 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
 }
 
 export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
@@ -365,6 +395,9 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
 }
 
 export namespace TooManyRequestsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
@@ -387,6 +420,9 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace UnauthorizedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj,
   });
@@ -407,6 +443,9 @@ export interface DeleteProjectRequest {
 }
 
 export namespace DeleteProjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
     ...obj,
   });
@@ -435,6 +474,9 @@ export interface DeleteProjectResult {
 }
 
 export namespace DeleteProjectResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteProjectResult): any => ({
     ...obj,
   });
@@ -455,6 +497,9 @@ export interface DescribeBundleRequest {
 }
 
 export namespace DescribeBundleRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBundleRequest): any => ({
     ...obj,
   });
@@ -520,6 +565,9 @@ export interface BundleDetails {
 }
 
 export namespace BundleDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BundleDetails): any => ({
     ...obj,
   });
@@ -540,6 +588,9 @@ export interface DescribeBundleResult {
 }
 
 export namespace DescribeBundleResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBundleResult): any => ({
     ...obj,
   });
@@ -567,6 +618,9 @@ export interface DescribeProjectRequest {
 }
 
 export namespace DescribeProjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeProjectRequest): any => ({
     ...obj,
   });
@@ -587,6 +641,9 @@ export interface DescribeProjectResult {
 }
 
 export namespace DescribeProjectResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeProjectResult): any => ({
     ...obj,
   });
@@ -622,6 +679,9 @@ export interface ExportBundleRequest {
 }
 
 export namespace ExportBundleRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportBundleRequest): any => ({
     ...obj,
   });
@@ -646,6 +706,9 @@ export interface ExportBundleResult {
 }
 
 export namespace ExportBundleResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportBundleResult): any => ({
     ...obj,
   });
@@ -666,6 +729,9 @@ export interface ExportProjectRequest {
 }
 
 export namespace ExportProjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportProjectRequest): any => ({
     ...obj,
   });
@@ -706,6 +772,9 @@ export interface ExportProjectResult {
 }
 
 export namespace ExportProjectResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportProjectResult): any => ({
     ...obj,
   });
@@ -735,6 +804,9 @@ export interface ListBundlesRequest {
 }
 
 export namespace ListBundlesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBundlesRequest): any => ({
     ...obj,
   });
@@ -763,6 +835,9 @@ export interface ListBundlesResult {
 }
 
 export namespace ListBundlesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBundlesResult): any => ({
     ...obj,
   });
@@ -792,6 +867,9 @@ export interface ListProjectsRequest {
 }
 
 export namespace ListProjectsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
     ...obj,
   });
@@ -819,6 +897,9 @@ export interface ProjectSummary {
 }
 
 export namespace ProjectSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProjectSummary): any => ({
     ...obj,
   });
@@ -848,6 +929,9 @@ export interface ListProjectsResult {
 }
 
 export namespace ListProjectsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListProjectsResult): any => ({
     ...obj,
   });
@@ -877,6 +961,9 @@ export interface UpdateProjectRequest {
 }
 
 export namespace UpdateProjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
     ...obj,
   });
@@ -897,6 +984,9 @@ export interface UpdateProjectResult {
 }
 
 export namespace UpdateProjectResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateProjectResult): any => ({
     ...obj,
   });

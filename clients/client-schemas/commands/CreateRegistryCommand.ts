@@ -22,6 +22,20 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
 
 /**
  * <p>Creates a registry.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SchemasClient, CreateRegistryCommand } from "@aws-sdk/client-schemas"; // ES Modules import
+ * // const { SchemasClient, CreateRegistryCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
+ * const client = new SchemasClient(config);
+ * const command = new CreateRegistryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRegistryCommandInput} for command's `input` shape.
+ * @see {@link CreateRegistryCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRegistryCommand extends $Command<
   CreateRegistryCommandInput,

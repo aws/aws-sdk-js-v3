@@ -21,6 +21,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -42,6 +45,9 @@ export interface Block {
 }
 
 export namespace Block {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Block): any => ({
     ...obj,
   });
@@ -72,6 +78,9 @@ export interface ChangedBlock {
 }
 
 export namespace ChangedBlock {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ChangedBlock): any => ({
     ...obj,
   });
@@ -120,6 +129,9 @@ export interface CompleteSnapshotRequest {
 }
 
 export namespace CompleteSnapshotRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CompleteSnapshotRequest): any => ({
     ...obj,
   });
@@ -139,6 +151,9 @@ export interface CompleteSnapshotResponse {
 }
 
 export namespace CompleteSnapshotResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CompleteSnapshotResponse): any => ({
     ...obj,
   });
@@ -154,6 +169,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -179,6 +197,9 @@ export interface RequestThrottledException extends __SmithyException, $MetadataB
 }
 
 export namespace RequestThrottledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RequestThrottledException): any => ({
     ...obj,
   });
@@ -203,6 +224,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -226,6 +250,9 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
 }
 
 export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
@@ -259,6 +286,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -276,6 +306,9 @@ export interface ConcurrentLimitExceededException extends __SmithyException, $Me
 }
 
 export namespace ConcurrentLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConcurrentLimitExceededException): any => ({
     ...obj,
   });
@@ -292,6 +325,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -323,6 +359,9 @@ export interface GetSnapshotBlockRequest {
 }
 
 export namespace GetSnapshotBlockRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSnapshotBlockRequest): any => ({
     ...obj,
   });
@@ -351,6 +390,9 @@ export interface GetSnapshotBlockResponse {
 }
 
 export namespace GetSnapshotBlockResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSnapshotBlockResponse): any => ({
     ...obj,
     ...(obj.BlockData && { BlockData: SENSITIVE_STRING }),
@@ -395,6 +437,9 @@ export interface ListChangedBlocksRequest {
 }
 
 export namespace ListChangedBlocksRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListChangedBlocksRequest): any => ({
     ...obj,
   });
@@ -429,6 +474,9 @@ export interface ListChangedBlocksResponse {
 }
 
 export namespace ListChangedBlocksResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListChangedBlocksResponse): any => ({
     ...obj,
     ...(obj.ChangedBlocks && { ChangedBlocks: SENSITIVE_STRING }),
@@ -459,6 +507,9 @@ export interface ListSnapshotBlocksRequest {
 }
 
 export namespace ListSnapshotBlocksRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSnapshotBlocksRequest): any => ({
     ...obj,
   });
@@ -493,6 +544,9 @@ export interface ListSnapshotBlocksResponse {
 }
 
 export namespace ListSnapshotBlocksResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSnapshotBlocksResponse): any => ({
     ...obj,
     ...(obj.Blocks && { Blocks: SENSITIVE_STRING }),
@@ -556,6 +610,9 @@ export interface PutSnapshotBlockRequest {
 }
 
 export namespace PutSnapshotBlockRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutSnapshotBlockRequest): any => ({
     ...obj,
     ...(obj.BlockData && { BlockData: SENSITIVE_STRING }),
@@ -575,6 +632,9 @@ export interface PutSnapshotBlockResponse {
 }
 
 export namespace PutSnapshotBlockResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutSnapshotBlockResponse): any => ({
     ...obj,
   });
@@ -596,6 +656,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -687,6 +750,9 @@ export interface StartSnapshotRequest {
 }
 
 export namespace StartSnapshotRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartSnapshotRequest): any => ({
     ...obj,
     ...(obj.KmsKeyArn && { KmsKeyArn: SENSITIVE_STRING }),
@@ -749,6 +815,9 @@ export interface StartSnapshotResponse {
 }
 
 export namespace StartSnapshotResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartSnapshotResponse): any => ({
     ...obj,
     ...(obj.KmsKeyArn && { KmsKeyArn: SENSITIVE_STRING }),

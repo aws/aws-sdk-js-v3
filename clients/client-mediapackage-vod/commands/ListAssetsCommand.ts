@@ -22,6 +22,20 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
 
 /**
  * Returns a collection of MediaPackage VOD Asset resources.
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaPackageVodClient, ListAssetsCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
+ * // const { MediaPackageVodClient, ListAssetsCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
+ * const client = new MediaPackageVodClient(config);
+ * const command = new ListAssetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAssetsCommandInput} for command's `input` shape.
+ * @see {@link ListAssetsCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageVodClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAssetsCommand extends $Command<
   ListAssetsCommandInput,

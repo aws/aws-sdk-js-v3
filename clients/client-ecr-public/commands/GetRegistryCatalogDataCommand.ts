@@ -22,6 +22,20 @@ export interface GetRegistryCatalogDataCommandOutput extends GetRegistryCatalogD
 
 /**
  * <p>Retrieves catalog metadata for a public registry.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECRPUBLICClient, GetRegistryCatalogDataCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
+ * // const { ECRPUBLICClient, GetRegistryCatalogDataCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
+ * const client = new ECRPUBLICClient(config);
+ * const command = new GetRegistryCatalogDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRegistryCatalogDataCommandInput} for command's `input` shape.
+ * @see {@link GetRegistryCatalogDataCommandOutput} for command's `response` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRegistryCatalogDataCommand extends $Command<
   GetRegistryCatalogDataCommandInput,

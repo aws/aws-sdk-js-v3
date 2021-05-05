@@ -12,6 +12,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -38,6 +41,9 @@ export interface AssociateTrackerConsumerRequest {
 }
 
 export namespace AssociateTrackerConsumerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateTrackerConsumerRequest): any => ({
     ...obj,
   });
@@ -46,6 +52,9 @@ export namespace AssociateTrackerConsumerRequest {
 export interface AssociateTrackerConsumerResponse {}
 
 export namespace AssociateTrackerConsumerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateTrackerConsumerResponse): any => ({
     ...obj,
   });
@@ -61,6 +70,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -77,6 +89,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -92,6 +107,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -108,6 +126,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -130,6 +151,9 @@ export interface ValidationExceptionField {
 }
 
 export namespace ValidationExceptionField {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
     ...obj,
   });
@@ -161,6 +185,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -179,6 +206,9 @@ export interface BatchDeleteGeofenceRequest {
 }
 
 export namespace BatchDeleteGeofenceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchDeleteGeofenceRequest): any => ({
     ...obj,
   });
@@ -208,6 +238,9 @@ export interface BatchItemError {
 }
 
 export namespace BatchItemError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchItemError): any => ({
     ...obj,
   });
@@ -230,6 +263,9 @@ export interface BatchDeleteGeofenceError {
 }
 
 export namespace BatchDeleteGeofenceError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchDeleteGeofenceError): any => ({
     ...obj,
   });
@@ -243,6 +279,9 @@ export interface BatchDeleteGeofenceResponse {
 }
 
 export namespace BatchDeleteGeofenceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchDeleteGeofenceResponse): any => ({
     ...obj,
   });
@@ -272,6 +311,9 @@ export interface DevicePositionUpdate {
 }
 
 export namespace DevicePositionUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DevicePositionUpdate): any => ({
     ...obj,
     ...(obj.Position && { Position: SENSITIVE_STRING }),
@@ -293,6 +335,9 @@ export interface BatchEvaluateGeofencesRequest {
 }
 
 export namespace BatchEvaluateGeofencesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchEvaluateGeofencesRequest): any => ({
     ...obj,
     ...(obj.DevicePositionUpdates && {
@@ -325,6 +370,9 @@ export interface BatchEvaluateGeofencesError {
 }
 
 export namespace BatchEvaluateGeofencesError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchEvaluateGeofencesError): any => ({
     ...obj,
   });
@@ -339,6 +387,9 @@ export interface BatchEvaluateGeofencesResponse {
 }
 
 export namespace BatchEvaluateGeofencesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchEvaluateGeofencesResponse): any => ({
     ...obj,
   });
@@ -364,6 +415,9 @@ export interface BatchGetDevicePositionRequest {
 }
 
 export namespace BatchGetDevicePositionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchGetDevicePositionRequest): any => ({
     ...obj,
   });
@@ -397,6 +451,9 @@ export interface DevicePosition {
 }
 
 export namespace DevicePosition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DevicePosition): any => ({
     ...obj,
     ...(obj.Position && { Position: SENSITIVE_STRING }),
@@ -419,6 +476,9 @@ export interface BatchGetDevicePositionError {
 }
 
 export namespace BatchGetDevicePositionError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchGetDevicePositionError): any => ({
     ...obj,
   });
@@ -439,6 +499,9 @@ export interface BatchGetDevicePositionResponse {
 }
 
 export namespace BatchGetDevicePositionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchGetDevicePositionResponse): any => ({
     ...obj,
     ...(obj.DevicePositions && {
@@ -469,6 +532,9 @@ export interface GeofenceGeometry {
 }
 
 export namespace GeofenceGeometry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GeofenceGeometry): any => ({
     ...obj,
     ...(obj.Polygon && { Polygon: obj.Polygon.map((item) => SENSITIVE_STRING) }),
@@ -494,6 +560,9 @@ export interface BatchPutGeofenceRequestEntry {
 }
 
 export namespace BatchPutGeofenceRequestEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchPutGeofenceRequestEntry): any => ({
     ...obj,
     ...(obj.Geometry && { Geometry: GeofenceGeometry.filterSensitiveLog(obj.Geometry) }),
@@ -513,6 +582,9 @@ export interface BatchPutGeofenceRequest {
 }
 
 export namespace BatchPutGeofenceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchPutGeofenceRequest): any => ({
     ...obj,
     ...(obj.Entries && { Entries: obj.Entries.map((item) => BatchPutGeofenceRequestEntry.filterSensitiveLog(item)) }),
@@ -536,6 +608,9 @@ export interface BatchPutGeofenceError {
 }
 
 export namespace BatchPutGeofenceError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchPutGeofenceError): any => ({
     ...obj,
   });
@@ -567,6 +642,9 @@ export interface BatchPutGeofenceSuccess {
 }
 
 export namespace BatchPutGeofenceSuccess {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchPutGeofenceSuccess): any => ({
     ...obj,
   });
@@ -586,6 +664,9 @@ export interface BatchPutGeofenceResponse {
 }
 
 export namespace BatchPutGeofenceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchPutGeofenceResponse): any => ({
     ...obj,
   });
@@ -604,6 +685,9 @@ export interface BatchUpdateDevicePositionRequest {
 }
 
 export namespace BatchUpdateDevicePositionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchUpdateDevicePositionRequest): any => ({
     ...obj,
     ...(obj.Updates && { Updates: obj.Updates.map((item) => DevicePositionUpdate.filterSensitiveLog(item)) }),
@@ -633,6 +717,9 @@ export interface BatchUpdateDevicePositionError {
 }
 
 export namespace BatchUpdateDevicePositionError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchUpdateDevicePositionError): any => ({
     ...obj,
   });
@@ -646,6 +733,9 @@ export interface BatchUpdateDevicePositionResponse {
 }
 
 export namespace BatchUpdateDevicePositionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchUpdateDevicePositionResponse): any => ({
     ...obj,
   });
@@ -698,6 +788,9 @@ export interface CreateGeofenceCollectionRequest {
 }
 
 export namespace CreateGeofenceCollectionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateGeofenceCollectionRequest): any => ({
     ...obj,
   });
@@ -724,6 +817,9 @@ export interface CreateGeofenceCollectionResponse {
 }
 
 export namespace CreateGeofenceCollectionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateGeofenceCollectionResponse): any => ({
     ...obj,
   });
@@ -748,6 +844,9 @@ export interface MapConfiguration {
 }
 
 export namespace MapConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MapConfiguration): any => ({
     ...obj,
   });
@@ -790,6 +889,9 @@ export interface CreateMapRequest {
 }
 
 export namespace CreateMapRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateMapRequest): any => ({
     ...obj,
   });
@@ -822,6 +924,9 @@ export interface CreateMapResponse {
 }
 
 export namespace CreateMapResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateMapResponse): any => ({
     ...obj,
   });
@@ -863,6 +968,9 @@ export interface DataSourceConfiguration {
 }
 
 export namespace DataSourceConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataSourceConfiguration): any => ({
     ...obj,
   });
@@ -928,6 +1036,9 @@ export interface CreatePlaceIndexRequest {
 }
 
 export namespace CreatePlaceIndexRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreatePlaceIndexRequest): any => ({
     ...obj,
   });
@@ -953,6 +1064,9 @@ export interface CreatePlaceIndexResponse {
 }
 
 export namespace CreatePlaceIndexResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreatePlaceIndexResponse): any => ({
     ...obj,
   });
@@ -1002,6 +1116,9 @@ export interface CreateTrackerRequest {
 }
 
 export namespace CreateTrackerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTrackerRequest): any => ({
     ...obj,
   });
@@ -1027,6 +1144,9 @@ export interface CreateTrackerResponse {
 }
 
 export namespace CreateTrackerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTrackerResponse): any => ({
     ...obj,
   });
@@ -1040,6 +1160,9 @@ export interface DeleteGeofenceCollectionRequest {
 }
 
 export namespace DeleteGeofenceCollectionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteGeofenceCollectionRequest): any => ({
     ...obj,
   });
@@ -1048,6 +1171,9 @@ export namespace DeleteGeofenceCollectionRequest {
 export interface DeleteGeofenceCollectionResponse {}
 
 export namespace DeleteGeofenceCollectionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteGeofenceCollectionResponse): any => ({
     ...obj,
   });
@@ -1061,6 +1187,9 @@ export interface DeleteMapRequest {
 }
 
 export namespace DeleteMapRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteMapRequest): any => ({
     ...obj,
   });
@@ -1069,6 +1198,9 @@ export namespace DeleteMapRequest {
 export interface DeleteMapResponse {}
 
 export namespace DeleteMapResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteMapResponse): any => ({
     ...obj,
   });
@@ -1082,6 +1214,9 @@ export interface DeletePlaceIndexRequest {
 }
 
 export namespace DeletePlaceIndexRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeletePlaceIndexRequest): any => ({
     ...obj,
   });
@@ -1090,6 +1225,9 @@ export namespace DeletePlaceIndexRequest {
 export interface DeletePlaceIndexResponse {}
 
 export namespace DeletePlaceIndexResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeletePlaceIndexResponse): any => ({
     ...obj,
   });
@@ -1103,6 +1241,9 @@ export interface DeleteTrackerRequest {
 }
 
 export namespace DeleteTrackerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTrackerRequest): any => ({
     ...obj,
   });
@@ -1111,6 +1252,9 @@ export namespace DeleteTrackerRequest {
 export interface DeleteTrackerResponse {}
 
 export namespace DeleteTrackerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTrackerResponse): any => ({
     ...obj,
   });
@@ -1124,6 +1268,9 @@ export interface DescribeGeofenceCollectionRequest {
 }
 
 export namespace DescribeGeofenceCollectionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeGeofenceCollectionRequest): any => ({
     ...obj,
   });
@@ -1175,6 +1322,9 @@ export interface DescribeGeofenceCollectionResponse {
 }
 
 export namespace DescribeGeofenceCollectionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeGeofenceCollectionResponse): any => ({
     ...obj,
   });
@@ -1188,6 +1338,9 @@ export interface DescribeMapRequest {
 }
 
 export namespace DescribeMapRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeMapRequest): any => ({
     ...obj,
   });
@@ -1242,6 +1395,9 @@ export interface DescribeMapResponse {
 }
 
 export namespace DescribeMapResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeMapResponse): any => ({
     ...obj,
   });
@@ -1255,6 +1411,9 @@ export interface DescribePlaceIndexRequest {
 }
 
 export namespace DescribePlaceIndexRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribePlaceIndexRequest): any => ({
     ...obj,
   });
@@ -1322,6 +1481,9 @@ export interface DescribePlaceIndexResponse {
 }
 
 export namespace DescribePlaceIndexResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribePlaceIndexResponse): any => ({
     ...obj,
   });
@@ -1335,6 +1497,9 @@ export interface DescribeTrackerRequest {
 }
 
 export namespace DescribeTrackerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTrackerRequest): any => ({
     ...obj,
   });
@@ -1383,6 +1548,9 @@ export interface DescribeTrackerResponse {
 }
 
 export namespace DescribeTrackerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTrackerResponse): any => ({
     ...obj,
   });
@@ -1409,6 +1577,9 @@ export interface DisassociateTrackerConsumerRequest {
 }
 
 export namespace DisassociateTrackerConsumerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateTrackerConsumerRequest): any => ({
     ...obj,
   });
@@ -1417,6 +1588,9 @@ export namespace DisassociateTrackerConsumerRequest {
 export interface DisassociateTrackerConsumerResponse {}
 
 export namespace DisassociateTrackerConsumerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateTrackerConsumerResponse): any => ({
     ...obj,
   });
@@ -1435,6 +1609,9 @@ export interface GetGeofenceRequest {
 }
 
 export namespace GetGeofenceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetGeofenceRequest): any => ({
     ...obj,
   });
@@ -1497,6 +1674,9 @@ export interface GetGeofenceResponse {
 }
 
 export namespace GetGeofenceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetGeofenceResponse): any => ({
     ...obj,
     ...(obj.Geometry && { Geometry: GeofenceGeometry.filterSensitiveLog(obj.Geometry) }),
@@ -1521,6 +1701,9 @@ export interface ListGeofenceCollectionsRequest {
 }
 
 export namespace ListGeofenceCollectionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGeofenceCollectionsRequest): any => ({
     ...obj,
   });
@@ -1569,6 +1752,9 @@ export interface ListGeofenceCollectionsResponseEntry {
 }
 
 export namespace ListGeofenceCollectionsResponseEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGeofenceCollectionsResponseEntry): any => ({
     ...obj,
   });
@@ -1588,6 +1774,9 @@ export interface ListGeofenceCollectionsResponse {
 }
 
 export namespace ListGeofenceCollectionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGeofenceCollectionsResponse): any => ({
     ...obj,
   });
@@ -1609,6 +1798,9 @@ export interface ListGeofencesRequest {
 }
 
 export namespace ListGeofencesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGeofencesRequest): any => ({
     ...obj,
   });
@@ -1674,6 +1866,9 @@ export interface ListGeofenceResponseEntry {
 }
 
 export namespace ListGeofenceResponseEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGeofenceResponseEntry): any => ({
     ...obj,
     ...(obj.Geometry && { Geometry: GeofenceGeometry.filterSensitiveLog(obj.Geometry) }),
@@ -1694,6 +1889,9 @@ export interface ListGeofencesResponse {
 }
 
 export namespace ListGeofencesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGeofencesResponse): any => ({
     ...obj,
     ...(obj.Entries && { Entries: obj.Entries.map((item) => ListGeofenceResponseEntry.filterSensitiveLog(item)) }),
@@ -1721,6 +1919,9 @@ export interface PutGeofenceRequest {
 }
 
 export namespace PutGeofenceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutGeofenceRequest): any => ({
     ...obj,
     ...(obj.Geometry && { Geometry: GeofenceGeometry.filterSensitiveLog(obj.Geometry) }),
@@ -1749,6 +1950,9 @@ export interface PutGeofenceResponse {
 }
 
 export namespace PutGeofenceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutGeofenceResponse): any => ({
     ...obj,
   });
@@ -1767,6 +1971,9 @@ export interface GetDevicePositionRequest {
 }
 
 export namespace GetDevicePositionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDevicePositionRequest): any => ({
     ...obj,
   });
@@ -1797,6 +2004,9 @@ export interface GetDevicePositionResponse {
 }
 
 export namespace GetDevicePositionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDevicePositionResponse): any => ({
     ...obj,
     ...(obj.Position && { Position: SENSITIVE_STRING }),
@@ -1852,6 +2062,9 @@ export interface GetDevicePositionHistoryRequest {
 }
 
 export namespace GetDevicePositionHistoryRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDevicePositionHistoryRequest): any => ({
     ...obj,
   });
@@ -1871,6 +2084,9 @@ export interface GetDevicePositionHistoryResponse {
 }
 
 export namespace GetDevicePositionHistoryResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDevicePositionHistoryResponse): any => ({
     ...obj,
     ...(obj.DevicePositions && {
@@ -1900,6 +2116,9 @@ export interface GetMapGlyphsRequest {
 }
 
 export namespace GetMapGlyphsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMapGlyphsRequest): any => ({
     ...obj,
   });
@@ -1918,6 +2137,9 @@ export interface GetMapGlyphsResponse {
 }
 
 export namespace GetMapGlyphsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMapGlyphsResponse): any => ({
     ...obj,
   });
@@ -1959,6 +2181,9 @@ export interface GetMapSpritesRequest {
 }
 
 export namespace GetMapSpritesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMapSpritesRequest): any => ({
     ...obj,
   });
@@ -1979,6 +2204,9 @@ export interface GetMapSpritesResponse {
 }
 
 export namespace GetMapSpritesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMapSpritesResponse): any => ({
     ...obj,
   });
@@ -1992,6 +2220,9 @@ export interface GetMapStyleDescriptorRequest {
 }
 
 export namespace GetMapStyleDescriptorRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMapStyleDescriptorRequest): any => ({
     ...obj,
   });
@@ -2011,6 +2242,9 @@ export interface GetMapStyleDescriptorResponse {
 }
 
 export namespace GetMapStyleDescriptorResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMapStyleDescriptorResponse): any => ({
     ...obj,
   });
@@ -2039,6 +2273,9 @@ export interface GetMapTileRequest {
 }
 
 export namespace GetMapTileRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMapTileRequest): any => ({
     ...obj,
   });
@@ -2058,6 +2295,9 @@ export interface GetMapTileResponse {
 }
 
 export namespace GetMapTileResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMapTileResponse): any => ({
     ...obj,
   });
@@ -2081,6 +2321,9 @@ export interface ListMapsRequest {
 }
 
 export namespace ListMapsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListMapsRequest): any => ({
     ...obj,
   });
@@ -2126,6 +2369,9 @@ export interface ListMapsResponseEntry {
 }
 
 export namespace ListMapsResponseEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListMapsResponseEntry): any => ({
     ...obj,
   });
@@ -2144,6 +2390,9 @@ export interface ListMapsResponse {
 }
 
 export namespace ListMapsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListMapsResponse): any => ({
     ...obj,
   });
@@ -2167,6 +2416,9 @@ export interface ListPlaceIndexesRequest {
 }
 
 export namespace ListPlaceIndexesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPlaceIndexesRequest): any => ({
     ...obj,
   });
@@ -2221,6 +2473,9 @@ export interface ListPlaceIndexesResponseEntry {
 }
 
 export namespace ListPlaceIndexesResponseEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPlaceIndexesResponseEntry): any => ({
     ...obj,
   });
@@ -2240,6 +2495,9 @@ export interface ListPlaceIndexesResponse {
 }
 
 export namespace ListPlaceIndexesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPlaceIndexesResponse): any => ({
     ...obj,
   });
@@ -2268,6 +2526,9 @@ export interface ListTrackerConsumersRequest {
 }
 
 export namespace ListTrackerConsumersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTrackerConsumersRequest): any => ({
     ...obj,
   });
@@ -2287,6 +2548,9 @@ export interface ListTrackerConsumersResponse {
 }
 
 export namespace ListTrackerConsumersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTrackerConsumersResponse): any => ({
     ...obj,
   });
@@ -2310,6 +2574,9 @@ export interface ListTrackersRequest {
 }
 
 export namespace ListTrackersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTrackersRequest): any => ({
     ...obj,
   });
@@ -2355,6 +2622,9 @@ export interface ListTrackersResponseEntry {
 }
 
 export namespace ListTrackersResponseEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTrackersResponseEntry): any => ({
     ...obj,
   });
@@ -2375,6 +2645,9 @@ export interface ListTrackersResponse {
 }
 
 export namespace ListTrackersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTrackersResponse): any => ({
     ...obj,
   });
@@ -2409,6 +2682,9 @@ export interface SearchPlaceIndexForPositionRequest {
 }
 
 export namespace SearchPlaceIndexForPositionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchPlaceIndexForPositionRequest): any => ({
     ...obj,
     ...(obj.Position && { Position: SENSITIVE_STRING }),
@@ -2437,6 +2713,9 @@ export interface PlaceGeometry {
 }
 
 export namespace PlaceGeometry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PlaceGeometry): any => ({
     ...obj,
     ...(obj.Point && { Point: SENSITIVE_STRING }),
@@ -2507,6 +2786,9 @@ export interface Place {
 }
 
 export namespace Place {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Place): any => ({
     ...obj,
     ...(obj.Geometry && { Geometry: PlaceGeometry.filterSensitiveLog(obj.Geometry) }),
@@ -2525,6 +2807,9 @@ export interface SearchForPositionResult {
 }
 
 export namespace SearchForPositionResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchForPositionResult): any => ({
     ...obj,
     ...(obj.Place && { Place: Place.filterSensitiveLog(obj.Place) }),
@@ -2563,6 +2848,9 @@ export interface SearchPlaceIndexForPositionSummary {
 }
 
 export namespace SearchPlaceIndexForPositionSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchPlaceIndexForPositionSummary): any => ({
     ...obj,
     ...(obj.Position && { Position: SENSITIVE_STRING }),
@@ -2583,6 +2871,9 @@ export interface SearchPlaceIndexForPositionResponse {
 }
 
 export namespace SearchPlaceIndexForPositionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchPlaceIndexForPositionResponse): any => ({
     ...obj,
     ...(obj.Summary && { Summary: SearchPlaceIndexForPositionSummary.filterSensitiveLog(obj.Summary) }),
@@ -2671,6 +2962,9 @@ export interface SearchPlaceIndexForTextRequest {
 }
 
 export namespace SearchPlaceIndexForTextRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchPlaceIndexForTextRequest): any => ({
     ...obj,
     ...(obj.Text && { Text: SENSITIVE_STRING }),
@@ -2691,6 +2985,9 @@ export interface SearchForTextResult {
 }
 
 export namespace SearchForTextResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchForTextResult): any => ({
     ...obj,
     ...(obj.Place && { Place: Place.filterSensitiveLog(obj.Place) }),
@@ -2751,6 +3048,9 @@ export interface SearchPlaceIndexForTextSummary {
 }
 
 export namespace SearchPlaceIndexForTextSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchPlaceIndexForTextSummary): any => ({
     ...obj,
     ...(obj.Text && { Text: SENSITIVE_STRING }),
@@ -2776,6 +3076,9 @@ export interface SearchPlaceIndexForTextResponse {
 }
 
 export namespace SearchPlaceIndexForTextResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchPlaceIndexForTextResponse): any => ({
     ...obj,
     ...(obj.Summary && { Summary: SearchPlaceIndexForTextSummary.filterSensitiveLog(obj.Summary) }),

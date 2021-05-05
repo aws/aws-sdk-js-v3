@@ -22,6 +22,20 @@ export interface DescribeNotebookExecutionCommandOutput extends DescribeNotebook
 
 /**
  * <p>Provides details of a notebook execution.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EMRClient, DescribeNotebookExecutionCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, DescribeNotebookExecutionCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * const client = new EMRClient(config);
+ * const command = new DescribeNotebookExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeNotebookExecutionCommandInput} for command's `input` shape.
+ * @see {@link DescribeNotebookExecutionCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeNotebookExecutionCommand extends $Command<
   DescribeNotebookExecutionCommandInput,

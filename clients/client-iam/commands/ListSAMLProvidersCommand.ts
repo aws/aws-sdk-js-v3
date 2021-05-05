@@ -27,6 +27,20 @@ export interface ListSAMLProvidersCommandOutput extends ListSAMLProvidersRespons
  *         <important>
  *             <p> This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
  *         </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IAMClient, ListSAMLProvidersCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, ListSAMLProvidersCommand } = require("@aws-sdk/client-iam"); // CommonJS import
+ * const client = new IAMClient(config);
+ * const command = new ListSAMLProvidersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSAMLProvidersCommandInput} for command's `input` shape.
+ * @see {@link ListSAMLProvidersCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSAMLProvidersCommand extends $Command<
   ListSAMLProvidersCommandInput,

@@ -22,6 +22,20 @@ export interface OverridePullRequestApprovalRulesCommandOutput extends __Metadat
 
 /**
  * <p>Sets aside (overrides) all approval rule requirements for a specified pull request.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CodeCommitClient, OverridePullRequestApprovalRulesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, OverridePullRequestApprovalRulesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
+ * const client = new CodeCommitClient(config);
+ * const command = new OverridePullRequestApprovalRulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link OverridePullRequestApprovalRulesCommandInput} for command's `input` shape.
+ * @see {@link OverridePullRequestApprovalRulesCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class OverridePullRequestApprovalRulesCommand extends $Command<
   OverridePullRequestApprovalRulesCommandInput,

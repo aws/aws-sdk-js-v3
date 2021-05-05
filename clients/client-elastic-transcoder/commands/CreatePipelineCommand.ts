@@ -26,6 +26,20 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
 
 /**
  * <p>The CreatePipeline operation creates a pipeline with settings that you specify.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ElasticTranscoderClient, CreatePipelineCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
+ * // const { ElasticTranscoderClient, CreatePipelineCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
+ * const client = new ElasticTranscoderClient(config);
+ * const command = new CreatePipelineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePipelineCommandInput} for command's `input` shape.
+ * @see {@link CreatePipelineCommandOutput} for command's `response` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePipelineCommand extends $Command<
   CreatePipelineCommandInput,

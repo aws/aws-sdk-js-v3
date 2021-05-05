@@ -41,6 +41,20 @@ export interface PutPermissionCommandOutput extends __MetadataBearer {}
  *         Guide</i>.</p>
  *
  *          <p>The permission policy on the default event bus cannot exceed 10 KB in size.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EventBridgeClient, PutPermissionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, PutPermissionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
+ * const client = new EventBridgeClient(config);
+ * const command = new PutPermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutPermissionCommandInput} for command's `input` shape.
+ * @see {@link PutPermissionCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutPermissionCommand extends $Command<
   PutPermissionCommandInput,

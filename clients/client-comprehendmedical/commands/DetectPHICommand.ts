@@ -25,6 +25,20 @@ export interface DetectPHICommandOutput extends DetectPHIResponse, __MetadataBea
  * <p> Inspects the clinical text for protected health information (PHI) entities and returns
  *       the entity category, location, and confidence score for each entity. Amazon Comprehend Medical
  *       only detects entities in English language texts.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ComprehendMedicalClient, DetectPHICommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
+ * // const { ComprehendMedicalClient, DetectPHICommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
+ * const client = new ComprehendMedicalClient(config);
+ * const command = new DetectPHICommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetectPHICommandInput} for command's `input` shape.
+ * @see {@link DetectPHICommandOutput} for command's `response` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetectPHICommand extends $Command<
   DetectPHICommandInput,

@@ -23,6 +23,20 @@ export interface CreateVPCEConfigurationCommandOutput extends CreateVPCEConfigur
 /**
  * <p>Creates a configuration record in Device Farm for your Amazon Virtual Private Cloud
  *             (VPC) endpoint.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DeviceFarmClient, CreateVPCEConfigurationCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, CreateVPCEConfigurationCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
+ * const client = new DeviceFarmClient(config);
+ * const command = new CreateVPCEConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVPCEConfigurationCommandInput} for command's `input` shape.
+ * @see {@link CreateVPCEConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateVPCEConfigurationCommand extends $Command<
   CreateVPCEConfigurationCommandInput,

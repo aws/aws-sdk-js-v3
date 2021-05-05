@@ -37,6 +37,20 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * 				you should not rely on <code>INACTIVE</code> task definitions persisting beyond the
  * 				lifecycle of any associated tasks and services.</p>
  * 		       </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECSClient, DeregisterTaskDefinitionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, DeregisterTaskDefinitionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * const client = new ECSClient(config);
+ * const command = new DeregisterTaskDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterTaskDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DeregisterTaskDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterTaskDefinitionCommand extends $Command<
   DeregisterTaskDefinitionCommandInput,

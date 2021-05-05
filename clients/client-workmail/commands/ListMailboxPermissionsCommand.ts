@@ -23,6 +23,20 @@ export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissi
 /**
  * <p>Lists the mailbox permissions associated with a user, group, or resource
  *          mailbox.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkMailClient, ListMailboxPermissionsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, ListMailboxPermissionsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
+ * const client = new WorkMailClient(config);
+ * const command = new ListMailboxPermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMailboxPermissionsCommandInput} for command's `input` shape.
+ * @see {@link ListMailboxPermissionsCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMailboxPermissionsCommand extends $Command<
   ListMailboxPermissionsCommandInput,

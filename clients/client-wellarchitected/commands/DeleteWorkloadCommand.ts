@@ -22,6 +22,20 @@ export interface DeleteWorkloadCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete an existing workload.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WellArchitectedClient, DeleteWorkloadCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, DeleteWorkloadCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * const client = new WellArchitectedClient(config);
+ * const command = new DeleteWorkloadCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteWorkloadCommandInput} for command's `input` shape.
+ * @see {@link DeleteWorkloadCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteWorkloadCommand extends $Command<
   DeleteWorkloadCommandInput,

@@ -27,6 +27,20 @@ export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDns
  *     <code>backend.example.com</code>. For the current quota on the number of namespaces that you can create using the
  *    same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map
  *     Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ServiceDiscoveryClient, CreatePrivateDnsNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
+ * // const { ServiceDiscoveryClient, CreatePrivateDnsNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
+ * const client = new ServiceDiscoveryClient(config);
+ * const command = new CreatePrivateDnsNamespaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePrivateDnsNamespaceCommandInput} for command's `input` shape.
+ * @see {@link CreatePrivateDnsNamespaceCommandOutput} for command's `response` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePrivateDnsNamespaceCommand extends $Command<
   CreatePrivateDnsNamespaceCommandInput,

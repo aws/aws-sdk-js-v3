@@ -22,6 +22,20 @@ export interface CancelDeploymentJobCommandOutput extends CancelDeploymentJobRes
 
 /**
  * <p>Cancels the specified deployment job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RoboMakerClient, CancelDeploymentJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
+ * // const { RoboMakerClient, CancelDeploymentJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * const client = new RoboMakerClient(config);
+ * const command = new CancelDeploymentJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelDeploymentJobCommandInput} for command's `input` shape.
+ * @see {@link CancelDeploymentJobCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelDeploymentJobCommand extends $Command<
   CancelDeploymentJobCommandInput,

@@ -26,6 +26,20 @@ export interface StopModelCommandOutput extends StopModelResponse, __MetadataBea
  *          <p>After the model hosting stops, the <code>Status</code> of the model is <code>TRAINED</code>.</p>
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:StopModel</code> operation.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LookoutVisionClient, StopModelCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
+ * // const { LookoutVisionClient, StopModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
+ * const client = new LookoutVisionClient(config);
+ * const command = new StopModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopModelCommandInput} for command's `input` shape.
+ * @see {@link StopModelCommandOutput} for command's `response` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopModelCommand extends $Command<
   StopModelCommandInput,

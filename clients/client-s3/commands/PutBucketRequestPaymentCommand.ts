@@ -41,6 +41,20 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { S3Client, PutBucketRequestPaymentCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, PutBucketRequestPaymentCommand } = require("@aws-sdk/client-s3"); // CommonJS import
+ * const client = new S3Client(config);
+ * const command = new PutBucketRequestPaymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutBucketRequestPaymentCommandInput} for command's `input` shape.
+ * @see {@link PutBucketRequestPaymentCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutBucketRequestPaymentCommand extends $Command<
   PutBucketRequestPaymentCommandInput,

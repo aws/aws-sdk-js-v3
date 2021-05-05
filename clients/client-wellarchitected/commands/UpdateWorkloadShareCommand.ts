@@ -22,6 +22,20 @@ export interface UpdateWorkloadShareCommandOutput extends UpdateWorkloadShareOut
 
 /**
  * <p>Update a workload share.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WellArchitectedClient, UpdateWorkloadShareCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, UpdateWorkloadShareCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * const client = new WellArchitectedClient(config);
+ * const command = new UpdateWorkloadShareCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateWorkloadShareCommandInput} for command's `input` shape.
+ * @see {@link UpdateWorkloadShareCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateWorkloadShareCommand extends $Command<
   UpdateWorkloadShareCommandInput,

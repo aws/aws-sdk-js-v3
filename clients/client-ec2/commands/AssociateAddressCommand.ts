@@ -46,6 +46,20 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  *           Addresses</i> section of <a href="http://aws.amazon.com/ec2/pricing/">Amazon EC2
  *           Pricing</a>.</p>
  *          </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, AssociateAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, AssociateAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new AssociateAddressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateAddressCommandInput} for command's `input` shape.
+ * @see {@link AssociateAddressCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateAddressCommand extends $Command<
   AssociateAddressCommandInput,

@@ -22,6 +22,20 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
 
 /**
  * <p>Gets information about the specified certificate.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTClient, DescribeCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DescribeCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * const client = new IoTClient(config);
+ * const command = new DescribeCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCertificateCommandInput} for command's `input` shape.
+ * @see {@link DescribeCertificateCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCertificateCommand extends $Command<
   DescribeCertificateCommandInput,

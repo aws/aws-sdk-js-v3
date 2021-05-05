@@ -22,6 +22,20 @@ export interface ValidateConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Uses the validators in a configuration profile to validate a configuration.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppConfigClient, ValidateConfigurationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
+ * // const { AppConfigClient, ValidateConfigurationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * const client = new AppConfigClient(config);
+ * const command = new ValidateConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ValidateConfigurationCommandInput} for command's `input` shape.
+ * @see {@link ValidateConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ValidateConfigurationCommand extends $Command<
   ValidateConfigurationCommandInput,

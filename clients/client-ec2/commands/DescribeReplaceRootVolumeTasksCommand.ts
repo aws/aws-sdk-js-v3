@@ -26,6 +26,20 @@ export interface DescribeReplaceRootVolumeTasksCommandOutput
  * <p>Describes a root volume replacement task. For more information, see
  *       <a href="https://docs.aws.amazon.com/">Replace a root volume</a> in the
  *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DescribeReplaceRootVolumeTasksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeReplaceRootVolumeTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DescribeReplaceRootVolumeTasksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeReplaceRootVolumeTasksCommandInput} for command's `input` shape.
+ * @see {@link DescribeReplaceRootVolumeTasksCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeReplaceRootVolumeTasksCommand extends $Command<
   DescribeReplaceRootVolumeTasksCommandInput,

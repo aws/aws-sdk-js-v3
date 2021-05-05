@@ -36,6 +36,20 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  *         <important>
  *             <p>You can publish messages only to topics and endpoints in the same AWS Region.</p>
  *         </important>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SNSClient, PublishCommand } from "@aws-sdk/client-sns"; // ES Modules import
+ * // const { SNSClient, PublishCommand } = require("@aws-sdk/client-sns"); // CommonJS import
+ * const client = new SNSClient(config);
+ * const command = new PublishCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PublishCommandInput} for command's `input` shape.
+ * @see {@link PublishCommandOutput} for command's `response` shape.
+ * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PublishCommand extends $Command<PublishCommandInput, PublishCommandOutput, SNSClientResolvedConfig> {
   // Start section: command_properties

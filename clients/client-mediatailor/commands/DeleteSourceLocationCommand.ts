@@ -22,6 +22,20 @@ export interface DeleteSourceLocationCommandOutput extends DeleteSourceLocationR
 
 /**
  * <p>Deletes a source location on a specific channel.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { MediaTailorClient, DeleteSourceLocationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
+ * // const { MediaTailorClient, DeleteSourceLocationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
+ * const client = new MediaTailorClient(config);
+ * const command = new DeleteSourceLocationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSourceLocationCommandInput} for command's `input` shape.
+ * @see {@link DeleteSourceLocationCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSourceLocationCommand extends $Command<
   DeleteSourceLocationCommandInput,

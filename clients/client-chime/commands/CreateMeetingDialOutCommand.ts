@@ -26,6 +26,20 @@ export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutR
  *
  *          <p>To play welcome audio or implement an interactive voice response (IVR), use the
  * <code>CreateSipMediaApplicationCall</code> action with the corresponding SIP media application ID.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, CreateMeetingDialOutCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, CreateMeetingDialOutCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new CreateMeetingDialOutCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMeetingDialOutCommandInput} for command's `input` shape.
+ * @see {@link CreateMeetingDialOutCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMeetingDialOutCommand extends $Command<
   CreateMeetingDialOutCommandInput,

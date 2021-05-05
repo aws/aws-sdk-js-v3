@@ -30,6 +30,20 @@ export interface CreateConnectionCommandOutput extends Connection, __MetadataBea
  *       specifying a LAG ID in the request. This ensures that the new connection is allocated on the
  *       same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint,
  *       the request fails and no connection is created.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DirectConnectClient, CreateConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, CreateConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
+ * const client = new DirectConnectClient(config);
+ * const command = new CreateConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateConnectionCommandInput} for command's `input` shape.
+ * @see {@link CreateConnectionCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateConnectionCommand extends $Command<
   CreateConnectionCommandInput,

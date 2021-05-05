@@ -122,6 +122,20 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KMSClient, CreateKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, CreateKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * const client = new KMSClient(config);
+ * const command = new CreateKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateKeyCommandInput} for command's `input` shape.
+ * @see {@link CreateKeyCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties

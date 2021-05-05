@@ -23,6 +23,20 @@ export interface ListHostedConfigurationVersionsCommandOutput extends HostedConf
 /**
  * <p>View a list of configurations stored in the AppConfig configuration store by
  *          version.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AppConfigClient, ListHostedConfigurationVersionsCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
+ * // const { AppConfigClient, ListHostedConfigurationVersionsCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
+ * const client = new AppConfigClient(config);
+ * const command = new ListHostedConfigurationVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListHostedConfigurationVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListHostedConfigurationVersionsCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListHostedConfigurationVersionsCommand extends $Command<
   ListHostedConfigurationVersionsCommandInput,

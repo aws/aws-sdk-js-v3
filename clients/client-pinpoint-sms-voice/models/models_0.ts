@@ -11,6 +11,9 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
 }
 
 export namespace AlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
     ...obj,
   });
@@ -26,6 +29,9 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace BadRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
@@ -42,6 +48,9 @@ export interface CallInstructionsMessageType {
 }
 
 export namespace CallInstructionsMessageType {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CallInstructionsMessageType): any => ({
     ...obj,
   });
@@ -63,6 +72,9 @@ export interface CloudWatchLogsDestination {
 }
 
 export namespace CloudWatchLogsDestination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudWatchLogsDestination): any => ({
     ...obj,
   });
@@ -79,6 +91,9 @@ export interface CreateConfigurationSetRequest {
 }
 
 export namespace CreateConfigurationSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
     ...obj,
   });
@@ -90,6 +105,9 @@ export namespace CreateConfigurationSetRequest {
 export interface CreateConfigurationSetResponse {}
 
 export namespace CreateConfigurationSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateConfigurationSetResponse): any => ({
     ...obj,
   });
@@ -105,6 +123,9 @@ export interface InternalServiceErrorException extends __SmithyException, $Metad
 }
 
 export namespace InternalServiceErrorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
     ...obj,
   });
@@ -120,6 +141,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -135,6 +159,9 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
 }
 
 export namespace TooManyRequestsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
@@ -156,6 +183,9 @@ export interface KinesisFirehoseDestination {
 }
 
 export namespace KinesisFirehoseDestination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
     ...obj,
   });
@@ -182,6 +212,9 @@ export interface SnsDestination {
 }
 
 export namespace SnsDestination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SnsDestination): any => ({
     ...obj,
   });
@@ -218,6 +251,9 @@ export interface EventDestinationDefinition {
 }
 
 export namespace EventDestinationDefinition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventDestinationDefinition): any => ({
     ...obj,
   });
@@ -244,6 +280,9 @@ export interface CreateConfigurationSetEventDestinationRequest {
 }
 
 export namespace CreateConfigurationSetEventDestinationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationRequest): any => ({
     ...obj,
   });
@@ -255,6 +294,9 @@ export namespace CreateConfigurationSetEventDestinationRequest {
 export interface CreateConfigurationSetEventDestinationResponse {}
 
 export namespace CreateConfigurationSetEventDestinationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationResponse): any => ({
     ...obj,
   });
@@ -270,6 +312,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
@@ -283,6 +328,9 @@ export interface DeleteConfigurationSetRequest {
 }
 
 export namespace DeleteConfigurationSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
     ...obj,
   });
@@ -294,6 +342,9 @@ export namespace DeleteConfigurationSetRequest {
 export interface DeleteConfigurationSetResponse {}
 
 export namespace DeleteConfigurationSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteConfigurationSetResponse): any => ({
     ...obj,
   });
@@ -312,6 +363,9 @@ export interface DeleteConfigurationSetEventDestinationRequest {
 }
 
 export namespace DeleteConfigurationSetEventDestinationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationRequest): any => ({
     ...obj,
   });
@@ -323,6 +377,9 @@ export namespace DeleteConfigurationSetEventDestinationRequest {
 export interface DeleteConfigurationSetEventDestinationResponse {}
 
 export namespace DeleteConfigurationSetEventDestinationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationResponse): any => ({
     ...obj,
   });
@@ -364,6 +421,9 @@ export interface EventDestination {
 }
 
 export namespace EventDestination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventDestination): any => ({
     ...obj,
   });
@@ -377,6 +437,9 @@ export interface GetConfigurationSetEventDestinationsRequest {
 }
 
 export namespace GetConfigurationSetEventDestinationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetConfigurationSetEventDestinationsRequest): any => ({
     ...obj,
   });
@@ -393,6 +456,9 @@ export interface GetConfigurationSetEventDestinationsResponse {
 }
 
 export namespace GetConfigurationSetEventDestinationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetConfigurationSetEventDestinationsResponse): any => ({
     ...obj,
   });
@@ -411,6 +477,9 @@ export interface ListConfigurationSetsRequest {
 }
 
 export namespace ListConfigurationSetsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListConfigurationSetsRequest): any => ({
     ...obj,
   });
@@ -432,6 +501,9 @@ export interface ListConfigurationSetsResponse {
 }
 
 export namespace ListConfigurationSetsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListConfigurationSetsResponse): any => ({
     ...obj,
   });
@@ -458,6 +530,9 @@ export interface PlainTextMessageType {
 }
 
 export namespace PlainTextMessageType {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PlainTextMessageType): any => ({
     ...obj,
   });
@@ -484,6 +559,9 @@ export interface SSMLMessageType {
 }
 
 export namespace SSMLMessageType {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SSMLMessageType): any => ({
     ...obj,
   });
@@ -510,6 +588,9 @@ export interface VoiceMessageContent {
 }
 
 export namespace VoiceMessageContent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VoiceMessageContent): any => ({
     ...obj,
   });
@@ -546,6 +627,9 @@ export interface SendVoiceMessageRequest {
 }
 
 export namespace SendVoiceMessageRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendVoiceMessageRequest): any => ({
     ...obj,
   });
@@ -562,6 +646,9 @@ export interface SendVoiceMessageResponse {
 }
 
 export namespace SendVoiceMessageResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendVoiceMessageResponse): any => ({
     ...obj,
   });
@@ -588,6 +675,9 @@ export interface UpdateConfigurationSetEventDestinationRequest {
 }
 
 export namespace UpdateConfigurationSetEventDestinationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationRequest): any => ({
     ...obj,
   });
@@ -599,6 +689,9 @@ export namespace UpdateConfigurationSetEventDestinationRequest {
 export interface UpdateConfigurationSetEventDestinationResponse {}
 
 export namespace UpdateConfigurationSetEventDestinationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationResponse): any => ({
     ...obj,
   });

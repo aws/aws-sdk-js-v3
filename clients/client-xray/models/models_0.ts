@@ -22,6 +22,9 @@ export interface Alias {
 }
 
 export namespace Alias {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Alias): any => ({
     ...obj,
   });
@@ -88,6 +91,9 @@ export namespace AnnotationValue {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AnnotationValue): any => {
     if (obj.NumberValue !== undefined) return { NumberValue: obj.NumberValue };
     if (obj.BooleanValue !== undefined) return { BooleanValue: obj.BooleanValue };
@@ -122,6 +128,9 @@ export interface ServiceId {
 }
 
 export namespace ServiceId {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceId): any => ({
     ...obj,
   });
@@ -143,6 +152,9 @@ export interface ValueWithServiceIds {
 }
 
 export namespace ValueWithServiceIds {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValueWithServiceIds): any => ({
     ...obj,
     ...(obj.AnnotationValue && { AnnotationValue: AnnotationValue.filterSensitiveLog(obj.AnnotationValue) }),
@@ -160,6 +172,9 @@ export interface AnomalousService {
 }
 
 export namespace AnomalousService {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AnomalousService): any => ({
     ...obj,
   });
@@ -176,6 +191,9 @@ export interface AvailabilityZoneDetail {
 }
 
 export namespace AvailabilityZoneDetail {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AvailabilityZoneDetail): any => ({
     ...obj,
   });
@@ -194,6 +212,9 @@ export interface BatchGetTracesRequest {
 }
 
 export namespace BatchGetTracesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchGetTracesRequest): any => ({
     ...obj,
   });
@@ -220,6 +241,9 @@ export interface Segment {
 }
 
 export namespace Segment {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Segment): any => ({
     ...obj,
   });
@@ -254,6 +278,9 @@ export interface Trace {
 }
 
 export namespace Trace {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Trace): any => ({
     ...obj,
   });
@@ -277,6 +304,9 @@ export interface BatchGetTracesResult {
 }
 
 export namespace BatchGetTracesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchGetTracesResult): any => ({
     ...obj,
   });
@@ -292,6 +322,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -307,6 +340,9 @@ export interface ThrottledException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ThrottledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottledException): any => ({
     ...obj,
   });
@@ -330,6 +366,9 @@ export interface InsightsConfiguration {
 }
 
 export namespace InsightsConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InsightsConfiguration): any => ({
     ...obj,
   });
@@ -372,6 +411,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -437,6 +479,9 @@ export interface CreateGroupRequest {
 }
 
 export namespace CreateGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
     ...obj,
   });
@@ -478,6 +523,9 @@ export interface Group {
 }
 
 export namespace Group {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Group): any => ({
     ...obj,
   });
@@ -493,6 +541,9 @@ export interface CreateGroupResult {
 }
 
 export namespace CreateGroupResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateGroupResult): any => ({
     ...obj,
   });
@@ -573,6 +624,9 @@ export interface SamplingRule {
 }
 
 export namespace SamplingRule {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SamplingRule): any => ({
     ...obj,
   });
@@ -616,6 +670,9 @@ export interface CreateSamplingRuleRequest {
 }
 
 export namespace CreateSamplingRuleRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateSamplingRuleRequest): any => ({
     ...obj,
   });
@@ -642,6 +699,9 @@ export interface SamplingRuleRecord {
 }
 
 export namespace SamplingRuleRecord {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SamplingRuleRecord): any => ({
     ...obj,
   });
@@ -655,6 +715,9 @@ export interface CreateSamplingRuleResult {
 }
 
 export namespace CreateSamplingRuleResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateSamplingRuleResult): any => ({
     ...obj,
   });
@@ -670,6 +733,9 @@ export interface RuleLimitExceededException extends __SmithyException, $Metadata
 }
 
 export namespace RuleLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RuleLimitExceededException): any => ({
     ...obj,
   });
@@ -688,6 +754,9 @@ export interface DeleteGroupRequest {
 }
 
 export namespace DeleteGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
     ...obj,
   });
@@ -696,6 +765,9 @@ export namespace DeleteGroupRequest {
 export interface DeleteGroupResult {}
 
 export namespace DeleteGroupResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteGroupResult): any => ({
     ...obj,
   });
@@ -714,6 +786,9 @@ export interface DeleteSamplingRuleRequest {
 }
 
 export namespace DeleteSamplingRuleRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteSamplingRuleRequest): any => ({
     ...obj,
   });
@@ -727,6 +802,9 @@ export interface DeleteSamplingRuleResult {
 }
 
 export namespace DeleteSamplingRuleResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteSamplingRuleResult): any => ({
     ...obj,
   });
@@ -735,6 +813,9 @@ export namespace DeleteSamplingRuleResult {
 export interface GetEncryptionConfigRequest {}
 
 export namespace GetEncryptionConfigRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEncryptionConfigRequest): any => ({
     ...obj,
   });
@@ -772,6 +853,9 @@ export interface EncryptionConfig {
 }
 
 export namespace EncryptionConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EncryptionConfig): any => ({
     ...obj,
   });
@@ -785,6 +869,9 @@ export interface GetEncryptionConfigResult {
 }
 
 export namespace GetEncryptionConfigResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEncryptionConfigResult): any => ({
     ...obj,
   });
@@ -803,6 +890,9 @@ export interface GetGroupRequest {
 }
 
 export namespace GetGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetGroupRequest): any => ({
     ...obj,
   });
@@ -817,6 +907,9 @@ export interface GetGroupResult {
 }
 
 export namespace GetGroupResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetGroupResult): any => ({
     ...obj,
   });
@@ -830,6 +923,9 @@ export interface GetGroupsRequest {
 }
 
 export namespace GetGroupsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetGroupsRequest): any => ({
     ...obj,
   });
@@ -871,6 +967,9 @@ export interface GroupSummary {
 }
 
 export namespace GroupSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GroupSummary): any => ({
     ...obj,
   });
@@ -889,6 +988,9 @@ export interface GetGroupsResult {
 }
 
 export namespace GetGroupsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetGroupsResult): any => ({
     ...obj,
   });
@@ -902,6 +1004,9 @@ export interface GetInsightRequest {
 }
 
 export namespace GetInsightRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetInsightRequest): any => ({
     ...obj,
   });
@@ -932,6 +1037,9 @@ export interface RequestImpactStatistics {
 }
 
 export namespace RequestImpactStatistics {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RequestImpactStatistics): any => ({
     ...obj,
   });
@@ -1011,6 +1119,9 @@ export interface Insight {
 }
 
 export namespace Insight {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Insight): any => ({
     ...obj,
   });
@@ -1024,6 +1135,9 @@ export interface GetInsightResult {
 }
 
 export namespace GetInsightResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetInsightResult): any => ({
     ...obj,
   });
@@ -1047,6 +1161,9 @@ export interface GetInsightEventsRequest {
 }
 
 export namespace GetInsightEventsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetInsightEventsRequest): any => ({
     ...obj,
   });
@@ -1086,6 +1203,9 @@ export interface InsightEvent {
 }
 
 export namespace InsightEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InsightEvent): any => ({
     ...obj,
   });
@@ -1106,6 +1226,9 @@ export interface GetInsightEventsResult {
 }
 
 export namespace GetInsightEventsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetInsightEventsResult): any => ({
     ...obj,
   });
@@ -1136,6 +1259,9 @@ export interface GetInsightImpactGraphRequest {
 }
 
 export namespace GetInsightImpactGraphRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetInsightImpactGraphRequest): any => ({
     ...obj,
   });
@@ -1152,6 +1278,9 @@ export interface InsightImpactGraphEdge {
 }
 
 export namespace InsightImpactGraphEdge {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InsightImpactGraphEdge): any => ({
     ...obj,
   });
@@ -1211,6 +1340,9 @@ export interface InsightImpactGraphService {
 }
 
 export namespace InsightImpactGraphService {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InsightImpactGraphService): any => ({
     ...obj,
   });
@@ -1254,6 +1386,9 @@ export interface GetInsightImpactGraphResult {
 }
 
 export namespace GetInsightImpactGraphResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetInsightImpactGraphResult): any => ({
     ...obj,
   });
@@ -1298,6 +1433,9 @@ export interface GetInsightSummariesRequest {
 }
 
 export namespace GetInsightSummariesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetInsightSummariesRequest): any => ({
     ...obj,
   });
@@ -1376,6 +1514,9 @@ export interface InsightSummary {
 }
 
 export namespace InsightSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InsightSummary): any => ({
     ...obj,
   });
@@ -1396,6 +1537,9 @@ export interface GetInsightSummariesResult {
 }
 
 export namespace GetInsightSummariesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetInsightSummariesResult): any => ({
     ...obj,
   });
@@ -1409,6 +1553,9 @@ export interface GetSamplingRulesRequest {
 }
 
 export namespace GetSamplingRulesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSamplingRulesRequest): any => ({
     ...obj,
   });
@@ -1427,6 +1574,9 @@ export interface GetSamplingRulesResult {
 }
 
 export namespace GetSamplingRulesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSamplingRulesResult): any => ({
     ...obj,
   });
@@ -1440,6 +1590,9 @@ export interface GetSamplingStatisticSummariesRequest {
 }
 
 export namespace GetSamplingStatisticSummariesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSamplingStatisticSummariesRequest): any => ({
     ...obj,
   });
@@ -1476,6 +1629,9 @@ export interface SamplingStatisticSummary {
 }
 
 export namespace SamplingStatisticSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SamplingStatisticSummary): any => ({
     ...obj,
   });
@@ -1495,6 +1651,9 @@ export interface GetSamplingStatisticSummariesResult {
 }
 
 export namespace GetSamplingStatisticSummariesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSamplingStatisticSummariesResult): any => ({
     ...obj,
   });
@@ -1538,6 +1697,9 @@ export interface SamplingStatisticsDocument {
 }
 
 export namespace SamplingStatisticsDocument {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SamplingStatisticsDocument): any => ({
     ...obj,
   });
@@ -1551,6 +1713,9 @@ export interface GetSamplingTargetsRequest {
 }
 
 export namespace GetSamplingTargetsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSamplingTargetsRequest): any => ({
     ...obj,
   });
@@ -1590,6 +1755,9 @@ export interface SamplingTargetDocument {
 }
 
 export namespace SamplingTargetDocument {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SamplingTargetDocument): any => ({
     ...obj,
   });
@@ -1617,6 +1785,9 @@ export interface UnprocessedStatistics {
 }
 
 export namespace UnprocessedStatistics {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnprocessedStatistics): any => ({
     ...obj,
   });
@@ -1643,6 +1814,9 @@ export interface GetSamplingTargetsResult {
 }
 
 export namespace GetSamplingTargetsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSamplingTargetsResult): any => ({
     ...obj,
   });
@@ -1676,6 +1850,9 @@ export interface GetServiceGraphRequest {
 }
 
 export namespace GetServiceGraphRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetServiceGraphRequest): any => ({
     ...obj,
   });
@@ -1698,6 +1875,9 @@ export interface HistogramEntry {
 }
 
 export namespace HistogramEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HistogramEntry): any => ({
     ...obj,
   });
@@ -1725,6 +1905,9 @@ export interface ErrorStatistics {
 }
 
 export namespace ErrorStatistics {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ErrorStatistics): any => ({
     ...obj,
   });
@@ -1747,6 +1930,9 @@ export interface FaultStatistics {
 }
 
 export namespace FaultStatistics {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FaultStatistics): any => ({
     ...obj,
   });
@@ -1783,6 +1969,9 @@ export interface EdgeStatistics {
 }
 
 export namespace EdgeStatistics {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EdgeStatistics): any => ({
     ...obj,
   });
@@ -1824,6 +2013,9 @@ export interface Edge {
 }
 
 export namespace Edge {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Edge): any => ({
     ...obj,
   });
@@ -1860,6 +2052,9 @@ export interface ServiceStatistics {
 }
 
 export namespace ServiceStatistics {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceStatistics): any => ({
     ...obj,
   });
@@ -1957,6 +2152,9 @@ export interface Service {
 }
 
 export namespace Service {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Service): any => ({
     ...obj,
   });
@@ -1993,6 +2191,9 @@ export interface GetServiceGraphResult {
 }
 
 export namespace GetServiceGraphResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetServiceGraphResult): any => ({
     ...obj,
   });
@@ -2044,6 +2245,9 @@ export interface GetTimeSeriesServiceStatisticsRequest {
 }
 
 export namespace GetTimeSeriesServiceStatisticsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTimeSeriesServiceStatisticsRequest): any => ({
     ...obj,
   });
@@ -2066,6 +2270,9 @@ export interface ForecastStatistics {
 }
 
 export namespace ForecastStatistics {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ForecastStatistics): any => ({
     ...obj,
   });
@@ -2102,6 +2309,9 @@ export interface TimeSeriesServiceStatistics {
 }
 
 export namespace TimeSeriesServiceStatistics {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TimeSeriesServiceStatistics): any => ({
     ...obj,
   });
@@ -2126,6 +2336,9 @@ export interface GetTimeSeriesServiceStatisticsResult {
 }
 
 export namespace GetTimeSeriesServiceStatisticsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTimeSeriesServiceStatisticsResult): any => ({
     ...obj,
   });
@@ -2144,6 +2357,9 @@ export interface GetTraceGraphRequest {
 }
 
 export namespace GetTraceGraphRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTraceGraphRequest): any => ({
     ...obj,
   });
@@ -2162,6 +2378,9 @@ export interface GetTraceGraphResult {
 }
 
 export namespace GetTraceGraphResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTraceGraphResult): any => ({
     ...obj,
   });
@@ -2188,6 +2407,9 @@ export interface SamplingStrategy {
 }
 
 export namespace SamplingStrategy {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SamplingStrategy): any => ({
     ...obj,
   });
@@ -2240,6 +2462,9 @@ export interface GetTraceSummariesRequest {
 }
 
 export namespace GetTraceSummariesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTraceSummariesRequest): any => ({
     ...obj,
   });
@@ -2261,6 +2486,9 @@ export interface RootCauseException {
 }
 
 export namespace RootCauseException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RootCauseException): any => ({
     ...obj,
   });
@@ -2288,6 +2516,9 @@ export interface ErrorRootCauseEntity {
 }
 
 export namespace ErrorRootCauseEntity {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ErrorRootCauseEntity): any => ({
     ...obj,
   });
@@ -2329,6 +2560,9 @@ export interface ErrorRootCauseService {
 }
 
 export namespace ErrorRootCauseService {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ErrorRootCauseService): any => ({
     ...obj,
   });
@@ -2351,6 +2585,9 @@ export interface ErrorRootCause {
 }
 
 export namespace ErrorRootCause {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ErrorRootCause): any => ({
     ...obj,
   });
@@ -2378,6 +2615,9 @@ export interface FaultRootCauseEntity {
 }
 
 export namespace FaultRootCauseEntity {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FaultRootCauseEntity): any => ({
     ...obj,
   });
@@ -2419,6 +2659,9 @@ export interface FaultRootCauseService {
 }
 
 export namespace FaultRootCauseService {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FaultRootCauseService): any => ({
     ...obj,
   });
@@ -2441,6 +2684,9 @@ export interface FaultRootCause {
 }
 
 export namespace FaultRootCause {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FaultRootCause): any => ({
     ...obj,
   });
@@ -2477,6 +2723,9 @@ export interface Http {
 }
 
 export namespace Http {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Http): any => ({
     ...obj,
   });
@@ -2493,6 +2742,9 @@ export interface InstanceIdDetail {
 }
 
 export namespace InstanceIdDetail {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InstanceIdDetail): any => ({
     ...obj,
   });
@@ -2509,6 +2761,9 @@ export interface ResourceARNDetail {
 }
 
 export namespace ResourceARNDetail {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceARNDetail): any => ({
     ...obj,
   });
@@ -2536,6 +2791,9 @@ export interface ResponseTimeRootCauseEntity {
 }
 
 export namespace ResponseTimeRootCauseEntity {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResponseTimeRootCauseEntity): any => ({
     ...obj,
   });
@@ -2577,6 +2835,9 @@ export interface ResponseTimeRootCauseService {
 }
 
 export namespace ResponseTimeRootCauseService {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResponseTimeRootCauseService): any => ({
     ...obj,
   });
@@ -2599,6 +2860,9 @@ export interface ResponseTimeRootCause {
 }
 
 export namespace ResponseTimeRootCause {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResponseTimeRootCause): any => ({
     ...obj,
   });
@@ -2620,6 +2884,9 @@ export interface TraceUser {
 }
 
 export namespace TraceUser {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TraceUser): any => ({
     ...obj,
   });
@@ -2739,6 +3006,9 @@ export interface TraceSummary {
 }
 
 export namespace TraceSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TraceSummary): any => ({
     ...obj,
     ...(obj.Annotations && {
@@ -2779,6 +3049,9 @@ export interface GetTraceSummariesResult {
 }
 
 export namespace GetTraceSummariesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTraceSummariesResult): any => ({
     ...obj,
   });
@@ -2798,6 +3071,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -2817,6 +3093,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -2834,6 +3113,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -2873,6 +3155,9 @@ export interface PutEncryptionConfigRequest {
 }
 
 export namespace PutEncryptionConfigRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutEncryptionConfigRequest): any => ({
     ...obj,
   });
@@ -2886,6 +3171,9 @@ export interface PutEncryptionConfigResult {
 }
 
 export namespace PutEncryptionConfigResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutEncryptionConfigResult): any => ({
     ...obj,
   });
@@ -2927,6 +3215,9 @@ export interface BackendConnectionErrors {
 }
 
 export namespace BackendConnectionErrors {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackendConnectionErrors): any => ({
     ...obj,
   });
@@ -2968,6 +3259,9 @@ export interface TelemetryRecord {
 }
 
 export namespace TelemetryRecord {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TelemetryRecord): any => ({
     ...obj,
   });
@@ -2996,6 +3290,9 @@ export interface PutTelemetryRecordsRequest {
 }
 
 export namespace PutTelemetryRecordsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutTelemetryRecordsRequest): any => ({
     ...obj,
   });
@@ -3004,6 +3301,9 @@ export namespace PutTelemetryRecordsRequest {
 export interface PutTelemetryRecordsResult {}
 
 export namespace PutTelemetryRecordsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutTelemetryRecordsResult): any => ({
     ...obj,
   });
@@ -3018,6 +3318,9 @@ export interface PutTraceSegmentsRequest {
 }
 
 export namespace PutTraceSegmentsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutTraceSegmentsRequest): any => ({
     ...obj,
   });
@@ -3044,6 +3347,9 @@ export interface UnprocessedTraceSegment {
 }
 
 export namespace UnprocessedTraceSegment {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnprocessedTraceSegment): any => ({
     ...obj,
   });
@@ -3057,6 +3363,9 @@ export interface PutTraceSegmentsResult {
 }
 
 export namespace PutTraceSegmentsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutTraceSegmentsResult): any => ({
     ...obj,
   });
@@ -3100,6 +3409,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -3108,6 +3420,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -3124,6 +3439,9 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
 }
 
 export namespace TooManyTagsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj,
   });
@@ -3142,6 +3460,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -3150,6 +3471,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
@@ -3188,6 +3512,9 @@ export interface UpdateGroupRequest {
 }
 
 export namespace UpdateGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGroupRequest): any => ({
     ...obj,
   });
@@ -3203,6 +3530,9 @@ export interface UpdateGroupResult {
 }
 
 export namespace UpdateGroupResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGroupResult): any => ({
     ...obj,
   });
@@ -3276,6 +3606,9 @@ export interface SamplingRuleUpdate {
 }
 
 export namespace SamplingRuleUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SamplingRuleUpdate): any => ({
     ...obj,
   });
@@ -3289,6 +3622,9 @@ export interface UpdateSamplingRuleRequest {
 }
 
 export namespace UpdateSamplingRuleRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSamplingRuleRequest): any => ({
     ...obj,
   });
@@ -3302,6 +3638,9 @@ export interface UpdateSamplingRuleResult {
 }
 
 export namespace UpdateSamplingRuleResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSamplingRuleResult): any => ({
     ...obj,
   });

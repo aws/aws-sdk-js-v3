@@ -23,6 +23,20 @@ export interface ListRoomMembershipsCommandOutput extends ListRoomMembershipsRes
 /**
  * <p>Lists the membership details for the specified room in an Amazon Chime Enterprise account,
  *             such as the members' IDs, email addresses, and names.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ChimeClient, ListRoomMembershipsCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, ListRoomMembershipsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
+ * const client = new ChimeClient(config);
+ * const command = new ListRoomMembershipsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRoomMembershipsCommandInput} for command's `input` shape.
+ * @see {@link ListRoomMembershipsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRoomMembershipsCommand extends $Command<
   ListRoomMembershipsCommandInput,

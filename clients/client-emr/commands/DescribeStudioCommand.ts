@@ -23,6 +23,20 @@ export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __Met
 /**
  * <p>Returns details for the specified Amazon EMR Studio including ID, Name, VPC, Studio
  *          access URL, and so on.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EMRClient, DescribeStudioCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, DescribeStudioCommand } = require("@aws-sdk/client-emr"); // CommonJS import
+ * const client = new EMRClient(config);
+ * const command = new DescribeStudioCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeStudioCommandInput} for command's `input` shape.
+ * @see {@link DescribeStudioCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeStudioCommand extends $Command<
   DescribeStudioCommandInput,

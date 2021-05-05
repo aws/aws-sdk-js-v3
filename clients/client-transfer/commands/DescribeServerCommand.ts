@@ -27,6 +27,20 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  *          <p>The response contains a description of a server's properties. When you set
  *         <code>EndpointType</code> to VPC, the response will contain the
  *       <code>EndpointDetails</code>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { TransferClient, DescribeServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
+ * // const { TransferClient, DescribeServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * const client = new TransferClient(config);
+ * const command = new DescribeServerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeServerCommandInput} for command's `input` shape.
+ * @see {@link DescribeServerCommandOutput} for command's `response` shape.
+ * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeServerCommand extends $Command<
   DescribeServerCommandInput,

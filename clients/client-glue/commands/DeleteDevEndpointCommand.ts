@@ -22,6 +22,20 @@ export interface DeleteDevEndpointCommandOutput extends DeleteDevEndpointRespons
 
 /**
  * <p>Deletes a specified development endpoint.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GlueClient, DeleteDevEndpointCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, DeleteDevEndpointCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * const client = new GlueClient(config);
+ * const command = new DeleteDevEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDevEndpointCommandInput} for command's `input` shape.
+ * @see {@link DeleteDevEndpointCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDevEndpointCommand extends $Command<
   DeleteDevEndpointCommandInput,

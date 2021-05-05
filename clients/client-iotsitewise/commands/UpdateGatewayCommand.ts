@@ -22,6 +22,20 @@ export interface UpdateGatewayCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates a gateway's name.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { IoTSiteWiseClient, UpdateGatewayCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, UpdateGatewayCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new UpdateGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateGatewayCommandInput} for command's `input` shape.
+ * @see {@link UpdateGatewayCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateGatewayCommand extends $Command<
   UpdateGatewayCommandInput,

@@ -31,6 +31,20 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  *          <p>If you have more gateways than are returned in a response (that is, the response returns
  *          only a truncated list of your gateways), the response contains a marker that you can
  *          specify in your next request to fetch the next page of gateways.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { StorageGatewayClient, ListGatewaysCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, ListGatewaysCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
+ * const client = new StorageGatewayClient(config);
+ * const command = new ListGatewaysCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListGatewaysCommandInput} for command's `input` shape.
+ * @see {@link ListGatewaysCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListGatewaysCommand extends $Command<
   ListGatewaysCommandInput,

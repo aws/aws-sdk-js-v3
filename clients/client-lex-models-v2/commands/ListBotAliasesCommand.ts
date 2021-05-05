@@ -22,6 +22,20 @@ export interface ListBotAliasesCommandOutput extends ListBotAliasesResponse, __M
 
 /**
  * <p>Gets a list of aliases for the specified bot.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LexModelsV2Client, ListBotAliasesCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, ListBotAliasesCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * const client = new LexModelsV2Client(config);
+ * const command = new ListBotAliasesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBotAliasesCommandInput} for command's `input` shape.
+ * @see {@link ListBotAliasesCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBotAliasesCommand extends $Command<
   ListBotAliasesCommandInput,

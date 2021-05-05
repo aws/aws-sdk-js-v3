@@ -32,6 +32,20 @@ export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataB
  * 	reported data in the past two weeks. To retrieve those metrics, use
  * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
  * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { CloudWatchClient, ListMetricsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
+ * // const { CloudWatchClient, ListMetricsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
+ * const client = new CloudWatchClient(config);
+ * const command = new ListMetricsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMetricsCommandInput} for command's `input` shape.
+ * @see {@link ListMetricsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMetricsCommand extends $Command<
   ListMetricsCommandInput,

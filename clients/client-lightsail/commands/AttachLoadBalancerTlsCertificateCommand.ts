@@ -32,6 +32,20 @@ export interface AttachLoadBalancerTlsCertificateCommandOutput
  *          <p>The <code>AttachLoadBalancerTlsCertificate</code> operation supports tag-based access
  *       control via resource tags applied to the resource identified by <code>load balancer
  *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LightsailClient, AttachLoadBalancerTlsCertificateCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, AttachLoadBalancerTlsCertificateCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
+ * const client = new LightsailClient(config);
+ * const command = new AttachLoadBalancerTlsCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AttachLoadBalancerTlsCertificateCommandInput} for command's `input` shape.
+ * @see {@link AttachLoadBalancerTlsCertificateCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AttachLoadBalancerTlsCertificateCommand extends $Command<
   AttachLoadBalancerTlsCertificateCommandInput,

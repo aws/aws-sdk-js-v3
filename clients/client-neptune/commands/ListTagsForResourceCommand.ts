@@ -22,6 +22,20 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
 
 /**
  * <p>Lists all tags on an Amazon Neptune resource.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NeptuneClient, ListTagsForResourceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, ListTagsForResourceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
+ * const client = new NeptuneClient(config);
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

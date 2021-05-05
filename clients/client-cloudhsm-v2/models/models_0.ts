@@ -24,6 +24,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -99,6 +102,9 @@ export interface Backup {
 }
 
 export namespace Backup {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Backup): any => ({
     ...obj,
   });
@@ -129,6 +135,9 @@ export interface BackupRetentionPolicy {
 }
 
 export namespace BackupRetentionPolicy {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackupRetentionPolicy): any => ({
     ...obj,
   });
@@ -145,6 +154,9 @@ export interface CloudHsmAccessDeniedException extends __SmithyException, $Metad
 }
 
 export namespace CloudHsmAccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudHsmAccessDeniedException): any => ({
     ...obj,
   });
@@ -161,6 +173,9 @@ export interface CloudHsmInternalFailureException extends __SmithyException, $Me
 }
 
 export namespace CloudHsmInternalFailureException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudHsmInternalFailureException): any => ({
     ...obj,
   });
@@ -176,6 +191,9 @@ export interface CloudHsmInvalidRequestException extends __SmithyException, $Met
 }
 
 export namespace CloudHsmInvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudHsmInvalidRequestException): any => ({
     ...obj,
   });
@@ -192,6 +210,9 @@ export interface CloudHsmResourceNotFoundException extends __SmithyException, $M
 }
 
 export namespace CloudHsmResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudHsmResourceNotFoundException): any => ({
     ...obj,
   });
@@ -207,6 +228,9 @@ export interface CloudHsmServiceException extends __SmithyException, $MetadataBe
 }
 
 export namespace CloudHsmServiceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudHsmServiceException): any => ({
     ...obj,
   });
@@ -222,6 +246,9 @@ export interface CloudHsmTagException extends __SmithyException, $MetadataBearer
 }
 
 export namespace CloudHsmTagException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudHsmTagException): any => ({
     ...obj,
   });
@@ -245,6 +272,9 @@ export interface CopyBackupToRegionRequest {
 }
 
 export namespace CopyBackupToRegionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CopyBackupToRegionRequest): any => ({
     ...obj,
   });
@@ -276,6 +306,9 @@ export interface DestinationBackup {
 }
 
 export namespace DestinationBackup {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DestinationBackup): any => ({
     ...obj,
   });
@@ -294,6 +327,9 @@ export interface CopyBackupToRegionResponse {
 }
 
 export namespace CopyBackupToRegionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CopyBackupToRegionResponse): any => ({
     ...obj,
   });
@@ -339,6 +375,9 @@ export interface CreateClusterRequest {
 }
 
 export namespace CreateClusterRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
     ...obj,
   });
@@ -377,6 +416,9 @@ export interface Certificates {
 }
 
 export namespace Certificates {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Certificates): any => ({
     ...obj,
   });
@@ -437,6 +479,9 @@ export interface Hsm {
 }
 
 export namespace Hsm {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Hsm): any => ({
     ...obj,
   });
@@ -537,6 +582,9 @@ export interface Cluster {
 }
 
 export namespace Cluster {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Cluster): any => ({
     ...obj,
   });
@@ -550,6 +598,9 @@ export interface CreateClusterResponse {
 }
 
 export namespace CreateClusterResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateClusterResponse): any => ({
     ...obj,
   });
@@ -576,6 +627,9 @@ export interface CreateHsmRequest {
 }
 
 export namespace CreateHsmRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateHsmRequest): any => ({
     ...obj,
   });
@@ -589,6 +643,9 @@ export interface CreateHsmResponse {
 }
 
 export namespace CreateHsmResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateHsmResponse): any => ({
     ...obj,
   });
@@ -602,6 +659,9 @@ export interface DeleteBackupRequest {
 }
 
 export namespace DeleteBackupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackupRequest): any => ({
     ...obj,
   });
@@ -615,6 +675,9 @@ export interface DeleteBackupResponse {
 }
 
 export namespace DeleteBackupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackupResponse): any => ({
     ...obj,
   });
@@ -629,6 +692,9 @@ export interface DeleteClusterRequest {
 }
 
 export namespace DeleteClusterRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteClusterRequest): any => ({
     ...obj,
   });
@@ -642,6 +708,9 @@ export interface DeleteClusterResponse {
 }
 
 export namespace DeleteClusterResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteClusterResponse): any => ({
     ...obj,
   });
@@ -673,6 +742,9 @@ export interface DeleteHsmRequest {
 }
 
 export namespace DeleteHsmRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteHsmRequest): any => ({
     ...obj,
   });
@@ -686,6 +758,9 @@ export interface DeleteHsmResponse {
 }
 
 export namespace DeleteHsmResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteHsmResponse): any => ({
     ...obj,
   });
@@ -729,6 +804,9 @@ export interface DescribeBackupsRequest {
 }
 
 export namespace DescribeBackupsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
     ...obj,
   });
@@ -749,6 +827,9 @@ export interface DescribeBackupsResponse {
 }
 
 export namespace DescribeBackupsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
     ...obj,
   });
@@ -780,6 +861,9 @@ export interface DescribeClustersRequest {
 }
 
 export namespace DescribeClustersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeClustersRequest): any => ({
     ...obj,
   });
@@ -800,6 +884,9 @@ export interface DescribeClustersResponse {
 }
 
 export namespace DescribeClustersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeClustersResponse): any => ({
     ...obj,
   });
@@ -828,6 +915,9 @@ export interface InitializeClusterRequest {
 }
 
 export namespace InitializeClusterRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InitializeClusterRequest): any => ({
     ...obj,
   });
@@ -846,6 +936,9 @@ export interface InitializeClusterResponse {
 }
 
 export namespace InitializeClusterResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InitializeClusterResponse): any => ({
     ...obj,
   });
@@ -872,6 +965,9 @@ export interface ListTagsRequest {
 }
 
 export namespace ListTagsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
     ...obj,
   });
@@ -891,6 +987,9 @@ export interface ListTagsResponse {
 }
 
 export namespace ListTagsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
     ...obj,
   });
@@ -910,6 +1009,9 @@ export interface ModifyBackupAttributesRequest {
 }
 
 export namespace ModifyBackupAttributesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyBackupAttributesRequest): any => ({
     ...obj,
   });
@@ -928,6 +1030,9 @@ export interface ModifyBackupAttributesResponse {
 }
 
 export namespace ModifyBackupAttributesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyBackupAttributesResponse): any => ({
     ...obj,
   });
@@ -947,6 +1052,9 @@ export interface ModifyClusterRequest {
 }
 
 export namespace ModifyClusterRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyClusterRequest): any => ({
     ...obj,
   });
@@ -960,6 +1068,9 @@ export interface ModifyClusterResponse {
 }
 
 export namespace ModifyClusterResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyClusterResponse): any => ({
     ...obj,
   });
@@ -973,6 +1084,9 @@ export interface RestoreBackupRequest {
 }
 
 export namespace RestoreBackupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreBackupRequest): any => ({
     ...obj,
   });
@@ -986,6 +1100,9 @@ export interface RestoreBackupResponse {
 }
 
 export namespace RestoreBackupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreBackupResponse): any => ({
     ...obj,
   });
@@ -1005,6 +1122,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -1013,6 +1133,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -1033,6 +1156,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -1041,6 +1167,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });

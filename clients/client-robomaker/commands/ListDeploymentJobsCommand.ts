@@ -23,6 +23,20 @@ export interface ListDeploymentJobsCommandOutput extends ListDeploymentJobsRespo
 /**
  * <p>Returns a list of deployment jobs for a fleet. You can optionally provide filters to
  *          retrieve specific deployment jobs. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RoboMakerClient, ListDeploymentJobsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
+ * // const { RoboMakerClient, ListDeploymentJobsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
+ * const client = new RoboMakerClient(config);
+ * const command = new ListDeploymentJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDeploymentJobsCommandInput} for command's `input` shape.
+ * @see {@link ListDeploymentJobsCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDeploymentJobsCommand extends $Command<
   ListDeploymentJobsCommandInput,

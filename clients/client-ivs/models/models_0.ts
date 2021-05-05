@@ -11,6 +11,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -24,6 +27,9 @@ export interface BatchGetChannelRequest {
 }
 
 export namespace BatchGetChannelRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchGetChannelRequest): any => ({
     ...obj,
   });
@@ -111,6 +117,9 @@ export interface Channel {
 }
 
 export namespace Channel {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Channel): any => ({
     ...obj,
   });
@@ -137,6 +146,9 @@ export interface BatchError {
 }
 
 export namespace BatchError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchError): any => ({
     ...obj,
   });
@@ -151,6 +163,9 @@ export interface BatchGetChannelResponse {
 }
 
 export namespace BatchGetChannelResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchGetChannelResponse): any => ({
     ...obj,
   });
@@ -164,6 +179,9 @@ export interface BatchGetStreamKeyRequest {
 }
 
 export namespace BatchGetStreamKeyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchGetStreamKeyRequest): any => ({
     ...obj,
   });
@@ -195,6 +213,9 @@ export interface StreamKey {
 }
 
 export namespace StreamKey {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StreamKey): any => ({
     ...obj,
   });
@@ -206,6 +227,9 @@ export interface BatchGetStreamKeyResponse {
 }
 
 export namespace BatchGetStreamKeyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchGetStreamKeyResponse): any => ({
     ...obj,
   });
@@ -264,6 +288,9 @@ export interface CreateChannelRequest {
 }
 
 export namespace CreateChannelRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateChannelRequest): any => ({
     ...obj,
   });
@@ -282,6 +309,9 @@ export interface CreateChannelResponse {
 }
 
 export namespace CreateChannelResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateChannelResponse): any => ({
     ...obj,
   });
@@ -297,6 +327,9 @@ export interface PendingVerification extends __SmithyException, $MetadataBearer 
 }
 
 export namespace PendingVerification {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PendingVerification): any => ({
     ...obj,
   });
@@ -312,6 +345,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -327,6 +363,9 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
 }
 
 export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
@@ -342,6 +381,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -357,6 +399,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -373,6 +418,9 @@ export interface S3DestinationConfiguration {
 }
 
 export namespace S3DestinationConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
     ...obj,
   });
@@ -391,6 +439,9 @@ export interface DestinationConfiguration {
 }
 
 export namespace DestinationConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DestinationConfiguration): any => ({
     ...obj,
   });
@@ -416,6 +467,9 @@ export interface CreateRecordingConfigurationRequest {
 }
 
 export namespace CreateRecordingConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateRecordingConfigurationRequest): any => ({
     ...obj,
   });
@@ -460,6 +514,9 @@ export interface RecordingConfiguration {
 }
 
 export namespace RecordingConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecordingConfiguration): any => ({
     ...obj,
   });
@@ -473,6 +530,9 @@ export interface CreateRecordingConfigurationResponse {
 }
 
 export namespace CreateRecordingConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateRecordingConfigurationResponse): any => ({
     ...obj,
   });
@@ -488,6 +548,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -506,6 +569,9 @@ export interface CreateStreamKeyRequest {
 }
 
 export namespace CreateStreamKeyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateStreamKeyRequest): any => ({
     ...obj,
   });
@@ -519,6 +585,9 @@ export interface CreateStreamKeyResponse {
 }
 
 export namespace CreateStreamKeyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateStreamKeyResponse): any => ({
     ...obj,
   });
@@ -532,6 +601,9 @@ export interface DeleteChannelRequest {
 }
 
 export namespace DeleteChannelRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteChannelRequest): any => ({
     ...obj,
   });
@@ -545,6 +617,9 @@ export interface DeletePlaybackKeyPairRequest {
 }
 
 export namespace DeletePlaybackKeyPairRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeletePlaybackKeyPairRequest): any => ({
     ...obj,
   });
@@ -553,6 +628,9 @@ export namespace DeletePlaybackKeyPairRequest {
 export interface DeletePlaybackKeyPairResponse {}
 
 export namespace DeletePlaybackKeyPairResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeletePlaybackKeyPairResponse): any => ({
     ...obj,
   });
@@ -566,6 +644,9 @@ export interface DeleteRecordingConfigurationRequest {
 }
 
 export namespace DeleteRecordingConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteRecordingConfigurationRequest): any => ({
     ...obj,
   });
@@ -579,6 +660,9 @@ export interface DeleteStreamKeyRequest {
 }
 
 export namespace DeleteStreamKeyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteStreamKeyRequest): any => ({
     ...obj,
   });
@@ -592,6 +676,9 @@ export interface GetChannelRequest {
 }
 
 export namespace GetChannelRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetChannelRequest): any => ({
     ...obj,
   });
@@ -605,6 +692,9 @@ export interface GetChannelResponse {
 }
 
 export namespace GetChannelResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetChannelResponse): any => ({
     ...obj,
   });
@@ -618,6 +708,9 @@ export interface GetPlaybackKeyPairRequest {
 }
 
 export namespace GetPlaybackKeyPairRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetPlaybackKeyPairRequest): any => ({
     ...obj,
   });
@@ -650,6 +743,9 @@ export interface PlaybackKeyPair {
 }
 
 export namespace PlaybackKeyPair {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PlaybackKeyPair): any => ({
     ...obj,
   });
@@ -663,6 +759,9 @@ export interface GetPlaybackKeyPairResponse {
 }
 
 export namespace GetPlaybackKeyPairResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetPlaybackKeyPairResponse): any => ({
     ...obj,
   });
@@ -676,6 +775,9 @@ export interface GetRecordingConfigurationRequest {
 }
 
 export namespace GetRecordingConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRecordingConfigurationRequest): any => ({
     ...obj,
   });
@@ -689,6 +791,9 @@ export interface GetRecordingConfigurationResponse {
 }
 
 export namespace GetRecordingConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRecordingConfigurationResponse): any => ({
     ...obj,
   });
@@ -704,6 +809,9 @@ export interface ChannelNotBroadcasting extends __SmithyException, $MetadataBear
 }
 
 export namespace ChannelNotBroadcasting {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ChannelNotBroadcasting): any => ({
     ...obj,
   });
@@ -717,6 +825,9 @@ export interface GetStreamRequest {
 }
 
 export namespace GetStreamRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetStreamRequest): any => ({
     ...obj,
   });
@@ -770,6 +881,9 @@ export interface _Stream {
 }
 
 export namespace _Stream {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: _Stream): any => ({
     ...obj,
   });
@@ -783,6 +897,9 @@ export interface GetStreamResponse {
 }
 
 export namespace GetStreamResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetStreamResponse): any => ({
     ...obj,
   });
@@ -796,6 +913,9 @@ export interface GetStreamKeyRequest {
 }
 
 export namespace GetStreamKeyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetStreamKeyRequest): any => ({
     ...obj,
   });
@@ -809,6 +929,9 @@ export interface GetStreamKeyResponse {
 }
 
 export namespace GetStreamKeyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetStreamKeyResponse): any => ({
     ...obj,
   });
@@ -833,6 +956,9 @@ export interface ImportPlaybackKeyPairRequest {
 }
 
 export namespace ImportPlaybackKeyPairRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImportPlaybackKeyPairRequest): any => ({
     ...obj,
   });
@@ -846,6 +972,9 @@ export interface ImportPlaybackKeyPairResponse {
 }
 
 export namespace ImportPlaybackKeyPairResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImportPlaybackKeyPairResponse): any => ({
     ...obj,
   });
@@ -875,6 +1004,9 @@ export interface ListChannelsRequest {
 }
 
 export namespace ListChannelsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListChannelsRequest): any => ({
     ...obj,
   });
@@ -919,6 +1051,9 @@ export interface ChannelSummary {
 }
 
 export namespace ChannelSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ChannelSummary): any => ({
     ...obj,
   });
@@ -938,6 +1073,9 @@ export interface ListChannelsResponse {
 }
 
 export namespace ListChannelsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
     ...obj,
   });
@@ -957,6 +1095,9 @@ export interface ListPlaybackKeyPairsRequest {
 }
 
 export namespace ListPlaybackKeyPairsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPlaybackKeyPairsRequest): any => ({
     ...obj,
   });
@@ -984,6 +1125,9 @@ export interface PlaybackKeyPairSummary {
 }
 
 export namespace PlaybackKeyPairSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PlaybackKeyPairSummary): any => ({
     ...obj,
   });
@@ -1003,6 +1147,9 @@ export interface ListPlaybackKeyPairsResponse {
 }
 
 export namespace ListPlaybackKeyPairsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPlaybackKeyPairsResponse): any => ({
     ...obj,
   });
@@ -1022,6 +1169,9 @@ export interface ListRecordingConfigurationsRequest {
 }
 
 export namespace ListRecordingConfigurationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRecordingConfigurationsRequest): any => ({
     ...obj,
   });
@@ -1060,6 +1210,9 @@ export interface RecordingConfigurationSummary {
 }
 
 export namespace RecordingConfigurationSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecordingConfigurationSummary): any => ({
     ...obj,
   });
@@ -1079,6 +1232,9 @@ export interface ListRecordingConfigurationsResponse {
 }
 
 export namespace ListRecordingConfigurationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRecordingConfigurationsResponse): any => ({
     ...obj,
   });
@@ -1103,6 +1259,9 @@ export interface ListStreamKeysRequest {
 }
 
 export namespace ListStreamKeysRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStreamKeysRequest): any => ({
     ...obj,
   });
@@ -1129,6 +1288,9 @@ export interface StreamKeySummary {
 }
 
 export namespace StreamKeySummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StreamKeySummary): any => ({
     ...obj,
   });
@@ -1148,6 +1310,9 @@ export interface ListStreamKeysResponse {
 }
 
 export namespace ListStreamKeysResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStreamKeysResponse): any => ({
     ...obj,
   });
@@ -1167,6 +1332,9 @@ export interface ListStreamsRequest {
 }
 
 export namespace ListStreamsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStreamsRequest): any => ({
     ...obj,
   });
@@ -1204,6 +1372,9 @@ export interface StreamSummary {
 }
 
 export namespace StreamSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StreamSummary): any => ({
     ...obj,
   });
@@ -1223,6 +1394,9 @@ export interface ListStreamsResponse {
 }
 
 export namespace ListStreamsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStreamsResponse): any => ({
     ...obj,
   });
@@ -1247,6 +1421,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -1262,6 +1439,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -1281,6 +1461,9 @@ export interface PutMetadataRequest {
 }
 
 export namespace PutMetadataRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutMetadataRequest): any => ({
     ...obj,
   });
@@ -1296,6 +1479,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -1309,6 +1495,9 @@ export interface StopStreamRequest {
 }
 
 export namespace StopStreamRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopStreamRequest): any => ({
     ...obj,
   });
@@ -1317,6 +1506,9 @@ export namespace StopStreamRequest {
 export interface StopStreamResponse {}
 
 export namespace StopStreamResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopStreamResponse): any => ({
     ...obj,
   });
@@ -1332,6 +1524,9 @@ export interface StreamUnavailable extends __SmithyException, $MetadataBearer {
 }
 
 export namespace StreamUnavailable {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StreamUnavailable): any => ({
     ...obj,
   });
@@ -1350,6 +1545,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -1358,6 +1556,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -1376,6 +1577,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -1384,6 +1588,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
@@ -1442,6 +1649,9 @@ export interface UpdateChannelRequest {
 }
 
 export namespace UpdateChannelRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateChannelRequest): any => ({
     ...obj,
   });
@@ -1455,6 +1665,9 @@ export interface UpdateChannelResponse {
 }
 
 export namespace UpdateChannelResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateChannelResponse): any => ({
     ...obj,
   });

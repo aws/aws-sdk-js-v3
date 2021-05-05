@@ -24,6 +24,20 @@ export interface StartSentimentDetectionJobCommandOutput extends StartSentimentD
  * <p>Starts an asynchronous sentiment detection job for a collection of documents. use the
  *          operation to track the status of a
  *       job.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ComprehendClient, StartSentimentDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, StartSentimentDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
+ * const client = new ComprehendClient(config);
+ * const command = new StartSentimentDetectionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartSentimentDetectionJobCommandInput} for command's `input` shape.
+ * @see {@link StartSentimentDetectionJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartSentimentDetectionJobCommand extends $Command<
   StartSentimentDetectionJobCommandInput,

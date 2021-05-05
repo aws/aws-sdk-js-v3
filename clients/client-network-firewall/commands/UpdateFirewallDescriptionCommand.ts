@@ -23,6 +23,20 @@ export interface UpdateFirewallDescriptionCommandOutput extends UpdateFirewallDe
 /**
  * <p>Modifies the description for the specified firewall. Use the description to help you
  *          identify the firewall when you're working with it. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { NetworkFirewallClient, UpdateFirewallDescriptionCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
+ * // const { NetworkFirewallClient, UpdateFirewallDescriptionCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
+ * const client = new NetworkFirewallClient(config);
+ * const command = new UpdateFirewallDescriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFirewallDescriptionCommandInput} for command's `input` shape.
+ * @see {@link UpdateFirewallDescriptionCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFirewallDescriptionCommand extends $Command<
   UpdateFirewallDescriptionCommandInput,

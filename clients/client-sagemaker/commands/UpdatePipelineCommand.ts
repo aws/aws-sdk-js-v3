@@ -22,6 +22,20 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
 
 /**
  * <p>Updates a pipeline.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SageMakerClient, UpdatePipelineCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, UpdatePipelineCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * const client = new SageMakerClient(config);
+ * const command = new UpdatePipelineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePipelineCommandInput} for command's `input` shape.
+ * @see {@link UpdatePipelineCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePipelineCommand extends $Command<
   UpdatePipelineCommandInput,

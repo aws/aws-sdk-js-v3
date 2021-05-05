@@ -71,6 +71,9 @@ export interface AccountGateResult {
 }
 
 export namespace AccountGateResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccountGateResult): any => ({
     ...obj,
   });
@@ -110,6 +113,9 @@ export interface AccountLimit {
 }
 
 export namespace AccountLimit {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccountLimit): any => ({
     ...obj,
   });
@@ -125,6 +131,9 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
 }
 
 export namespace AlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
     ...obj,
   });
@@ -146,6 +155,9 @@ export interface AutoDeployment {
 }
 
 export namespace AutoDeployment {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AutoDeployment): any => ({
     ...obj,
   });
@@ -176,6 +188,9 @@ export interface CancelUpdateStackInput {
 }
 
 export namespace CancelUpdateStackInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelUpdateStackInput): any => ({
     ...obj,
   });
@@ -191,6 +206,9 @@ export interface TokenAlreadyExistsException extends __SmithyException, $Metadat
 }
 
 export namespace TokenAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TokenAlreadyExistsException): any => ({
     ...obj,
   });
@@ -212,6 +230,9 @@ export interface CFNRegistryException extends __SmithyException, $MetadataBearer
 }
 
 export namespace CFNRegistryException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CFNRegistryException): any => ({
     ...obj,
   });
@@ -282,6 +303,9 @@ export interface ResourceTargetDefinition {
 }
 
 export namespace ResourceTargetDefinition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceTargetDefinition): any => ({
     ...obj,
   });
@@ -370,6 +394,9 @@ export interface ResourceChangeDetail {
 }
 
 export namespace ResourceChangeDetail {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceChangeDetail): any => ({
     ...obj,
   });
@@ -401,6 +428,9 @@ export interface ModuleInfo {
 }
 
 export namespace ModuleInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModuleInfo): any => ({
     ...obj,
   });
@@ -485,6 +515,9 @@ export interface ResourceChange {
 }
 
 export namespace ResourceChange {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceChange): any => ({
     ...obj,
   });
@@ -513,6 +546,9 @@ export interface Change {
 }
 
 export namespace Change {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Change): any => ({
     ...obj,
   });
@@ -529,6 +565,9 @@ export interface ChangeSetNotFoundException extends __SmithyException, $Metadata
 }
 
 export namespace ChangeSetNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ChangeSetNotFoundException): any => ({
     ...obj,
   });
@@ -628,6 +667,9 @@ export interface ChangeSetSummary {
 }
 
 export namespace ChangeSetSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ChangeSetSummary): any => ({
     ...obj,
   });
@@ -712,6 +754,9 @@ export interface ContinueUpdateRollbackInput {
 }
 
 export namespace ContinueUpdateRollbackInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ContinueUpdateRollbackInput): any => ({
     ...obj,
   });
@@ -723,6 +768,9 @@ export namespace ContinueUpdateRollbackInput {
 export interface ContinueUpdateRollbackOutput {}
 
 export namespace ContinueUpdateRollbackOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ContinueUpdateRollbackOutput): any => ({
     ...obj,
   });
@@ -760,6 +808,9 @@ export interface Parameter {
 }
 
 export namespace Parameter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Parameter): any => ({
     ...obj,
   });
@@ -788,6 +839,9 @@ export interface ResourceToImport {
 }
 
 export namespace ResourceToImport {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceToImport): any => ({
     ...obj,
   });
@@ -814,6 +868,9 @@ export interface RollbackTrigger {
 }
 
 export namespace RollbackTrigger {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RollbackTrigger): any => ({
     ...obj,
   });
@@ -874,6 +931,9 @@ export interface RollbackConfiguration {
 }
 
 export namespace RollbackConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RollbackConfiguration): any => ({
     ...obj,
   });
@@ -901,6 +961,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -1151,6 +1214,9 @@ export interface CreateChangeSetInput {
 }
 
 export namespace CreateChangeSetInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateChangeSetInput): any => ({
     ...obj,
   });
@@ -1172,6 +1238,9 @@ export interface CreateChangeSetOutput {
 }
 
 export namespace CreateChangeSetOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateChangeSetOutput): any => ({
     ...obj,
   });
@@ -1188,6 +1257,9 @@ export interface InsufficientCapabilitiesException extends __SmithyException, $M
 }
 
 export namespace InsufficientCapabilitiesException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InsufficientCapabilitiesException): any => ({
     ...obj,
   });
@@ -1205,6 +1277,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -1488,6 +1563,9 @@ export interface CreateStackInput {
 }
 
 export namespace CreateStackInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateStackInput): any => ({
     ...obj,
   });
@@ -1504,6 +1582,9 @@ export interface CreateStackOutput {
 }
 
 export namespace CreateStackOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateStackOutput): any => ({
     ...obj,
   });
@@ -1531,6 +1612,9 @@ export interface DeploymentTargets {
 }
 
 export namespace DeploymentTargets {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeploymentTargets): any => ({
     ...obj,
   });
@@ -1608,6 +1692,9 @@ export interface StackSetOperationPreferences {
 }
 
 export namespace StackSetOperationPreferences {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackSetOperationPreferences): any => ({
     ...obj,
   });
@@ -1714,6 +1801,9 @@ export interface CreateStackInstancesInput {
 }
 
 export namespace CreateStackInstancesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateStackInstancesInput): any => ({
     ...obj,
   });
@@ -1727,6 +1817,9 @@ export interface CreateStackInstancesOutput {
 }
 
 export namespace CreateStackInstancesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateStackInstancesOutput): any => ({
     ...obj,
   });
@@ -1742,6 +1835,9 @@ export interface InvalidOperationException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidOperationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
     ...obj,
   });
@@ -1757,6 +1853,9 @@ export interface OperationIdAlreadyExistsException extends __SmithyException, $M
 }
 
 export namespace OperationIdAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OperationIdAlreadyExistsException): any => ({
     ...obj,
   });
@@ -1773,6 +1872,9 @@ export interface OperationInProgressException extends __SmithyException, $Metada
 }
 
 export namespace OperationInProgressException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OperationInProgressException): any => ({
     ...obj,
   });
@@ -1788,6 +1890,9 @@ export interface StackSetNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace StackSetNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackSetNotFoundException): any => ({
     ...obj,
   });
@@ -1804,6 +1909,9 @@ export interface StaleRequestException extends __SmithyException, $MetadataBeare
 }
 
 export namespace StaleRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StaleRequestException): any => ({
     ...obj,
   });
@@ -1819,6 +1927,9 @@ export interface CreatedButModifiedException extends __SmithyException, $Metadat
 }
 
 export namespace CreatedButModifiedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreatedButModifiedException): any => ({
     ...obj,
   });
@@ -2045,6 +2156,9 @@ export interface CreateStackSetInput {
 }
 
 export namespace CreateStackSetInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateStackSetInput): any => ({
     ...obj,
   });
@@ -2058,6 +2172,9 @@ export interface CreateStackSetOutput {
 }
 
 export namespace CreateStackSetOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateStackSetOutput): any => ({
     ...obj,
   });
@@ -2073,6 +2190,9 @@ export interface NameAlreadyExistsException extends __SmithyException, $Metadata
 }
 
 export namespace NameAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NameAlreadyExistsException): any => ({
     ...obj,
   });
@@ -2096,6 +2216,9 @@ export interface DeleteChangeSetInput {
 }
 
 export namespace DeleteChangeSetInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteChangeSetInput): any => ({
     ...obj,
   });
@@ -2107,6 +2230,9 @@ export namespace DeleteChangeSetInput {
 export interface DeleteChangeSetOutput {}
 
 export namespace DeleteChangeSetOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteChangeSetOutput): any => ({
     ...obj,
   });
@@ -2124,6 +2250,9 @@ export interface InvalidChangeSetStatusException extends __SmithyException, $Met
 }
 
 export namespace InvalidChangeSetStatusException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidChangeSetStatusException): any => ({
     ...obj,
   });
@@ -2178,6 +2307,9 @@ export interface DeleteStackInput {
 }
 
 export namespace DeleteStackInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteStackInput): any => ({
     ...obj,
   });
@@ -2249,6 +2381,9 @@ export interface DeleteStackInstancesInput {
 }
 
 export namespace DeleteStackInstancesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteStackInstancesInput): any => ({
     ...obj,
   });
@@ -2262,6 +2397,9 @@ export interface DeleteStackInstancesOutput {
 }
 
 export namespace DeleteStackInstancesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteStackInstancesOutput): any => ({
     ...obj,
   });
@@ -2291,6 +2429,9 @@ export interface DeleteStackSetInput {
 }
 
 export namespace DeleteStackSetInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteStackSetInput): any => ({
     ...obj,
   });
@@ -2299,6 +2440,9 @@ export namespace DeleteStackSetInput {
 export interface DeleteStackSetOutput {}
 
 export namespace DeleteStackSetOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteStackSetOutput): any => ({
     ...obj,
   });
@@ -2316,6 +2460,9 @@ export interface StackSetNotEmptyException extends __SmithyException, $MetadataB
 }
 
 export namespace StackSetNotEmptyException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackSetNotEmptyException): any => ({
     ...obj,
   });
@@ -2349,6 +2496,9 @@ export interface DeregisterTypeInput {
 }
 
 export namespace DeregisterTypeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeregisterTypeInput): any => ({
     ...obj,
   });
@@ -2357,6 +2507,9 @@ export namespace DeregisterTypeInput {
 export interface DeregisterTypeOutput {}
 
 export namespace DeregisterTypeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeregisterTypeOutput): any => ({
     ...obj,
   });
@@ -2372,6 +2525,9 @@ export interface TypeNotFoundException extends __SmithyException, $MetadataBeare
 }
 
 export namespace TypeNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TypeNotFoundException): any => ({
     ...obj,
   });
@@ -2388,6 +2544,9 @@ export interface DescribeAccountLimitsInput {
 }
 
 export namespace DescribeAccountLimitsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAccountLimitsInput): any => ({
     ...obj,
   });
@@ -2411,6 +2570,9 @@ export interface DescribeAccountLimitsOutput {
 }
 
 export namespace DescribeAccountLimitsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAccountLimitsOutput): any => ({
     ...obj,
   });
@@ -2440,6 +2602,9 @@ export interface DescribeChangeSetInput {
 }
 
 export namespace DescribeChangeSetInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeChangeSetInput): any => ({
     ...obj,
   });
@@ -2559,6 +2724,9 @@ export interface DescribeChangeSetOutput {
 }
 
 export namespace DescribeChangeSetOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeChangeSetOutput): any => ({
     ...obj,
   });
@@ -2575,6 +2743,9 @@ export interface DescribeStackDriftDetectionStatusInput {
 }
 
 export namespace DescribeStackDriftDetectionStatusInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStackDriftDetectionStatusInput): any => ({
     ...obj,
   });
@@ -2680,6 +2851,9 @@ export interface DescribeStackDriftDetectionStatusOutput {
 }
 
 export namespace DescribeStackDriftDetectionStatusOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStackDriftDetectionStatusOutput): any => ({
     ...obj,
   });
@@ -2712,6 +2886,9 @@ export interface DescribeStackEventsInput {
 }
 
 export namespace DescribeStackEventsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStackEventsInput): any => ({
     ...obj,
   });
@@ -2810,6 +2987,9 @@ export interface StackEvent {
 }
 
 export namespace StackEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackEvent): any => ({
     ...obj,
   });
@@ -2832,6 +3012,9 @@ export interface DescribeStackEventsOutput {
 }
 
 export namespace DescribeStackEventsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStackEventsOutput): any => ({
     ...obj,
   });
@@ -2871,6 +3054,9 @@ export interface DescribeStackInstanceInput {
 }
 
 export namespace DescribeStackInstanceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStackInstanceInput): any => ({
     ...obj,
   });
@@ -2916,6 +3102,9 @@ export interface StackInstanceComprehensiveStatus {
 }
 
 export namespace StackInstanceComprehensiveStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackInstanceComprehensiveStatus): any => ({
     ...obj,
   });
@@ -3051,6 +3240,9 @@ export interface StackInstance {
 }
 
 export namespace StackInstance {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackInstance): any => ({
     ...obj,
   });
@@ -3064,6 +3256,9 @@ export interface DescribeStackInstanceOutput {
 }
 
 export namespace DescribeStackInstanceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStackInstanceOutput): any => ({
     ...obj,
   });
@@ -3079,6 +3274,9 @@ export interface StackInstanceNotFoundException extends __SmithyException, $Meta
 }
 
 export namespace StackInstanceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackInstanceNotFoundException): any => ({
     ...obj,
   });
@@ -3112,6 +3310,9 @@ export interface DescribeStackResourceInput {
 }
 
 export namespace DescribeStackResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStackResourceInput): any => ({
     ...obj,
   });
@@ -3167,6 +3368,9 @@ export interface StackResourceDriftInformation {
 }
 
 export namespace StackResourceDriftInformation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackResourceDriftInformation): any => ({
     ...obj,
   });
@@ -3245,6 +3449,9 @@ export interface StackResourceDetail {
 }
 
 export namespace StackResourceDetail {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackResourceDetail): any => ({
     ...obj,
   });
@@ -3262,6 +3469,9 @@ export interface DescribeStackResourceOutput {
 }
 
 export namespace DescribeStackResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStackResourceOutput): any => ({
     ...obj,
   });
@@ -3315,6 +3525,9 @@ export interface DescribeStackResourceDriftsInput {
 }
 
 export namespace DescribeStackResourceDriftsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStackResourceDriftsInput): any => ({
     ...obj,
   });
@@ -3339,6 +3552,9 @@ export interface PhysicalResourceIdContextKeyValuePair {
 }
 
 export namespace PhysicalResourceIdContextKeyValuePair {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PhysicalResourceIdContextKeyValuePair): any => ({
     ...obj,
   });
@@ -3399,6 +3615,9 @@ export interface PropertyDifference {
 }
 
 export namespace PropertyDifference {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PropertyDifference): any => ({
     ...obj,
   });
@@ -3511,6 +3730,9 @@ export interface StackResourceDrift {
 }
 
 export namespace StackResourceDrift {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackResourceDrift): any => ({
     ...obj,
   });
@@ -3540,6 +3762,9 @@ export interface DescribeStackResourceDriftsOutput {
 }
 
 export namespace DescribeStackResourceDriftsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStackResourceDriftsOutput): any => ({
     ...obj,
   });
@@ -3588,6 +3813,9 @@ export interface DescribeStackResourcesInput {
 }
 
 export namespace DescribeStackResourcesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStackResourcesInput): any => ({
     ...obj,
   });
@@ -3659,6 +3887,9 @@ export interface StackResource {
 }
 
 export namespace StackResource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackResource): any => ({
     ...obj,
   });
@@ -3675,6 +3906,9 @@ export interface DescribeStackResourcesOutput {
 }
 
 export namespace DescribeStackResourcesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStackResourcesOutput): any => ({
     ...obj,
   });
@@ -3707,6 +3941,9 @@ export interface DescribeStacksInput {
 }
 
 export namespace DescribeStacksInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStacksInput): any => ({
     ...obj,
   });
@@ -3755,6 +3992,9 @@ export interface StackDriftInformation {
 }
 
 export namespace StackDriftInformation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackDriftInformation): any => ({
     ...obj,
   });
@@ -3786,6 +4026,9 @@ export interface Output {
 }
 
 export namespace Output {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Output): any => ({
     ...obj,
   });
@@ -3960,6 +4203,9 @@ export interface Stack {
 }
 
 export namespace Stack {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Stack): any => ({
     ...obj,
   });
@@ -3982,6 +4228,9 @@ export interface DescribeStacksOutput {
 }
 
 export namespace DescribeStacksOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStacksOutput): any => ({
     ...obj,
   });
@@ -4010,6 +4259,9 @@ export interface DescribeStackSetInput {
 }
 
 export namespace DescribeStackSetInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStackSetInput): any => ({
     ...obj,
   });
@@ -4150,6 +4402,9 @@ export interface StackSetDriftDetectionDetails {
 }
 
 export namespace StackSetDriftDetectionDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackSetDriftDetectionDetails): any => ({
     ...obj,
   });
@@ -4265,6 +4520,9 @@ export interface StackSet {
 }
 
 export namespace StackSet {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackSet): any => ({
     ...obj,
   });
@@ -4278,6 +4536,9 @@ export interface DescribeStackSetOutput {
 }
 
 export namespace DescribeStackSetOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStackSetOutput): any => ({
     ...obj,
   });
@@ -4311,6 +4572,9 @@ export interface DescribeStackSetOperationInput {
 }
 
 export namespace DescribeStackSetOperationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStackSetOperationInput): any => ({
     ...obj,
   });
@@ -4447,6 +4711,9 @@ export interface StackSetOperation {
 }
 
 export namespace StackSetOperation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackSetOperation): any => ({
     ...obj,
   });
@@ -4460,6 +4727,9 @@ export interface DescribeStackSetOperationOutput {
 }
 
 export namespace DescribeStackSetOperationOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStackSetOperationOutput): any => ({
     ...obj,
   });
@@ -4475,6 +4745,9 @@ export interface OperationNotFoundException extends __SmithyException, $Metadata
 }
 
 export namespace OperationNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OperationNotFoundException): any => ({
     ...obj,
   });
@@ -4507,6 +4780,9 @@ export interface DescribeTypeInput {
 }
 
 export namespace DescribeTypeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTypeInput): any => ({
     ...obj,
   });
@@ -4530,6 +4806,9 @@ export interface LoggingConfig {
 }
 
 export namespace LoggingConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LoggingConfig): any => ({
     ...obj,
   });
@@ -4681,6 +4960,9 @@ export interface DescribeTypeOutput {
 }
 
 export namespace DescribeTypeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTypeOutput): any => ({
     ...obj,
   });
@@ -4697,6 +4979,9 @@ export interface DescribeTypeRegistrationInput {
 }
 
 export namespace DescribeTypeRegistrationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTypeRegistrationInput): any => ({
     ...obj,
   });
@@ -4729,6 +5014,9 @@ export interface DescribeTypeRegistrationOutput {
 }
 
 export namespace DescribeTypeRegistrationOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTypeRegistrationOutput): any => ({
     ...obj,
   });
@@ -4747,6 +5035,9 @@ export interface DetectStackDriftInput {
 }
 
 export namespace DetectStackDriftInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectStackDriftInput): any => ({
     ...obj,
   });
@@ -4763,6 +5054,9 @@ export interface DetectStackDriftOutput {
 }
 
 export namespace DetectStackDriftOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectStackDriftOutput): any => ({
     ...obj,
   });
@@ -4781,6 +5075,9 @@ export interface DetectStackResourceDriftInput {
 }
 
 export namespace DetectStackResourceDriftInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectStackResourceDriftInput): any => ({
     ...obj,
   });
@@ -4796,6 +5093,9 @@ export interface DetectStackResourceDriftOutput {
 }
 
 export namespace DetectStackResourceDriftOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectStackResourceDriftOutput): any => ({
     ...obj,
   });
@@ -4838,6 +5138,9 @@ export interface DetectStackSetDriftInput {
 }
 
 export namespace DetectStackSetDriftInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectStackSetDriftInput): any => ({
     ...obj,
   });
@@ -4854,6 +5157,9 @@ export interface DetectStackSetDriftOutput {
 }
 
 export namespace DetectStackSetDriftOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectStackSetDriftOutput): any => ({
     ...obj,
   });
@@ -4889,6 +5195,9 @@ export interface EstimateTemplateCostInput {
 }
 
 export namespace EstimateTemplateCostInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EstimateTemplateCostInput): any => ({
     ...obj,
   });
@@ -4906,6 +5215,9 @@ export interface EstimateTemplateCostOutput {
 }
 
 export namespace EstimateTemplateCostOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EstimateTemplateCostOutput): any => ({
     ...obj,
   });
@@ -4938,6 +5250,9 @@ export interface ExecuteChangeSetInput {
 }
 
 export namespace ExecuteChangeSetInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteChangeSetInput): any => ({
     ...obj,
   });
@@ -4949,6 +5264,9 @@ export namespace ExecuteChangeSetInput {
 export interface ExecuteChangeSetOutput {}
 
 export namespace ExecuteChangeSetOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteChangeSetOutput): any => ({
     ...obj,
   });
@@ -4966,6 +5284,9 @@ export interface GetStackPolicyInput {
 }
 
 export namespace GetStackPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetStackPolicyInput): any => ({
     ...obj,
   });
@@ -4983,6 +5304,9 @@ export interface GetStackPolicyOutput {
 }
 
 export namespace GetStackPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetStackPolicyOutput): any => ({
     ...obj,
   });
@@ -5033,6 +5357,9 @@ export interface GetTemplateInput {
 }
 
 export namespace GetTemplateInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTemplateInput): any => ({
     ...obj,
   });
@@ -5060,6 +5387,9 @@ export interface GetTemplateOutput {
 }
 
 export namespace GetTemplateOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTemplateOutput): any => ({
     ...obj,
   });
@@ -5124,6 +5454,9 @@ export interface GetTemplateSummaryInput {
 }
 
 export namespace GetTemplateSummaryInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTemplateSummaryInput): any => ({
     ...obj,
   });
@@ -5142,6 +5475,9 @@ export interface ParameterConstraints {
 }
 
 export namespace ParameterConstraints {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParameterConstraints): any => ({
     ...obj,
   });
@@ -5184,6 +5520,9 @@ export interface ParameterDeclaration {
 }
 
 export namespace ParameterDeclaration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParameterDeclaration): any => ({
     ...obj,
   });
@@ -5216,6 +5555,9 @@ export interface ResourceIdentifierSummary {
 }
 
 export namespace ResourceIdentifierSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceIdentifierSummary): any => ({
     ...obj,
   });
@@ -5286,6 +5628,9 @@ export interface GetTemplateSummaryOutput {
 }
 
 export namespace GetTemplateSummaryOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTemplateSummaryOutput): any => ({
     ...obj,
   });
@@ -5309,6 +5654,9 @@ export interface ListChangeSetsInput {
 }
 
 export namespace ListChangeSetsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListChangeSetsInput): any => ({
     ...obj,
   });
@@ -5332,6 +5680,9 @@ export interface ListChangeSetsOutput {
 }
 
 export namespace ListChangeSetsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListChangeSetsOutput): any => ({
     ...obj,
   });
@@ -5346,6 +5697,9 @@ export interface ListExportsInput {
 }
 
 export namespace ListExportsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListExportsInput): any => ({
     ...obj,
   });
@@ -5378,6 +5732,9 @@ export interface Export {
 }
 
 export namespace Export {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Export): any => ({
     ...obj,
   });
@@ -5397,6 +5754,9 @@ export interface ListExportsOutput {
 }
 
 export namespace ListExportsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListExportsOutput): any => ({
     ...obj,
   });
@@ -5418,6 +5778,9 @@ export interface ListImportsInput {
 }
 
 export namespace ListImportsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListImportsInput): any => ({
     ...obj,
   });
@@ -5438,6 +5801,9 @@ export interface ListImportsOutput {
 }
 
 export namespace ListImportsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListImportsOutput): any => ({
     ...obj,
   });
@@ -5461,6 +5827,9 @@ export interface StackInstanceFilter {
 }
 
 export namespace StackInstanceFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackInstanceFilter): any => ({
     ...obj,
   });
@@ -5522,6 +5891,9 @@ export interface ListStackInstancesInput {
 }
 
 export namespace ListStackInstancesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStackInstancesInput): any => ({
     ...obj,
   });
@@ -5644,6 +6016,9 @@ export interface StackInstanceSummary {
 }
 
 export namespace StackInstanceSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackInstanceSummary): any => ({
     ...obj,
   });
@@ -5667,6 +6042,9 @@ export interface ListStackInstancesOutput {
 }
 
 export namespace ListStackInstancesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStackInstancesOutput): any => ({
     ...obj,
   });
@@ -5700,6 +6078,9 @@ export interface ListStackResourcesInput {
 }
 
 export namespace ListStackResourcesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStackResourcesInput): any => ({
     ...obj,
   });
@@ -5750,6 +6131,9 @@ export interface StackResourceDriftInformationSummary {
 }
 
 export namespace StackResourceDriftInformationSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackResourceDriftInformationSummary): any => ({
     ...obj,
   });
@@ -5806,6 +6190,9 @@ export interface StackResourceSummary {
 }
 
 export namespace StackResourceSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackResourceSummary): any => ({
     ...obj,
   });
@@ -5828,6 +6215,9 @@ export interface ListStackResourcesOutput {
 }
 
 export namespace ListStackResourcesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStackResourcesOutput): any => ({
     ...obj,
   });
@@ -5851,6 +6241,9 @@ export interface ListStacksInput {
 }
 
 export namespace ListStacksInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStacksInput): any => ({
     ...obj,
   });
@@ -5899,6 +6292,9 @@ export interface StackDriftInformationSummary {
 }
 
 export namespace StackDriftInformationSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackDriftInformationSummary): any => ({
     ...obj,
   });
@@ -5976,6 +6372,9 @@ export interface StackSummary {
 }
 
 export namespace StackSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackSummary): any => ({
     ...obj,
   });
@@ -5999,6 +6398,9 @@ export interface ListStacksOutput {
 }
 
 export namespace ListStacksOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStacksOutput): any => ({
     ...obj,
   });
@@ -6051,6 +6453,9 @@ export interface ListStackSetOperationResultsInput {
 }
 
 export namespace ListStackSetOperationResultsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStackSetOperationResultsInput): any => ({
     ...obj,
   });
@@ -6127,6 +6532,9 @@ export interface StackSetOperationResultSummary {
 }
 
 export namespace StackSetOperationResultSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackSetOperationResultSummary): any => ({
     ...obj,
   });
@@ -6150,6 +6558,9 @@ export interface ListStackSetOperationResultsOutput {
 }
 
 export namespace ListStackSetOperationResultsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStackSetOperationResultsOutput): any => ({
     ...obj,
   });
@@ -6197,6 +6608,9 @@ export interface ListStackSetOperationsInput {
 }
 
 export namespace ListStackSetOperationsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStackSetOperationsInput): any => ({
     ...obj,
   });
@@ -6279,6 +6693,9 @@ export interface StackSetOperationSummary {
 }
 
 export namespace StackSetOperationSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackSetOperationSummary): any => ({
     ...obj,
   });
@@ -6301,6 +6718,9 @@ export interface ListStackSetOperationsOutput {
 }
 
 export namespace ListStackSetOperationsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStackSetOperationsOutput): any => ({
     ...obj,
   });
@@ -6348,6 +6768,9 @@ export interface ListStackSetsInput {
 }
 
 export namespace ListStackSetsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStackSetsInput): any => ({
     ...obj,
   });
@@ -6436,6 +6859,9 @@ export interface StackSetSummary {
 }
 
 export namespace StackSetSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StackSetSummary): any => ({
     ...obj,
   });
@@ -6459,6 +6885,9 @@ export interface ListStackSetsOutput {
 }
 
 export namespace ListStackSetsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStackSetsOutput): any => ({
     ...obj,
   });
@@ -6501,6 +6930,9 @@ export interface ListTypeRegistrationsInput {
 }
 
 export namespace ListTypeRegistrationsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTypeRegistrationsInput): any => ({
     ...obj,
   });
@@ -6522,6 +6954,9 @@ export interface ListTypeRegistrationsOutput {
 }
 
 export namespace ListTypeRegistrationsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTypeRegistrationsOutput): any => ({
     ...obj,
   });
@@ -6598,6 +7033,9 @@ export interface ListTypesInput {
 }
 
 export namespace ListTypesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTypesInput): any => ({
     ...obj,
   });
@@ -6642,6 +7080,9 @@ export interface TypeSummary {
 }
 
 export namespace TypeSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TypeSummary): any => ({
     ...obj,
   });
@@ -6660,6 +7101,9 @@ export interface ListTypesOutput {
 }
 
 export namespace ListTypesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTypesOutput): any => ({
     ...obj,
   });
@@ -6713,6 +7157,9 @@ export interface ListTypeVersionsInput {
 }
 
 export namespace ListTypeVersionsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTypeVersionsInput): any => ({
     ...obj,
   });
@@ -6759,6 +7206,9 @@ export interface TypeVersionSummary {
 }
 
 export namespace TypeVersionSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TypeVersionSummary): any => ({
     ...obj,
   });
@@ -6777,6 +7227,9 @@ export interface ListTypeVersionsOutput {
 }
 
 export namespace ListTypeVersionsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTypeVersionsOutput): any => ({
     ...obj,
   });
@@ -6792,6 +7245,9 @@ export interface InvalidStateTransitionException extends __SmithyException, $Met
 }
 
 export namespace InvalidStateTransitionException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidStateTransitionException): any => ({
     ...obj,
   });
@@ -6807,6 +7263,9 @@ export interface OperationStatusCheckFailedException extends __SmithyException, 
 }
 
 export namespace OperationStatusCheckFailedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OperationStatusCheckFailedException): any => ({
     ...obj,
   });
@@ -6874,6 +7333,9 @@ export interface RecordHandlerProgressInput {
 }
 
 export namespace RecordHandlerProgressInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecordHandlerProgressInput): any => ({
     ...obj,
   });
@@ -6882,6 +7344,9 @@ export namespace RecordHandlerProgressInput {
 export interface RecordHandlerProgressOutput {}
 
 export namespace RecordHandlerProgressOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecordHandlerProgressOutput): any => ({
     ...obj,
   });
@@ -6970,6 +7435,9 @@ export interface RegisterTypeInput {
 }
 
 export namespace RegisterTypeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterTypeInput): any => ({
     ...obj,
   });
@@ -6986,6 +7454,9 @@ export interface RegisterTypeOutput {
 }
 
 export namespace RegisterTypeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterTypeOutput): any => ({
     ...obj,
   });
@@ -7018,6 +7489,9 @@ export interface SetStackPolicyInput {
 }
 
 export namespace SetStackPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetStackPolicyInput): any => ({
     ...obj,
   });
@@ -7049,6 +7523,9 @@ export interface SetTypeDefaultVersionInput {
 }
 
 export namespace SetTypeDefaultVersionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetTypeDefaultVersionInput): any => ({
     ...obj,
   });
@@ -7057,6 +7534,9 @@ export namespace SetTypeDefaultVersionInput {
 export interface SetTypeDefaultVersionOutput {}
 
 export namespace SetTypeDefaultVersionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetTypeDefaultVersionOutput): any => ({
     ...obj,
   });
@@ -7099,6 +7579,9 @@ export interface SignalResourceInput {
 }
 
 export namespace SignalResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SignalResourceInput): any => ({
     ...obj,
   });
@@ -7133,6 +7616,9 @@ export interface StopStackSetOperationInput {
 }
 
 export namespace StopStackSetOperationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopStackSetOperationInput): any => ({
     ...obj,
   });
@@ -7141,6 +7627,9 @@ export namespace StopStackSetOperationInput {
 export interface StopStackSetOperationOutput {}
 
 export namespace StopStackSetOperationOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopStackSetOperationOutput): any => ({
     ...obj,
   });
@@ -7409,6 +7898,9 @@ export interface UpdateStackInput {
 }
 
 export namespace UpdateStackInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateStackInput): any => ({
     ...obj,
   });
@@ -7425,6 +7917,9 @@ export interface UpdateStackOutput {
 }
 
 export namespace UpdateStackOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateStackOutput): any => ({
     ...obj,
   });
@@ -7537,6 +8032,9 @@ export interface UpdateStackInstancesInput {
 }
 
 export namespace UpdateStackInstancesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateStackInstancesInput): any => ({
     ...obj,
   });
@@ -7550,6 +8048,9 @@ export interface UpdateStackInstancesOutput {
 }
 
 export namespace UpdateStackInstancesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateStackInstancesOutput): any => ({
     ...obj,
   });
@@ -7852,6 +8353,9 @@ export interface UpdateStackSetInput {
 }
 
 export namespace UpdateStackSetInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateStackSetInput): any => ({
     ...obj,
   });
@@ -7865,6 +8369,9 @@ export interface UpdateStackSetOutput {
 }
 
 export namespace UpdateStackSetOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateStackSetOutput): any => ({
     ...obj,
   });
@@ -7884,6 +8391,9 @@ export interface UpdateTerminationProtectionInput {
 }
 
 export namespace UpdateTerminationProtectionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTerminationProtectionInput): any => ({
     ...obj,
   });
@@ -7897,6 +8407,9 @@ export interface UpdateTerminationProtectionOutput {
 }
 
 export namespace UpdateTerminationProtectionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTerminationProtectionOutput): any => ({
     ...obj,
   });
@@ -7927,6 +8440,9 @@ export interface ValidateTemplateInput {
 }
 
 export namespace ValidateTemplateInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidateTemplateInput): any => ({
     ...obj,
   });
@@ -7959,6 +8475,9 @@ export interface TemplateParameter {
 }
 
 export namespace TemplateParameter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TemplateParameter): any => ({
     ...obj,
   });
@@ -8000,6 +8519,9 @@ export interface ValidateTemplateOutput {
 }
 
 export namespace ValidateTemplateOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidateTemplateOutput): any => ({
     ...obj,
   });

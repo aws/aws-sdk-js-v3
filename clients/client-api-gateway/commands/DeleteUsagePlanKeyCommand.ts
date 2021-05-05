@@ -22,6 +22,20 @@ export interface DeleteUsagePlanKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a usage plan key  and remove the underlying API key from the associated usage plan.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { APIGatewayClient, DeleteUsagePlanKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, DeleteUsagePlanKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * const client = new APIGatewayClient(config);
+ * const command = new DeleteUsagePlanKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteUsagePlanKeyCommandInput} for command's `input` shape.
+ * @see {@link DeleteUsagePlanKeyCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteUsagePlanKeyCommand extends $Command<
   DeleteUsagePlanKeyCommandInput,

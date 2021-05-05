@@ -22,6 +22,20 @@ export interface CreateMilestoneCommandOutput extends CreateMilestoneOutput, __M
 
 /**
  * <p>Create a milestone for an existing workload.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WellArchitectedClient, CreateMilestoneCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, CreateMilestoneCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * const client = new WellArchitectedClient(config);
+ * const command = new CreateMilestoneCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMilestoneCommandInput} for command's `input` shape.
+ * @see {@link CreateMilestoneCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMilestoneCommand extends $Command<
   CreateMilestoneCommandInput,

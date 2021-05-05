@@ -22,6 +22,20 @@ export interface StartInferenceSchedulerCommandOutput extends StartInferenceSche
 
 /**
  * <p>Starts an inference scheduler. </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { LookoutEquipmentClient, StartInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, StartInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
+ * const client = new LookoutEquipmentClient(config);
+ * const command = new StartInferenceSchedulerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartInferenceSchedulerCommandInput} for command's `input` shape.
+ * @see {@link StartInferenceSchedulerCommandOutput} for command's `response` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartInferenceSchedulerCommand extends $Command<
   StartInferenceSchedulerCommandInput,

@@ -91,6 +91,20 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { KMSClient, CreateGrantCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, CreateGrantCommand } = require("@aws-sdk/client-kms"); // CommonJS import
+ * const client = new KMSClient(config);
+ * const command = new CreateGrantCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateGrantCommandInput} for command's `input` shape.
+ * @see {@link CreateGrantCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateGrantCommand extends $Command<
   CreateGrantCommandInput,

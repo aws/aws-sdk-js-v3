@@ -23,6 +23,20 @@ export interface SignOutUserCommandOutput extends SignOutUserResponse, __Metadat
 /**
  * <p>Signs the user out from all of their devices. The user can sign in again if they have
  *             valid credentials.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { WorkLinkClient, SignOutUserCommand } from "@aws-sdk/client-worklink"; // ES Modules import
+ * // const { WorkLinkClient, SignOutUserCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
+ * const client = new WorkLinkClient(config);
+ * const command = new SignOutUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SignOutUserCommandInput} for command's `input` shape.
+ * @see {@link SignOutUserCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SignOutUserCommand extends $Command<
   SignOutUserCommandInput,

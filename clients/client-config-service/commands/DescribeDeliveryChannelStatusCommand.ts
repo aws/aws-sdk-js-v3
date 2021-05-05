@@ -31,6 +31,20 @@ export interface DescribeDeliveryChannelStatusCommandOutput
  * 			         <p>Currently, you can specify only one delivery channel per
  * 				region in your account.</p>
  * 		       </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConfigServiceClient, DescribeDeliveryChannelStatusCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, DescribeDeliveryChannelStatusCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * const client = new ConfigServiceClient(config);
+ * const command = new DescribeDeliveryChannelStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDeliveryChannelStatusCommandInput} for command's `input` shape.
+ * @see {@link DescribeDeliveryChannelStatusCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDeliveryChannelStatusCommand extends $Command<
   DescribeDeliveryChannelStatusCommandInput,

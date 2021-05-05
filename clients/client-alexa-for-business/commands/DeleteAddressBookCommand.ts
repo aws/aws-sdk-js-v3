@@ -22,6 +22,20 @@ export interface DeleteAddressBookCommandOutput extends DeleteAddressBookRespons
 
 /**
  * <p>Deletes an address book by the address book ARN.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AlexaForBusinessClient, DeleteAddressBookCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, DeleteAddressBookCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new DeleteAddressBookCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAddressBookCommandInput} for command's `input` shape.
+ * @see {@link DeleteAddressBookCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAddressBookCommand extends $Command<
   DeleteAddressBookCommandInput,

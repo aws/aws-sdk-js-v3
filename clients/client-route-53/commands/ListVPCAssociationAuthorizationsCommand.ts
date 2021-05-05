@@ -28,6 +28,20 @@ export interface ListVPCAssociationAuthorizationsCommandOutput
  * 			specified hosted zone because you've submitted one or more <code>CreateVPCAssociationAuthorization</code> requests. </p>
  * 		       <p>The response includes a <code>VPCs</code> element with a <code>VPC</code> child element for each VPC
  * 			that can be associated with the hosted zone.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { Route53Client, ListVPCAssociationAuthorizationsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, ListVPCAssociationAuthorizationsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
+ * const client = new Route53Client(config);
+ * const command = new ListVPCAssociationAuthorizationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListVPCAssociationAuthorizationsCommandInput} for command's `input` shape.
+ * @see {@link ListVPCAssociationAuthorizationsCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListVPCAssociationAuthorizationsCommand extends $Command<
   ListVPCAssociationAuthorizationsCommandInput,

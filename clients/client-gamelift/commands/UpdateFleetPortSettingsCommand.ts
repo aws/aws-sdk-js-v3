@@ -55,6 +55,20 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  *                     <a>DeleteScalingPolicy</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { GameLiftClient, UpdateFleetPortSettingsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
+ * // const { GameLiftClient, UpdateFleetPortSettingsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * const client = new GameLiftClient(config);
+ * const command = new UpdateFleetPortSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFleetPortSettingsCommandInput} for command's `input` shape.
+ * @see {@link UpdateFleetPortSettingsCommandOutput} for command's `response` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFleetPortSettingsCommand extends $Command<
   UpdateFleetPortSettingsCommandInput,

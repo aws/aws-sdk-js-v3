@@ -23,6 +23,20 @@ export interface ListBackupSelectionsCommandOutput extends ListBackupSelectionsO
 /**
  * <p>Returns an array containing metadata of the resources associated with the target backup
  *          plan.</p>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BackupClient, ListBackupSelectionsCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, ListBackupSelectionsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * const client = new BackupClient(config);
+ * const command = new ListBackupSelectionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBackupSelectionsCommandInput} for command's `input` shape.
+ * @see {@link ListBackupSelectionsCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBackupSelectionsCommand extends $Command<
   ListBackupSelectionsCommandInput,

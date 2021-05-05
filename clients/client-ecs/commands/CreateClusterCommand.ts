@@ -33,6 +33,20 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * 					Service-Linked Roles for Amazon ECS</a> in the
  * 					<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       </note>
+ * @example
+ * User a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ECSClient, CreateClusterCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, CreateClusterCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * const client = new ECSClient(config);
+ * const command = new CreateClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateClusterCommandInput} for command's `input` shape.
+ * @see {@link CreateClusterCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,
