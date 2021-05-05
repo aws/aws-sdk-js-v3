@@ -1,5 +1,5 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import * as assert from "assert";
+import { rejects } from "assert";
 import { constants, Http2Stream } from "http2";
 
 import { NodeHttp2Handler } from "./node-http2-handler";
@@ -124,21 +124,21 @@ describe("NodeHttp2Handler", () => {
       const req = new HttpRequest({ ...getMockReqOptions(), port: port3 });
       expect(establishedConnections).toBe(0);
       expect(numRequests).toBe(0);
-      await assert.rejects(
+      await rejects(
         nodeH2Handler.handle(req, {}),
         UNEXPECTEDLY_CLOSED_REGEX,
         "should be rejected promptly due to goaway frame"
       );
       expect(establishedConnections).toBe(1);
       expect(numRequests).toBe(1);
-      await assert.rejects(
+      await rejects(
         nodeH2Handler.handle(req, {}),
         UNEXPECTEDLY_CLOSED_REGEX,
         "should be rejected promptly due to goaway frame"
       );
       expect(establishedConnections).toBe(2);
       expect(numRequests).toBe(2);
-      await assert.rejects(
+      await rejects(
         nodeH2Handler.handle(req, {}),
         UNEXPECTEDLY_CLOSED_REGEX,
         "should be rejected promptly due to goaway frame"
@@ -185,21 +185,21 @@ describe("NodeHttp2Handler", () => {
       const req = new HttpRequest({ ...getMockReqOptions(), port: port3 });
       expect(establishedConnections).toBe(0);
       expect(numRequests).toBe(0);
-      await assert.rejects(
+      await rejects(
         nodeH2Handler.handle(req, {}),
         UNEXPECTEDLY_CLOSED_REGEX,
         "should be rejected promptly due to goaway frame or destroyed connection"
       );
       expect(establishedConnections).toBe(1);
       expect(numRequests).toBe(1);
-      await assert.rejects(
+      await rejects(
         nodeH2Handler.handle(req, {}),
         UNEXPECTEDLY_CLOSED_REGEX,
         "should be rejected promptly due to goaway frame or destroyed connection"
       );
       expect(establishedConnections).toBe(2);
       expect(numRequests).toBe(2);
-      await assert.rejects(
+      await rejects(
         nodeH2Handler.handle(req, {}),
         UNEXPECTEDLY_CLOSED_REGEX,
         "should be rejected promptly due to goaway frame or destroyed connection"
