@@ -121,55 +121,51 @@ describe("NodeHttp2Handler", () => {
       mockH2Server3.on("connection", () => {
         establishedConnections += 1;
       });
-      try {
-        // should throw
-        const req = new HttpRequest({ ...getMockReqOptions(), port: port3 });
-        expect(establishedConnections).toBe(0);
-        expect(numRequests).toBe(0);
-        await assert.rejects(
-          nodeH2Handler.handle(req, {}),
-          UNEXPECTEDLY_CLOSED_REGEX,
-          "should be rejected promptly due to goaway frame"
-        );
-        expect(establishedConnections).toBe(1);
-        expect(numRequests).toBe(1);
-        await assert.rejects(
-          nodeH2Handler.handle(req, {}),
-          UNEXPECTEDLY_CLOSED_REGEX,
-          "should be rejected promptly due to goaway frame"
-        );
-        expect(establishedConnections).toBe(2);
-        expect(numRequests).toBe(2);
-        await assert.rejects(
-          nodeH2Handler.handle(req, {}),
-          UNEXPECTEDLY_CLOSED_REGEX,
-          "should be rejected promptly due to goaway frame"
-        );
-        expect(establishedConnections).toBe(3);
-        expect(numRequests).toBe(3);
+      const req = new HttpRequest({ ...getMockReqOptions(), port: port3 });
+      expect(establishedConnections).toBe(0);
+      expect(numRequests).toBe(0);
+      await assert.rejects(
+        nodeH2Handler.handle(req, {}),
+        UNEXPECTEDLY_CLOSED_REGEX,
+        "should be rejected promptly due to goaway frame"
+      );
+      expect(establishedConnections).toBe(1);
+      expect(numRequests).toBe(1);
+      await assert.rejects(
+        nodeH2Handler.handle(req, {}),
+        UNEXPECTEDLY_CLOSED_REGEX,
+        "should be rejected promptly due to goaway frame"
+      );
+      expect(establishedConnections).toBe(2);
+      expect(numRequests).toBe(2);
+      await assert.rejects(
+        nodeH2Handler.handle(req, {}),
+        UNEXPECTEDLY_CLOSED_REGEX,
+        "should be rejected promptly due to goaway frame"
+      );
+      expect(establishedConnections).toBe(3);
+      expect(numRequests).toBe(3);
 
-        // should be able to recover from goaway after reconnecting to a server
-        // that doesn't send goaway, and reuse the TCP connection (Http2Session)
-        shouldSendGoAway = false;
-        mockH2Server3.on("request", createResponseFunction(mockResponse));
-        await nodeH2Handler.handle(req, {});
-        const result = await nodeH2Handler.handle(req, {});
-        const resultReader = result.response.body;
+      // should be able to recover from goaway after reconnecting to a server
+      // that doesn't send goaway, and reuse the TCP connection (Http2Session)
+      shouldSendGoAway = false;
+      mockH2Server3.on("request", createResponseFunction(mockResponse));
+      await nodeH2Handler.handle(req, {});
+      const result = await nodeH2Handler.handle(req, {});
+      const resultReader = result.response.body;
 
-        // ...and validate that the mocked response is received
-        const responseBody = await new Promise((resolve) => {
-          const buffers = [];
-          resultReader.on("data", (chunk) => buffers.push(chunk));
-          resultReader.on("end", () => {
-            resolve(Buffer.concat(buffers).toString("utf8"));
-          });
+      // ...and validate that the mocked response is received
+      const responseBody = await new Promise((resolve) => {
+        const buffers = [];
+        resultReader.on("data", (chunk) => buffers.push(chunk));
+        resultReader.on("end", () => {
+          resolve(Buffer.concat(buffers).toString("utf8"));
         });
-        expect(responseBody).toBe("test");
-        expect(establishedConnections).toBe(4);
-        expect(numRequests).toBe(5);
-      } finally {
-        mockH2Server3.close();
-      }
+      });
+      expect(responseBody).toBe("test");
+      expect(establishedConnections).toBe(4);
+      expect(numRequests).toBe(5);
+      mockH2Server3.close();
     });
 
     it("handles connections destroyed by servers", async () => {
