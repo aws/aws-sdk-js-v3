@@ -106,7 +106,9 @@ export class NodeHttp2Handler implements HttpHandler {
       req.on("goaway", reject);
       req.on("aborted", reject);
 
-      // The HTTP/2 error code used when closing the stream can be retrieved using the http2stream.rstCode property. If the code is any value other than NGHTTP2_NO_ERROR (0), an 'error' event will have also been emitted.
+      // The HTTP/2 error code used when closing the stream can be retrieved using the
+      // http2stream.rstCode property. If the code is any value other than NGHTTP2_NO_ERROR (0),
+      // an 'error' event will have also been emitted.
       req.on("close", () => {
         if (!fulfilled) {
           reject(new Error("Unexpected error: http2 request did not get a response"));
