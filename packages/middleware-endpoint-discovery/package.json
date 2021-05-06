@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@aws-sdk/config-resolver": "3.14.0",
+    "@aws-sdk/endpoint-cache": "3.0.0",
     "@aws-sdk/middleware-signing": "3.13.1",
     "@aws-sdk/protocol-http": "3.13.1",
     "@aws-sdk/types": "3.13.1",

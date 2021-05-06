@@ -50,7 +50,7 @@ export const updateDiscoveredEndpointInCache = async (
       const { Endpoints } = await client?.send(command);
       endpointCache.set(cacheKey, Endpoints);
     } catch (error) {
-      endpointCache.del(cacheKey);
+      endpointCache.delete(cacheKey);
       if (options.isDiscoveredEndpointRequired) {
         throw error;
       }

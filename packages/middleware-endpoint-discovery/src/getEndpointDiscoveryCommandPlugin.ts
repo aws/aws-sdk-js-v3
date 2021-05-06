@@ -60,9 +60,9 @@ export const endpointDiscoveryMiddleware = (
   const { request } = args;
   const cacheKey = await getCacheKey(commandName, client?.config, { identifiers });
   if (cacheKey && HttpRequest.isInstance(request)) {
-    const endpoints = client?.config.endpointCache.get(cacheKey);
-    if (endpoints && endpoints.length > 0) {
-      request.hostname = endpoints[0].Address;
+    const endpoint = client?.config.endpointCache.getEndpoint(cacheKey);
+    if (endpoint) {
+      request.hostname = endpoint;
     }
   }
 
