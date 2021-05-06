@@ -110,4 +110,40 @@ describe(EndpointCache.name, () => {
       });
     });
   });
+
+  describe("set", () => {
+    let endpointCache;
+    const key = "key";
+
+    beforeEach(() => {
+      jest.spyOn(Date, "now").mockImplementation(() => now);
+      endpointCache = new EndpointCache(100);
+    });
+
+    it("converts CachePeriodInMinutes to Expires before caching", () => {
+      endpointCache.set(key, mockEndpoints);
+      expect(set).toHaveBeenCalledTimes(1);
+      expect(set).toHaveBeenCalledWith(
+        key,
+        mockEndpoints.map(({ Address, CachePeriodInMinutes }) => ({
+          Address,
+          Expires: now + CachePeriodInMinutes * 60 * 1000,
+        }))
+      );
+    });
+
+    it("sets Address to empty string if not passed", () => {
+      const mockEnpointsNoAddr = [{ CachePeriodInMinutes: 1 }];
+      endpointCache.set(key, mockEnpointsNoAddr);
+      expect(set).toHaveBeenCalledTimes(1);
+      expect(set).toHaveBeenCalledWith(key, [{ Address: "", Expires: now + 60 * 1000 }]);
+    });
+
+    it("sets Expires in one minute if CachePeriodInMinutes is not passed", () => {
+      const mockEnpointsNoAddr = [{ Address: "address" }];
+      endpointCache.set(key, mockEnpointsNoAddr);
+      expect(set).toHaveBeenCalledTimes(1);
+      expect(set).toHaveBeenCalledWith(key, [{ Address: "address", Expires: now + 60 * 1000 }]);
+    });
+  });
 });
