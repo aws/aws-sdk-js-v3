@@ -18,7 +18,6 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/jest": "^26.0.4",
-    "@types/lru-cache": "5.1.0",
     "jest": "^26.1.0",
     "typescript": "~4.2.4"
   },
@@ -27,7 +26,6 @@
     "@aws-sdk/middleware-signing": "3.13.1",
     "@aws-sdk/protocol-http": "3.13.1",
     "@aws-sdk/types": "3.13.1",
-    "lru-cache": "6.0.0",
     "tslib": "^2.0.0"
   },
   "engines": {
