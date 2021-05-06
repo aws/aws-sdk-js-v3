@@ -52,6 +52,10 @@ export class EndpointCache {
     this.cache.set(key, []);
   }
 
+  has(key: string) {
+    return this.cache.has(key);
+  }
+
   clear() {
     this.cache.clear();
   }
