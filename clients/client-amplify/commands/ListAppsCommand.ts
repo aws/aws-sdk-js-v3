@@ -23,7 +23,7 @@ export interface ListAppsCommandOutput extends ListAppsResult, __MetadataBearer 
 /**
  * <p> Returns a list of the existing Amplify apps. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmplifyClient, ListAppsCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, ListAppsCommand } = require("@aws-sdk/client-amplify"); // CommonJS import

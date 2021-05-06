@@ -23,7 +23,7 @@ export interface DeleteFunctionConcurrencyCommandOutput extends __MetadataBearer
 /**
  * <p>Removes a concurrent execution limit from a function.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LambdaClient, DeleteFunctionConcurrencyCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, DeleteFunctionConcurrencyCommand } = require("@aws-sdk/client-lambda"); // CommonJS import

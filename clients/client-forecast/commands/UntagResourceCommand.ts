@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>Deletes the specified tags from a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ForecastClient, UntagResourceCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, UntagResourceCommand } = require("@aws-sdk/client-forecast"); // CommonJS import

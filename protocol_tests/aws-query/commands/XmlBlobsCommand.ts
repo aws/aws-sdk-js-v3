@@ -20,7 +20,7 @@ export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer 
 /**
  * Blobs are base64 encoded
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QueryProtocolClient, XmlBlobsCommand } from "@aws-sdk/aws-query"; // ES Modules import
  * // const { QueryProtocolClient, XmlBlobsCommand } = require("@aws-sdk/aws-query"); // CommonJS import

@@ -23,7 +23,7 @@ export interface ResetAuthorizersCacheCommandOutput extends __MetadataBearer {}
 /**
  * <p>Resets all authorizer cache entries on a stage. Supported only for HTTP APIs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApiGatewayV2Client, ResetAuthorizersCacheCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, ResetAuthorizersCacheCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import

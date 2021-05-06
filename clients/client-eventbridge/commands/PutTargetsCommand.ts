@@ -170,7 +170,7 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *       happens, <code>FailedEntryCount</code> is non-zero in the response and each entry in
  *         <code>FailedEntries</code> provides the ID of the failed target and the error code.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EventBridgeClient, PutTargetsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, PutTargetsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import

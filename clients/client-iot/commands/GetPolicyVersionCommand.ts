@@ -23,7 +23,7 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
 /**
  * <p>Gets information about the specified policy version.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, GetPolicyVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetPolicyVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import

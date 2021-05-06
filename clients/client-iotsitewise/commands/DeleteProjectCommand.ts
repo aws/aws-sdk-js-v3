@@ -23,7 +23,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
 /**
  * <p>Deletes a project from AWS IoT SiteWise Monitor.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTSiteWiseClient, DeleteProjectCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DeleteProjectCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import

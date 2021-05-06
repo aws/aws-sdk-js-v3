@@ -29,7 +29,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *             example, if you tag a cluster with this operation, that tag does not automatically
  *             propagate to the subnets and nodes associated with the cluster.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EKSClient, TagResourceCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, TagResourceCommand } = require("@aws-sdk/client-eks"); // CommonJS import

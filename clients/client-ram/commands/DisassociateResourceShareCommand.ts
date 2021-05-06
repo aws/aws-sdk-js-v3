@@ -23,7 +23,7 @@ export interface DisassociateResourceShareCommandOutput extends DisassociateReso
 /**
  * <p>Disassociates the specified principals or resources from the specified resource share.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RAMClient, DisassociateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, DisassociateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import

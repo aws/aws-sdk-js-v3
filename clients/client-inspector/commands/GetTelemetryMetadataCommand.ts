@@ -24,7 +24,7 @@ export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataR
  * <p>Information about the data that is collected for the specified assessment
  *          run.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { InspectorClient, GetTelemetryMetadataCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, GetTelemetryMetadataCommand } = require("@aws-sdk/client-inspector"); // CommonJS import

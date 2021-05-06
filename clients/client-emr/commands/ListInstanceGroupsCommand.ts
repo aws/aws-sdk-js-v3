@@ -23,7 +23,7 @@ export interface ListInstanceGroupsCommandOutput extends ListInstanceGroupsOutpu
 /**
  * <p>Provides all available details about the instance groups in a cluster.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, ListInstanceGroupsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListInstanceGroupsCommand } = require("@aws-sdk/client-emr"); // CommonJS import

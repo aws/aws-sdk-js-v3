@@ -25,7 +25,7 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  *             including the identity's verification status, its DKIM authentication status, and its
  *             custom Mail-From settings.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointEmailClient, GetEmailIdentityCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, GetEmailIdentityCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import

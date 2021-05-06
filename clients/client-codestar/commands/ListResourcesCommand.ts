@@ -23,7 +23,7 @@ export interface ListResourcesCommandOutput extends ListResourcesResult, __Metad
 /**
  * <p>Lists resources associated with a project in AWS CodeStar.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeStarClient, ListResourcesCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, ListResourcesCommand } = require("@aws-sdk/client-codestar"); // CommonJS import

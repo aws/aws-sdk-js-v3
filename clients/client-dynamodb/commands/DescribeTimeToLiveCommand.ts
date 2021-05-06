@@ -23,7 +23,7 @@ export interface DescribeTimeToLiveCommandOutput extends DescribeTimeToLiveOutpu
 /**
  * <p>Gives a description of the Time to Live (TTL) status on the specified table. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DynamoDBClient, DescribeTimeToLiveCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeTimeToLiveCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import

@@ -24,7 +24,7 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResult, __M
  * <p>Retrieves a list that describes the configuration of Bring Your Own License (BYOL) for
  *          the specified account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkSpacesClient, DescribeAccountCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeAccountCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import

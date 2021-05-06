@@ -29,7 +29,7 @@ export interface UpdateInfrastructureConfigurationCommandOutput
  * <p> Updates a new infrastructure configuration. An infrastructure configuration defines the
  *       environment in which your image will be built and tested.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, UpdateInfrastructureConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, UpdateInfrastructureConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import

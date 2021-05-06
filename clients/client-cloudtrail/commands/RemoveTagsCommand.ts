@@ -23,7 +23,7 @@ export interface RemoveTagsCommandOutput extends RemoveTagsResponse, __MetadataB
 /**
  * <p>Removes the specified tags from a trail.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudTrailClient, RemoveTagsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, RemoveTagsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import

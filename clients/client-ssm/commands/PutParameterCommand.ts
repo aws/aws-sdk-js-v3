@@ -23,7 +23,7 @@ export interface PutParameterCommandOutput extends PutParameterResult, __Metadat
 /**
  * <p>Add a parameter to the system.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, PutParameterCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, PutParameterCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

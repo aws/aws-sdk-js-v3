@@ -31,7 +31,7 @@ export interface StartReplayCommandOutput extends StartReplayResponse, __Metadat
  *       indicates the time within the specified time range associated with the last event
  *       replayed.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EventBridgeClient, StartReplayCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, StartReplayCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import

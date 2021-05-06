@@ -23,7 +23,7 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
 /**
  * <p>Stops the specified experiment.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FisClient, StopExperimentCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, StopExperimentCommand } = require("@aws-sdk/client-fis"); // CommonJS import

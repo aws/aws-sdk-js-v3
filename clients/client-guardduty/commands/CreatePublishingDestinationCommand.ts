@@ -26,7 +26,7 @@ export interface CreatePublishingDestinationCommandOutput
  * <p>Creates a publishing destination to export findings to. The resource to export findings to
  *       must exist before you use this operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, CreatePublishingDestinationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreatePublishingDestinationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import

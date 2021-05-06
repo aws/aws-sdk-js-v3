@@ -23,7 +23,7 @@ export interface ExpireSessionCommandOutput extends ExpireSessionResult, __Metad
 /**
  * <p>Immediately stops the specified streaming session.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppStreamClient, ExpireSessionCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, ExpireSessionCommand } = require("@aws-sdk/client-appstream"); // CommonJS import

@@ -23,7 +23,7 @@ export interface ListCustomDataIdentifiersCommandOutput extends ListCustomDataId
 /**
  * <p>Retrieves a subset of information about all the custom data identifiers for an account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Macie2Client, ListCustomDataIdentifiersCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListCustomDataIdentifiersCommand } = require("@aws-sdk/client-macie2"); // CommonJS import

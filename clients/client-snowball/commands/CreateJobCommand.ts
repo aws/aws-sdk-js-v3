@@ -24,7 +24,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *       the <code>clusterId</code> value; the other job attributes are inherited from the cluster.
  *     </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SnowballClient, CreateJobCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, CreateJobCommand } = require("@aws-sdk/client-snowball"); // CommonJS import

@@ -28,7 +28,7 @@ export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateRespons
  * <p>Using a Boolean value (true or false), this operation
  *  enables or disables the device given a device ID.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoT1ClickDevicesServiceClient, UpdateDeviceStateCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, UpdateDeviceStateCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import

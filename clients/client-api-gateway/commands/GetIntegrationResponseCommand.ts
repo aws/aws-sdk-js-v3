@@ -23,7 +23,7 @@ export interface GetIntegrationResponseCommandOutput extends IntegrationResponse
 /**
  * <p>Represents a get integration response.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, GetIntegrationResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetIntegrationResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Untags the specified tags from the specified Amazon Chime SDK meeting resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, UntagResourceCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UntagResourceCommand } = require("@aws-sdk/client-chime"); // CommonJS import

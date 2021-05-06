@@ -26,7 +26,7 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * output is empty. While this should be rare, code generators must support
  * this.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestXmlProtocolClient, NoInputAndOutputCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, NoInputAndOutputCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import

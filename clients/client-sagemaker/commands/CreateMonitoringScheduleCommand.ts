@@ -24,7 +24,7 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
  * <p>Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to monitor the data
  *          captured for an Amazon SageMaker Endoint.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, CreateMonitoringScheduleCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateMonitoringScheduleCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

@@ -28,7 +28,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *           Tags</a>.</p>
  *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SFNClient, TagResourceCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, TagResourceCommand } = require("@aws-sdk/client-sfn"); // CommonJS import

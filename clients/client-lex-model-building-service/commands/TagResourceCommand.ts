@@ -28,7 +28,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>Adds the specified tags to the specified resource. If a tag key
  *       already exists, the existing value is replaced with the new value.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LexModelBuildingServiceClient, TagResourceCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, TagResourceCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import

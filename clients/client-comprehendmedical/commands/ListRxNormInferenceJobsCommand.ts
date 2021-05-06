@@ -27,7 +27,7 @@ export interface ListRxNormInferenceJobsCommandOutput extends ListRxNormInferenc
 /**
  * <p>Gets a list of InferRxNorm jobs that you have submitted.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendMedicalClient, ListRxNormInferenceJobsCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, ListRxNormInferenceJobsCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import

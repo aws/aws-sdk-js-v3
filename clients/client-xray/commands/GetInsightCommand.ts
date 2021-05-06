@@ -25,7 +25,7 @@ export interface GetInsightCommandOutput extends GetInsightResult, __MetadataBea
  *          root cause services, the top anomalous services, the category, the state of the insight,
  *          and the start and end time of the insight.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { XRayClient, GetInsightCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetInsightCommand } = require("@aws-sdk/client-xray"); // CommonJS import

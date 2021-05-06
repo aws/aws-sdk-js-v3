@@ -26,7 +26,7 @@ export interface DisableImportFindingsForProductCommandOutput
  * <p>Disables the integration of the specified product with Security Hub. After the integration is
  *          disabled, findings from that product are no longer sent to Security Hub.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, DisableImportFindingsForProductCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DisableImportFindingsForProductCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

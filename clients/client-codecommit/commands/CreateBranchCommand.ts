@@ -26,7 +26,7 @@ export interface CreateBranchCommandOutput extends __MetadataBearer {}
  *             <p>Calling the create branch operation does not set a repository's default branch. To do this, call the update default branch operation.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeCommitClient, CreateBranchCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, CreateBranchCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import

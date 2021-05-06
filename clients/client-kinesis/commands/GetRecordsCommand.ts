@@ -69,7 +69,7 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  *             that are out of order.</p>
  *         <p>This operation has a limit of five transactions per second per shard.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisClient, GetRecordsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, GetRecordsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import

@@ -27,7 +27,7 @@ export interface ListMLTransformsCommandOutput extends ListMLTransformsResponse,
  *        filtering, only resources with the tags are retrieved.
  *      </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, ListMLTransformsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListMLTransformsCommand } = require("@aws-sdk/client-glue"); // CommonJS import

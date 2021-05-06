@@ -23,7 +23,7 @@ export interface DeleteCommentContentCommandOutput extends DeleteCommentContentO
 /**
  * <p>Deletes the content of a comment made on a change, file, or commit in a repository.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeCommitClient, DeleteCommentContentCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DeleteCommentContentCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import

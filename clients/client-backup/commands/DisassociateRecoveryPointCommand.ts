@@ -27,7 +27,7 @@ export interface DisassociateRecoveryPointCommandOutput extends __MetadataBearer
  *          specified in your original backup plan.</p>
  *          <p>Does not support snapshot backup recovery points.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, DisassociateRecoveryPointCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DisassociateRecoveryPointCommand } = require("@aws-sdk/client-backup"); // CommonJS import

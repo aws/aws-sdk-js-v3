@@ -21,7 +21,7 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  * <p>Creates a stack as specified in the template. After the call completes successfully,
  *          the stack creation starts. You can check the status of the stack via the <a>DescribeStacks</a> API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFormationClient, CreateStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, CreateStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import

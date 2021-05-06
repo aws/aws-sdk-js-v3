@@ -32,7 +32,7 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  *       information about them such as entity category, location, and confidence score on that
  *       information .</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendMedicalClient, DetectEntitiesCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DetectEntitiesCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import

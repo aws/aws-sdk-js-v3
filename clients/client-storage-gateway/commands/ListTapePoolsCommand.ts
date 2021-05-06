@@ -31,7 +31,7 @@ export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __Metad
  *             <code>Marker</code> element that you can use in your subsequent request to retrieve the
  *          next set of tape pools.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, ListTapePoolsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListTapePoolsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

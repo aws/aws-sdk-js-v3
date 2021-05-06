@@ -30,7 +30,7 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:UpdateDatasetEntries</code> operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LookoutVisionClient, UpdateDatasetEntriesCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, UpdateDatasetEntriesCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import

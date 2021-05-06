@@ -26,7 +26,7 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  *       database snapshot, or DB parameter group can be obtained by providing the name as a parameter.
  *       By default, the past hour of events are returned.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, DescribeEventsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeEventsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

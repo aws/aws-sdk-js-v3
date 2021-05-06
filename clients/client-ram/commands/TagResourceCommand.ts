@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * <p>Adds the specified tags to the specified resource share that you own.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RAMClient, TagResourceCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, TagResourceCommand } = require("@aws-sdk/client-ram"); // CommonJS import

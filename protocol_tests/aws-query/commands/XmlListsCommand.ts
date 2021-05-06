@@ -29,7 +29,7 @@ export interface XmlListsCommandOutput extends XmlListsOutput, __MetadataBearer 
  * 6. Flattened XML lists with @xmlName.
  * 7. Lists of structures.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QueryProtocolClient, XmlListsCommand } from "@aws-sdk/aws-query"; // ES Modules import
  * // const { QueryProtocolClient, XmlListsCommand } = require("@aws-sdk/aws-query"); // CommonJS import

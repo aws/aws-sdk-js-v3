@@ -25,7 +25,7 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  *       will be used to fetch short-term credentials for the assigned roles in the AWS
  *       account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSOOIDCClient, CreateTokenCommand } from "@aws-sdk/client-sso-oidc"; // ES Modules import
  * // const { SSOOIDCClient, CreateTokenCommand } = require("@aws-sdk/client-sso-oidc"); // CommonJS import

@@ -26,7 +26,7 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  *             snapshot or parameter group can be obtained by providing the name as a parameter. By
  *             default, the past hour of events are returned.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RedshiftClient, DescribeEventsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeEventsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import

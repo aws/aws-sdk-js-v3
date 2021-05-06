@@ -29,7 +29,7 @@ export interface PutWebhookCommandOutput extends PutWebhookOutput, __MetadataBea
  *             and DeregisterWebhookWithThirdParty APIs can be used to automatically configure
  *             supported third parties to call the generated webhook URL.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodePipelineClient, PutWebhookCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PutWebhookCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import

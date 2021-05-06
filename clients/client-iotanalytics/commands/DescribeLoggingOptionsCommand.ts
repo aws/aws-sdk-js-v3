@@ -23,7 +23,7 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
 /**
  * <p>Retrieves the current settings of the AWS IoT Analytics logging options.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTAnalyticsClient, DescribeLoggingOptionsCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, DescribeLoggingOptionsCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import

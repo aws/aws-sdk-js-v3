@@ -23,7 +23,7 @@ export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyP
 /**
  * <p>Downloads the default SSH key pair from the user's account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, DownloadDefaultKeyPairCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DownloadDefaultKeyPairCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

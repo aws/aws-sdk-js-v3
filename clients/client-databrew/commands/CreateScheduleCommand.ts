@@ -24,7 +24,7 @@ export interface CreateScheduleCommandOutput extends CreateScheduleResponse, __M
  * <p>Creates a new schedule for one or more DataBrew jobs. Jobs can be run at a specific
  *             date and time, or at regular intervals.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, CreateScheduleCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, CreateScheduleCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

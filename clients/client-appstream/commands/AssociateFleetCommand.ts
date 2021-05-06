@@ -23,7 +23,7 @@ export interface AssociateFleetCommandOutput extends AssociateFleetResult, __Met
 /**
  * <p>Associates the specified fleet with the specified stack.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppStreamClient, AssociateFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, AssociateFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import

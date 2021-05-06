@@ -25,7 +25,7 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  *       get more tags. When you receive a response with no <code>NextToken</code> (or an empty or null
  *       value), that means there are no more tags to get.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudHSMV2Client, ListTagsCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, ListTagsCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import

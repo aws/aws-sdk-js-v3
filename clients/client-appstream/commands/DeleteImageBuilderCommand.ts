@@ -23,7 +23,7 @@ export interface DeleteImageBuilderCommandOutput extends DeleteImageBuilderResul
 /**
  * <p>Deletes the specified image builder and releases the capacity.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppStreamClient, DeleteImageBuilderCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteImageBuilderCommand } = require("@aws-sdk/client-appstream"); // CommonJS import

@@ -40,7 +40,7 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  *             will be notified of events generated from all Amazon Redshift sources belonging to your AWS
  *             account. You must specify a source type if you specify a source ID.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RedshiftClient, CreateEventSubscriptionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateEventSubscriptionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import

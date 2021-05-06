@@ -29,7 +29,7 @@ export interface RegisterToWorkMailCommandOutput extends RegisterToWorkMailRespo
  *          <p>Users can either be created by calling the <a>CreateUser</a> API operation
  *          or they can be synchronized from your directory. For more information, see <a>DeregisterFromWorkMail</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkMailClient, RegisterToWorkMailCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, RegisterToWorkMailCommand } = require("@aws-sdk/client-workmail"); // CommonJS import

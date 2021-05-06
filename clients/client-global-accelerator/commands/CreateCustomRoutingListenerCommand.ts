@@ -30,7 +30,7 @@ export interface CreateCustomRoutingListenerCommandOutput
  * <p>Create a listener to process inbound connections from clients to a custom routing accelerator.
  * 			Connections arrive to assigned static IP addresses on the port range that you specify. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlobalAcceleratorClient, CreateCustomRoutingListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, CreateCustomRoutingListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import

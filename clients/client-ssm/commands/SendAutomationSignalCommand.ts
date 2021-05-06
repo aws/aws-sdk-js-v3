@@ -24,7 +24,7 @@ export interface SendAutomationSignalCommandOutput extends SendAutomationSignalR
  * <p>Sends a signal to an Automation execution to change the current behavior or status of the
  *    execution. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, SendAutomationSignalCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, SendAutomationSignalCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

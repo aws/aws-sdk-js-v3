@@ -23,7 +23,7 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
 /**
  * <p>Returns a list of all products that match the filter criteria.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PricingClient, GetProductsCommand } from "@aws-sdk/client-pricing"; // ES Modules import
  * // const { PricingClient, GetProductsCommand } = require("@aws-sdk/client-pricing"); // CommonJS import

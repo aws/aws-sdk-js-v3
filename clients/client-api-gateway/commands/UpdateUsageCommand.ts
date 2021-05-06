@@ -23,7 +23,7 @@ export interface UpdateUsageCommandOutput extends Usage, __MetadataBearer {}
 /**
  * <p>Grants a temporary extension to the remaining quota of a usage plan associated with a specified API key.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, UpdateUsageCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateUsageCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

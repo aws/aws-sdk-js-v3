@@ -23,7 +23,7 @@ export interface UpdateChannelCommandOutput extends __MetadataBearer {}
 /**
  * <p>Updates the settings of a channel.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTAnalyticsClient, UpdateChannelCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, UpdateChannelCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import

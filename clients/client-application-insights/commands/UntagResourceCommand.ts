@@ -27,7 +27,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>Remove one or more tags (keys and values) from a specified application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApplicationInsightsClient, UntagResourceCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, UntagResourceCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import

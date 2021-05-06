@@ -24,7 +24,7 @@ export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOut
  * <p>Disables the specified Contributor Insights rules. When rules are disabled, they do not analyze log groups and do
  * 		not incur costs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchClient, DisableInsightRulesCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DisableInsightRulesCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import

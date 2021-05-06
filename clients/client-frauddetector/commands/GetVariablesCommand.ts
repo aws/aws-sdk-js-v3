@@ -28,7 +28,7 @@ export interface GetVariablesCommandOutput extends GetVariablesResult, __Metadat
  *         <code>GetVariablesResult</code> as part of your request. Null pagination token
  *          fetches the records from the beginning. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FraudDetectorClient, GetVariablesCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetVariablesCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import

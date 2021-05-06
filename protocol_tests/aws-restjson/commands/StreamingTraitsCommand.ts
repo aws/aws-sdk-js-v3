@@ -35,7 +35,7 @@ export interface StreamingTraitsCommandOutput extends StreamingTraitsInputOutput
  * In this example, no JSON document is synthesized because the payload is
  * not a structure or a union type.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestJsonProtocolClient, StreamingTraitsCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, StreamingTraitsCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import

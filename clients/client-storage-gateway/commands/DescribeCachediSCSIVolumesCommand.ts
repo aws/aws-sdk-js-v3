@@ -28,7 +28,7 @@ export interface DescribeCachediSCSIVolumesCommandOutput extends DescribeCachedi
  *          AWS Storage Gateway returns volume information sorted by volume Amazon Resource Name
  *          (ARN).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, DescribeCachediSCSIVolumesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeCachediSCSIVolumesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

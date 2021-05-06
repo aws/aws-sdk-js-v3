@@ -28,7 +28,7 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  *          your changes. Subsequent <a>CreateStackInstances</a> calls on the specified
  *          stack set use the updated stack set.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFormationClient, UpdateStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, UpdateStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import

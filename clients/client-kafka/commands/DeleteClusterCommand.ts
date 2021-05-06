@@ -23,7 +23,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
 /**
  * <p>Deletes the MSK cluster specified by the Amazon Resource Name (ARN) in the request.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KafkaClient, DeleteClusterCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, DeleteClusterCommand } = require("@aws-sdk/client-kafka"); // CommonJS import

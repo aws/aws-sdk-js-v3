@@ -24,7 +24,7 @@ export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
  * <p>Cancels the specified export task.</p>
  *          <p>The task must be in the <code>PENDING</code> or <code>RUNNING</code> state.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchLogsClient, CancelExportTaskCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, CancelExportTaskCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import

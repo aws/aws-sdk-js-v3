@@ -23,7 +23,7 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
 /**
  * <p>Deletes a fleet.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RoboMakerClient, DeleteFleetCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, DeleteFleetCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import

@@ -23,7 +23,7 @@ export interface DescribeDocumentCommandOutput extends DescribeDocumentResult, _
 /**
  * <p>Describes the specified Systems Manager document.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, DescribeDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

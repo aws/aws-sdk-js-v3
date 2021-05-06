@@ -27,7 +27,7 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  *         subsequent cancellation requests will return a <code>CancellationMessage</code>, indicating that the query has already been canceled.
  *     </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TimestreamQueryClient, CancelQueryCommand } from "@aws-sdk/client-timestream-query"; // ES Modules import
  * // const { TimestreamQueryClient, CancelQueryCommand } = require("@aws-sdk/client-timestream-query"); // CommonJS import

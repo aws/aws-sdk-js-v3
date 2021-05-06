@@ -29,7 +29,7 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
 /**
  * <p>Associates phone numbers with the specified Amazon Chime Voice Connector group.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, AssociatePhoneNumbersWithVoiceConnectorGroupCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, AssociatePhoneNumbersWithVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime"); // CommonJS import

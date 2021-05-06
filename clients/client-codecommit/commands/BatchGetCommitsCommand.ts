@@ -23,7 +23,7 @@ export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __M
 /**
  * <p>Returns information about the contents of one or more commits in a repository.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeCommitClient, BatchGetCommitsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, BatchGetCommitsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import

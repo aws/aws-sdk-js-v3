@@ -23,7 +23,7 @@ export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult,
 /**
  * <p>Systems Manager calls this API action when you edit OpsMetadata in Application Manager.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, UpdateOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, UpdateOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

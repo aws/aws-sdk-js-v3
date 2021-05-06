@@ -24,7 +24,7 @@ export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkRes
  * <p>Deletes an existing global network. You must first delete all global network objects
  *             (devices, links, and sites) and deregister all transit gateways.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NetworkManagerClient, DeleteGlobalNetworkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteGlobalNetworkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import

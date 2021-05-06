@@ -48,7 +48,7 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  *          <p>This operation requires permissions to perform the
  *          <code>rekognition:DetectCustomLabels</code> action. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, DetectCustomLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectCustomLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import

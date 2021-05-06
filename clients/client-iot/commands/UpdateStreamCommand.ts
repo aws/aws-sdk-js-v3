@@ -23,7 +23,7 @@ export interface UpdateStreamCommandOutput extends UpdateStreamResponse, __Metad
 /**
  * <p>Updates an existing stream. The stream version will be incremented by one.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, UpdateStreamCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, UpdateStreamCommand } = require("@aws-sdk/client-iot"); // CommonJS import

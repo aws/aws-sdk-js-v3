@@ -23,7 +23,7 @@ export interface GetPullRequestCommandOutput extends GetPullRequestOutput, __Met
 /**
  * <p>Gets information about a pull request in a specified repository.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeCommitClient, GetPullRequestCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetPullRequestCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import

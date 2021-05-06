@@ -28,7 +28,7 @@ export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthe
  *       Once the synthesis task is created, this operation will return a SpeechSynthesisTask object,
  *       which will include an identifier of this task as well as the current status.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PollyClient, StartSpeechSynthesisTaskCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, StartSpeechSynthesisTaskCommand } = require("@aws-sdk/client-polly"); // CommonJS import

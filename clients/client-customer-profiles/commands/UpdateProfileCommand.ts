@@ -27,7 +27,7 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  *          existing value will be removed. Not specifying a string value means that any value already
  *          there will be kept.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CustomerProfilesClient, UpdateProfileCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, UpdateProfileCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import

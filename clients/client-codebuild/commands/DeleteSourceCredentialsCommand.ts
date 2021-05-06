@@ -23,7 +23,7 @@ export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCreden
 /**
  * <p> Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeBuildClient, DeleteSourceCredentialsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DeleteSourceCredentialsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import

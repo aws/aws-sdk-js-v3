@@ -25,7 +25,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * Tags the specified resource in AWS Audit Manager.
  * </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AuditManagerClient, TagResourceCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, TagResourceCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import

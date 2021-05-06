@@ -23,7 +23,7 @@ export interface GetApnsVoipChannelCommandOutput extends GetApnsVoipChannelRespo
 /**
  * <p>Retrieves information about the status and settings of the APNs VoIP channel for an application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetApnsVoipChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetApnsVoipChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

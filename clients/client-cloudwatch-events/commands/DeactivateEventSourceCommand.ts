@@ -27,7 +27,7 @@ export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
  *       remains in PENDING state for more than two weeks, it is deleted.</p>
  *          <p>To activate a deactivated partner event source, use <a>ActivateEventSource</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchEventsClient, DeactivateEventSourceCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DeactivateEventSourceCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import

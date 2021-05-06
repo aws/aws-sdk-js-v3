@@ -25,7 +25,7 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
  *          returns a proof of the specified revision for verification if <code>DigestTipAddress</code>
  *          is provided.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QLDBClient, GetRevisionCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, GetRevisionCommand } = require("@aws-sdk/client-qldb"); // CommonJS import

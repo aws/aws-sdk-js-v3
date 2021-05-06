@@ -27,7 +27,7 @@ export interface DisassociateServiceQuotaTemplateCommandOutput
  *       requests in the template are not applied to new accounts in your organization. Disabling a
  *       quota request template does not apply its quota increase requests.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceQuotasClient, DisassociateServiceQuotaTemplateCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, DisassociateServiceQuotaTemplateCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import

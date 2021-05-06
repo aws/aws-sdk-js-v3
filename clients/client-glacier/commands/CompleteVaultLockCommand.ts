@@ -36,7 +36,7 @@ export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
  *             <code>InProgress</code> state, the operation throws an <code>InvalidParameter</code>
  *          error.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlacierClient, CompleteVaultLockCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, CompleteVaultLockCommand } = require("@aws-sdk/client-glacier"); // CommonJS import

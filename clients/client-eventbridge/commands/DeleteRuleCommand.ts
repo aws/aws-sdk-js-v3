@@ -32,7 +32,7 @@ export interface DeleteRuleCommandOutput extends __MetadataBearer {}
  *       can delete these rules using the <code>Force</code> option, but you should do so only if you
  *       are sure the other service is not still using that rule.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EventBridgeClient, DeleteRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DeleteRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import

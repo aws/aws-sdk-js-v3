@@ -23,7 +23,7 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
 /**
  * <p>Updates a job queue.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BatchClient, UpdateJobQueueCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, UpdateJobQueueCommand } = require("@aws-sdk/client-batch"); // CommonJS import

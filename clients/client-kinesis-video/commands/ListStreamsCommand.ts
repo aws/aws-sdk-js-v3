@@ -25,7 +25,7 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  *             stream. To retrieve only streams that satisfy a specific condition, you can specify a
  *                 <code>StreamNameCondition</code>. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisVideoClient, ListStreamsCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, ListStreamsCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import

@@ -23,7 +23,7 @@ export interface DescribeIpv6PoolsCommandOutput extends DescribeIpv6PoolsResult,
 /**
  * <p>Describes your IPv6 address pools.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DescribeIpv6PoolsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeIpv6PoolsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

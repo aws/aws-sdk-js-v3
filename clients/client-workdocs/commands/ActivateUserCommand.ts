@@ -24,7 +24,7 @@ export interface ActivateUserCommandOutput extends ActivateUserResponse, __Metad
  * <p>Activates the specified user. Only active users can access Amazon
  *             WorkDocs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkDocsClient, ActivateUserCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, ActivateUserCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import

@@ -24,7 +24,7 @@ export interface DescribeQuickConnectCommandOutput extends DescribeQuickConnectR
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Describes the quick connect.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, DescribeQuickConnectCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeQuickConnectCommand } = require("@aws-sdk/client-connect"); // CommonJS import

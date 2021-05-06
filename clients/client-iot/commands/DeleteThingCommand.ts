@@ -24,7 +24,7 @@ export interface DeleteThingCommandOutput extends DeleteThingResponse, __Metadat
  * <p>Deletes the specified thing. Returns successfully with no error if the deletion is
  * 			successful or you specify a thing that doesn't exist.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, DeleteThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import

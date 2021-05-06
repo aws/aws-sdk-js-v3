@@ -46,7 +46,7 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  *             </li>
  *          </ol>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFClient, DeleteIPSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, DeleteIPSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import

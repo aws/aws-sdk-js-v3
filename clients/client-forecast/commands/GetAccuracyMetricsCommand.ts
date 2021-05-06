@@ -42,7 +42,7 @@ export interface GetAccuracyMetricsCommandOutput extends GetAccuracyMetricsRespo
  *         To get the status, use the <a>DescribePredictor</a> operation.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ForecastClient, GetAccuracyMetricsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, GetAccuracyMetricsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import

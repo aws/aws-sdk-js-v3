@@ -23,7 +23,7 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
 /**
  * <p>Lists summary information about the instances that you registered by using a specified service.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceDiscoveryClient, ListInstancesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, ListInstancesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import

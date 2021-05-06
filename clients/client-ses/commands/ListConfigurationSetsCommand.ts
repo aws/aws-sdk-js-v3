@@ -32,7 +32,7 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  *                 <code>NextToken</code> parameter and the value of the NextToken element to retrieve
  *             additional results.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESClient, ListConfigurationSetsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, ListConfigurationSetsCommand } = require("@aws-sdk/client-ses"); // CommonJS import

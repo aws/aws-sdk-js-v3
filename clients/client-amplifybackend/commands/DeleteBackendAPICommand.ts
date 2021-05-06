@@ -23,7 +23,7 @@ export interface DeleteBackendAPICommandOutput extends DeleteBackendAPIResponse,
 /**
  * <p>Deletes an existing backend API resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmplifyBackendClient, DeleteBackendAPICommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, DeleteBackendAPICommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import

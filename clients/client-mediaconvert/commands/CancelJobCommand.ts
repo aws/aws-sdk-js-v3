@@ -23,7 +23,7 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
 /**
  * Permanently cancel a job. Once you have canceled a job, you can't start it again.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaConvertClient, CancelJobCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, CancelJobCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import

@@ -24,7 +24,7 @@ export interface DescribeAssessmentRunsCommandOutput extends DescribeAssessmentR
  * <p>Describes the assessment runs that are specified by the ARNs of the assessment
  *          runs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { InspectorClient, DescribeAssessmentRunsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeAssessmentRunsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import

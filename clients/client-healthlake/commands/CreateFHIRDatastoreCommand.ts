@@ -23,7 +23,7 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
 /**
  * <p>Creates a Data Store that can ingest and export FHIR formatted data.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { HealthLakeClient, CreateFHIRDatastoreCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, CreateFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import

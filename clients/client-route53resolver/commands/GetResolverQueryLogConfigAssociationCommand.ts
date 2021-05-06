@@ -29,7 +29,7 @@ export interface GetResolverQueryLogConfigAssociationCommandOutput
  * <p>Gets information about a specified association between a Resolver query logging configuration and an Amazon VPC. When you associate a VPC
  * 			with a query logging configuration, Resolver logs DNS queries that originate in that VPC.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53ResolverClient, GetResolverQueryLogConfigAssociationCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetResolverQueryLogConfigAssociationCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import

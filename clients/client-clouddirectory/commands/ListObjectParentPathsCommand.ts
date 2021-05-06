@@ -30,7 +30,7 @@ export interface ListObjectParentPathsCommandOutput extends ListObjectParentPath
  *       objects are deleted or moved. Paths not leading to the directory root are ignored from the
  *       target object.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudDirectoryClient, ListObjectParentPathsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListObjectParentPathsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import

@@ -30,7 +30,7 @@ export interface GetCelebrityInfoCommandOutput extends GetCelebrityInfoResponse,
  *          <p>This operation requires permissions to perform the
  *         <code>rekognition:GetCelebrityInfo</code> action. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, GetCelebrityInfoCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, GetCelebrityInfoCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import

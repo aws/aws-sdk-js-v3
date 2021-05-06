@@ -23,7 +23,7 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
 /**
  * <p>Deletes the specified DataBrew job.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, DeleteJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DeleteJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

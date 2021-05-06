@@ -23,7 +23,7 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
 /**
  * <p>Deletes the specified DataBrew schedule.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, DeleteScheduleCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DeleteScheduleCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

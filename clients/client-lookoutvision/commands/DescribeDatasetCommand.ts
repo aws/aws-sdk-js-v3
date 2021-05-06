@@ -25,7 +25,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:DescribeDataset</code> operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LookoutVisionClient, DescribeDatasetCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, DescribeDatasetCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import

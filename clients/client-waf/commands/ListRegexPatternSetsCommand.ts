@@ -31,7 +31,7 @@ export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsR
  *          </note>
  *          <p>Returns an array of <a>RegexPatternSetSummary</a> objects.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFClient, ListRegexPatternSetsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListRegexPatternSetsCommand } = require("@aws-sdk/client-waf"); // CommonJS import

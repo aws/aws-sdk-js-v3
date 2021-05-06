@@ -23,7 +23,7 @@ export interface DescribeStreamCommandOutput extends DescribeStreamResponse, __M
 /**
  * <p>Gets information about a stream.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, DescribeStreamCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeStreamCommand } = require("@aws-sdk/client-iot"); // CommonJS import

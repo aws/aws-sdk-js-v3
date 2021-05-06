@@ -23,7 +23,7 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
 /**
  * <p>Returns a list of all the domains for an AWS account that have been created.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CustomerProfilesClient, ListDomainsCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListDomainsCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import

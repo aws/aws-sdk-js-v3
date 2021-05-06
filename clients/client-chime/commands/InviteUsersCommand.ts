@@ -25,7 +25,7 @@ export interface InviteUsersCommandOutput extends InviteUsersResponse, __Metadat
  *                 <code>Team</code> account. Only <code>Team</code> account types are currently
  *             supported for this action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, InviteUsersCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, InviteUsersCommand } = require("@aws-sdk/client-chime"); // CommonJS import

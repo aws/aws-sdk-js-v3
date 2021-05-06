@@ -25,7 +25,7 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  *             by account name prefix. To find out which Amazon Chime account a user belongs to, toucan
  *             filter by the user's email address, which returns one account result.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, ListAccountsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListAccountsCommand } = require("@aws-sdk/client-chime"); // CommonJS import

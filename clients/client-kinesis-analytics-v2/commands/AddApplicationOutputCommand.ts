@@ -39,7 +39,7 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  *       operation, results in a new version of the application. You can use the <a>DescribeApplication</a> operation to find the current application
  *       version.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisAnalyticsV2Client, AddApplicationOutputCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, AddApplicationOutputCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import

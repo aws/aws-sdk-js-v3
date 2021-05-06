@@ -25,7 +25,7 @@ export interface RejectSkillCommandOutput extends RejectSkillResponse, __Metadat
  *          is a private skill, it moves to an AcceptStatus of PENDING. Any private or public skill
  *          that is rejected can be added later by calling the ApproveSkill API. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AlexaForBusinessClient, RejectSkillCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, RejectSkillCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import

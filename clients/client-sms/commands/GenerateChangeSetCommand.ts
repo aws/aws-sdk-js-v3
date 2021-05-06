@@ -24,7 +24,7 @@ export interface GenerateChangeSetCommandOutput extends GenerateChangeSetRespons
  * <p>Generates a target change set for a currently launched stack and writes it to an Amazon S3
  *             object in the customer’s Amazon S3 bucket.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SMSClient, GenerateChangeSetCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GenerateChangeSetCommand } = require("@aws-sdk/client-sms"); // CommonJS import

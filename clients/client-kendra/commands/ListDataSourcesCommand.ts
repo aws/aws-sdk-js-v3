@@ -23,7 +23,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
 /**
  * <p>Lists the data sources that you have created.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, ListDataSourcesCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, ListDataSourcesCommand } = require("@aws-sdk/client-kendra"); // CommonJS import

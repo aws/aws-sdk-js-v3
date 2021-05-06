@@ -23,7 +23,7 @@ export interface ProvideAnomalyFeedbackCommandOutput extends ProvideAnomalyFeedb
 /**
  * <p>Modifies the feedback property of a given cost anomaly. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CostExplorerClient, ProvideAnomalyFeedbackCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, ProvideAnomalyFeedbackCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import

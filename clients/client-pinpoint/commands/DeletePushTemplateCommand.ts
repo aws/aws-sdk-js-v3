@@ -23,7 +23,7 @@ export interface DeletePushTemplateCommandOutput extends DeletePushTemplateRespo
 /**
  * <p>Deletes a message template for messages that were sent through a push notification channel.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, DeletePushTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeletePushTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

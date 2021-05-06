@@ -28,7 +28,7 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  *             are completed or abandoned, the pipeline execution is in a <code>Stopped</code>
  *             state.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodePipelineClient, StopPipelineExecutionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, StopPipelineExecutionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import

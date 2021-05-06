@@ -26,7 +26,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  *          <p>This operation requires permissions to perform the
  *          <code>rekognition:DeleteProject</code> action. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, DeleteProjectCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DeleteProjectCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import

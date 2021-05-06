@@ -26,7 +26,7 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
  *             <p>To add a role to a DB instance, the status of the DB instance must be <code>available</code>.</p>
  *         </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, AddRoleToDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, AddRoleToDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import

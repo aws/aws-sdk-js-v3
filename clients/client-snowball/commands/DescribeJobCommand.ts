@@ -24,7 +24,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * <p>Returns information about a specific job including shipping information, job status,
  *       and other important metadata. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SnowballClient, DescribeJobCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, DescribeJobCommand } = require("@aws-sdk/client-snowball"); // CommonJS import

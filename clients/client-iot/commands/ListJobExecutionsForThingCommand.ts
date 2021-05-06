@@ -23,7 +23,7 @@ export interface ListJobExecutionsForThingCommandOutput extends ListJobExecution
 /**
  * <p>Lists the job executions for the specified thing.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ListJobExecutionsForThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListJobExecutionsForThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import

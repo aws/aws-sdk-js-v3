@@ -26,7 +26,7 @@ export interface DescribePiiEntitiesDetectionJobCommandOutput
  * <p>Gets the properties associated with a PII entities detection job. For example, you can use
  *       this operation to get the job status.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, DescribePiiEntitiesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribePiiEntitiesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

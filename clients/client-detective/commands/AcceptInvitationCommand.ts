@@ -26,7 +26,7 @@ export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
  *          <p>The request provides the ARN of behavior graph.</p>
  *          <p>The member account status in the graph must be <code>INVITED</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DetectiveClient, AcceptInvitationCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, AcceptInvitationCommand } = require("@aws-sdk/client-detective"); // CommonJS import

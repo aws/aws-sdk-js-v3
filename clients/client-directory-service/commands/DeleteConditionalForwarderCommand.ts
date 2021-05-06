@@ -23,7 +23,7 @@ export interface DeleteConditionalForwarderCommandOutput extends DeleteCondition
 /**
  * <p>Deletes a conditional forwarder that has been set up for your AWS directory.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectoryServiceClient, DeleteConditionalForwarderCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DeleteConditionalForwarderCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import

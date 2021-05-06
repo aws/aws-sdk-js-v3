@@ -23,7 +23,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
 /**
  * <p>Deletes a resource policy that you created in a <a>PutResourcePolicy</a> request. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NetworkFirewallClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import

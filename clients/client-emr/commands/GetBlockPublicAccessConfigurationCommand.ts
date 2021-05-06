@@ -28,7 +28,7 @@ export interface GetBlockPublicAccessConfigurationCommandOutput
  *             Public Access for Amazon EMR</a> in the <i>Amazon EMR Management
  *             Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, GetBlockPublicAccessConfigurationCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, GetBlockPublicAccessConfigurationCommand } = require("@aws-sdk/client-emr"); // CommonJS import

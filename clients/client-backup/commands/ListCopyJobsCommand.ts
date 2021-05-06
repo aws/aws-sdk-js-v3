@@ -23,7 +23,7 @@ export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __Metadat
 /**
  * <p>Returns metadata about your copy jobs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, ListCopyJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListCopyJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import

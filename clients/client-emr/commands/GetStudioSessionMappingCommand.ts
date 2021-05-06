@@ -24,7 +24,7 @@ export interface GetStudioSessionMappingCommandOutput extends GetStudioSessionMa
  * <p>Fetches mapping details for the specified Amazon EMR Studio and identity (user or
  *          group).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, GetStudioSessionMappingCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, GetStudioSessionMappingCommand } = require("@aws-sdk/client-emr"); // CommonJS import

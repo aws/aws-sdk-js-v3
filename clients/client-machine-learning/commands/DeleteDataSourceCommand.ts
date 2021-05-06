@@ -26,7 +26,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  *         <p>
  *             <b>Caution:</b> The results of the <code>DeleteDataSource</code> operation are irreversible.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MachineLearningClient, DeleteDataSourceCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DeleteDataSourceCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import

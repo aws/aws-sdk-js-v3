@@ -24,7 +24,7 @@ export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPoin
  * <p>Returns metadata associated with a recovery point, including ID, status, encryption, and
  *          lifecycle.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, DescribeRecoveryPointCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeRecoveryPointCommand } = require("@aws-sdk/client-backup"); // CommonJS import

@@ -25,7 +25,7 @@ export interface StartAssessmentRunCommandOutput extends StartAssessmentRunRespo
  *          API to function properly, you must not exceed the limit of running up to 500 concurrent
  *          agents per AWS account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { InspectorClient, StartAssessmentRunCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, StartAssessmentRunCommand } = require("@aws-sdk/client-inspector"); // CommonJS import

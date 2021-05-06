@@ -20,7 +20,7 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
 /**
  * <p>Adds two domain controllers in the specified Region for the specified directory.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectoryServiceClient, AddRegionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, AddRegionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import

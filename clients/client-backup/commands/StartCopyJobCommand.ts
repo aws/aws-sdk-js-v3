@@ -24,7 +24,7 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
  * <p>Starts a job to create a one-time copy of the specified resource.</p>
  *          <p>Does not support continuous backups.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, StartCopyJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, StartCopyJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import

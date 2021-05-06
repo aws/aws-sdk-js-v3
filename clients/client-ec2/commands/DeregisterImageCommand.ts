@@ -27,7 +27,7 @@ export interface DeregisterImageCommandOutput extends __MetadataBearer {}
  * 			deregister an instance store-backed AMI, it doesn't affect the files that you uploaded
  * 			to Amazon S3 when you created the AMI.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DeregisterImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeregisterImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

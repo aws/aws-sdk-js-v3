@@ -23,7 +23,7 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
 /**
  * <p>Retrieves room details, such as the room name, for a room in an Amazon Chime Enterprise account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, GetRoomCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetRoomCommand } = require("@aws-sdk/client-chime"); // CommonJS import

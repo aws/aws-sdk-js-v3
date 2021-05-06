@@ -23,7 +23,7 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
 /**
  * <p>Retrieves information about the accounts that are associated with an Amazon Macie administrator account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Macie2Client, ListMembersCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListMembersCommand } = require("@aws-sdk/client-macie2"); // CommonJS import

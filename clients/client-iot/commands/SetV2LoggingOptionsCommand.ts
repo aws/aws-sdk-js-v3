@@ -23,7 +23,7 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
 /**
  * <p>Sets the logging options for the V2 logging service.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, SetV2LoggingOptionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, SetV2LoggingOptionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import

@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * <p>Adds or updates one or more tags (keys and values) that are associated with a classification job, custom data identifier, findings filter, or member account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Macie2Client, TagResourceCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, TagResourceCommand } = require("@aws-sdk/client-macie2"); // CommonJS import

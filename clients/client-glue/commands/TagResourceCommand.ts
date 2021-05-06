@@ -25,7 +25,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *       In AWS Glue, you can tag only certain resources. For information about what
  *       resources you can tag, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, TagResourceCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, TagResourceCommand } = require("@aws-sdk/client-glue"); // CommonJS import

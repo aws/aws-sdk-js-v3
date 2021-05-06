@@ -24,7 +24,7 @@ export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex bot.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, AssociateLexBotCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateLexBotCommand } = require("@aws-sdk/client-connect"); // CommonJS import

@@ -23,7 +23,7 @@ export interface DescribeFargateProfileCommandOutput extends DescribeFargateProf
 /**
  * <p>Returns descriptive information about an AWS Fargate profile.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EKSClient, DescribeFargateProfileCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DescribeFargateProfileCommand } = require("@aws-sdk/client-eks"); // CommonJS import

@@ -23,7 +23,7 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
 /**
  * <p>Retrieves the group metadata and attributes from <code>GroupId</code> in an identity store.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IdentitystoreClient, DescribeGroupCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
  * // const { IdentitystoreClient, DescribeGroupCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import

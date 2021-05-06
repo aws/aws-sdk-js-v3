@@ -23,7 +23,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p> Returns a list of tags for a specified Amazon Resource Name (ARN). </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmplifyClient, ListTagsForResourceCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, ListTagsForResourceCommand } = require("@aws-sdk/client-amplify"); // CommonJS import

@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>Removes tags from the resource with the specified ARN.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IvsClient, UntagResourceCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, UntagResourceCommand } = require("@aws-sdk/client-ivs"); // CommonJS import

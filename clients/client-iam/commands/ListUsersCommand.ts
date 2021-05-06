@@ -28,7 +28,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, ListUsersCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListUsersCommand } = require("@aws-sdk/client-iam"); // CommonJS import

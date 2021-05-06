@@ -26,7 +26,7 @@ export interface ListInsightsCommandOutput extends ListInsightsResponse, __Metad
  *    		status (<code>ONGOING</code>, <code>CLOSED</code>, or <code>ANY</code>).
  *    	</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DevOpsGuruClient, ListInsightsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListInsightsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import

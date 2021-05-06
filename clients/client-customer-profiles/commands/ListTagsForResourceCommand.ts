@@ -24,7 +24,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Displays the tags associated with an Amazon Connect Customer Profiles resource. In Connect
  *          Customer Profiles, domains, profile object types, and integrations can be tagged.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CustomerProfilesClient, ListTagsForResourceCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, ListTagsForResourceCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import

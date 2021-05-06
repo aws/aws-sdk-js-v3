@@ -24,7 +24,7 @@ export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __Met
  * <p>Deletes a stack set. Before you can delete a stack set, all of its member stack
  *          instances must be deleted. For more information about how to do this, see <a>DeleteStackInstances</a>. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFormationClient, DeleteStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DeleteStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import

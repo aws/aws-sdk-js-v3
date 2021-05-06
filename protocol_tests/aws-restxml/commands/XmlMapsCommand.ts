@@ -20,7 +20,7 @@ export interface XmlMapsCommandOutput extends XmlMapsInputOutput, __MetadataBear
 /**
  * The example tests basic map serialization.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestXmlProtocolClient, XmlMapsCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlMapsCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import

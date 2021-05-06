@@ -23,7 +23,7 @@ export interface ListAssociatedStacksCommandOutput extends ListAssociatedStacksR
 /**
  * <p>Retrieves the name of the stack with which the specified fleet is associated.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppStreamClient, ListAssociatedStacksCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, ListAssociatedStacksCommand } = require("@aws-sdk/client-appstream"); // CommonJS import

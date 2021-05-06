@@ -28,7 +28,7 @@ export interface DescribeTableRestoreStatusCommandOutput extends TableRestoreSta
  *                 <code>DescribeTableRestoreStatus</code> returns the status of the table specified by
  *                 <code>TableRestoreRequestId</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RedshiftClient, DescribeTableRestoreStatusCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeTableRestoreStatusCommand } = require("@aws-sdk/client-redshift"); // CommonJS import

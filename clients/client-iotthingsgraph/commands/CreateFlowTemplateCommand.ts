@@ -25,7 +25,7 @@ export interface CreateFlowTemplateCommandOutput extends CreateFlowTemplateRespo
  *          entities.) The workflow can contain only entities in the specified namespace. The workflow is validated against the entities in the
  *       latest version of the user's namespace unless another namespace version is specified in the request.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTThingsGraphClient, CreateFlowTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, CreateFlowTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import

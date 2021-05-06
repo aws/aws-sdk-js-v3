@@ -23,7 +23,7 @@ export interface GetConnectorsCommandOutput extends GetConnectorsResponse, __Met
 /**
  * <p>Describes the connectors registered with the AWS SMS.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SMSClient, GetConnectorsCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GetConnectorsCommand } = require("@aws-sdk/client-sms"); // CommonJS import

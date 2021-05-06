@@ -31,7 +31,7 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  *         <p>This operation is throttled at one request per second and can only get custom MAIL
  *             FROM attributes for up to 100 identities at a time.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESClient, GetIdentityMailFromDomainAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetIdentityMailFromDomainAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import

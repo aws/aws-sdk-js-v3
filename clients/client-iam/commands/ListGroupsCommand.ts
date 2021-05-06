@@ -22,7 +22,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  *         <p> You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, ListGroupsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListGroupsCommand } = require("@aws-sdk/client-iam"); // CommonJS import

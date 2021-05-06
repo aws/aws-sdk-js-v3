@@ -27,7 +27,7 @@ export interface ListForecastsCommandOutput extends ListForecastsResponse, __Met
  *         <a>DescribeForecast</a> operation. You can filter the list using an array of
  *         <a>Filter</a> objects.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ForecastClient, ListForecastsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListForecastsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import

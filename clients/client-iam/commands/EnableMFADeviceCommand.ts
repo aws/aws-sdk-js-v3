@@ -25,7 +25,7 @@ export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
  *             enabled, the MFA device is required for every subsequent login by the IAM user
  *             associated with the device.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, EnableMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, EnableMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import

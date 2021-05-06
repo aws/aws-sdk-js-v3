@@ -25,7 +25,7 @@ export interface GetMLModelCommandOutput extends GetMLModelOutput, __MetadataBea
  *         <p>
  *             <code>GetMLModel</code> provides results in normal or verbose format. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MachineLearningClient, GetMLModelCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, GetMLModelCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import

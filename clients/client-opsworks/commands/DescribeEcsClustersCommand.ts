@@ -32,7 +32,7 @@ export interface DescribeEcsClustersCommandOutput extends DescribeEcsClustersRes
  *         Permissions</a>.</p>
  *          <p>This call accepts only one resource-identifying parameter.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OpsWorksClient, DescribeEcsClustersCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
  * // const { OpsWorksClient, DescribeEcsClustersCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import

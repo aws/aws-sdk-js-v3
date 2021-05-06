@@ -24,7 +24,7 @@ export interface UpdateQuickConnectConfigCommandOutput extends __MetadataBearer 
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the configuration settings for the specified quick connect.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, UpdateQuickConnectConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateQuickConnectConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import

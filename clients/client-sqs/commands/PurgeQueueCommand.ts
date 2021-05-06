@@ -33,7 +33,7 @@ export interface PurgeQueueCommandOutput extends __MetadataBearer {}
  *         <p>Messages sent to the queue <i>after</i> you call
  *                 <code>PurgeQueue</code> might be deleted while the queue is being purged.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SQSClient, PurgeQueueCommand } from "@aws-sdk/client-sqs"; // ES Modules import
  * // const { SQSClient, PurgeQueueCommand } = require("@aws-sdk/client-sqs"); // CommonJS import

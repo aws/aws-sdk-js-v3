@@ -43,7 +43,7 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  *          <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/copy-backups.html">Copying backups</a>
  *          in the <i>Amazon FSx for Lustre User Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FSxClient, CopyBackupCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, CopyBackupCommand } = require("@aws-sdk/client-fsx"); // CommonJS import

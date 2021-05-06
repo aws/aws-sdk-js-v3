@@ -29,7 +29,7 @@ export interface GetRelationalDatabaseParametersCommandOutput
  *       about each parameter. This information includes whether changes require a reboot, whether the
  *       parameter is modifiable, the allowed values, and the data types.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, GetRelationalDatabaseParametersCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseParametersCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

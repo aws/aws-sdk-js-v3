@@ -37,7 +37,7 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
  *             by setting up an event destination), you receive an email notification when these events
  *             occur (even if this setting is disabled).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESv2Client, PutEmailIdentityFeedbackAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutEmailIdentityFeedbackAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import

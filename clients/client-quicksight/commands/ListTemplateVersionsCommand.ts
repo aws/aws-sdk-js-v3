@@ -23,7 +23,7 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
 /**
  * <p>Lists all the versions of the templates in the current Amazon QuickSight account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, ListTemplateVersionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListTemplateVersionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

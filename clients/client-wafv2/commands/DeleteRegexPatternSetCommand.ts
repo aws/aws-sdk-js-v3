@@ -23,7 +23,7 @@ export interface DeleteRegexPatternSetCommandOutput extends DeleteRegexPatternSe
 /**
  * <p>Deletes the specified <a>RegexPatternSet</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFV2Client, DeleteRegexPatternSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, DeleteRegexPatternSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import

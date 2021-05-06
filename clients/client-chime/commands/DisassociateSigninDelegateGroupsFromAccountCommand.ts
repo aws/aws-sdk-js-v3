@@ -29,7 +29,7 @@ export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput
 /**
  * <p>Disassociates the specified sign-in delegate groups from the specified Amazon Chime account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, DisassociateSigninDelegateGroupsFromAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DisassociateSigninDelegateGroupsFromAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import

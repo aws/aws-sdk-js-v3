@@ -23,7 +23,7 @@ export interface ListVoiceConnectorsCommandOutput extends ListVoiceConnectorsRes
 /**
  * <p>Lists the Amazon Chime Voice Connectors for the administrator's AWS account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, ListVoiceConnectorsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListVoiceConnectorsCommand } = require("@aws-sdk/client-chime"); // CommonJS import

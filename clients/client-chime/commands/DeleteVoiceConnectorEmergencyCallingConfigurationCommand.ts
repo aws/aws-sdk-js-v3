@@ -24,7 +24,7 @@ export interface DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput 
 /**
  * <p>Deletes the emergency calling configuration details from the specified Amazon Chime Voice Connector.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, DeleteVoiceConnectorEmergencyCallingConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteVoiceConnectorEmergencyCallingConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import

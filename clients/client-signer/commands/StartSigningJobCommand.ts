@@ -50,7 +50,7 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  * 		       <p>For a Java example that shows how to use this action, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/">http://docs.aws.amazon.com/acm/latest/userguide/</a>
  *          </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SignerClient, StartSigningJobCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, StartSigningJobCommand } = require("@aws-sdk/client-signer"); // CommonJS import

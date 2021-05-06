@@ -24,7 +24,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * <p>Removes one or more tags from a signing profile. To remove the tags, specify a list of
  * 			tag keys.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SignerClient, UntagResourceCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, UntagResourceCommand } = require("@aws-sdk/client-signer"); // CommonJS import

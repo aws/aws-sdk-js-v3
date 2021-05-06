@@ -23,7 +23,7 @@ export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBea
 /**
  * <p>Creates an Amazon Lex conversational bot. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LexModelsV2Client, CreateBotCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, CreateBotCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import

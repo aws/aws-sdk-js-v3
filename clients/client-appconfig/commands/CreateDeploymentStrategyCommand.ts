@@ -26,7 +26,7 @@ export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrateg
  *          percentage of targets to receive the deployment during each interval, an algorithm that
  *          defines how percentage grows, and bake time.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppConfigClient, CreateDeploymentStrategyCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateDeploymentStrategyCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import

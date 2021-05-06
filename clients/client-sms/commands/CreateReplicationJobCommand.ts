@@ -25,7 +25,7 @@ export interface CreateReplicationJobCommandOutput extends CreateReplicationJobR
  *             to replicate your server to AWS. Each replication run creates an Amazon Machine Image
  *             (AMI).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SMSClient, CreateReplicationJobCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, CreateReplicationJobCommand } = require("@aws-sdk/client-sms"); // CommonJS import

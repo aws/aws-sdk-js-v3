@@ -23,7 +23,7 @@ export interface BatchDisassociateUserStackCommandOutput extends BatchDisassocia
 /**
  * <p>Disassociates the specified users from the specified stacks.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppStreamClient, BatchDisassociateUserStackCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, BatchDisassociateUserStackCommand } = require("@aws-sdk/client-appstream"); // CommonJS import

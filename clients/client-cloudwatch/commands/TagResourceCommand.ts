@@ -30,7 +30,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * 			the previous value for that tag.</p>
  * 		       <p>You can associate as many as 50 tags with a CloudWatch resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchClient, TagResourceCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, TagResourceCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import

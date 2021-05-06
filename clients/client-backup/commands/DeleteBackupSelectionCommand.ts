@@ -24,7 +24,7 @@ export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
  * <p>Deletes the resource selection associated with a backup plan that is specified by the
  *             <code>SelectionId</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, DeleteBackupSelectionCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteBackupSelectionCommand } = require("@aws-sdk/client-backup"); // CommonJS import

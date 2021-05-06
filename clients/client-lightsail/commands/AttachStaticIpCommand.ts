@@ -23,7 +23,7 @@ export interface AttachStaticIpCommandOutput extends AttachStaticIpResult, __Met
 /**
  * <p>Attaches a static IP address to a specific Amazon Lightsail instance.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, AttachStaticIpCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, AttachStaticIpCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

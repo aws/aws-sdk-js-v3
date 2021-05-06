@@ -26,7 +26,7 @@ export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __Metadat
  *       However, it doesn't delete the agent virtual machine (VM) from your on-premises
  *       environment.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, DeleteAgentCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DeleteAgentCommand } = require("@aws-sdk/client-datasync"); // CommonJS import

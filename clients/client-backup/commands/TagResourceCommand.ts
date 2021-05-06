@@ -24,7 +24,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * <p>Assigns a set of key-value pairs to a recovery point, backup plan, or backup vault
  *          identified by an Amazon Resource Name (ARN).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, TagResourceCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, TagResourceCommand } = require("@aws-sdk/client-backup"); // CommonJS import

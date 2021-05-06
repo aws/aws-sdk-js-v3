@@ -36,7 +36,7 @@ export interface HeadBucketCommandOutput extends __MetadataBearer {}
  *          can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
  *             Resources</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { S3Client, HeadBucketCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, HeadBucketCommand } = require("@aws-sdk/client-s3"); // CommonJS import

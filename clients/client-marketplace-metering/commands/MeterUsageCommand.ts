@@ -33,7 +33,7 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  *             with usage data split into buckets by tags that you define (or allow the customer to
  *             define).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MarketplaceMeteringClient, MeterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
  * // const { MarketplaceMeteringClient, MeterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import

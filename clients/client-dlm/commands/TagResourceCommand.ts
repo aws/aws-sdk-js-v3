@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * <p>Adds the specified tags to the specified resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DLMClient, TagResourceCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, TagResourceCommand } = require("@aws-sdk/client-dlm"); // CommonJS import

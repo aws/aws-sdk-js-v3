@@ -23,7 +23,7 @@ export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsRespo
 /**
  * <p>This operation lists a revision's assets sorted alphabetically in descending order.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataExchangeClient, ListRevisionAssetsCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, ListRevisionAssetsCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import

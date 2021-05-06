@@ -23,7 +23,7 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
 /**
  * <p>Returns a contact from a contact list.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESv2Client, GetContactCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetContactCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import

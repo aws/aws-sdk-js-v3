@@ -26,7 +26,7 @@ export interface ListReviewableHITsCommandOutput extends ListReviewableHITsRespo
  *             Reviewable or Status equal to Reviewing that belong to the Requester calling the operation.
  *         </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MTurkClient, ListReviewableHITsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListReviewableHITsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import

@@ -24,7 +24,7 @@ export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
  * no request or response payload because the operation has no input or output.
  * While this should be rare, code generators must support this.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestJsonProtocolClient, NoInputAndNoOutputCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, NoInputAndNoOutputCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import

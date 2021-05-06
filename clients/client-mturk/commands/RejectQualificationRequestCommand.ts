@@ -29,7 +29,7 @@ export interface RejectQualificationRequestCommandOutput extends RejectQualifica
  *         <p> You can provide a text message explaining why the request was
  *             rejected. The Worker who made the request can see this message.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MTurkClient, RejectQualificationRequestCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, RejectQualificationRequestCommand } = require("@aws-sdk/client-mturk"); // CommonJS import

@@ -26,7 +26,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *
  *          <p>There is no response returned from this call.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TransferClient, TagResourceCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, TagResourceCommand } = require("@aws-sdk/client-transfer"); // CommonJS import

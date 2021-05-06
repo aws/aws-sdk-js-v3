@@ -34,7 +34,7 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  *             To access it in the console, restore it. Deleting an analysis doesn't delete the
  *             dashboards that you publish from it.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, DeleteAnalysisCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteAnalysisCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

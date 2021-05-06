@@ -26,7 +26,7 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  *       your translation memory. By adding parallel data, you can influence the style, tone, and word
  *       choice in your translation output.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TranslateClient, CreateParallelDataCommand } from "@aws-sdk/client-translate"; // ES Modules import
  * // const { TranslateClient, CreateParallelDataCommand } = require("@aws-sdk/client-translate"); // CommonJS import

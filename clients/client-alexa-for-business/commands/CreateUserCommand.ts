@@ -23,7 +23,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
 /**
  * <p>Creates a user.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AlexaForBusinessClient, CreateUserCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, CreateUserCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import

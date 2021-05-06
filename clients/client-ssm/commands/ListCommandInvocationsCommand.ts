@@ -26,7 +26,7 @@ export interface ListCommandInvocationsCommandOutput extends ListCommandInvocati
  *    SendCommand against three instances, then a command invocation is created for each requested
  *    instance ID. ListCommandInvocations provide status about command execution.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, ListCommandInvocationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListCommandInvocationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

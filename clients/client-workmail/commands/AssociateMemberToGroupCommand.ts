@@ -23,7 +23,7 @@ export interface AssociateMemberToGroupCommandOutput extends AssociateMemberToGr
 /**
  * <p>Adds a member (user or group) to the group's set.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkMailClient, AssociateMemberToGroupCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, AssociateMemberToGroupCommand } = require("@aws-sdk/client-workmail"); // CommonJS import

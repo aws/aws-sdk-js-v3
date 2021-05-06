@@ -67,7 +67,7 @@ export interface GetClipCommandOutput extends GetClipOutput, __MetadataBearer {}
  *                 Streams Pricing</a> and <a href="https://aws.amazon.com/pricing/">AWS
  *                 Pricing</a>. Charges for outgoing AWS data apply.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisVideoArchivedMediaClient, GetClipCommand } from "@aws-sdk/client-kinesis-video-archived-media"; // ES Modules import
  * // const { KinesisVideoArchivedMediaClient, GetClipCommand } = require("@aws-sdk/client-kinesis-video-archived-media"); // CommonJS import

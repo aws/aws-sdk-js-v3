@@ -23,7 +23,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
 /**
  * <p>Returns a list of all the MSK clusters in the current Region.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KafkaClient, ListClustersCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, ListClustersCommand } = require("@aws-sdk/client-kafka"); // CommonJS import

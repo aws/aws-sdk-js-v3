@@ -48,7 +48,7 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  *          </ul>
  *         <p>This operation can be called only from the organization's management account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OrganizationsClient, AttachPolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, AttachPolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import

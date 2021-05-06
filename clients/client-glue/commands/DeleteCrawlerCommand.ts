@@ -24,7 +24,7 @@ export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __Met
  * <p>Removes a specified crawler from the AWS Glue Data Catalog, unless the crawler state is
  *         <code>RUNNING</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, DeleteCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import

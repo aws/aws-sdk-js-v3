@@ -67,7 +67,7 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  *             for a user or role, use the <a>GetUser</a> or <a>GetRole</a>
  *             operations.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, ListPoliciesGrantingServiceAccessCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListPoliciesGrantingServiceAccessCommand } = require("@aws-sdk/client-iam"); // CommonJS import

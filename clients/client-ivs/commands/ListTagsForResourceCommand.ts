@@ -23,7 +23,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>Gets information about AWS tags for the specified ARN.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IvsClient, ListTagsForResourceCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-ivs"); // CommonJS import

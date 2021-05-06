@@ -26,7 +26,7 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  *                 (<code>ABANDON</code> for launching instances, <code>CONTINUE</code> for terminating
  *             instances).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AutoScalingClient, DeleteLifecycleHookCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteLifecycleHookCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import

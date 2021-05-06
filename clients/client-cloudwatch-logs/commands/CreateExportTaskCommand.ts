@@ -36,7 +36,7 @@ export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse,
  *          <p>Exporting to S3 buckets that are encrypted with AES-256 is supported. Exporting to S3 buckets
  *       encrypted with SSE-KMS is not supported. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchLogsClient, CreateExportTaskCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, CreateExportTaskCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import

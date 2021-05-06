@@ -128,7 +128,7 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  *             </li>
  *          </ul>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESClient, SendRawEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendRawEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import

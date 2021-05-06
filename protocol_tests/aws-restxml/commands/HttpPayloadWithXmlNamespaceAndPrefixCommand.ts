@@ -26,7 +26,7 @@ export interface HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
 /**
  * The following example serializes a payload that uses an XML namespace.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestXmlProtocolClient, HttpPayloadWithXmlNamespaceAndPrefixCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpPayloadWithXmlNamespaceAndPrefixCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import

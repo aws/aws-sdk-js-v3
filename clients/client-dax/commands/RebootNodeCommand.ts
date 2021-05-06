@@ -29,7 +29,7 @@ export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataB
  *                <code>RebootNode</code> restarts the DAX engine process and does not remove the contents of the cache.  </p>
  *         </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DAXClient, RebootNodeCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, RebootNodeCommand } = require("@aws-sdk/client-dax"); // CommonJS import

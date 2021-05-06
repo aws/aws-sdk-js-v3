@@ -24,7 +24,7 @@ export interface RequestSpotInstancesCommandOutput extends RequestSpotInstancesR
  * <p>Creates a Spot Instance request.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot Instance requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, RequestSpotInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RequestSpotInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

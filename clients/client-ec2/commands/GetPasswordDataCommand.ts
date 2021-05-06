@@ -32,7 +32,7 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
  *             an empty string. We recommend that you wait up to 15 minutes after launching an instance
  *             before trying to retrieve the generated password.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, GetPasswordDataCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetPasswordDataCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

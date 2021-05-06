@@ -26,7 +26,7 @@ export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse,
  *          that you want to delete.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityClient, DeleteIdentitiesCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, DeleteIdentitiesCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import

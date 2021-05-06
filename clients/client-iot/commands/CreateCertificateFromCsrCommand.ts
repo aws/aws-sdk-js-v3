@@ -57,7 +57,7 @@ export interface CreateCertificateFromCsrCommandOutput extends CreateCertificate
  *          <p>> forfiles /p my-csr-directory /c "cmd /c aws iot create-certificate-from-csr
  *          --certificate-signing-request file://@path"</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, CreateCertificateFromCsrCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateCertificateFromCsrCommand } = require("@aws-sdk/client-iot"); // CommonJS import

@@ -28,7 +28,7 @@ export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
  *             <code>DescribeRegionSettings</code> API to determine the resource types that are
  *          supported.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, UpdateRegionSettingsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UpdateRegionSettingsCommand } = require("@aws-sdk/client-backup"); // CommonJS import

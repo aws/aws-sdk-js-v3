@@ -24,7 +24,7 @@ export interface ListFirewallRuleGroupsCommandOutput extends ListFirewallRuleGro
  * <p>Retrieves the minimal high-level information for the rule groups that you have defined.  </p>
  *          <p>A single call might return only a partial list of the rule groups. For information, see <code>MaxResults</code>. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53ResolverClient, ListFirewallRuleGroupsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, ListFirewallRuleGroupsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import

@@ -28,7 +28,7 @@ export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
  *             <a>RemoveTagsFromStream</a> has a limit of five transactions per second per
  *             account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisClient, RemoveTagsFromStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, RemoveTagsFromStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import

@@ -29,7 +29,7 @@ export interface InferRxNormCommandOutput extends InferRxNormResponse, __Metadat
  *       normalized concept identifiers in the RxNorm database from the National Library of Medicine.
  *       Amazon Comprehend Medical only detects medical entities in English language texts.  </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendMedicalClient, InferRxNormCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, InferRxNormCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import

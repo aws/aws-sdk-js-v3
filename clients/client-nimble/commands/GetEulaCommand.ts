@@ -23,7 +23,7 @@ export interface GetEulaCommandOutput extends GetEulaResponse, __MetadataBearer 
 /**
  * <p>Get Eula.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NimbleClient, GetEulaCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, GetEulaCommand } = require("@aws-sdk/client-nimble"); // CommonJS import

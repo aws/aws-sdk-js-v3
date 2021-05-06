@@ -23,7 +23,7 @@ export interface DescribeAuditTaskCommandOutput extends DescribeAuditTaskRespons
 /**
  * <p>Gets information about a Device Defender audit.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, DescribeAuditTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeAuditTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import

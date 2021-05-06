@@ -25,7 +25,7 @@ export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFra
  * Returns a list of the frameworks available in the AWS Audit Manager framework library.
  * </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AuditManagerClient, ListAssessmentFrameworksCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListAssessmentFrameworksCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import

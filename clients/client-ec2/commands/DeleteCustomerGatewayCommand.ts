@@ -23,7 +23,7 @@ export interface DeleteCustomerGatewayCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the specified customer gateway. You must delete the VPN connection before you can delete the customer gateway.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DeleteCustomerGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteCustomerGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

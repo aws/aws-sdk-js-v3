@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
 /**
  * <p>Deletes specified tags from a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppMeshClient, UntagResourceCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, UntagResourceCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import

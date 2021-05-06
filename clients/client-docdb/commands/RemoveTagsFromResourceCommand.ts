@@ -23,7 +23,7 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes metadata tags from an Amazon DocumentDB resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import

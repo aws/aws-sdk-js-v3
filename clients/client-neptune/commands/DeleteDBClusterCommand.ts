@@ -29,7 +29,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  *       delete it, you must first set its <code>DeletionProtection</code> field to
  *       <code>False</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, DeleteDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DeleteDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

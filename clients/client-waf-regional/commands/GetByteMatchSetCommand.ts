@@ -31,7 +31,7 @@ export interface GetByteMatchSetCommandOutput extends GetByteMatchSetResponse, _
  *          </note>
  * 		       <p>Returns the <a>ByteMatchSet</a> specified by <code>ByteMatchSetId</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFRegionalClient, GetByteMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetByteMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import

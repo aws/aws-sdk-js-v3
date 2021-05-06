@@ -23,7 +23,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResult,
 /**
  * <p>Changes the settings of an existing AWS Cloud9 development environment.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Cloud9Client, UpdateEnvironmentCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, UpdateEnvironmentCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import

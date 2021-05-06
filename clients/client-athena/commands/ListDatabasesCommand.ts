@@ -23,7 +23,7 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
 /**
  * <p>Lists the databases in the specified data catalog.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AthenaClient, ListDatabasesCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, ListDatabasesCommand } = require("@aws-sdk/client-athena"); // CommonJS import

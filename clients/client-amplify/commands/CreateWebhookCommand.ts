@@ -23,7 +23,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookResult, __Metad
 /**
  * <p> Creates a new webhook on an Amplify app. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmplifyClient, CreateWebhookCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, CreateWebhookCommand } = require("@aws-sdk/client-amplify"); // CommonJS import

@@ -23,7 +23,7 @@ export interface GetProxySessionCommandOutput extends GetProxySessionResponse, _
 /**
  * <p>Gets the specified proxy session details for the specified Amazon Chime Voice Connector.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, GetProxySessionCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetProxySessionCommand } = require("@aws-sdk/client-chime"); // CommonJS import

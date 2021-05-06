@@ -23,7 +23,7 @@ export interface GetCampaignActivitiesCommandOutput extends GetCampaignActivitie
 /**
  * <p>Retrieves information about all the activities for a campaign.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetCampaignActivitiesCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetCampaignActivitiesCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

@@ -23,7 +23,7 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
 /**
  * <p>Modifies the parameters for a capacity provider.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECSClient, UpdateCapacityProviderCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateCapacityProviderCommand } = require("@aws-sdk/client-ecs"); // CommonJS import

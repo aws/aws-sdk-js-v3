@@ -23,7 +23,7 @@ export interface UpdateWorkflowCommandOutput extends UpdateWorkflowResponse, __M
 /**
  * <p>Updates an existing workflow.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, UpdateWorkflowCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateWorkflowCommand } = require("@aws-sdk/client-glue"); // CommonJS import

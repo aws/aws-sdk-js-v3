@@ -23,7 +23,7 @@ export interface CreateResourceCommandOutput extends CreateResourceResponse, __M
 /**
  * <p>Creates a new Amazon WorkMail resource. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkMailClient, CreateResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CreateResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import

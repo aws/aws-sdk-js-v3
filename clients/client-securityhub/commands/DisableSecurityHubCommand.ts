@@ -31,7 +31,7 @@ export interface DisableSecurityHubCommandOutput extends DisableSecurityHubRespo
  *          <p>If you want to save your existing findings, you must export them before you disable
  *          Security Hub.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, DisableSecurityHubCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DisableSecurityHubCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

@@ -29,7 +29,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *             create scheduled email reports from them. If you have the correct permissions, you can
  *             create a dashboard from a template that exists in a different AWS account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, CreateDashboardCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateDashboardCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

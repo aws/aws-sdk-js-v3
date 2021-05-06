@@ -29,7 +29,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  *          <p> This operation requires permissions for the
  *         <code>elasticfilesystem:DescribeTags</code> action. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EFSClient, DescribeTagsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeTagsCommand } = require("@aws-sdk/client-efs"); // CommonJS import

@@ -26,7 +26,7 @@ export interface CancelMLTaskRunCommandOutput extends CancelMLTaskRunResponse, _
  *       machine learning task run at any time by calling <code>CancelMLTaskRun</code> with a task
  *       run's parent transform's <code>TransformID</code> and the task run's <code>TaskRunId</code>. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, CancelMLTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CancelMLTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import

@@ -24,7 +24,7 @@ export interface GetResolverQueryLogConfigCommandOutput extends GetResolverQuery
  * <p>Gets information about a specified Resolver query logging configuration, such as the number of VPCs that the configuration
  * 			is logging queries for and the location that logs are sent to. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53ResolverClient, GetResolverQueryLogConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetResolverQueryLogConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import

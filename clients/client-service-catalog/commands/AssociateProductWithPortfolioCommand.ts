@@ -26,7 +26,7 @@ export interface AssociateProductWithPortfolioCommandOutput
  * <p>Associates the specified product with the specified portfolio.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogClient, AssociateProductWithPortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, AssociateProductWithPortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import

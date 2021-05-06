@@ -30,7 +30,7 @@ export interface StopTrainingDocumentClassifierCommandOutput
  *       put into the <code>STOPPED</code> state and the service sends back an HTTP 200 response with
  *       an empty HTTP body. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, StopTrainingDocumentClassifierCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopTrainingDocumentClassifierCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

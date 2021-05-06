@@ -27,7 +27,7 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  *         <p>When you delete an endpoint that is also subscribed to a topic, then you must also
  *             unsubscribe the endpoint from the topic.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SNSClient, DeleteEndpointCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, DeleteEndpointCommand } = require("@aws-sdk/client-sns"); // CommonJS import

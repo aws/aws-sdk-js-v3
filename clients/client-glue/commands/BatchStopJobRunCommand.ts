@@ -23,7 +23,7 @@ export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, _
 /**
  * <p>Stops one or more job runs for a specified job definition.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, BatchStopJobRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchStopJobRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import

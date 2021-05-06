@@ -23,7 +23,7 @@ export interface DeleteRequestValidatorCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, DeleteRequestValidatorCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteRequestValidatorCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

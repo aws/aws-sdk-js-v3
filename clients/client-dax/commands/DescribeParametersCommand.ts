@@ -23,7 +23,7 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
 /**
  * <p>Returns the detailed parameter list for a particular parameter group.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DAXClient, DescribeParametersCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeParametersCommand } = require("@aws-sdk/client-dax"); // CommonJS import

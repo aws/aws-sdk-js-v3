@@ -23,7 +23,7 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
 /**
  * <p>Creates an AWS IoT OTAUpdate on a target group of things or groups.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, CreateOTAUpdateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateOTAUpdateCommand } = require("@aws-sdk/client-iot"); // CommonJS import

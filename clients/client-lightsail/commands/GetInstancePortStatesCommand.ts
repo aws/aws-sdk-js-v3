@@ -24,7 +24,7 @@ export interface GetInstancePortStatesCommandOutput extends GetInstancePortState
  * <p>Returns the firewall port states for a specific Amazon Lightsail instance, the IP addresses
  *       allowed to connect to the instance through the ports, and the protocol.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, GetInstancePortStatesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetInstancePortStatesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

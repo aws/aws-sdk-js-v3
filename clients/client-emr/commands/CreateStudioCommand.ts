@@ -23,7 +23,7 @@ export interface CreateStudioCommandOutput extends CreateStudioOutput, __Metadat
 /**
  * <p>Creates a new Amazon EMR Studio.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, CreateStudioCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, CreateStudioCommand } = require("@aws-sdk/client-emr"); // CommonJS import

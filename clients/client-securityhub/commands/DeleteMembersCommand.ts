@@ -25,7 +25,7 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  *          <p>Can be used to delete member accounts that belong to an organization as well as member
  *          accounts that were invited manually.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, DeleteMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DeleteMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

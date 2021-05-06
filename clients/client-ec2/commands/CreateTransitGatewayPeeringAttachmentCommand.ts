@@ -34,7 +34,7 @@ export interface CreateTransitGatewayPeeringAttachmentCommandOutput
  *          <p>After you create the peering attachment, the owner of the accepter
  *             transit gateway must accept the attachment request.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, CreateTransitGatewayPeeringAttachmentCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateTransitGatewayPeeringAttachmentCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

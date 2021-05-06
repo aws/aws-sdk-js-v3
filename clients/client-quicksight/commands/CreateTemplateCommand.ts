@@ -30,7 +30,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * 			with datasets that follow the same schema that was used to create the source analysis
  * 			and template.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, CreateTemplateCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateTemplateCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

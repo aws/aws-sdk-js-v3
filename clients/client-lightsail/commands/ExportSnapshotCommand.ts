@@ -37,7 +37,7 @@ export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __Met
  *         operations to get a list of snapshots that you can export to Amazon EC2.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, ExportSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, ExportSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

@@ -26,7 +26,7 @@ export interface DeleteConnectionCommandOutput extends Connection, __MetadataBea
  *       If you are partnering with any third parties to connect with the AWS Direct Connect location,
  *       you must cancel your service with them separately.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectConnectClient, DeleteConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import

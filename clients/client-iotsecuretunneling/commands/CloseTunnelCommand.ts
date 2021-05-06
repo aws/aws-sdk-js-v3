@@ -29,7 +29,7 @@ export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __Metadat
  * 			request is received, we close the WebSocket connections between the client and proxy
  * 			server so no data can be transmitted.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTSecureTunnelingClient, CloseTunnelCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
  * // const { IoTSecureTunnelingClient, CloseTunnelCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import

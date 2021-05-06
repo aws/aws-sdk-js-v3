@@ -23,7 +23,7 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
 /**
  * <p>Creates a folder with the specified name and parent folder.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkDocsClient, CreateFolderCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, CreateFolderCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import

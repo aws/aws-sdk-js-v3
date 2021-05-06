@@ -47,7 +47,7 @@ export interface DeleteXssMatchSetCommandOutput extends DeleteXssMatchSetRespons
  *             </li>
  *          </ol>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFRegionalClient, DeleteXssMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, DeleteXssMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import

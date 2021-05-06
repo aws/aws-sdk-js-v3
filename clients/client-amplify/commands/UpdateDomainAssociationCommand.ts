@@ -23,7 +23,7 @@ export interface UpdateDomainAssociationCommandOutput extends UpdateDomainAssoci
 /**
  * <p> Creates a new domain association for an Amplify app.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmplifyClient, UpdateDomainAssociationCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, UpdateDomainAssociationCommand } = require("@aws-sdk/client-amplify"); // CommonJS import

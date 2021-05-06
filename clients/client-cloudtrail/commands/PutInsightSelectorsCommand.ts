@@ -26,7 +26,7 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  *          <code>PutInsightSelectors</code> to turn off Insights event logging, by passing an empty list of insight types.
  *          In this release, only <code>ApiCallRateInsight</code> is supported as an Insights selector.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudTrailClient, PutInsightSelectorsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, PutInsightSelectorsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import

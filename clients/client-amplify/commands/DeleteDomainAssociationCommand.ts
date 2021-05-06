@@ -23,7 +23,7 @@ export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssoci
 /**
  * <p> Deletes a domain association for an Amplify app. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmplifyClient, DeleteDomainAssociationCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, DeleteDomainAssociationCommand } = require("@aws-sdk/client-amplify"); // CommonJS import

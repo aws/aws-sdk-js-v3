@@ -23,7 +23,7 @@ export interface ListStreamingSessionsCommandOutput extends ListStreamingSession
 /**
  * <p>Lists the streaming image resources in a studio.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NimbleClient, ListStreamingSessionsCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListStreamingSessionsCommand } = require("@aws-sdk/client-nimble"); // CommonJS import

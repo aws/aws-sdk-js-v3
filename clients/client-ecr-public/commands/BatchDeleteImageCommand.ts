@@ -28,7 +28,7 @@ export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse,
  *          <p>You can completely delete an image (and all of its tags) by specifying the image's
  *          digest in your request.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECRPUBLICClient, BatchDeleteImageCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, BatchDeleteImageCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import

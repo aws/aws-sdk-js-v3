@@ -24,7 +24,7 @@ export interface ListVocabulariesCommandOutput extends ListVocabulariesResponse,
  * <p>Returns a list of vocabularies that match the specified criteria. If no criteria are
  *             specified, returns the entire list of vocabularies.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TranscribeClient, ListVocabulariesCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, ListVocabulariesCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import

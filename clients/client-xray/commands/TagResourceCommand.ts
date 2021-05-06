@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * <p>Applies tags to an existing AWS X-Ray group or sampling rule.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { XRayClient, TagResourceCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, TagResourceCommand } = require("@aws-sdk/client-xray"); // CommonJS import

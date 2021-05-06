@@ -24,7 +24,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResult, __M
  * <p>Returns information about a specific cluster including shipping information, cluster
  *       status, and other important metadata.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SnowballClient, DescribeClusterCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, DescribeClusterCommand } = require("@aws-sdk/client-snowball"); // CommonJS import

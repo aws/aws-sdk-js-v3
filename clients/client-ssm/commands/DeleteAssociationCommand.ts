@@ -27,7 +27,7 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationResult,
  *    you must create a new document with the desired configuration and associate it with the
  *    instance.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, DeleteAssociationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteAssociationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

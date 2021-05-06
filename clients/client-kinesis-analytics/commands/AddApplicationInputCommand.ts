@@ -39,7 +39,7 @@ export interface AddApplicationInputCommandOutput extends AddApplicationInputRes
  *         <p>This operation requires permissions to perform the
  *             <code>kinesisanalytics:AddApplicationInput</code> action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisAnalyticsClient, AddApplicationInputCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, AddApplicationInputCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import

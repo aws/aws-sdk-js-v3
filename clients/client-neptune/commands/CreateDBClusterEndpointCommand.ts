@@ -23,7 +23,7 @@ export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEnd
 /**
  * <p>Creates a new custom endpoint and associates it with an Amazon Neptune DB cluster.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, CreateDBClusterEndpointCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateDBClusterEndpointCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

@@ -23,7 +23,7 @@ export interface UpdateVodSourceCommandOutput extends UpdateVodSourceResponse, _
 /**
  * <p>Updates a specific VOD source in a specific source location.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaTailorClient, UpdateVodSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, UpdateVodSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import

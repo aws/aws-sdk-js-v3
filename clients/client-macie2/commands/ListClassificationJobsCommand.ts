@@ -23,7 +23,7 @@ export interface ListClassificationJobsCommandOutput extends ListClassificationJ
 /**
  * <p>Retrieves a subset of information about one or more classification jobs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Macie2Client, ListClassificationJobsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListClassificationJobsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import

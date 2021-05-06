@@ -24,7 +24,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * <p>Creates a fleet. A fleet consists of resources and the configuration that delivers
  *             associated websites to authorized users who download and set up the Amazon WorkLink app.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkLinkClient, CreateFleetCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, CreateFleetCommand } = require("@aws-sdk/client-worklink"); // CommonJS import

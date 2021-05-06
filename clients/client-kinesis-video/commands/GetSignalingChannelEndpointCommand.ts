@@ -36,7 +36,7 @@ export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingCh
  *             an endpoint that a client can use to communicate only with a
  *                 <code>MASTER</code>. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisVideoClient, GetSignalingChannelEndpointCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, GetSignalingChannelEndpointCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import

@@ -23,7 +23,7 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
 /**
  * <p>Detaches a policy from the specified target.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, DetachPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DetachPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import

@@ -30,7 +30,7 @@ export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataB
  *           <code>streamKey</code> attached to the channel.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IvsClient, StopStreamCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, StopStreamCommand } = require("@aws-sdk/client-ivs"); // CommonJS import

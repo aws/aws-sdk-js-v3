@@ -25,7 +25,7 @@ export interface GetFunctionConfigurationCommandOutput extends FunctionConfigura
  *       can vary between versions of a function. To modify these settings, use <a>UpdateFunctionConfiguration</a>.</p>
  *          <p>To get all of a function's details, including function-level settings, use <a>GetFunction</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LambdaClient, GetFunctionConfigurationCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetFunctionConfigurationCommand } = require("@aws-sdk/client-lambda"); // CommonJS import

@@ -26,7 +26,7 @@ export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
  *       a strongly consistent read might take more time than an eventually consistent read, it always
  *       returns the last updated value.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DynamoDBClient, GetItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, GetItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import

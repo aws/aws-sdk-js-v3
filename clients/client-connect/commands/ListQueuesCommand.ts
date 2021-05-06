@@ -25,7 +25,7 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  *          <p>For more information about queues, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html">Queues: Standard and
  *     Agent</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, ListQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import

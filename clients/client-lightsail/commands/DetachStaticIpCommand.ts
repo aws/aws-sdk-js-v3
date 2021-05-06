@@ -23,7 +23,7 @@ export interface DetachStaticIpCommandOutput extends DetachStaticIpResult, __Met
 /**
  * <p>Detaches a static IP from the Amazon Lightsail instance to which it is attached.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, DetachStaticIpCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DetachStaticIpCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

@@ -23,7 +23,7 @@ export interface ListFindingsFiltersCommandOutput extends ListFindingsFiltersRes
 /**
  * <p>Retrieves a subset of information about all the findings filters for an account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Macie2Client, ListFindingsFiltersCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListFindingsFiltersCommand } = require("@aws-sdk/client-macie2"); // CommonJS import

@@ -23,7 +23,7 @@ export interface DeleteEndpointAccessCommandOutput extends EndpointAccess, __Met
 /**
  * <p>Deletes a Redshift-managed VPC endpoint.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RedshiftClient, DeleteEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import

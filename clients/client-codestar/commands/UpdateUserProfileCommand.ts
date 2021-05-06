@@ -25,7 +25,7 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResult,
  *       Information in the user profile is displayed wherever the user's information appears to other
  *       users in AWS CodeStar. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeStarClient, UpdateUserProfileCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, UpdateUserProfileCommand } = require("@aws-sdk/client-codestar"); // CommonJS import

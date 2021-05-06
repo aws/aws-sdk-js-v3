@@ -39,7 +39,7 @@ export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryO
  *     recieve a <code>null</code> value. A null value for <code>PaginationToken</code> indicates that
  *     there are no more results waiting to be returned.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResourceGroupsTaggingAPIClient, GetComplianceSummaryCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
  * // const { ResourceGroupsTaggingAPIClient, GetComplianceSummaryCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import

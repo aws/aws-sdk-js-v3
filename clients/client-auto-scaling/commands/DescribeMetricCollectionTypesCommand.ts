@@ -27,7 +27,7 @@ export interface DescribeMetricCollectionTypesCommandOutput
  *         <p>The <code>GroupStandbyInstances</code> metric is not returned by default. You must
  *             explicitly request this metric when calling the <a>EnableMetricsCollection</a> API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AutoScalingClient, DescribeMetricCollectionTypesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeMetricCollectionTypesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import

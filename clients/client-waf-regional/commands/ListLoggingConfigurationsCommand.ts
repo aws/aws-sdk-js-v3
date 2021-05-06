@@ -31,7 +31,7 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  *          </note>
  *          <p>Returns an array of <a>LoggingConfiguration</a> objects.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFRegionalClient, ListLoggingConfigurationsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, ListLoggingConfigurationsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import

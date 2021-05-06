@@ -24,7 +24,7 @@ export interface DeleteImageCommandOutput extends DeleteImageResult, __MetadataB
  * <p>Deletes the specified image. You cannot delete an image when it is in use.
  *             After you delete an image, you cannot provision new capacity using the image.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppStreamClient, DeleteImageCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, DeleteImageCommand } = require("@aws-sdk/client-appstream"); // CommonJS import

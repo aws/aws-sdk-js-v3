@@ -23,7 +23,7 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
 /**
  * <p>Deletes a given schema. Schemas in a development and published state can only be deleted. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudDirectoryClient, DeleteSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DeleteSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import

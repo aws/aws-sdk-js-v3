@@ -28,7 +28,7 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * <p>Deregisters the specified targets from the specified target group. After the targets are
  *       deregistered, they no longer receive traffic from the load balancer.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticLoadBalancingV2Client, DeregisterTargetsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, DeregisterTargetsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import

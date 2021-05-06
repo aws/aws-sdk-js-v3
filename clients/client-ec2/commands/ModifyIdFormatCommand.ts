@@ -43,7 +43,7 @@ export interface ModifyIdFormatCommandOutput extends __MetadataBearer {}
  *         of these settings and provided that they have permission to use the relevant
  *         <code>Describe</code> command for the resource type.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, ModifyIdFormatCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyIdFormatCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

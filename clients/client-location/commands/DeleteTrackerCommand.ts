@@ -26,7 +26,7 @@ export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __Met
  *             <p>This action deletes the resource permanently. You can't undo this action. If the tracker resource is in use, you may encounter an error. Make sure that the target resource is not a dependency for your applications.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LocationClient, DeleteTrackerCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DeleteTrackerCommand } = require("@aws-sdk/client-location"); // CommonJS import

@@ -25,7 +25,7 @@ export interface CreateScheduledActionCommandOutput extends ScheduledAction, __M
  *             For example, you can create a schedule of when to run the <code>ResizeCluster</code> API operation.
  *         </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RedshiftClient, CreateScheduledActionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, CreateScheduledActionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import

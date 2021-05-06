@@ -25,7 +25,7 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  *         <code>CreateEntityRecognizer</code> request is submitted, you can check job status using the
  *          API. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, CreateEntityRecognizerCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, CreateEntityRecognizerCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

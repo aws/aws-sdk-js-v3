@@ -23,7 +23,7 @@ export interface GetDomainNamesCommandOutput extends DomainNames, __MetadataBear
 /**
  * <p>Represents a collection of <a>DomainName</a> resources.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, GetDomainNamesCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetDomainNamesCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

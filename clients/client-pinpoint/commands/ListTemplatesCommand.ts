@@ -23,7 +23,7 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
 /**
  * <p>Retrieves information about all the message templates that are associated with your Amazon Pinpoint account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, ListTemplatesCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, ListTemplatesCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

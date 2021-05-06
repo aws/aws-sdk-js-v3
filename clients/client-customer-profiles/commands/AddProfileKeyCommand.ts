@@ -26,7 +26,7 @@ export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __Met
  *          <p>A profile object can have a single unique key and any number of additional keys that can
  *          be used to identify the profile that it belongs to.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CustomerProfilesClient, AddProfileKeyCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, AddProfileKeyCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import

@@ -24,7 +24,7 @@ export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __Metad
  * <p>Creates a new device in a global network. If you specify both a site ID and a
  *             location, the location of the site is used for visualization in the Network Manager console.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NetworkManagerClient, CreateDeviceCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, CreateDeviceCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import

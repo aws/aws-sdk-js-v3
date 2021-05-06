@@ -26,7 +26,7 @@ export interface UnlinkIdentityCommandOutput extends __MetadataBearer {}
  *          this identity inaccessible.</p>
  *          <p>This is a public API. You do not need any credentials to call this API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityClient, UnlinkIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, UnlinkIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import

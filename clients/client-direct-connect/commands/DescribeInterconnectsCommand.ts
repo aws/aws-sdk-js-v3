@@ -23,7 +23,7 @@ export interface DescribeInterconnectsCommandOutput extends Interconnects, __Met
 /**
  * <p>Lists the interconnects owned by the AWS account or only the specified interconnect.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectConnectClient, DescribeInterconnectsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeInterconnectsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import

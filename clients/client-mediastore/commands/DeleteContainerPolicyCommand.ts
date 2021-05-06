@@ -23,7 +23,7 @@ export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolic
 /**
  * <p>Deletes the access policy that is associated with the specified container.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaStoreClient, DeleteContainerPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, DeleteContainerPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import

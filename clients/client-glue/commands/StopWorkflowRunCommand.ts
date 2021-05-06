@@ -23,7 +23,7 @@ export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, _
 /**
  * <p>Stops the execution of the specified workflow run.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, StopWorkflowRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StopWorkflowRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import

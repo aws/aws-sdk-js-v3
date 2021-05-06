@@ -24,7 +24,7 @@ export interface DeleteVirtualGatewayCommandOutput extends DeleteVirtualGatewayO
  * <p>Deletes an existing virtual gateway. You cannot delete a virtual gateway if any gateway
  *          routes are associated to it.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppMeshClient, DeleteVirtualGatewayCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DeleteVirtualGatewayCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import

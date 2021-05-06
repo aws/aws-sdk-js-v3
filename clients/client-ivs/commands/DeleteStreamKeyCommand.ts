@@ -24,7 +24,7 @@ export interface DeleteStreamKeyCommandOutput extends __MetadataBearer {}
  * <p>Deletes the stream key for the specified ARN, so it can no longer be used to
  *       stream.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IvsClient, DeleteStreamKeyCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, DeleteStreamKeyCommand } = require("@aws-sdk/client-ivs"); // CommonJS import

@@ -23,7 +23,7 @@ export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsx
 /**
  * <p>Creates an endpoint for an Amazon FSx for Windows File Server file system.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, CreateLocationFsxWindowsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationFsxWindowsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import

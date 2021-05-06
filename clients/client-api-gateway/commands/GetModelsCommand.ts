@@ -23,7 +23,7 @@ export interface GetModelsCommandOutput extends Models, __MetadataBearer {}
 /**
  * <p>Describes existing <a>Models</a> defined for a <a>RestApi</a> resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, GetModelsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetModelsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

@@ -25,7 +25,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *             more cluster configuration parameters by specifying the parameters and the new
  *             values.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DAXClient, UpdateClusterCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, UpdateClusterCommand } = require("@aws-sdk/client-dax"); // CommonJS import

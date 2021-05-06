@@ -23,7 +23,7 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __Met
 /**
  * <p>Gets a list of all existing endpoints that you've created.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, ListEndpointsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListEndpointsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

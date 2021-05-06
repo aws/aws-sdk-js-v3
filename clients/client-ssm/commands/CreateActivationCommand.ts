@@ -32,7 +32,7 @@ export interface CreateActivationCommandOutput extends CreateActivationResult, _
  *     with Systems Manager are all called <i>managed instances</i>.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, CreateActivationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateActivationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

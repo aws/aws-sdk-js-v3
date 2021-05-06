@@ -28,7 +28,7 @@ export interface ResumeSessionCommandOutput extends ResumeSessionResponse, __Met
  *     intermittent network issues. It is not intended for any other use.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, ResumeSessionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ResumeSessionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

@@ -28,7 +28,7 @@ export interface DescribeImportTasksCommandOutput extends DescribeImportTasksRes
  * <p>Returns an array of import tasks for your account, including status information, times,
  *       IDs, the Amazon S3 Object URL for the import file, and more.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApplicationDiscoveryServiceClient, DescribeImportTasksCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, DescribeImportTasksCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import

@@ -26,7 +26,7 @@ export interface CreateLocationObjectStorageCommandOutput
  * <p>Creates an endpoint for a self-managed object storage bucket. For more information
  *       about self-managed object storage locations, see <a>create-object-location</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, CreateLocationObjectStorageCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationObjectStorageCommand } = require("@aws-sdk/client-datasync"); // CommonJS import

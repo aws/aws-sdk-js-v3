@@ -34,7 +34,7 @@ export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWit
  * 			<code>AssociateVPCWithHostedZone</code> request.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53Client, AssociateVPCWithHostedZoneCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, AssociateVPCWithHostedZoneCommand } = require("@aws-sdk/client-route-53"); // CommonJS import

@@ -37,7 +37,7 @@ export interface ResetServiceSettingCommandOutput extends ResetServiceSettingRes
  *          <p>Reset the service setting for the account to the default value as provisioned by the AWS
  *    service team. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, ResetServiceSettingCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ResetServiceSettingCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

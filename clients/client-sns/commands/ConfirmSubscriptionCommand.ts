@@ -27,7 +27,7 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  *             requires an AWS signature only when the <code>AuthenticateOnUnsubscribe</code> flag is
  *             set to "true".</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SNSClient, ConfirmSubscriptionCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ConfirmSubscriptionCommand } = require("@aws-sdk/client-sns"); // CommonJS import

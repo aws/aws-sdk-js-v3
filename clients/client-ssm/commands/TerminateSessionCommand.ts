@@ -24,7 +24,7 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * <p>Permanently ends a session and closes the data connection between the Session Manager client and
  *    SSM Agent on the instance. A terminated session cannot be resumed.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, TerminateSessionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, TerminateSessionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

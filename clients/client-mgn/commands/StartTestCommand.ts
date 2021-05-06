@@ -23,7 +23,7 @@ export interface StartTestCommandOutput extends StartTestResponse, __MetadataBea
 /**
  * <p>Lauches a Test Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartTest and changes the SourceServer.lifeCycle.state property to TESTING.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MgnClient, StartTestCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, StartTestCommand } = require("@aws-sdk/client-mgn"); // CommonJS import

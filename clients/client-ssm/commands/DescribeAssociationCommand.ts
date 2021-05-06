@@ -27,7 +27,7 @@ export interface DescribeAssociationCommandOutput extends DescribeAssociationRes
  *    Systems Manager document, then you retrieve the association by specifying the document name and the
  *    instance ID. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, DescribeAssociationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAssociationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

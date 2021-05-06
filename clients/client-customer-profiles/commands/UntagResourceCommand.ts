@@ -24,7 +24,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * <p>Removes one or more tags from the specified Amazon Connect Customer Profiles resource. In Connect
  *          Customer Profiles, domains, profile object types, and integrations can be tagged.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CustomerProfilesClient, UntagResourceCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, UntagResourceCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import

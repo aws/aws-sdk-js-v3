@@ -27,7 +27,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *     Management console for cost allocation tracking.
  * </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TimestreamWriteClient, TagResourceCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, TagResourceCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import

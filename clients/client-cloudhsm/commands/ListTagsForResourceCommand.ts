@@ -33,7 +33,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *       Reference</a>.</p>
  *          <p>Returns a list of all tags for the specified AWS CloudHSM resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudHSMClient, ListTagsForResourceCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, ListTagsForResourceCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import

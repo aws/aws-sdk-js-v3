@@ -23,7 +23,7 @@ export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationS
 /**
  * <p>Retrieves the current status of a schema creation operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppSyncClient, GetSchemaCreationStatusCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetSchemaCreationStatusCommand } = require("@aws-sdk/client-appsync"); // CommonJS import

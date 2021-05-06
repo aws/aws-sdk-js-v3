@@ -25,7 +25,7 @@ export interface AuthorizeClientVpnIngressCommandOutput extends AuthorizeClientV
  * 			firewall rules that grant access to networks. You must configure ingress authorization rules to
  * 			enable clients to access resources in AWS or on-premises networks.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, AuthorizeClientVpnIngressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AuthorizeClientVpnIngressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

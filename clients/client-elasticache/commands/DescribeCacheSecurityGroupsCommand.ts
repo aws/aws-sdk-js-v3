@@ -26,7 +26,7 @@ export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityG
  *             the description of that group. This applicable only when you have ElastiCache in Classic setup
  *         </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElastiCacheClient, DescribeCacheSecurityGroupsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeCacheSecurityGroupsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import

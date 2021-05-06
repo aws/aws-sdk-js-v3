@@ -30,7 +30,7 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  *             scale your cluster or replication group, the value of the <code>CacheNodeType</code> parameter
  *             must be one of the node types returned by this operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElastiCacheClient, ListAllowedNodeTypeModificationsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ListAllowedNodeTypeModificationsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import

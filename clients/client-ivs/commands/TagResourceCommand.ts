@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * <p>Adds or updates tags for the AWS resource with the specified ARN.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IvsClient, TagResourceCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, TagResourceCommand } = require("@aws-sdk/client-ivs"); // CommonJS import

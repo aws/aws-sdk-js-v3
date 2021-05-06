@@ -24,7 +24,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * <p>Displays the tags associated with a CloudWatch resource. Currently, alarms
  * 			and Contributor Insights rules support tagging.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchClient, ListTagsForResourceCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, ListTagsForResourceCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import

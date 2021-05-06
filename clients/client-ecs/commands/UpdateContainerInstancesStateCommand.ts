@@ -73,7 +73,7 @@ export interface UpdateContainerInstancesStateCommandOutput
  * 				<code>ACTIVE</code> status and once it has reached that status the Amazon ECS scheduler
  * 			can begin scheduling tasks on the instance again.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECSClient, UpdateContainerInstancesStateCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateContainerInstancesStateCommand } = require("@aws-sdk/client-ecs"); // CommonJS import

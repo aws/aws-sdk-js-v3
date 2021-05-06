@@ -26,7 +26,7 @@ export interface ListFirewallsCommandOutput extends ListFirewallsResponse, __Met
  *          <p>Depending on your setting for max results and the number of firewalls, a single call
  *          might not return the full list. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NetworkFirewallClient, ListFirewallsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, ListFirewallsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import

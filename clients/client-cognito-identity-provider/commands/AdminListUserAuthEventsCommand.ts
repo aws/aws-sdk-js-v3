@@ -29,7 +29,7 @@ export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthE
  * <p>Lists a history of user activity and any risks detected as part of Amazon Cognito
  *             advanced security.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityProviderClient, AdminListUserAuthEventsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, AdminListUserAuthEventsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import

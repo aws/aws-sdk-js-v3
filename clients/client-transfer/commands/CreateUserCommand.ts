@@ -29,7 +29,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *       role. You can also optionally add a scope-down policy, and assign metadata with tags that can
  *       be used to group and search for users.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TransferClient, CreateUserCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, CreateUserCommand } = require("@aws-sdk/client-transfer"); // CommonJS import

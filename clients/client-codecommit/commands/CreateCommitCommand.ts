@@ -23,7 +23,7 @@ export interface CreateCommitCommandOutput extends CreateCommitOutput, __Metadat
 /**
  * <p>Creates a commit for a repository on the tip of a specified branch.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeCommitClient, CreateCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, CreateCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import

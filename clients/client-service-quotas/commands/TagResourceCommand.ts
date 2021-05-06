@@ -24,7 +24,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>Adds tags to the specified applied quota. You can include one or more tags to add to the
  *       quota.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceQuotasClient, TagResourceCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, TagResourceCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import

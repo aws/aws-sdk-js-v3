@@ -24,7 +24,7 @@ export interface GetGeneratedPolicyCommandOutput extends GetGeneratedPolicyRespo
  * <p>Retrieves the policy that was generated using <code>StartPolicyGeneration</code>.
  *       </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AccessAnalyzerClient, GetGeneratedPolicyCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, GetGeneratedPolicyCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import

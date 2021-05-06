@@ -24,7 +24,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
 /**
  * <p>Creates a new Amazon DocumentDB cluster.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, CreateDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import

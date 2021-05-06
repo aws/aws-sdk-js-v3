@@ -30,7 +30,7 @@ export interface CreateCustomAvailabilityZoneCommandOutput
  *                 RDS on VMware User Guide.</a>
  *          </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, CreateCustomAvailabilityZoneCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateCustomAvailabilityZoneCommand } = require("@aws-sdk/client-rds"); // CommonJS import

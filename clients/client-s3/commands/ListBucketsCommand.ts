@@ -23,7 +23,7 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
 /**
  * <p>Returns a list of all buckets owned by the authenticated sender of the request.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { S3Client, ListBucketsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListBucketsCommand } = require("@aws-sdk/client-s3"); // CommonJS import

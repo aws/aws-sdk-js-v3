@@ -23,7 +23,7 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
 /**
  * <p>Generates a one-time challenge code to authenticate a user into your Amplify Admin UI.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmplifyBackendClient, CreateTokenCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, CreateTokenCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import

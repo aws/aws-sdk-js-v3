@@ -24,7 +24,7 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  * <p>Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted can't be
  *       associated with any DB instances.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, DeleteDBParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DeleteDBParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

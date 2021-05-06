@@ -23,7 +23,7 @@ export interface ListThemeAliasesCommandOutput extends ListThemeAliasesResponse,
 /**
  * <p>Lists all the aliases of a theme.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, ListThemeAliasesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListThemeAliasesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

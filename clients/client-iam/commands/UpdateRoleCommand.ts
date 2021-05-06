@@ -20,7 +20,7 @@ export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataB
 /**
  * <p>Updates the description or maximum session duration setting of a role.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, UpdateRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import

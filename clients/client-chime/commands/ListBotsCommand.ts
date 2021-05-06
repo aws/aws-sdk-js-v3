@@ -23,7 +23,7 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
 /**
  * <p>Lists the bots associated with the administrator's Amazon Chime Enterprise account ID.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, ListBotsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListBotsCommand } = require("@aws-sdk/client-chime"); // CommonJS import

@@ -24,7 +24,7 @@ export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCata
  * <p>Retrieve catalog metadata for a repository in a public registry. This metadata is
  *          displayed publicly in the Amazon ECR Public Gallery.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECRPUBLICClient, GetRepositoryCatalogDataCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, GetRepositoryCatalogDataCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import

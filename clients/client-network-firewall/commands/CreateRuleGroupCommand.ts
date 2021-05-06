@@ -26,7 +26,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *          <p>You provide your rule group specification in your request using either
  *             <code>RuleGroup</code> or <code>Rules</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NetworkFirewallClient, CreateRuleGroupCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, CreateRuleGroupCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import

@@ -33,7 +33,7 @@ export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse,
  *             <code>RuleId</code> that you included in the <code>GetRateBasedRule</code>
  *          request.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFRegionalClient, GetRateBasedRuleCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetRateBasedRuleCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import

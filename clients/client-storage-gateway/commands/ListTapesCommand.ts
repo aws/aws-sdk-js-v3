@@ -30,7 +30,7 @@ export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBeare
  *          subsequent request to retrieve the next set of tapes. This operation is only supported in
  *          the tape gateway type.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, ListTapesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListTapesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

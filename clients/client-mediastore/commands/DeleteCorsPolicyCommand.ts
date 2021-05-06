@@ -27,7 +27,7 @@ export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, _
  *             <code>MediaStore:DeleteCorsPolicy</code> action. The container owner has this permission
  *          by default and can grant this permission to others.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaStoreClient, DeleteCorsPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, DeleteCorsPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import

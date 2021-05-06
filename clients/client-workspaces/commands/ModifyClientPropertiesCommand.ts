@@ -23,7 +23,7 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
 /**
  * <p>Modifies the properties of the specified Amazon WorkSpaces clients.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkSpacesClient, ModifyClientPropertiesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyClientPropertiesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import

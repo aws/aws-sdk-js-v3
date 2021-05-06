@@ -26,7 +26,7 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  *       within the serviceable area of your region. If the address is invalid or unsupported, then an
  *       exception is thrown.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SnowballClient, CreateAddressCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, CreateAddressCommand } = require("@aws-sdk/client-snowball"); // CommonJS import

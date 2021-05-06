@@ -26,7 +26,7 @@ export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
  *             <p>You cannot delete a default cache subnet group or one that is associated with any clusters.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElastiCacheClient, DeleteCacheSubnetGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DeleteCacheSubnetGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import

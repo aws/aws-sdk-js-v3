@@ -27,7 +27,7 @@ export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __M
 /**
  * <p>Gets information about a tunnel identified by the unique tunnel id.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTSecureTunnelingClient, DescribeTunnelCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
  * // const { IoTSecureTunnelingClient, DescribeTunnelCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import

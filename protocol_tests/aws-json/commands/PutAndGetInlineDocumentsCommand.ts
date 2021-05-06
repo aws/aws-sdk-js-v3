@@ -23,7 +23,7 @@ export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDo
 /**
  * This example serializes an inline document as part of the payload.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { JsonProtocolClient, PutAndGetInlineDocumentsCommand } from "@aws-sdk/aws-json"; // ES Modules import
  * // const { JsonProtocolClient, PutAndGetInlineDocumentsCommand } = require("@aws-sdk/aws-json"); // CommonJS import

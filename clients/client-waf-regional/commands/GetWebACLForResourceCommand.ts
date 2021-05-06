@@ -31,7 +31,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  *          </note>
  *          <p>Returns the web ACL for the specified resource, either an application load balancer or Amazon API Gateway stage.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFRegionalClient, GetWebACLForResourceCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetWebACLForResourceCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import

@@ -33,7 +33,7 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  *
  *          <p>For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, StartContentModerationCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, StartContentModerationCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import

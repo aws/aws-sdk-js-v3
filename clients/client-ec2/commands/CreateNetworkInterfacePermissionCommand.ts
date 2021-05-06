@@ -27,7 +27,7 @@ export interface CreateNetworkInterfacePermissionCommandOutput
  *             an instance in their account.</p>
  * 		       <p>You can grant permission to a single AWS account only, and only one account at a time.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, CreateNetworkInterfacePermissionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateNetworkInterfacePermissionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

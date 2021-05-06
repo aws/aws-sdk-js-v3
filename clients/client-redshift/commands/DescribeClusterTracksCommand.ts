@@ -23,7 +23,7 @@ export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __
 /**
  * <p>Returns a list of all the available maintenance tracks.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RedshiftClient, DescribeClusterTracksCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterTracksCommand } = require("@aws-sdk/client-redshift"); // CommonJS import

@@ -24,7 +24,7 @@ export interface ListStacksCommandOutput extends ListStacksOutput, __MetadataBea
  *          for all stacks is returned (including existing stacks and stacks that have been
  *          deleted).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFormationClient, ListStacksCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListStacksCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import

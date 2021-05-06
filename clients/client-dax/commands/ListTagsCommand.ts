@@ -21,7 +21,7 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * <p>List all of the tags for a DAX cluster. You can call <code>ListTags</code> up to
  *             10 times per second, per account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DAXClient, ListTagsCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, ListTagsCommand } = require("@aws-sdk/client-dax"); // CommonJS import

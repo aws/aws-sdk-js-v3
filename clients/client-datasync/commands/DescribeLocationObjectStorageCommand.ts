@@ -26,7 +26,7 @@ export interface DescribeLocationObjectStorageCommandOutput
  * <p>Returns metadata about a self-managed object storage server location. For more information
  *       about self-managed object storage locations, see <a>create-object-location</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, DescribeLocationObjectStorageCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationObjectStorageCommand } = require("@aws-sdk/client-datasync"); // CommonJS import

@@ -23,7 +23,7 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleResponse, __M
 /**
  * <p>Modifies the definition of an existing DataBrew schedule.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, UpdateScheduleCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateScheduleCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

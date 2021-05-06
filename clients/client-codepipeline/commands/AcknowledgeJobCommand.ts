@@ -24,7 +24,7 @@ export interface AcknowledgeJobCommandOutput extends AcknowledgeJobOutput, __Met
  * <p>Returns information about a specified job and whether that job has been received by
  *             the job worker. Used for custom actions only.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodePipelineClient, AcknowledgeJobCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, AcknowledgeJobCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import

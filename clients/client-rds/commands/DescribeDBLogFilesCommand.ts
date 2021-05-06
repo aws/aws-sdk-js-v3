@@ -23,7 +23,7 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
 /**
  * <p>Returns a list of DB log files for the DB instance.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, DescribeDBLogFilesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBLogFilesCommand } = require("@aws-sdk/client-rds"); // CommonJS import

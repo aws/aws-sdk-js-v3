@@ -24,7 +24,7 @@ export interface DescribeActionTargetsCommandOutput extends DescribeActionTarget
 /**
  * <p>Returns a list of the custom action targets in Security Hub in your account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, DescribeActionTargetsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DescribeActionTargetsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

@@ -24,7 +24,7 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * <p>Retrieves details for the specified Amazon Chime account, such as account type and supported
  *             licenses.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, GetAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import

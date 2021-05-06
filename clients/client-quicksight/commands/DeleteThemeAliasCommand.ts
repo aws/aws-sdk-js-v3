@@ -25,7 +25,7 @@ export interface DeleteThemeAliasCommandOutput extends DeleteThemeAliasResponse,
  * 			If you provide a specific alias, you delete the version of the theme
  * 			that the alias points to.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, DeleteThemeAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteThemeAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

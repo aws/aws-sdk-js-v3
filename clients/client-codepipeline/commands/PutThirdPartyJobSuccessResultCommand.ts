@@ -24,7 +24,7 @@ export interface PutThirdPartyJobSuccessResultCommandOutput extends __MetadataBe
  * <p>Represents the success of a third party job as returned to the pipeline by a job
  *             worker. Used for partner actions only.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodePipelineClient, PutThirdPartyJobSuccessResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PutThirdPartyJobSuccessResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import

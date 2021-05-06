@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>Deassigns a resource tag.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GroundStationClient, UntagResourceCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, UntagResourceCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import

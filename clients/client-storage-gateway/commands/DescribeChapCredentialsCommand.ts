@@ -25,7 +25,7 @@ export interface DescribeChapCredentialsCommandOutput extends DescribeChapCreden
  *          information for a specified iSCSI target, one for each target-initiator pair. This
  *          operation is supported in the volume and tape gateway types.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, DescribeChapCredentialsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeChapCredentialsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

@@ -27,7 +27,7 @@ export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBas
  *          <p>If you do not specify an operating system value, the default patch baseline for Windows is
  *    returned.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, GetDefaultPatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetDefaultPatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

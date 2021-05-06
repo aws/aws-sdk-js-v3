@@ -23,7 +23,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>Returns a list of the tags assigned to the specified resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, ListTagsForResourceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListTagsForResourceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

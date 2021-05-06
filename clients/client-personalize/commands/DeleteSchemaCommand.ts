@@ -25,7 +25,7 @@ export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
  *       datasets referencing the schema. For more information on schemas, see
  *       <a>CreateSchema</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PersonalizeClient, DeleteSchemaCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteSchemaCommand } = require("@aws-sdk/client-personalize"); // CommonJS import

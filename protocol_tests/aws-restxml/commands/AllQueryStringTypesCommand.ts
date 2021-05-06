@@ -23,7 +23,7 @@ export interface AllQueryStringTypesCommandOutput extends __MetadataBearer {}
 /**
  * This example uses all query string types.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestXmlProtocolClient, AllQueryStringTypesCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, AllQueryStringTypesCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import

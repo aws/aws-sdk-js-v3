@@ -23,7 +23,7 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
 /**
  * <p>Gets the latest version of the user's namespace and the public version that it is tracking.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTThingsGraphClient, DescribeNamespaceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DescribeNamespaceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import

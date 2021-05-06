@@ -30,7 +30,7 @@ export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
  * <p>Gets a list of <a>TrainingJobSummary</a> objects that describe the training
  *             jobs that a hyperparameter tuning job launched.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, ListTrainingJobsForHyperParameterTuningJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListTrainingJobsForHyperParameterTuningJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

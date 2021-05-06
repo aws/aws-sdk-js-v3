@@ -27,7 +27,7 @@ export interface ReadPresetCommandOutput extends ReadPresetResponse, __MetadataB
 /**
  * <p>The ReadPreset operation gets detailed information about a preset.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticTranscoderClient, ReadPresetCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, ReadPresetCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import

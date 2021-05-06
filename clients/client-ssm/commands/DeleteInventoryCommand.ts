@@ -24,7 +24,7 @@ export interface DeleteInventoryCommandOutput extends DeleteInventoryResult, __M
  * <p>Delete a custom inventory type or the data associated with a custom Inventory type. Deleting
  *    a custom inventory type is also referred to as deleting a custom inventory schema.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, DeleteInventoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DeleteInventoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

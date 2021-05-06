@@ -25,7 +25,7 @@ export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupR
  *          information on the creation time, <code>FeatureGroup</code> name, the unique identifier for
  *          each <code>FeatureGroup</code>, and more.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, DescribeFeatureGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeFeatureGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

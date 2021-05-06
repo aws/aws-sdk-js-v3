@@ -23,7 +23,7 @@ export interface DeleteApnsVoipChannelCommandOutput extends DeleteApnsVoipChanne
 /**
  * <p>Disables the APNs VoIP channel for an application and deletes any existing settings for the channel.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, DeleteApnsVoipChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteApnsVoipChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

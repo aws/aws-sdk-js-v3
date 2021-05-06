@@ -34,7 +34,7 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  *          <p>Only Amazon EFS file system backups can be transitioned to cold storage.</p>
  *          <p>Does not support continuous backups.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, UpdateRecoveryPointLifecycleCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UpdateRecoveryPointLifecycleCommand } = require("@aws-sdk/client-backup"); // CommonJS import

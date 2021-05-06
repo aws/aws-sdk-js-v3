@@ -23,7 +23,7 @@ export interface DeleteServerCatalogCommandOutput extends DeleteServerCatalogRes
 /**
  * <p>Deletes all servers from your server catalog.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SMSClient, DeleteServerCatalogCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DeleteServerCatalogCommand } = require("@aws-sdk/client-sms"); // CommonJS import

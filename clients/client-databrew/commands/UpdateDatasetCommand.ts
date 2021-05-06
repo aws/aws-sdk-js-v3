@@ -23,7 +23,7 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
 /**
  * <p>Modifies the definition of an existing DataBrew dataset.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, UpdateDatasetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, UpdateDatasetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

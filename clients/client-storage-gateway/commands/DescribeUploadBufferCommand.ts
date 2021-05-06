@@ -27,7 +27,7 @@ export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferO
  *          <p>The response includes disk IDs that are configured as upload buffer space, and it
  *          includes the amount of upload buffer space allocated and used.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, DescribeUploadBufferCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeUploadBufferCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

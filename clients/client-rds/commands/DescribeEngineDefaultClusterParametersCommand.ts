@@ -33,7 +33,7 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
  *          </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, DescribeEngineDefaultClusterParametersCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeEngineDefaultClusterParametersCommand } = require("@aws-sdk/client-rds"); // CommonJS import

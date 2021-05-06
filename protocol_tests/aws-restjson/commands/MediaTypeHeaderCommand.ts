@@ -23,7 +23,7 @@ export interface MediaTypeHeaderCommandOutput extends MediaTypeHeaderOutput, __M
 /**
  * This example ensures that mediaType strings are base64 encoded in headers.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestJsonProtocolClient, MediaTypeHeaderCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, MediaTypeHeaderCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import

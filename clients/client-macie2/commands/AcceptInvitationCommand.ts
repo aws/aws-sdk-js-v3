@@ -23,7 +23,7 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
 /**
  * <p>Accepts an Amazon Macie membership invitation that was received from a specific account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Macie2Client, AcceptInvitationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, AcceptInvitationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import

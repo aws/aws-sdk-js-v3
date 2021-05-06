@@ -20,7 +20,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
 /**
  * <p>Creates a new job definition.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, CreateJobCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateJobCommand } = require("@aws-sdk/client-glue"); // CommonJS import

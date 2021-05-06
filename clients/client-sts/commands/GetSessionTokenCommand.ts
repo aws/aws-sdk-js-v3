@@ -75,7 +75,7 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  *             Credentials for Users in Untrusted Environments</a> in the
  *             <i>IAM User Guide</i>. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { STSClient, GetSessionTokenCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, GetSessionTokenCommand } = require("@aws-sdk/client-sts"); // CommonJS import

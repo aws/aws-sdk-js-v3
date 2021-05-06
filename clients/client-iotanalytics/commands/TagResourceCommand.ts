@@ -24,7 +24,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used to
  *       manage a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTAnalyticsClient, TagResourceCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, TagResourceCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import

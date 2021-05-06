@@ -27,7 +27,7 @@ export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitio
  *          <p>You must have the <code>logs:DeleteQueryDefinition</code> permission to be able to perform
  *       this operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchLogsClient, DeleteQueryDefinitionCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteQueryDefinitionCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import

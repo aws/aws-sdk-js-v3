@@ -53,7 +53,7 @@ export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFro
  *             for example, will it be combined with another variable or will it be split apart into
  *             word combinations? The recipe provides answers to these questions.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MachineLearningClient, CreateDataSourceFromS3Command } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, CreateDataSourceFromS3Command } = require("@aws-sdk/client-machine-learning"); // CommonJS import

@@ -25,7 +25,7 @@ export interface CreateClassifierCommandOutput extends CreateClassifierResponse,
  *         <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>,
  *       depending on which field of the request is present.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, CreateClassifierCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateClassifierCommand } = require("@aws-sdk/client-glue"); // CommonJS import

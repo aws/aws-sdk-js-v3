@@ -36,7 +36,7 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  *          <code>lookoutvision:CreateModel</code> operation. If you want to tag your model, you also require
  *          permission to the <code>lookoutvision:TagResource</code> operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LookoutVisionClient, CreateModelCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, CreateModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import

@@ -44,7 +44,7 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  *             the time that the <code>Scan</code> begins, you can set the <code>ConsistentRead</code>
  *             parameter to <code>true</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DynamoDBClient, ScanCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, ScanCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import

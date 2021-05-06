@@ -23,7 +23,7 @@ export interface ListVirtualRoutersCommandOutput extends ListVirtualRoutersOutpu
 /**
  * <p>Returns a list of existing virtual routers in a service mesh.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppMeshClient, ListVirtualRoutersCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, ListVirtualRoutersCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import

@@ -32,7 +32,7 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  *          <p>Permanently deletes the <a>LoggingConfiguration</a> from the specified web
  *          ACL.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFRegionalClient, DeleteLoggingConfigurationCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, DeleteLoggingConfigurationCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import

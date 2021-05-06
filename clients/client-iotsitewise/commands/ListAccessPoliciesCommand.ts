@@ -24,7 +24,7 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  * <p>Retrieves a paginated list of access policies for an identity (an AWS SSO user, an AWS SSO
  *       group, or an IAM user) or an AWS IoT SiteWise Monitor resource (a portal or project).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTSiteWiseClient, ListAccessPoliciesCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListAccessPoliciesCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import

@@ -23,7 +23,7 @@ export interface UpdateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
 /**
  * <p>Updates a usage plan of a given plan Id.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, UpdateUsagePlanCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateUsagePlanCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

@@ -23,7 +23,7 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes a statement from a topic's access control policy.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SNSClient, RemovePermissionCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, RemovePermissionCommand } = require("@aws-sdk/client-sns"); // CommonJS import

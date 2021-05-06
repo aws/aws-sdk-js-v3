@@ -24,7 +24,7 @@ export interface DisassociateSecurityKeyCommandOutput extends __MetadataBearer {
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Deletes the specified security key.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, DisassociateSecurityKeyCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DisassociateSecurityKeyCommand } = require("@aws-sdk/client-connect"); // CommonJS import

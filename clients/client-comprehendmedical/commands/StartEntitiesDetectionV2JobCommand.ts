@@ -30,7 +30,7 @@ export interface StartEntitiesDetectionV2JobCommandOutput
  * <p>Starts an asynchronous medical entity detection job for a collection of documents. Use the
  *         <code>DescribeEntitiesDetectionV2Job</code> operation to track the status of a job.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendMedicalClient, StartEntitiesDetectionV2JobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, StartEntitiesDetectionV2JobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import

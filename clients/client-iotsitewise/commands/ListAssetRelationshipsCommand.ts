@@ -25,7 +25,7 @@ export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationsh
  *       to identify an asset's root asset and all associated assets between that asset and its
  *       root.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTSiteWiseClient, ListAssetRelationshipsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListAssetRelationshipsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import

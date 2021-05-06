@@ -27,7 +27,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *                <code>TagResource</code>
  *             </a>. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RoboMakerClient, UntagResourceCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, UntagResourceCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import

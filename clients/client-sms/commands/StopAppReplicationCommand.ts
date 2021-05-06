@@ -24,7 +24,7 @@ export interface StopAppReplicationCommandOutput extends StopAppReplicationRespo
  * <p>Stops replicating the specified application by deleting the replication job for each server in
  *             the application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SMSClient, StopAppReplicationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, StopAppReplicationCommand } = require("@aws-sdk/client-sms"); // CommonJS import

@@ -30,7 +30,7 @@ export interface CreateCloudFormationStackCommandOutput extends CreateCloudForma
  *           cloud formation stack</code> operation again with the same export snapshot record.</p>
  *          </important>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, CreateCloudFormationStackCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateCloudFormationStackCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

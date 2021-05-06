@@ -54,7 +54,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutpu
  *          <p>This operation is idempotent, which means that it completes at most one time. If you
  *       attempt to create multiple load balancers with the same settings, each call succeeds.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticLoadBalancingV2Client, CreateLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, CreateLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import

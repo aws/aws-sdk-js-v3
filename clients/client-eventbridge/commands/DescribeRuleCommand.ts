@@ -25,7 +25,7 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  *          <p>DescribeRule does not list the targets of a rule. To see the targets associated with a
  *       rule, use <a>ListTargetsByRule</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EventBridgeClient, DescribeRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, DescribeRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import

@@ -26,7 +26,7 @@ export interface EnableRuleCommandOutput extends __MetadataBearer {}
  *          <p>When you enable a rule, incoming events might not immediately start matching to a newly
  *       enabled rule. Allow a short period of time for changes to take effect.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EventBridgeClient, EnableRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, EnableRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import

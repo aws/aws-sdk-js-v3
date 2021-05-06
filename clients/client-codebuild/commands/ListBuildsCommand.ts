@@ -23,7 +23,7 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
 /**
  * <p>Gets a list of build IDs, with each build ID representing a single build.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeBuildClient, ListBuildsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListBuildsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import

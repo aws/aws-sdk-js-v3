@@ -23,7 +23,7 @@ export interface GetParameterHistoryCommandOutput extends GetParameterHistoryRes
 /**
  * <p>Retrieves the history of all changes to a parameter.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, GetParameterHistoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetParameterHistoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

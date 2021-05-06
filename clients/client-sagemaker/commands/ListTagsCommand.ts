@@ -20,7 +20,7 @@ export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer 
 /**
  * <p>Returns the tags for the specified Amazon SageMaker resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, ListTagsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListTagsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

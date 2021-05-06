@@ -23,7 +23,7 @@ export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
 /**
  * <p>Modifies the specified attribute of the specified VPC.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, ModifyVpcAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

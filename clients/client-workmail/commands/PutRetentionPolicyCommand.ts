@@ -23,7 +23,7 @@ export interface PutRetentionPolicyCommandOutput extends PutRetentionPolicyRespo
 /**
  * <p>Puts a retention policy to the specified organization.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkMailClient, PutRetentionPolicyCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, PutRetentionPolicyCommand } = require("@aws-sdk/client-workmail"); // CommonJS import

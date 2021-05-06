@@ -27,7 +27,7 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  *                 the Policies Page</a> in the <i>Amazon Chime Administration
  *                 Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import

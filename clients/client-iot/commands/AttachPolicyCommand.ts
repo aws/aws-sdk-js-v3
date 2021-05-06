@@ -23,7 +23,7 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
 /**
  * <p>Attaches a policy to the specified target.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, AttachPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AttachPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import

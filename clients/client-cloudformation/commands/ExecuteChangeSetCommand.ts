@@ -33,7 +33,7 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  *          <p>To create a change set for the entire stack hierachy, <code>IncludeNestedStacks</code>
  *          must have been set to <code>True</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFormationClient, ExecuteChangeSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ExecuteChangeSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import

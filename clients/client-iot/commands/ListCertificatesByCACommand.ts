@@ -23,7 +23,7 @@ export interface ListCertificatesByCACommandOutput extends ListCertificatesByCAR
 /**
  * <p>List the device certificates signed by the specified CA certificate.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ListCertificatesByCACommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListCertificatesByCACommand } = require("@aws-sdk/client-iot"); // CommonJS import

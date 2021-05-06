@@ -25,7 +25,7 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsInputOutput, __
  * default format of date-time and various @timestampFormat trait
  * values.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestXmlProtocolClient, XmlTimestampsCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlTimestampsCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import

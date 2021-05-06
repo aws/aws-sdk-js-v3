@@ -24,7 +24,7 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * <p>Lists the device event history, including device connection status, for up to 30
  *          days.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AlexaForBusinessClient, ListDeviceEventsCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, ListDeviceEventsCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import

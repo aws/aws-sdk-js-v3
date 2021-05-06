@@ -25,7 +25,7 @@ export interface GetEnrollmentStatusCommandOutput extends GetEnrollmentStatusRes
  *         <p>If the account is the management account of an organization, this action also confirms
  *             the enrollment status of member accounts within the organization.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComputeOptimizerClient, GetEnrollmentStatusCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
  * // const { ComputeOptimizerClient, GetEnrollmentStatusCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import

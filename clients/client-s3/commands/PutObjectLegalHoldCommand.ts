@@ -27,7 +27,7 @@ export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutpu
  *             Objects</a>.</p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { S3Client, PutObjectLegalHoldCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, PutObjectLegalHoldCommand } = require("@aws-sdk/client-s3"); // CommonJS import

@@ -23,7 +23,7 @@ export interface PutActionRevisionCommandOutput extends PutActionRevisionOutput,
 /**
  * <p>Provides information to AWS CodePipeline about new revisions to a source.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodePipelineClient, PutActionRevisionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PutActionRevisionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import

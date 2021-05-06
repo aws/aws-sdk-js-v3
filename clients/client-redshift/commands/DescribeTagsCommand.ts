@@ -44,7 +44,7 @@ export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __
  *         <p>If both tag keys and values are omitted from the request, resources are returned
  *             regardless of whether they have tag keys or values associated with them.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RedshiftClient, DescribeTagsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeTagsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import

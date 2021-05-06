@@ -20,7 +20,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
 /**
  * <p>Updates an existing job definition.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, UpdateJobCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateJobCommand } = require("@aws-sdk/client-glue"); // CommonJS import

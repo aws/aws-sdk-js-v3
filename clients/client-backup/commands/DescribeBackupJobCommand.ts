@@ -23,7 +23,7 @@ export interface DescribeBackupJobCommandOutput extends DescribeBackupJobOutput,
 /**
  * <p>Returns backup job details for the specified <code>BackupJobId</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, DescribeBackupJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeBackupJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import

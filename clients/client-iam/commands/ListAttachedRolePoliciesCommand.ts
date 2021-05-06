@@ -32,7 +32,7 @@ export interface ListAttachedRolePoliciesCommandOutput extends ListAttachedRoleP
  *             attached to the specified role (or none that match the specified path prefix), the
  *             operation returns an empty list.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, ListAttachedRolePoliciesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListAttachedRolePoliciesCommand } = require("@aws-sdk/client-iam"); // CommonJS import

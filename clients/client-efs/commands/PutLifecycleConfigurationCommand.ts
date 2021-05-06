@@ -51,7 +51,7 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  *       need the same AWS Key Management Service (AWS KMS) permissions as when you created the encrypted
  *       file system. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EFSClient, PutLifecycleConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, PutLifecycleConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import

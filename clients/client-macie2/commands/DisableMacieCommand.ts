@@ -23,7 +23,7 @@ export interface DisableMacieCommandOutput extends DisableMacieResponse, __Metad
 /**
  * <p>Disables an Amazon Macie account and deletes Macie resources for the account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Macie2Client, DisableMacieCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, DisableMacieCommand } = require("@aws-sdk/client-macie2"); // CommonJS import

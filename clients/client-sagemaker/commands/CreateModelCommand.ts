@@ -48,7 +48,7 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *             inference code needs. For example, if the inference code access any other AWS resources,
  *             you grant necessary permissions via this role.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, CreateModelCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateModelCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

@@ -26,7 +26,7 @@ export interface DetectPHICommandOutput extends DetectPHIResponse, __MetadataBea
  *       the entity category, location, and confidence score for each entity. Amazon Comprehend Medical
  *       only detects entities in English language texts.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendMedicalClient, DetectPHICommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DetectPHICommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import

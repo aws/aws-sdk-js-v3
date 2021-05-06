@@ -25,7 +25,7 @@ export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __Met
  *       whether the agent is running or not) for an agent. To specify which agent to describe, use the
  *       Amazon Resource Name (ARN) of the agent in your request. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, DescribeAgentCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeAgentCommand } = require("@aws-sdk/client-datasync"); // CommonJS import

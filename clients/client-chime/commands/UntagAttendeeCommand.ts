@@ -23,7 +23,7 @@ export interface UntagAttendeeCommandOutput extends __MetadataBearer {}
 /**
  * <p>Untags the specified tags from the specified Amazon Chime SDK attendee.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, UntagAttendeeCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UntagAttendeeCommand } = require("@aws-sdk/client-chime"); // CommonJS import

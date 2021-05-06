@@ -26,7 +26,7 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * <p>Returns a list of resources (for example, DB instances) that have at least one pending
  *       maintenance action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, DescribePendingMaintenanceActionsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribePendingMaintenanceActionsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

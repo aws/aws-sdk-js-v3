@@ -29,7 +29,7 @@ export interface CreateTapesCommandOutput extends CreateTapesOutput, __MetadataB
  *             Use the <a>AddCache</a> operation to add cache storage to a gateway.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, CreateTapesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateTapesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

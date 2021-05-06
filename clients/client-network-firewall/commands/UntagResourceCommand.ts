@@ -29,7 +29,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *          <p>You can manage tags for the AWS resources that you manage through AWS Network Firewall:
  *          firewalls, firewall policies, and rule groups. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NetworkFirewallClient, UntagResourceCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
  * // const { NetworkFirewallClient, UntagResourceCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import

@@ -25,7 +25,7 @@ export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
  * 			generated using the signing profile after an effective start date are no longer
  * 			valid.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SignerClient, RevokeSigningProfileCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, RevokeSigningProfileCommand } = require("@aws-sdk/client-signer"); // CommonJS import

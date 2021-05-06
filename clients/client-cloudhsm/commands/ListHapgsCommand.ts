@@ -34,7 +34,7 @@ export interface ListHapgsCommandOutput extends ListHapgsResponse, __MetadataBea
  *       token that you pass in the next call to <code>ListHapgs</code> to retrieve the next set of
  *       items.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudHSMClient, ListHapgsCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, ListHapgsCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import

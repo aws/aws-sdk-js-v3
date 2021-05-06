@@ -33,7 +33,7 @@ export interface DeleteTableCommandOutput extends DeleteTableResponse, __Metadat
  *         table.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, DeleteTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import

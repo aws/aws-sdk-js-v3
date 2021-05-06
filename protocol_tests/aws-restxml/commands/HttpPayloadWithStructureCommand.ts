@@ -26,7 +26,7 @@ export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithSt
  * Note that serializing a structure changes the wrapper element name
  * to match the targeted structure.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestXmlProtocolClient, HttpPayloadWithStructureCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, HttpPayloadWithStructureCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import

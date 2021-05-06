@@ -30,7 +30,7 @@ export interface ListDeliveryStreamsCommandOutput extends ListDeliveryStreamsOut
  *          again and setting the <code>ExclusiveStartDeliveryStreamName</code> parameter to the name
  *          of the last delivery stream returned in the last call.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FirehoseClient, ListDeliveryStreamsCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, ListDeliveryStreamsCommand } = require("@aws-sdk/client-firehose"); // CommonJS import

@@ -23,7 +23,7 @@ export interface BatchUpdatePartitionCommandOutput extends BatchUpdatePartitionR
 /**
  * <p>Updates one or more partitions in a batch operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, BatchUpdatePartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, BatchUpdatePartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import

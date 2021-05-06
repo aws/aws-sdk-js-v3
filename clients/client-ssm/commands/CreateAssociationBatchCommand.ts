@@ -28,7 +28,7 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  *          <p>If you associate a document with an instance that already has an associated document, the
  *    system returns the AssociationAlreadyExists exception.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, CreateAssociationBatchCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateAssociationBatchCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

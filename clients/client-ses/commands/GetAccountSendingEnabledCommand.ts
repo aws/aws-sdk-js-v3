@@ -24,7 +24,7 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  * <p>Returns the email sending status of the Amazon SES account for the current region.</p>
  *         <p>You can execute this operation no more than once per second.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESClient, GetAccountSendingEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetAccountSendingEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import

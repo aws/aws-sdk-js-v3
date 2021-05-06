@@ -25,7 +25,7 @@ export interface DescribeFlowLogsCommandOutput extends DescribeFlowLogsResult, _
  *             streams for the network interfaces), you must use the CloudWatch Logs console or the CloudWatch Logs
  *             API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DescribeFlowLogsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeFlowLogsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

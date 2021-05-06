@@ -31,7 +31,7 @@ export interface CreateConnectionCommandOutput extends Connection, __MetadataBea
  *       same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint,
  *       the request fails and no connection is created.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectConnectClient, CreateConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import

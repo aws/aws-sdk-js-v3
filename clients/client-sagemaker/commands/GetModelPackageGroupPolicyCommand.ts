@@ -26,7 +26,7 @@ export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackage
  *                 policies and resource-based policies</a> in the <i>AWS Identity and
  *                     Access Management User Guide.</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, GetModelPackageGroupPolicyCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, GetModelPackageGroupPolicyCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

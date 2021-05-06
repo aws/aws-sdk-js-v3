@@ -23,7 +23,7 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
 /**
  * <p>Lists all filters that belong to a given dataset group.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PersonalizeClient, ListFiltersCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListFiltersCommand } = require("@aws-sdk/client-personalize"); // CommonJS import

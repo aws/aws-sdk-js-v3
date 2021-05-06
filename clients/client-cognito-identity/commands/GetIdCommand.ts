@@ -22,7 +22,7 @@ export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
  *          implicit linked account.</p>
  *          <p>This is a public API. You do not need any credentials to call this API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityClient, GetIdCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, GetIdCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import

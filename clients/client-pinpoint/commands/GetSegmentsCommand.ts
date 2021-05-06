@@ -23,7 +23,7 @@ export interface GetSegmentsCommandOutput extends GetSegmentsResponse, __Metadat
 /**
  * <p>Retrieves information about the configuration, dimension, and other settings for all the segments that are associated with an application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetSegmentsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetSegmentsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

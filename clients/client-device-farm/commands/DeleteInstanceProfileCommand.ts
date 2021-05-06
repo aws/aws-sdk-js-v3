@@ -23,7 +23,7 @@ export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfil
 /**
  * <p>Deletes a profile that can be applied to one or more private device instances.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DeviceFarmClient, DeleteInstanceProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteInstanceProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import

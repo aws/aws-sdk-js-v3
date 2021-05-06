@@ -23,7 +23,7 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
 /**
  * <p>Retrieves details about your account's <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a> and usage in an AWS Region.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LambdaClient, GetAccountSettingsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetAccountSettingsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import

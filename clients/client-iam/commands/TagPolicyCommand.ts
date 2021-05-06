@@ -55,7 +55,7 @@ export interface TagPolicyCommandOutput extends __MetadataBearer {}
  *             </ul>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, TagPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import

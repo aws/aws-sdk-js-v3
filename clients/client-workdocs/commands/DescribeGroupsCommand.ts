@@ -24,7 +24,7 @@ export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __M
  * <p>Describes the groups specified by the query. Groups are defined by the underlying
  *             Active Directory.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkDocsClient, DescribeGroupsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeGroupsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import

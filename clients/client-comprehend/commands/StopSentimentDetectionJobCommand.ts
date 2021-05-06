@@ -32,7 +32,7 @@ export interface StopSentimentDetectionJobCommandOutput extends StopSentimentDet
  *          <p>When a job is stopped, any documents already processed are written to the output
  *       location.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, StopSentimentDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StopSentimentDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

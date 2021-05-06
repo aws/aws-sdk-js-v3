@@ -23,7 +23,7 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
 /**
  * Lists tags for a resource.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MqClient, ListTagsCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, ListTagsCommand } = require("@aws-sdk/client-mq"); // CommonJS import

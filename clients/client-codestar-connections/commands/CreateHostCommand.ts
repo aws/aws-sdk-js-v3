@@ -34,7 +34,7 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  *         default. You can make its status `AVAILABLE` by setting up the host in the console.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeStarConnectionsClient, CreateHostCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, CreateHostCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import

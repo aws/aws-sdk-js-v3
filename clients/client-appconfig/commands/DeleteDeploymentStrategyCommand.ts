@@ -24,7 +24,7 @@ export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer 
  * <p>Delete a deployment strategy. Deleting a deployment strategy does not delete a
  *          configuration from a host.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppConfigClient, DeleteDeploymentStrategyCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, DeleteDeploymentStrategyCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import

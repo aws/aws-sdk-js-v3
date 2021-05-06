@@ -26,7 +26,7 @@ export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
  *          This operation is idempotent. The operation will be successful, even if there are no tags
  *          attached to the vault. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlacierClient, RemoveTagsFromVaultCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, RemoveTagsFromVaultCommand } = require("@aws-sdk/client-glacier"); // CommonJS import

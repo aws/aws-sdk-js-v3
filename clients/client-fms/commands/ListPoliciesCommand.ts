@@ -23,7 +23,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
 /**
  * <p>Returns an array of <code>PolicySummary</code> objects.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FMSClient, ListPoliciesCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListPoliciesCommand } = require("@aws-sdk/client-fms"); // CommonJS import

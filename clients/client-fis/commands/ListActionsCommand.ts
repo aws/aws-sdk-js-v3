@@ -23,7 +23,7 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
 /**
  * <p>Lists the available AWS FIS actions.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FisClient, ListActionsCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, ListActionsCommand } = require("@aws-sdk/client-fis"); // CommonJS import

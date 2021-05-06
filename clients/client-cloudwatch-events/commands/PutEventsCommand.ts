@@ -20,7 +20,7 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
 /**
  * <p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchEventsClient, PutEventsCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, PutEventsCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import

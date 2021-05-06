@@ -23,7 +23,7 @@ export interface ImportAppCatalogCommandOutput extends ImportAppCatalogResponse,
 /**
  * <p>Allows application import from AWS Migration Hub.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SMSClient, ImportAppCatalogCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, ImportAppCatalogCommand } = require("@aws-sdk/client-sms"); // CommonJS import

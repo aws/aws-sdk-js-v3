@@ -26,7 +26,7 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:ListDatasetEntries</code> operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LookoutVisionClient, ListDatasetEntriesCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, ListDatasetEntriesCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import

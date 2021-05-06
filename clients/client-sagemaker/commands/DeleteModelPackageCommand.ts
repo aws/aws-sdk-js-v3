@@ -25,7 +25,7 @@ export interface DeleteModelPackageCommandOutput extends __MetadataBearer {}
  *         <p>A model package is used to create Amazon SageMaker models or list on AWS Marketplace. Buyers can
  *             subscribe to model packages listed on AWS Marketplace to create models in Amazon SageMaker.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, DeleteModelPackageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteModelPackageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

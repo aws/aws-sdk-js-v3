@@ -24,7 +24,7 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * <p>Retrieves the specified alarms. You can filter the results by specifying a prefix for the alarm
  * 			name, the alarm state, or a prefix for any action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchClient, DescribeAlarmsCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAlarmsCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import

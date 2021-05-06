@@ -26,7 +26,7 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  *          <p>To group the related findings in the insight, use the
  *          <code>GroupByAttribute</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, CreateInsightCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, CreateInsightCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

@@ -35,7 +35,7 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  *             receive notifications when you receive bounces or complaints, or you can use Amazon Kinesis Data Firehose to
  *             stream data to Amazon S3 for long-term storage.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESv2Client, DeleteConfigurationSetEventDestinationCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, DeleteConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import

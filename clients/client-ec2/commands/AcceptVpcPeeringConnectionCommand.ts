@@ -28,7 +28,7 @@ export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeerin
  *   	      <p>For an inter-Region VPC peering connection request, you must accept the VPC peering
  *       connection in the Region of the accepter VPC.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, AcceptVpcPeeringConnectionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AcceptVpcPeeringConnectionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

@@ -23,7 +23,7 @@ export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpoin
 /**
  * <p>Changes the settings for an existing DB proxy endpoint.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, ModifyDBProxyEndpointCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyDBProxyEndpointCommand } = require("@aws-sdk/client-rds"); // CommonJS import

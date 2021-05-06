@@ -30,7 +30,7 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  *         <code>BatchPutDocument</code> operation or using one of the supported
  *       data sources. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, CreateIndexCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateIndexCommand } = require("@aws-sdk/client-kendra"); // CommonJS import

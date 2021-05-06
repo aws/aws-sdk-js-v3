@@ -23,7 +23,7 @@ export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __Metad
 /**
  * <p>Gets stream-key information for a specified ARN.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IvsClient, GetStreamKeyCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, GetStreamKeyCommand } = require("@aws-sdk/client-ivs"); // CommonJS import

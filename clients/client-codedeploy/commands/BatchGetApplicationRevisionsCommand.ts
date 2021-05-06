@@ -26,7 +26,7 @@ export interface BatchGetApplicationRevisionsCommandOutput
  * <p>Gets information about one or more application revisions. The maximum number of
  *             application revisions that can be returned is 25.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeDeployClient, BatchGetApplicationRevisionsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, BatchGetApplicationRevisionsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import

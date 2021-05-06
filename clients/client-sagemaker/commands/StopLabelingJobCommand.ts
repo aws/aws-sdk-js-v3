@@ -24,7 +24,7 @@ export interface StopLabelingJobCommandOutput extends __MetadataBearer {}
  * <p>Stops a running labeling job. A job that is stopped cannot be restarted. Any results
  *             obtained before the job is stopped are placed in the Amazon S3 output bucket.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, StopLabelingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StopLabelingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

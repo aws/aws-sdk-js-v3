@@ -23,7 +23,7 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
 /**
  * <p>Deletes a channel. You must stop the channel before it can be deleted.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaTailorClient, DeleteChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DeleteChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import

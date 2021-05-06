@@ -26,7 +26,7 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
  * <p>In a blue/green deployment, overrides any specified wait time and starts terminating
  *             instances immediately after the traffic routing is complete.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeDeployClient, SkipWaitTimeForInstanceTerminationCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, SkipWaitTimeForInstanceTerminationCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import

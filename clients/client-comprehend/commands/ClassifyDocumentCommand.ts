@@ -24,7 +24,7 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
  * <p>Creates a new document classification request to analyze a single document in real-time,
  *       using a previously created and trained custom model and an endpoint.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, ClassifyDocumentCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ClassifyDocumentCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

@@ -32,7 +32,7 @@ export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamO
  *          the data. Therefore, as a best practice, first stop any applications that are sending
  *          records before you delete a delivery stream.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FirehoseClient, DeleteDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, DeleteDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import

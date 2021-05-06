@@ -26,7 +26,7 @@ export interface DescribeStorediSCSIVolumesCommandOutput extends DescribeStoredi
  *          Gateway returns volume information sorted by volume ARNs. This operation is only supported
  *          in stored volume gateway type.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, DescribeStorediSCSIVolumesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeStorediSCSIVolumesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

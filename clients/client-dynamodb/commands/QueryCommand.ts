@@ -75,7 +75,7 @@ export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
  *             only, so do not specify <code>ConsistentRead</code> when querying a global
  *             secondary index.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DynamoDBClient, QueryCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, QueryCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import

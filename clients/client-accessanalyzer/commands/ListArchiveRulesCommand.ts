@@ -23,7 +23,7 @@ export interface ListArchiveRulesCommandOutput extends ListArchiveRulesResponse,
 /**
  * <p>Retrieves a list of archive rules created for the specified analyzer.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AccessAnalyzerClient, ListArchiveRulesCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, ListArchiveRulesCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import

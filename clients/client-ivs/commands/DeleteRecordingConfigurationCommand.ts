@@ -28,7 +28,7 @@ export interface DeleteRecordingConfigurationCommandOutput extends __MetadataBea
  *         <code>recordingConfigurationArn</code> field to an empty string, then use
  *       DeleteRecordingConfiguration.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IvsClient, DeleteRecordingConfigurationCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, DeleteRecordingConfigurationCommand } = require("@aws-sdk/client-ivs"); // CommonJS import

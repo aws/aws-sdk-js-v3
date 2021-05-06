@@ -28,7 +28,7 @@ export interface CreateProvisioningArtifactCommandOutput extends CreateProvision
  *          IAM policy permission. This policy permission is required when using the
  *          <code>ImportFromPhysicalId</code> template source in the information data section.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogClient, CreateProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreateProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import

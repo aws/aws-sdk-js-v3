@@ -25,7 +25,7 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
 /**
  * <p>Returns a set of metadata key-value pairs that were used to create the backup.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, GetRecoveryPointRestoreMetadataCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, GetRecoveryPointRestoreMetadataCommand } = require("@aws-sdk/client-backup"); // CommonJS import

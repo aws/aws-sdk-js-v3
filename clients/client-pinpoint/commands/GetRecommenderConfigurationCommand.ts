@@ -25,7 +25,7 @@ export interface GetRecommenderConfigurationCommandOutput
 /**
  * <p>Retrieves information about an Amazon Pinpoint configuration for a recommender model.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetRecommenderConfigurationCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetRecommenderConfigurationCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

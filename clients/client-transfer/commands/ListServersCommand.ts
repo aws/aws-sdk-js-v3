@@ -24,7 +24,7 @@ export interface ListServersCommandOutput extends ListServersResponse, __Metadat
  * <p>Lists the file transfer protocol-enabled servers that are associated with your AWS
  *       account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TransferClient, ListServersCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ListServersCommand } = require("@aws-sdk/client-transfer"); // CommonJS import

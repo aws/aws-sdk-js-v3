@@ -23,7 +23,7 @@ export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexR
 /**
  * <p>Creates a specified partition index in an existing table.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, CreatePartitionIndexCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreatePartitionIndexCommand } = require("@aws-sdk/client-glue"); // CommonJS import

@@ -28,7 +28,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * <p>Adds or updates the tags associated with the resource ARN. See <a href="https://docs.aws.amazon.com/iot-1-click/latest/developerguide/1click-appendix.html#1click-limits">AWS IoT 1-Click Service Limits</a> for the maximum number of tags allowed per
  *  resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoT1ClickDevicesServiceClient, TagResourceCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, TagResourceCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import

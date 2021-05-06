@@ -23,7 +23,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResponse, __Metadat
 /**
  * <p>Returns the definition of a specific DataBrew job.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, DescribeJobCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DescribeJobCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

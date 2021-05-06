@@ -25,7 +25,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *          Returns a list of the tags that are assigned to a specified resource.
  *       </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeGuruProfilerClient, ListTagsForResourceCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, ListTagsForResourceCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import

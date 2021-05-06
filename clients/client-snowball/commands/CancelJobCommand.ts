@@ -23,7 +23,7 @@ export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBeare
  *         <code>DescribeJob</code> action returns a job's <code>JobState</code> as part of the
  *       response element data returned.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SnowballClient, CancelJobCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, CancelJobCommand } = require("@aws-sdk/client-snowball"); // CommonJS import

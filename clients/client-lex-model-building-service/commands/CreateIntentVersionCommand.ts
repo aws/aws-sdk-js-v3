@@ -40,7 +40,7 @@ export interface CreateIntentVersionCommandOutput extends CreateIntentVersionRes
  *          <p>This operation requires permissions to perform the
  *         <code>lex:CreateIntentVersion</code> action. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LexModelBuildingServiceClient, CreateIntentVersionCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, CreateIntentVersionCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import

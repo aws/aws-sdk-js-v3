@@ -35,7 +35,7 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  *                 <code>pending</code> state.</p>
  *     	    <p>Data written to a snapshot must be aligned with 512-byte sectors.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EBSClient, PutSnapshotBlockCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, PutSnapshotBlockCommand } = require("@aws-sdk/client-ebs"); // CommonJS import

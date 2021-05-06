@@ -20,7 +20,7 @@ export interface GetDiskCommandOutput extends GetDiskResult, __MetadataBearer {}
 /**
  * <p>Returns information about a specific block storage disk.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, GetDiskCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetDiskCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

@@ -24,7 +24,7 @@ export interface GetResourcesCommandOutput extends GetResourcesResponse, __Metad
  * <p>Retrieves a collection of resources, including folders and documents. The only
  *             <code>CollectionType</code> supported is <code>SHARED_WITH_ME</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkDocsClient, GetResourcesCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, GetResourcesCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import

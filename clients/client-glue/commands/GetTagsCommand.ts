@@ -20,7 +20,7 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
 /**
  * <p>Retrieves a list of tags associated with a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, GetTagsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetTagsCommand } = require("@aws-sdk/client-glue"); // CommonJS import

@@ -24,7 +24,7 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * <p>Lists your replays. You can either list all the replays or you can provide a prefix to
  *       match to the replay names. Filter parameters are exclusive.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchEventsClient, ListReplaysCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, ListReplaysCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import

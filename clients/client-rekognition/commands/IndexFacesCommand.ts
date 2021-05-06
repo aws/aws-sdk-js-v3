@@ -122,7 +122,7 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  *          <p>This operation requires permissions to perform the <code>rekognition:IndexFaces</code>
  *       action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, IndexFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, IndexFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import

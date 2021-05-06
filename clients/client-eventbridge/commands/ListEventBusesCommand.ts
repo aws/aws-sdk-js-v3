@@ -24,7 +24,7 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * <p>Lists all the event buses in your account, including the default event bus, custom event
  *       buses, and partner event buses.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EventBridgeClient, ListEventBusesCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListEventBusesCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import

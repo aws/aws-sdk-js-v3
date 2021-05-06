@@ -24,7 +24,7 @@ export interface ListResourceDelegatesCommandOutput extends ListResourceDelegate
  * <p>Lists the delegates associated with a resource. Users and groups can be resource
  *          delegates and answer requests on behalf of the resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkMailClient, ListResourceDelegatesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListResourceDelegatesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import

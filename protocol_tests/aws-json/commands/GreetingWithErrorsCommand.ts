@@ -30,7 +30,7 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * Implementations must be able to successfully take a response and
  * properly deserialize successful and error responses.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { JsonProtocolClient, GreetingWithErrorsCommand } from "@aws-sdk/aws-json"; // ES Modules import
  * // const { JsonProtocolClient, GreetingWithErrorsCommand } = require("@aws-sdk/aws-json"); // CommonJS import

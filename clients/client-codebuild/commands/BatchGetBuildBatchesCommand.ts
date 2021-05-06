@@ -23,7 +23,7 @@ export interface BatchGetBuildBatchesCommandOutput extends BatchGetBuildBatchesO
 /**
  * <p>Retrieves information about one or more batch builds.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeBuildClient, BatchGetBuildBatchesCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, BatchGetBuildBatchesCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import

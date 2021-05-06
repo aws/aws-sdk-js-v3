@@ -37,7 +37,7 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  *             <p>You can publish messages only to topics and endpoints in the same AWS Region.</p>
  *         </important>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SNSClient, PublishCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, PublishCommand } = require("@aws-sdk/client-sns"); // CommonJS import

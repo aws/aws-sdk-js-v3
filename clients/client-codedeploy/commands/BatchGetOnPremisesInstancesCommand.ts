@@ -24,7 +24,7 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
  * <p>Gets information about one or more on-premises instances. The maximum number of
  *             on-premises instances that can be returned is 25.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeDeployClient, BatchGetOnPremisesInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, BatchGetOnPremisesInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import

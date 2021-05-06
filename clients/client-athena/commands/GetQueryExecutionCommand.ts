@@ -25,7 +25,7 @@ export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput,
  *             workgroup in which the query ran. Each time a query executes, information about the
  *             query execution is saved with a unique ID.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AthenaClient, GetQueryExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetQueryExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import

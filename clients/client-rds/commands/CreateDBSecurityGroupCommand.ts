@@ -26,7 +26,7 @@ export interface CreateDBSecurityGroupCommandOutput extends CreateDBSecurityGrou
  *             <p>A DB security group controls access to EC2-Classic DB instances that are not in a VPC.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, CreateDBSecurityGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CreateDBSecurityGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import

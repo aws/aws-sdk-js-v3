@@ -23,7 +23,7 @@ export interface ListStudioMembersCommandOutput extends ListStudioMembersRespons
 /**
  * <p>Get all users in a given studio membership.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NimbleClient, ListStudioMembersCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListStudioMembersCommand } = require("@aws-sdk/client-nimble"); // CommonJS import

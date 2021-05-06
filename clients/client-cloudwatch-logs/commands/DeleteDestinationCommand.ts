@@ -25,7 +25,7 @@ export interface DeleteDestinationCommandOutput extends __MetadataBearer {}
  *       subscription filters that publish to it. This operation does not delete the
  *       physical resource encapsulated by the destination.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchLogsClient, DeleteDestinationCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteDestinationCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import

@@ -32,7 +32,7 @@ export interface UpdatePipelineStatusCommandOutput extends UpdatePipelineStatusR
  *             you submitted the jobs, you have more time to get the job IDs for the jobs that you want
  *             to cancel, and to send a <a>CancelJob</a> request. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticTranscoderClient, UpdatePipelineStatusCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, UpdatePipelineStatusCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import

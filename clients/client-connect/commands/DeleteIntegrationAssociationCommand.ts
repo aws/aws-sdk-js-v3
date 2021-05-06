@@ -25,7 +25,7 @@ export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBea
  *          <p>Deletes an AppIntegration association from an Amazon Connect instance. The association must not have
  *    any use cases associated with it.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, DeleteIntegrationAssociationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteIntegrationAssociationCommand } = require("@aws-sdk/client-connect"); // CommonJS import

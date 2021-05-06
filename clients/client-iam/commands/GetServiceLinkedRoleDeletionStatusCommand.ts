@@ -32,7 +32,7 @@ export interface GetServiceLinkedRoleDeletionStatusCommandOutput
  *             If the deletion fails, this operation returns the reason that it failed, if that
  *             information is returned by the service.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, GetServiceLinkedRoleDeletionStatusCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetServiceLinkedRoleDeletionStatusCommand } = require("@aws-sdk/client-iam"); // CommonJS import

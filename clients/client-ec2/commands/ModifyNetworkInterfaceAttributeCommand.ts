@@ -25,7 +25,7 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  *             attribute at a time. You can use this action to attach and detach security groups from
  *             an existing EC2 instance.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, ModifyNetworkInterfaceAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyNetworkInterfaceAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

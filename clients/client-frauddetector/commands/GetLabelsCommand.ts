@@ -25,7 +25,7 @@ export interface GetLabelsCommandOutput extends GetLabelsResult, __MetadataBeare
  *          <code>GetGetLabelsResponse</code> as part of your request. A null pagination token
  *          fetches the records from the beginning. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FraudDetectorClient, GetLabelsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetLabelsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import

@@ -27,7 +27,7 @@ export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
  * 2. A timestampFormat trait on a member changes the format.
  * 3. A timestampFormat trait on the shape targeted by the member changes the format.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QueryProtocolClient, QueryTimestampsCommand } from "@aws-sdk/aws-query"; // ES Modules import
  * // const { QueryProtocolClient, QueryTimestampsCommand } = require("@aws-sdk/aws-query"); // CommonJS import

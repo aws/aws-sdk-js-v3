@@ -25,7 +25,7 @@ export interface ActivateKeySigningKeyCommandOutput extends ActivateKeySigningKe
  * <p>Activates a key-signing key (KSK) so that it can be used for signing by DNSSEC. This operation changes the
  * 			KSK status to <code>ACTIVE</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53Client, ActivateKeySigningKeyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ActivateKeySigningKeyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import

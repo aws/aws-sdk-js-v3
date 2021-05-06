@@ -23,7 +23,7 @@ export interface CreateTopicRuleDestinationCommandOutput extends CreateTopicRule
 /**
  * <p>Creates a topic rule destination. The destination must be confirmed prior to use.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, CreateTopicRuleDestinationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateTopicRuleDestinationCommand } = require("@aws-sdk/client-iot"); // CommonJS import

@@ -28,7 +28,7 @@ export interface SignalResourceCommandOutput extends __MetadataBearer {}
  *          useful in cases where you want to send signals from anywhere other than an Amazon EC2
  *          instance.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFormationClient, SignalResourceCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, SignalResourceCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import

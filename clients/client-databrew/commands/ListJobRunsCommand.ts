@@ -23,7 +23,7 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
 /**
  * <p>Lists all of the previous runs of a particular DataBrew job.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, ListJobRunsCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListJobRunsCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

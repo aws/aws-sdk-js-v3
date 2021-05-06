@@ -23,7 +23,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
 /**
  * <p>Lists jobs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ListJobsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListJobsCommand } = require("@aws-sdk/client-iot"); // CommonJS import

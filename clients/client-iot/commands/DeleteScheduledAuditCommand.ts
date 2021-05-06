@@ -23,7 +23,7 @@ export interface DeleteScheduledAuditCommandOutput extends DeleteScheduledAuditR
 /**
  * <p>Deletes a scheduled audit.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, DeleteScheduledAuditCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteScheduledAuditCommand } = require("@aws-sdk/client-iot"); // CommonJS import

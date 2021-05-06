@@ -64,7 +64,7 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *             </p>
  *         </important>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, SendEmailCommand } = require("@aws-sdk/client-ses"); // CommonJS import

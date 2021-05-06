@@ -24,7 +24,7 @@ export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult,
  * <p>Creates a signed, short-term URL that can be passed to a Selenium <code>RemoteWebDriver</code>
  *          constructor.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DeviceFarmClient, CreateTestGridUrlCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateTestGridUrlCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import

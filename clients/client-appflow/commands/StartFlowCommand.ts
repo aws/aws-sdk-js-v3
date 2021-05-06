@@ -26,7 +26,7 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  *
  * </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppflowClient, StartFlowCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, StartFlowCommand } = require("@aws-sdk/client-appflow"); // CommonJS import

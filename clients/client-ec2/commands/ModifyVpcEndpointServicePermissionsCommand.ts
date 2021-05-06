@@ -32,7 +32,7 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
  * 	        public service can send a request to attach an endpoint. If the service does not require manual approval,
  * 	        attachments are automatically approved.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, ModifyVpcEndpointServicePermissionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyVpcEndpointServicePermissionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

@@ -26,7 +26,7 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  *             minutes.</p>
  *         <p>This operation has a limit of one transaction per second per account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisClient, DescribeLimitsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DescribeLimitsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import

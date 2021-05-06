@@ -28,7 +28,7 @@ export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateR
  *          stopped. Users cannot log into a WorkSpace in the <code>ADMIN_MAINTENANCE</code>
  *          state.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkSpacesClient, ModifyWorkspaceStateCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ModifyWorkspaceStateCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import

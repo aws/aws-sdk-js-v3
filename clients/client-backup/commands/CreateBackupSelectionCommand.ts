@@ -62,7 +62,7 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  *          The matching patterns are logically put together using the OR operator.
  *          In other words, all patterns that match are selected for backup.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, CreateBackupSelectionCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, CreateBackupSelectionCommand } = require("@aws-sdk/client-backup"); // CommonJS import

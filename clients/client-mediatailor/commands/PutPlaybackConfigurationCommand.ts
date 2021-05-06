@@ -23,7 +23,7 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
 /**
  * <p>Adds a new playback configuration to AWS Elemental MediaTailor.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaTailorClient, PutPlaybackConfigurationCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, PutPlaybackConfigurationCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import

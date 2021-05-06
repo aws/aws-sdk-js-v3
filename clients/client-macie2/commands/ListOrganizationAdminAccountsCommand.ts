@@ -25,7 +25,7 @@ export interface ListOrganizationAdminAccountsCommandOutput
 /**
  * <p>Retrieves information about the delegated Amazon Macie administrator account for an AWS organization.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Macie2Client, ListOrganizationAdminAccountsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, ListOrganizationAdminAccountsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import

@@ -25,7 +25,7 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
  *          created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated trails
  *          in other regions) of a trail that is enabled in all regions.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudTrailClient, DeleteTrailCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, DeleteTrailCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import

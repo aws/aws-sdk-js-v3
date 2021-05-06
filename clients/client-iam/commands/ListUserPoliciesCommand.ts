@@ -30,7 +30,7 @@ export interface ListUserPoliciesCommandOutput extends ListUserPoliciesResponse,
  *             parameters. If there are no inline policies embedded with the specified user, the
  *             operation returns an empty list.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, ListUserPoliciesCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, ListUserPoliciesCommand } = require("@aws-sdk/client-iam"); // CommonJS import

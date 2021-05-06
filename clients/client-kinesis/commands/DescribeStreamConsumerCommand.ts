@@ -30,7 +30,7 @@ export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsu
  *             registered with a given data stream.</p>
  *         <p>This operation has a limit of 20 transactions per second per stream.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisClient, DescribeStreamConsumerCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DescribeStreamConsumerCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import

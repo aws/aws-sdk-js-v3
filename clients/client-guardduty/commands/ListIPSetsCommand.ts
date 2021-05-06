@@ -25,7 +25,7 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
  *       operation from a member account, the IPSets returned are the IPSets from the associated administrator
  *       account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, ListIPSetsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListIPSetsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import

@@ -23,7 +23,7 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
 /**
  * <p>Updates the metadata associated with a task.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, UpdateTaskCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateTaskCommand } = require("@aws-sdk/client-datasync"); // CommonJS import

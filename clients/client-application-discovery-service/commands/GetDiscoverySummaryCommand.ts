@@ -29,7 +29,7 @@ export interface GetDiscoverySummaryCommandOutput extends GetDiscoverySummaryRes
  *          <p>This API operation takes no request parameters and is called as is at the command
  *       prompt as shown in the example.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApplicationDiscoveryServiceClient, GetDiscoverySummaryCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, GetDiscoverySummaryCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import

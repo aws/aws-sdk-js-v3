@@ -24,7 +24,7 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
 /**
  * <p>Query inventory information.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, GetInventoryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetInventoryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

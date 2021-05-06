@@ -25,7 +25,7 @@ export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse,
  *             resume sending SMS messages to the number.</p>
  *         <p>You can opt in a phone number only once every 30 days.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SNSClient, OptInPhoneNumberCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, OptInPhoneNumberCommand } = require("@aws-sdk/client-sns"); // CommonJS import

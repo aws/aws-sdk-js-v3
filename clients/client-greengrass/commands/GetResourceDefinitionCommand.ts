@@ -23,7 +23,7 @@ export interface GetResourceDefinitionCommandOutput extends GetResourceDefinitio
 /**
  * Retrieves information about a resource definition, including its creation time and latest version.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GreengrassClient, GetResourceDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetResourceDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import

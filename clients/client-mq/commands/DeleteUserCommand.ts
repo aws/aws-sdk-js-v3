@@ -23,7 +23,7 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
 /**
  * Deletes an ActiveMQ user.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MqClient, DeleteUserCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DeleteUserCommand } = require("@aws-sdk/client-mq"); // CommonJS import

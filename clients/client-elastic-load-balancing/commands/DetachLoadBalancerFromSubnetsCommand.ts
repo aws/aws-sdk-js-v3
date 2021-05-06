@@ -32,7 +32,7 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput
  *             in the removed subnet go into the <code>OutOfService</code> state. Then,
  *             the load balancer balances the traffic among the remaining routable subnets.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticLoadBalancingClient, DetachLoadBalancerFromSubnetsCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DetachLoadBalancerFromSubnetsCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import

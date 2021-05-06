@@ -26,7 +26,7 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
  *             contains statistics for a 15-minute period of time.</p>
  *         <p>You can execute this operation no more than once per second.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESClient, GetSendStatisticsCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetSendStatisticsCommand } = require("@aws-sdk/client-ses"); // CommonJS import

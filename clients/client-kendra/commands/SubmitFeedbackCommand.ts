@@ -24,7 +24,7 @@ export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
  * <p>Enables you to provide feedback to Amazon Kendra to improve the
  *             performance of the service. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, SubmitFeedbackCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, SubmitFeedbackCommand } = require("@aws-sdk/client-kendra"); // CommonJS import

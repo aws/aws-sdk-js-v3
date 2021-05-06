@@ -23,7 +23,7 @@ export interface DescribeEventsDetectionJobCommandOutput extends DescribeEventsD
 /**
  * <p>Gets the status and details of an events detection job.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, DescribeEventsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeEventsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

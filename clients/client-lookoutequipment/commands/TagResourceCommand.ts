@@ -27,7 +27,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *          a resource, either when you create it, or later. Up to 50 tags can be associated with each
  *          resource. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LookoutEquipmentClient, TagResourceCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, TagResourceCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import

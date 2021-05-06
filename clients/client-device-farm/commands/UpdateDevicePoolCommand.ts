@@ -25,7 +25,7 @@ export interface UpdateDevicePoolCommandOutput extends UpdateDevicePoolResult, _
  *             the pool ARN. Rule updates are all-or-nothing, meaning they can only be updated as a
  *             whole (or not at all).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DeviceFarmClient, UpdateDevicePoolCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateDevicePoolCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import

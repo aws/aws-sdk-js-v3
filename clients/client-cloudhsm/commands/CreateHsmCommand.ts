@@ -39,7 +39,7 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  *         initialized when the status changes to <code>RUNNING</code>.</p>
  *          </important>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudHSMClient, CreateHsmCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, CreateHsmCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import

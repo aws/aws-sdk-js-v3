@@ -24,7 +24,7 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * <p>Lists your archives. You can either list all the archives or you can provide a prefix to
  *       match to the archive names. Filter parameters are exclusive.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EventBridgeClient, ListArchivesCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, ListArchivesCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import

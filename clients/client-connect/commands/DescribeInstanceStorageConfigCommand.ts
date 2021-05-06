@@ -27,7 +27,7 @@ export interface DescribeInstanceStorageConfigCommandOutput
  *          <p>Retrieves the current storage configurations for the specified resource type, association
  *    ID, and instance ID.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, DescribeInstanceStorageConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeInstanceStorageConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import

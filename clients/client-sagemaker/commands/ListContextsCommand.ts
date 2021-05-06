@@ -23,7 +23,7 @@ export interface ListContextsCommandOutput extends ListContextsResponse, __Metad
 /**
  * <p>Lists the contexts in your account and their properties.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, ListContextsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListContextsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

@@ -23,7 +23,7 @@ export interface GetCampaignDateRangeKpiCommandOutput extends GetCampaignDateRan
 /**
  * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to a campaign.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetCampaignDateRangeKpiCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetCampaignDateRangeKpiCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

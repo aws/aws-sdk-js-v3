@@ -23,7 +23,7 @@ export interface DeleteSipRuleCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes a SIP rule. You must disable a SIP rule before you can delete it.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, DeleteSipRuleCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteSipRuleCommand } = require("@aws-sdk/client-chime"); // CommonJS import

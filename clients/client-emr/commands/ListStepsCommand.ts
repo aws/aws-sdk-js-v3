@@ -22,7 +22,7 @@ export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBeare
  *             <code>stepIds</code> with the request of filter by <code>StepStates</code>. You can
  *          specify a maximum of 10 <code>stepIDs</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, ListStepsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListStepsCommand } = require("@aws-sdk/client-emr"); // CommonJS import

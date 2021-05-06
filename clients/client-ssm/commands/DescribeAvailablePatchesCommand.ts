@@ -23,7 +23,7 @@ export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailable
 /**
  * <p>Lists all patches eligible to be included in a patch baseline.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, DescribeAvailablePatchesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeAvailablePatchesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

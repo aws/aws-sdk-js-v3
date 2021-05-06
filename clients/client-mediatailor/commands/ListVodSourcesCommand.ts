@@ -23,7 +23,7 @@ export interface ListVodSourcesCommandOutput extends ListVodSourcesResponse, __M
 /**
  * <p>Lists all the VOD sources in a source location.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaTailorClient, ListVodSourcesCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, ListVodSourcesCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import

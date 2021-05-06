@@ -26,7 +26,7 @@ export interface ExportBundleCommandOutput extends ExportBundleResult, __Metadat
  *             used to integrate mobile web or mobile app clients with backend AWS resources.
  *         </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MobileClient, ExportBundleCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, ExportBundleCommand } = require("@aws-sdk/client-mobile"); // CommonJS import

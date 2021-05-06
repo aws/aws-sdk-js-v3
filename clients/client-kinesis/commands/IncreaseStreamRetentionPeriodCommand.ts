@@ -31,7 +31,7 @@ export interface IncreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  *             period is set to 24 hours and is increased to 168 hours, any data that is older than 24
  *             hours remains inaccessible to consumer applications.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisClient, IncreaseStreamRetentionPeriodCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, IncreaseStreamRetentionPeriodCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import

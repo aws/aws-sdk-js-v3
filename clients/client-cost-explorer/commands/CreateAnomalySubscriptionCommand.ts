@@ -25,7 +25,7 @@ export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySub
  *       define subscribers with email or SNS notifications. Email subscribers can set a dollar
  *       threshold and a time frequency for receiving notifications. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CostExplorerClient, CreateAnomalySubscriptionCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, CreateAnomalySubscriptionCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import

@@ -27,7 +27,7 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  *       specified in the <code>roleArn</code> field (for example, to correct an invalid policy), it
  *       takes up to five minutes for that change to take effect. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTAnalyticsClient, PutLoggingOptionsCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, PutLoggingOptionsCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import

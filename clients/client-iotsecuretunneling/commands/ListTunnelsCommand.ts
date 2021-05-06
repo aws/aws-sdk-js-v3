@@ -28,7 +28,7 @@ export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __Metadat
  * <p>List all tunnels for an AWS account. Tunnels are listed by creation time in
  * 			descending order, newer tunnels will be listed before older tunnels.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTSecureTunnelingClient, ListTunnelsCommand } from "@aws-sdk/client-iotsecuretunneling"; // ES Modules import
  * // const { IoTSecureTunnelingClient, ListTunnelsCommand } = require("@aws-sdk/client-iotsecuretunneling"); // CommonJS import

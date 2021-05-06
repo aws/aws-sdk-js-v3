@@ -23,7 +23,7 @@ export interface DescribeVodSourceCommandOutput extends DescribeVodSourceRespons
 /**
  * <p>Provides details about a specific VOD source in a specific source location.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaTailorClient, DescribeVodSourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, DescribeVodSourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import

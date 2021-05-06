@@ -25,7 +25,7 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  *             all accounts and child OUs from the OU that you want to delete.</p>
  *         <p>This operation can be called only from the organization's management account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OrganizationsClient, DeleteOrganizationalUnitCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DeleteOrganizationalUnitCommand } = require("@aws-sdk/client-organizations"); // CommonJS import

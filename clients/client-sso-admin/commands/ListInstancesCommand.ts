@@ -23,7 +23,7 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
 /**
  * <p>Lists the SSO instances that the caller has access to.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSOAdminClient, ListInstancesCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ListInstancesCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import

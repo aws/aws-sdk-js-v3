@@ -29,7 +29,7 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  *          up in the <code>OfflineStore</code> when the <code>DeleteRecord</code> API is called. This
  *          record will have a value of <code>True</code> in the <code>is_deleted</code> column.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerFeatureStoreRuntimeClient, DeleteRecordCommand } from "@aws-sdk/client-sagemaker-featurestore-runtime"; // ES Modules import
  * // const { SageMakerFeatureStoreRuntimeClient, DeleteRecordCommand } = require("@aws-sdk/client-sagemaker-featurestore-runtime"); // CommonJS import

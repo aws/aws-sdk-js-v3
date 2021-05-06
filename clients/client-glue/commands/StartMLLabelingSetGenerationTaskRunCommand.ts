@@ -41,7 +41,7 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
  *       all future runs of the machine learning transform will use the new and improved labels and
  *       perform a higher-quality transformation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, StartMLLabelingSetGenerationTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartMLLabelingSetGenerationTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import

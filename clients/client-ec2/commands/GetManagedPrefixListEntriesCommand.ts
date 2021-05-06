@@ -23,7 +23,7 @@ export interface GetManagedPrefixListEntriesCommandOutput extends GetManagedPref
 /**
  * <p>Gets information about the entries for a specified managed prefix list.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, GetManagedPrefixListEntriesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, GetManagedPrefixListEntriesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

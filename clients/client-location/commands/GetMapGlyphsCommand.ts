@@ -23,7 +23,7 @@ export interface GetMapGlyphsCommandOutput extends GetMapGlyphsResponse, __Metad
 /**
  * <p>Retrieves glyphs used to display labels on a map.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LocationClient, GetMapGlyphsCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, GetMapGlyphsCommand } = require("@aws-sdk/client-location"); // CommonJS import

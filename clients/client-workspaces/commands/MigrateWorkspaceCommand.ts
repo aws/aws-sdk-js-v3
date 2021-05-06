@@ -31,7 +31,7 @@ export interface MigrateWorkspaceCommandOutput extends MigrateWorkspaceResult, _
  *          <p>For available migration scenarios, details about what happens during migration, and best practices, see
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/migrate-workspaces.html">Migrate a WorkSpace</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkSpacesClient, MigrateWorkspaceCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, MigrateWorkspaceCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import

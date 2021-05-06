@@ -32,7 +32,7 @@ export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBeare
  *          <p>If no block exists with the specified address, then throws
  *             <code>InvalidParameterException</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QLDBClient, GetBlockCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, GetBlockCommand } = require("@aws-sdk/client-qldb"); // CommonJS import

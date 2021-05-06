@@ -29,7 +29,7 @@ export interface StopLoggingCommandOutput extends StopLoggingResponse, __Metadat
  *          cannot be called on the shadow trails (replicated trails in other regions) of a trail
  *          enabled in all regions.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudTrailClient, StopLoggingCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
  * // const { CloudTrailClient, StopLoggingCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import

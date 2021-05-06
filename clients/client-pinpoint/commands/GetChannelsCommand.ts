@@ -23,7 +23,7 @@ export interface GetChannelsCommandOutput extends GetChannelsResponse, __Metadat
 /**
  * <p>Retrieves information about the history and status of each channel for an application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetChannelsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetChannelsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

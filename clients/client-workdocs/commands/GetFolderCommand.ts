@@ -23,7 +23,7 @@ export interface GetFolderCommandOutput extends GetFolderResponse, __MetadataBea
 /**
  * <p>Retrieves the metadata of the specified folder.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkDocsClient, GetFolderCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, GetFolderCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import

@@ -24,7 +24,7 @@ export interface GetAWSDefaultServiceQuotaCommandOutput extends GetAWSDefaultSer
  * <p>Retrieves the default value for the specified quota. The default value does not reflect
  *       any quota increases.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceQuotasClient, GetAWSDefaultServiceQuotaCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, GetAWSDefaultServiceQuotaCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import

@@ -25,7 +25,7 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * 			If an alarm name is not specified, the histories for either all metric alarms or all composite alarms are returned.</p>
  * 		       <p>CloudWatch retains the history of an alarm even if you delete the alarm.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchClient, DescribeAlarmHistoryCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAlarmHistoryCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import

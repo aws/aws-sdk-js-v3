@@ -23,7 +23,7 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
 /**
  * <p>Initiates device authorization by requesting a pair of verification codes from the authorization service.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSOOIDCClient, StartDeviceAuthorizationCommand } from "@aws-sdk/client-sso-oidc"; // ES Modules import
  * // const { SSOOIDCClient, StartDeviceAuthorizationCommand } = require("@aws-sdk/client-sso-oidc"); // CommonJS import

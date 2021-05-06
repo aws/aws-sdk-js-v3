@@ -35,7 +35,7 @@ export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput
  *          <p>These filter settings can specify a combination of premigration assessment runs,
  *          migration tasks, and assessment status values.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DatabaseMigrationServiceClient, DescribeReplicationTaskIndividualAssessmentsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeReplicationTaskIndividualAssessmentsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import

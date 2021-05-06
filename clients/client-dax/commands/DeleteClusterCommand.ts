@@ -27,7 +27,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  *             DAX immediately begins deleting the cluster; you cannot cancel or revert this
  *             action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DAXClient, DeleteClusterCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DeleteClusterCommand } = require("@aws-sdk/client-dax"); // CommonJS import

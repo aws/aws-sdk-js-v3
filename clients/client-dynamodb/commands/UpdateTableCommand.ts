@@ -45,7 +45,7 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *       you cannot issue another <code>UpdateTable</code> request. When the table returns to the
  *         <code>ACTIVE</code> state, the <code>UpdateTable</code> operation is complete.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DynamoDBClient, UpdateTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, UpdateTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import

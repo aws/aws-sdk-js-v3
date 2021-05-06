@@ -25,7 +25,7 @@ export interface GetInsightEventsCommandOutput extends GetInsightEventsResult, _
  *          event. You can review an insight's events in the Impact Timeline on the Inspect page in the X-Ray
  *          console.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { XRayClient, GetInsightEventsCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetInsightEventsCommand } = require("@aws-sdk/client-xray"); // CommonJS import

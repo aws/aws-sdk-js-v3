@@ -23,7 +23,7 @@ export interface ProvisionPermissionSetCommandOutput extends ProvisionPermission
 /**
  * <p>The process by which a specified permission set is provisioned to the specified target.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSOAdminClient, ProvisionPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, ProvisionPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import

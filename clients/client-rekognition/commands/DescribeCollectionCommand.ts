@@ -28,7 +28,7 @@ export interface DescribeCollectionCommandOutput extends DescribeCollectionRespo
  *          <p>For more information, see Describing a Collection in the
  *      Amazon Rekognition Developer Guide.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, DescribeCollectionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DescribeCollectionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import

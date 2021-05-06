@@ -23,7 +23,7 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
 /**
  * <p>Deletes the specified <a>RuleGroup</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFV2Client, DeleteRuleGroupCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, DeleteRuleGroupCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import

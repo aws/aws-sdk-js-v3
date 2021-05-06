@@ -23,7 +23,7 @@ export interface GetTriggersCommandOutput extends GetTriggersResponse, __Metadat
 /**
  * <p>Gets all the triggers associated with a job.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, GetTriggersCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetTriggersCommand } = require("@aws-sdk/client-glue"); // CommonJS import

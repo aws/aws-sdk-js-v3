@@ -23,7 +23,7 @@ export interface GetVoiceChannelCommandOutput extends GetVoiceChannelResponse, _
 /**
  * <p>Retrieves information about the status and settings of the voice channel for an application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetVoiceChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetVoiceChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

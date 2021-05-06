@@ -23,7 +23,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
 /**
  * <p>Updates an analysis in Amazon QuickSight</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, UpdateAnalysisCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateAnalysisCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

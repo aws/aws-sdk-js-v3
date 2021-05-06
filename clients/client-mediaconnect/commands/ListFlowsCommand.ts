@@ -23,7 +23,7 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
 /**
  * Displays a list of flows that are associated with this account. This request returns a paginated result.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaConnectClient, ListFlowsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, ListFlowsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import

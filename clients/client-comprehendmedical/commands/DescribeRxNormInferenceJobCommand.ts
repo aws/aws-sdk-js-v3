@@ -28,7 +28,7 @@ export interface DescribeRxNormInferenceJobCommandOutput extends DescribeRxNormI
  * <p>Gets the properties associated with an InferRxNorm job. Use this operation to get the
  *       status of an inference job.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendMedicalClient, DescribeRxNormInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DescribeRxNormInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import

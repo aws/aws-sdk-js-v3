@@ -24,7 +24,7 @@ export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsRespons
  * <p>Returns a list of all OpsItem events in the current AWS account and Region. You can limit
  *    the results to events associated with specific OpsItems by specifying a filter.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, ListOpsItemEventsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListOpsItemEventsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

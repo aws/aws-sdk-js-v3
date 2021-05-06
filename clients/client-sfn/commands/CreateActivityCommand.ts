@@ -39,7 +39,7 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  *         even if they are different.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SFNClient, CreateActivityCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, CreateActivityCommand } = require("@aws-sdk/client-sfn"); // CommonJS import

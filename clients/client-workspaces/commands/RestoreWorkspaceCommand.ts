@@ -30,7 +30,7 @@ export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, _
  *          <p>This operation is asynchronous and returns before the WorkSpace is completely
  *          restored.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkSpacesClient, RestoreWorkspaceCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, RestoreWorkspaceCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import

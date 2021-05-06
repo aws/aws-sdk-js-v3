@@ -23,7 +23,7 @@ export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicR
 /**
  * <p>Removes the specified directory as a publisher to the specified SNS topic.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectoryServiceClient, DeregisterEventTopicCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DeregisterEventTopicCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import

@@ -26,7 +26,7 @@ export interface ListEventIntegrationAssociationsCommandOutput
  * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
  *          <p>Returns a paginated list of event integration associations in the account. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppIntegrationsClient, ListEventIntegrationAssociationsCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, ListEventIntegrationAssociationsCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import

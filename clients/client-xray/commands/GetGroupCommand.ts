@@ -23,7 +23,7 @@ export interface GetGroupCommandOutput extends GetGroupResult, __MetadataBearer 
 /**
  * <p>Retrieves group resource details.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { XRayClient, GetGroupCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetGroupCommand } = require("@aws-sdk/client-xray"); // CommonJS import

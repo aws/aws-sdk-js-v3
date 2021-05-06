@@ -25,7 +25,7 @@ export interface DeleteLayerVersionCommandOutput extends __MetadataBearer {}
  *         layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid
  *       breaking functions, a copy of the version remains in Lambda until no functions refer to it.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LambdaClient, DeleteLayerVersionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, DeleteLayerVersionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import

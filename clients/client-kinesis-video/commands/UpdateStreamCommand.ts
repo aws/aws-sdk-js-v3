@@ -32,7 +32,7 @@ export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __Metadat
  *             <code>UpdateStream</code> is an asynchronous operation, and takes time to
  *             complete.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisVideoClient, UpdateStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, UpdateStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import

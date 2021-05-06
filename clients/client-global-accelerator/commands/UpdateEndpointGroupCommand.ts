@@ -27,7 +27,7 @@ export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupRes
 /**
  * <p>Update an endpoint group. A resource must be valid and active when you add it as an endpoint.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlobalAcceleratorClient, UpdateEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, UpdateEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import

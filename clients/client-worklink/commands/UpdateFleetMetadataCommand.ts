@@ -23,7 +23,7 @@ export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataRes
 /**
  * <p>Updates fleet metadata, such as DisplayName.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkLinkClient, UpdateFleetMetadataCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, UpdateFleetMetadataCommand } = require("@aws-sdk/client-worklink"); // CommonJS import

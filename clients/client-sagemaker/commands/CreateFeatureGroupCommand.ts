@@ -35,7 +35,7 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  *                <code>OfflineStoreConfig</code> to create a <code>FeatureGroup</code>.</p>
  *          </important>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, CreateFeatureGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateFeatureGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

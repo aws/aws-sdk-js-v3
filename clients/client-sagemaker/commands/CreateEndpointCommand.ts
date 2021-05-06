@@ -101,7 +101,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  *
  *         </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, CreateEndpointCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateEndpointCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

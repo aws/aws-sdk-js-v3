@@ -23,7 +23,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
 /**
  * <p>Lists the Amazon EKS clusters in your AWS account in the specified Region.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EKSClient, ListClustersCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, ListClustersCommand } = require("@aws-sdk/client-eks"); // CommonJS import

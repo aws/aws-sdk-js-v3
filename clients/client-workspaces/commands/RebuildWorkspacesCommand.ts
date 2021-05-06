@@ -30,7 +30,7 @@ export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult,
  *          <p>This operation is asynchronous and returns before the WorkSpaces have been completely
  *          rebuilt.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkSpacesClient, RebuildWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, RebuildWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import

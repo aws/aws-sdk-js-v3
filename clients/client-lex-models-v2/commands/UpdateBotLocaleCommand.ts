@@ -23,7 +23,7 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
 /**
  * <p>Updates the settings that a bot has for a specific locale.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LexModelsV2Client, UpdateBotLocaleCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, UpdateBotLocaleCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import

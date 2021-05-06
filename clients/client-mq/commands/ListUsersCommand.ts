@@ -23,7 +23,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
 /**
  * Returns a list of all ActiveMQ users.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MqClient, ListUsersCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, ListUsersCommand } = require("@aws-sdk/client-mq"); // CommonJS import

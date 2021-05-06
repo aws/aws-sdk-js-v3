@@ -37,7 +37,7 @@ export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
  *       automatically enabled to host sub-connections. For a LAG owned by a partner, any associated virtual
  *       interfaces cannot be directly configured.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectConnectClient, CreateLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import

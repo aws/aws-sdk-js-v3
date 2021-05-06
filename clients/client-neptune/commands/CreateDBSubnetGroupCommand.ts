@@ -24,7 +24,7 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at
  *       least two AZs in the AWS Region.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, CreateDBSubnetGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateDBSubnetGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

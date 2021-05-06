@@ -20,7 +20,7 @@ export interface QueryMapsCommandOutput extends __MetadataBearer {}
 /**
  * This test serializes simple and complex maps.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QueryProtocolClient, QueryMapsCommand } from "@aws-sdk/aws-query"; // ES Modules import
  * // const { QueryProtocolClient, QueryMapsCommand } = require("@aws-sdk/aws-query"); // CommonJS import

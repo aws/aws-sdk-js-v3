@@ -23,7 +23,7 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
 /**
  * <p>Retrieves all SourceServers or multiple SourceServers by ID.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MgnClient, DescribeSourceServersCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DescribeSourceServersCommand } = require("@aws-sdk/client-mgn"); // CommonJS import

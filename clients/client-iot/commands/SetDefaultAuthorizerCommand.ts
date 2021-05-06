@@ -24,7 +24,7 @@ export interface SetDefaultAuthorizerCommandOutput extends SetDefaultAuthorizerR
  * <p>Sets the default authorizer. This will be used if a websocket connection is made
  *          without specifying an authorizer.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, SetDefaultAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, SetDefaultAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import

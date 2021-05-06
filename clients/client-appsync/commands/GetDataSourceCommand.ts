@@ -23,7 +23,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
 /**
  * <p>Retrieves a <code>DataSource</code> object.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppSyncClient, GetDataSourceCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetDataSourceCommand } = require("@aws-sdk/client-appsync"); // CommonJS import

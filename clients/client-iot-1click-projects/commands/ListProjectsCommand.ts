@@ -27,7 +27,7 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
 /**
  * <p>Lists the AWS IoT 1-Click project(s) associated with your AWS account and region.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoT1ClickProjectsClient, ListProjectsCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, ListProjectsCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import

@@ -23,7 +23,7 @@ export interface DescribeDBProxyEndpointsCommandOutput extends DescribeDBProxyEn
 /**
  * <p>Returns information about DB proxy endpoints.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, DescribeDBProxyEndpointsCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBProxyEndpointsCommand } = require("@aws-sdk/client-rds"); // CommonJS import

@@ -31,7 +31,7 @@ export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutpu
  *          for up to 90 days after the stack has been deleted. If the template does not exist, a
  *             <code>ValidationError</code> is returned.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFormationClient, GetTemplateSummaryCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, GetTemplateSummaryCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import

@@ -25,7 +25,7 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  *       properties for each schema, including the Amazon Resource Name (ARN).
  *       For more information on schemas, see <a>CreateSchema</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PersonalizeClient, ListSchemasCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListSchemasCommand } = require("@aws-sdk/client-personalize"); // CommonJS import

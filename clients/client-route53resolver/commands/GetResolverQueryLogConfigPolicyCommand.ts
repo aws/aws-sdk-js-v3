@@ -26,7 +26,7 @@ export interface GetResolverQueryLogConfigPolicyCommandOutput
  * <p>Gets information about a query logging policy. A query logging policy specifies the Resolver query logging
  * 			operations and resources that you want to allow another AWS account to be able to use.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53ResolverClient, GetResolverQueryLogConfigPolicyCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, GetResolverQueryLogConfigPolicyCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import

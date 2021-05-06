@@ -26,7 +26,7 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  *    state. Instances that aren't successfully created (they are in a failed state) are returned only
  *    for 24 hours after the CreateInstance API was invoked.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, ListInstancesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListInstancesCommand } = require("@aws-sdk/client-connect"); // CommonJS import

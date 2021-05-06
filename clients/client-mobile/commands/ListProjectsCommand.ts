@@ -25,7 +25,7 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  *             Lists projects in AWS Mobile Hub.
  *         </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MobileClient, ListProjectsCommand } from "@aws-sdk/client-mobile"; // ES Modules import
  * // const { MobileClient, ListProjectsCommand } = require("@aws-sdk/client-mobile"); // CommonJS import

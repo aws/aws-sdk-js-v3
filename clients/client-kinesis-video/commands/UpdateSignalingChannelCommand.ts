@@ -28,7 +28,7 @@ export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChan
  *             messages are still expired as per the previous <code>MessageTtlSeconds</code>
  *             value.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisVideoClient, UpdateSignalingChannelCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, UpdateSignalingChannelCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import

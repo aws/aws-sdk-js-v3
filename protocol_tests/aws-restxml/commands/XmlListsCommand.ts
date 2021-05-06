@@ -30,7 +30,7 @@ export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBe
  * 7. Flattened XML lists with @xmlNamespace.
  * 8. Lists of structures.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestXmlProtocolClient, XmlListsCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlListsCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import

@@ -25,7 +25,7 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  *          Data Store ARN, Data Store name, Data Store status, created at, Data Store type version, and
  *          Data Store endpoint.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { HealthLakeClient, DescribeFHIRDatastoreCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, DescribeFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import

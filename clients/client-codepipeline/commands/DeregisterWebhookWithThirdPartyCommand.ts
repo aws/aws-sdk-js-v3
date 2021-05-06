@@ -27,7 +27,7 @@ export interface DeregisterWebhookWithThirdPartyCommandOutput
  *             external tool with events to be detected. Currently supported only for webhooks that
  *             target an action type of GitHub.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodePipelineClient, DeregisterWebhookWithThirdPartyCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, DeregisterWebhookWithThirdPartyCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import

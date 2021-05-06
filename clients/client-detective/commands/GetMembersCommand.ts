@@ -24,7 +24,7 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * <p>Returns the membership details for specified member accounts for a behavior
  *          graph.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DetectiveClient, GetMembersCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, GetMembersCommand } = require("@aws-sdk/client-detective"); // CommonJS import

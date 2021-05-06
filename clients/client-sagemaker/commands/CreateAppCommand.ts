@@ -23,7 +23,7 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  *       invoked by Amazon SageMaker Studio upon access to the associated Domain, and when new kernel
  *       configurations are selected by the user. A user may have multiple Apps active simultaneously.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, CreateAppCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateAppCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

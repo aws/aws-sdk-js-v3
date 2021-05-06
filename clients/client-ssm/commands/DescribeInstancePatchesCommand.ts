@@ -24,7 +24,7 @@ export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePa
  * <p>Retrieves information about the patches on the specified instance and their state relative
  *    to the patch baseline being used for the instance.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, DescribeInstancePatchesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeInstancePatchesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

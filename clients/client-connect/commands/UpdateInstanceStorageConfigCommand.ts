@@ -24,7 +24,7 @@ export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBear
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates an existing configuration for a resource type. This API is idempotent.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, UpdateInstanceStorageConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateInstanceStorageConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import

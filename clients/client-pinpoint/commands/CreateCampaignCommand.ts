@@ -23,7 +23,7 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
 /**
  * <p>Creates a new campaign for an application or updates the settings of an existing campaign for an application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, CreateCampaignCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateCampaignCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

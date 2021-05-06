@@ -25,7 +25,7 @@ export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForIn
  *    		Returns a list of the anomalies that belong to an insight that you specify using its ID.
  *    	</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DevOpsGuruClient, ListAnomaliesForInsightCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListAnomaliesForInsightCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import

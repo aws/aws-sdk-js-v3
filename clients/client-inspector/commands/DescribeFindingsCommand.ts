@@ -23,7 +23,7 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
 /**
  * <p>Describes the findings that are specified by the ARNs of the findings.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { InspectorClient, DescribeFindingsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeFindingsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import

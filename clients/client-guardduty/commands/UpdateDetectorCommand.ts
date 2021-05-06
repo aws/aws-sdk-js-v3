@@ -23,7 +23,7 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
 /**
  * <p>Updates the Amazon GuardDuty detector specified by the detectorId.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, UpdateDetectorCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdateDetectorCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import

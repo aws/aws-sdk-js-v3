@@ -23,7 +23,7 @@ export interface UpdateVirtualServiceCommandOutput extends UpdateVirtualServiceO
 /**
  * <p>Updates an existing virtual service in a specified service mesh.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppMeshClient, UpdateVirtualServiceCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, UpdateVirtualServiceCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import

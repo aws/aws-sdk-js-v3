@@ -23,7 +23,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
 /**
  * <p>Updates an AWS IoT SiteWise Monitor project.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTSiteWiseClient, UpdateProjectCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdateProjectCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import

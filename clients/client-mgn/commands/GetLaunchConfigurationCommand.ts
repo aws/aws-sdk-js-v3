@@ -23,7 +23,7 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
 /**
  * <p>Lists all LaunchConfigurations available, filtered by Source Server IDs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MgnClient, GetLaunchConfigurationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, GetLaunchConfigurationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import

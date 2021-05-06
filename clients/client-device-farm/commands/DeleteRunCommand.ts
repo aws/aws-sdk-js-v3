@@ -21,7 +21,7 @@ export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBeare
  * <p>Deletes the run, given the run ARN.</p>
  *         <p> Deleting this resource does not stop an in-progress run.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DeviceFarmClient, DeleteRunCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteRunCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import

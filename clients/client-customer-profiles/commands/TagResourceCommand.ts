@@ -34,7 +34,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *          you specify replaces the previous value for that tag.</p>
  *          <p>You can associate as many as 50 tags with a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CustomerProfilesClient, TagResourceCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, TagResourceCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import

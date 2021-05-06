@@ -25,7 +25,7 @@ export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBea
  *             that contains the revision. The file still exists in the commits earlier to the commit
  *             that contains the deletion.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeCommitClient, DeleteFileCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DeleteFileCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import

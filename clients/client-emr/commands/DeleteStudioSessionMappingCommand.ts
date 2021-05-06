@@ -23,7 +23,7 @@ export interface DeleteStudioSessionMappingCommandOutput extends __MetadataBeare
 /**
  * <p>Removes a user or group from an Amazon EMR Studio.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, DeleteStudioSessionMappingCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, DeleteStudioSessionMappingCommand } = require("@aws-sdk/client-emr"); // CommonJS import

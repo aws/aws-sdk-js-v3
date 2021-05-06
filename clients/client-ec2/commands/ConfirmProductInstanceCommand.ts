@@ -25,7 +25,7 @@ export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInsta
  *             be used by the owner of the product code. It is useful when a product code owner must
  *             verify whether another user's instance is eligible for support.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, ConfirmProductInstanceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ConfirmProductInstanceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

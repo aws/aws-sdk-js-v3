@@ -27,7 +27,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  *          <p>Rebooting a DB instance restarts the database engine service. Rebooting a DB instance
  *       results in a momentary outage, during which the DB instance status is set to rebooting.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, RebootDBInstanceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, RebootDBInstanceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

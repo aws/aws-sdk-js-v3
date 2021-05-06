@@ -24,7 +24,7 @@ export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __M
  * <p>Sends feedback to CodeGuru Profiler about whether the anomaly detected by the analysis is
  *             useful or not.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeGuruProfilerClient, SubmitFeedbackCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, SubmitFeedbackCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import

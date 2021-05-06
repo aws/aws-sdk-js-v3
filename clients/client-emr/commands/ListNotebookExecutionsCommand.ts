@@ -26,7 +26,7 @@ export interface ListNotebookExecutionsCommandOutput extends ListNotebookExecuti
  *          executions and a marker to track the paging of a longer notebook execution list across
  *          multiple <code>ListNotebookExecution</code> calls.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, ListNotebookExecutionsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListNotebookExecutionsCommand } = require("@aws-sdk/client-emr"); // CommonJS import

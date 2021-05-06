@@ -23,7 +23,7 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
 /**
  * <p>Returns detailed metadata about a task that is being executed.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, DescribeTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import

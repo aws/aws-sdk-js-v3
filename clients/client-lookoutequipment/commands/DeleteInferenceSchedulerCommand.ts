@@ -24,7 +24,7 @@ export interface DeleteInferenceSchedulerCommandOutput extends __MetadataBearer 
  * <p>Deletes an inference scheduler that has been set up. Already processed output results
  *          are not affected. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LookoutEquipmentClient, DeleteInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, DeleteInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import

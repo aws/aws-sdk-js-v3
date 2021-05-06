@@ -25,7 +25,7 @@ export interface RemoveLayerVersionPermissionCommandOutput extends __MetadataBea
  *         layer</a>. For more information, see
  *         <a>AddLayerVersionPermission</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LambdaClient, RemoveLayerVersionPermissionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, RemoveLayerVersionPermissionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import

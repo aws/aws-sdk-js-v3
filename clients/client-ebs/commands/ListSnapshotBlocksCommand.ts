@@ -23,7 +23,7 @@ export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksRespo
 /**
  * <p>Returns information about the blocks in an Amazon Elastic Block Store snapshot.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EBSClient, ListSnapshotBlocksCommand } from "@aws-sdk/client-ebs"; // ES Modules import
  * // const { EBSClient, ListSnapshotBlocksCommand } = require("@aws-sdk/client-ebs"); // CommonJS import

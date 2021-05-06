@@ -25,7 +25,7 @@ export interface CreateCodeSigningConfigCommandOutput extends CreateCodeSigningC
  *       allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment
  *       validation checks fail). </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LambdaClient, CreateCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, CreateCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import

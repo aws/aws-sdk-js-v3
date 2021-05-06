@@ -33,7 +33,7 @@ export interface RestoreCertificateAuthorityCommandOutput extends __MetadataBear
  * 			authority into the private CA before it can be activated. You cannot restore a CA after
  * 			the restoration period has ended.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ACMPCAClient, RestoreCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, RestoreCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import

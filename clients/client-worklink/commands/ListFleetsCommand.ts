@@ -23,7 +23,7 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
 /**
  * <p>Retrieves a list of fleets for the current account and Region.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkLinkClient, ListFleetsCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, ListFleetsCommand } = require("@aws-sdk/client-worklink"); // CommonJS import

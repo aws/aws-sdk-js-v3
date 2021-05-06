@@ -23,7 +23,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
 /**
  * <p>Sets the Data Catalog resource policy for access control.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, PutResourcePolicyCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, PutResourcePolicyCommand } = require("@aws-sdk/client-glue"); // CommonJS import

@@ -85,7 +85,7 @@ export interface CompareFacesCommandOutput extends CompareFacesResponse, __Metad
  *          <p>This operation requires permissions to perform the <code>rekognition:CompareFaces</code>
  *       action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, CompareFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CompareFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import

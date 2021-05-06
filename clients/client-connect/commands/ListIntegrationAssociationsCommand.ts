@@ -27,7 +27,7 @@ export interface ListIntegrationAssociationsCommandOutput
  *          <p>Provides summary information about the AppIntegration associations for the specified Amazon Connect
  *    instance.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, ListIntegrationAssociationsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListIntegrationAssociationsCommand } = require("@aws-sdk/client-connect"); // CommonJS import

@@ -30,7 +30,7 @@ export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionRes
  *       all of these cases, AWS DataSync successfully complete the transfer when you start the next
  *       task execution.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, CancelTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CancelTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import

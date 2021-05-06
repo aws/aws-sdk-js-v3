@@ -33,7 +33,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *       value that you specify replaces the previous value for that tag.</p>
  *          <p>You can associate as many as 50 tags with a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EventBridgeClient, TagResourceCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, TagResourceCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import

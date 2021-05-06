@@ -24,7 +24,7 @@ export interface DescribeDocumentVersionsCommandOutput extends DescribeDocumentV
  * <p>Retrieves the document versions for the specified document.</p>
  *         <p>By default, only active versions are returned.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkDocsClient, DescribeDocumentVersionsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeDocumentVersionsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import

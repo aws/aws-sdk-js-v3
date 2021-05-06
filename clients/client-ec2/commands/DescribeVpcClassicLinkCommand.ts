@@ -23,7 +23,7 @@ export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicL
 /**
  * <p>Describes the ClassicLink status of one or more VPCs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DescribeVpcClassicLinkCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeVpcClassicLinkCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

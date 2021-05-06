@@ -28,7 +28,7 @@ export interface CreateAliasCommandOutput extends AliasConfiguration, __Metadata
  *         <code>RoutingConfig</code> parameter to specify a second version and the percentage of invocation requests that
  *       it receives.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LambdaClient, CreateAliasCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, CreateAliasCommand } = require("@aws-sdk/client-lambda"); // CommonJS import

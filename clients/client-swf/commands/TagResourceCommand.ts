@@ -26,7 +26,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *             <p>Amazon SWF supports a maximum of 50 tags per resource.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SWFClient, TagResourceCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, TagResourceCommand } = require("@aws-sdk/client-swf"); // CommonJS import

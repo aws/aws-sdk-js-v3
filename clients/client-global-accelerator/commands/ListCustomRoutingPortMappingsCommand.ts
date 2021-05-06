@@ -37,7 +37,7 @@ export interface ListCustomRoutingPortMappingsCommandOutput
  * 	        <p>The mappings also include a flag for each destination denoting which destination IP addresses and
  * 		ports are allowed or denied traffic.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlobalAcceleratorClient, ListCustomRoutingPortMappingsCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
  * // const { GlobalAcceleratorClient, ListCustomRoutingPortMappingsCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import

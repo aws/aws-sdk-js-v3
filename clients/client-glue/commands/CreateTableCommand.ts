@@ -23,7 +23,7 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
 /**
  * <p>Creates a new table definition in the Data Catalog.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, CreateTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import

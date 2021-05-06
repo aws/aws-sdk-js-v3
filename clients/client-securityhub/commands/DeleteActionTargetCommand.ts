@@ -25,7 +25,7 @@ export interface DeleteActionTargetCommandOutput extends DeleteActionTargetRespo
  *          <p>Deleting a custom action target does not affect any findings or insights that were
  *          already sent to Amazon CloudWatch Events using the custom action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, DeleteActionTargetCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DeleteActionTargetCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

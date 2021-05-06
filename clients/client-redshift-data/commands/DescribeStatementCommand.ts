@@ -25,7 +25,7 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  *       includes when the query started, when it finished, the query status, the number of rows returned, and the SQL
  *       statement. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RedshiftDataClient, DescribeStatementCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
  * // const { RedshiftDataClient, DescribeStatementCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import

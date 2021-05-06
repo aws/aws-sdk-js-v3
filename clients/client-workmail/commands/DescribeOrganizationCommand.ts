@@ -24,7 +24,7 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * <p>Provides more information regarding a given organization based on its
  *          identifier.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkMailClient, DescribeOrganizationCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DescribeOrganizationCommand } = require("@aws-sdk/client-workmail"); // CommonJS import

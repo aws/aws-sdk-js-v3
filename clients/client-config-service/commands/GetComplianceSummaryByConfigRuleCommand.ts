@@ -26,7 +26,7 @@ export interface GetComplianceSummaryByConfigRuleCommandOutput
  * <p>Returns the number of AWS Config rules that are compliant and
  * 			noncompliant, up to a maximum of 25 for each.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConfigServiceClient, GetComplianceSummaryByConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetComplianceSummaryByConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import

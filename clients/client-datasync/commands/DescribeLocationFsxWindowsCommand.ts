@@ -24,7 +24,7 @@ export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocatio
  * <p>Returns metadata, such as the path information about an Amazon FSx for Windows File Server
  *       location.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, DescribeLocationFsxWindowsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, DescribeLocationFsxWindowsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import

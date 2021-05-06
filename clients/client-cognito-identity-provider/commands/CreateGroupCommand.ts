@@ -29,7 +29,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * <p>Creates a new group in the specified user pool.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityProviderClient, CreateGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, CreateGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import

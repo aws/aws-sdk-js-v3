@@ -23,7 +23,7 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
 /**
  * <p>Updates the Security Hub insight identified by the specified insight ARN.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, UpdateInsightCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, UpdateInsightCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

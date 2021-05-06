@@ -30,7 +30,7 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  *       address, you will need to clean up and re-establish any existing connections that use those
  *       endpoint addresses when the failover is complete.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, FailoverDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, FailoverDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

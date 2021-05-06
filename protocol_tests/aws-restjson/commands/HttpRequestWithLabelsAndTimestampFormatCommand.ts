@@ -25,7 +25,7 @@ export interface HttpRequestWithLabelsAndTimestampFormatCommandOutput extends __
  * The example tests how requests serialize different timestamp formats in the
  * URI path.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestJsonProtocolClient, HttpRequestWithLabelsAndTimestampFormatCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, HttpRequestWithLabelsAndTimestampFormatCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import

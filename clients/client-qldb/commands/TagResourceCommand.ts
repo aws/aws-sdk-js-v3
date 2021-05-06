@@ -25,7 +25,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *          <p>A resource can have up to 50 tags. If you try to create more than 50 tags for a
  *          resource, your request fails and returns an error.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QLDBClient, TagResourceCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, TagResourceCommand } = require("@aws-sdk/client-qldb"); // CommonJS import

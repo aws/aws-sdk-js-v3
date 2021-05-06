@@ -23,7 +23,7 @@ export interface DescribeReservedNodesCommandOutput extends ReservedNodesMessage
 /**
  * <p>Returns the descriptions of the reserved nodes.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RedshiftClient, DescribeReservedNodesCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeReservedNodesCommand } = require("@aws-sdk/client-redshift"); // CommonJS import

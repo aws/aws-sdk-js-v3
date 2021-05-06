@@ -23,7 +23,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
 /**
  * <p>This operation lists your jobs sorted by CreatedAt in descending order.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataExchangeClient, ListJobsCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, ListJobsCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import

@@ -27,7 +27,7 @@ export interface ReportInstanceStatusCommandOutput extends __MetadataBearer {}
  *             EC2 collects this information to improve the accuracy of status checks.</p>
  *         <p>Use of this action does not change the value returned by <a>DescribeInstanceStatus</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, ReportInstanceStatusCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ReportInstanceStatusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

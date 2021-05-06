@@ -24,7 +24,7 @@ export interface ApplySchemaCommandOutput extends ApplySchemaResponse, __Metadat
  * <p>Copies the input published schema, at the specified version, into the <a>Directory</a> with the same
  *       name and version as that of the published schema.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudDirectoryClient, ApplySchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ApplySchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import

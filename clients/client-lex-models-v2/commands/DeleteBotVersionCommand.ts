@@ -24,7 +24,7 @@ export interface DeleteBotVersionCommandOutput extends DeleteBotVersionResponse,
  * <p>Deletes a specific version of a bot. To delete all version of a bot,
  *          use the <a>DeleteBot</a> operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LexModelsV2Client, DeleteBotVersionCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DeleteBotVersionCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import

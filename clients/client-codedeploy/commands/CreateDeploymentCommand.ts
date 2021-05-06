@@ -23,7 +23,7 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
 /**
  * <p>Deploys an application revision through the specified deployment group.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeDeployClient, CreateDeploymentCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, CreateDeploymentCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import

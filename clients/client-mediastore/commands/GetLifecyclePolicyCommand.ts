@@ -23,7 +23,7 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyOutpu
 /**
  * <p>Retrieves the object lifecycle policy that is assigned to a container.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaStoreClient, GetLifecyclePolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, GetLifecyclePolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import

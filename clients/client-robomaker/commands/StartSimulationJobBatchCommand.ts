@@ -24,7 +24,7 @@ export interface StartSimulationJobBatchCommandOutput extends StartSimulationJob
  * <p>Starts a new simulation job batch. The batch is defined using one or more
  *             <code>SimulationJobRequest</code> objects. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RoboMakerClient, StartSimulationJobBatchCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, StartSimulationJobBatchCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import

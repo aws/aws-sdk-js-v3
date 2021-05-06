@@ -23,7 +23,7 @@ export interface DeleteJobCommandOutput extends DeleteJobResult, __MetadataBeare
 /**
  * <p> Deletes a job for a branch of an Amplify app. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmplifyClient, DeleteJobCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, DeleteJobCommand } = require("@aws-sdk/client-amplify"); // CommonJS import

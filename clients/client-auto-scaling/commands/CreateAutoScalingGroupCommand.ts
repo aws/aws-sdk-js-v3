@@ -41,7 +41,7 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *             that defines weights for the instance types, you must specify these sizes with the same
  *             units that you use for weighting instances.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AutoScalingClient, CreateAutoScalingGroupCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, CreateAutoScalingGroupCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import

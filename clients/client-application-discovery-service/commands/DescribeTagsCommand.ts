@@ -42,7 +42,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  *          <p>Also, all configuration items associated with your user account that have tags can be
  *       listed if you call <code>DescribeTags</code> as is without passing any parameters.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApplicationDiscoveryServiceClient, DescribeTagsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, DescribeTagsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import

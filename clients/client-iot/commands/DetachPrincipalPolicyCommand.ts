@@ -27,7 +27,7 @@ export interface DetachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  *          <p>
  *             <b>Note:</b> This API is deprecated. Please use <a>DetachPolicy</a> instead.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, DetachPrincipalPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DetachPrincipalPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import

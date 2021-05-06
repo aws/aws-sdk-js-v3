@@ -23,7 +23,7 @@ export interface DescribeRestoreJobCommandOutput extends DescribeRestoreJobOutpu
 /**
  * <p>Returns metadata associated with a restore job that is specified by a job ID.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, DescribeRestoreJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeRestoreJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import

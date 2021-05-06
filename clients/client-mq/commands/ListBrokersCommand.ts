@@ -23,7 +23,7 @@ export interface ListBrokersCommandOutput extends ListBrokersResponse, __Metadat
 /**
  * Returns a list of all brokers.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MqClient, ListBrokersCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, ListBrokersCommand } = require("@aws-sdk/client-mq"); // CommonJS import

@@ -23,7 +23,7 @@ export interface StopBackupJobCommandOutput extends __MetadataBearer {}
 /**
  * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, StopBackupJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, StopBackupJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import

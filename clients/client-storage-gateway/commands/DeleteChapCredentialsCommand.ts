@@ -25,7 +25,7 @@ export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredential
  *          iSCSI target and initiator pair. This operation is supported in volume and tape gateway
  *          types.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, DeleteChapCredentialsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteChapCredentialsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

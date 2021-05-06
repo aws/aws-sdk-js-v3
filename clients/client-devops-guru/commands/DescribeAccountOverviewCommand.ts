@@ -26,7 +26,7 @@ export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOve
  *    		that were created, and the Mean Time to Recover (MTTR) for all closed reactive insights.
  *    	</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DevOpsGuruClient, DescribeAccountOverviewCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, DescribeAccountOverviewCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import

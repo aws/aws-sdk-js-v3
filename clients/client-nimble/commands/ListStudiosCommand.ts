@@ -23,7 +23,7 @@ export interface ListStudiosCommandOutput extends ListStudiosResponse, __Metadat
 /**
  * <p>List studios in your AWS account in the requested AWS Region.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NimbleClient, ListStudiosCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, ListStudiosCommand } = require("@aws-sdk/client-nimble"); // CommonJS import

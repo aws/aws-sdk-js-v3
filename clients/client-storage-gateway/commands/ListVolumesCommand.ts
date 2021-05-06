@@ -32,7 +32,7 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  *          subsequent request to retrieve the next set of volumes. This operation is only supported in
  *          the cached volume and stored volume gateway types.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, ListVolumesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListVolumesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

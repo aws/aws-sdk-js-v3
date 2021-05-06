@@ -30,7 +30,7 @@ export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenRes
  *             MFA status as "verified" if successful. The request takes an access token or a session
  *             string, but not both.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityProviderClient, VerifySoftwareTokenCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, VerifySoftwareTokenCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import

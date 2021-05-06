@@ -23,7 +23,7 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
 /**
  * <p>Retrieves the current data access role for the given resource registered in AWS Lake Formation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LakeFormationClient, DescribeResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
  * // const { LakeFormationClient, DescribeResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import

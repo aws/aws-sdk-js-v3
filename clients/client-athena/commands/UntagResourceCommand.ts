@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
 /**
  * <p>Removes one or more tags from a data catalog or workgroup resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AthenaClient, UntagResourceCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, UntagResourceCommand } = require("@aws-sdk/client-athena"); // CommonJS import

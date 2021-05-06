@@ -60,7 +60,7 @@ export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
  *             </ul>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, TagSAMLProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagSAMLProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import

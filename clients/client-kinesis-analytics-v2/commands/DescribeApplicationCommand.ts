@@ -29,7 +29,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  *          <p>If you want to retrieve a list of all applications in your account,
  *       use the <a>ListApplications</a> operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisAnalyticsV2Client, DescribeApplicationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, DescribeApplicationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import

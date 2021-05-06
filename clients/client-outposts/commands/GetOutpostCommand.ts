@@ -23,7 +23,7 @@ export interface GetOutpostCommandOutput extends GetOutpostOutput, __MetadataBea
 /**
  * <p>Gets information about the specified Outpost.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OutpostsClient, GetOutpostCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, GetOutpostCommand } = require("@aws-sdk/client-outposts"); // CommonJS import

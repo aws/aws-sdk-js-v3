@@ -29,7 +29,7 @@ export interface CreateHyperParameterTuningJobCommandOutput
  *             hyperparameter values that result in a model that performs the best, as measured by an
  *             objective metric that you choose.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, CreateHyperParameterTuningJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateHyperParameterTuningJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

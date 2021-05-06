@@ -23,7 +23,7 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
 /**
  * <p>Registers a certificate for a secure LDAP or client certificate authentication.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectoryServiceClient, RegisterCertificateCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, RegisterCertificateCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import

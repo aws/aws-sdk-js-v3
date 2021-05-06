@@ -23,7 +23,7 @@ export interface ListHumanTaskUisCommandOutput extends ListHumanTaskUisResponse,
 /**
  * <p>Returns information about the human task user interfaces in your account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, ListHumanTaskUisCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListHumanTaskUisCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

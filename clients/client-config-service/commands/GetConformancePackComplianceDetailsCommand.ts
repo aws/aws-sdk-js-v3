@@ -28,7 +28,7 @@ export interface GetConformancePackComplianceDetailsCommandOutput
 /**
  * <p>Returns compliance details of a conformance pack for all AWS resources that are monitered by conformance pack.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConfigServiceClient, GetConformancePackComplianceDetailsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, GetConformancePackComplianceDetailsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import

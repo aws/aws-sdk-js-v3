@@ -27,7 +27,7 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  *                 <code>DBClusterParameterGroupName</code> parameter is specified, the list contains
  *             only the description of the specified cluster parameter group. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, DescribeDBClusterParameterGroupsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBClusterParameterGroupsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import

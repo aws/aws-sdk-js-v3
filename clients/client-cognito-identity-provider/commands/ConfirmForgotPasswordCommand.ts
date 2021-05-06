@@ -27,7 +27,7 @@ export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswor
 /**
  * <p>Allows a user to enter a confirmation code to reset a forgotten password.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityProviderClient, ConfirmForgotPasswordCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ConfirmForgotPasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import

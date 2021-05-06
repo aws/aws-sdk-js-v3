@@ -23,7 +23,7 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
 /**
  * <p>Accepts the invitation to be monitored by a GuardDuty administrator account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, AcceptInvitationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, AcceptInvitationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import

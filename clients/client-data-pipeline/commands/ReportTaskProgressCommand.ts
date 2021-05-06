@@ -60,7 +60,7 @@ export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutpu
  * </response>
  *         </examples>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataPipelineClient, ReportTaskProgressCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, ReportTaskProgressCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import

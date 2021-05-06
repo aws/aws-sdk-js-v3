@@ -24,7 +24,7 @@ export interface GetEventIntegrationCommandOutput extends GetEventIntegrationRes
  * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
  *          <p>Return information about the event integration.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppIntegrationsClient, GetEventIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, GetEventIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import

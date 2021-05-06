@@ -23,7 +23,7 @@ export interface DeleteMitigationActionCommandOutput extends DeleteMitigationAct
 /**
  * <p>Deletes a defined mitigation action from your AWS account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, DeleteMitigationActionCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeleteMitigationActionCommand } = require("@aws-sdk/client-iot"); // CommonJS import

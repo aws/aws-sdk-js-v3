@@ -24,7 +24,7 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * <p>Returns the count of all GuardDuty membership invitations that were sent to the current
  *       member account except the currently accepted invitation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, GetInvitationsCountCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetInvitationsCountCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import

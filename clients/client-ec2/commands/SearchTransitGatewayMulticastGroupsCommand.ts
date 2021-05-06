@@ -28,7 +28,7 @@ export interface SearchTransitGatewayMulticastGroupsCommandOutput
 /**
  * <p>Searches one or more  transit gateway multicast groups and returns the group membership information.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, SearchTransitGatewayMulticastGroupsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, SearchTransitGatewayMulticastGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

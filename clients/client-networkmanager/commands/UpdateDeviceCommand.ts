@@ -24,7 +24,7 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
  * <p>Updates the details for an existing device. To remove information for any of the
  *             parameters, specify an empty string.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NetworkManagerClient, UpdateDeviceCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, UpdateDeviceCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import

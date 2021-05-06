@@ -24,7 +24,7 @@ export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, _
  * <p>Deletes the specified constraint.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogClient, DeleteConstraintCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeleteConstraintCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import

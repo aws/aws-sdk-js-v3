@@ -23,7 +23,7 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
 /**
  * <p>Stops an in-progress operation on a stack set and its associated stack instances. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFormationClient, StopStackSetOperationCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, StopStackSetOperationCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import

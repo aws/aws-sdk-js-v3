@@ -25,7 +25,7 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
  *    specify the AWS user account IDs for those people who can use the document. If you share a
  *    document publicly, you must specify <i>All</i> as the account ID.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, ModifyDocumentPermissionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ModifyDocumentPermissionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

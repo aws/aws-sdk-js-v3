@@ -47,7 +47,7 @@ export interface DeleteSqlInjectionMatchSetCommandOutput extends DeleteSqlInject
  *             </li>
  *          </ol>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFRegionalClient, DeleteSqlInjectionMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, DeleteSqlInjectionMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import

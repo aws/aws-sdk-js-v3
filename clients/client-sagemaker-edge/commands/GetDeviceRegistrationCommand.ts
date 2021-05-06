@@ -23,7 +23,7 @@ export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistratio
 /**
  * <p>Use to check if a device is registered with SageMaker Edge Manager.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SagemakerEdgeClient, GetDeviceRegistrationCommand } from "@aws-sdk/client-sagemaker-edge"; // ES Modules import
  * // const { SagemakerEdgeClient, GetDeviceRegistrationCommand } = require("@aws-sdk/client-sagemaker-edge"); // CommonJS import

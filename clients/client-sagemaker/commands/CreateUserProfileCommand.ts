@@ -29,7 +29,7 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileRespons
  *      user and has a reference to the user's private Amazon Elastic File System (EFS) home directory.
  *    </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, CreateUserProfileCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateUserProfileCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

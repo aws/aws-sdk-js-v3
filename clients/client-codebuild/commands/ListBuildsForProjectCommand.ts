@@ -24,7 +24,7 @@ export interface ListBuildsForProjectCommandOutput extends ListBuildsForProjectO
  * <p>Gets a list of build identifiers for the specified build project, with each build
  *             identifier representing a single build.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeBuildClient, ListBuildsForProjectCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListBuildsForProjectCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import

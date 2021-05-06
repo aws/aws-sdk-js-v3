@@ -23,7 +23,7 @@ export interface GetVpcLinksCommandOutput extends VpcLinks, __MetadataBearer {}
 /**
  * <p>Gets the <a>VpcLinks</a> collection under the caller's account in a selected region.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, GetVpcLinksCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetVpcLinksCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

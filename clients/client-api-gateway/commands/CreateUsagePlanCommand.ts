@@ -23,7 +23,7 @@ export interface CreateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
 /**
  * <p>Creates a usage plan with the throttle and quota limits, as well as the associated API stages, specified in the payload. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, CreateUsagePlanCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateUsagePlanCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

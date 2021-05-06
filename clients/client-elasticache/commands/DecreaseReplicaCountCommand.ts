@@ -25,7 +25,7 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  *             replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group. This operation
  *             is performed with no cluster down time.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElastiCacheClient, DecreaseReplicaCountCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DecreaseReplicaCountCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import

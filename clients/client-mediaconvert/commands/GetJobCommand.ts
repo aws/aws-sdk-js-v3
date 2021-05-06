@@ -20,7 +20,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
 /**
  * Retrieve the JSON for a specific completed transcoding job.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaConvertClient, GetJobCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, GetJobCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import

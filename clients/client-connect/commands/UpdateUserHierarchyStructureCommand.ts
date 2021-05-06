@@ -23,7 +23,7 @@ export interface UpdateUserHierarchyStructureCommandOutput extends __MetadataBea
 /**
  * <p>Updates the user hierarchy structure: add, remove, and rename user hierarchy levels.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, UpdateUserHierarchyStructureCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateUserHierarchyStructureCommand } = require("@aws-sdk/client-connect"); // CommonJS import

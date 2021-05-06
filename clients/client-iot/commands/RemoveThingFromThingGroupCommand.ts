@@ -28,7 +28,7 @@ export interface RemoveThingFromThingGroupCommandOutput extends RemoveThingFromT
  * 			identify the thing to remove from the thing group.
  * 		</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, RemoveThingFromThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, RemoveThingFromThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import

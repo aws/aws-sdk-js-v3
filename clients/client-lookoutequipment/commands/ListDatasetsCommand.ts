@@ -24,7 +24,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * <p>Lists all datasets currently available in your account, filtering on the dataset name.
  *       </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LookoutEquipmentClient, ListDatasetsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListDatasetsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import

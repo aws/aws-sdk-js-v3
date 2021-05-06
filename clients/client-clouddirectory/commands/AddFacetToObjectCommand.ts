@@ -23,7 +23,7 @@ export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse,
 /**
  * <p>Adds a new <a>Facet</a> to an object. An object can have more than one facet applied on it.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudDirectoryClient, AddFacetToObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, AddFacetToObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import

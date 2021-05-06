@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
 /**
  * <p>Remove a tag from the MWAA environments.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MWAAClient, UntagResourceCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, UntagResourceCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import

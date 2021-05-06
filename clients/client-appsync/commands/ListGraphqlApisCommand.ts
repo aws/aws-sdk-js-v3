@@ -23,7 +23,7 @@ export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, _
 /**
  * <p>Lists your GraphQL APIs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppSyncClient, ListGraphqlApisCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListGraphqlApisCommand } = require("@aws-sdk/client-appsync"); // CommonJS import

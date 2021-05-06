@@ -30,7 +30,7 @@ export interface ExportClientVpnClientConfigurationCommandOutput
  * 			file includes the Client VPN endpoint and certificate information clients need to establish a connection
  * 			with the Client VPN endpoint.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, ExportClientVpnClientConfigurationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ExportClientVpnClientConfigurationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

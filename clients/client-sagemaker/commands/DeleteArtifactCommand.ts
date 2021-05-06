@@ -24,7 +24,7 @@ export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __M
  * <p>Deletes an artifact. Either <code>ArtifactArn</code> or <code>Source</code> must be
  *         specified.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, DeleteArtifactCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteArtifactCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

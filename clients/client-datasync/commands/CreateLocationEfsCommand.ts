@@ -23,7 +23,7 @@ export interface CreateLocationEfsCommandOutput extends CreateLocationEfsRespons
 /**
  * <p>Creates an endpoint for an Amazon EFS file system.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, CreateLocationEfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationEfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import

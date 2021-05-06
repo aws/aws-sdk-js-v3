@@ -26,7 +26,7 @@ export interface UpdateAssessmentTargetCommandOutput extends __MetadataBearer {}
  *          <p>If resourceGroupArn is not specified, all EC2 instances in the current AWS account
  *          and region are included in the assessment target.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { InspectorClient, UpdateAssessmentTargetCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, UpdateAssessmentTargetCommand } = require("@aws-sdk/client-inspector"); // CommonJS import

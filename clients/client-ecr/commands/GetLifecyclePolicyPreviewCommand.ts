@@ -24,7 +24,7 @@ export interface GetLifecyclePolicyPreviewCommandOutput extends GetLifecyclePoli
  * <p>Retrieves the results of the lifecycle policy preview request for the specified
  *             repository.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECRClient, GetLifecyclePolicyPreviewCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, GetLifecyclePolicyPreviewCommand } = require("@aws-sdk/client-ecr"); // CommonJS import

@@ -36,7 +36,7 @@ export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response,
  *          <p>The <code>DetectEntitiesV2</code> operation returns the <code>Acuity</code> and
  *         <code>Direction</code> entities as attributes instead of types. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendMedicalClient, DetectEntitiesV2Command } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, DetectEntitiesV2Command } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import

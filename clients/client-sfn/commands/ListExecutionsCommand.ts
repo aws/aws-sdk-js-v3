@@ -30,7 +30,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  *          </note>
  *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SFNClient, ListExecutionsCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, ListExecutionsCommand } = require("@aws-sdk/client-sfn"); // CommonJS import

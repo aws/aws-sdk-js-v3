@@ -24,7 +24,7 @@ export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer 
  * <p>Deletes an existing user hierarchy group. It must not be associated with any agents or have
  *    any active child groups.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, DeleteUserHierarchyGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DeleteUserHierarchyGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import

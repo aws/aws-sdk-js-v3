@@ -24,7 +24,7 @@ export interface GetAssessmentReportCommandOutput extends GetAssessmentReportRes
  * <p>Produces an assessment report that includes detailed and comprehensive results of a
  *          specified assessment run. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { InspectorClient, GetAssessmentReportCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, GetAssessmentReportCommand } = require("@aws-sdk/client-inspector"); // CommonJS import

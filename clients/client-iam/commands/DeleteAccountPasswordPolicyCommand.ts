@@ -22,7 +22,7 @@ export interface DeleteAccountPasswordPolicyCommandOutput extends __MetadataBear
 /**
  * <p>Deletes the password policy for the AWS account. There are no parameters.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, DeleteAccountPasswordPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteAccountPasswordPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import

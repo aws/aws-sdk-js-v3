@@ -27,7 +27,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
 /**
  * <p>Lists the IDs of the applications that you are monitoring. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApplicationInsightsClient, ListApplicationsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, ListApplicationsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import

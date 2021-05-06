@@ -23,7 +23,7 @@ export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBea
 /**
  * This operation uses unions for inputs and outputs.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestJsonProtocolClient, JsonUnionsCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, JsonUnionsCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import

@@ -23,7 +23,7 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes a model.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, DeleteModelCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteModelCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

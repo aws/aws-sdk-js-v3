@@ -25,7 +25,7 @@ export interface FlattenedXmlMapWithXmlNamespaceCommandOutput
 /**
  * Flattened maps with @xmlNamespace and @xmlName
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestXmlProtocolClient, FlattenedXmlMapWithXmlNamespaceCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, FlattenedXmlMapWithXmlNamespaceCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import

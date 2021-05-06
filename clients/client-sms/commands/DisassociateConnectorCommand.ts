@@ -25,7 +25,7 @@ export interface DisassociateConnectorCommandOutput extends DisassociateConnecto
  *         <p>After you disassociate a connector, it is no longer available to support
  *             replication jobs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SMSClient, DisassociateConnectorCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DisassociateConnectorCommand } = require("@aws-sdk/client-sms"); // CommonJS import

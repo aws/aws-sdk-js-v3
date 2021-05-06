@@ -29,7 +29,7 @@ export interface PutMetadataCommandOutput extends __MetadataBearer {}
  *
  *         within a Video Stream</a> in the <i>Amazon IVS User Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IvsClient, PutMetadataCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, PutMetadataCommand } = require("@aws-sdk/client-ivs"); // CommonJS import

@@ -31,7 +31,7 @@ export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyRes
  *          </note>
  *          <p>Returns the IAM policy attached to the RuleGroup.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFClient, GetPermissionPolicyCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetPermissionPolicyCommand } = require("@aws-sdk/client-waf"); // CommonJS import

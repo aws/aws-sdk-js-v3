@@ -35,7 +35,7 @@ export interface StartGatewayCommandOutput extends StartGatewayOutput, __Metadat
  *          <p>To specify which gateway to start, use the Amazon Resource Name (ARN) of the gateway in
  *          your request.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, StartGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, StartGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

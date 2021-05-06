@@ -24,7 +24,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * <p>Removes the association of tags from a DAX resource. You can call
  *             <code>UntagResource</code> up to 5 times per second, per account. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DAXClient, UntagResourceCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, UntagResourceCommand } = require("@aws-sdk/client-dax"); // CommonJS import

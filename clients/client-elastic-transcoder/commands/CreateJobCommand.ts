@@ -31,7 +31,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *             Kindle Fire and another output for the Apple iPhone 4s), you currently must use the Elastic Transcoder API to
  *             list the jobs (as opposed to the AWS Console).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticTranscoderClient, CreateJobCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, CreateJobCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import

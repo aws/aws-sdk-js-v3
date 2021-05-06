@@ -26,7 +26,7 @@ export interface GetDistributionBundlesCommandOutput extends GetDistributionBund
  *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
  *       your dsitribution.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, GetDistributionBundlesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetDistributionBundlesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

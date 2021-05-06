@@ -31,7 +31,7 @@ export interface GetUICustomizationCommandOutput extends GetUICustomizationRespo
  *             pool level customization (app <code>clientId</code> will be <code>ALL</code>), then that
  *             is returned. If nothing is present, then an empty shape is returned.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityProviderClient, GetUICustomizationCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, GetUICustomizationCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import

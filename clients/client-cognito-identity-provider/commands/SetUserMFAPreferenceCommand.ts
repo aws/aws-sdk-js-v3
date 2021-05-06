@@ -36,7 +36,7 @@ export interface SetUserMFAPreferenceCommandOutput extends SetUserMFAPreferenceR
  *             MFA to be applied selectively based on the assessed risk level of sign in attempts,
  *             disable MFA for users and turn on Adaptive Authentication for the user pool.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityProviderClient, SetUserMFAPreferenceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, SetUserMFAPreferenceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import

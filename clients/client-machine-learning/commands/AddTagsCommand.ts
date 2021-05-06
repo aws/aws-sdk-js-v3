@@ -22,7 +22,7 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  * 		    and an optional value. If you add a tag using a key that is already associated with the ML object,
  * 			<code>AddTags</code> updates the tag's value.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MachineLearningClient, AddTagsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, AddTagsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import

@@ -23,7 +23,7 @@ export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataB
 /**
  * <p>Creates mappings.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, GetMappingCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetMappingCommand } = require("@aws-sdk/client-glue"); // CommonJS import

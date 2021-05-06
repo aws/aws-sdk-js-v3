@@ -23,7 +23,7 @@ export interface ListHealthChecksCommandOutput extends ListHealthChecksResponse,
 /**
  * <p>Retrieve a list of the health checks that are associated with the current AWS account. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53Client, ListHealthChecksCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListHealthChecksCommand } = require("@aws-sdk/client-route-53"); // CommonJS import

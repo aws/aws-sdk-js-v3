@@ -27,7 +27,7 @@ export interface GetRealtimeLogConfigCommandOutput extends GetRealtimeLogConfigR
  * 			Resource Name (ARN). You must provide at least one. If you provide both, CloudFront uses the
  * 			name to identify the real-time log configuration to get.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFrontClient, GetRealtimeLogConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetRealtimeLogConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import

@@ -24,7 +24,7 @@ export interface ListRobotsCommandOutput extends ListRobotsResponse, __MetadataB
  * <p>Returns a list of robots. You can optionally provide filters to retrieve specific
  *          robots.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RoboMakerClient, ListRobotsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListRobotsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import

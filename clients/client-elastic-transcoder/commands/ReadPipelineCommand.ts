@@ -27,7 +27,7 @@ export interface ReadPipelineCommandOutput extends ReadPipelineResponse, __Metad
 /**
  * <p>The ReadPipeline operation gets detailed information about a pipeline.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticTranscoderClient, ReadPipelineCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, ReadPipelineCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import

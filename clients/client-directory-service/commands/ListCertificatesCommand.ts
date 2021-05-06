@@ -23,7 +23,7 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResult, _
 /**
  * <p>For the specified directory, lists all the certificates registered for a secure LDAP or client certificate authentication.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectoryServiceClient, ListCertificatesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, ListCertificatesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import

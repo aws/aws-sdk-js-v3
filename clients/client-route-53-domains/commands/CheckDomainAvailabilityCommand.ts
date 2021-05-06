@@ -24,7 +24,7 @@ export interface CheckDomainAvailabilityCommandOutput extends CheckDomainAvailab
  * <p>This operation checks the availability of one domain name. Note that if the availability status of a domain is pending, you must
  * 			submit another request to determine the availability of the domain name.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53DomainsClient, CheckDomainAvailabilityCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, CheckDomainAvailabilityCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import

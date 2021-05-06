@@ -25,7 +25,7 @@ export interface ListComplianceSummariesCommandOutput extends ListComplianceSumm
  *    example, this call can return State Manager associations, patches, or custom compliance types
  *    according to the filter criteria that you specify.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, ListComplianceSummariesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListComplianceSummariesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

@@ -24,7 +24,7 @@ export interface DescribeManagedPrefixListsCommandOutput extends DescribeManaged
  * <p>Describes your managed prefix lists and any AWS-managed prefix lists.</p>
  *         <p>To view the entries for your prefix list, use <a>GetManagedPrefixListEntries</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DescribeManagedPrefixListsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeManagedPrefixListsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

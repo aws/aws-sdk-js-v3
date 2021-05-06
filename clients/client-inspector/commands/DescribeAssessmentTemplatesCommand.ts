@@ -26,7 +26,7 @@ export interface DescribeAssessmentTemplatesCommandOutput
  * <p>Describes the assessment templates that are specified by the ARNs of the assessment
  *          templates.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { InspectorClient, DescribeAssessmentTemplatesCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeAssessmentTemplatesCommand } = require("@aws-sdk/client-inspector"); // CommonJS import

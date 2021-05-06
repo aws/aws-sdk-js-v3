@@ -23,7 +23,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyOutput,
 /**
  * <p> Gets a resource policy that is identified by its resource ARN. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeBuildClient, GetResourcePolicyCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, GetResourcePolicyCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import

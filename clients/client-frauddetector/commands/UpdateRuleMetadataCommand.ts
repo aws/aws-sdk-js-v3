@@ -23,7 +23,7 @@ export interface UpdateRuleMetadataCommandOutput extends UpdateRuleMetadataResul
 /**
  * <p>Updates a rule's metadata. The description attribute can be updated.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FraudDetectorClient, UpdateRuleMetadataCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, UpdateRuleMetadataCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import

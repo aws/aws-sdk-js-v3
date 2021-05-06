@@ -24,7 +24,7 @@ export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse,
  * <p>Disables the specified directory. Disabled directories cannot be read or written to.
  *       Only enabled directories can be disabled. Disabled directories may be reenabled.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudDirectoryClient, DisableDirectoryCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, DisableDirectoryCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import

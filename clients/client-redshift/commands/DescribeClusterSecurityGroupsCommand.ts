@@ -37,7 +37,7 @@ export interface DescribeClusterSecurityGroupsCommandOutput extends ClusterSecur
  *             returned regardless of whether they have tag keys or values associated with
  *             them.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RedshiftClient, DescribeClusterSecurityGroupsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterSecurityGroupsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import

@@ -23,7 +23,7 @@ export interface StopConfigurationRecorderCommandOutput extends __MetadataBearer
 /**
  * <p>Stops recording configurations of the AWS resources you have selected to record in your AWS account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConfigServiceClient, StopConfigurationRecorderCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, StopConfigurationRecorderCommand } = require("@aws-sdk/client-config-service"); // CommonJS import

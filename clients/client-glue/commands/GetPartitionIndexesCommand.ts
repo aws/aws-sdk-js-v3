@@ -23,7 +23,7 @@ export interface GetPartitionIndexesCommandOutput extends GetPartitionIndexesRes
 /**
  * <p>Retrieves the partition indexes associated with a table.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, GetPartitionIndexesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetPartitionIndexesCommand } = require("@aws-sdk/client-glue"); // CommonJS import

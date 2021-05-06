@@ -23,7 +23,7 @@ export interface RejectInputDeviceTransferCommandOutput extends RejectInputDevic
 /**
  * Reject the transfer of the specified input device to your AWS account.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaLiveClient, RejectInputDeviceTransferCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, RejectInputDeviceTransferCommand } = require("@aws-sdk/client-medialive"); // CommonJS import

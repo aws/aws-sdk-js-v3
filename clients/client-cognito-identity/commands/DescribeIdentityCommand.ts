@@ -26,7 +26,7 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
  *          created and any associated linked logins.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityClient, DescribeIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, DescribeIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import

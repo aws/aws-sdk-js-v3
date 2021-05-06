@@ -23,7 +23,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
 /**
  * <p>List Amazon MWAA Environments.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MWAAClient, ListEnvironmentsCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, ListEnvironmentsCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import

@@ -23,7 +23,7 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
 /**
  * <p>Lists details about all member accounts for the current GuardDuty administrator account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, ListMembersCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListMembersCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import

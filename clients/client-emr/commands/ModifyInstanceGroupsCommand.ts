@@ -25,7 +25,7 @@ export interface ModifyInstanceGroupsCommandOutput extends __MetadataBearer {}
  *          instance group. The input parameters include the new target instance count for the group
  *          and the instance group ID. The call will either succeed or fail atomically.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, ModifyInstanceGroupsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ModifyInstanceGroupsCommand } = require("@aws-sdk/client-emr"); // CommonJS import

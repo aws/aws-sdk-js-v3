@@ -24,7 +24,7 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  * <p>Searches for profiles within a specific domain name using name, phone number, email
  *          address, account number, or a custom defined index.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CustomerProfilesClient, SearchProfilesCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, SearchProfilesCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import

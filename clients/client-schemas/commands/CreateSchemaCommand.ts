@@ -23,7 +23,7 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
 /**
  * <p>Creates a schema definition.</p> <note><p>Inactive schemas will be deleted after two years.</p></note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SchemasClient, CreateSchemaCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, CreateSchemaCommand } = require("@aws-sdk/client-schemas"); // CommonJS import

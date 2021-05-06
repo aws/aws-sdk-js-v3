@@ -24,7 +24,7 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * <p>Removes one or more tags from the specified resource. This operation is supported in
  *          storage gateways of all types.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

@@ -50,7 +50,7 @@ export interface InviteAccountToOrganizationCommandOutput
  *                 <code>organizations:TagResource</code> permission.</p>
  *         <p>This operation can be called only from the organization's management account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OrganizationsClient, InviteAccountToOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, InviteAccountToOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import

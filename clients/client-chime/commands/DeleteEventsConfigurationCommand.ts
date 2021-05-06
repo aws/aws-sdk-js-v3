@@ -23,7 +23,7 @@ export interface DeleteEventsConfigurationCommandOutput extends __MetadataBearer
 /**
  * <p>Deletes the events configuration that allows a bot to receive outgoing events.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, DeleteEventsConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteEventsConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import

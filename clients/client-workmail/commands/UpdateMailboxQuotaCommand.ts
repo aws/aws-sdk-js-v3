@@ -24,7 +24,7 @@ export interface UpdateMailboxQuotaCommandOutput extends UpdateMailboxQuotaRespo
  * <p>Updates a user's current mailbox quota for a specified organization and
  *          user.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkMailClient, UpdateMailboxQuotaCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, UpdateMailboxQuotaCommand } = require("@aws-sdk/client-workmail"); // CommonJS import

@@ -25,7 +25,7 @@ export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __M
  * 			AWS Config. This action is required in every AWS Lambda function
  * 			that is invoked by an AWS Config rule.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConfigServiceClient, PutEvaluationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutEvaluationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import

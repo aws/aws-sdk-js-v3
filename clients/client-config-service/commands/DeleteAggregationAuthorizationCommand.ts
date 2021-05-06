@@ -24,7 +24,7 @@ export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataB
  * <p>Deletes the authorization granted to the specified
  * 			configuration aggregator account in a specified region.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConfigServiceClient, DeleteAggregationAuthorizationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteAggregationAuthorizationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import

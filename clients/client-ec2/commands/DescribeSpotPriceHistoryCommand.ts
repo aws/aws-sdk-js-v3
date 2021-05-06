@@ -28,7 +28,7 @@ export interface DescribeSpotPriceHistoryCommandOutput extends DescribeSpotPrice
  *             instance types within that time range. It also returns the last price change before the
  *             start time, which is the effective price as of the start time.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DescribeSpotPriceHistoryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeSpotPriceHistoryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

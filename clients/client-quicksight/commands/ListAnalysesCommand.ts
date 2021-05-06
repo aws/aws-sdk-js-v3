@@ -23,7 +23,7 @@ export interface ListAnalysesCommandOutput extends ListAnalysesResponse, __Metad
 /**
  * <p>Lists Amazon QuickSight analyses that exist in the specified AWS account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, ListAnalysesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListAnalysesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

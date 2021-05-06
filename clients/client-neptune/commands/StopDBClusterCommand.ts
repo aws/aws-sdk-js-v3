@@ -28,7 +28,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  *          <p>Neptune also retains the transaction logs so you can do a point-in-time
  *       restore if necessary.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, StopDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, StopDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

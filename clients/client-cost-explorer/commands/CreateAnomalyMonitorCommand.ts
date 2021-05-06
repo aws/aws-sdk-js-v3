@@ -24,7 +24,7 @@ export interface CreateAnomalyMonitorCommandOutput extends CreateAnomalyMonitorR
  * <p>Creates a new cost anomaly detection monitor with the requested type and monitor
  *       specification. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CostExplorerClient, CreateAnomalyMonitorCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, CreateAnomalyMonitorCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import

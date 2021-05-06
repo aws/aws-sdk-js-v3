@@ -24,7 +24,7 @@ export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenan
  * <p>Updates a gateway's weekly maintenance start time information, including day and
  *          time of the week. The maintenance time is the time in your gateway's time zone.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, UpdateMaintenanceStartTimeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateMaintenanceStartTimeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

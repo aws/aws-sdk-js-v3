@@ -28,7 +28,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *                 Tags</a> in the <i>AWS Billing and Cost Management User
  *             Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisVideoClient, TagResourceCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, TagResourceCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import

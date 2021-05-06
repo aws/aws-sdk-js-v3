@@ -26,7 +26,7 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  *             type.</p>
  *         <p>This operation can be called only from the organization's management account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OrganizationsClient, UpdatePolicyCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, UpdatePolicyCommand } = require("@aws-sdk/client-organizations"); // CommonJS import

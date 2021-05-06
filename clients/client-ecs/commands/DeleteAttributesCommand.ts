@@ -23,7 +23,7 @@ export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse,
 /**
  * <p>Deletes one or more custom attributes from an Amazon ECS resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECSClient, DeleteAttributesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeleteAttributesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import

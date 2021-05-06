@@ -30,7 +30,7 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
  * 	        <p>Returns a unique identifier for the run. You can call <code>GetMLTaskRun</code> to get more
  *       information about the stats of the <code>EvaluationTaskRun</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, StartMLEvaluationTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartMLEvaluationTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import

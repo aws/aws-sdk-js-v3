@@ -26,7 +26,7 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  *       cluster, you must sign the cluster's certificate signing request (CSR) with your issuing CA.
  *       To get the cluster's CSR, use <a>DescribeClusters</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudHSMV2Client, InitializeClusterCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
  * // const { CloudHSMV2Client, InitializeClusterCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import

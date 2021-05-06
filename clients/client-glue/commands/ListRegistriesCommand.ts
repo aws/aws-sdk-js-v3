@@ -23,7 +23,7 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
 /**
  * <p>Returns a list of registries that you have created, with minimal registry information. Registries in the <code>Deleting</code> status will not be included in the results. Empty results will be returned if there are no registries available.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, ListRegistriesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListRegistriesCommand } = require("@aws-sdk/client-glue"); // CommonJS import

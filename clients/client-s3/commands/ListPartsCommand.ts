@@ -65,7 +65,7 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *             </li>
  *          </ul>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { S3Client, ListPartsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, ListPartsCommand } = require("@aws-sdk/client-s3"); // CommonJS import

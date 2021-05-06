@@ -23,7 +23,7 @@ export interface ListProvisionedProductPlansCommandOutput extends ListProvisione
 /**
  * <p>Lists the plans for the specified provisioned product or all plans to which the user has access.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogClient, ListProvisionedProductPlansCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ListProvisionedProductPlansCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import

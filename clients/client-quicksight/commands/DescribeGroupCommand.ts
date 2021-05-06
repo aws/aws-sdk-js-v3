@@ -23,7 +23,7 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
 /**
  * <p>Returns an Amazon QuickSight group's description and Amazon Resource Name (ARN). </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, DescribeGroupCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DescribeGroupCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

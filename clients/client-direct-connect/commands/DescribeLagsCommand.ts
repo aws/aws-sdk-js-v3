@@ -23,7 +23,7 @@ export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
 /**
  * <p>Describes all your link aggregation groups (LAG) or the specified LAG.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectConnectClient, DescribeLagsCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DescribeLagsCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import

@@ -26,7 +26,7 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  *             instance, security group, snapshot, or parameter group by providing the name as
  *             a parameter. By default, the events of the past hour are returned.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, DescribeEventsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeEventsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import

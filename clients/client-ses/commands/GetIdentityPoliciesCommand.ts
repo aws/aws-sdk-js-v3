@@ -34,7 +34,7 @@ export interface GetIdentityPoliciesCommandOutput extends GetIdentityPoliciesRes
  *                 Guide</a>.</p>
  *         <p>You can execute this operation no more than once per second.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESClient, GetIdentityPoliciesCommand } from "@aws-sdk/client-ses"; // ES Modules import
  * // const { SESClient, GetIdentityPoliciesCommand } = require("@aws-sdk/client-ses"); // CommonJS import

@@ -27,7 +27,7 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
 /**
  * <p>Returns the name of all Elasticsearch domains owned by the current user's account. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticsearchServiceClient, ListDomainNamesCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
  * // const { ElasticsearchServiceClient, ListDomainNamesCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import

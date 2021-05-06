@@ -24,7 +24,7 @@ export interface GetRoleCredentialsCommandOutput extends GetRoleCredentialsRespo
  * <p>Returns the STS short-term credentials for a given role name that is assigned to the
  *       user.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSOClient, GetRoleCredentialsCommand } from "@aws-sdk/client-sso"; // ES Modules import
  * // const { SSOClient, GetRoleCredentialsCommand } = require("@aws-sdk/client-sso"); // CommonJS import

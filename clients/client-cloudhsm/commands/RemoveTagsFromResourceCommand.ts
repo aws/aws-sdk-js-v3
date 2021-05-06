@@ -35,7 +35,7 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  *          <p>To remove a tag, specify only the tag key to remove (not the value). To overwrite the
  *       value for an existing tag, use <a>AddTagsToResource</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudHSMClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import

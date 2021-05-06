@@ -23,7 +23,7 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResult, __Met
 /**
  * <p>List all public keys that have been added to CloudFront for this account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFrontClient, ListPublicKeysCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListPublicKeysCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import

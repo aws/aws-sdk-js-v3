@@ -28,7 +28,7 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  * <p>Using a device ID, returns a DeviceEventsResponse object containing an
  *  array of events for the device.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoT1ClickDevicesServiceClient, ListDeviceEventsCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, ListDeviceEventsCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
