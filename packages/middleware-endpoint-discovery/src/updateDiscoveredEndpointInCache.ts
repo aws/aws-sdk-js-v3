@@ -46,12 +46,15 @@ export const updateDiscoveredEndpointInCache = async (
       const { Endpoints } = await client?.send(command);
       endpointCache.set(cacheKey, Endpoints);
     } catch (error) {
+      if (error.name === "InvalidEndpointException" || error.$metadata?.httpStatusCode === 421) {
+        // Endpoint is invalid, delete the cache entry.
+        endpointCache.delete(cacheKey);
+      }
       if (options.isDiscoveredEndpointRequired) {
         // Endpoint Discovery is required, rethrow error.
-        endpointCache.delete(cacheKey);
         throw error;
       } else {
-        // Endpoint Discovery is optional.
+        // Endpoint Discovery is optional. No error needs to be thrown.
         // Set placeHolder endpoint to disable refresh for one minute.
         endpointCache.set(cacheKey, placeholderEndpoints);
       }
