@@ -16,14 +16,17 @@ export class EndpointCache {
   private getEndpoint(endpointsWithExpiry: EndpointWithExpiry[]) {
     const now = Date.now();
     const endpoints = endpointsWithExpiry
-      .filter((endpoint) => now > endpoint.Expires)
+      .filter((endpoint) => now < endpoint.Expires)
       .map((endpoint) => endpoint.Address);
     return endpoints[Math.floor(Math.random() * endpoints.length)];
   }
 
   get(key: string) {
-    const endpointsWithExpiry = this.cache.get(key);
+    if (!this.has(key)) {
+      return;
+    }
 
+    const endpointsWithExpiry = this.cache.get(key);
     if (!endpointsWithExpiry) {
       return;
     }
@@ -41,7 +44,7 @@ export class EndpointCache {
       key,
       endpoints.map(({ Address = "", CachePeriodInMinutes = 1 }) => ({
         Address,
-        Expires: now + CachePeriodInMinutes * 60 * 100,
+        Expires: now + CachePeriodInMinutes * 60 * 1000,
       }))
     );
   }
