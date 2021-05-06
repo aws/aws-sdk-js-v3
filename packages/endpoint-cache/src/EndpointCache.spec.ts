@@ -142,8 +142,8 @@ describe(EndpointCache.name, () => {
     });
   });
 
-  it("remove", () => {
-    endpointCache.remove(key);
+  it("delete", () => {
+    endpointCache.delete(key);
     expect(set).toHaveBeenCalledTimes(1);
     expect(set).toHaveBeenCalledWith(key, []);
   });

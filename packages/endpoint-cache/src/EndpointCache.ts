@@ -39,7 +39,7 @@ export class EndpointCache {
 
     const endpoint = this.getEndpoint(endpointsWithExpiry);
     if (endpoint === undefined) {
-      this.remove(key);
+      this.delete(key);
     }
     return endpoint;
   }
@@ -66,12 +66,12 @@ export class EndpointCache {
   }
 
   /**
-   * Removes the value for the given key in the cache.
+   * Deletes the value for the given key in the cache.
    *
    * @param {string} key
    */
-  remove(key: string) {
-    // Replace with remove call once support is added upstream
+  delete(key: string) {
+    // Replace with remove/delete call once support is added upstream
     // Refs: https://github.com/Yomguithereal/mnemonist/issues/143
     this.cache.set(key, []);
   }
