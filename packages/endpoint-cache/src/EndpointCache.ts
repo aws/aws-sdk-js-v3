@@ -14,22 +14,7 @@ export class EndpointCache {
   }
 
   /**
-   * Returns an un-expired endpoint for the given key.
-   *
-   * @param endpointsWithExpiry
-   * @returns
-   */
-  getEndpoint(key: string) {
-    const endpointsWithExpiry = this.get(key);
-    if (!endpointsWithExpiry || endpointsWithExpiry.length === 0) {
-      return undefined;
-    }
-    const endpoints = endpointsWithExpiry.map((endpoint) => endpoint.Address);
-    return endpoints[Math.floor(Math.random() * endpoints.length)];
-  }
-
-  /**
-   * Returns un-expired endpoints for the given key.
+   * Returns endpoints for the given key.
    *
    * @param key
    * @returns
@@ -39,15 +24,12 @@ export class EndpointCache {
       return;
     }
 
-    const value = this.cache.get(key);
-    if (!value) {
+    const endpointsWithExpiry = this.cache.get(key);
+    if (!endpointsWithExpiry) {
       return;
     }
 
-    const now = Date.now();
-    const endpointsWithExpiry = value.filter((endpoint) => now < endpoint.Expires);
     if (endpointsWithExpiry.length === 0) {
-      this.delete(key);
       return undefined;
     }
 
