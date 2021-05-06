@@ -24,7 +24,7 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * <p>Gets the recipe for a version of a component. Core devices can call this operation to
  *       identify the artifacts and requirements to install a component.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GreengrassV2Client, GetComponentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, GetComponentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import

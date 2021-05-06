@@ -38,7 +38,7 @@ export interface PutAccessPointPolicyForObjectLambdaCommandOutput extends __Meta
  *             </li>
  *          </ul>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { S3ControlClient, PutAccessPointPolicyForObjectLambdaCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
  * // const { S3ControlClient, PutAccessPointPolicyForObjectLambdaCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import

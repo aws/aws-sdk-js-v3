@@ -28,7 +28,7 @@ export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOut
  *             specifying the unique stack identifier (stack ID).</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFormationClient, DescribeStackEventsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeStackEventsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import

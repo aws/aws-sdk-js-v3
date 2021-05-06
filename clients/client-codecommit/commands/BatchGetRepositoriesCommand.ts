@@ -30,7 +30,7 @@ export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesO
  *                 the repository description on a webpage.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeCommitClient, BatchGetRepositoriesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, BatchGetRepositoriesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import

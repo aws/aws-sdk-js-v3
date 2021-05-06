@@ -23,7 +23,7 @@ export interface ListImagePipelinesCommandOutput extends ListImagePipelinesRespo
 /**
  * <p>Returns a list of image pipelines.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, ListImagePipelinesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListImagePipelinesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import

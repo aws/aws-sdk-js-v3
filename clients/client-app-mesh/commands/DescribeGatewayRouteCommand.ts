@@ -23,7 +23,7 @@ export interface DescribeGatewayRouteCommandOutput extends DescribeGatewayRouteO
 /**
  * <p>Describes an existing gateway route.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppMeshClient, DescribeGatewayRouteCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, DescribeGatewayRouteCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import

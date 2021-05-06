@@ -26,7 +26,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:UntagResource</code> operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LookoutVisionClient, UntagResourceCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, UntagResourceCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import

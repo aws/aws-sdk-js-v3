@@ -25,7 +25,7 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  *          <p>You can use the <code>queryDefinitionNamePrefix</code> parameter to limit the results to only the
  *       query definitions that have names that start with a certain string.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchLogsClient, DescribeQueryDefinitionsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeQueryDefinitionsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import

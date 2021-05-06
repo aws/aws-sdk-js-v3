@@ -23,7 +23,7 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
 /**
  * <p>Lists names of workflows created in the account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, ListWorkflowsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListWorkflowsCommand } = require("@aws-sdk/client-glue"); // CommonJS import

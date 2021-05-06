@@ -24,7 +24,7 @@ export interface ListBatchInferenceJobsCommandOutput extends ListBatchInferenceJ
  * <p>Gets a list of the batch inference jobs that have been performed off of a solution
  *       version.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PersonalizeClient, ListBatchInferenceJobsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListBatchInferenceJobsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import

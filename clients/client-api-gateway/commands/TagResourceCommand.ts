@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Adds or updates a tag on a given resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, TagResourceCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, TagResourceCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

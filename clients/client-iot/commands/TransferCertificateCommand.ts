@@ -30,7 +30,7 @@ export interface TransferCertificateCommandOutput extends TransferCertificateRes
  *          <p>The certificate must not have any policies attached to it. You can use the
  *          DetachPrincipalPolicy API to detach them.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, TransferCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, TransferCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import

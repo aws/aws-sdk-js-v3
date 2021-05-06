@@ -28,7 +28,7 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  *       deployment is in process or has failed. The draft configuration remains in existence until it
  *       is deleted with this action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticBeanstalkClient, DeleteEnvironmentConfigurationCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, DeleteEnvironmentConfigurationCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import

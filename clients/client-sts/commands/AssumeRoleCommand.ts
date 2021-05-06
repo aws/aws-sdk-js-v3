@@ -104,7 +104,7 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          The <code>TokenCode</code> is the time-based one-time password (TOTP) that the MFA device
  *          produces. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { STSClient, AssumeRoleCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, AssumeRoleCommand } = require("@aws-sdk/client-sts"); // CommonJS import

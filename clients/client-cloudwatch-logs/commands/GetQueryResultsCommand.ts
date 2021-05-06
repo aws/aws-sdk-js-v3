@@ -33,7 +33,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  *       returns only partial results. If you see a value of <code>Scheduled</code> or <code>Running</code> for the status,
  *       you can retry the operation later to see the final results. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchLogsClient, GetQueryResultsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, GetQueryResultsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import

@@ -25,7 +25,7 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  *       Confirmation tokens are valid for three days.</p>
  *         <p>This action is throttled at 100 transactions per second (TPS).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SNSClient, SubscribeCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, SubscribeCommand } = require("@aws-sdk/client-sns"); // CommonJS import

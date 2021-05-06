@@ -25,7 +25,7 @@ export interface PutEventsConfigurationCommandOutput extends PutEventsConfigurat
  *             Chime. Choose either an HTTPS endpoint or a Lambda function ARN. For more information,
  *             see <a>Bot</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, PutEventsConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutEventsConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import

@@ -24,7 +24,7 @@ export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataB
  * <p>Performs all the write operations in a batch. Either all the operations succeed or
  *       none.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudDirectoryClient, BatchWriteCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, BatchWriteCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import

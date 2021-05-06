@@ -30,7 +30,7 @@ export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesRespo
  * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
  * 		       </important>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53Client, GetCheckerIpRangesCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, GetCheckerIpRangesCommand } = require("@aws-sdk/client-route-53"); // CommonJS import

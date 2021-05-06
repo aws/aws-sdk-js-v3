@@ -54,7 +54,7 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  *             information about a particular model compilation job, use <a>DescribeCompilationJob</a>. To get information about multiple model
  *             compilation jobs, use <a>ListCompilationJobs</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, CreateCompilationJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateCompilationJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

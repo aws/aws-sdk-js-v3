@@ -23,7 +23,7 @@ export interface CreateRequestValidatorCommandOutput extends RequestValidator, _
 /**
  * <p>Creates a <a>ReqeustValidator</a> of a given <a>RestApi</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, CreateRequestValidatorCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateRequestValidatorCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

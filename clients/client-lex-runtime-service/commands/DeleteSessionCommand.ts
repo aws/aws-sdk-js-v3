@@ -28,7 +28,7 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  * <p>Removes session information for a specified bot, alias, and user ID.
  *     </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LexRuntimeServiceClient, DeleteSessionCommand } from "@aws-sdk/client-lex-runtime-service"; // ES Modules import
  * // const { LexRuntimeServiceClient, DeleteSessionCommand } = require("@aws-sdk/client-lex-runtime-service"); // CommonJS import

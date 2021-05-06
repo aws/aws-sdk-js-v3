@@ -23,7 +23,7 @@ export interface DeleteThreatIntelSetCommandOutput extends DeleteThreatIntelSetR
 /**
  * <p>Deletes the ThreatIntelSet specified by the ThreatIntelSet ID.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, DeleteThreatIntelSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DeleteThreatIntelSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import

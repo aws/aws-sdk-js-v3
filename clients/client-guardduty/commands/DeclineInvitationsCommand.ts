@@ -24,7 +24,7 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * <p>Declines invitations sent to the current member account by AWS accounts specified by their
  *       account IDs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, DeclineInvitationsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, DeclineInvitationsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import

@@ -32,7 +32,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *          the previous value for that tag.</p>
  *          <p>You can associate as many as 50 tags with a canary.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SyntheticsClient, TagResourceCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
  * // const { SyntheticsClient, TagResourceCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import

@@ -28,7 +28,7 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  *          findings that the filter attributes specify. Any member account that can view the finding
  *          also sees the update to the finding.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, UpdateFindingsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, UpdateFindingsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

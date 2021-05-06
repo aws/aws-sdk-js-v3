@@ -23,7 +23,7 @@ export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFil
 /**
  * <p>Updates a vocabulary filter with a new list of filtered words.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TranscribeClient, UpdateVocabularyFilterCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, UpdateVocabularyFilterCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import

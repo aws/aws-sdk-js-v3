@@ -24,7 +24,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * <p>Removes one or more tags from a specified Amazon QLDB resource. You can specify up to 50
  *          tag keys to remove.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QLDBClient, UntagResourceCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, UntagResourceCommand } = require("@aws-sdk/client-qldb"); // CommonJS import

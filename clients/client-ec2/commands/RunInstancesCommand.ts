@@ -77,7 +77,7 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  *         <p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What to do if
  *                 an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting connecting to your instance</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, RunInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RunInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

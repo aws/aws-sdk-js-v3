@@ -23,7 +23,7 @@ export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse,
 /**
  * <p>Renders the UI template so that you can preview the worker's experience. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, RenderUiTemplateCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, RenderUiTemplateCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

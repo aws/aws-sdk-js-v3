@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>Removes a tag from an AWS IoT SiteWise resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTSiteWiseClient, UntagResourceCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UntagResourceCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import

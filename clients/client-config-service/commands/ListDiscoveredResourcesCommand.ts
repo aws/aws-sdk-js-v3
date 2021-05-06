@@ -39,7 +39,7 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * 			run the request again and specify the string for the
  * 				<code>nextToken</code> parameter.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConfigServiceClient, ListDiscoveredResourcesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, ListDiscoveredResourcesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import

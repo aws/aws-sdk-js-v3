@@ -24,7 +24,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * <p>Deletes an AWS Device Farm project, given the project ARN.</p>
  *         <p> Deleting this resource does not stop an in-progress run.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DeviceFarmClient, DeleteProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, DeleteProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import

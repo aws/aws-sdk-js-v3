@@ -31,7 +31,7 @@ export interface CreateServiceLinkedRoleCommandOutput extends CreateServiceLinke
  *         <p>To attach a policy to this service-linked role, you must make the request using the
  *             AWS service that depends on this role.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, CreateServiceLinkedRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateServiceLinkedRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import

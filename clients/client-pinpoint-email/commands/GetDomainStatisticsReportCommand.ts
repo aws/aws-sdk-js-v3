@@ -24,7 +24,7 @@ export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatist
  * <p>Retrieve inbox placement and engagement rates for the domains that you use to send
  *             email.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointEmailClient, GetDomainStatisticsReportCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, GetDomainStatisticsReportCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import

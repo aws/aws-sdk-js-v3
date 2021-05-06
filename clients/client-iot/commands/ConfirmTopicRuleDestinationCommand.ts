@@ -28,7 +28,7 @@ export interface ConfirmTopicRuleDestinationCommandOutput
  *          includes a token which you pass back when calling <code>ConfirmTopicRuleDestination</code>
  *          to confirm that you own or have access to the endpoint.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ConfirmTopicRuleDestinationCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ConfirmTopicRuleDestinationCommand } = require("@aws-sdk/client-iot"); // CommonJS import

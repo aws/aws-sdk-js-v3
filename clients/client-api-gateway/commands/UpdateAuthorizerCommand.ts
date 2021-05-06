@@ -24,7 +24,7 @@ export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  * <p>Updates an existing <a>Authorizer</a> resource.</p>
  *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html">AWS CLI</a></div>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, UpdateAuthorizerCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateAuthorizerCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

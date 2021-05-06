@@ -26,7 +26,7 @@ export interface ListTagsForResourceCommandOutput extends ResourceTagsDescriptio
  *         <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html">Tagging Application
  *         Resources</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticBeanstalkClient, ListTagsForResourceCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, ListTagsForResourceCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import

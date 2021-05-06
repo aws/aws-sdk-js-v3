@@ -24,7 +24,7 @@ export interface DescribeHoursOfOperationCommandOutput extends DescribeHoursOfOp
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Describes the hours of operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, DescribeHoursOfOperationCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeHoursOfOperationCommand } = require("@aws-sdk/client-connect"); // CommonJS import

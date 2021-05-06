@@ -25,7 +25,7 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  *         configuration specifies the Amazon Elastic File System (EFS) storage volume on the image, and a list of the
  *         kernels in the image.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, CreateAppImageConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateAppImageConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

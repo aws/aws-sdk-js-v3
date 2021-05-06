@@ -23,7 +23,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
 /**
  * <p>List the tags for a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WellArchitectedClient, ListTagsForResourceCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, ListTagsForResourceCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import

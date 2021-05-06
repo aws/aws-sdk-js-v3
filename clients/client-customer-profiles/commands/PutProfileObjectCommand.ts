@@ -32,7 +32,7 @@ export interface PutProfileObjectCommandOutput extends PutProfileObjectResponse,
  *          <p>PutProfileObject needs an ObjectType, which can be created using
  *          PutProfileObjectType.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CustomerProfilesClient, PutProfileObjectCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, PutProfileObjectCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import

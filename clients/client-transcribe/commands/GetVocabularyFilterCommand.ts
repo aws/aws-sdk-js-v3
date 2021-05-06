@@ -23,7 +23,7 @@ export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterRes
 /**
  * <p>Returns information about a vocabulary filter.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TranscribeClient, GetVocabularyFilterCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetVocabularyFilterCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import

@@ -23,7 +23,7 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
 /**
  * <p>Lists the namespaces for the specified AWS account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, ListNamespacesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListNamespacesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

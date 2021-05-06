@@ -24,7 +24,7 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * <p>Lists the specified log groups. You can list all your log groups or filter the results by prefix.
  *       The results are ASCII-sorted by log group name.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchLogsClient, DescribeLogGroupsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeLogGroupsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import

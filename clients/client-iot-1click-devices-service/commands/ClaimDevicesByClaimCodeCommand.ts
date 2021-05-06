@@ -28,7 +28,7 @@ export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClai
  * <p>Adds device(s) to your account (i.e., claim one or more devices) if and only if you
  *  received a claim code with the device(s).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoT1ClickDevicesServiceClient, ClaimDevicesByClaimCodeCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, ClaimDevicesByClaimCodeCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import

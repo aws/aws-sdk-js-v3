@@ -23,7 +23,7 @@ export interface ListCodeRepositoriesCommandOutput extends ListCodeRepositoriesO
 /**
  * <p>Gets a list of the Git repositories in your account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, ListCodeRepositoriesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListCodeRepositoriesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

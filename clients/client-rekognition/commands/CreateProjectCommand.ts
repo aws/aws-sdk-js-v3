@@ -25,7 +25,7 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  *          and operations (training, evaluation and detection).  </p>
  *          <p>This operation requires permissions to perform the <code>rekognition:CreateProject</code> action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, CreateProjectCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CreateProjectCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import

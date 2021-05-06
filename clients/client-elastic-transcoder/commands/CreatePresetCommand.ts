@@ -40,7 +40,7 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  *             Telecommunication Union publication <i>Recommendation ITU-T H.264: Advanced video coding
  *                 for generic audiovisual services</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticTranscoderClient, CreatePresetCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, CreatePresetCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import

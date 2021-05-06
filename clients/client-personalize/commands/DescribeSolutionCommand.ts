@@ -24,7 +24,7 @@ export interface DescribeSolutionCommandOutput extends DescribeSolutionResponse,
  * <p>Describes a solution.
  *       For more information on solutions, see <a>CreateSolution</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PersonalizeClient, DescribeSolutionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeSolutionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import

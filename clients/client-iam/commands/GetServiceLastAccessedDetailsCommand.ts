@@ -76,7 +76,7 @@ export interface GetServiceLastAccessedDetailsCommandOutput
  *         <p>For more information about service and action last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing permissions using service last accessed data</a> in the
  *                 <i>IAM User Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, GetServiceLastAccessedDetailsCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetServiceLastAccessedDetailsCommand } = require("@aws-sdk/client-iam"); // CommonJS import

@@ -26,7 +26,7 @@ export interface UpdateDocumentVersionCommandOutput extends __MetadataBearer {}
  *             in a document upload, after the client uploads the document to an S3-presigned URL
  *             returned by <a>InitiateDocumentVersionUpload</a>. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkDocsClient, UpdateDocumentVersionCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, UpdateDocumentVersionCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import

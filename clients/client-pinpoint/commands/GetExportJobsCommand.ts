@@ -23,7 +23,7 @@ export interface GetExportJobsCommandOutput extends GetExportJobsResponse, __Met
 /**
  * <p>Retrieves information about the status and settings of all the export jobs for an application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetExportJobsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetExportJobsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

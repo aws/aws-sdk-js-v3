@@ -29,7 +29,7 @@ export interface GetJobDetailsCommandOutput extends GetJobDetailsOutput, __Metad
  *                 values defined for the action.</p>
  *         </important>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodePipelineClient, GetJobDetailsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, GetJobDetailsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import

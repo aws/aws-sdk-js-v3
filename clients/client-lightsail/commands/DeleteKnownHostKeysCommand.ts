@@ -31,7 +31,7 @@ export interface DeleteKnownHostKeysCommandOutput extends DeleteKnownHostKeysRes
  *           client</a>.</p>
  *          </important>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, DeleteKnownHostKeysCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, DeleteKnownHostKeysCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

@@ -24,7 +24,7 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * <p>Displays a list of categories for all event source types, or, if specified, for a
  *       specified source type.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, DescribeEventCategoriesCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeEventCategoriesCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

@@ -23,7 +23,7 @@ export interface ListClusterOperationsCommandOutput extends ListClusterOperation
 /**
  * <p>Returns a list of all the operations that have been performed on the specified MSK cluster.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KafkaClient, ListClusterOperationsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, ListClusterOperationsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import

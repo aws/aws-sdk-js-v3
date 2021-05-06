@@ -29,7 +29,7 @@ export interface ListJobsByPipelineCommandOutput extends ListJobsByPipelineRespo
  *         <p>Elastic Transcoder returns all of the jobs currently in the specified pipeline. The response body contains
  *             one element for each job that satisfies the search criteria.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticTranscoderClient, ListJobsByPipelineCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, ListJobsByPipelineCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import

@@ -32,7 +32,7 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  *     for PowerShell on Windows local machines.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, StartSessionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, StartSessionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

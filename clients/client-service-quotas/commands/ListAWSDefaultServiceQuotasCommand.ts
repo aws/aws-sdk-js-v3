@@ -26,7 +26,7 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
  * <p>Lists the default values for the quotas for the specified AWS service. A default value
  *       does not reflect any quota increases.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceQuotasClient, ListAWSDefaultServiceQuotasCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, ListAWSDefaultServiceQuotasCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import

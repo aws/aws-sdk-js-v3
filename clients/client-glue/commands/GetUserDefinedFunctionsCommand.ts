@@ -23,7 +23,7 @@ export interface GetUserDefinedFunctionsCommandOutput extends GetUserDefinedFunc
 /**
  * <p>Retrieves multiple function definitions from the Data Catalog.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, GetUserDefinedFunctionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetUserDefinedFunctionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import

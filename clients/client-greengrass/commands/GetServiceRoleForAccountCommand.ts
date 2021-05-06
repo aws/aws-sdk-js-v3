@@ -23,7 +23,7 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
 /**
  * Retrieves the service role that is attached to your account.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GreengrassClient, GetServiceRoleForAccountCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetServiceRoleForAccountCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import

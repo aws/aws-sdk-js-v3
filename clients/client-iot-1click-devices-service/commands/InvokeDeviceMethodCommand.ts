@@ -28,7 +28,7 @@ export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodRespo
  * <p>Given a device ID, issues a request to invoke a named device method (with possible
  *  parameters). See the "Example POST" code snippet below.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoT1ClickDevicesServiceClient, InvokeDeviceMethodCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
  * // const { IoT1ClickDevicesServiceClient, InvokeDeviceMethodCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import

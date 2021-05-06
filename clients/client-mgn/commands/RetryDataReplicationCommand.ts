@@ -23,7 +23,7 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
 /**
  * <p>Causes the data replication initiation sequence to begin immediately upon next Handshake for specified SourceServer IDs, regardless of when the previous initiation started. This command will not work if the SourceServer is not stalled or is in a DISCONNECTED or STOPPED state.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MgnClient, RetryDataReplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, RetryDataReplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import

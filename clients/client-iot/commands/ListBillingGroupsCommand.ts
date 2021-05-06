@@ -23,7 +23,7 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsRespons
 /**
  * <p>Lists the billing groups you have created.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ListBillingGroupsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListBillingGroupsCommand } = require("@aws-sdk/client-iot"); // CommonJS import

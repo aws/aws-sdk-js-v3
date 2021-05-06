@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>This action removes a tag from an Amazon FSx resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FSxClient, UntagResourceCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, UntagResourceCommand } = require("@aws-sdk/client-fsx"); // CommonJS import

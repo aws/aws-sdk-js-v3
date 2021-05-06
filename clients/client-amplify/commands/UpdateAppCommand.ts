@@ -23,7 +23,7 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
 /**
  * <p> Updates an existing Amplify app. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmplifyClient, UpdateAppCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, UpdateAppCommand } = require("@aws-sdk/client-amplify"); // CommonJS import

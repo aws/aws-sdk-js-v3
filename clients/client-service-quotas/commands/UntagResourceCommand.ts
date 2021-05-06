@@ -24,7 +24,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * <p>Removes tags from the specified applied quota. You can specify one or more tags to
  *       remove.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceQuotasClient, UntagResourceCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
  * // const { ServiceQuotasClient, UntagResourceCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import

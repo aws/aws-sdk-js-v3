@@ -25,7 +25,7 @@ export interface ListViolationEventsCommandOutput extends ListViolationEventsRes
  *       You can use filters to limit the results to those alerts issued for a particular security profile,
  *       behavior, or thing (device).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ListViolationEventsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListViolationEventsCommand } = require("@aws-sdk/client-iot"); // CommonJS import

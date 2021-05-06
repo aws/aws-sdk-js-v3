@@ -27,7 +27,7 @@ export interface CreateInferenceSchedulerCommandOutput extends CreateInferenceSc
  *          entries in the data, set an offset delay if desired, and set the frequency of inferencing.
  *          You must also provide an S3 bucket location for the output data. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LookoutEquipmentClient, CreateInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, CreateInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import

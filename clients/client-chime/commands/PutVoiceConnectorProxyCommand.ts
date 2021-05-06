@@ -23,7 +23,7 @@ export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorPr
 /**
  * <p>Puts the specified proxy configuration to the specified Amazon Chime Voice Connector.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, PutVoiceConnectorProxyCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, PutVoiceConnectorProxyCommand } = require("@aws-sdk/client-chime"); // CommonJS import

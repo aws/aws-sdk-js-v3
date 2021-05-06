@@ -25,7 +25,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *          Use to remove one or more tags from a resource.
  *       </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeGuruProfilerClient, UntagResourceCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
  * // const { CodeGuruProfilerClient, UntagResourceCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import

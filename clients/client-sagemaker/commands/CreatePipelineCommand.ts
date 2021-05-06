@@ -23,7 +23,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
 /**
  * <p>Creates a pipeline using a JSON pipeline definition.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, CreatePipelineCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreatePipelineCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

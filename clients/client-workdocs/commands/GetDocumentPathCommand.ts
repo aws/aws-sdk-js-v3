@@ -28,7 +28,7 @@ export interface GetDocumentPathCommandOutput extends GetDocumentPathResponse, _
  *             limit the maximum number of levels. You can also request the names of the parent
  *             folders.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkDocsClient, GetDocumentPathCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, GetDocumentPathCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import

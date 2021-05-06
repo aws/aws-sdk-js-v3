@@ -24,7 +24,7 @@ export interface CancelSimulationJobBatchCommandOutput extends CancelSimulationJ
  * <p>Cancels a simulation job batch. When you cancel a simulation job batch, you are also
  *          cancelling all of the active simulation jobs created as part of the batch. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RoboMakerClient, CancelSimulationJobBatchCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, CancelSimulationJobBatchCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import

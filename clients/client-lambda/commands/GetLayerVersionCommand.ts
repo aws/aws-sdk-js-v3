@@ -25,7 +25,7 @@ export interface GetLayerVersionCommandOutput extends GetLayerVersionResponse, _
  *         layer</a>, with a link to download the layer archive
  *         that's valid for 10 minutes.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LambdaClient, GetLayerVersionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, GetLayerVersionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import

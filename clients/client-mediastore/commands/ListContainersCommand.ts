@@ -31,7 +31,7 @@ export interface ListContainersCommandOutput extends ListContainersOutput, __Met
  *          <p>See also <a>DescribeContainer</a>, which gets the properties of one
  *          container. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaStoreClient, ListContainersCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, ListContainersCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import

@@ -24,7 +24,7 @@ export interface DescribeLoggingStatusCommandOutput extends LoggingStatus, __Met
  * <p>Describes whether information, such as queries and connection attempts, is being
  *             logged for the specified Amazon Redshift cluster.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RedshiftClient, DescribeLoggingStatusCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeLoggingStatusCommand } = require("@aws-sdk/client-redshift"); // CommonJS import

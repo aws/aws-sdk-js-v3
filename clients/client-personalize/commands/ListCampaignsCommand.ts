@@ -26,7 +26,7 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  *       The response provides the properties for each campaign, including the Amazon Resource Name (ARN).
  *       For more information on campaigns, see <a>CreateCampaign</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PersonalizeClient, ListCampaignsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListCampaignsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import

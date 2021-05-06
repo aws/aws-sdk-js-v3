@@ -23,7 +23,7 @@ export interface ListBuildBatchesForProjectCommandOutput extends ListBuildBatche
 /**
  * <p>Retrieves the identifiers of the build batches for a specific project.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeBuildClient, ListBuildBatchesForProjectCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListBuildBatchesForProjectCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import

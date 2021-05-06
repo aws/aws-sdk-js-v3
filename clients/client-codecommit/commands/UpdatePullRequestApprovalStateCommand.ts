@@ -23,7 +23,7 @@ export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataB
 /**
  * <p>Updates the state of a user's approval on a pull request. The user is derived from the signed-in account when the request is made.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeCommitClient, UpdatePullRequestApprovalStateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, UpdatePullRequestApprovalStateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import

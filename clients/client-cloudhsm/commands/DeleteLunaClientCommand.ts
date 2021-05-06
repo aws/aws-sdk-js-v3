@@ -33,7 +33,7 @@ export interface DeleteLunaClientCommandOutput extends DeleteLunaClientResponse,
  *       Reference</a>.</p>
  *          <p>Deletes a client.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudHSMClient, DeleteLunaClientCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, DeleteLunaClientCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import

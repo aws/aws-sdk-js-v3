@@ -27,7 +27,7 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  *       correct ARN characters when creating event patterns so that they match the ARN syntax in the
  *       event you want to match.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EventBridgeClient, TestEventPatternCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, TestEventPatternCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import

@@ -37,7 +37,7 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  *             type (<code>AddRevisions</code>) against the same entity
  *             (<code>entity-id@1)</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MarketplaceCatalogClient, StartChangeSetCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
  * // const { MarketplaceCatalogClient, StartChangeSetCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import

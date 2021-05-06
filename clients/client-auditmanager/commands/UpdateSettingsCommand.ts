@@ -25,7 +25,7 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __M
  *    Updates AWS Audit Manager settings for the current user account.
  * </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AuditManagerClient, UpdateSettingsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, UpdateSettingsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import

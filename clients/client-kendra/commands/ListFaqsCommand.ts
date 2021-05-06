@@ -20,7 +20,7 @@ export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBeare
 /**
  * <p>Gets a list of FAQ lists associated with an index.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, ListFaqsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, ListFaqsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import

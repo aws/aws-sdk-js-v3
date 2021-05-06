@@ -23,7 +23,7 @@ export interface CreateTransitGatewayRouteCommandOutput extends CreateTransitGat
 /**
  * <p>Creates a static route for the specified transit gateway route table.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, CreateTransitGatewayRouteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateTransitGatewayRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

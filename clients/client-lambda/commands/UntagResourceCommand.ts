@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> from a function.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LambdaClient, UntagResourceCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UntagResourceCommand } = require("@aws-sdk/client-lambda"); // CommonJS import

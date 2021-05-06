@@ -23,7 +23,7 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesRes
 /**
  * <p>Retrieves attributes within a facet that are associated with an object.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudDirectoryClient, GetObjectAttributesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, GetObjectAttributesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import

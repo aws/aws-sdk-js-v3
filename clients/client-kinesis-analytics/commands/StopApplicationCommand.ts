@@ -33,7 +33,7 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  *         <p>This operation requires permissions to perform the
  *             <code>kinesisanalytics:StopApplication</code> action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisAnalyticsClient, StopApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, StopApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import

@@ -23,7 +23,7 @@ export interface DeleteBackupVaultNotificationsCommandOutput extends __MetadataB
 /**
  * <p>Deletes event notifications for the specified backup vault.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, DeleteBackupVaultNotificationsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteBackupVaultNotificationsCommand } = require("@aws-sdk/client-backup"); // CommonJS import

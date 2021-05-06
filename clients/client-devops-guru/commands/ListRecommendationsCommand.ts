@@ -25,7 +25,7 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  *    		Returns a list of a specified insight's recommendations. Each recommendation includes a list of related metrics and a list of related events.
  *    	</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DevOpsGuruClient, ListRecommendationsCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
  * // const { DevOpsGuruClient, ListRecommendationsCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import

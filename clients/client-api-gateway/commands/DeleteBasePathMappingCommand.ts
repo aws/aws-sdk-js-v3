@@ -23,7 +23,7 @@ export interface DeleteBasePathMappingCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the <a>BasePathMapping</a> resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, DeleteBasePathMappingCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, DeleteBasePathMappingCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

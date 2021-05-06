@@ -42,7 +42,7 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  *         been created or modified.</p>
  *          </important>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, ModifyDBParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyDBParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

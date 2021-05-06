@@ -29,7 +29,7 @@ export interface CreateTransitGatewayPrefixListReferenceCommandOutput
 /**
  * <p>Creates a reference (route) to a prefix list in a specified transit gateway route table.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, CreateTransitGatewayPrefixListReferenceCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateTransitGatewayPrefixListReferenceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

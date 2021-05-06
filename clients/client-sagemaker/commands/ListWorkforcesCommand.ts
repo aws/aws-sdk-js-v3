@@ -24,7 +24,7 @@ export interface ListWorkforcesCommandOutput extends ListWorkforcesResponse, __M
  * <p>Use this operation to list all private and vendor workforces in an AWS Region. Note that you can only
  *       have one private workforce per AWS Region.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, ListWorkforcesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListWorkforcesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

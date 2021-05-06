@@ -27,7 +27,7 @@ export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __M
  *       ARN with the <a>DescribePredictor</a> operation. You can filter the list using an
  *       array of <a>Filter</a> objects.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ForecastClient, ListPredictorsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, ListPredictorsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import

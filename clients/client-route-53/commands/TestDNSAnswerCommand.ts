@@ -26,7 +26,7 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  * 			the IP address of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask. </p>
  * 		       <p>This call only supports querying public hosted zones.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53Client, TestDNSAnswerCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, TestDNSAnswerCommand } = require("@aws-sdk/client-route-53"); // CommonJS import

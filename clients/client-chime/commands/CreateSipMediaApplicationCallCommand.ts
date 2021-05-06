@@ -26,7 +26,7 @@ export interface CreateSipMediaApplicationCallCommandOutput
  * <p>Creates an outbound call to a phone number from the phone number specified in the request, and it invokes the endpoint of the specified
  * <code>sipMediaApplicationId</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, CreateSipMediaApplicationCallCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateSipMediaApplicationCallCommand } = require("@aws-sdk/client-chime"); // CommonJS import

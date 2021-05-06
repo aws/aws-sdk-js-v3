@@ -24,7 +24,7 @@ export interface DescribeEntityRecognizerCommandOutput extends DescribeEntityRec
  * <p>Provides details about an entity recognizer including status, S3 buckets containing
  *       training data, recognizer metadata, metrics, and so on.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, DescribeEntityRecognizerCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeEntityRecognizerCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

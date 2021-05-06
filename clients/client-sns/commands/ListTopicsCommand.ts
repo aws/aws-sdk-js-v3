@@ -24,7 +24,7 @@ export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataB
  *             further results.</p>
  *         <p>This action is throttled at 30 transactions per second (TPS).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SNSClient, ListTopicsCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, ListTopicsCommand } = require("@aws-sdk/client-sns"); // CommonJS import

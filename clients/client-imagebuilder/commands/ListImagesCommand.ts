@@ -23,7 +23,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
 /**
  * <p> Returns the list of images that you have access to.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, ListImagesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ListImagesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import

@@ -23,7 +23,7 @@ export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetRespo
 /**
  * <p>Retrieves the specified <a>RegexPatternSet</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFV2Client, GetRegexPatternSetCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GetRegexPatternSetCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import

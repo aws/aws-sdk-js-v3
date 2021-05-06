@@ -23,7 +23,7 @@ export interface UpdateMethodResponseCommandOutput extends MethodResponse, __Met
 /**
  * <p>Updates an existing <a>MethodResponse</a> resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, UpdateMethodResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, UpdateMethodResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

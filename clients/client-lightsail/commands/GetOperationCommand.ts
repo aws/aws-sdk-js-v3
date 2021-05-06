@@ -24,7 +24,7 @@ export interface GetOperationCommandOutput extends GetOperationResult, __Metadat
  * <p>Returns information about a specific operation. Operations include events such as when you
  *       create an instance, allocate a static IP, attach a static IP, and so on.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, GetOperationCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetOperationCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

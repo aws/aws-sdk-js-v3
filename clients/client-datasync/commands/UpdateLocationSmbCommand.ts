@@ -24,7 +24,7 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
  * <p>Updates some of the parameters of a previously created location for Server Message Block
  *       (SMB) file system access. For information about creating an SMB location, see <a>create-smb-location</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, UpdateLocationSmbCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateLocationSmbCommand } = require("@aws-sdk/client-datasync"); // CommonJS import

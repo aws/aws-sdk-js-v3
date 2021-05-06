@@ -23,7 +23,7 @@ export interface UpdateApiCacheCommandOutput extends UpdateApiCacheResponse, __M
 /**
  * <p>Updates the cache for the GraphQL API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppSyncClient, UpdateApiCacheCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, UpdateApiCacheCommand } = require("@aws-sdk/client-appsync"); // CommonJS import

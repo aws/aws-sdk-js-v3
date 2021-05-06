@@ -31,7 +31,7 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  *     data and no metadata.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, SendChannelMessageCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, SendChannelMessageCommand } = require("@aws-sdk/client-chime"); // CommonJS import

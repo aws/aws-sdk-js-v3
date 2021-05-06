@@ -24,7 +24,7 @@ export interface UpdateHostedZoneCommentCommandOutput extends UpdateHostedZoneCo
 /**
  * <p>Updates the comment for a specified hosted zone.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53Client, UpdateHostedZoneCommentCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, UpdateHostedZoneCommentCommand } = require("@aws-sdk/client-route-53"); // CommonJS import

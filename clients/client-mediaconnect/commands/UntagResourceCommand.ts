@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 /**
  * Deletes specified tags from a resource.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaConnectClient, UntagResourceCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, UntagResourceCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import

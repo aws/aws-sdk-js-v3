@@ -24,7 +24,7 @@ export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfile
  * <p>Searches network profiles and lists the ones that meet a set of filter and sort
  *          criteria.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AlexaForBusinessClient, SearchNetworkProfilesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, SearchNetworkProfilesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import

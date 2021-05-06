@@ -23,7 +23,7 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
 /**
  * Submits a request to purchase an offering. If you already have an active reservation, you can't purchase another offering.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaConnectClient, PurchaseOfferingCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
  * // const { MediaConnectClient, PurchaseOfferingCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import

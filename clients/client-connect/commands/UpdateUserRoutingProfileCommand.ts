@@ -23,7 +23,7 @@ export interface UpdateUserRoutingProfileCommandOutput extends __MetadataBearer 
 /**
  * <p>Assigns the specified routing profile to the specified user.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, UpdateUserRoutingProfileCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateUserRoutingProfileCommand } = require("@aws-sdk/client-connect"); // CommonJS import

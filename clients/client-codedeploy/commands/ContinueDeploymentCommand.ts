@@ -27,7 +27,7 @@ export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
  *             instances in the replacement environment with the load balancer, can start as soon as
  *             all instances have a status of Ready.) </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeDeployClient, ContinueDeploymentCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ContinueDeploymentCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import

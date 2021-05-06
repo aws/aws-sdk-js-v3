@@ -23,7 +23,7 @@ export interface ResetPasswordCommandOutput extends ResetPasswordResponse, __Met
 /**
  * <p>Allows the administrator to reset the password for a user.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkMailClient, ResetPasswordCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ResetPasswordCommand } = require("@aws-sdk/client-workmail"); // CommonJS import

@@ -26,7 +26,7 @@ export interface PurchaseHostReservationCommandOutput extends PurchaseHostReserv
  *             This action results in the specified reservation being purchased and charged to your
  *             account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, PurchaseHostReservationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, PurchaseHostReservationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

@@ -27,7 +27,7 @@ export interface DeleteForecastCommandOutput extends __MetadataBearer {}
  *          <p>You can't delete a forecast while it is being exported. After a forecast is deleted, you
  *       can no longer query the forecast.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ForecastClient, DeleteForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, DeleteForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import

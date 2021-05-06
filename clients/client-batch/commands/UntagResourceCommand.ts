@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>Deletes specified tags from an AWS Batch resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BatchClient, UntagResourceCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, UntagResourceCommand } = require("@aws-sdk/client-batch"); // CommonJS import

@@ -23,7 +23,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
 /**
  * <p>Deletes a specified policy.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-glue"); // CommonJS import

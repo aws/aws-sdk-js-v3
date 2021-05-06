@@ -33,7 +33,7 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  *             parameter to <code>CONSOLIDATED_BILLING"</code>, no policy types are enabled by default,
  *             and you can't use organization policies</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OrganizationsClient, CreateOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CreateOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import

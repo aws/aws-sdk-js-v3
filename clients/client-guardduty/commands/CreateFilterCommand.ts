@@ -23,7 +23,7 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
 /**
  * <p>Creates a filter using the specified finding criteria.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, CreateFilterCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateFilterCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import

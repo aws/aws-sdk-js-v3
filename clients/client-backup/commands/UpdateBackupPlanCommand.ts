@@ -25,7 +25,7 @@ export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, _
  *          input document in JSON format. The new version is uniquely identified by a
  *             <code>VersionId</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, UpdateBackupPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, UpdateBackupPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import

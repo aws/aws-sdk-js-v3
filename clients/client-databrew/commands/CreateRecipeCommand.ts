@@ -23,7 +23,7 @@ export interface CreateRecipeCommandOutput extends CreateRecipeResponse, __Metad
 /**
  * <p>Creates a new DataBrew recipe.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, CreateRecipeCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, CreateRecipeCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

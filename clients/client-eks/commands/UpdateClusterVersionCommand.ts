@@ -33,7 +33,7 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  *             Kubernetes versions must match the cluster’s Kubernetes version in order to update the
  *             cluster to a new Kubernetes version.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EKSClient, UpdateClusterVersionCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, UpdateClusterVersionCommand } = require("@aws-sdk/client-eks"); // CommonJS import

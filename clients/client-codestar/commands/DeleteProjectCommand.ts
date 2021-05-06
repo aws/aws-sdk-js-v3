@@ -24,7 +24,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * <p>Deletes a project, including project resources. Does not delete users associated with
  *       the project, but does delete the IAM roles that allowed access to the project.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeStarClient, DeleteProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, DeleteProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import

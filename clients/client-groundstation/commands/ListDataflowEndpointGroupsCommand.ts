@@ -23,7 +23,7 @@ export interface ListDataflowEndpointGroupsCommandOutput extends ListDataflowEnd
 /**
  * <p>Returns a list of <code>DataflowEndpoint</code> groups.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GroundStationClient, ListDataflowEndpointGroupsCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ListDataflowEndpointGroupsCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import

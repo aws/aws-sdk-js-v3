@@ -23,7 +23,7 @@ export interface GetJourneyCommandOutput extends GetJourneyResponse, __MetadataB
 /**
  * <p>Retrieves information about the status, configuration, and other settings for a journey.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetJourneyCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetJourneyCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

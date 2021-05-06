@@ -25,7 +25,7 @@ export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
  *          is an administrator-level action. Any user who has permission to create rules will be able
  *          to access data processed by the rule.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ReplaceTopicRuleCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ReplaceTopicRuleCommand } = require("@aws-sdk/client-iot"); // CommonJS import

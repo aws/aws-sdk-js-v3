@@ -20,7 +20,7 @@ export interface GetCommitCommandOutput extends GetCommitOutput, __MetadataBeare
 /**
  * <p>Returns information about a commit, including commit message and committer information.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeCommitClient, GetCommitCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetCommitCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import

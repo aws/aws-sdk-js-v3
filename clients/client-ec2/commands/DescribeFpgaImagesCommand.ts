@@ -25,7 +25,7 @@ export interface DescribeFpgaImagesCommandOutput extends DescribeFpgaImagesResul
  * 			private AFIs that you own, and AFIs owned by other AWS accounts for which you have load
  * 			permissions.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DescribeFpgaImagesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeFpgaImagesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

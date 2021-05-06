@@ -23,7 +23,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
 /**
  * <p>Updates settings for a connection.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchEventsClient, UpdateConnectionCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, UpdateConnectionCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import

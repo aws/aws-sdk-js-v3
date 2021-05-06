@@ -23,7 +23,7 @@ export interface GetMedicalVocabularyCommandOutput extends GetMedicalVocabularyR
 /**
  * <p>Retrieves information about a medical vocabulary.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TranscribeClient, GetMedicalVocabularyCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetMedicalVocabularyCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import

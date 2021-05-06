@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>Deletes specified tags from a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECRClient, UntagResourceCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, UntagResourceCommand } = require("@aws-sdk/client-ecr"); // CommonJS import

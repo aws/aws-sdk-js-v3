@@ -30,7 +30,7 @@ export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerResul
  *          <p>The <code>create load balancer</code> operation supports tag-based access control via
  *       request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, CreateLoadBalancerCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, CreateLoadBalancerCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

@@ -23,7 +23,7 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
 /**
  * <p>Initialize Application Migration Service.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MgnClient, InitializeServiceCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, InitializeServiceCommand } = require("@aws-sdk/client-mgn"); // CommonJS import

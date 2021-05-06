@@ -37,7 +37,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *             define).</p>
  *         <p>BatchMeterUsage requests must be less than 1MB in size.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MarketplaceMeteringClient, BatchMeterUsageCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
  * // const { MarketplaceMeteringClient, BatchMeterUsageCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import

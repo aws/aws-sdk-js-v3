@@ -23,7 +23,7 @@ export interface GetUsageTotalsCommandOutput extends GetUsageTotalsResponse, __M
 /**
  * <p>Retrieves (queries) aggregated usage data for an account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Macie2Client, GetUsageTotalsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetUsageTotalsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import

@@ -66,7 +66,7 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  *       see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html">Managing Your Costs with
  *         Budgets</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EventBridgeClient, PutRuleCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, PutRuleCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import

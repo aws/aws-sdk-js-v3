@@ -25,7 +25,7 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  *             status, sending authorization policies, its DKIM authentication status, and its custom
  *             Mail-From settings.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESv2Client, GetEmailIdentityCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, GetEmailIdentityCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import

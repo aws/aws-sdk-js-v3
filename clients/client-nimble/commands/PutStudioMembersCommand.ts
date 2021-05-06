@@ -23,7 +23,7 @@ export interface PutStudioMembersCommandOutput extends PutStudioMembersResponse,
 /**
  * <p>Add/update users with given persona to studio membership.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NimbleClient, PutStudioMembersCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, PutStudioMembersCommand } = require("@aws-sdk/client-nimble"); // CommonJS import

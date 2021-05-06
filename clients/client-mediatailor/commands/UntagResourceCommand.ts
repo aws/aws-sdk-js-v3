@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes tags from the specified playback configuration resource. You can specify one or more tags to remove.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaTailorClient, UntagResourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, UntagResourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import

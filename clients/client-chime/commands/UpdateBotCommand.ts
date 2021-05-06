@@ -23,7 +23,7 @@ export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBea
 /**
  * <p>Updates the status of the specified bot, such as starting or stopping the bot from running in your Amazon Chime Enterprise account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, UpdateBotCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateBotCommand } = require("@aws-sdk/client-chime"); // CommonJS import

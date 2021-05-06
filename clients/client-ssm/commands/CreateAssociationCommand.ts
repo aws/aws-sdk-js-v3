@@ -32,7 +32,7 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  *    the service is not running, then the association might instruct State Manager to start the
  *    service. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, CreateAssociationCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, CreateAssociationCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

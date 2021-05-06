@@ -27,7 +27,7 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  *       create your server. By doing so, you can troubleshoot issues with the API Gateway integration
  *       to ensure that your users can successfully use the service.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TransferClient, TestIdentityProviderCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, TestIdentityProviderCommand } = require("@aws-sdk/client-transfer"); // CommonJS import

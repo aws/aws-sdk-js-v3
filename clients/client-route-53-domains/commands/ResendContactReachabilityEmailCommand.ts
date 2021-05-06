@@ -26,7 +26,7 @@ export interface ResendContactReachabilityEmailCommandOutput
  * <p>For operations that require confirmation that the email address for the registrant contact is valid,
  * 			such as registering a new domain, this operation resends the confirmation email to the current email address for the registrant contact.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53DomainsClient, ResendContactReachabilityEmailCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, ResendContactReachabilityEmailCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import

@@ -23,7 +23,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
 /**
  * <p>Creates a build project.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeBuildClient, CreateProjectCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, CreateProjectCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import

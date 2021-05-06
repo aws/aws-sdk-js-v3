@@ -24,7 +24,7 @@ export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsO
  * <p>Lists the deployment groups for an application registered with the IAM user or AWS
  *             account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeDeployClient, ListDeploymentGroupsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListDeploymentGroupsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import

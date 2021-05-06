@@ -23,7 +23,7 @@ export interface ListProfilePermissionsCommandOutput extends ListProfilePermissi
 /**
  * <p>Lists the cross-account permissions associated with a signing profile.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SignerClient, ListProfilePermissionsCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, ListProfilePermissionsCommand } = require("@aws-sdk/client-signer"); // CommonJS import

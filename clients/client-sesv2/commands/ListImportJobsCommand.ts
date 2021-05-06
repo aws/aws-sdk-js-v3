@@ -23,7 +23,7 @@ export interface ListImportJobsCommandOutput extends ListImportJobsResponse, __M
 /**
  * <p>Lists all of the import jobs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESv2Client, ListImportJobsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListImportJobsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import

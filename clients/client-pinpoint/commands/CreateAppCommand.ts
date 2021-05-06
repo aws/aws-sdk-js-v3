@@ -23,7 +23,7 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
 /**
  * <p>Creates an application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, CreateAppCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, CreateAppCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

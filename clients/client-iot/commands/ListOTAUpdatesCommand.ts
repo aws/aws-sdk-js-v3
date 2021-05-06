@@ -23,7 +23,7 @@ export interface ListOTAUpdatesCommandOutput extends ListOTAUpdatesResponse, __M
 /**
  * <p>Lists OTA updates.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ListOTAUpdatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListOTAUpdatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import

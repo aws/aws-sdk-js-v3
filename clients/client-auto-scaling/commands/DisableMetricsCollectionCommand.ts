@@ -23,7 +23,7 @@ export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer 
 /**
  * <p>Disables group metrics for the specified Auto Scaling group.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AutoScalingClient, DisableMetricsCollectionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DisableMetricsCollectionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import

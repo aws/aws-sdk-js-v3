@@ -25,7 +25,7 @@ export interface ListProtectedResourcesCommandOutput extends ListProtectedResour
  *          the resource was saved, an Amazon Resource Name (ARN) of the resource, and a resource
  *          type.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, ListProtectedResourcesCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListProtectedResourcesCommand } = require("@aws-sdk/client-backup"); // CommonJS import

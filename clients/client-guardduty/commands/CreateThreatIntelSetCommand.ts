@@ -25,7 +25,7 @@ export interface CreateThreatIntelSetCommandOutput extends CreateThreatIntelSetR
  *       GuardDuty generates findings based on ThreatIntelSets. Only users of the administrator account can
  *       use this operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, CreateThreatIntelSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateThreatIntelSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import

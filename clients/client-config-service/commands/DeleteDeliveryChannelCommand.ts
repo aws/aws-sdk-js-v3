@@ -25,7 +25,7 @@ export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
  * 		       <p>Before you can delete the delivery channel, you must stop the
  * 			configuration recorder by using the <a>StopConfigurationRecorder</a> action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConfigServiceClient, DeleteDeliveryChannelCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, DeleteDeliveryChannelCommand } = require("@aws-sdk/client-config-service"); // CommonJS import

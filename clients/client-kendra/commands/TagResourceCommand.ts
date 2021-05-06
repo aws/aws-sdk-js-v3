@@ -25,7 +25,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *       resource. If the tag already exists, the existing value is replaced with
  *       the new value.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, TagResourceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, TagResourceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import

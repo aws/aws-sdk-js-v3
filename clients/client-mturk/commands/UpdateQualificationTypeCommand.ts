@@ -55,7 +55,7 @@ export interface UpdateQualificationTypeCommandOutput extends UpdateQualificatio
  *         <p> You can also update the AutoGranted and AutoGrantedValue
  *             attributes of the Qualification type.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MTurkClient, UpdateQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, UpdateQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import

@@ -31,7 +31,7 @@ export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __Met
  *             <p>After a gateway is disabled, it cannot be enabled.</p>
  *          </important>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, DisableGatewayCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DisableGatewayCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

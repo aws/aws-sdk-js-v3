@@ -23,7 +23,7 @@ export interface DescribeEnvironmentsCommandOutput extends DescribeEnvironmentsR
 /**
  * <p>Gets information about AWS Cloud9 development environments.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Cloud9Client, DescribeEnvironmentsCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
  * // const { Cloud9Client, DescribeEnvironmentsCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import

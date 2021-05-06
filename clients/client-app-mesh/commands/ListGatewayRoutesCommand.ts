@@ -24,7 +24,7 @@ export interface ListGatewayRoutesCommandOutput extends ListGatewayRoutesOutput,
  * <p>Returns a list of existing gateway routes that are associated to a virtual
  *          gateway.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppMeshClient, ListGatewayRoutesCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, ListGatewayRoutesCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import

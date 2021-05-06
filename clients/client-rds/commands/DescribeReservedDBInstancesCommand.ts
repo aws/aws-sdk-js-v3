@@ -23,7 +23,7 @@ export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInst
 /**
  * <p>Returns information about reserved DB instances for this account, or about a specified reserved DB instance.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, DescribeReservedDBInstancesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeReservedDBInstancesCommand } = require("@aws-sdk/client-rds"); // CommonJS import

@@ -23,7 +23,7 @@ export interface UpdateDevEndpointCommandOutput extends UpdateDevEndpointRespons
 /**
  * <p>Updates a specified development endpoint.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, UpdateDevEndpointCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateDevEndpointCommand } = require("@aws-sdk/client-glue"); // CommonJS import

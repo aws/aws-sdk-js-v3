@@ -26,7 +26,7 @@ export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
  *             notebook instance status to <code>InService</code>. A notebook instance's status must be
  *                 <code>InService</code> before you can connect to your Jupyter notebook. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, StartNotebookInstanceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, StartNotebookInstanceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

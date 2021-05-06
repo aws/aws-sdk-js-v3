@@ -23,7 +23,7 @@ export interface UpdateSmsTemplateCommandOutput extends UpdateSmsTemplateRespons
 /**
  * <p>Updates an existing message template for messages that are sent through the SMS channel.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, UpdateSmsTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateSmsTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

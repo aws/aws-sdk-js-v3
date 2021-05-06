@@ -32,7 +32,7 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  *          <p>If any of the specified attributes can't be modified as requested, the call fails. Any
  *       existing attributes that you do not modify retain their current values.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticLoadBalancingV2Client, ModifyLoadBalancerAttributesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, ModifyLoadBalancerAttributesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import

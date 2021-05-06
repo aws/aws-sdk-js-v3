@@ -26,7 +26,7 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  *       attributes of the certificate. Default filtering returns only <code>RSA_2048</code>
  *       certificates. For more information, see <a>Filters</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ACMClient, ListCertificatesCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, ListCertificatesCommand } = require("@aws-sdk/client-acm"); // CommonJS import

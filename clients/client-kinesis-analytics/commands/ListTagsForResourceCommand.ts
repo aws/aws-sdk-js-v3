@@ -23,7 +23,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>Retrieves the list of key-value tags assigned to the application. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html">Using Tagging</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisAnalyticsClient, ListTagsForResourceCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import

@@ -23,7 +23,7 @@ export interface CreateTagsCommandOutput extends CreateTagsResult, __MetadataBea
 /**
  * <p>Creates the specified tags for the specified WorkSpaces resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkSpacesClient, CreateTagsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, CreateTagsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import

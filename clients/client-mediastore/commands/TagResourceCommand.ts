@@ -25,7 +25,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *             tag key might be "customer" and the tag value might be "companyA." You can specify one or more tags to add to each container. You can add up to 50
  *             tags to each container. For more information about tagging, including naming and usage conventions, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html">Tagging Resources in MediaStore</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaStoreClient, TagResourceCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, TagResourceCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import

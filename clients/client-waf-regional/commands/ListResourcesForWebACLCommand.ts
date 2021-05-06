@@ -31,7 +31,7 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  *          </note>
  *          <p>Returns an array of resources associated with the specified web ACL.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFRegionalClient, ListResourcesForWebACLCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, ListResourcesForWebACLCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import

@@ -29,7 +29,7 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  *       required parameter <code>configurationType</code>. Optional filtering may be applied to refine
  *       search results.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApplicationDiscoveryServiceClient, ListConfigurationsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, ListConfigurationsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import

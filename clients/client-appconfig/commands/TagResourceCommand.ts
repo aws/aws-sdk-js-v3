@@ -25,7 +25,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
  *          define. You can specify a maximum of 50 tags for a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppConfigClient, TagResourceCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, TagResourceCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import

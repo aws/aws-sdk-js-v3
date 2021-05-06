@@ -23,7 +23,7 @@ export interface CreateUsagePlanKeyCommandOutput extends UsagePlanKey, __Metadat
 /**
  * <p>Creates a usage plan key for adding an existing API key to a usage plan.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, CreateUsagePlanKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateUsagePlanKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

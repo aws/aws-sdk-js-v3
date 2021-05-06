@@ -26,7 +26,7 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  *             with the action definition and <code>UpdateActionType</code> to provide the full
  *             structure.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodePipelineClient, UpdateActionTypeCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, UpdateActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import

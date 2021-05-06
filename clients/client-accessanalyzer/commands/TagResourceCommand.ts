@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * <p>Adds a tag to the specified resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AccessAnalyzerClient, TagResourceCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, TagResourceCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import

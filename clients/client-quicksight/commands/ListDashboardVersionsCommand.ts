@@ -23,7 +23,7 @@ export interface ListDashboardVersionsCommandOutput extends ListDashboardVersion
 /**
  * <p>Lists all the versions of the dashboards in the QuickSight subscription.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, ListDashboardVersionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListDashboardVersionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

@@ -23,7 +23,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
 /**
  * <p>Retrieves the <a>WebACL</a> for the specified resource. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFV2Client, GetWebACLForResourceCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, GetWebACLForResourceCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import

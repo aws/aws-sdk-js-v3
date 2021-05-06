@@ -56,7 +56,7 @@ export interface TagMFADeviceCommandOutput extends __MetadataBearer {}
  *             </ul>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, TagMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, TagMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import

@@ -38,7 +38,7 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  *             inspecting the API response from <code>PutRecord</code> or
  *             <code>PutRecords</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisClient, StopStreamEncryptionCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, StopStreamEncryptionCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import

@@ -23,7 +23,7 @@ export interface CreateUserHierarchyGroupCommandOutput extends CreateUserHierarc
 /**
  * <p>Creates a new user hierarchy group.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, CreateUserHierarchyGroupCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateUserHierarchyGroupCommand } = require("@aws-sdk/client-connect"); // CommonJS import

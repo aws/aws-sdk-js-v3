@@ -25,7 +25,7 @@ export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWit
  *          profile to the device, and all the skills in any skill groups added to that room. This
  *          operation requires the device to be online, or else a manual sync is required. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AlexaForBusinessClient, AssociateDeviceWithRoomCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, AssociateDeviceWithRoomCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import

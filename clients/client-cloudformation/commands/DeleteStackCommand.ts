@@ -22,7 +22,7 @@ export interface DeleteStackCommandOutput extends __MetadataBearer {}
  *          starts. Deleted stacks do not show up in the <a>DescribeStacks</a> API if the
  *          deletion has been completed successfully.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFormationClient, DeleteStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DeleteStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import

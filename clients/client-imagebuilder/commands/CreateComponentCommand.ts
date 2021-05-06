@@ -24,7 +24,7 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * <p>Creates a new component that can be used to build, validate, test, and assess your
  *       image.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, CreateComponentCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, CreateComponentCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import

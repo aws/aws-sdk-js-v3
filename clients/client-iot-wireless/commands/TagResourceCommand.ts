@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * <p>Adds a tag to a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTWirelessClient, TagResourceCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
  * // const { IoTWirelessClient, TagResourceCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import

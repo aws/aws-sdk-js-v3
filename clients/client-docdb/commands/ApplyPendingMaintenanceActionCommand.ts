@@ -26,7 +26,7 @@ export interface ApplyPendingMaintenanceActionCommandOutput
  * <p>Applies a pending maintenance action to a resource (for example,
  *             to an Amazon DocumentDB instance).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, ApplyPendingMaintenanceActionCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ApplyPendingMaintenanceActionCommand } = require("@aws-sdk/client-docdb"); // CommonJS import

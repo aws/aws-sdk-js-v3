@@ -48,7 +48,7 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * 			         </li>
  *          </ul>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECSClient, RunTaskCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, RunTaskCommand } = require("@aws-sdk/client-ecs"); // CommonJS import

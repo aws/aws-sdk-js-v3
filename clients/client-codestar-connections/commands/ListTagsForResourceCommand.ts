@@ -27,7 +27,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
 /**
  * <p>Gets the set of key-value pairs (metadata) that are used to manage the resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeStarConnectionsClient, ListTagsForResourceCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, ListTagsForResourceCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import

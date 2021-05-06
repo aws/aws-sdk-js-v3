@@ -27,7 +27,7 @@ export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer 
  *             the AWS account. Consequently, you can use this operation to manage AWS account root
  *             user credentials even if the AWS account has no associated IAM users.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, DeleteSigningCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteSigningCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import

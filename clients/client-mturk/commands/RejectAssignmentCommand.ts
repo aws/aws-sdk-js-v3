@@ -35,7 +35,7 @@ export interface RejectAssignmentCommandOutput extends RejectAssignmentResponse,
  *             Only the Requester who created the HIT can reject an assignment for the HIT.
  *         </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MTurkClient, RejectAssignmentCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, RejectAssignmentCommand } = require("@aws-sdk/client-mturk"); // CommonJS import

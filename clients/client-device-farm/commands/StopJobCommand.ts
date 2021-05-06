@@ -23,7 +23,7 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  *             setup suite and teardown suite tests run to completion on the device. You are billed for setup, teardown,
  *             and any tests that were in progress or already completed.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DeviceFarmClient, StopJobCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, StopJobCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import

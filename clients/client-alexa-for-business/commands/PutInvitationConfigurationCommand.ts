@@ -24,7 +24,7 @@ export interface PutInvitationConfigurationCommandOutput extends PutInvitationCo
  * <p>Configures the email template for the user enrollment invitation with the specified
  *          attributes.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AlexaForBusinessClient, PutInvitationConfigurationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, PutInvitationConfigurationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import

@@ -26,7 +26,7 @@ export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBear
  *             The provided IAM role must have access to the S3 bucket.
  *         </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, StartExportTaskCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, StartExportTaskCommand } = require("@aws-sdk/client-rds"); // CommonJS import

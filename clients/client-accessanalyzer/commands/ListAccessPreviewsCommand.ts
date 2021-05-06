@@ -23,7 +23,7 @@ export interface ListAccessPreviewsCommandOutput extends ListAccessPreviewsRespo
 /**
  * <p>Retrieves a list of access previews for the specified analyzer.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AccessAnalyzerClient, ListAccessPreviewsCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
  * // const { AccessAnalyzerClient, ListAccessPreviewsCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import

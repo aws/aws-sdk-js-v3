@@ -52,7 +52,7 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *         <p>After you accept a handshake, it continues to appear in the results of relevant APIs
  *             for only 30 days. After that, it's deleted.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OrganizationsClient, AcceptHandshakeCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, AcceptHandshakeCommand } = require("@aws-sdk/client-organizations"); // CommonJS import

@@ -23,7 +23,7 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
 /**
  * <p>Modifies an existing option group.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, ModifyOptionGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ModifyOptionGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import

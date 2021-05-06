@@ -27,7 +27,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  *       tags and resource tags applied to the resource identified by <code>resource name</code>. For
  *       more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, UntagResourceCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UntagResourceCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

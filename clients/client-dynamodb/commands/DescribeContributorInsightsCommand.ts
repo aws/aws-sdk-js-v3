@@ -23,7 +23,7 @@ export interface DescribeContributorInsightsCommandOutput extends DescribeContri
 /**
  * <p>Returns information about contributor insights, for a given table or global secondary index.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DynamoDBClient, DescribeContributorInsightsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DescribeContributorInsightsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import

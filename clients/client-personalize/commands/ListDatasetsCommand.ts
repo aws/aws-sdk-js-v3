@@ -25,7 +25,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  *       the properties for each dataset, including the Amazon Resource Name (ARN). For more
  *       information on datasets, see <a>CreateDataset</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PersonalizeClient, ListDatasetsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListDatasetsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import

@@ -27,7 +27,7 @@ export interface GetInstanceMetricDataCommandOutput extends GetInstanceMetricDat
  *       Monitor and collect metric data regularly to maintain the reliability, availability, and
  *       performance of your resources.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, GetInstanceMetricDataCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetInstanceMetricDataCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

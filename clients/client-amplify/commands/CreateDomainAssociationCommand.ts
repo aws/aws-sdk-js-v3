@@ -24,7 +24,7 @@ export interface CreateDomainAssociationCommandOutput extends CreateDomainAssoci
  * <p> Creates a new domain association for an Amplify app. This action associates a custom
  *             domain with the Amplify app </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmplifyClient, CreateDomainAssociationCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, CreateDomainAssociationCommand } = require("@aws-sdk/client-amplify"); // CommonJS import

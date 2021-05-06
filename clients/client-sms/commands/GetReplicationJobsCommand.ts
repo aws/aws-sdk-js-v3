@@ -23,7 +23,7 @@ export interface GetReplicationJobsCommandOutput extends GetReplicationJobsRespo
 /**
  * <p>Describes the specified replication job or all of your replication jobs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SMSClient, GetReplicationJobsCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GetReplicationJobsCommand } = require("@aws-sdk/client-sms"); // CommonJS import

@@ -23,7 +23,7 @@ export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __Met
 /**
  * <p>Publishes a development schema with a major version and a recommended minor version.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudDirectoryClient, PublishSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, PublishSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import

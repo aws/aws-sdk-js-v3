@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>Deletes the specified tags from a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DeviceFarmClient, UntagResourceCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UntagResourceCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import

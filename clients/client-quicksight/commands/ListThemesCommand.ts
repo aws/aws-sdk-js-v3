@@ -23,7 +23,7 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
 /**
  * <p>Lists all the themes in the current AWS account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, ListThemesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListThemesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

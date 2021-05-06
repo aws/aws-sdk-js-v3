@@ -24,7 +24,7 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  * <p>Creates an Amazon QuickSight user, whose identity is associated with the AWS Identity
  * 			and Access Management (IAM) identity or role specified in the request. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, RegisterUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, RegisterUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

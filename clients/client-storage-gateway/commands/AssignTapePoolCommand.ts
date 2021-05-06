@@ -29,7 +29,7 @@ export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __Met
  *          <p>Valid Values: <code>GLACIER</code> | <code>DEEP_ARCHIVE</code>
  *          </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, AssignTapePoolCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, AssignTapePoolCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

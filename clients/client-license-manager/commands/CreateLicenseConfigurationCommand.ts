@@ -28,7 +28,7 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  *          Dedicated Instance, Dedicated Host, or all of these), license affinity  to host (how long a
  *          license must be associated with a host), and the number of licenses purchased and used.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LicenseManagerClient, CreateLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import

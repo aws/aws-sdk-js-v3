@@ -20,7 +20,7 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
 /**
  * <p>Gets code to perform a specified mapping.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, GetPlanCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetPlanCommand } = require("@aws-sdk/client-glue"); // CommonJS import

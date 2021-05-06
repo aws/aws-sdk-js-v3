@@ -24,7 +24,7 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  * <p> Stores a resource policy for the ARN of a <code>Project</code> or
  *                 <code>ReportGroup</code> object. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeBuildClient, PutResourcePolicyCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, PutResourcePolicyCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import

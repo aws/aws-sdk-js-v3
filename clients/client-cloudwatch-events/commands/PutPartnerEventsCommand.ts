@@ -24,7 +24,7 @@ export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse,
  * <p>This is used by SaaS partners to write events to a customer's partner event bus. AWS
  *       customers do not use this operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchEventsClient, PutPartnerEventsCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, PutPartnerEventsCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import

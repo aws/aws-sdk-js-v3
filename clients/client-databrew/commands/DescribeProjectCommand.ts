@@ -23,7 +23,7 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
 /**
  * <p>Returns the definition of a specific DataBrew project.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, DescribeProjectCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DescribeProjectCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

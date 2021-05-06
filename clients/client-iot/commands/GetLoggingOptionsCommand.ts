@@ -25,7 +25,7 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  *          <p>NOTE: use of this command is not recommended. Use <code>GetV2LoggingOptions</code>
  *          instead.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, GetLoggingOptionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetLoggingOptionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import

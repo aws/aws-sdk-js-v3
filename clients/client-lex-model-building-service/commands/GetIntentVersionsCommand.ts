@@ -37,7 +37,7 @@ export interface GetIntentVersionsCommandOutput extends GetIntentVersionsRespons
  *          <p>This operation requires permissions for the
  *         <code>lex:GetIntentVersions</code> action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LexModelBuildingServiceClient, GetIntentVersionsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetIntentVersionsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import

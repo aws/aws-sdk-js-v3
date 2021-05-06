@@ -23,7 +23,7 @@ export interface GetViolationDetailsCommandOutput extends GetViolationDetailsRes
 /**
  * <p>Retrieves violations for a resource based on the specified AWS Firewall Manager policy and AWS account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FMSClient, GetViolationDetailsCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetViolationDetailsCommand } = require("@aws-sdk/client-fms"); // CommonJS import

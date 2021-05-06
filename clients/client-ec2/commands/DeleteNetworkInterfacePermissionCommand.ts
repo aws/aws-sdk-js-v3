@@ -28,7 +28,7 @@ export interface DeleteNetworkInterfacePermissionCommandOutput
  * 			network interface to an instance. However, you can force delete the permission,
  * 			regardless of any attachment.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DeleteNetworkInterfacePermissionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteNetworkInterfacePermissionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

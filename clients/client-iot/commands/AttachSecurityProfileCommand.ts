@@ -24,7 +24,7 @@ export interface AttachSecurityProfileCommandOutput extends AttachSecurityProfil
  * <p>Associates a Device Defender security profile with a thing group or this account. Each
  *         thing group or account can have up to five security profiles associated with it.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, AttachSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, AttachSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import

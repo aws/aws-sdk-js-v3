@@ -23,7 +23,7 @@ export interface DeleteIAMPolicyAssignmentCommandOutput extends DeleteIAMPolicyA
 /**
  * <p>Deletes an existing IAM policy assignment.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, DeleteIAMPolicyAssignmentCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteIAMPolicyAssignmentCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

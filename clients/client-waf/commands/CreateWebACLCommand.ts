@@ -62,7 +62,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *          </ol>
  * 		       <p>For more information about how to use the AWS WAF API, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFClient, CreateWebACLCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, CreateWebACLCommand } = require("@aws-sdk/client-waf"); // CommonJS import

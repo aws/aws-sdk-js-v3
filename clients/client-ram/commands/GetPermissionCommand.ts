@@ -23,7 +23,7 @@ export interface GetPermissionCommandOutput extends GetPermissionResponse, __Met
 /**
  * <p>Gets the contents of an AWS RAM permission in JSON format.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RAMClient, GetPermissionCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, GetPermissionCommand } = require("@aws-sdk/client-ram"); // CommonJS import

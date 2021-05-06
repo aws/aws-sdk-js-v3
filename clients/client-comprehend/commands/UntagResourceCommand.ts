@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>Removes a specific tag associated with an Amazon Comprehend resource. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, UntagResourceCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, UntagResourceCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

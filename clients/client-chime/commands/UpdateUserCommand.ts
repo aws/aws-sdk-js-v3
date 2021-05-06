@@ -27,7 +27,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * updates are supported for this action.
  * </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, UpdateUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import

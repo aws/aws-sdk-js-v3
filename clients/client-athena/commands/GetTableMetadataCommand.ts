@@ -23,7 +23,7 @@ export interface GetTableMetadataCommandOutput extends GetTableMetadataOutput, _
 /**
  * <p>Returns table metadata for the specified catalog, database, and table.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AthenaClient, GetTableMetadataCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetTableMetadataCommand } = require("@aws-sdk/client-athena"); // CommonJS import

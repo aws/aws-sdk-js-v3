@@ -37,7 +37,7 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  *             <code>kinesisanalytics:DiscoverInputSchema</code> action.
  *         </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisAnalyticsClient, DiscoverInputSchemaCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, DiscoverInputSchemaCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import

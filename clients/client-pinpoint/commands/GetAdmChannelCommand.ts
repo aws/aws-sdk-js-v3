@@ -23,7 +23,7 @@ export interface GetAdmChannelCommandOutput extends GetAdmChannelResponse, __Met
 /**
  * <p>Retrieves information about the status and settings of the ADM channel for an application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetAdmChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetAdmChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

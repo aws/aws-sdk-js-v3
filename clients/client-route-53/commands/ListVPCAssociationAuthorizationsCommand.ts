@@ -29,7 +29,7 @@ export interface ListVPCAssociationAuthorizationsCommandOutput
  * 		       <p>The response includes a <code>VPCs</code> element with a <code>VPC</code> child element for each VPC
  * 			that can be associated with the hosted zone.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53Client, ListVPCAssociationAuthorizationsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, ListVPCAssociationAuthorizationsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import

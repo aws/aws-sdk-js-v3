@@ -23,7 +23,7 @@ export interface DeleteResolverCommandOutput extends DeleteResolverResponse, __M
 /**
  * <p>Deletes a <code>Resolver</code> object.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppSyncClient, DeleteResolverCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, DeleteResolverCommand } = require("@aws-sdk/client-appsync"); // CommonJS import

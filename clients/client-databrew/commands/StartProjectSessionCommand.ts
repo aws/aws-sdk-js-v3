@@ -24,7 +24,7 @@ export interface StartProjectSessionCommandOutput extends StartProjectSessionRes
  * <p>Creates an interactive session, enabling you to manipulate data in a DataBrew
  *             project.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, StartProjectSessionCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, StartProjectSessionCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

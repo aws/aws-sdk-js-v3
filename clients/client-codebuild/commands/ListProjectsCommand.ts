@@ -24,7 +24,7 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  * <p>Gets a list of build project names, with each build project name representing a single
  *             build project.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeBuildClient, ListProjectsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListProjectsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import

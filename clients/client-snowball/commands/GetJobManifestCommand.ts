@@ -41,7 +41,7 @@ export interface GetJobManifestCommandOutput extends GetJobManifestResult, __Met
  *          <p>The credentials of a given job, including its manifest file and unlock code, expire 90
  *       days after the job is created.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SnowballClient, GetJobManifestCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, GetJobManifestCommand } = require("@aws-sdk/client-snowball"); // CommonJS import

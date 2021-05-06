@@ -23,7 +23,7 @@ export interface DeleteMailboxPermissionsCommandOutput extends DeleteMailboxPerm
 /**
  * <p>Deletes permissions granted to a member (user or group).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkMailClient, DeleteMailboxPermissionsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, DeleteMailboxPermissionsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import

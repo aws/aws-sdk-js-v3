@@ -26,7 +26,7 @@ export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsR
  *       queries. Provides suggestions for <code>HyperParameters</code>, <code>Tags</code>, and
  *       <code>Metrics</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, GetSearchSuggestionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, GetSearchSuggestionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

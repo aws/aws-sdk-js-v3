@@ -29,7 +29,7 @@ export interface DisableVpcClassicLinkDnsSupportCommandOutput
  * 				<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          <p>You must specify a VPC ID in the request.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DisableVpcClassicLinkDnsSupportCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DisableVpcClassicLinkDnsSupportCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

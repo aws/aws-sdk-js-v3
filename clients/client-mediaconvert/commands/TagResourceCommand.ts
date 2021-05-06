@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * Add tags to a MediaConvert queue, preset, or job template. For information about tagging, see the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/tagging-resources.html
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaConvertClient, TagResourceCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
  * // const { MediaConvertClient, TagResourceCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import

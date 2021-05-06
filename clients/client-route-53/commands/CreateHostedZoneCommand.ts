@@ -56,7 +56,7 @@ export interface CreateHostedZoneCommandOutput extends CreateHostedZoneResponse,
  * 			NS and SOA records are available, the status of the zone changes to <code>INSYNC</code>.</p>
  * 		       <p>The <code>CreateHostedZone</code> request requires the caller to have an <code>ec2:DescribeVpcs</code> permission.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53Client, CreateHostedZoneCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateHostedZoneCommand } = require("@aws-sdk/client-route-53"); // CommonJS import

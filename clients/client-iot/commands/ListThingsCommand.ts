@@ -30,7 +30,7 @@ export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataB
  * 			         <p>You will not be charged for calling this API if an <code>Access denied</code> error is returned. You will also not be charged if no attributes or pagination token was provided in request and no pagination token and no results were returned.</p>
  * 		       </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ListThingsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListThingsCommand } = require("@aws-sdk/client-iot"); // CommonJS import

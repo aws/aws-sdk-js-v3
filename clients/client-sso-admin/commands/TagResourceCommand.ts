@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * <p>Associates a set of tags with a specified resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSOAdminClient, TagResourceCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
  * // const { SSOAdminClient, TagResourceCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import

@@ -25,7 +25,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *       Returns a list of tags in an Amazon Rekognition collection, stream processor, or Custom Labels model.
  *     </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, ListTagsForResourceCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, ListTagsForResourceCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import

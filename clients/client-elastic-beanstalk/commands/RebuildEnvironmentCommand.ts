@@ -24,7 +24,7 @@ export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
  * <p>Deletes and recreates all of the AWS resources (for example: the Auto Scaling group,
  *       load balancer, etc.) for a specified environment and forces a restart.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticBeanstalkClient, RebuildEnvironmentCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, RebuildEnvironmentCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import

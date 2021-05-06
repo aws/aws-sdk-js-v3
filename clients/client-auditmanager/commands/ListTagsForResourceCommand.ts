@@ -25,7 +25,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * Returns a list of tags for the specified resource in AWS Audit Manager.
  * </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AuditManagerClient, ListTagsForResourceCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
  * // const { AuditManagerClient, ListTagsForResourceCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import

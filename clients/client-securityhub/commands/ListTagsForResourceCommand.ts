@@ -23,7 +23,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>Returns a list of tags associated with a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, ListTagsForResourceCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, ListTagsForResourceCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

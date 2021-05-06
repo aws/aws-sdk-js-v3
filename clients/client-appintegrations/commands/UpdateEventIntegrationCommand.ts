@@ -24,7 +24,7 @@ export interface UpdateEventIntegrationCommandOutput extends UpdateEventIntegrat
  * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
  *          <p>Updates the description of an event integration.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppIntegrationsClient, UpdateEventIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, UpdateEventIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import

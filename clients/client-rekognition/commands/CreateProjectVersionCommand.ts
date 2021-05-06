@@ -34,7 +34,7 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  *        by calling <a>StartProjectVersion</a>.</p>
  *          <p>This operation requires permissions to perform the <code>rekognition:CreateProjectVersion</code> action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, CreateProjectVersionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, CreateProjectVersionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import

@@ -23,7 +23,7 @@ export interface GetDatabasesCommandOutput extends GetDatabasesResponse, __Metad
 /**
  * <p>Retrieves all databases defined in a given Data Catalog.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, GetDatabasesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDatabasesCommand } = require("@aws-sdk/client-glue"); // CommonJS import

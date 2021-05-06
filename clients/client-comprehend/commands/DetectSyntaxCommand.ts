@@ -24,7 +24,7 @@ export interface DetectSyntaxCommandOutput extends DetectSyntaxResponse, __Metad
  * <p>Inspects text for syntax and the part of speech of words in the document. For more
  *       information, <a>how-syntax</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, DetectSyntaxCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectSyntaxCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

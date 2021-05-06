@@ -23,7 +23,7 @@ export interface GetLoadBalancersCommandOutput extends GetLoadBalancersResult, _
 /**
  * <p>Returns information about all load balancers in an account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, GetLoadBalancersCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetLoadBalancersCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

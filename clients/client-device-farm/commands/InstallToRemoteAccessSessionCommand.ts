@@ -27,7 +27,7 @@ export interface InstallToRemoteAccessSessionCommandOutput
  *             applications, the file must be in .apk format. For iOS applications, the file must be in
  *             .ipa format.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DeviceFarmClient, InstallToRemoteAccessSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, InstallToRemoteAccessSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import

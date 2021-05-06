@@ -23,7 +23,7 @@ export interface DeleteLabelsCommandOutput extends DeleteLabelsResponse, __Metad
 /**
  * <p>Deletes the specified list of labels from a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkDocsClient, DeleteLabelsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DeleteLabelsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import

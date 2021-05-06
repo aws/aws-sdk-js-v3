@@ -26,7 +26,7 @@ export interface DescribeWorkteamCommandOutput extends DescribeWorkteamResponse,
  *             create date, the last updated date, membership information, and the work team's Amazon
  *             Resource Name (ARN).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, DescribeWorkteamCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeWorkteamCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

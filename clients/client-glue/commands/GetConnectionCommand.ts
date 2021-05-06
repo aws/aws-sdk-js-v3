@@ -23,7 +23,7 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
 /**
  * <p>Retrieves a connection definition from the Data Catalog.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, GetConnectionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetConnectionCommand } = require("@aws-sdk/client-glue"); // CommonJS import

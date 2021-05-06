@@ -23,7 +23,7 @@ export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __M
 /**
  * <p>Searches for analyses that belong to the user specified in the filter.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, SearchAnalysesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, SearchAnalysesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

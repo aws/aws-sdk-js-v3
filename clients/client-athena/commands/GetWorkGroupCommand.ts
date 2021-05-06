@@ -23,7 +23,7 @@ export interface GetWorkGroupCommandOutput extends GetWorkGroupOutput, __Metadat
 /**
  * <p>Returns information about the workgroup with the specified name.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AthenaClient, GetWorkGroupCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetWorkGroupCommand } = require("@aws-sdk/client-athena"); // CommonJS import

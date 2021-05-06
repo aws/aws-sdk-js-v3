@@ -28,7 +28,7 @@ export interface ListProposalsCommandOutput extends ListProposalsOutput, __Metad
  * <p>Returns a list of proposals for the network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ManagedBlockchainClient, ListProposalsCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, ListProposalsCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import

@@ -23,7 +23,7 @@ export interface UpdateBackendConfigCommandOutput extends UpdateBackendConfigRes
 /**
  * <p>Updates the AWS resources that are required to access the Amplify Admin UI.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmplifyBackendClient, UpdateBackendConfigCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, UpdateBackendConfigCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import

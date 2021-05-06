@@ -24,7 +24,7 @@ export interface RemoveResourcePermissionCommandOutput extends __MetadataBearer 
  * <p>Removes the permission for the specified principal from the specified
  *             resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkDocsClient, RemoveResourcePermissionCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, RemoveResourcePermissionCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import

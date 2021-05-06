@@ -24,7 +24,7 @@ export interface ResetFpgaImageAttributeCommandOutput extends ResetFpgaImageAttr
  * <p>Resets the specified attribute of the specified Amazon FPGA Image (AFI) to its default value.
  * 		    You can only reset the load permission attribute.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, ResetFpgaImageAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ResetFpgaImageAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

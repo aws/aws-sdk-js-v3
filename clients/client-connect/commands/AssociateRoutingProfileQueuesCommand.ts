@@ -23,7 +23,7 @@ export interface AssociateRoutingProfileQueuesCommandOutput extends __MetadataBe
 /**
  * <p>Associates a set of queues with a routing profile.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, AssociateRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, AssociateRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import

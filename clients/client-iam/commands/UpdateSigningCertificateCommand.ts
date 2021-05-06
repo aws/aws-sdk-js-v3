@@ -30,7 +30,7 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  *             to manage AWS account root user credentials even if the AWS account has no
  *             associated users.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, UpdateSigningCertificateCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, UpdateSigningCertificateCommand } = require("@aws-sdk/client-iam"); // CommonJS import

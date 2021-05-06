@@ -25,7 +25,7 @@ export interface ListClusterJobsCommandOutput extends ListClusterJobsResult, __M
  *         <code>JobListEntry</code> object is for a job in the specified cluster and contains a job's
  *       state, a job's ID, and other information.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SnowballClient, ListClusterJobsCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, ListClusterJobsCommand } = require("@aws-sdk/client-snowball"); // CommonJS import

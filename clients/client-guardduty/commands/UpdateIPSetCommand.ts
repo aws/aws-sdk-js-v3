@@ -23,7 +23,7 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
 /**
  * <p>Updates the IPSet specified by the IPSet ID.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, UpdateIPSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, UpdateIPSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import

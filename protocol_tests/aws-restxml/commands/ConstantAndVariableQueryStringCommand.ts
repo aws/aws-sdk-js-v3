@@ -25,7 +25,7 @@ export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataB
  * The fixed query string parameters and variable parameters must both be
  * serialized (implementations may need to merge them together).
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestXmlProtocolClient, ConstantAndVariableQueryStringCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, ConstantAndVariableQueryStringCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import

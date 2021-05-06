@@ -24,7 +24,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * <p>Deletes a specific domain and all of its customer data, such as customer profile
  *          attributes and their related objects.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CustomerProfilesClient, DeleteDomainCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, DeleteDomainCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import

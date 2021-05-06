@@ -25,7 +25,7 @@ export interface DeleteTrialComponentCommandOutput extends DeleteTrialComponentR
  *       trials before the trial component can be deleted. To disassociate a trial component from a
  *       trial, call the <a>DisassociateTrialComponent</a> API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, DeleteTrialComponentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteTrialComponentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

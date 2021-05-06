@@ -44,7 +44,7 @@ export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __Metad
  *             </li>
  *          </ul>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { S3Client, GetBucketCorsCommand } from "@aws-sdk/client-s3"; // ES Modules import
  * // const { S3Client, GetBucketCorsCommand } = require("@aws-sdk/client-s3"); // CommonJS import

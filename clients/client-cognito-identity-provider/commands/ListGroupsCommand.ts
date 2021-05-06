@@ -29,7 +29,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * <p>Lists the groups associated with a user pool.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityProviderClient, ListGroupsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ListGroupsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import

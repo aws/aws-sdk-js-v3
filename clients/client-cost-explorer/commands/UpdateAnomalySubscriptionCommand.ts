@@ -23,7 +23,7 @@ export interface UpdateAnomalySubscriptionCommandOutput extends UpdateAnomalySub
 /**
  * <p> Updates an existing cost anomaly monitor subscription. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CostExplorerClient, UpdateAnomalySubscriptionCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, UpdateAnomalySubscriptionCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import

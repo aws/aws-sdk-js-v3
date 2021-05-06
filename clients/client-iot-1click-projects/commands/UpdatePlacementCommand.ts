@@ -28,7 +28,7 @@ export interface UpdatePlacementCommandOutput extends UpdatePlacementResponse, _
  * <p>Updates a placement with the given attributes. To clear an attribute, pass an empty value
  *       (i.e., "").</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoT1ClickProjectsClient, UpdatePlacementCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, UpdatePlacementCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import

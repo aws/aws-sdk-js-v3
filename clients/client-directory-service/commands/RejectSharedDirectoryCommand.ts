@@ -23,7 +23,7 @@ export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirector
 /**
  * <p>Rejects a directory sharing request that was sent from the directory owner account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectoryServiceClient, RejectSharedDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, RejectSharedDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import

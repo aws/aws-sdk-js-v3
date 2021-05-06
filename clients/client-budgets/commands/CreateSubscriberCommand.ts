@@ -23,7 +23,7 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
 /**
  * <p>Creates a subscriber. You must create the associated budget and notification before you create the subscriber.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BudgetsClient, CreateSubscriberCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, CreateSubscriberCommand } = require("@aws-sdk/client-budgets"); // CommonJS import

@@ -23,7 +23,7 @@ export interface RemoveUserFromGroupCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes the specified user from the specified group.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, RemoveUserFromGroupCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, RemoveUserFromGroupCommand } = require("@aws-sdk/client-iam"); // CommonJS import

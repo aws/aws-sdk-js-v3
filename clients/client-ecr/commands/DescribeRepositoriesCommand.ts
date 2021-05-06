@@ -23,7 +23,7 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
 /**
  * <p>Describes image repositories in a registry.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECRClient, DescribeRepositoriesCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, DescribeRepositoriesCommand } = require("@aws-sdk/client-ecr"); // CommonJS import

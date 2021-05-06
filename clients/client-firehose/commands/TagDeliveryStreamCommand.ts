@@ -31,7 +31,7 @@ export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput,
  *          <p>Each delivery stream can have up to 50 tags. </p>
  *          <p>This operation has a limit of five transactions per second per account. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FirehoseClient, TagDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, TagDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import

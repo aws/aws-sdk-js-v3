@@ -23,7 +23,7 @@ export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __Metadat
 /**
  * <p>If the specified crawler is running, stops the crawl.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, StopCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StopCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import

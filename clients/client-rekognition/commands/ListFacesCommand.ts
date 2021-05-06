@@ -27,7 +27,7 @@ export interface ListFacesCommandOutput extends ListFacesResponse, __MetadataBea
  *          <p>This operation requires permissions to perform the
  *       <code>rekognition:ListFaces</code> action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, ListFacesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, ListFacesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import

@@ -23,7 +23,7 @@ export interface GetStreamCommandOutput extends GetStreamResponse, __MetadataBea
 /**
  * <p>Gets information about the active (live) stream on a specified channel.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IvsClient, GetStreamCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, GetStreamCommand } = require("@aws-sdk/client-ivs"); // CommonJS import

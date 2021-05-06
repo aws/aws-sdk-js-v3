@@ -24,7 +24,7 @@ export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityRes
  * <p>Deletes an email identity that you previously verified for use with Amazon Pinpoint. An identity
  *             can be either an email address or a domain name.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointEmailClient, DeleteEmailIdentityCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, DeleteEmailIdentityCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import

@@ -29,7 +29,7 @@ export interface AssociateDRTRoleCommandOutput extends AssociateDRTRoleResponse,
  *          <p>You must have the <code>iam:PassRole</code> permission to make an <code>AssociateDRTRole</code> request. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p>
  *          <p>To use the services of the DRT and make an <code>AssociateDRTRole</code> request, you must be subscribed to the <a href="https://aws.amazon.com/premiumsupport/business-support/">Business Support plan</a> or the <a href="https://aws.amazon.com/premiumsupport/enterprise-support/">Enterprise Support plan</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ShieldClient, AssociateDRTRoleCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, AssociateDRTRoleCommand } = require("@aws-sdk/client-shield"); // CommonJS import

@@ -23,7 +23,7 @@ export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKa
 /**
  * <p>Gets the Apache Kafka versions to which you can update the MSK cluster.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KafkaClient, GetCompatibleKafkaVersionsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
  * // const { KafkaClient, GetCompatibleKafkaVersionsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import

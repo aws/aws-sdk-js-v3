@@ -25,7 +25,7 @@ export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __Metadat
  *         <p>When you remove the add-on, it will also be deleted from the cluster. You can always
  *             manually start an add-on on the cluster using the Kubernetes API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EKSClient, DeleteAddonCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DeleteAddonCommand } = require("@aws-sdk/client-eks"); // CommonJS import

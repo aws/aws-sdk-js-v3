@@ -30,7 +30,7 @@ export interface DisableSagemakerServicecatalogPortfolioCommandOutput
  * <p>Disables using Service Catalog in SageMaker. Service Catalog is used to create
  *             SageMaker projects.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, DisableSagemakerServicecatalogPortfolioCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DisableSagemakerServicecatalogPortfolioCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

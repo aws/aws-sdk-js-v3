@@ -77,7 +77,7 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  *          <p>Further, you specify a <code>RateLimit</code> of 1,000.</p>
  *          <p>By adding this <code>RateBasedRule</code> to a <code>WebACL</code>, you could limit requests to your login page without affecting the rest of your site.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFRegionalClient, UpdateRateBasedRuleCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, UpdateRateBasedRuleCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import

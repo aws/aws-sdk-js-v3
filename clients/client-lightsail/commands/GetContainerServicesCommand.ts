@@ -23,7 +23,7 @@ export interface GetContainerServicesCommandOutput extends ContainerServicesList
 /**
  * <p>Returns information about one or more of your Amazon Lightsail container services.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, GetContainerServicesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetContainerServicesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

@@ -23,7 +23,7 @@ export interface ListTestCasesCommandOutput extends ListTestCasesResponse, __Met
 /**
  * <p>Lists all the test cases in the test suite.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IotDeviceAdvisorClient, ListTestCasesCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, ListTestCasesCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import

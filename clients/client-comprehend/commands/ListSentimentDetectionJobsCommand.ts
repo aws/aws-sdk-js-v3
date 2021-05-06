@@ -23,7 +23,7 @@ export interface ListSentimentDetectionJobsCommandOutput extends ListSentimentDe
 /**
  * <p>Gets a list of sentiment detection jobs that you have submitted.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, ListSentimentDetectionJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListSentimentDetectionJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

@@ -28,7 +28,7 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  *       permission on the AWS KMS key, the operation can't return the Data Catalog resource
  *       policy.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, GetResourcePoliciesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetResourcePoliciesCommand } = require("@aws-sdk/client-glue"); // CommonJS import

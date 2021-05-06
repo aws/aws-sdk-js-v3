@@ -25,7 +25,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *       parameters by specifying these parameters and the new values in the request. To learn what
  *       modifications you can make to your DB instance, call <a>DescribeValidDBInstanceModifications</a> before you call <a>ModifyDBInstance</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, ModifyDBInstanceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, ModifyDBInstanceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

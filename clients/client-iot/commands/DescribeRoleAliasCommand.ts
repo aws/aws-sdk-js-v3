@@ -23,7 +23,7 @@ export interface DescribeRoleAliasCommandOutput extends DescribeRoleAliasRespons
 /**
  * <p>Describes a role alias.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, DescribeRoleAliasCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeRoleAliasCommand } = require("@aws-sdk/client-iot"); // CommonJS import

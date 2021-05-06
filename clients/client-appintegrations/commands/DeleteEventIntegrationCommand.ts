@@ -25,7 +25,7 @@ export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrat
  *          <p>Deletes the specified existing event integration. If the event integration is associated
  *       with clients, the request is rejected.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppIntegrationsClient, DeleteEventIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
  * // const { AppIntegrationsClient, DeleteEventIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import

@@ -23,7 +23,7 @@ export interface SendHeartbeatCommandOutput extends __MetadataBearer {}
 /**
  * <p>Use to get the current status of devices registered on SageMaker Edge Manager.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SagemakerEdgeClient, SendHeartbeatCommand } from "@aws-sdk/client-sagemaker-edge"; // ES Modules import
  * // const { SagemakerEdgeClient, SendHeartbeatCommand } = require("@aws-sdk/client-sagemaker-edge"); // CommonJS import

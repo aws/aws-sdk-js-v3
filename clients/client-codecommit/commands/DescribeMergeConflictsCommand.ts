@@ -25,7 +25,7 @@ export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConfli
  *             commit specifiers using the squash or three-way merge strategy. If the merge option for
  *             the attempted merge is specified as FAST_FORWARD_MERGE, an exception is thrown.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeCommitClient, DescribeMergeConflictsCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DescribeMergeConflictsCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import

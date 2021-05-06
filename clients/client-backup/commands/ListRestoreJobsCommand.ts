@@ -24,7 +24,7 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  * <p>Returns a list of jobs that AWS Backup initiated to restore a saved resource, including
  *          metadata about the recovery process.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, ListRestoreJobsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListRestoreJobsCommand } = require("@aws-sdk/client-backup"); // CommonJS import

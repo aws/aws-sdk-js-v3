@@ -24,7 +24,7 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  * <p>Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving
  *          process is initiated. This operation is only supported in the tape gateway type.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, CancelArchivalCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CancelArchivalCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

@@ -23,7 +23,7 @@ export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse,
 /**
  * <p>Revokes an invitation and invalidates the enrollment URL.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AlexaForBusinessClient, RevokeInvitationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, RevokeInvitationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import

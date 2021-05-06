@@ -37,7 +37,7 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * 			subsequent request that specifies the <code>NextMarker</code> value from the current
  * 			response as the <code>Marker</code> value in the subsequent request. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFrontClient, ListDistributionsByRealtimeLogConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, ListDistributionsByRealtimeLogConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import

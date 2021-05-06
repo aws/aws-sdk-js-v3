@@ -45,7 +45,7 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *             parameters or InstanceGroups parameters, but not both.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, RunJobFlowCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, RunJobFlowCommand } = require("@aws-sdk/client-emr"); // CommonJS import

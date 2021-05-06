@@ -25,7 +25,7 @@ export interface ApplyPendingMaintenanceActionCommandOutput
 /**
  * <p>Applies a pending maintenance action to a resource (for example, to a DB instance).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, ApplyPendingMaintenanceActionCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, ApplyPendingMaintenanceActionCommand } = require("@aws-sdk/client-rds"); // CommonJS import

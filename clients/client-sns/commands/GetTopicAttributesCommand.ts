@@ -24,7 +24,7 @@ export interface GetTopicAttributesCommandOutput extends GetTopicAttributesRespo
  * <p>Returns all of the properties of a topic. Topic properties returned might differ based
  *             on the authorization of the user.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SNSClient, GetTopicAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, GetTopicAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import

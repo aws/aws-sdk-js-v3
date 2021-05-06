@@ -23,7 +23,7 @@ export interface DetectKeyPhrasesCommandOutput extends DetectKeyPhrasesResponse,
 /**
  * <p>Detects the key noun phrases found in the text. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, DetectKeyPhrasesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DetectKeyPhrasesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

@@ -27,7 +27,7 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  *          <p>The <code>UpdateServer</code> call returns the <code>ServerId</code> of the server you
  *       updated.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TransferClient, UpdateServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, UpdateServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import

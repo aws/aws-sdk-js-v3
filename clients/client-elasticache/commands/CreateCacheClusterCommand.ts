@@ -26,7 +26,7 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  *             or Redis.</p>
  *         <p>This operation is not supported for Redis (cluster mode enabled) clusters.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElastiCacheClient, CreateCacheClusterCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, CreateCacheClusterCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import

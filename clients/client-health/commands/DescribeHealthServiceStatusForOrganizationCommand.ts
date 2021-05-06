@@ -27,7 +27,7 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput
  *          with your organization. To call this operation, you must sign in as an IAM user, assume
  *          an IAM role, or sign in as the root user (not recommended) in the organization's management account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { HealthClient, DescribeHealthServiceStatusForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
  * // const { HealthClient, DescribeHealthServiceStatusForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import

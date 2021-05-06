@@ -23,7 +23,7 @@ export interface DeleteWorkspaceCommandOutput extends __MetadataBearer {}
 /**
  * Deletes an AMP workspace.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmpClient, DeleteWorkspaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
  * // const { AmpClient, DeleteWorkspaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import

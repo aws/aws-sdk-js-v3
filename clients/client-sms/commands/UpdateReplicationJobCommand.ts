@@ -23,7 +23,7 @@ export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobR
 /**
  * <p>Updates the specified settings for the specified replication job.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SMSClient, UpdateReplicationJobCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, UpdateReplicationJobCommand } = require("@aws-sdk/client-sms"); // CommonJS import

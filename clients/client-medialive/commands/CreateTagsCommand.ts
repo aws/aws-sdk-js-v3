@@ -23,7 +23,7 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
 /**
  * Create tags for a resource
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaLiveClient, CreateTagsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, CreateTagsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import

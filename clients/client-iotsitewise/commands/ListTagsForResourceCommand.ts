@@ -23,7 +23,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>Retrieves the list of tags for an AWS IoT SiteWise resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTSiteWiseClient, ListTagsForResourceCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import

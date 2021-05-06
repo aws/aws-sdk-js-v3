@@ -32,7 +32,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  *       A <code>ValidationException</code> is raised when parameters of the request are not valid.
  *     </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OpsWorksCMClient, DescribeEventsCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
  * // const { OpsWorksCMClient, DescribeEventsCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import

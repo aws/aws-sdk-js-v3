@@ -23,7 +23,7 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
 /**
  * <p>Creates a snapshot of a cluster. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, CreateDBClusterSnapshotCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, CreateDBClusterSnapshotCommand } = require("@aws-sdk/client-docdb"); // CommonJS import

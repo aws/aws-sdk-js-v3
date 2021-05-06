@@ -24,7 +24,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * <p>Removes tags from an AWS X-Ray group or sampling rule. You cannot edit or delete system
  *       tags (those with an <code>aws:</code> prefix).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { XRayClient, UntagResourceCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, UntagResourceCommand } = require("@aws-sdk/client-xray"); // CommonJS import

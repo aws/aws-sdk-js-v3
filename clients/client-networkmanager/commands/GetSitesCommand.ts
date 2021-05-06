@@ -23,7 +23,7 @@ export interface GetSitesCommandOutput extends GetSitesResponse, __MetadataBeare
 /**
  * <p>Gets information about one or more of your sites in a global network.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NetworkManagerClient, GetSitesCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetSitesCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import

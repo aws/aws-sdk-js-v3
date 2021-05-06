@@ -26,7 +26,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  *             <p>Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTFleetHubClient, DescribeApplicationCommand } from "@aws-sdk/client-iotfleethub"; // ES Modules import
  * // const { IoTFleetHubClient, DescribeApplicationCommand } = require("@aws-sdk/client-iotfleethub"); // CommonJS import

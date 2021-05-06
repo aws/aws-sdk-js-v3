@@ -23,7 +23,7 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
 /**
  * <p>Performs <a>GetChannel</a> on multiple ARNs simultaneously.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IvsClient, BatchGetChannelCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, BatchGetChannelCommand } = require("@aws-sdk/client-ivs"); // CommonJS import

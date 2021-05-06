@@ -23,7 +23,7 @@ export interface GetUsagePlansCommandOutput extends UsagePlans, __MetadataBearer
 /**
  * <p>Gets all the usage plans of the caller's account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, GetUsagePlansCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetUsagePlansCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

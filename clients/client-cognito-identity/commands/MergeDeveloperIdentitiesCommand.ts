@@ -36,7 +36,7 @@ export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIde
  *          Otherwise, an exception will be thrown.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityClient, MergeDeveloperIdentitiesCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
  * // const { CognitoIdentityClient, MergeDeveloperIdentitiesCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import

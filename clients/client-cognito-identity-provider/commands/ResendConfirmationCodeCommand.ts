@@ -28,7 +28,7 @@ export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationC
  * <p>Resends the confirmation (for confirmation of registration) to a specific user in the
  *             user pool.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityProviderClient, ResendConfirmationCodeCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ResendConfirmationCodeCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import

@@ -23,7 +23,7 @@ export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __M
 /**
  * <p>Returns information about a ledger, including its state and when it was created.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QLDBClient, DescribeLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, DescribeLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import

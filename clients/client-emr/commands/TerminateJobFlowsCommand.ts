@@ -30,7 +30,7 @@ export interface TerminateJobFlowsCommandOutput extends __MetadataBearer {}
  *          minutes for the cluster to completely terminate and release allocated resources, such as
  *          Amazon EC2 instances.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, TerminateJobFlowsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, TerminateJobFlowsCommand } = require("@aws-sdk/client-emr"); // CommonJS import

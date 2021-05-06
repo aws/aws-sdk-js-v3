@@ -26,7 +26,7 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  *       you enable the service. You can have only one detector per account per Region. All data
  *       sources are enabled in a new detector by default.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, CreateDetectorCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateDetectorCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import

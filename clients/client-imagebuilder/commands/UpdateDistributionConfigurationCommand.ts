@@ -26,7 +26,7 @@ export interface UpdateDistributionConfigurationCommandOutput
  * <p> Updates a new distribution configuration. Distribution configurations define and
  *       configure the outputs of your pipeline.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, UpdateDistributionConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, UpdateDistributionConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import

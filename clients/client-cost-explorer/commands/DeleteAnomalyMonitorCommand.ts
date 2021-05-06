@@ -23,7 +23,7 @@ export interface DeleteAnomalyMonitorCommandOutput extends DeleteAnomalyMonitorR
 /**
  * <p>Deletes a cost anomaly monitor. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CostExplorerClient, DeleteAnomalyMonitorCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, DeleteAnomalyMonitorCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import

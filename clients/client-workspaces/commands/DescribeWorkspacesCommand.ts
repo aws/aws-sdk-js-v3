@@ -25,7 +25,7 @@ export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResul
  *          <p>You can filter the results by using the bundle identifier, directory identifier, or
  *          owner, but you can specify only one filter at a time.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkSpacesClient, DescribeWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import

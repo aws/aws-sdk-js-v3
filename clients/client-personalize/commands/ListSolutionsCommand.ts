@@ -26,7 +26,7 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  *       The response provides the properties for each solution, including the Amazon Resource Name (ARN).
  *       For more information on solutions, see <a>CreateSolution</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PersonalizeClient, ListSolutionsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListSolutionsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import

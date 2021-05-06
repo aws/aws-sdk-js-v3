@@ -23,7 +23,7 @@ export interface ImportComponentCommandOutput extends ImportComponentResponse, _
 /**
  * <p>Imports a component and transforms its data into a component document.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ImagebuilderClient, ImportComponentCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
  * // const { ImagebuilderClient, ImportComponentCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import

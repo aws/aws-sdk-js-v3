@@ -24,7 +24,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * <p>Creates a connection. A connection defines the authorization type and credentials to use
  *       for authorization with an API destination HTTP endpoint.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EventBridgeClient, CreateConnectionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, CreateConnectionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import

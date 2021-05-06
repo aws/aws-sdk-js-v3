@@ -35,7 +35,7 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  *           Latency When Polling for Activity Tasks</a> in the Step Functions Developer Guide.</p>
  *          </important>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SFNClient, GetActivityTaskCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, GetActivityTaskCommand } = require("@aws-sdk/client-sfn"); // CommonJS import

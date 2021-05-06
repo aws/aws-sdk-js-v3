@@ -27,7 +27,7 @@ export interface CreateVoiceConnectorGroupCommandOutput extends CreateVoiceConne
  *          <p>You can include Amazon Chime Voice Connectors from different AWS Regions in your group. This
  *             creates a fault tolerant mechanism for fallback in case of availability events.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, CreateVoiceConnectorGroupCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateVoiceConnectorGroupCommand } = require("@aws-sdk/client-chime"); // CommonJS import

@@ -23,7 +23,7 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
 /**
  * <p>Gets the channel configuration for the specified channel ARN. See also <a>BatchGetChannel</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IvsClient, GetChannelCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, GetChannelCommand } = require("@aws-sdk/client-ivs"); // CommonJS import

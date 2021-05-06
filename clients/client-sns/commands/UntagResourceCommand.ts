@@ -25,7 +25,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *             <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
  *             <i>Amazon SNS Developer Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SNSClient, UntagResourceCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, UntagResourceCommand } = require("@aws-sdk/client-sns"); // CommonJS import

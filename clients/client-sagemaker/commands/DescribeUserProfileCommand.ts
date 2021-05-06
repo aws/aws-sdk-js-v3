@@ -23,7 +23,7 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
 /**
  * <p>Describes a user profile. For more information, see <code>CreateUserProfile</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, DescribeUserProfileCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeUserProfileCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

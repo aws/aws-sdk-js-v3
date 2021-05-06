@@ -23,7 +23,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
 /**
  * <p>Updates an existing channel.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaTailorClient, UpdateChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, UpdateChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import

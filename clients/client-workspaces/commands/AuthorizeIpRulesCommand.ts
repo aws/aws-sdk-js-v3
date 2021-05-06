@@ -25,7 +25,7 @@ export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, _
  *          <p>This action gives users permission to access their WorkSpaces from the CIDR address
  *          ranges specified in the rules.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkSpacesClient, AuthorizeIpRulesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, AuthorizeIpRulesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import

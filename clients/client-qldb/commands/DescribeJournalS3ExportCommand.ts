@@ -30,7 +30,7 @@ export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3E
  *          <p>If the ledger with the given <code>Name</code> doesn't exist, then throws
  *             <code>ResourceNotFoundException</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QLDBClient, DescribeJournalS3ExportCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, DescribeJournalS3ExportCommand } = require("@aws-sdk/client-qldb"); // CommonJS import

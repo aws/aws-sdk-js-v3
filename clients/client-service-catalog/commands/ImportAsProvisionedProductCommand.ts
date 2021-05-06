@@ -36,7 +36,7 @@ export interface ImportAsProvisionedProductCommandOutput extends ImportAsProvisi
  *          <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
  *          and <code>cloudformation:DescribeStacks</code> IAM policy permissions. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogClient, ImportAsProvisionedProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, ImportAsProvisionedProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import

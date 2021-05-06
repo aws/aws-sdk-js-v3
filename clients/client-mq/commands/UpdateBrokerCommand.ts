@@ -23,7 +23,7 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
 /**
  * Adds a pending configuration change to a broker.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MqClient, UpdateBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, UpdateBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import

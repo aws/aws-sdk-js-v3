@@ -27,7 +27,7 @@ export interface ModifyCapacityReservationCommandOutput extends ModifyCapacityRe
  * 			attributes, we recommend that you cancel the Capacity Reservation, and then create a new one with
  * 			the required attributes.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, ModifyCapacityReservationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ModifyCapacityReservationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

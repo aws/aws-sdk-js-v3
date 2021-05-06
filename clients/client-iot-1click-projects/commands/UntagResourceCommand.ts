@@ -27,7 +27,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>Removes one or more tags (metadata key/value pairs) from a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoT1ClickProjectsClient, UntagResourceCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, UntagResourceCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import

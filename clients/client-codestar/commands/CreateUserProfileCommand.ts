@@ -26,7 +26,7 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  *       project-specific. Information in the user profile is displayed wherever the user's information
  *       appears to other users in AWS CodeStar.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeStarClient, CreateUserProfileCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, CreateUserProfileCommand } = require("@aws-sdk/client-codestar"); // CommonJS import

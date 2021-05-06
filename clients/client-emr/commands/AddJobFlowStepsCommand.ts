@@ -39,7 +39,7 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  *          <p>You can only add steps to a cluster that is in one of the following states: STARTING,
  *          BOOTSTRAPPING, RUNNING, or WAITING.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, AddJobFlowStepsCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, AddJobFlowStepsCommand } = require("@aws-sdk/client-emr"); // CommonJS import

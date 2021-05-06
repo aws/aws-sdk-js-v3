@@ -31,7 +31,7 @@ export interface GetHomeRegionCommandOutput extends GetHomeRegionResult, __Metad
  *       other AWS Application Discovery Service and AWS Migration Hub APIs, to obtain the account's
  *       Migration Hub home region.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MigrationHubConfigClient, GetHomeRegionCommand } from "@aws-sdk/client-migrationhub-config"; // ES Modules import
  * // const { MigrationHubConfigClient, GetHomeRegionCommand } = require("@aws-sdk/client-migrationhub-config"); // CommonJS import

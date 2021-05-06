@@ -24,7 +24,7 @@ export interface SendInvitationCommandOutput extends SendInvitationResponse, __M
  * <p>Sends an enrollment invitation email with a URL to a user. The URL is valid for 30
  *          days or until you call this operation again, whichever comes first. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AlexaForBusinessClient, SendInvitationCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, SendInvitationCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import

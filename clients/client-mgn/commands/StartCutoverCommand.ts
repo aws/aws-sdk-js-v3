@@ -23,7 +23,7 @@ export interface StartCutoverCommandOutput extends StartCutoverResponse, __Metad
 /**
  * <p>Launches a Cutover Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartCutover and changes the SourceServer.lifeCycle.state property to CUTTING_OVER.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MgnClient, StartCutoverCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, StartCutoverCommand } = require("@aws-sdk/client-mgn"); // CommonJS import

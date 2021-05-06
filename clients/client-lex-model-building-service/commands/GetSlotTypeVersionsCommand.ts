@@ -37,7 +37,7 @@ export interface GetSlotTypeVersionsCommandOutput extends GetSlotTypeVersionsRes
  *          <p>This operation requires permissions for the
  *         <code>lex:GetSlotTypeVersions</code> action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LexModelBuildingServiceClient, GetSlotTypeVersionsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetSlotTypeVersionsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import

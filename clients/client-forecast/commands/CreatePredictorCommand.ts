@@ -84,7 +84,7 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  *         status, use the <a>DescribePredictor</a> operation.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ForecastClient, CreatePredictorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreatePredictorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import

@@ -25,7 +25,7 @@ export interface EnableDomainTransferLockCommandOutput extends EnableDomainTrans
  * 			to prevent domain transfers. Successful submission returns an operation ID that you can use to track the progress and
  * 			completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53DomainsClient, EnableDomainTransferLockCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
  * // const { Route53DomainsClient, EnableDomainTransferLockCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import

@@ -23,7 +23,7 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
 /**
  * Starts deletion of channel. The associated outputs are also deleted.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaLiveClient, DeleteChannelCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteChannelCommand } = require("@aws-sdk/client-medialive"); // CommonJS import

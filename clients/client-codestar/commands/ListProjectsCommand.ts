@@ -23,7 +23,7 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
 /**
  * <p>Lists all projects in AWS CodeStar associated with your AWS account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeStarClient, ListProjectsCommand } from "@aws-sdk/client-codestar"; // ES Modules import
  * // const { CodeStarClient, ListProjectsCommand } = require("@aws-sdk/client-codestar"); // CommonJS import

@@ -31,7 +31,7 @@ export interface DescribeTableStatisticsCommandOutput extends DescribeTableStati
  *          last updated the table statistics record for a table. It does not indicate the time of the
  *          last update to the table.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DatabaseMigrationServiceClient, DescribeTableStatisticsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeTableStatisticsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import

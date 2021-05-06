@@ -26,7 +26,7 @@ export interface ListGraphsCommandOutput extends ListGraphsResponse, __MetadataB
  *          <p>Because an account can currently only be the administrator of one behavior graph within
  *          a Region, the results always contain a single behavior graph.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DetectiveClient, ListGraphsCommand } from "@aws-sdk/client-detective"; // ES Modules import
  * // const { DetectiveClient, ListGraphsCommand } = require("@aws-sdk/client-detective"); // CommonJS import

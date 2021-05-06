@@ -25,7 +25,7 @@ export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __Met
  *             branch, tag, HEAD, commit ID, or other fully qualified reference). Results can be
  *             limited to a specified path.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeCommitClient, GetDifferencesCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetDifferencesCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import

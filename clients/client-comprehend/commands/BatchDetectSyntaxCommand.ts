@@ -24,7 +24,7 @@ export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxRespons
  * <p>Inspects the text of a batch of documents for the syntax and part of speech of the words
  *       in the document and returns information about them. For more information, see <a>how-syntax</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, BatchDetectSyntaxCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, BatchDetectSyntaxCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

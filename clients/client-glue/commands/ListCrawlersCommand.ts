@@ -29,7 +29,7 @@ export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __Metad
  *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
  *       filtering, only resources with the tag are retrieved.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, ListCrawlersCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, ListCrawlersCommand } = require("@aws-sdk/client-glue"); // CommonJS import

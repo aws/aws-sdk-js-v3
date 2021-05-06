@@ -23,7 +23,7 @@ export interface GetReportGroupTrendCommandOutput extends GetReportGroupTrendOut
 /**
  * <p>Analyzes and accumulates test report values for the specified test reports.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeBuildClient, GetReportGroupTrendCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, GetReportGroupTrendCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import

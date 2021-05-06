@@ -25,7 +25,7 @@ export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __Met
  *             The <code>GetAssignment</code> operation retrieves the details of the specified Assignment.
  *         </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MTurkClient, GetAssignmentCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, GetAssignmentCommand } = require("@aws-sdk/client-mturk"); // CommonJS import

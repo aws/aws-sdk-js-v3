@@ -29,7 +29,7 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * action, and then filter by email address.
  * </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, GetUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import

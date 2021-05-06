@@ -23,7 +23,7 @@ export interface GetCampaignVersionCommandOutput extends GetCampaignVersionRespo
 /**
  * <p>Retrieves information about the status, configuration, and other settings for a specific version of a campaign.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetCampaignVersionCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetCampaignVersionCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

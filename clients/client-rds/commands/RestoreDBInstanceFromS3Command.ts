@@ -30,7 +30,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *             in the <i>Amazon RDS User Guide.</i>
  *         </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, RestoreDBInstanceFromS3Command } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, RestoreDBInstanceFromS3Command } = require("@aws-sdk/client-rds"); // CommonJS import

@@ -23,7 +23,7 @@ export interface StopReplicationToReplicaCommandOutput extends StopReplicationTo
 /**
  * <p>Removes the secret from replication and promotes the secret to a regional secret in the replica Region.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecretsManagerClient, StopReplicationToReplicaCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, StopReplicationToReplicaCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import

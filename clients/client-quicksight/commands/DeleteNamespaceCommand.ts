@@ -25,7 +25,7 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  *         This is an asynchronous process. Assets including dashboards, analyses, datasets and data sources are not
  *         deleted. To delete these assets, you use the API operations for the relevant asset. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, DeleteNamespaceCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteNamespaceCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

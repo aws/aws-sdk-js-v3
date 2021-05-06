@@ -28,7 +28,7 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, _
  * <p>Sets the type of IP addresses used by the subnets of the specified Application Load
  *       Balancer or Network Load Balancer.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticLoadBalancingV2Client, SetIpAddressTypeCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, SetIpAddressTypeCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import

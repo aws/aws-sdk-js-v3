@@ -23,7 +23,7 @@ export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBea
 /**
  * <p>Creates a bot for an Amazon Chime Enterprise account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, CreateBotCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateBotCommand } = require("@aws-sdk/client-chime"); // CommonJS import

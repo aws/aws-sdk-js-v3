@@ -26,7 +26,7 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  *             with Amazon DocumentDB resources. or in a <code>Condition</code> statement in
  *             an AWS Identity and Access Management (IAM) policy for Amazon DocumentDB.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, AddTagsToResourceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, AddTagsToResourceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import

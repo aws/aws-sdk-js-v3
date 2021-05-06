@@ -25,7 +25,7 @@ export interface CreateCoreDefinitionVersionCommandOutput
 /**
  * Creates a version of a core definition that has already been defined. Greengrass groups must each contain exactly one Greengrass core.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GreengrassClient, CreateCoreDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, CreateCoreDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import

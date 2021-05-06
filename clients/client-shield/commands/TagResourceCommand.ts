@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * <p>Adds or updates tags for a resource in AWS Shield.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ShieldClient, TagResourceCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, TagResourceCommand } = require("@aws-sdk/client-shield"); // CommonJS import

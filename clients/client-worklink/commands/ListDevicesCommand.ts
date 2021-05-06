@@ -23,7 +23,7 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
 /**
  * <p>Retrieves a list of devices registered with the specified fleet.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkLinkClient, ListDevicesCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, ListDevicesCommand } = require("@aws-sdk/client-worklink"); // CommonJS import

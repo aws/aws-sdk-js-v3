@@ -32,7 +32,7 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  *          <p>Returns the <a>RuleGroup</a> that is specified by the <code>RuleGroupId</code> that you included in the <code>GetRuleGroup</code> request.</p>
  * 	        <p>To view the rules in a rule group, use <a>ListActivatedRulesInRuleGroup</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFRegionalClient, GetRuleGroupCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, GetRuleGroupCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import

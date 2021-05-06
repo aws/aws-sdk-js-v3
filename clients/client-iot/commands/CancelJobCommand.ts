@@ -23,7 +23,7 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
 /**
  * <p>Cancels a job.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, CancelJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CancelJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import

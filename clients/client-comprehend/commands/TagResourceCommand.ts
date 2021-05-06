@@ -26,7 +26,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *       "Sales" as the key might be added to a resource to indicate its use by the sales department.
  *     </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, TagResourceCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, TagResourceCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

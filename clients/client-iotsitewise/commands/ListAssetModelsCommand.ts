@@ -23,7 +23,7 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
 /**
  * <p>Retrieves a paginated list of summaries of all asset models.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTSiteWiseClient, ListAssetModelsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, ListAssetModelsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import

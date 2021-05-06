@@ -23,7 +23,7 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
 /**
  * <p>Removes a user group from Amazon QuickSight. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, DeleteGroupCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteGroupCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

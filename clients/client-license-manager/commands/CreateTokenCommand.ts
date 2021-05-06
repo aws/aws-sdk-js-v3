@@ -26,7 +26,7 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  *           you can call AssumeRoleWithWebIdentity to get role credentials that you can use to
  *           call License Manager to manage the specified license.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LicenseManagerClient, CreateTokenCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, CreateTokenCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import

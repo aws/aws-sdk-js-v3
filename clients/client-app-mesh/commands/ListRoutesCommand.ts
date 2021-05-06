@@ -23,7 +23,7 @@ export interface ListRoutesCommandOutput extends ListRoutesOutput, __MetadataBea
 /**
  * <p>Returns a list of existing routes in a service mesh.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppMeshClient, ListRoutesCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, ListRoutesCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import

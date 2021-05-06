@@ -48,7 +48,7 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  *             complete the domain verification process.</p>
  *         <p>Additionally, you can associate an existing configuration set with the email identity that you're verifying.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESv2Client, CreateEmailIdentityCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateEmailIdentityCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import

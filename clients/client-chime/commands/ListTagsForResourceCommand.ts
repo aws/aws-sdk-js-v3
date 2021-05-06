@@ -23,7 +23,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>Lists the tags applied to an Amazon Chime SDK meeting resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, ListTagsForResourceCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListTagsForResourceCommand } = require("@aws-sdk/client-chime"); // CommonJS import

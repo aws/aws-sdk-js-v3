@@ -23,7 +23,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>Returns all tags for a specified Amazon QLDB resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QLDBClient, ListTagsForResourceCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, ListTagsForResourceCommand } = require("@aws-sdk/client-qldb"); // CommonJS import

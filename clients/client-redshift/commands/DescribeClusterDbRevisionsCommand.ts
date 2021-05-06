@@ -23,7 +23,7 @@ export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisi
 /**
  * <p>Returns an array of <code>ClusterDbRevision</code> objects.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RedshiftClient, DescribeClusterDbRevisionsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterDbRevisionsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import

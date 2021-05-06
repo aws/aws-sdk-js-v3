@@ -24,7 +24,7 @@ export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
  * <p>Sets tags (key and value pairs) to the assessment template that is specified by the
  *          ARN of the assessment template.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { InspectorClient, SetTagsForResourceCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, SetTagsForResourceCommand } = require("@aws-sdk/client-inspector"); // CommonJS import

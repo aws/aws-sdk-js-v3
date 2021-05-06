@@ -24,7 +24,7 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * <p>Deletes a resource policy from this account. This revokes
  *     the access of the identities in that policy to put log events to this account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchLogsClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import

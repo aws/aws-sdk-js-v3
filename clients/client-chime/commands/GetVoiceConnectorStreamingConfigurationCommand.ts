@@ -31,7 +31,7 @@ export interface GetVoiceConnectorStreamingConfigurationCommandOutput
  *             Shows whether media streaming is enabled for sending to Amazon Kinesis. It also shows
  *             the retention period, in hours, for the Amazon Kinesis data.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, GetVoiceConnectorStreamingConfigurationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, GetVoiceConnectorStreamingConfigurationCommand } = require("@aws-sdk/client-chime"); // CommonJS import

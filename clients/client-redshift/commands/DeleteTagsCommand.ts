@@ -21,7 +21,7 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * <p>Deletes tags from a resource. You must provide the ARN of the resource
  *             from which you want to delete the tag or tags.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RedshiftClient, DeleteTagsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DeleteTagsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import

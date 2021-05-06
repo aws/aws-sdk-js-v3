@@ -23,7 +23,7 @@ export interface ListProtocolsListsCommandOutput extends ListProtocolsListsRespo
 /**
  * <p>Returns an array of <code>ProtocolsListDataSummary</code> objects.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FMSClient, ListProtocolsListsCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListProtocolsListsCommand } = require("@aws-sdk/client-fms"); // CommonJS import

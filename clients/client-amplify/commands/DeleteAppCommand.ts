@@ -23,7 +23,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResult, __MetadataBeare
 /**
  * <p> Deletes an existing Amplify app specified by an app ID. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmplifyClient, DeleteAppCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, DeleteAppCommand } = require("@aws-sdk/client-amplify"); // CommonJS import

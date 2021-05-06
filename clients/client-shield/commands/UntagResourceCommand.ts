@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>Removes tags from a resource in AWS Shield.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ShieldClient, UntagResourceCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, UntagResourceCommand } = require("@aws-sdk/client-shield"); // CommonJS import

@@ -24,7 +24,7 @@ export interface ListVPCEConfigurationsCommandOutput extends ListVPCEConfigurati
  * <p>Returns information about all Amazon Virtual Private Cloud (VPC) endpoint
  *             configurations in the AWS account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DeviceFarmClient, ListVPCEConfigurationsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListVPCEConfigurationsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import

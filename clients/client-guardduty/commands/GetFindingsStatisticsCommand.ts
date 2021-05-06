@@ -23,7 +23,7 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
 /**
  * <p>Lists Amazon GuardDuty findings statistics for the specified detector ID.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, GetFindingsStatisticsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, GetFindingsStatisticsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import

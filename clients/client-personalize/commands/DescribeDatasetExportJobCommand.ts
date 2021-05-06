@@ -24,7 +24,7 @@ export interface DescribeDatasetExportJobCommandOutput extends DescribeDatasetEx
  * <p>Describes the dataset export job created by <a>CreateDatasetExportJob</a>,
  *       including the export job status.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PersonalizeClient, DescribeDatasetExportJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DescribeDatasetExportJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import

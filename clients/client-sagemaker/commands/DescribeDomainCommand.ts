@@ -23,7 +23,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
 /**
  * <p>The description of the domain.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, DescribeDomainCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeDomainCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

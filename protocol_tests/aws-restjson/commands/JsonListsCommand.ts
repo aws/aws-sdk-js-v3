@@ -29,7 +29,7 @@ export interface JsonListsCommandOutput extends JsonListsInputOutput, __Metadata
  * 3. JSON lists of lists.
  * 4. Lists of structures.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestJsonProtocolClient, JsonListsCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, JsonListsCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import

@@ -25,7 +25,7 @@ export interface DescribeSigningJobCommandOutput extends DescribeSigningJobRespo
  * 			the <code>jobId</code> value that is returned by the <a>StartSigningJob</a>
  * 			operation. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SignerClient, DescribeSigningJobCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, DescribeSigningJobCommand } = require("@aws-sdk/client-signer"); // CommonJS import

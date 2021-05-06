@@ -23,7 +23,7 @@ export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOut
 /**
  * <p>Returns metadata about a backup vault specified by its name.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, DescribeBackupVaultCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DescribeBackupVaultCommand } = require("@aws-sdk/client-backup"); // CommonJS import

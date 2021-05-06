@@ -23,7 +23,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
 /**
  * <p>Lists your policies.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ListPoliciesCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListPoliciesCommand } = require("@aws-sdk/client-iot"); // CommonJS import

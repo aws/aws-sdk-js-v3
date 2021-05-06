@@ -23,7 +23,7 @@ export interface PutProtocolsListCommandOutput extends PutProtocolsListResponse,
 /**
  * <p>Creates an AWS Firewall Manager protocols list.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FMSClient, PutProtocolsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, PutProtocolsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import

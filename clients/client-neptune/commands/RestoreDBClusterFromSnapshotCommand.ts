@@ -30,7 +30,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *       cluster restore point with the same configuration as the original source DB cluster, except
  *       that the new DB cluster is created with the default security group.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, RestoreDBClusterFromSnapshotCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, RestoreDBClusterFromSnapshotCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

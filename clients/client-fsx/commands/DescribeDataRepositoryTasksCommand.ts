@@ -35,7 +35,7 @@ export interface DescribeDataRepositoryTasksCommandOutput
  *             request with the <code>NextToken</code> request parameter set to the value of
  *             <code>NextToken</code> from the last response.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FSxClient, DescribeDataRepositoryTasksCommand } from "@aws-sdk/client-fsx"; // ES Modules import
  * // const { FSxClient, DescribeDataRepositoryTasksCommand } = require("@aws-sdk/client-fsx"); // CommonJS import

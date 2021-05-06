@@ -23,7 +23,7 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
 /**
  * <p>Updates the Amazon QuickSight settings in your AWS account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, UpdateAccountSettingsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateAccountSettingsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

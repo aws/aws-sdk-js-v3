@@ -23,7 +23,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>Retrieves all the tags (keys and values) that are associated with an application, campaign, message template, or segment.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, ListTagsForResourceCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, ListTagsForResourceCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

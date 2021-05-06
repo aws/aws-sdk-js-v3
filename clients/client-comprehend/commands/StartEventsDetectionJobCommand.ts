@@ -23,7 +23,7 @@ export interface StartEventsDetectionJobCommandOutput extends StartEventsDetecti
 /**
  * <p>Starts an asynchronous event detection job for a collection of documents.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, StartEventsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StartEventsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

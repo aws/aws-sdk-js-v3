@@ -23,7 +23,7 @@ export interface DescribeBatchPredictionsCommandOutput extends DescribeBatchPred
 /**
  * <p>Returns a list of <code>BatchPrediction</code> operations that match the search criteria in the request.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MachineLearningClient, DescribeBatchPredictionsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DescribeBatchPredictionsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import

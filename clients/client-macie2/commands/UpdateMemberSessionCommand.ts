@@ -23,7 +23,7 @@ export interface UpdateMemberSessionCommandOutput extends UpdateMemberSessionRes
 /**
  * <p>Enables an Amazon Macie administrator to suspend or re-enable a member account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Macie2Client, UpdateMemberSessionCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, UpdateMemberSessionCommand } = require("@aws-sdk/client-macie2"); // CommonJS import

@@ -31,7 +31,7 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  *          <p>Deletes an HSM. After completion, this operation cannot be undone and your key material
  *       cannot be recovered.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudHSMClient, DeleteHsmCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, DeleteHsmCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import

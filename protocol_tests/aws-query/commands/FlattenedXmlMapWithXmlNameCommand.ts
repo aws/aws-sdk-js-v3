@@ -23,7 +23,7 @@ export interface FlattenedXmlMapWithXmlNameCommandOutput extends FlattenedXmlMap
 /**
  * Flattened maps with @xmlName
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QueryProtocolClient, FlattenedXmlMapWithXmlNameCommand } from "@aws-sdk/aws-query"; // ES Modules import
  * // const { QueryProtocolClient, FlattenedXmlMapWithXmlNameCommand } = require("@aws-sdk/aws-query"); // CommonJS import

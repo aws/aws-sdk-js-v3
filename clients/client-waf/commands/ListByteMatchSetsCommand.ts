@@ -31,7 +31,7 @@ export interface ListByteMatchSetsCommandOutput extends ListByteMatchSetsRespons
  *          </note>
  * 		       <p>Returns an array of <a>ByteMatchSetSummary</a> objects.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFClient, ListByteMatchSetsCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, ListByteMatchSetsCommand } = require("@aws-sdk/client-waf"); // CommonJS import

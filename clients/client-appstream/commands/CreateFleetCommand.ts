@@ -23,7 +23,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
 /**
  * <p>Creates a fleet. A fleet consists of streaming instances that run a specified image.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppStreamClient, CreateFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import

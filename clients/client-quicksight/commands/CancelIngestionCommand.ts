@@ -23,7 +23,7 @@ export interface CancelIngestionCommandOutput extends CancelIngestionResponse, _
 /**
  * <p>Cancels an ongoing ingestion of data into SPICE.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, CancelIngestionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CancelIngestionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

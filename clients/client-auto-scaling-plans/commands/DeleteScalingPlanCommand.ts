@@ -27,7 +27,7 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  *          <p>If the plan has launched resources or has scaling activities in progress, you must
  *          delete those resources separately.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AutoScalingPlansClient, DeleteScalingPlanCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
  * // const { AutoScalingPlansClient, DeleteScalingPlanCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import

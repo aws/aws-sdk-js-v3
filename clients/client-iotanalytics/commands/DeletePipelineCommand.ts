@@ -23,7 +23,7 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the specified pipeline.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTAnalyticsClient, DeletePipelineCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, DeletePipelineCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import

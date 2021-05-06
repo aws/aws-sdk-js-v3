@@ -23,7 +23,7 @@ export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, _
 /**
  * <p>Updates the file system's backup policy. Use this action to start or stop automatic backups of the file system. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EFSClient, PutBackupPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, PutBackupPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import

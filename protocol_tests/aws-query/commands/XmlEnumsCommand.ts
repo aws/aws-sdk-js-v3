@@ -20,7 +20,7 @@ export interface XmlEnumsCommandOutput extends XmlEnumsOutput, __MetadataBearer 
 /**
  * This example serializes enums as top level properties, in lists, sets, and maps.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QueryProtocolClient, XmlEnumsCommand } from "@aws-sdk/aws-query"; // ES Modules import
  * // const { QueryProtocolClient, XmlEnumsCommand } = require("@aws-sdk/aws-query"); // CommonJS import

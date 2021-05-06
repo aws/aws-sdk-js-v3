@@ -31,7 +31,7 @@ export interface GetComplianceDetailCommandOutput extends GetComplianceDetailRes
  *         if a subnet created by the Firewall Manager doesn't have the expected route table,
  *         and for modifications to a firewall policy that violate the Firewall Manager policy's rules. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FMSClient, GetComplianceDetailCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, GetComplianceDetailCommand } = require("@aws-sdk/client-fms"); // CommonJS import

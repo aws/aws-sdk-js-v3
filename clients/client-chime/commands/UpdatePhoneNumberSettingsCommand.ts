@@ -25,7 +25,7 @@ export interface UpdatePhoneNumberSettingsCommandOutput extends __MetadataBearer
  *             outbound calling name. You can update the default outbound calling name once every seven
  *             days. Outbound calling names can take up to 72 hours to update.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, UpdatePhoneNumberSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdatePhoneNumberSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import

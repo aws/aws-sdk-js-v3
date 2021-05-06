@@ -24,7 +24,7 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * <p>Updates an existing Amazon Lightsail content delivery network (CDN) distribution.</p>
  *          <p>Use this action to update the configuration of your existing distribution</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, UpdateDistributionCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, UpdateDistributionCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

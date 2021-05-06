@@ -29,7 +29,7 @@ export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinit
  * 			parameter to <code>ACTIVE</code>. You can also filter the results with the
  * 				<code>familyPrefix</code> parameter.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECSClient, ListTaskDefinitionFamiliesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListTaskDefinitionFamiliesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import

@@ -24,7 +24,7 @@ export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingP
  * <p>Removes an automatic scaling policy from a specified instance group within an EMR
  *          cluster.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, RemoveAutoScalingPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, RemoveAutoScalingPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import

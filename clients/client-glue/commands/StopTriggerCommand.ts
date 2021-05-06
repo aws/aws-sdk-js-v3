@@ -23,7 +23,7 @@ export interface StopTriggerCommandOutput extends StopTriggerResponse, __Metadat
 /**
  * <p>Stops a specified trigger.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, StopTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StopTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import

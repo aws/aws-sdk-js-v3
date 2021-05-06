@@ -24,7 +24,7 @@ export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetecti
  * <p>Starts an asynchronous topic detection job. Use the
  *         <code>DescribeTopicDetectionJob</code> operation to track the status of a job.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, StartTopicsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, StartTopicsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

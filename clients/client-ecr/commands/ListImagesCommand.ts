@@ -29,7 +29,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  *             results to return only <code>TAGGED</code> images to list all of the tags in your
  *             repository.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECRClient, ListImagesCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, ListImagesCommand } = require("@aws-sdk/client-ecr"); // CommonJS import

@@ -24,7 +24,7 @@ export interface DeletePreparedStatementCommandOutput extends DeletePreparedStat
  * <p>Deletes the prepared statement with the specified name from the specified
  *             workgroup.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AthenaClient, DeletePreparedStatementCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, DeletePreparedStatementCommand } = require("@aws-sdk/client-athena"); // CommonJS import

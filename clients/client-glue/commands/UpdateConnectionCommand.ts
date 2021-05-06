@@ -23,7 +23,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
 /**
  * <p>Updates a connection definition in the Data Catalog.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, UpdateConnectionCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateConnectionCommand } = require("@aws-sdk/client-glue"); // CommonJS import

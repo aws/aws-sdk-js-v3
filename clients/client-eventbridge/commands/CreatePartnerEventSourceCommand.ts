@@ -46,7 +46,7 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  *         <i>event_namespace</i> and <i>event_name</i> should help AWS
  *       customers decide whether to create an event bus to receive these events.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EventBridgeClient, CreatePartnerEventSourceCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
  * // const { EventBridgeClient, CreatePartnerEventSourceCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import

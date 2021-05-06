@@ -25,7 +25,7 @@ export interface CreateStreamCommandOutput extends CreateStreamResponse, __Metad
  *             bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files
  *             associated with a stream.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, CreateStreamCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateStreamCommand } = require("@aws-sdk/client-iot"); // CommonJS import

@@ -25,7 +25,7 @@ export interface UpdateQueueMaxContactsCommandOutput extends __MetadataBearer {}
  *          <p>Updates the maximum number of contacts allowed in a queue before it is
  *    considered full.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, UpdateQueueMaxContactsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateQueueMaxContactsCommand } = require("@aws-sdk/client-connect"); // CommonJS import

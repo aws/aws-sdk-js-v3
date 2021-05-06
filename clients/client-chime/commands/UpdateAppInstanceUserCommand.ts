@@ -23,7 +23,7 @@ export interface UpdateAppInstanceUserCommandOutput extends UpdateAppInstanceUse
 /**
  * <p>Updates the details of an <code>AppInstanceUser</code>. You can update names and metadata.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, UpdateAppInstanceUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, UpdateAppInstanceUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import

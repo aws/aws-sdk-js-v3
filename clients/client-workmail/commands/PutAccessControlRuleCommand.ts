@@ -26,7 +26,7 @@ export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleR
  *          actions, and user IDs. Adding a new rule with the same name as an existing rule replaces
  *          the older rule.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkMailClient, PutAccessControlRuleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, PutAccessControlRuleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import

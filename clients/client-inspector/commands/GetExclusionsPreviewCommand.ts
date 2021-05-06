@@ -25,7 +25,7 @@ export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewR
  *          the preview token. You can obtain the preview token by running the CreateExclusionsPreview
  *          API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { InspectorClient, GetExclusionsPreviewCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, GetExclusionsPreviewCommand } = require("@aws-sdk/client-inspector"); // CommonJS import

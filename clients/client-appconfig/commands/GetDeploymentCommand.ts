@@ -23,7 +23,7 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
 /**
  * <p>Retrieve information about a configuration deployment.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppConfigClient, GetDeploymentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, GetDeploymentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import

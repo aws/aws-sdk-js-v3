@@ -23,7 +23,7 @@ export interface DeleteSmsTemplateCommandOutput extends DeleteSmsTemplateRespons
 /**
  * <p>Deletes a message template for messages that were sent through the SMS channel.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, DeleteSmsTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteSmsTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

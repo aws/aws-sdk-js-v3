@@ -23,7 +23,7 @@ export interface GetAssociatedRoleCommandOutput extends GetAssociatedRoleRespons
 /**
  * Retrieves the role associated with a particular group.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GreengrassClient, GetAssociatedRoleCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, GetAssociatedRoleCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import

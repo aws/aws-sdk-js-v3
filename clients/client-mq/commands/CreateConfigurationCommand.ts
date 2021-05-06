@@ -23,7 +23,7 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
 /**
  * Creates a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and version).
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MqClient, CreateConfigurationCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, CreateConfigurationCommand } = require("@aws-sdk/client-mq"); // CommonJS import

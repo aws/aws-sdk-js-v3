@@ -23,7 +23,7 @@ export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse,
 /**
  * <p>Lists all roles that are assigned to the user for a given AWS account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSOClient, ListAccountRolesCommand } from "@aws-sdk/client-sso"; // ES Modules import
  * // const { SSOClient, ListAccountRolesCommand } = require("@aws-sdk/client-sso"); // CommonJS import

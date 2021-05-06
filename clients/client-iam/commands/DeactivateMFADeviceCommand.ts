@@ -27,7 +27,7 @@ export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
  *                 multi-factor authentication (MFA) device</a> in the
  *                 <i>IAM User Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, DeactivateMFADeviceCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeactivateMFADeviceCommand } = require("@aws-sdk/client-iam"); // CommonJS import

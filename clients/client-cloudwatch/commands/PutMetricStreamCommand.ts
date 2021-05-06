@@ -50,7 +50,7 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  * 		is created in the <code>running</code> state. If you use it to update an existing stream,
  * 		the state of the stream is not changed.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchClient, PutMetricStreamCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutMetricStreamCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import

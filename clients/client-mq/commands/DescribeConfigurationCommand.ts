@@ -23,7 +23,7 @@ export interface DescribeConfigurationCommandOutput extends DescribeConfiguratio
 /**
  * Returns information about the specified configuration.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MqClient, DescribeConfigurationCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DescribeConfigurationCommand } = require("@aws-sdk/client-mq"); // CommonJS import

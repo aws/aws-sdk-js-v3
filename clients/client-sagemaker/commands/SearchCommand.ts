@@ -25,7 +25,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  *          <p>You can query against the following value types: numeric, text, Boolean, and
  *       timestamp.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, SearchCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, SearchCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

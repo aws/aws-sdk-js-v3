@@ -27,7 +27,7 @@ export interface InvokeScreenAutomationCommandOutput extends InvokeScreenAutomat
  *             This allows automating the Honeycode app interactions to write, update or delete data in the workbook.
  *         </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { HoneycodeClient, InvokeScreenAutomationCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, InvokeScreenAutomationCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import

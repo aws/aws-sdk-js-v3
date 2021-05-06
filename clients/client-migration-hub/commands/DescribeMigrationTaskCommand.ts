@@ -23,7 +23,7 @@ export interface DescribeMigrationTaskCommandOutput extends DescribeMigrationTas
 /**
  * <p>Retrieves a list of all attributes associated with a specific migration task.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MigrationHubClient, DescribeMigrationTaskCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, DescribeMigrationTaskCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import

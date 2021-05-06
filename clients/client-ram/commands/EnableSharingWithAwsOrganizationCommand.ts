@@ -26,7 +26,7 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
  * <p>Enables resource sharing within your AWS Organization.</p>
  *          <p>The caller must be the master account for the AWS Organization.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RAMClient, EnableSharingWithAwsOrganizationCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, EnableSharingWithAwsOrganizationCommand } = require("@aws-sdk/client-ram"); // CommonJS import

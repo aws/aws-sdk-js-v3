@@ -27,7 +27,7 @@ export interface UpdateProvisionedProductCommandOutput extends UpdateProvisioned
  *          interruption, with some interruption, or replace the provisioned product entirely.</p>
  *          <p>You can check the status of this request using <a>DescribeRecord</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogClient, UpdateProvisionedProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdateProvisionedProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import

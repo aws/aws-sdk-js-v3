@@ -23,7 +23,7 @@ export interface ClearDefaultAuthorizerCommandOutput extends ClearDefaultAuthori
 /**
  * <p>Clears the default authorizer.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ClearDefaultAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ClearDefaultAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import

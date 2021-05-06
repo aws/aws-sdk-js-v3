@@ -23,7 +23,7 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
 /**
  * Deletes a group.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GreengrassClient, DeleteGroupCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, DeleteGroupCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import

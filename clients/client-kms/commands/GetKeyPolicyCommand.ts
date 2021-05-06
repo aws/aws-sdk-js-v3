@@ -31,7 +31,7 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  *             <b>Related operations</b>: <a>PutKeyPolicy</a>
  *          </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KMSClient, GetKeyPolicyCommand } from "@aws-sdk/client-kms"; // ES Modules import
  * // const { KMSClient, GetKeyPolicyCommand } = require("@aws-sdk/client-kms"); // CommonJS import

@@ -34,7 +34,7 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  *          <p>You must have the <code>logs:PutQueryDefinition</code> permission to be able to perform
  *     this operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchLogsClient, PutQueryDefinitionCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutQueryDefinitionCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import

@@ -24,7 +24,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
  * <p>Modifies the specified project name, given the project ARN and a new
  *             name.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DeviceFarmClient, UpdateProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, UpdateProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import

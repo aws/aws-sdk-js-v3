@@ -23,7 +23,7 @@ export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityG
 /**
  * Produces a list of Input Security Groups for an account
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaLiveClient, ListInputSecurityGroupsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, ListInputSecurityGroupsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import

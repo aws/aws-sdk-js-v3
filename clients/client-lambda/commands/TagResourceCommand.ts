@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Adds <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> to a function.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LambdaClient, TagResourceCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, TagResourceCommand } = require("@aws-sdk/client-lambda"); // CommonJS import

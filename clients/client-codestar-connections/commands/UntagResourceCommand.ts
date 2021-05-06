@@ -27,7 +27,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
 /**
  * <p>Removes tags from an AWS resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeStarConnectionsClient, UntagResourceCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, UntagResourceCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import

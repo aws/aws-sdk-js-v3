@@ -23,7 +23,7 @@ export interface RemoveBackendConfigCommandOutput extends RemoveBackendConfigRes
 /**
  * <p>Removes the AWS resources that are required to access the Amplify Admin UI.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmplifyBackendClient, RemoveBackendConfigCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
  * // const { AmplifyBackendClient, RemoveBackendConfigCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import

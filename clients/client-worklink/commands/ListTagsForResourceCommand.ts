@@ -23,7 +23,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>Retrieves a list of tags for the specified resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkLinkClient, ListTagsForResourceCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, ListTagsForResourceCommand } = require("@aws-sdk/client-worklink"); // CommonJS import

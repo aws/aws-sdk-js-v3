@@ -23,7 +23,7 @@ export interface GetRegistrationCodeCommandOutput extends GetRegistrationCodeRes
 /**
  * <p>Gets a registration code used to register a CA certificate with AWS IoT.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, GetRegistrationCodeCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetRegistrationCodeCommand } = require("@aws-sdk/client-iot"); // CommonJS import

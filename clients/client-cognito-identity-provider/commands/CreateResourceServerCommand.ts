@@ -28,7 +28,7 @@ export interface CreateResourceServerCommandOutput extends CreateResourceServerR
 /**
  * <p>Creates a new OAuth2.0 resource server and defines custom scopes in it.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityProviderClient, CreateResourceServerCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, CreateResourceServerCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import

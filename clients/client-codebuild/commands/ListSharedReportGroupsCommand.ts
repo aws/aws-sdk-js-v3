@@ -24,7 +24,7 @@ export interface ListSharedReportGroupsCommandOutput extends ListSharedReportGro
  * <p> Gets a list of report groups that are shared with other AWS accounts or users.
  *         </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeBuildClient, ListSharedReportGroupsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListSharedReportGroupsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import

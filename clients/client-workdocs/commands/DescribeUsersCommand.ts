@@ -27,7 +27,7 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  *             are more results, the response includes a marker that you can use to request the next
  *             set of results.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkDocsClient, DescribeUsersCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, DescribeUsersCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import

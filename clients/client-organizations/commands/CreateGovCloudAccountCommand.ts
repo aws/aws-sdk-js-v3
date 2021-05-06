@@ -156,7 +156,7 @@ export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccoun
  *                     Access to Your Billing Information and Tools</a>.</p>
  *         </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OrganizationsClient, CreateGovCloudAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, CreateGovCloudAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import

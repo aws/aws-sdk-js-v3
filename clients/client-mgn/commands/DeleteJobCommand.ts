@@ -23,7 +23,7 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
 /**
  * <p>Deletes a single Job by ID.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MgnClient, DeleteJobCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, DeleteJobCommand } = require("@aws-sdk/client-mgn"); // CommonJS import

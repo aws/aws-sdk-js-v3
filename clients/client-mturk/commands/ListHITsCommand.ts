@@ -26,7 +26,7 @@ export interface ListHITsCommandOutput extends ListHITsResponse, __MetadataBeare
  *             the DeleteHIT operation or that have been auto-deleted.
  *         </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MTurkClient, ListHITsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, ListHITsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import

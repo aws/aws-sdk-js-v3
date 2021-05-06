@@ -27,7 +27,7 @@ export interface UpdateLocationObjectStorageCommandOutput
  *       storage server access. For information about creating a self-managed object storage location,
  *       see <a>create-object-location</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, UpdateLocationObjectStorageCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, UpdateLocationObjectStorageCommand } = require("@aws-sdk/client-datasync"); // CommonJS import

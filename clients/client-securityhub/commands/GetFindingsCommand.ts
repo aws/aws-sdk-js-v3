@@ -23,7 +23,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
 /**
  * <p>Returns a list of findings that match the specified criteria.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, GetFindingsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetFindingsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

@@ -23,7 +23,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>Lists the tags (metadata) you have assigned to the resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ListTagsForResourceCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iot"); // CommonJS import

@@ -23,7 +23,7 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
 /**
  * <p>Updates the schema definition</p> <note><p>Inactive schemas will be deleted after two years.</p></note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SchemasClient, UpdateSchemaCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, UpdateSchemaCommand } = require("@aws-sdk/client-schemas"); // CommonJS import

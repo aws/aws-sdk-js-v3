@@ -25,7 +25,7 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  *       group, including the Amazon Resource Name (ARN). For more information on dataset groups, see
  *         <a>CreateDatasetGroup</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PersonalizeClient, ListDatasetGroupsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListDatasetGroupsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import

@@ -23,7 +23,7 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
 /**
  * An operation for publishing metrics from the customers to the Ops plane.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MWAAClient, PublishMetricsCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, PublishMetricsCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import

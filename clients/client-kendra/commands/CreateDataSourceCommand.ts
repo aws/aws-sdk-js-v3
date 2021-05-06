@@ -31,7 +31,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       operation returns 200 if the data source was successfully created.
  *       Otherwise, an exception is raised.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, CreateDataSourceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, CreateDataSourceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import

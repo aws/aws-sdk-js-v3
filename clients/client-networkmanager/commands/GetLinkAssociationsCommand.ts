@@ -24,7 +24,7 @@ export interface GetLinkAssociationsCommandOutput extends GetLinkAssociationsRes
  * <p>Gets the link associations for a device or a link. Either the device ID or the link ID
  *             must be specified.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NetworkManagerClient, GetLinkAssociationsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetLinkAssociationsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import

@@ -26,7 +26,7 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  *    storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It also does not
  *    allow for any configurations on features, such as Contact Lens for Amazon Connect. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, CreateInstanceCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, CreateInstanceCommand } = require("@aws-sdk/client-connect"); // CommonJS import

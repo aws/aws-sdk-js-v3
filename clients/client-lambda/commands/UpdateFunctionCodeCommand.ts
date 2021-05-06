@@ -31,7 +31,7 @@ export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, 
  *         you update the image tag to a new image, Lambda does not automatically update the function.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LambdaClient, UpdateFunctionCodeCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, UpdateFunctionCodeCommand } = require("@aws-sdk/client-lambda"); // CommonJS import

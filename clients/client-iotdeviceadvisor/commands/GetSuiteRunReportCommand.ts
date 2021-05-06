@@ -23,7 +23,7 @@ export interface GetSuiteRunReportCommandOutput extends GetSuiteRunReportRespons
 /**
  * <p>Gets a report download link for a successful Device Advisor qualifying test suite run.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IotDeviceAdvisorClient, GetSuiteRunReportCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
  * // const { IotDeviceAdvisorClient, GetSuiteRunReportCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import

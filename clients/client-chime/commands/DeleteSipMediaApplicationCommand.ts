@@ -23,7 +23,7 @@ export interface DeleteSipMediaApplicationCommandOutput extends __MetadataBearer
 /**
  * <p>Deletes a SIP media application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, DeleteSipMediaApplicationCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, DeleteSipMediaApplicationCommand } = require("@aws-sdk/client-chime"); // CommonJS import

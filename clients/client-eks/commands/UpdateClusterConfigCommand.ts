@@ -50,7 +50,7 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *             eventually consistent). When the update is complete (either <code>Failed</code> or
  *                 <code>Successful</code>), the cluster status moves to <code>Active</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EKSClient, UpdateClusterConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, UpdateClusterConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import

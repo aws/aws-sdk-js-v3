@@ -28,7 +28,7 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  * <p>The ListPresets operation gets a list of the default presets included with Elastic Transcoder and the presets that
  *             you've added in an AWS region.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticTranscoderClient, ListPresetsCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
  * // const { ElasticTranscoderClient, ListPresetsCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import

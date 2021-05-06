@@ -27,7 +27,7 @@ export interface GetTranscriptionJobCommandOutput extends GetTranscriptionJobRes
  *                 <code>TranscriptFileUri</code> field. If you enable content redaction, the redacted
  *             transcript appears in <code>RedactedTranscriptFileUri</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TranscribeClient, GetTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import

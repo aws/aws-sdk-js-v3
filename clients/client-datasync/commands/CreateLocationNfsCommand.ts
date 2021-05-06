@@ -24,7 +24,7 @@ export interface CreateLocationNfsCommandOutput extends CreateLocationNfsRespons
  * <p>Defines a file system on a Network File System (NFS) server that can be read from or
  *       written to.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, CreateLocationNfsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, CreateLocationNfsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import

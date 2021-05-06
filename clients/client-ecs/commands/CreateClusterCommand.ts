@@ -34,7 +34,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * 					<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECSClient, CreateClusterCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, CreateClusterCommand } = require("@aws-sdk/client-ecs"); // CommonJS import

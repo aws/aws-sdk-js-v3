@@ -33,7 +33,7 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
  *       Reference</a>.</p>
  *          <p>Retrieves information about a high-availability partition group.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudHSMClient, DescribeHapgCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, DescribeHapgCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import

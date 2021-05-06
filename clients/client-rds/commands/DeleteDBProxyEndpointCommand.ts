@@ -25,7 +25,7 @@ export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpoin
  *         endpoint that you defined. The endpoint that you delete might have provided capabilities such as read/write
  *         or read-only operations, or using a different VPC than the DB proxy's default VPC.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, DeleteDBProxyEndpointCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DeleteDBProxyEndpointCommand } = require("@aws-sdk/client-rds"); // CommonJS import

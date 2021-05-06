@@ -26,7 +26,7 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  *       <code>groundStation</code>, <code>missionprofileArn</code>, and <code>satelliteArn</code>.
  *       </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GroundStationClient, ListContactsCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ListContactsCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import

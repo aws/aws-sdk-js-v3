@@ -24,7 +24,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectOutput, __Metad
  * <p> Deletes a build project. When you delete a project, its builds are not deleted.
  *         </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeBuildClient, DeleteProjectCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, DeleteProjectCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import

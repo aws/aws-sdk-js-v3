@@ -28,7 +28,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used
  *       to manage a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeStarConnectionsClient, TagResourceCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
  * // const { CodeStarConnectionsClient, TagResourceCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import

@@ -23,7 +23,7 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
 /**
  * <p>Gets detailed information about the specified lifecycle policy.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DLMClient, GetLifecyclePolicyCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, GetLifecyclePolicyCommand } = require("@aws-sdk/client-dlm"); // CommonJS import

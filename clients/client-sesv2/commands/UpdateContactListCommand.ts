@@ -23,7 +23,7 @@ export interface UpdateContactListCommandOutput extends UpdateContactListRespons
 /**
  * <p>Updates contact list metadata. This operation does a complete replacement.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESv2Client, UpdateContactListCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, UpdateContactListCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import

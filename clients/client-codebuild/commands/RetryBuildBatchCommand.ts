@@ -23,7 +23,7 @@ export interface RetryBuildBatchCommandOutput extends RetryBuildBatchOutput, __M
 /**
  * <p>Restarts a failed batch build. Only batch builds that have failed can be retried.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeBuildClient, RetryBuildBatchCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, RetryBuildBatchCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import

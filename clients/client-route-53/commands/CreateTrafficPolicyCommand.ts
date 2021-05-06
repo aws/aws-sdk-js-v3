@@ -24,7 +24,7 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  * <p>Creates a traffic policy, which you use to create multiple DNS resource record sets for one domain name (such as example.com) or
  * 			one subdomain name (such as www.example.com).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53Client, CreateTrafficPolicyCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateTrafficPolicyCommand } = require("@aws-sdk/client-route-53"); // CommonJS import

@@ -23,7 +23,7 @@ export interface GetEventStreamCommandOutput extends GetEventStreamResponse, __M
 /**
  * <p>Retrieves information about the event stream settings for an application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetEventStreamCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetEventStreamCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

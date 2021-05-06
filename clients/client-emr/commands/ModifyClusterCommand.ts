@@ -24,7 +24,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __Metad
  * <p>Modifies the number of steps that can be executed concurrently for the cluster specified
  *          using ClusterID.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, ModifyClusterCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ModifyClusterCommand } = require("@aws-sdk/client-emr"); // CommonJS import

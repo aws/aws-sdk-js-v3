@@ -24,7 +24,7 @@ export interface GetInsightImpactGraphCommandOutput extends GetInsightImpactGrap
  * <p>Retrieves a service graph structure filtered by the specified insight. The service graph is limited to only
  *          structural information. For a complete service graph, use this API with the GetServiceGraph API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { XRayClient, GetInsightImpactGraphCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetInsightImpactGraphCommand } = require("@aws-sdk/client-xray"); // CommonJS import

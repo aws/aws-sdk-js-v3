@@ -23,7 +23,7 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
 /**
  * <p>Removes a device from Alexa For Business.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AlexaForBusinessClient, DeleteDeviceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteDeviceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import

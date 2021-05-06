@@ -35,7 +35,7 @@ export interface DescribeClusterSnapshotsCommandOutput extends SnapshotMessage, 
  *         <p>If both tag keys and values are omitted from the request, snapshots are returned
  *             regardless of whether they have tag keys or values associated with them.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RedshiftClient, DescribeClusterSnapshotsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, DescribeClusterSnapshotsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import

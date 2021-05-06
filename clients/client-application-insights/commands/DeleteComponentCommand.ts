@@ -28,7 +28,7 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * <p>Ungroups a custom component. When you ungroup custom components, all applicable
  *          monitors that are set up for the component are removed and the instances revert to their standalone status.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApplicationInsightsClient, DeleteComponentCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, DeleteComponentCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import

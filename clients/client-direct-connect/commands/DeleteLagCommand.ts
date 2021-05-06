@@ -21,7 +21,7 @@ export interface DeleteLagCommandOutput extends Lag, __MetadataBearer {}
  * <p>Deletes the specified link aggregation group (LAG). You cannot delete a LAG if it has active
  *       virtual interfaces or hosted connections.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectConnectClient, DeleteLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, DeleteLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import

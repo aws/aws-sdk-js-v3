@@ -23,7 +23,7 @@ export interface ListObjectPoliciesCommandOutput extends ListObjectPoliciesRespo
 /**
  * <p>Returns policies attached to an object in pagination fashion.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudDirectoryClient, ListObjectPoliciesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, ListObjectPoliciesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import

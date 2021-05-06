@@ -27,7 +27,7 @@ export interface TestAlarmCommandOutput extends TestAlarmResult, __MetadataBeare
  *       on the Amazon Lightsail console. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-alarms">Alarms
  *         in Amazon Lightsail</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, TestAlarmCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, TestAlarmCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

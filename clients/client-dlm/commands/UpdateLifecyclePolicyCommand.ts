@@ -23,7 +23,7 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
 /**
  * <p>Updates the specified lifecycle policy.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DLMClient, UpdateLifecyclePolicyCommand } from "@aws-sdk/client-dlm"; // ES Modules import
  * // const { DLMClient, UpdateLifecyclePolicyCommand } = require("@aws-sdk/client-dlm"); // CommonJS import

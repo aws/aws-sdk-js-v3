@@ -29,7 +29,7 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  *             associated target can receive notifications when the events described in the rule are
  *             triggered.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodestarNotificationsClient, SubscribeCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, SubscribeCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import

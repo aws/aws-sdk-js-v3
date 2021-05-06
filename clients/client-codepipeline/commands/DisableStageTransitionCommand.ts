@@ -24,7 +24,7 @@ export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
  * <p>Prevents artifacts in a pipeline from transitioning to the next stage in the
  *             pipeline.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodePipelineClient, DisableStageTransitionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, DisableStageTransitionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import

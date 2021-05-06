@@ -23,7 +23,7 @@ export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomain
 /**
  * <p>Updates the firewall domain list from an array of domain specifications. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53ResolverClient, UpdateFirewallDomainsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, UpdateFirewallDomainsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import

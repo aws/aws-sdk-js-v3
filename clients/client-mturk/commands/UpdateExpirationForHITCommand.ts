@@ -26,7 +26,7 @@ export interface UpdateExpirationForHITCommandOutput extends UpdateExpirationFor
  *             If you update it to a time in the past, the HIT will be immediately expired.
  *         </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MTurkClient, UpdateExpirationForHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, UpdateExpirationForHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import

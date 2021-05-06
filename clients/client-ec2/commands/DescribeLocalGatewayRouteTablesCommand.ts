@@ -26,7 +26,7 @@ export interface DescribeLocalGatewayRouteTablesCommandOutput
  * <p>Describes one or more local gateway route tables. By default, all local gateway route tables are described.
  *          Alternatively, you can filter the results.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DescribeLocalGatewayRouteTablesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeLocalGatewayRouteTablesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

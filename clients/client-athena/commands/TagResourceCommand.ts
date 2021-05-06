@@ -32,7 +32,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *             @. Tag keys and values are case-sensitive. Tag keys must be unique per resource. If you
  *             specify more than one tag, separate them by commas.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AthenaClient, TagResourceCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, TagResourceCommand } = require("@aws-sdk/client-athena"); // CommonJS import

@@ -25,7 +25,7 @@ export interface UpdateMobileDeviceAccessRuleCommandOutput
 /**
  * <p>Updates a mobile device access rule for the specified Amazon WorkMail organization.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkMailClient, UpdateMobileDeviceAccessRuleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, UpdateMobileDeviceAccessRuleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import

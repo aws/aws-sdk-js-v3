@@ -34,7 +34,7 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  *       must provide the entire list. For example, to add an action, specify a list with the current
  *       actions plus the new action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticLoadBalancingV2Client, ModifyListenerCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, ModifyListenerCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import

@@ -29,7 +29,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  *          <p>You can also specify a maximum number of return results with the <i>Limit</i>
  *          parameter.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectoryServiceClient, DescribeSnapshotsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, DescribeSnapshotsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import

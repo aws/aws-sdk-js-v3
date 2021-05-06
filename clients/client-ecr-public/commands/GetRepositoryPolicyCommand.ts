@@ -23,7 +23,7 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
 /**
  * <p>Retrieves the repository policy for the specified repository.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECRPUBLICClient, GetRepositoryPolicyCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, GetRepositoryPolicyCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import

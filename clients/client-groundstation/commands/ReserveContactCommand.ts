@@ -23,7 +23,7 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
 /**
  * <p>Reserves a contact using specified parameters.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GroundStationClient, ReserveContactCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
  * // const { GroundStationClient, ReserveContactCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import

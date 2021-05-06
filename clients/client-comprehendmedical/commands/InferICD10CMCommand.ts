@@ -30,7 +30,7 @@ export interface InferICD10CMCommandOutput extends InferICD10CMResponse, __Metad
  *       Centers for Disease Control. Amazon Comprehend Medical only detects medical entities in
  *       English language texts.  </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendMedicalClient, InferICD10CMCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
  * // const { ComprehendMedicalClient, InferICD10CMCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import

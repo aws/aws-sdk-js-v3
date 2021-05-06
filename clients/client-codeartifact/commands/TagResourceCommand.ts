@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
 /**
  * <p>Adds or updates tags for a resource in AWS CodeArtifact.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeartifactClient, TagResourceCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
  * // const { CodeartifactClient, TagResourceCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import

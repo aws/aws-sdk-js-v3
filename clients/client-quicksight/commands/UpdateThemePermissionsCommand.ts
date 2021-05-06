@@ -116,7 +116,7 @@ export interface UpdateThemePermissionsCommandOutput extends UpdateThemePermissi
  *             </li>
  *          </ul>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, UpdateThemePermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateThemePermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

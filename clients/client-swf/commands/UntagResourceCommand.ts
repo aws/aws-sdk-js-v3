@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Remove a tag from a Amazon SWF domain.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SWFClient, UntagResourceCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, UntagResourceCommand } = require("@aws-sdk/client-swf"); // CommonJS import

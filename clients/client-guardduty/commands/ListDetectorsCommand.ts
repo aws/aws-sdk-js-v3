@@ -23,7 +23,7 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
 /**
  * <p>Lists detectorIds of all the existing Amazon GuardDuty detector resources.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, ListDetectorsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListDetectorsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import

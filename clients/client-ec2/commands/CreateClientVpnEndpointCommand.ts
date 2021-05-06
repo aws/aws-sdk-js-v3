@@ -25,7 +25,7 @@ export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEnd
  * 			enable and manage client VPN sessions. It is the destination endpoint at which all client VPN sessions
  * 			are terminated.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, CreateClientVpnEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, CreateClientVpnEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

@@ -23,7 +23,7 @@ export interface ListScheduledAuditsCommandOutput extends ListScheduledAuditsRes
 /**
  * <p>Lists all of your scheduled audits.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ListScheduledAuditsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListScheduledAuditsCommand } = require("@aws-sdk/client-iot"); // CommonJS import

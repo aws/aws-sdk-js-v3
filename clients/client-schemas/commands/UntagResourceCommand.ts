@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes tags from a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SchemasClient, UntagResourceCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, UntagResourceCommand } = require("@aws-sdk/client-schemas"); // CommonJS import

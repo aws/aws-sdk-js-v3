@@ -26,7 +26,7 @@ export interface ListInstanceStorageConfigsCommandOutput extends ListInstanceSto
  *          <p>Returns a paginated list of storage configs for the identified instance and resource
  *    type.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, ListInstanceStorageConfigsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListInstanceStorageConfigsCommand } = require("@aws-sdk/client-connect"); // CommonJS import

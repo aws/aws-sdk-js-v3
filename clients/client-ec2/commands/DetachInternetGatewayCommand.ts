@@ -25,7 +25,7 @@ export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
  * 			and the VPC. The VPC must not contain any running instances with Elastic IP addresses or
  * 			public IPv4 addresses.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DetachInternetGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DetachInternetGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

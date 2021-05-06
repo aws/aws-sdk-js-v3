@@ -21,7 +21,7 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  * <p>Retrieves the definitions of some or all of the tables in a given
  *       <code>Database</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, GetTablesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetTablesCommand } = require("@aws-sdk/client-glue"); // CommonJS import

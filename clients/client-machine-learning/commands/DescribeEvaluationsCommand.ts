@@ -23,7 +23,7 @@ export interface DescribeEvaluationsCommandOutput extends DescribeEvaluationsOut
 /**
  * <p>Returns a list of <code>DescribeEvaluations</code> that match the search criteria in the request.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MachineLearningClient, DescribeEvaluationsCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, DescribeEvaluationsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import

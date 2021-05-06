@@ -26,7 +26,7 @@ export interface GetMedicalTranscriptionJobCommandOutput extends GetMedicalTrans
  *                 <code>COMPLETED</code>, the job is finished. You find the results of the completed
  *             job in the <code>TranscriptFileUri</code> field.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TranscribeClient, GetMedicalTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, GetMedicalTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import

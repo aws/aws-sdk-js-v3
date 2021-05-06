@@ -23,7 +23,7 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
 /**
  * <p>Lists the address blocks that you have added to a directory.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectoryServiceClient, ListIpRoutesCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, ListIpRoutesCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import

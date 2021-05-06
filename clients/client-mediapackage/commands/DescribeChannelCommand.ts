@@ -23,7 +23,7 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
 /**
  * Gets details about a Channel.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaPackageClient, DescribeChannelCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
  * // const { MediaPackageClient, DescribeChannelCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import

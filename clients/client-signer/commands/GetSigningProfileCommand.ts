@@ -23,7 +23,7 @@ export interface GetSigningProfileCommandOutput extends GetSigningProfileRespons
 /**
  * <p>Returns information on a specific signing profile.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SignerClient, GetSigningProfileCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, GetSigningProfileCommand } = require("@aws-sdk/client-signer"); // CommonJS import

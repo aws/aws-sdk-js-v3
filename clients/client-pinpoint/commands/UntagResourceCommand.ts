@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes one or more tags (keys and values) from an application, campaign, message template, or segment.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, UntagResourceCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UntagResourceCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

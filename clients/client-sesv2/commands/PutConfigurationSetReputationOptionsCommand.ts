@@ -29,7 +29,7 @@ export interface PutConfigurationSetReputationOptionsCommandOutput
  * <p>Enable or disable collection of reputation metrics for emails that you send using a
  *             particular configuration set in a specific AWS Region.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESv2Client, PutConfigurationSetReputationOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, PutConfigurationSetReputationOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import

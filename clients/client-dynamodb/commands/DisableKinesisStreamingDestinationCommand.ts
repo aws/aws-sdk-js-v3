@@ -26,7 +26,7 @@ export interface DisableKinesisStreamingDestinationCommandOutput
  * <p>Stops replication from the DynamoDB table to the Kinesis data stream. This is done
  *             without deleting either of the resources.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DynamoDBClient, DisableKinesisStreamingDestinationCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DisableKinesisStreamingDestinationCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import

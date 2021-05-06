@@ -38,7 +38,7 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * 				lifecycle of any associated tasks and services.</p>
  * 		       </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECSClient, DeregisterTaskDefinitionCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, DeregisterTaskDefinitionCommand } = require("@aws-sdk/client-ecs"); // CommonJS import

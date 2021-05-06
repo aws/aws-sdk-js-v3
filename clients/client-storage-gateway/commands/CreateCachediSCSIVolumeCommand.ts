@@ -40,7 +40,7 @@ export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIV
  *          existing volume’s latest recovery point. The <code>VolumeSizeInBytes</code> value must be
  *          equal to or larger than the size of the copied volume, in bytes.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, CreateCachediSCSIVolumeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, CreateCachediSCSIVolumeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

@@ -23,7 +23,7 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
 /**
  * <p>Describes one or more of your job queues.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BatchClient, DescribeJobQueuesCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DescribeJobQueuesCommand } = require("@aws-sdk/client-batch"); // CommonJS import

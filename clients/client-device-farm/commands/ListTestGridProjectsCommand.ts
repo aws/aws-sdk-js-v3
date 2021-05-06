@@ -23,7 +23,7 @@ export interface ListTestGridProjectsCommandOutput extends ListTestGridProjectsR
 /**
  * <p>Gets a list of all Selenium testing projects in your account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DeviceFarmClient, ListTestGridProjectsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListTestGridProjectsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import

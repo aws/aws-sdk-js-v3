@@ -28,7 +28,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  *             Neptune. Use the <code>filterName=engine,Values=docdb</code> filter
  *             parameter to return only Amazon DocumentDB clusters.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, DescribeDBClustersCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBClustersCommand } = require("@aws-sdk/client-docdb"); // CommonJS import

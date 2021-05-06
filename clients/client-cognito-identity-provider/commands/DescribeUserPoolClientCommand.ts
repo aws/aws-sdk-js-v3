@@ -29,7 +29,7 @@ export interface DescribeUserPoolClientCommandOutput extends DescribeUserPoolCli
  * <p>Client method for returning the configuration information and metadata of the
  *             specified user pool app client.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityProviderClient, DescribeUserPoolClientCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, DescribeUserPoolClientCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import

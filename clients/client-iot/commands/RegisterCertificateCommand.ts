@@ -25,7 +25,7 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  *          that has the same subject field, you must specify the CA certificate that was used to sign
  *          the device certificate being registered.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, RegisterCertificateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, RegisterCertificateCommand } = require("@aws-sdk/client-iot"); // CommonJS import

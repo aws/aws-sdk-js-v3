@@ -24,7 +24,7 @@ export interface RevokeSignatureCommandOutput extends __MetadataBearer {}
  * <p>Changes the state of a signing job to REVOKED. This indicates that the signature is no
  * 			longer valid.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SignerClient, RevokeSignatureCommand } from "@aws-sdk/client-signer"; // ES Modules import
  * // const { SignerClient, RevokeSignatureCommand } = require("@aws-sdk/client-signer"); // CommonJS import

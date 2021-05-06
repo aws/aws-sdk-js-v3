@@ -23,7 +23,7 @@ export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __Met
 /**
  * <p> Returns the artifact info that corresponds to an artifact id. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmplifyClient, GetArtifactUrlCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GetArtifactUrlCommand } = require("@aws-sdk/client-amplify"); // CommonJS import

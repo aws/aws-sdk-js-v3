@@ -26,7 +26,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * 			request parameters, they are not changed. When a resource is deleted, the tags
  * 			associated with that resource are deleted as well.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECSClient, TagResourceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, TagResourceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import

@@ -86,7 +86,7 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *             </ul>
  *         </important>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OrganizationsClient, LeaveOrganizationCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, LeaveOrganizationCommand } = require("@aws-sdk/client-organizations"); // CommonJS import

@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
 /**
  * <p>Adds one or more tags to the specified resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WellArchitectedClient, TagResourceCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
  * // const { WellArchitectedClient, TagResourceCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import

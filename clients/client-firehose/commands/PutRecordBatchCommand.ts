@@ -73,7 +73,7 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  *             Instead, concatenate the raw data, then perform base64 encoding.</p>
  *          </important>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FirehoseClient, PutRecordBatchCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, PutRecordBatchCommand } = require("@aws-sdk/client-firehose"); // CommonJS import

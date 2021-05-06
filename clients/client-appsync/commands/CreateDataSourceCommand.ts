@@ -23,7 +23,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
 /**
  * <p>Creates a <code>DataSource</code> object.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppSyncClient, CreateDataSourceCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, CreateDataSourceCommand } = require("@aws-sdk/client-appsync"); // CommonJS import

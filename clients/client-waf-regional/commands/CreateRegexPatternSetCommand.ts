@@ -50,7 +50,7 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  *          <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  *             <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFRegionalClient, CreateRegexPatternSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, CreateRegexPatternSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import

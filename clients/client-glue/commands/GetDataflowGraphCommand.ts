@@ -23,7 +23,7 @@ export interface GetDataflowGraphCommandOutput extends GetDataflowGraphResponse,
 /**
  * <p>Transforms a Python script into a directed acyclic graph (DAG). </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, GetDataflowGraphCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetDataflowGraphCommand } = require("@aws-sdk/client-glue"); // CommonJS import

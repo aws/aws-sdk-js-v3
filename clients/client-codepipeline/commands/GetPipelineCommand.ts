@@ -25,7 +25,7 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  *             return the entire structure of a pipeline in JSON format, which can then be modified and
  *             used to update the pipeline structure with <a>UpdatePipeline</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodePipelineClient, GetPipelineCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, GetPipelineCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import

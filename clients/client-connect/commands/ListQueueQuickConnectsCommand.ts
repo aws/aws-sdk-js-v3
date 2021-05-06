@@ -24,7 +24,7 @@ export interface ListQueueQuickConnectsCommandOutput extends ListQueueQuickConne
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Lists the quick connects associated with a queue.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, ListQueueQuickConnectsCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, ListQueueQuickConnectsCommand } = require("@aws-sdk/client-connect"); // CommonJS import

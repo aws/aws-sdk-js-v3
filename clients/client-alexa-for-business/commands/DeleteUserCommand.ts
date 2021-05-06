@@ -23,7 +23,7 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
 /**
  * <p>Deletes a specified user by user ARN and enrollment ARN.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AlexaForBusinessClient, DeleteUserCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteUserCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import

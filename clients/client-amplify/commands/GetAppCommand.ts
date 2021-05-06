@@ -20,7 +20,7 @@ export interface GetAppCommandOutput extends GetAppResult, __MetadataBearer {}
 /**
  * <p> Returns an existing Amplify app by appID. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmplifyClient, GetAppCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GetAppCommand } = require("@aws-sdk/client-amplify"); // CommonJS import

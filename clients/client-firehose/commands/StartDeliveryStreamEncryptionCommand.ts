@@ -60,7 +60,7 @@ export interface StartDeliveryStreamEncryptionCommandOutput
  *             <code>StopDeliveryStreamEncryption</code> 12 times for the same delivery stream in a
  *          24-hour period.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FirehoseClient, StartDeliveryStreamEncryptionCommand } from "@aws-sdk/client-firehose"; // ES Modules import
  * // const { FirehoseClient, StartDeliveryStreamEncryptionCommand } = require("@aws-sdk/client-firehose"); // CommonJS import

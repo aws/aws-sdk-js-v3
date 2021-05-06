@@ -34,7 +34,7 @@ export interface QueryForecastCommandOutput extends QueryForecastResponse, __Met
  *         used to create the predictor.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ForecastqueryClient, QueryForecastCommand } from "@aws-sdk/client-forecastquery"; // ES Modules import
  * // const { ForecastqueryClient, QueryForecastCommand } = require("@aws-sdk/client-forecastquery"); // CommonJS import

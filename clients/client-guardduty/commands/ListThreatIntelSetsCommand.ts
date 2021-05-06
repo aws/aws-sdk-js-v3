@@ -25,7 +25,7 @@ export interface ListThreatIntelSetsCommandOutput extends ListThreatIntelSetsRes
  *       use this operation from a member account, the ThreatIntelSets associated with the administrator
  *       account are returned.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, ListThreatIntelSetsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, ListThreatIntelSetsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import

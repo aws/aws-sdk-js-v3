@@ -23,7 +23,7 @@ export interface StartRestoreJobCommandOutput extends StartRestoreJobOutput, __M
 /**
  * <p>Recovers the saved resource identified by an Amazon Resource Name (ARN).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, StartRestoreJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, StartRestoreJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import

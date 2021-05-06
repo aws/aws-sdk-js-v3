@@ -28,7 +28,7 @@ export interface EnableKinesisStreamingDestinationCommandOutput
  *             DescribeKinesisStreamingDestination to check if streaming to the Kinesis data stream is
  *             ACTIVE.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DynamoDBClient, EnableKinesisStreamingDestinationCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, EnableKinesisStreamingDestinationCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import

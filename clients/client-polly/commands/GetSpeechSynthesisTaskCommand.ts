@@ -25,7 +25,7 @@ export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisT
  *       information about the given speech synthesis task, including the status of the task, and a
  *       link to the S3 bucket containing the output of the task.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PollyClient, GetSpeechSynthesisTaskCommand } from "@aws-sdk/client-polly"; // ES Modules import
  * // const { PollyClient, GetSpeechSynthesisTaskCommand } = require("@aws-sdk/client-polly"); // CommonJS import

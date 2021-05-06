@@ -27,7 +27,7 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  *             update fails, the status is <code>Failed</code>, and an error detail explains the reason
  *             for the failure.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EKSClient, DescribeUpdateCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DescribeUpdateCommand } = require("@aws-sdk/client-eks"); // CommonJS import

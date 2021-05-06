@@ -31,7 +31,7 @@ export interface GetCertificateAuthorityCertificateCommandOutput
  * 			PEM-encoded. The chain does not include the CA certificate. Each certificate in the
  * 			chain signs the one before it. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ACMPCAClient, GetCertificateAuthorityCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, GetCertificateAuthorityCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import

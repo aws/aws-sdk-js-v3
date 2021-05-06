@@ -30,7 +30,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *       the console, deletion protection is enabled by default). You can only delete a DB
  *       cluster if its <code>DeletionProtection</code> field is set to <code>false</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, CreateDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, CreateDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

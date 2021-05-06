@@ -23,7 +23,7 @@ export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataB
 /**
  * <p>Activates the switch for the specific directory to always use LDAP secure calls.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectoryServiceClient, EnableLDAPSCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, EnableLDAPSCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import

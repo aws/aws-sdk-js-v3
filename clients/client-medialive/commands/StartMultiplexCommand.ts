@@ -23,7 +23,7 @@ export interface StartMultiplexCommandOutput extends StartMultiplexResponse, __M
 /**
  * Start (run) the multiplex. Starting the multiplex does not start the channels. You must explicitly start each channel.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaLiveClient, StartMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, StartMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import

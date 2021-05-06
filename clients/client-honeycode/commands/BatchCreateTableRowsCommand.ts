@@ -32,7 +32,7 @@ export interface BatchCreateTableRowsCommandOutput extends BatchCreateTableRowsR
  *             no formula in the last row of the table, then that column will be left blank for the new rows.
  *         </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { HoneycodeClient, BatchCreateTableRowsCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
  * // const { HoneycodeClient, BatchCreateTableRowsCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import

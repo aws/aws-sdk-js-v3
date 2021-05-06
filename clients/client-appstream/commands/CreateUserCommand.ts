@@ -23,7 +23,7 @@ export interface CreateUserCommandOutput extends CreateUserResult, __MetadataBea
 /**
  * <p>Creates a new user in the user pool.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppStreamClient, CreateUserCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateUserCommand } = require("@aws-sdk/client-appstream"); // CommonJS import

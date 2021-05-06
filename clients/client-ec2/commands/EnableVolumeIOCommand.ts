@@ -21,7 +21,7 @@ export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
  * <p>Enables I/O operations for a volume that had I/O operations disabled because the data on
  *       the volume was potentially inconsistent.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, EnableVolumeIOCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, EnableVolumeIOCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

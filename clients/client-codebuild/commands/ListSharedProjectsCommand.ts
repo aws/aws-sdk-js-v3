@@ -23,7 +23,7 @@ export interface ListSharedProjectsCommandOutput extends ListSharedProjectsOutpu
 /**
  * <p> Gets a list of projects that are shared with other AWS accounts or users. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeBuildClient, ListSharedProjectsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListSharedProjectsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import

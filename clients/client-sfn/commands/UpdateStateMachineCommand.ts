@@ -33,7 +33,7 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  *           <code>definition</code> and <code>roleArn</code>. </p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SFNClient, UpdateStateMachineCommand } from "@aws-sdk/client-sfn"; // ES Modules import
  * // const { SFNClient, UpdateStateMachineCommand } = require("@aws-sdk/client-sfn"); // CommonJS import

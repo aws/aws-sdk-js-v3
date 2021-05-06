@@ -24,7 +24,7 @@ export interface DeprecateThingTypeCommandOutput extends DeprecateThingTypeRespo
  * <p>Deprecates a thing type. You can not associate new things with deprecated thing
  * 			type.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, DeprecateThingTypeCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DeprecateThingTypeCommand } = require("@aws-sdk/client-iot"); // CommonJS import

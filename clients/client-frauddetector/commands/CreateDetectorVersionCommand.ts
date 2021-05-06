@@ -23,7 +23,7 @@ export interface CreateDetectorVersionCommandOutput extends CreateDetectorVersio
 /**
  * <p>Creates a detector version. The detector version starts in a <code>DRAFT</code> status.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FraudDetectorClient, CreateDetectorVersionCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, CreateDetectorVersionCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import

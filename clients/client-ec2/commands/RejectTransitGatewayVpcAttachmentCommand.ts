@@ -28,7 +28,7 @@ export interface RejectTransitGatewayVpcAttachmentCommandOutput
  *          Use <a>DescribeTransitGatewayVpcAttachments</a> to view your pending VPC attachment requests.
  *          Use <a>AcceptTransitGatewayVpcAttachment</a> to accept a VPC attachment request.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, RejectTransitGatewayVpcAttachmentCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, RejectTransitGatewayVpcAttachmentCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

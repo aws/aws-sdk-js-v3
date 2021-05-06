@@ -46,7 +46,7 @@ export interface DeleteGeoMatchSetCommandOutput extends DeleteGeoMatchSetRespons
  *             </li>
  *          </ol>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFRegionalClient, DeleteGeoMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
  * // const { WAFRegionalClient, DeleteGeoMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import

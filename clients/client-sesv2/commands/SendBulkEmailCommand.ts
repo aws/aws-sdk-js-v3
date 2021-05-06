@@ -23,7 +23,7 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
 /**
  * <p>Composes an email message to multiple destinations.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESv2Client, SendBulkEmailCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, SendBulkEmailCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import

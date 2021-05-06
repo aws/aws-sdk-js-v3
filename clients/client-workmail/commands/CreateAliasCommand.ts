@@ -23,7 +23,7 @@ export interface CreateAliasCommandOutput extends CreateAliasResponse, __Metadat
 /**
  * <p>Adds an alias to the set of a given member (user or group) of Amazon WorkMail.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkMailClient, CreateAliasCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, CreateAliasCommand } = require("@aws-sdk/client-workmail"); // CommonJS import

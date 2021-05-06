@@ -23,7 +23,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
 /**
  * <p>Returns a list of the tags assigned to the specified container. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaStoreClient, ListTagsForResourceCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, ListTagsForResourceCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import

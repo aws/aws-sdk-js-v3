@@ -23,7 +23,7 @@ export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaRes
 /**
  * <p>Get the discovered schema that was generated based on sampled events.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SchemasClient, GetDiscoveredSchemaCommand } from "@aws-sdk/client-schemas"; // ES Modules import
  * // const { SchemasClient, GetDiscoveredSchemaCommand } = require("@aws-sdk/client-schemas"); // CommonJS import

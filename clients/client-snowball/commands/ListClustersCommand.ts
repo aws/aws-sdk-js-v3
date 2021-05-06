@@ -25,7 +25,7 @@ export interface ListClustersCommandOutput extends ListClustersResult, __Metadat
  *         <code>ClusterListEntry</code> object contains a cluster's state, a cluster's ID, and other
  *       important status information.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SnowballClient, ListClustersCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, ListClustersCommand } = require("@aws-sdk/client-snowball"); // CommonJS import

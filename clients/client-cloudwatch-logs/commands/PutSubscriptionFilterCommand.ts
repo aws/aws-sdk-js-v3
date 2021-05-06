@@ -52,7 +52,7 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  *          <p>To perform a <code>PutSubscriptionFilter</code> operation, you must also have the
  *       <code>iam:PassRole</code> permission.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchLogsClient, PutSubscriptionFilterCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, PutSubscriptionFilterCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import

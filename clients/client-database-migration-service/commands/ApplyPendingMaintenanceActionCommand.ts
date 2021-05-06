@@ -29,7 +29,7 @@ export interface ApplyPendingMaintenanceActionCommandOutput
 /**
  * <p>Applies a pending maintenance action to a resource (for example, to a replication instance).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DatabaseMigrationServiceClient, ApplyPendingMaintenanceActionCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, ApplyPendingMaintenanceActionCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import

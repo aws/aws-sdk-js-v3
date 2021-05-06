@@ -28,7 +28,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  * <p>Removes the association between one or more provided tags and a notification
  *             rule.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodestarNotificationsClient, UntagResourceCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
  * // const { CodestarNotificationsClient, UntagResourceCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import

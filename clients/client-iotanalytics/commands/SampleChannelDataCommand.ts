@@ -24,7 +24,7 @@ export interface SampleChannelDataCommandOutput extends SampleChannelDataRespons
  * <p>Retrieves a sample of messages from the specified channel ingested during the specified
  *       timeframe. Up to 10 messages can be retrieved.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTAnalyticsClient, SampleChannelDataCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
  * // const { IoTAnalyticsClient, SampleChannelDataCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import

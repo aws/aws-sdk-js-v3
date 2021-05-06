@@ -27,7 +27,7 @@ export interface DeleteHumanTaskUiCommandOutput extends DeleteHumanTaskUiRespons
  *       (work task templates) in your account, use .
  *       When you delete a worker task template, it no longer appears when you call <code>ListHumanTaskUis</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, DeleteHumanTaskUiCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteHumanTaskUiCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

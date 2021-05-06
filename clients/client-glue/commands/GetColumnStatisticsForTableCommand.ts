@@ -27,7 +27,7 @@ export interface GetColumnStatisticsForTableCommandOutput
  *
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetTable</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, GetColumnStatisticsForTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetColumnStatisticsForTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import

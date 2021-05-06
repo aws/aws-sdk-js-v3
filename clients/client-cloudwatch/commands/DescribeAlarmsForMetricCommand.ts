@@ -27,7 +27,7 @@ export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForM
  * 		the specified metric. It does not return alarms based on math expressions that
  * 		use the specified metric, or composite alarms that use the specified metric.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchClient, DescribeAlarmsForMetricCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, DescribeAlarmsForMetricCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import

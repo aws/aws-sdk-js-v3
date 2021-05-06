@@ -24,7 +24,7 @@ export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectio
  * <p>Removes all authorization parameters from the connection. This lets you remove the secret
  *       from the connection so you can reuse it without having to create a new connection.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchEventsClient, DeauthorizeConnectionCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, DeauthorizeConnectionCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import

@@ -31,7 +31,7 @@ export interface CreateProvisionedProductPlanCommandOutput
  *          <p>To view the resource changes in the change set, use <a>DescribeProvisionedProductPlan</a>.
  *          To create or modify the provisioned product, use <a>ExecuteProvisionedProductPlan</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogClient, CreateProvisionedProductPlanCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreateProvisionedProductPlanCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import

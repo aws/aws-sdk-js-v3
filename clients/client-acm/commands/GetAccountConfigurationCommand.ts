@@ -24,7 +24,7 @@ export interface GetAccountConfigurationCommandOutput extends GetAccountConfigur
  * <p>Returns the account
  *       configuration options associated with an AWS account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ACMClient, GetAccountConfigurationCommand } from "@aws-sdk/client-acm"; // ES Modules import
  * // const { ACMClient, GetAccountConfigurationCommand } = require("@aws-sdk/client-acm"); // CommonJS import

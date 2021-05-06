@@ -24,7 +24,7 @@ export interface CreateStageCommandOutput extends Stage, __MetadataBearer {}
  * <p>Creates a new <a>Stage</a> resource that references a pre-existing <a>Deployment</a> for the API. </p>
  *         <!--   <p>Creates a <a>Stage</a> resource.</p>  -->
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, CreateStageCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, CreateStageCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

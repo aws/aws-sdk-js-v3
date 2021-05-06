@@ -26,7 +26,7 @@ export interface HttpPayloadTraitsWithMediaTypeCommandOutput
  * This examples uses a `@mediaType` trait on the payload to force a custom
  * content-type to be serialized.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestJsonProtocolClient, HttpPayloadTraitsWithMediaTypeCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, HttpPayloadTraitsWithMediaTypeCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import

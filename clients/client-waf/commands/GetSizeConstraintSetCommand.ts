@@ -31,7 +31,7 @@ export interface GetSizeConstraintSetCommandOutput extends GetSizeConstraintSetR
  *          </note>
  * 		       <p>Returns the <a>SizeConstraintSet</a> specified by <code>SizeConstraintSetId</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFClient, GetSizeConstraintSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetSizeConstraintSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import

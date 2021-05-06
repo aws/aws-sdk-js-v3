@@ -25,7 +25,7 @@ export interface DeleteApnsVoipSandboxChannelCommandOutput
 /**
  * <p>Disables the APNs VoIP sandbox channel for an application and deletes any existing settings for the channel.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, DeleteApnsVoipSandboxChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, DeleteApnsVoipSandboxChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

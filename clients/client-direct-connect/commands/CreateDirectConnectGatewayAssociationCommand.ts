@@ -30,7 +30,7 @@ export interface CreateDirectConnectGatewayAssociationCommandOutput
  * <p>Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual
  *       private gateway must be attached to a VPC and must not be associated with another Direct Connect gateway.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectConnectClient, CreateDirectConnectGatewayAssociationCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateDirectConnectGatewayAssociationCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import

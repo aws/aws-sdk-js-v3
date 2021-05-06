@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Adds tags to the specified playback configuration resource. You can specify one or more tags to add.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaTailorClient, TagResourceCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
  * // const { MediaTailorClient, TagResourceCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import

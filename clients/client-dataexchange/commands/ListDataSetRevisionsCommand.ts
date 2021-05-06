@@ -23,7 +23,7 @@ export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsR
 /**
  * <p>This operation lists a data set's revisions sorted by CreatedAt in descending order.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataExchangeClient, ListDataSetRevisionsCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, ListDataSetRevisionsCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import

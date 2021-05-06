@@ -30,7 +30,7 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  *          the response body. To specify which gateway to describe, use the Amazon Resource Name (ARN)
  *          of the gateway in your request.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, DescribeBandwidthRateLimitCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeBandwidthRateLimitCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

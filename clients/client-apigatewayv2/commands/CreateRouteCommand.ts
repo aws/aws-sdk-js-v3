@@ -23,7 +23,7 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
 /**
  * <p>Creates a Route for an API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApiGatewayV2Client, CreateRouteCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, CreateRouteCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import

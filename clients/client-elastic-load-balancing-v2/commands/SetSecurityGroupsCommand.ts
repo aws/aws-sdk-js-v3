@@ -30,7 +30,7 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  *          <p>You can't specify a security group for a Network Load Balancer or Gateway Load
  *       Balancer.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticLoadBalancingV2Client, SetSecurityGroupsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
  * // const { ElasticLoadBalancingV2Client, SetSecurityGroupsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import

@@ -31,7 +31,7 @@ export interface AssociateCustomerGatewayCommandOutput extends AssociateCustomer
  *                 <code>transit-gateway-id</code>.</p>
  *         <p>You cannot associate a customer gateway with more than one device and link. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NetworkManagerClient, AssociateCustomerGatewayCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, AssociateCustomerGatewayCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import

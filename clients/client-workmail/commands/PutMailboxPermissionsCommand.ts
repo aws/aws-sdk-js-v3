@@ -24,7 +24,7 @@ export interface PutMailboxPermissionsCommandOutput extends PutMailboxPermission
  * <p>Sets permissions for a user, group, or resource. This replaces any pre-existing
  *          permissions.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkMailClient, PutMailboxPermissionsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, PutMailboxPermissionsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import

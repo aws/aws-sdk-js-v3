@@ -26,7 +26,7 @@ export interface DeletePlaceIndexCommandOutput extends DeletePlaceIndexResponse,
  *             <p>This action deletes the resource permanently. You cannot undo this action.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LocationClient, DeletePlaceIndexCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DeletePlaceIndexCommand } = require("@aws-sdk/client-location"); // CommonJS import

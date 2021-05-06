@@ -37,7 +37,7 @@ export interface DeleteVPCAssociationAuthorizationCommandOutput
  * 				If you want to delete an existing association, use <code>DisassociateVPCFromHostedZone</code>.</p>
  * 		       </important>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53Client, DeleteVPCAssociationAuthorizationCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, DeleteVPCAssociationAuthorizationCommand } = require("@aws-sdk/client-route-53"); // CommonJS import

@@ -23,7 +23,7 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
 /**
  * <p>Deletes a pipeline if there are no in-progress executions.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, DeletePipelineCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeletePipelineCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

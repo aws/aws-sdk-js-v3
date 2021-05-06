@@ -23,7 +23,7 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
 /**
  * <p>Lists the resources that you added to a resource shares or the resources that are shared with you.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RAMClient, ListResourcesCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListResourcesCommand } = require("@aws-sdk/client-ram"); // CommonJS import

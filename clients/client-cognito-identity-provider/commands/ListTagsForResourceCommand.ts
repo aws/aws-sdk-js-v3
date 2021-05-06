@@ -31,7 +31,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *             different ways, such as by purpose, owner, environment, or other criteria.</p>
  *         <p>You can use this action up to 10 times per second, per account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityProviderClient, ListTagsForResourceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ListTagsForResourceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import

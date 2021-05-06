@@ -24,7 +24,7 @@ export interface GetServersCommandOutput extends GetServersResponse, __MetadataB
  * <p>Describes the servers in your server catalog.</p>
  *         <p>Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SMSClient, GetServersCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, GetServersCommand } = require("@aws-sdk/client-sms"); // CommonJS import

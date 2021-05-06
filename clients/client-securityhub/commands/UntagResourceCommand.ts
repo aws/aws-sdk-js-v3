@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>Removes one or more tags from a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, UntagResourceCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, UntagResourceCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

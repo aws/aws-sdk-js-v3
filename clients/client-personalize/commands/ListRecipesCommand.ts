@@ -24,7 +24,7 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  * <p>Returns a list of available recipes. The response provides the properties
  *        for each recipe, including the recipe's Amazon Resource Name (ARN).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PersonalizeClient, ListRecipesCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, ListRecipesCommand } = require("@aws-sdk/client-personalize"); // CommonJS import

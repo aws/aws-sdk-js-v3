@@ -25,7 +25,7 @@ export interface ListPendingInvitationResourcesCommandOutput
 /**
  * <p>Lists the resources in a resource share that is shared with you but that the invitation is still pending for.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RAMClient, ListPendingInvitationResourcesCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, ListPendingInvitationResourcesCommand } = require("@aws-sdk/client-ram"); // CommonJS import

@@ -30,7 +30,7 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
  * <p>Retrieves the individual task executions (one per target) for a particular task run as part
  *    of a maintenance window execution.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, DescribeMaintenanceWindowExecutionTaskInvocationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeMaintenanceWindowExecutionTaskInvocationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

@@ -25,7 +25,7 @@ export interface UpdateTaskSetCommandOutput extends UpdateTaskSetResponse, __Met
  * 			deployment controller type. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS Deployment
  * 				Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECSClient, UpdateTaskSetCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, UpdateTaskSetCommand } = require("@aws-sdk/client-ecs"); // CommonJS import

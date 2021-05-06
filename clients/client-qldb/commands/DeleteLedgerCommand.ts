@@ -27,7 +27,7 @@ export interface DeleteLedgerCommandOutput extends __MetadataBearer {}
  *             <code>UpdateLedger</code> operation to set the flag to <code>false</code>. The QLDB
  *          console disables deletion protection for you when you use it to delete a ledger.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QLDBClient, DeleteLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, DeleteLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import

@@ -24,7 +24,7 @@ export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataR
  * <p>Adds one or more custom properties to the specified resource (a folder, document,
  *             or version).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkDocsClient, CreateCustomMetadataCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, CreateCustomMetadataCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import

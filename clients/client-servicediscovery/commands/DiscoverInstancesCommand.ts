@@ -25,7 +25,7 @@ export interface DiscoverInstancesCommandOutput extends DiscoverInstancesRespons
  *    to discover instances for any type of namespace. For public and private DNS namespaces, you can also use DNS queries
  *    to discover instances.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceDiscoveryClient, DiscoverInstancesCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
  * // const { ServiceDiscoveryClient, DiscoverInstancesCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import

@@ -25,7 +25,7 @@ export interface ListReportGroupsCommandOutput extends ListReportGroupsOutput, _
  *       Gets a list ARNs for the report groups in the current AWS account.
  *     </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeBuildClient, ListReportGroupsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
  * // const { CodeBuildClient, ListReportGroupsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import

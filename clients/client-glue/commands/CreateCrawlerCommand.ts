@@ -25,7 +25,7 @@ export interface CreateCrawlerCommandOutput extends CreateCrawlerResponse, __Met
  *       At least one crawl target must be specified, in the <code>s3Targets</code> field, the
  *         <code>jdbcTargets</code> field, or the <code>DynamoDBTargets</code> field.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, CreateCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, CreateCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import

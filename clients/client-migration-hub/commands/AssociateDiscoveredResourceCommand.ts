@@ -24,7 +24,7 @@ export interface AssociateDiscoveredResourceCommandOutput extends AssociateDisco
  * <p>Associates a discovered resource ID from Application Discovery Service with a migration
  *          task.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MigrationHubClient, AssociateDiscoveredResourceCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
  * // const { MigrationHubClient, AssociateDiscoveredResourceCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import

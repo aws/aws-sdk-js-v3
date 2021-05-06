@@ -23,7 +23,7 @@ export interface GetCampaignsCommandOutput extends GetCampaignsResponse, __Metad
 /**
  * <p>Retrieves information about the status, configuration, and other settings for all the campaigns that are associated with an application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetCampaignsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetCampaignsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

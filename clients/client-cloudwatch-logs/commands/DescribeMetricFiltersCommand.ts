@@ -25,7 +25,7 @@ export interface DescribeMetricFiltersCommandOutput extends DescribeMetricFilter
  *       the results by log name, prefix, metric name, or metric namespace. The results are
  *       ASCII-sorted by filter name.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchLogsClient, DescribeMetricFiltersCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeMetricFiltersCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import

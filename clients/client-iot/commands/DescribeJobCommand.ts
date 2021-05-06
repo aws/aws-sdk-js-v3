@@ -23,7 +23,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResponse, __Metadat
 /**
  * <p>Describes a job.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, DescribeJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, DescribeJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import

@@ -37,7 +37,7 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  *             parameter. You can't use <code>all</code> as a value for that parameter in this
  *             case.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, ModifyDBClusterSnapshotAttributeCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ModifyDBClusterSnapshotAttributeCommand } = require("@aws-sdk/client-docdb"); // CommonJS import

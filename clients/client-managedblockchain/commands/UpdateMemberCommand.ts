@@ -28,7 +28,7 @@ export interface UpdateMemberCommandOutput extends UpdateMemberOutput, __Metadat
  * <p>Updates a member configuration with new parameters.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ManagedBlockchainClient, UpdateMemberCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, UpdateMemberCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import

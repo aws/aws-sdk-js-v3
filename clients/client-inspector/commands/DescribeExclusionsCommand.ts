@@ -23,7 +23,7 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
 /**
  * <p>Describes the exclusions that are specified by the exclusions' ARNs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { InspectorClient, DescribeExclusionsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DescribeExclusionsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import

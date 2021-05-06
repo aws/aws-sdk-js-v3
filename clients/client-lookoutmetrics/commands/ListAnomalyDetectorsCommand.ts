@@ -23,7 +23,7 @@ export interface ListAnomalyDetectorsCommandOutput extends ListAnomalyDetectorsR
 /**
  * <p>Lists the detectors in the current AWS Region.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LookoutMetricsClient, ListAnomalyDetectorsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, ListAnomalyDetectorsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import

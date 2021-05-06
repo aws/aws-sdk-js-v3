@@ -36,7 +36,7 @@ export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBea
  *             <a href="https://requester.mturk.com/pricing">Amazon Mechanical Turk Pricing</a>.</p>
  *         </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MTurkClient, CreateHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
  * // const { MTurkClient, CreateHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import

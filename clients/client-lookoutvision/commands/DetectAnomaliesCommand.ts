@@ -41,7 +41,7 @@ export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, _
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:DetectAnomalies</code> operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LookoutVisionClient, DetectAnomaliesCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, DetectAnomaliesCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import

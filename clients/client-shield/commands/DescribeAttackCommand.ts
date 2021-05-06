@@ -23,7 +23,7 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
 /**
  * <p>Describes the details of a DDoS attack. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ShieldClient, DescribeAttackCommand } from "@aws-sdk/client-shield"; // ES Modules import
  * // const { ShieldClient, DescribeAttackCommand } = require("@aws-sdk/client-shield"); // CommonJS import

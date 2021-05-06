@@ -24,7 +24,7 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
  * <p>Lists the versions of the specified policy and identifies the default
  *          version.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ListPolicyVersionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListPolicyVersionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import

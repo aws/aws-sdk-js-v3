@@ -24,7 +24,7 @@ export interface GetDistributionsCommandOutput extends GetDistributionsResult, _
  * <p>Returns information about one or more of your Amazon Lightsail content delivery network
  *       (CDN) distributions.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, GetDistributionsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetDistributionsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

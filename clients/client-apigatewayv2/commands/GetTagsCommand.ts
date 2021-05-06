@@ -23,7 +23,7 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
 /**
  * <p>Gets a collection of Tag resources.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApiGatewayV2Client, GetTagsCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
  * // const { ApiGatewayV2Client, GetTagsCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import

@@ -24,7 +24,7 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * <p>Updates the schema name with a new name. Only development schema names can be
  *       updated.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudDirectoryClient, UpdateSchemaCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
  * // const { CloudDirectoryClient, UpdateSchemaCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import

@@ -23,7 +23,7 @@ export interface CreateOutpostCommandOutput extends CreateOutpostOutput, __Metad
 /**
  * <p>Creates an Outpost.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OutpostsClient, CreateOutpostCommand } from "@aws-sdk/client-outposts"; // ES Modules import
  * // const { OutpostsClient, CreateOutpostCommand } = require("@aws-sdk/client-outposts"); // CommonJS import

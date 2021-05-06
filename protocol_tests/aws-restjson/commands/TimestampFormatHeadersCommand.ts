@@ -23,7 +23,7 @@ export interface TimestampFormatHeadersCommandOutput extends TimestampFormatHead
 /**
  * This example tests how timestamp request and response headers are serialized.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestJsonProtocolClient, TimestampFormatHeadersCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, TimestampFormatHeadersCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import

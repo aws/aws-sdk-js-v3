@@ -23,7 +23,7 @@ export interface PutAppLaunchConfigurationCommandOutput extends PutAppLaunchConf
 /**
  * <p>Creates or updates the launch configuration for the specified application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SMSClient, PutAppLaunchConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, PutAppLaunchConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import

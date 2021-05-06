@@ -24,7 +24,7 @@ export interface GetDigestCommandOutput extends GetDigestResponse, __MetadataBea
  * <p>Returns the digest of a ledger at the latest committed block in the journal. The
  *          response includes a 256-bit hash value and a block address.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QLDBClient, GetDigestCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, GetDigestCommand } = require("@aws-sdk/client-qldb"); // CommonJS import

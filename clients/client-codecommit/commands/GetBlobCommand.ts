@@ -20,7 +20,7 @@ export interface GetBlobCommandOutput extends GetBlobOutput, __MetadataBearer {}
 /**
  * <p>Returns the base-64 encoded content of an individual blob in a repository.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeCommitClient, GetBlobCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetBlobCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import

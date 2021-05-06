@@ -26,7 +26,7 @@ export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __M
  *             team.</p>
  *         <p>You cannot create more than 25 work teams in an account and region.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, CreateWorkteamCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateWorkteamCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

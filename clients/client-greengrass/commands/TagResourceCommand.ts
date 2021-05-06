@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 /**
  * Adds tags to a Greengrass resource. Valid resources are 'Group', 'ConnectorDefinition', 'CoreDefinition', 'DeviceDefinition', 'FunctionDefinition', 'LoggerDefinition', 'SubscriptionDefinition', 'ResourceDefinition', and 'BulkDeployment'.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GreengrassClient, TagResourceCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
  * // const { GreengrassClient, TagResourceCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import

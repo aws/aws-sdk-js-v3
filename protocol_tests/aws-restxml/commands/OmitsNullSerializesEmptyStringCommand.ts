@@ -23,7 +23,7 @@ export interface OmitsNullSerializesEmptyStringCommandOutput extends __MetadataB
 /**
  * Omits null, but serializes empty string value.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestXmlProtocolClient, OmitsNullSerializesEmptyStringCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, OmitsNullSerializesEmptyStringCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import

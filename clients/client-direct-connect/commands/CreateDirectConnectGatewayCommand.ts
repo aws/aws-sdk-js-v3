@@ -28,7 +28,7 @@ export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectCon
  *       connect to a VPC in any Region, regardless of the Region in which the virtual interfaces
  *       are located, and pass traffic between them.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectConnectClient, CreateDirectConnectGatewayCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
  * // const { DirectConnectClient, CreateDirectConnectGatewayCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import

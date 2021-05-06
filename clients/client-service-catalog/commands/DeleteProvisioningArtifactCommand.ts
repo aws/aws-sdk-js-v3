@@ -26,7 +26,7 @@ export interface DeleteProvisioningArtifactCommandOutput extends DeleteProvision
  *          You cannot delete the last provisioning artifact for a product, because a product must have at
  *          least one provisioning artifact.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogClient, DeleteProvisioningArtifactCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeleteProvisioningArtifactCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import

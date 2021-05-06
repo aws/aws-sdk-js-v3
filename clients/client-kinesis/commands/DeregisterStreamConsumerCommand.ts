@@ -30,7 +30,7 @@ export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer 
  *             description of a consumer contains its name and ARN.</p>
  *         <p>This operation has a limit of five transactions per second per stream.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisClient, DeregisterStreamConsumerCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, DeregisterStreamConsumerCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import

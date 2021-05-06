@@ -24,7 +24,7 @@ export interface UpdatePortfolioCommandOutput extends UpdatePortfolioOutput, __M
  * <p>Updates the specified portfolio.</p>
  *          <p>You cannot update a product that was shared with you.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogClient, UpdatePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, UpdatePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import

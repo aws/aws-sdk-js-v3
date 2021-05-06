@@ -23,7 +23,7 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
 /**
  * <p>Updates a group resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { XRayClient, UpdateGroupCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, UpdateGroupCommand } = require("@aws-sdk/client-xray"); // CommonJS import

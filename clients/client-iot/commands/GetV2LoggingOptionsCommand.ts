@@ -23,7 +23,7 @@ export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsRes
 /**
  * <p>Gets the fine grained logging options.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, GetV2LoggingOptionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetV2LoggingOptionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import

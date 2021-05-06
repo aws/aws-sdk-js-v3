@@ -23,7 +23,7 @@ export interface GetWorkflowRunPropertiesCommandOutput extends GetWorkflowRunPro
 /**
  * <p>Retrieves the workflow run properties which were set during the run.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, GetWorkflowRunPropertiesCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetWorkflowRunPropertiesCommand } = require("@aws-sdk/client-glue"); // CommonJS import

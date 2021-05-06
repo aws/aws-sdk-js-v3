@@ -23,7 +23,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>List all tags for your Application Migration Service resources.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MgnClient, ListTagsForResourceCommand } from "@aws-sdk/client-mgn"; // ES Modules import
  * // const { MgnClient, ListTagsForResourceCommand } = require("@aws-sdk/client-mgn"); // CommonJS import

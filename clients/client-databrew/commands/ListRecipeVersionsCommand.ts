@@ -24,7 +24,7 @@ export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsRespo
  * <p>Lists the versions of a particular DataBrew recipe, except for
  *                 <code>LATEST_WORKING</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, ListRecipeVersionsCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListRecipeVersionsCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

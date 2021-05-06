@@ -39,7 +39,7 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  *
  *          <p>Use the <code>DescribeTable</code> action to check the status of the table. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DynamoDBClient, DeleteTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
  * // const { DynamoDBClient, DeleteTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import

@@ -27,7 +27,7 @@ export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __Met
  * 		       <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
  * 			the rule was created might not be available.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchClient, PutInsightRuleCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, PutInsightRuleCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import

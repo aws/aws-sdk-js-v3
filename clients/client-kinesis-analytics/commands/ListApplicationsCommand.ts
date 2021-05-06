@@ -39,7 +39,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  *         <p>This operation requires permissions to perform the
  *             <code>kinesisanalytics:ListApplications</code> action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisAnalyticsClient, ListApplicationsCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
  * // const { KinesisAnalyticsClient, ListApplicationsCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import

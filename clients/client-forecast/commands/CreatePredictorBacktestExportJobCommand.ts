@@ -39,7 +39,7 @@ export interface CreatePredictorBacktestExportJobCommandOutput
  *                 you can access the export in your Amazon S3 bucket. To get the status, use the <a>DescribePredictorBacktestExportJob</a> operation.</p>
  *         </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ForecastClient, CreatePredictorBacktestExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
  * // const { ForecastClient, CreatePredictorBacktestExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import

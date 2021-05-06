@@ -28,7 +28,7 @@ export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __Metad
  * <p>Creates a new blockchain network using Amazon Managed Blockchain.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ManagedBlockchainClient, CreateNetworkCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, CreateNetworkCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import

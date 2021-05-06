@@ -23,7 +23,7 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
 /**
  * <p>Returns a database object for the specified database and data catalog.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AthenaClient, GetDatabaseCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, GetDatabaseCommand } = require("@aws-sdk/client-athena"); // CommonJS import

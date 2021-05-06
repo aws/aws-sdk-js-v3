@@ -28,7 +28,7 @@ export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataB
  * 			is not referenced in a cache behavior, you can get the identifier using
  * 			<code>ListKeyGroups</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFrontClient, GetKeyGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, GetKeyGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import

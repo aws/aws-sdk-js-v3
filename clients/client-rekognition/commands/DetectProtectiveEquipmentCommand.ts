@@ -62,7 +62,7 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  *
  *          <p>This operation requires permissions to perform the <code>rekognition:DetectProtectiveEquipment</code> action. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, DetectProtectiveEquipmentCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DetectProtectiveEquipmentCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import

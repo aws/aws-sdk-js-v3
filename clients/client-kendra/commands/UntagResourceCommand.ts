@@ -23,7 +23,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>Removes a tag from an index, FAQ, or a data source.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, UntagResourceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, UntagResourceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import

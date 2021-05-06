@@ -23,7 +23,7 @@ export interface RemoveAttributesCommandOutput extends RemoveAttributesResponse,
 /**
  * <p>Removes one or more attributes, of the same attribute type, from all the endpoints that are associated with an application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, RemoveAttributesCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, RemoveAttributesCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

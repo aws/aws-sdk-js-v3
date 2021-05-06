@@ -24,7 +24,7 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * <p>Creates a machine learning (ML) project that can contain one or more templates that set
  *             up an ML pipeline from training to deploying an approved model.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, CreateProjectCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateProjectCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

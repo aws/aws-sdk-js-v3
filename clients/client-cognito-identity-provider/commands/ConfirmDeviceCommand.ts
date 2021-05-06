@@ -29,7 +29,7 @@ export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __Met
  * <p>Confirms tracking of the device. This API call is the call that begins device
  *             tracking.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CognitoIdentityProviderClient, ConfirmDeviceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
  * // const { CognitoIdentityProviderClient, ConfirmDeviceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import

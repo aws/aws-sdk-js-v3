@@ -27,7 +27,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *          <p>Each Amazon Connect instance can be associated with only one domain. Multiple Amazon Connect instances can
  *          be associated with one domain.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CustomerProfilesClient, CreateDomainCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, CreateDomainCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import

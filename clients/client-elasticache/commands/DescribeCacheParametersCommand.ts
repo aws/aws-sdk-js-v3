@@ -24,7 +24,7 @@ export interface DescribeCacheParametersCommandOutput extends CacheParameterGrou
  * <p>Returns the detailed parameter list for a
  *             particular cache parameter group.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElastiCacheClient, DescribeCacheParametersCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeCacheParametersCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import

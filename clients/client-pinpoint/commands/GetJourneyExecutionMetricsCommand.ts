@@ -23,7 +23,7 @@ export interface GetJourneyExecutionMetricsCommandOutput extends GetJourneyExecu
 /**
  * <p>Retrieves (queries) pre-aggregated data for a standard execution metric that applies to a journey.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetJourneyExecutionMetricsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetJourneyExecutionMetricsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

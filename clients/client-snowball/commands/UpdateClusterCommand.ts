@@ -26,7 +26,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResult, __Metad
  *       changes to a different job state, usually 60 minutes after the cluster being created, this
  *       action is no longer available.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SnowballClient, UpdateClusterCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, UpdateClusterCommand } = require("@aws-sdk/client-snowball"); // CommonJS import

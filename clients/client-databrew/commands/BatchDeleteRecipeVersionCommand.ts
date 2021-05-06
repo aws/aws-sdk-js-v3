@@ -63,7 +63,7 @@ export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipe
  *             exist (or if they can't be deleted), then <code>LATEST_WORKING</code> will be listed as
  *             partial failure in the response.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, BatchDeleteRecipeVersionCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, BatchDeleteRecipeVersionCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

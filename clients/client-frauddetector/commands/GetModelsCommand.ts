@@ -26,7 +26,7 @@ export interface GetModelsCommandOutput extends GetModelsResult, __MetadataBeare
  *             response as part of your request. A null pagination token
  *          fetches the records from the beginning.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FraudDetectorClient, GetModelsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
  * // const { FraudDetectorClient, GetModelsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import

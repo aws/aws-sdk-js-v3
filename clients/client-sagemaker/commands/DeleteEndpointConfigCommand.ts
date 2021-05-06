@@ -31,7 +31,7 @@ export interface DeleteEndpointConfigCommandOutput extends __MetadataBearer {}
  *             instance type the endpoint is using. The endpoint must be deleted in order to stop
  *             incurring charges.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, DeleteEndpointConfigCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DeleteEndpointConfigCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

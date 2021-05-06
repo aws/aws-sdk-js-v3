@@ -26,7 +26,7 @@ export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __Metad
  *          associated with the specified gateway. This operation is only supported in the tape gateway
  *          type.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, DescribeTapesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeTapesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

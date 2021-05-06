@@ -32,7 +32,7 @@ export interface UpdateLicenseSpecificationsForResourceCommandOutput
  *          You cannot update the license specifications for launch templates and AWS CloudFormation templates,
  *          as they send license configurations to the operation that creates the resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LicenseManagerClient, UpdateLicenseSpecificationsForResourceCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
  * // const { LicenseManagerClient, UpdateLicenseSpecificationsForResourceCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import

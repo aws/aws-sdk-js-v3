@@ -23,7 +23,7 @@ export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsRespons
 /**
  * <p>List <code>FeatureGroup</code>s based on given filter and order.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, ListFeatureGroupsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListFeatureGroupsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

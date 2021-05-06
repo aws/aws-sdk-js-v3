@@ -23,7 +23,7 @@ export interface DescribeHumanTaskUiCommandOutput extends DescribeHumanTaskUiRes
 /**
  * <p>Returns information about the requested human task user interface (worker task template).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, DescribeHumanTaskUiCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, DescribeHumanTaskUiCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

@@ -28,7 +28,7 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  *          <p>Can be used by both member accounts that are managed using Organizations and accounts that were
  *          invited manually.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, GetMasterAccountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetMasterAccountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

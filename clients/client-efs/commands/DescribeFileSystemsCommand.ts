@@ -45,7 +45,7 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  *          <p> This operation requires permissions for the
  *         <code>elasticfilesystem:DescribeFileSystems</code> action. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EFSClient, DescribeFileSystemsCommand } from "@aws-sdk/client-efs"; // ES Modules import
  * // const { EFSClient, DescribeFileSystemsCommand } = require("@aws-sdk/client-efs"); // CommonJS import

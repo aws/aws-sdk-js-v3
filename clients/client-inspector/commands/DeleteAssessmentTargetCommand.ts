@@ -24,7 +24,7 @@ export interface DeleteAssessmentTargetCommandOutput extends __MetadataBearer {}
  * <p>Deletes the assessment target that is specified by the ARN of the assessment
  *          target.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { InspectorClient, DeleteAssessmentTargetCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DeleteAssessmentTargetCommand } = require("@aws-sdk/client-inspector"); // CommonJS import

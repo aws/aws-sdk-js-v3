@@ -23,7 +23,7 @@ export interface UpdateDataSourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Updates an existing Amazon Kendra data source.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, UpdateDataSourceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, UpdateDataSourceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import

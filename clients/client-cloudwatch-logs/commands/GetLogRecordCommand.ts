@@ -26,7 +26,7 @@ export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __Metad
  *       subset of fields. Fields are returned as field name/field value pairs.</p>
  *          <p>The full unparsed log event is returned within <code>@message</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchLogsClient, GetLogRecordCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, GetLogRecordCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import

@@ -27,7 +27,7 @@ export interface UpdateMLTransformCommandOutput extends UpdateMLTransformRespons
  *       operation to assess how well your new parameters achieved your goals (such as improving the
  *       quality of your machine learning transform, or making it more cost-effective).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, UpdateMLTransformCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateMLTransformCommand } = require("@aws-sdk/client-glue"); // CommonJS import

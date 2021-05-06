@@ -23,7 +23,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
 /**
  * <p>Updates an Amazon QuickSight user.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, UpdateUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

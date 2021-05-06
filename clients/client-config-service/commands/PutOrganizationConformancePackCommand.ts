@@ -45,7 +45,7 @@ export interface PutOrganizationConformancePackCommandOutput
  * 			         <p>You can create 50 conformance packs with 25 AWS Config rules in each pack and 3 delegated administrator per organization. </p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConfigServiceClient, PutOrganizationConformancePackCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutOrganizationConformancePackCommand } = require("@aws-sdk/client-config-service"); // CommonJS import

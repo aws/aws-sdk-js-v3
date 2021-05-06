@@ -23,7 +23,7 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
 /**
  * <p>Lists the alerts attached to a detector.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LookoutMetricsClient, ListAlertsCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
  * // const { LookoutMetricsClient, ListAlertsCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import

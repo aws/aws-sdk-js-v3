@@ -23,7 +23,7 @@ export interface GetRelationalDatabaseEventsCommandOutput extends GetRelationalD
 /**
  * <p>Returns a list of events for a specific database in Amazon Lightsail.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LightsailClient, GetRelationalDatabaseEventsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
  * // const { LightsailClient, GetRelationalDatabaseEventsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import

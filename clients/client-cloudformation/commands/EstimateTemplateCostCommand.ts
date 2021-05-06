@@ -25,7 +25,7 @@ export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostO
  *          Monthly Calculator URL with a query string that describes the resources required to run the
  *          template.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFormationClient, EstimateTemplateCostCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, EstimateTemplateCostCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import

@@ -23,7 +23,7 @@ export interface GetEncryptionConfigCommandOutput extends GetEncryptionConfigRes
 /**
  * <p>Retrieves the current encryption configuration for X-Ray data.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { XRayClient, GetEncryptionConfigCommand } from "@aws-sdk/client-xray"; // ES Modules import
  * // const { XRayClient, GetEncryptionConfigCommand } = require("@aws-sdk/client-xray"); // CommonJS import

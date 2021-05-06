@@ -24,7 +24,7 @@ export interface DescribeAddressCommandOutput extends DescribeAddressResult, __M
  * <p>Takes an <code>AddressId</code> and returns specific details about that address in the
  *       form of an <code>Address</code> object.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SnowballClient, DescribeAddressCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, DescribeAddressCommand } = require("@aws-sdk/client-snowball"); // CommonJS import

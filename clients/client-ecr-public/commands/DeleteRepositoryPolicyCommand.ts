@@ -23,7 +23,7 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
 /**
  * <p>Deletes the repository policy associated with the specified repository.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECRPUBLICClient, DeleteRepositoryPolicyCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
  * // const { ECRPUBLICClient, DeleteRepositoryPolicyCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import

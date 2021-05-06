@@ -25,7 +25,7 @@ export interface DeleteSignalingChannelCommandOutput extends DeleteSignalingChan
  *             asynchronous operation. If you don't specify the channel's current version, the most
  *             recent version is deleted.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisVideoClient, DeleteSignalingChannelCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
  * // const { KinesisVideoClient, DeleteSignalingChannelCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import

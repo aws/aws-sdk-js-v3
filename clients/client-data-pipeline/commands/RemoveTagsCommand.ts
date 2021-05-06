@@ -23,7 +23,7 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
 /**
  * <p>Removes existing tags from the specified pipeline.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataPipelineClient, RemoveTagsCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
  * // const { DataPipelineClient, RemoveTagsCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import

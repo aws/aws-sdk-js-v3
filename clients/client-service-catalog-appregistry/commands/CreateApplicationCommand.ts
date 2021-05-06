@@ -27,7 +27,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
 /**
  * <p>Creates a new application that is the top-level node in a hierarchy of related cloud resource abstractions.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogAppRegistryClient, CreateApplicationCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, CreateApplicationCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import

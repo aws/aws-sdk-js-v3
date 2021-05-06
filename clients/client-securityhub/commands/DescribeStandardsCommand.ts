@@ -24,7 +24,7 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  * <p>Returns a list of the available standards in Security Hub.</p>
  *          <p>For each standard, the results include the standard ARN, the name, and a description. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, DescribeStandardsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DescribeStandardsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

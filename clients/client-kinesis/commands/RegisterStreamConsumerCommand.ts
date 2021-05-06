@@ -36,7 +36,7 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  *             6th consumer while there are 5 in a <code>CREATING</code> status results in a
  *                 <code>LimitExceededException</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisClient, RegisterStreamConsumerCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
  * // const { KinesisClient, RegisterStreamConsumerCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import

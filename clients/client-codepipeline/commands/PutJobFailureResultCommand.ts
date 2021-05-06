@@ -24,7 +24,7 @@ export interface PutJobFailureResultCommandOutput extends __MetadataBearer {}
  * <p>Represents the failure of a job as returned to the pipeline by a job worker. Used
  *             for custom actions only.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodePipelineClient, PutJobFailureResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, PutJobFailureResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import

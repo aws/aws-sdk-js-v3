@@ -23,7 +23,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
 /**
  * <p>Updates a template from an existing Amazon QuickSight analysis or another template.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, UpdateTemplateCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, UpdateTemplateCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

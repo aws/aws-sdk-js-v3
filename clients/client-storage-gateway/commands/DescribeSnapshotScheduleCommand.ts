@@ -26,7 +26,7 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  *          volume. This operation is only supported in the cached volume and stored volume
  *          types.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, DescribeSnapshotScheduleCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeSnapshotScheduleCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

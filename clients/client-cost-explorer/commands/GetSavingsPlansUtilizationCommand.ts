@@ -26,7 +26,7 @@ export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlans
  *             <p>You cannot group by any dimension values for <code>GetSavingsPlansUtilization</code>.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CostExplorerClient, GetSavingsPlansUtilizationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetSavingsPlansUtilizationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import

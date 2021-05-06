@@ -23,7 +23,7 @@ export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput,
 /**
  * <p>Updates the data catalog that has the specified name.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AthenaClient, UpdateDataCatalogCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, UpdateDataCatalogCommand } = require("@aws-sdk/client-athena"); // CommonJS import

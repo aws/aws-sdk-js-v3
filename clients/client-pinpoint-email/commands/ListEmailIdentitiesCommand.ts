@@ -25,7 +25,7 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  *             account. An identity can be either an email address or a domain. This operation returns
  *             identities that are verified as well as those that aren't.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointEmailClient, ListEmailIdentitiesCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, ListEmailIdentitiesCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import

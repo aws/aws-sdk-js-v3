@@ -23,7 +23,7 @@ export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __M
 /**
  * <p>Updates the configuration of an existing bot alias.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LexModelsV2Client, UpdateBotAliasCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, UpdateBotAliasCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import

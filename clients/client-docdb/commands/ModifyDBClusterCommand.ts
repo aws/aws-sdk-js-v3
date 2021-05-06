@@ -25,7 +25,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *             configuration parameters by specifying these parameters and the new values in the
  *             request. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, ModifyDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, ModifyDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import

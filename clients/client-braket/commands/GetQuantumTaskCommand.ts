@@ -23,7 +23,7 @@ export interface GetQuantumTaskCommandOutput extends GetQuantumTaskResponse, __M
 /**
  * <p>Retrieves the specified quantum task.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BraketClient, GetQuantumTaskCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, GetQuantumTaskCommand } = require("@aws-sdk/client-braket"); // CommonJS import

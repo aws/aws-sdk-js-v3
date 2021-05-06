@@ -25,7 +25,7 @@ export interface ListStackResourcesCommandOutput extends ListStackResourcesOutpu
  *          <p>For deleted stacks, ListStackResources returns resource information for up to 90 days
  *          after the stack has been deleted.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFormationClient, ListStackResourcesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, ListStackResourcesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import

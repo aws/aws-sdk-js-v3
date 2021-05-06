@@ -23,7 +23,7 @@ export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __M
 /**
  * <p>Copies the specified option group.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, CopyOptionGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, CopyOptionGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import

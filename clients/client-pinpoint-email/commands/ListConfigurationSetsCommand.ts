@@ -29,7 +29,7 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  *             configuration set to an email, all of the rules in that configuration set are applied to
  *             the email.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointEmailClient, ListConfigurationSetsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, ListConfigurationSetsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import

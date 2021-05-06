@@ -24,7 +24,7 @@ export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer 
  * <p>Deletes the assessment template that is specified by the ARN of the assessment
  *          template.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { InspectorClient, DeleteAssessmentTemplateCommand } from "@aws-sdk/client-inspector"; // ES Modules import
  * // const { InspectorClient, DeleteAssessmentTemplateCommand } = require("@aws-sdk/client-inspector"); // CommonJS import

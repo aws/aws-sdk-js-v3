@@ -25,7 +25,7 @@ export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __M
  *          request, delete any objects in the container or in any folders in the container. You can
  *          delete only empty containers. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaStoreClient, DeleteContainerCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
  * // const { MediaStoreClient, DeleteContainerCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import

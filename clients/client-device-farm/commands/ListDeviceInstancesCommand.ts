@@ -24,7 +24,7 @@ export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesRes
  * <p>Returns information about the private device instances associated with one or more AWS
  *             accounts.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DeviceFarmClient, ListDeviceInstancesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, ListDeviceInstancesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import

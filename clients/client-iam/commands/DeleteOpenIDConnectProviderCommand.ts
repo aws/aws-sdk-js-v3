@@ -28,7 +28,7 @@ export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBear
  *         <p>This operation is idempotent; it does not fail or return an error if you call the
  *             operation for a provider that does not exist.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, DeleteOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, DeleteOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import

@@ -23,7 +23,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>Lists all the tags for a DataBrew resource. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, ListTagsForResourceCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListTagsForResourceCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

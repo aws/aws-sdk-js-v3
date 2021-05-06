@@ -23,7 +23,7 @@ export interface GetMemberCommandOutput extends GetMemberResponse, __MetadataBea
 /**
  * <p>Retrieves information about an account that's associated with an Amazon Macie administrator account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Macie2Client, GetMemberCommand } from "@aws-sdk/client-macie2"; // ES Modules import
  * // const { Macie2Client, GetMemberCommand } = require("@aws-sdk/client-macie2"); // CommonJS import

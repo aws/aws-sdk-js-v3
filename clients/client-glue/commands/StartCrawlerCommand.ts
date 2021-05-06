@@ -25,7 +25,7 @@ export interface StartCrawlerCommandOutput extends StartCrawlerResponse, __Metad
  *       of what is scheduled. If the crawler is already running, returns a
  *       <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-exceptions.html#aws-glue-api-exceptions-CrawlerRunningException">CrawlerRunningException</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, StartCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import

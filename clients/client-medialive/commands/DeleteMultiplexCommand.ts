@@ -23,7 +23,7 @@ export interface DeleteMultiplexCommandOutput extends DeleteMultiplexResponse, _
 /**
  * Delete a multiplex. The multiplex must be idle.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaLiveClient, DeleteMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
  * // const { MediaLiveClient, DeleteMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import

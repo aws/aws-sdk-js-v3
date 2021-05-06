@@ -25,7 +25,7 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
  *          <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
  *          state of <code>STOPPED</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkSpacesClient, StartWorkspacesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, StartWorkspacesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import

@@ -25,7 +25,7 @@ export interface DescribeGlobalReplicationGroupsCommandOutput
 /**
  * <p>Returns information about a particular global replication group. If no identifier is specified, returns information about all Global datastores. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElastiCacheClient, DescribeGlobalReplicationGroupsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeGlobalReplicationGroupsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import

@@ -29,7 +29,7 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
  *          The system monitors alarms during a configuration deployment. If an alarm is triggered, the
  *          system rolls back the configuration.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppConfigClient, CreateEnvironmentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, CreateEnvironmentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import

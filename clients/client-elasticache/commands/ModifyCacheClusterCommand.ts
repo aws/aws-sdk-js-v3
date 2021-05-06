@@ -25,7 +25,7 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  *             can use this operation to change one or more cluster configuration parameters by
  *             specifying the parameters and the new values.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElastiCacheClient, ModifyCacheClusterCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, ModifyCacheClusterCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import

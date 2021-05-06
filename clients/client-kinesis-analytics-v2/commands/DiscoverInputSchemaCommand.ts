@@ -33,7 +33,7 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  *       When you create an application using the Kinesis Data Analytics console, the console uses this
  *       operation to infer a schema and show it in the console user interface. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KinesisAnalyticsV2Client, DiscoverInputSchemaCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
  * // const { KinesisAnalyticsV2Client, DiscoverInputSchemaCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import

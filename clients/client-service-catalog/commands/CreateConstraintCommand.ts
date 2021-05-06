@@ -24,7 +24,7 @@ export interface CreateConstraintCommandOutput extends CreateConstraintOutput, _
  * <p>Creates a constraint.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogClient, CreateConstraintCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, CreateConstraintCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import

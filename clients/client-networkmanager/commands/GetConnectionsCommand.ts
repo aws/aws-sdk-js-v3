@@ -23,7 +23,7 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
 /**
  * <p>Gets information about one or more of your connections in a global network.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NetworkManagerClient, GetConnectionsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, GetConnectionsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import

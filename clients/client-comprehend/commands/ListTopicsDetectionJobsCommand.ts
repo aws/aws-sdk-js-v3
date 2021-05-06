@@ -23,7 +23,7 @@ export interface ListTopicsDetectionJobsCommandOutput extends ListTopicsDetectio
 /**
  * <p>Gets a list of the topic detection jobs that you have submitted.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, ListTopicsDetectionJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, ListTopicsDetectionJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

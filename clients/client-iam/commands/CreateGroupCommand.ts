@@ -22,7 +22,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  *         <p> For information about the number of groups you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
  *                 quotas</a> in the <i>IAM User Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, CreateGroupCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, CreateGroupCommand } = require("@aws-sdk/client-iam"); // CommonJS import

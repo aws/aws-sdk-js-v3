@@ -29,7 +29,7 @@ export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectio
  *         <p>If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call
  *             fails.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AutoScalingClient, SetInstanceProtectionCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, SetInstanceProtectionCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import

@@ -28,7 +28,7 @@ export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
  *       request.
  *       For more information on campaigns, see <a>CreateCampaign</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PersonalizeClient, DeleteCampaignCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, DeleteCampaignCommand } = require("@aws-sdk/client-personalize"); // CommonJS import

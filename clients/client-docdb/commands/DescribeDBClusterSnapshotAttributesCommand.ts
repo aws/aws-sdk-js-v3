@@ -35,7 +35,7 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  *             for the <code>restore</code> attribute, then the manual cluster snapshot is public
  *             and can be copied or restored by all AWS accounts.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DocDBClient, DescribeDBClusterSnapshotAttributesCommand } from "@aws-sdk/client-docdb"; // ES Modules import
  * // const { DocDBClient, DescribeDBClusterSnapshotAttributesCommand } = require("@aws-sdk/client-docdb"); // CommonJS import

@@ -24,7 +24,7 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  *       in one of the US regions will return jobs from the list of all jobs associated with this
  *       account in all US regions.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SnowballClient, ListJobsCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, ListJobsCommand } = require("@aws-sdk/client-snowball"); // CommonJS import

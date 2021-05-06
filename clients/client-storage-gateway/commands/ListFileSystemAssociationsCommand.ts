@@ -25,7 +25,7 @@ export interface ListFileSystemAssociationsCommandOutput extends ListFileSystemA
  *          summary of a file system association. This operation is only supported for Amazon FSx file
  *          gateways.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, ListFileSystemAssociationsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListFileSystemAssociationsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

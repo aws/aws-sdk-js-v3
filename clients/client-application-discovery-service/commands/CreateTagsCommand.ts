@@ -28,7 +28,7 @@ export interface CreateTagsCommandOutput extends CreateTagsResponse, __MetadataB
  * <p>Creates one or more tags for configuration items. Tags are metadata that help you
  *       categorize IT assets. This API accepts a list of multiple configuration items.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApplicationDiscoveryServiceClient, CreateTagsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, CreateTagsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import

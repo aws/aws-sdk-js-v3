@@ -23,7 +23,7 @@ export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse,
 /**
  * <p>Removes a classifier from the Data Catalog.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, DeleteClassifierCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, DeleteClassifierCommand } = require("@aws-sdk/client-glue"); // CommonJS import

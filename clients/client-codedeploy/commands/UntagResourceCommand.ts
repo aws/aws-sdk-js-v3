@@ -25,7 +25,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  *                 <code>ResourceArn</code> input parameter. The tags are identified by the list of
  *             keys in the <code>TagKeys</code> input parameter. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeDeployClient, UntagResourceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, UntagResourceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import

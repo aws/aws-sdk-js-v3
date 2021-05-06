@@ -29,7 +29,7 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  *         <p>After you decline a handshake, it continues to appear in the results of relevant APIs
  *             for only 30 days. After that, it's deleted.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { OrganizationsClient, DeclineHandshakeCommand } from "@aws-sdk/client-organizations"; // ES Modules import
  * // const { OrganizationsClient, DeclineHandshakeCommand } = require("@aws-sdk/client-organizations"); // CommonJS import

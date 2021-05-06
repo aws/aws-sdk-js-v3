@@ -25,7 +25,7 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  *          <p>Can be used to disassociate both accounts that are managed using Organizations and accounts that
  *          were invited manually.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, DisassociateMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DisassociateMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

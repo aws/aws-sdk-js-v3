@@ -25,7 +25,7 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  *             parameters in a single request by submitting a list parameter name and value
  *             pairs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DAXClient, UpdateParameterGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, UpdateParameterGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import

@@ -24,7 +24,7 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * <p>Deletes an existing device. You must first disassociate the device from any links and
  *             customer gateways.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NetworkManagerClient, DeleteDeviceCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
  * // const { NetworkManagerClient, DeleteDeviceCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import

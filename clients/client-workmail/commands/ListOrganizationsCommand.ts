@@ -23,7 +23,7 @@ export interface ListOrganizationsCommandOutput extends ListOrganizationsRespons
 /**
  * <p>Returns summaries of the customer's organizations.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkMailClient, ListOrganizationsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
  * // const { WorkMailClient, ListOrganizationsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import

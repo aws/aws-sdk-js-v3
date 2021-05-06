@@ -28,7 +28,7 @@ export interface RebootReplicationInstanceCommandOutput extends RebootReplicatio
  * <p>Reboots a replication instance. Rebooting results in a momentary outage, until the
  *          replication instance becomes available again.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DatabaseMigrationServiceClient, RebootReplicationInstanceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, RebootReplicationInstanceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import

@@ -28,7 +28,7 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  * <p>Creates a node on the specified blockchain network.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ManagedBlockchainClient, CreateNodeCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
  * // const { ManagedBlockchainClient, CreateNodeCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import

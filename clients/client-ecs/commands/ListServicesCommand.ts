@@ -23,7 +23,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
 /**
  * <p>Lists the services that are running in a specified cluster.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECSClient, ListServicesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListServicesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import

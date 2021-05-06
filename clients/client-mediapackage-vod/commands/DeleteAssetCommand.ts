@@ -23,7 +23,7 @@ export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __Metadat
 /**
  * Deletes an existing MediaPackage VOD Asset resource.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaPackageVodClient, DeleteAssetCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, DeleteAssetCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import

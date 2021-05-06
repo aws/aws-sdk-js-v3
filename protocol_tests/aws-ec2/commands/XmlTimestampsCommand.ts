@@ -22,7 +22,7 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsOutput, __Metad
  * default format of date-time and various @timestampFormat trait
  * values.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2ProtocolClient, XmlTimestampsCommand } from "@aws-sdk/aws-ec2"; // ES Modules import
  * // const { EC2ProtocolClient, XmlTimestampsCommand } = require("@aws-sdk/aws-ec2"); // CommonJS import

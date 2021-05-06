@@ -31,7 +31,7 @@ export interface GetSqlInjectionMatchSetCommandOutput extends GetSqlInjectionMat
  *          </note>
  * 		       <p>Returns the <a>SqlInjectionMatchSet</a> that is specified by <code>SqlInjectionMatchSetId</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFClient, GetSqlInjectionMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetSqlInjectionMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import

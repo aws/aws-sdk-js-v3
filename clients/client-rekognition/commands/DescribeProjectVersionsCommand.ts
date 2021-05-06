@@ -27,7 +27,7 @@ export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVer
  *          <p>This operation requires permissions to perform the <code>rekognition:DescribeProjectVersions</code>
  *             action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, DescribeProjectVersionsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, DescribeProjectVersionsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import

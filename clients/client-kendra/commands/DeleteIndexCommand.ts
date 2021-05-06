@@ -27,7 +27,7 @@ export interface DeleteIndexCommandOutput extends __MetadataBearer {}
  *         <code>DescribeIndex</code> operation is set to
  *       <code>DELETING</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, DeleteIndexCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, DeleteIndexCommand } = require("@aws-sdk/client-kendra"); // CommonJS import

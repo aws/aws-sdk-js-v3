@@ -25,7 +25,7 @@ export interface CreateLanguageModelCommandOutput extends CreateLanguageModelRes
  *             input files. The time it takes to create your model depends on the size of your training
  *             data.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TranscribeClient, CreateLanguageModelCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, CreateLanguageModelCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import

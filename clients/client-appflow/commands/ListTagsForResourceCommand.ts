@@ -25,7 +25,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * Retrieves the tags that are associated with a specified flow.
  * </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppflowClient, ListTagsForResourceCommand } from "@aws-sdk/client-appflow"; // ES Modules import
  * // const { AppflowClient, ListTagsForResourceCommand } = require("@aws-sdk/client-appflow"); // CommonJS import

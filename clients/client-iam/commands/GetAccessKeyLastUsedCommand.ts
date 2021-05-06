@@ -25,7 +25,7 @@ export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedR
  *             information includes the date and time of last use, along with the AWS service and
  *             Region that were specified in the last request made with that key.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, GetAccessKeyLastUsedCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetAccessKeyLastUsedCommand } = require("@aws-sdk/client-iam"); // CommonJS import

@@ -29,7 +29,7 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  *             the configuration set in the headers of the email. When you apply a configuration set to
  *             an email, all of the rules in that configuration set are applied to the email.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESv2Client, ListConfigurationSetsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, ListConfigurationSetsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import

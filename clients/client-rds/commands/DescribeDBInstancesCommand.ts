@@ -26,7 +26,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  *             <p>This operation can also return information for Amazon Neptune DB instances and Amazon DocumentDB instances.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, DescribeDBInstancesCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBInstancesCommand } = require("@aws-sdk/client-rds"); // CommonJS import

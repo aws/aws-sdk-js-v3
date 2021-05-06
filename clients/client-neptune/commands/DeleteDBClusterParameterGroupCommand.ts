@@ -24,7 +24,7 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be
  *       deleted can't be associated with any DB clusters.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, DeleteDBClusterParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DeleteDBClusterParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

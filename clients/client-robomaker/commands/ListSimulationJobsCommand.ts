@@ -24,7 +24,7 @@ export interface ListSimulationJobsCommandOutput extends ListSimulationJobsRespo
  * <p>Returns a list of simulation jobs. You can optionally provide filters to retrieve
  *          specific simulation jobs. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RoboMakerClient, ListSimulationJobsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListSimulationJobsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import

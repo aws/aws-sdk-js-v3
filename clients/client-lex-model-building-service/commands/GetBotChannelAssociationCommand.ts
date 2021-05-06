@@ -30,7 +30,7 @@ export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAsso
  *          <p>This operation requires permissions for the
  *         <code>lex:GetBotChannelAssociation</code> action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LexModelBuildingServiceClient, GetBotChannelAssociationCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetBotChannelAssociationCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import

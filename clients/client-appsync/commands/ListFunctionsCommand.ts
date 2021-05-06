@@ -23,7 +23,7 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
 /**
  * <p>List multiple functions.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppSyncClient, ListFunctionsCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, ListFunctionsCommand } = require("@aws-sdk/client-appsync"); // CommonJS import

@@ -26,7 +26,7 @@ export interface DeleteBudgetCommandOutput extends DeleteBudgetResponse, __Metad
  * 			         <p>Deleting a budget also deletes the notifications and subscribers that are associated with that budget.</p>
  * 		       </important>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BudgetsClient, DeleteBudgetCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, DeleteBudgetCommand } = require("@aws-sdk/client-budgets"); // CommonJS import

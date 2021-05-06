@@ -23,7 +23,7 @@ export interface DeleteRecipeVersionCommandOutput extends DeleteRecipeVersionRes
 /**
  * <p>Deletes a single version of a DataBrew recipe.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, DeleteRecipeVersionCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DeleteRecipeVersionCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

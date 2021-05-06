@@ -20,7 +20,7 @@ export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
 /**
  * <p>Returns the base-64 encoded contents of a specified file and its metadata.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeCommitClient, GetFileCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, GetFileCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import

@@ -44,7 +44,7 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  *          <p> This operation requires permission for the
  *         <code>lex:DeleteIntent</code> action. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LexModelBuildingServiceClient, DeleteIntentCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, DeleteIntentCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import

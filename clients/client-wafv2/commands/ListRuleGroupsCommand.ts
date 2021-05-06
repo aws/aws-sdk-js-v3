@@ -23,7 +23,7 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
 /**
  * <p>Retrieves an array of <a>RuleGroupSummary</a> objects for the rule groups that you manage. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFV2Client, ListRuleGroupsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
  * // const { WAFV2Client, ListRuleGroupsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import

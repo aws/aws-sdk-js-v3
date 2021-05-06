@@ -27,7 +27,7 @@ export interface DeletePullRequestApprovalRuleCommandOutput
  *             approval rule was created specifically for a pull request and not generated from an approval rule template associated with the repository where the
  *             pull request was created. You cannot delete an approval rule from a merged or closed pull request.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeCommitClient, DeletePullRequestApprovalRuleCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
  * // const { CodeCommitClient, DeletePullRequestApprovalRuleCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import

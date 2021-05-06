@@ -29,7 +29,7 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewResponse,
  *          <code>PullRequest</code> code reviews are automatically triggered by a pull request so cannot be created using this method.
  *       </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeGuruReviewerClient, CreateCodeReviewCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
  * // const { CodeGuruReviewerClient, CreateCodeReviewCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import

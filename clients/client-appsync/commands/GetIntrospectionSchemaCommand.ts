@@ -23,7 +23,7 @@ export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSch
 /**
  * <p>Retrieves the introspection schema for a GraphQL API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppSyncClient, GetIntrospectionSchemaCommand } from "@aws-sdk/client-appsync"; // ES Modules import
  * // const { AppSyncClient, GetIntrospectionSchemaCommand } = require("@aws-sdk/client-appsync"); // CommonJS import

@@ -23,7 +23,7 @@ export interface GetResourceSharesCommandOutput extends GetResourceSharesRespons
 /**
  * <p>Gets the resource shares that you own or the resource shares that are shared with you.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RAMClient, GetResourceSharesCommand } from "@aws-sdk/client-ram"; // ES Modules import
  * // const { RAMClient, GetResourceSharesCommand } = require("@aws-sdk/client-ram"); // CommonJS import

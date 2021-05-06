@@ -24,7 +24,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
  * <p>Deletes the data source permanently. This operation breaks
  * 			all the datasets that reference the deleted data source.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, DeleteDataSourceCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteDataSourceCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

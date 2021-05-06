@@ -23,7 +23,7 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
 /**
  * <p>Creates a recommendation filter. For more information, see <a>filter</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PersonalizeClient, CreateFilterCommand } from "@aws-sdk/client-personalize"; // ES Modules import
  * // const { PersonalizeClient, CreateFilterCommand } = require("@aws-sdk/client-personalize"); // CommonJS import

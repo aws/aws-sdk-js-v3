@@ -58,7 +58,7 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  * 			rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html">Evaluating AWS Resource Configurations with AWS Config</a>
  * 			in the <i>AWS Config Developer Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConfigServiceClient, PutConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
  * // const { ConfigServiceClient, PutConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import

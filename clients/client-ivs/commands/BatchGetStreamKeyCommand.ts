@@ -23,7 +23,7 @@ export interface BatchGetStreamKeyCommandOutput extends BatchGetStreamKeyRespons
 /**
  * <p>Performs <a>GetStreamKey</a> on multiple ARNs simultaneously.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IvsClient, BatchGetStreamKeyCommand } from "@aws-sdk/client-ivs"; // ES Modules import
  * // const { IvsClient, BatchGetStreamKeyCommand } = require("@aws-sdk/client-ivs"); // CommonJS import

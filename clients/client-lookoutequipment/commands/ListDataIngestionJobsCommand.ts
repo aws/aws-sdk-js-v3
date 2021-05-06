@@ -24,7 +24,7 @@ export interface ListDataIngestionJobsCommandOutput extends ListDataIngestionJob
  * <p>Provides a list of all data ingestion jobs, including dataset name and ARN, S3 location
  *          of the input data, status, and so on. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LookoutEquipmentClient, ListDataIngestionJobsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
  * // const { LookoutEquipmentClient, ListDataIngestionJobsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import

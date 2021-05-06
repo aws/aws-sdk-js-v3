@@ -33,7 +33,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  *          account identifier to name each artifact used by DMS in the given region.</p>
  *          <p>This command does not take any parameters.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DatabaseMigrationServiceClient, DescribeAccountAttributesCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeAccountAttributesCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import

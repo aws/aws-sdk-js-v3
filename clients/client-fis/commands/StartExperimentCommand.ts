@@ -23,7 +23,7 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
 /**
  * <p>Starts running an experiment from the specified experiment template.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FisClient, StartExperimentCommand } from "@aws-sdk/client-fis"; // ES Modules import
  * // const { FisClient, StartExperimentCommand } = require("@aws-sdk/client-fis"); // CommonJS import

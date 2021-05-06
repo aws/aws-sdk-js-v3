@@ -162,7 +162,7 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *                 <code>Department</code> and <code>department</code> are not saved as separate tags,
  *             and the session tag passed in the request takes precedence over the user tag.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { STSClient, GetFederationTokenCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, GetFederationTokenCommand } = require("@aws-sdk/client-sts"); // CommonJS import

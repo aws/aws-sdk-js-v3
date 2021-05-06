@@ -23,7 +23,7 @@ export interface AddUserToGroupCommandOutput extends __MetadataBearer {}
 /**
  * <p>Adds the specified user to the specified group.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, AddUserToGroupCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, AddUserToGroupCommand } = require("@aws-sdk/client-iam"); // CommonJS import

@@ -23,7 +23,7 @@ export interface GetOTAUpdateCommandOutput extends GetOTAUpdateResponse, __Metad
 /**
  * <p>Gets an OTA update.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, GetOTAUpdateCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, GetOTAUpdateCommand } = require("@aws-sdk/client-iot"); // CommonJS import

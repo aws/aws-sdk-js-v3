@@ -23,7 +23,7 @@ export interface GetUsageCommandOutput extends Usage, __MetadataBearer {}
 /**
  * <p>Gets the usage data of a usage plan in a specified time interval.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, GetUsageCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetUsageCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

@@ -27,7 +27,7 @@ export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageR
  *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
  *             Bring Your Own Windows Desktop Licenses</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkSpacesClient, ImportWorkspaceImageCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, ImportWorkspaceImageCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import

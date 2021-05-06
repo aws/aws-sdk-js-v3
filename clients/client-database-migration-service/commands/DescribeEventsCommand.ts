@@ -31,7 +31,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  *          Guide.</i>
  *          </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DatabaseMigrationServiceClient, DescribeEventsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
  * // const { DatabaseMigrationServiceClient, DescribeEventsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import

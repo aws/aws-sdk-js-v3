@@ -23,7 +23,7 @@ export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJo
 /**
  * <p>Starts an asynchronous job to transcribe speech to text. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TranscribeClient, StartTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, StartTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import

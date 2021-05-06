@@ -29,7 +29,7 @@ export interface ListAttributesCommandOutput extends ListAttributesResponse, __M
  * 			container instances in a cluster are running a Linux AMI
  * 			(<code>ecs.os-type=linux</code>). </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECSClient, ListAttributesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
  * // const { ECSClient, ListAttributesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import

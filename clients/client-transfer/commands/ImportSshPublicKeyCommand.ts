@@ -28,7 +28,7 @@ export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyRespo
  *          <p>The response returns the <code>UserName</code> value, the <code>ServerId</code> value, and
  *       the name of the <code>SshPublicKeyId</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TransferClient, ImportSshPublicKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
  * // const { TransferClient, ImportSshPublicKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import

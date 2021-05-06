@@ -29,7 +29,7 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  *     the Java SDK. Other languages and SDKs provide similar functionality.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IAMClient, GetRoleCommand } from "@aws-sdk/client-iam"; // ES Modules import
  * // const { IAMClient, GetRoleCommand } = require("@aws-sdk/client-iam"); // CommonJS import

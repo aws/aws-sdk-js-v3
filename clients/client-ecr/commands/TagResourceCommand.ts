@@ -24,7 +24,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>Adds specified tags to a resource with the specified ARN. Existing tags on a resource
  *             are not changed if they are not specified in the request parameters.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ECRClient, TagResourceCommand } from "@aws-sdk/client-ecr"; // ES Modules import
  * // const { ECRClient, TagResourceCommand } = require("@aws-sdk/client-ecr"); // CommonJS import

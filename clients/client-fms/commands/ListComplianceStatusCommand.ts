@@ -25,7 +25,7 @@ export interface ListComplianceStatusCommandOutput extends ListComplianceStatusR
  *         <code>PolicyComplianceStatus</code> to get a summary of which member accounts are protected
  *       by the specified policy. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FMSClient, ListComplianceStatusCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListComplianceStatusCommand } = require("@aws-sdk/client-fms"); // CommonJS import

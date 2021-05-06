@@ -23,7 +23,7 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes metadata tags from an Amazon Neptune resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

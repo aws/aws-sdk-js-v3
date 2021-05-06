@@ -23,7 +23,7 @@ export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __Met
 /**
  * <p>Lists the DataBrew schedules that are defined.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, ListSchedulesCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListSchedulesCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

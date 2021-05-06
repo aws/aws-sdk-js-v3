@@ -27,7 +27,7 @@ export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBea
  *                 used in an application, the map may not render.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LocationClient, DeleteMapCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, DeleteMapCommand } = require("@aws-sdk/client-location"); // CommonJS import

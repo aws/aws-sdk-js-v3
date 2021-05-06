@@ -24,7 +24,7 @@ export interface DescribeNFSFileSharesCommandOutput extends DescribeNFSFileShare
  * <p>Gets a description for one or more Network File System (NFS) file shares from a file
  *          gateway. This operation is only supported for file gateways.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, DescribeNFSFileSharesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeNFSFileSharesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

@@ -25,7 +25,7 @@ export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer 
  *       account. To set a different account as the administrator account, you must submit an
  *         <code>AssociateAdminAccount</code> request.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FMSClient, DisassociateAdminAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, DisassociateAdminAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import

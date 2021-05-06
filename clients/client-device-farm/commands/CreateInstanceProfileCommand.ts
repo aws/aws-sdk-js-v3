@@ -24,7 +24,7 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * <p>Creates a profile that can be applied to one or more private fleet device
  *             instances.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DeviceFarmClient, CreateInstanceProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
  * // const { DeviceFarmClient, CreateInstanceProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import

@@ -29,7 +29,7 @@ export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __M
  *       associated with your user account can be listed if you call <code>DescribeAgents</code> as is
  *       without passing any parameters.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApplicationDiscoveryServiceClient, DescribeAgentsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
  * // const { ApplicationDiscoveryServiceClient, DescribeAgentsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import

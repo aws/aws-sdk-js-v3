@@ -24,7 +24,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  *         After all instances that reference a deregistered AMI are terminated, specifying the ID of the image results
  *         in an error indicating that the AMI ID cannot be found.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DescribeImagesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeImagesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

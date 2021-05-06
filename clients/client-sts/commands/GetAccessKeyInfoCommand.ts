@@ -41,7 +41,7 @@ export interface GetAccessKeyInfoCommandOutput extends GetAccessKeyInfoResponse,
  *             inactive, or deleted. Active keys might not have permissions to perform an operation.
  *             Providing a deleted access key might return an error that the key doesn't exist.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { STSClient, GetAccessKeyInfoCommand } from "@aws-sdk/client-sts"; // ES Modules import
  * // const { STSClient, GetAccessKeyInfoCommand } = require("@aws-sdk/client-sts"); // CommonJS import

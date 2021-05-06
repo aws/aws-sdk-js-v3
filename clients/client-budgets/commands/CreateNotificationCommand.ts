@@ -23,7 +23,7 @@ export interface CreateNotificationCommandOutput extends CreateNotificationRespo
 /**
  * <p>Creates a notification. You must create the budget before you create the associated notification.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BudgetsClient, CreateNotificationCommand } from "@aws-sdk/client-budgets"; // ES Modules import
  * // const { BudgetsClient, CreateNotificationCommand } = require("@aws-sdk/client-budgets"); // CommonJS import

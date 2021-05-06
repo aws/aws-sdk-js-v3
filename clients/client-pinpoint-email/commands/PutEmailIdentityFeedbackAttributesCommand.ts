@@ -38,7 +38,7 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
  *             bounce or complaint notifications, Amazon Pinpoint sends an email notification when these events
  *             occur (even if this setting is disabled).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointEmailClient, PutEmailIdentityFeedbackAttributesCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, PutEmailIdentityFeedbackAttributesCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import

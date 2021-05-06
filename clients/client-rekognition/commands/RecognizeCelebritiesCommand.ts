@@ -53,7 +53,7 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  *          <p>This operation requires permissions to perform the
  *         <code>rekognition:RecognizeCelebrities</code> operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RekognitionClient, RecognizeCelebritiesCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
  * // const { RekognitionClient, RecognizeCelebritiesCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import

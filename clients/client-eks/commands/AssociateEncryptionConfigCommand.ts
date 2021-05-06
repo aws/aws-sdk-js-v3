@@ -26,7 +26,7 @@ export interface AssociateEncryptionConfigCommandOutput extends AssociateEncrypt
  *             encryption already enabled. This allows you to implement a defense-in-depth
  *             security strategy without migrating applications to new EKS clusters.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EKSClient, AssociateEncryptionConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, AssociateEncryptionConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import

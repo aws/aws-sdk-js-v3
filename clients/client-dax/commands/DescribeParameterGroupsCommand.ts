@@ -24,7 +24,7 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
  * <p>Returns a list of parameter group descriptions. If a parameter group name is
  *             specified, the list will contain only the descriptions for that group.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DAXClient, DescribeParameterGroupsCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DescribeParameterGroupsCommand } = require("@aws-sdk/client-dax"); // CommonJS import

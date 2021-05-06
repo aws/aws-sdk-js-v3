@@ -24,7 +24,7 @@ export interface DeleteIpGroupCommandOutput extends DeleteIpGroupResult, __Metad
  * <p>Deletes the specified IP access control group.</p>
  *          <p>You cannot delete an IP access control group that is associated with a directory.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkSpacesClient, DeleteIpGroupCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DeleteIpGroupCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import

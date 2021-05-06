@@ -23,7 +23,7 @@ export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __Metad
 /**
  * <p>Updates properties on a ledger.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QLDBClient, UpdateLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
  * // const { QLDBClient, UpdateLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import

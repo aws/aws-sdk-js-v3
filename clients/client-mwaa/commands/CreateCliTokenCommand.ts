@@ -23,7 +23,7 @@ export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __M
 /**
  * <p>Create a CLI token to use Airflow CLI.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MWAAClient, CreateCliTokenCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, CreateCliTokenCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import

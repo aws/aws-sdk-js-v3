@@ -30,7 +30,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:DeleteProject</code> operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LookoutVisionClient, DeleteProjectCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, DeleteProjectCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import

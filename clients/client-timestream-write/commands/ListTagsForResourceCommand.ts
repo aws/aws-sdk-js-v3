@@ -25,7 +25,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * List all tags on a Timestream resource.
  * </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TimestreamWriteClient, ListTagsForResourceCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
  * // const { TimestreamWriteClient, ListTagsForResourceCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import

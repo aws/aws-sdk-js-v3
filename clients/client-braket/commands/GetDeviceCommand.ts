@@ -23,7 +23,7 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
 /**
  * <p>Retrieves the devices available in Amazon Braket.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BraketClient, GetDeviceCommand } from "@aws-sdk/client-braket"; // ES Modules import
  * // const { BraketClient, GetDeviceCommand } = require("@aws-sdk/client-braket"); // CommonJS import

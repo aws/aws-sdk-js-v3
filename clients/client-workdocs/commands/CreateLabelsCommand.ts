@@ -24,7 +24,7 @@ export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __Metad
  * <p>Adds the specified list of labels to the given resource (a document or
  *             folder)</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkDocsClient, CreateLabelsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
  * // const { WorkDocsClient, CreateLabelsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import

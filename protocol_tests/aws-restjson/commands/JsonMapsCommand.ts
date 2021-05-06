@@ -23,7 +23,7 @@ export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBe
 /**
  * The example tests basic map serialization.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestJsonProtocolClient, JsonMapsCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, JsonMapsCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import

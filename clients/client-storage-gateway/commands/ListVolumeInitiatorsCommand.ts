@@ -25,7 +25,7 @@ export interface ListVolumeInitiatorsCommandOutput extends ListVolumeInitiatorsO
  *          determine whether a volume is being used or not. This operation is only supported in the
  *          cached volume and stored volume gateway types.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, ListVolumeInitiatorsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, ListVolumeInitiatorsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

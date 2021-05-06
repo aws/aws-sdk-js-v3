@@ -28,7 +28,7 @@ export interface CreateAddonCommandOutput extends CreateAddonResponse, __Metadat
  *             add-ons rely on the Server-side Apply Kubernetes feature, which is only available in
  *             Kubernetes 1.18 and later.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EKSClient, CreateAddonCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, CreateAddonCommand } = require("@aws-sdk/client-eks"); // CommonJS import

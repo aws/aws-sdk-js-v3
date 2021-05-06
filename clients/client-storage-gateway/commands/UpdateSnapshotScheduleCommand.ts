@@ -32,7 +32,7 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  *          update, and the schedule information, including when you want the snapshot to begin on a
  *          day and the frequency (in hours) of snapshots.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, UpdateSnapshotScheduleCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateSnapshotScheduleCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

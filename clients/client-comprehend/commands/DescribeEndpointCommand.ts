@@ -24,7 +24,7 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
  * <p>Gets the properties associated with a specific endpoint. Use this operation to get the
  *       status of an endpoint.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ComprehendClient, DescribeEndpointCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
  * // const { ComprehendClient, DescribeEndpointCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import

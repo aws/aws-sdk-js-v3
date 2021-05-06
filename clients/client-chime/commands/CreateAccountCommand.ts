@@ -26,7 +26,7 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *             different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing Your Amazon Chime Accounts</a> in the
  *                 <i>Amazon Chime Administration Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, CreateAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, CreateAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import

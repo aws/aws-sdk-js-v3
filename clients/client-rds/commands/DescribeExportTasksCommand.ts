@@ -24,7 +24,7 @@ export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __
  * <p>Returns information about a snapshot export to Amazon S3. This API operation supports
  *             pagination. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, DescribeExportTasksCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeExportTasksCommand } = require("@aws-sdk/client-rds"); // CommonJS import

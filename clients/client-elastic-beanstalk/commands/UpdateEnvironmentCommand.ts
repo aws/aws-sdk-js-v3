@@ -31,7 +31,7 @@ export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, 
  *       environment returns two setting descriptions with different <code>DeploymentStatus</code>
  *       values. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticBeanstalkClient, UpdateEnvironmentCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
  * // const { ElasticBeanstalkClient, UpdateEnvironmentCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import

@@ -24,7 +24,7 @@ export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __Metad
 /**
  * <p>View a summary of OpsItems based on specified filters and aggregators.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, GetOpsSummaryCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, GetOpsSummaryCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

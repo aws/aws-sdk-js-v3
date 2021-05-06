@@ -29,7 +29,7 @@ export interface GetBotAliasesCommandOutput extends GetBotAliasesResponse, __Met
  *          <p>This operation requires permissions for the
  *         <code>lex:GetBotAliases</code> action.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LexModelBuildingServiceClient, GetBotAliasesCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
  * // const { LexModelBuildingServiceClient, GetBotAliasesCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import

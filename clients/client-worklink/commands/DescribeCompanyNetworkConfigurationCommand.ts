@@ -29,7 +29,7 @@ export interface DescribeCompanyNetworkConfigurationCommandOutput
  * <p>Describes the networking configuration to access the internal websites associated with
  *             the specified fleet.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkLinkClient, DescribeCompanyNetworkConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, DescribeCompanyNetworkConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import

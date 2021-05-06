@@ -24,7 +24,7 @@ export interface DeleteWorkGroupCommandOutput extends DeleteWorkGroupOutput, __M
  * <p>Deletes the workgroup with the specified name. The primary workgroup cannot be
  *             deleted.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AthenaClient, DeleteWorkGroupCommand } from "@aws-sdk/client-athena"; // ES Modules import
  * // const { AthenaClient, DeleteWorkGroupCommand } = require("@aws-sdk/client-athena"); // CommonJS import

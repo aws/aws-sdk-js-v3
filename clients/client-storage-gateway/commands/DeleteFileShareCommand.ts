@@ -24,7 +24,7 @@ export interface DeleteFileShareCommandOutput extends DeleteFileShareOutput, __M
  * <p>Deletes a file share from a file gateway. This operation is only supported for file
  *          gateways.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, DeleteFileShareCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DeleteFileShareCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

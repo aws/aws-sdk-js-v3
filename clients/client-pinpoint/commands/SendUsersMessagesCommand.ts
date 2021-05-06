@@ -23,7 +23,7 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
 /**
  * <p>Creates and sends a message to a list of users.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, SendUsersMessagesCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, SendUsersMessagesCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

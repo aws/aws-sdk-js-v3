@@ -26,7 +26,7 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  *             a configuration set. When you send an email that uses that configuration set, the
  *             message is sent from one of the addresses in the associated pool.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SESv2Client, CreateDedicatedIpPoolCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
  * // const { SESv2Client, CreateDedicatedIpPoolCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import

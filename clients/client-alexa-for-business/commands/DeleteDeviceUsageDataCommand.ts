@@ -25,7 +25,7 @@ export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDat
  *          delete the device's entire previous history of voice input data and associated response
  *          data. This action can be called once every 24 hours for a specific shared device.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AlexaForBusinessClient, DeleteDeviceUsageDataCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
  * // const { AlexaForBusinessClient, DeleteDeviceUsageDataCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import

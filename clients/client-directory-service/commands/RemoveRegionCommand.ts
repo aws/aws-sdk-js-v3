@@ -25,7 +25,7 @@ export interface RemoveRegionCommandOutput extends RemoveRegionResult, __Metadat
  *       cannot remove the primary Region with this operation. Instead, use the
  *         <code>DeleteDirectory</code> API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DirectoryServiceClient, RemoveRegionCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
  * // const { DirectoryServiceClient, RemoveRegionCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import

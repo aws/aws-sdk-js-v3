@@ -30,7 +30,7 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  * 			contains information about all of the certificates issued and revoked by your private
  * 			CA. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ACMPCAClient, GetCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
  * // const { ACMPCAClient, GetCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import

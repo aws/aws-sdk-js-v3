@@ -26,7 +26,7 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsRespo
  *          <p>The <code>ListMemberAccounts</code> must be submitted by the account that is set as the
  *       AWS Firewall Manager administrator.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { FMSClient, ListMemberAccountsCommand } from "@aws-sdk/client-fms"; // ES Modules import
  * // const { FMSClient, ListMemberAccountsCommand } = require("@aws-sdk/client-fms"); // CommonJS import

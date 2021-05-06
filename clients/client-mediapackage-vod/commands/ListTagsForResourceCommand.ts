@@ -23,7 +23,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * Returns a list of the tags assigned to the specified resource.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MediaPackageVodClient, ListTagsForResourceCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
  * // const { MediaPackageVodClient, ListTagsForResourceCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import

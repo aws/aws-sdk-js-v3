@@ -24,7 +24,7 @@ export interface ListRobotApplicationsCommandOutput extends ListRobotApplication
  * <p>Returns a list of robot application. You can optionally provide filters to retrieve
  *          specific robot applications.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RoboMakerClient, ListRobotApplicationsCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
  * // const { RoboMakerClient, ListRobotApplicationsCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import

@@ -23,7 +23,7 @@ export interface ListTrackersCommandOutput extends ListTrackersResponse, __Metad
 /**
  * <p>Lists tracker resources in your AWS account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LocationClient, ListTrackersCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, ListTrackersCommand } = require("@aws-sdk/client-location"); // CommonJS import

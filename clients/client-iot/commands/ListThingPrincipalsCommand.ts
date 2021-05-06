@@ -25,7 +25,7 @@ export interface ListThingPrincipalsCommandOutput extends ListThingPrincipalsRes
  * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
  * 			identities.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, ListThingPrincipalsCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, ListThingPrincipalsCommand } = require("@aws-sdk/client-iot"); // CommonJS import

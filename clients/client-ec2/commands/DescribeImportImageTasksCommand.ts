@@ -23,7 +23,7 @@ export interface DescribeImportImageTasksCommandOutput extends DescribeImportIma
 /**
  * <p>Displays details about an import virtual machine or import snapshot tasks that are already created.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DescribeImportImageTasksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DescribeImportImageTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

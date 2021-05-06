@@ -23,7 +23,7 @@ export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaAppli
 /**
  * <p>Lists the SIP media applications under the administrator's AWS account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ChimeClient, ListSipMediaApplicationsCommand } from "@aws-sdk/client-chime"; // ES Modules import
  * // const { ChimeClient, ListSipMediaApplicationsCommand } = require("@aws-sdk/client-chime"); // CommonJS import

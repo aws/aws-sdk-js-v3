@@ -34,7 +34,7 @@ export interface GetGroupCommandOutput extends GetGroupOutput, __MetadataBearer 
  *             </li>
  *          </ul>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ResourceGroupsClient, GetGroupCommand } from "@aws-sdk/client-resource-groups"; // ES Modules import
  * // const { ResourceGroupsClient, GetGroupCommand } = require("@aws-sdk/client-resource-groups"); // CommonJS import

@@ -26,7 +26,7 @@ export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __M
  *          <p>It's not necessary to disassociate compute environments from a queue before submitting a
  *     <code>DeleteJobQueue</code> request.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BatchClient, DeleteJobQueueCommand } from "@aws-sdk/client-batch"; // ES Modules import
  * // const { BatchClient, DeleteJobQueueCommand } = require("@aws-sdk/client-batch"); // CommonJS import

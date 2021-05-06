@@ -23,7 +23,7 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
 /**
  * <p>Updates a metadata table in the Data Catalog.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, UpdateTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, UpdateTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import

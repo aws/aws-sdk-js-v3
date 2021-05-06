@@ -31,7 +31,7 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  *          <p>The returned log events are sorted by event timestamp, the timestamp when the event was ingested
  *     by CloudWatch Logs, and the ID of the <code>PutLogEvents</code> request.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchLogsClient, FilterLogEventsCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, FilterLogEventsCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import

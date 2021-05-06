@@ -26,7 +26,7 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput
  * <p>Get the Access Status for AWS Organization portfolio share feature. This API can only be
  *          called by the management account in the organization or by a delegated admin.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogClient, GetAWSOrganizationsAccessStatusCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, GetAWSOrganizationsAccessStatusCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import

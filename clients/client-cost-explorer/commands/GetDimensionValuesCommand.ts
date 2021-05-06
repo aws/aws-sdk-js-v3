@@ -23,7 +23,7 @@ export interface GetDimensionValuesCommandOutput extends GetDimensionValuesRespo
 /**
  * <p>Retrieves all available filter values for a specified filter over a period of time. You can search the dimension values for an arbitrary string. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CostExplorerClient, GetDimensionValuesCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
  * // const { CostExplorerClient, GetDimensionValuesCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import

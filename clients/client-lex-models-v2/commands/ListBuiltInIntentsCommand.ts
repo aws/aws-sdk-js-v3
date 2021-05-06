@@ -28,7 +28,7 @@ export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsRespo
  *          parameter when you call the <code>CreateIntent</code> operation. For
  *          more information, see <a>CreateIntent</a>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LexModelsV2Client, ListBuiltInIntentsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, ListBuiltInIntentsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import

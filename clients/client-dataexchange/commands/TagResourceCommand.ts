@@ -23,7 +23,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>This operation tags a resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataExchangeClient, TagResourceCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
  * // const { DataExchangeClient, TagResourceCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import

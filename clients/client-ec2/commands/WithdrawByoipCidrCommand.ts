@@ -27,7 +27,7 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult,
  *          <p>It can take a few minutes before traffic to the specified addresses stops routing to AWS
  *           because of BGP propagation delays.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, WithdrawByoipCidrCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, WithdrawByoipCidrCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

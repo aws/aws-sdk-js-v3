@@ -23,7 +23,7 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
 /**
  * <p>Retrieves a list of domains associated to a specified fleet.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkLinkClient, ListDomainsCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, ListDomainsCommand } = require("@aws-sdk/client-worklink"); // CommonJS import

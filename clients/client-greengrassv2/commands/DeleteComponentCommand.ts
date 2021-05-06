@@ -29,7 +29,7 @@ export interface DeleteComponentCommandOutput extends __MetadataBearer {}
  *         to use a valid version.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GreengrassV2Client, DeleteComponentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
  * // const { GreengrassV2Client, DeleteComponentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import

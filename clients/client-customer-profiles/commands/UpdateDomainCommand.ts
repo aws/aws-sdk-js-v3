@@ -25,7 +25,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *          or an encryption key.</p>
  *          <p>Once a domain is created, the name can’t be changed.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CustomerProfilesClient, UpdateDomainCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, UpdateDomainCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import

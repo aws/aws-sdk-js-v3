@@ -22,7 +22,7 @@ export interface ImportImageCommandOutput extends ImportImageResult, __MetadataB
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing a
  *    VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, ImportImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, ImportImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

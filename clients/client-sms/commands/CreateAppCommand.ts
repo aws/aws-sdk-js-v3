@@ -21,7 +21,7 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  * <p>Creates an application. An application consists of one or more server groups. Each
  *             server group contain one or more servers.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SMSClient, CreateAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, CreateAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import

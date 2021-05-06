@@ -29,7 +29,7 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  *           administrators</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTSiteWiseClient, CreatePortalCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, CreatePortalCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import

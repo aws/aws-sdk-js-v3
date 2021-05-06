@@ -23,7 +23,7 @@ export interface GetUsagePlanKeyCommandOutput extends UsagePlanKey, __MetadataBe
 /**
  * <p>Gets a usage plan key of a given key identifier.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, GetUsagePlanKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetUsagePlanKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

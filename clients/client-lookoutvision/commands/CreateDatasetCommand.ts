@@ -32,7 +32,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *         <p>This operation requires permissions to perform the
  *            <code>lookoutvision:CreateDataset</code> operation.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LookoutVisionClient, CreateDatasetCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
  * // const { LookoutVisionClient, CreateDatasetCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import

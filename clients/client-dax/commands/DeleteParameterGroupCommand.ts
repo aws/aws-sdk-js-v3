@@ -24,7 +24,7 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  * <p>Deletes the specified parameter group. You cannot delete a parameter group if it is
  *             associated with any DAX clusters.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DAXClient, DeleteParameterGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
  * // const { DAXClient, DeleteParameterGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import

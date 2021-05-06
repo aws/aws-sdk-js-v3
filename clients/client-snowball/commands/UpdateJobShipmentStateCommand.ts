@@ -23,7 +23,7 @@ export interface UpdateJobShipmentStateCommandOutput extends UpdateJobShipmentSt
 /**
  * <p>Updates the state when a the shipment states changes to a different state.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SnowballClient, UpdateJobShipmentStateCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, UpdateJobShipmentStateCommand } = require("@aws-sdk/client-snowball"); // CommonJS import

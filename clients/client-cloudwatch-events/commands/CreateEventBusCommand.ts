@@ -25,7 +25,7 @@ export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __M
  *       use to receive events from your custom applications and services, or it can be a partner event
  *       bus which can be matched to a partner event source.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchEventsClient, CreateEventBusCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
  * // const { CloudWatchEventsClient, CreateEventBusCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import

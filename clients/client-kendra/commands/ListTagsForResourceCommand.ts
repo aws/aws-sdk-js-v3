@@ -24,7 +24,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Gets a list of tags associated with a specified resource. Indexes,
  *       FAQs, and data sources can have tags associated with them.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, ListTagsForResourceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, ListTagsForResourceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import

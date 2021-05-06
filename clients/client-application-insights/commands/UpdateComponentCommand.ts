@@ -28,7 +28,7 @@ export interface UpdateComponentCommandOutput extends UpdateComponentResponse, _
  * <p>Updates the custom component name and/or the list of resources that make up the
  *          component.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ApplicationInsightsClient, UpdateComponentCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
  * // const { ApplicationInsightsClient, UpdateComponentCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import

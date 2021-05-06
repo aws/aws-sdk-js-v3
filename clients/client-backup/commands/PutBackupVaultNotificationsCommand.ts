@@ -23,7 +23,7 @@ export interface PutBackupVaultNotificationsCommandOutput extends __MetadataBear
 /**
  * <p>Turns on notifications on a backup vault for the specified topic and events.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, PutBackupVaultNotificationsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, PutBackupVaultNotificationsCommand } = require("@aws-sdk/client-backup"); // CommonJS import

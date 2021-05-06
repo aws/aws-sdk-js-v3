@@ -31,7 +31,7 @@ export interface DisassociateIdentityProviderConfigCommandOutput
  *             access the cluster. However, you can still access the cluster with AWS IAM
  *             users.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EKSClient, DisassociateIdentityProviderConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
  * // const { EKSClient, DisassociateIdentityProviderConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import

@@ -23,7 +23,7 @@ export interface GetModelTemplateCommandOutput extends Template, __MetadataBeare
 /**
  * <p>Generates a sample mapping template that can be used to transform a payload into the structure of a model.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, GetModelTemplateCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetModelTemplateCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

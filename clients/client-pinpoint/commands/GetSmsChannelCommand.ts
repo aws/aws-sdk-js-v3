@@ -23,7 +23,7 @@ export interface GetSmsChannelCommandOutput extends GetSmsChannelResponse, __Met
 /**
  * <p>Retrieves information about the status and settings of the SMS channel for an application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetSmsChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetSmsChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

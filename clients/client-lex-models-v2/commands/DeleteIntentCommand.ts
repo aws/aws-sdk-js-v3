@@ -25,7 +25,7 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  *          <p>Deleting an intent also deletes the slots associated with the
  *          intent.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LexModelsV2Client, DeleteIntentCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
  * // const { LexModelsV2Client, DeleteIntentCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import

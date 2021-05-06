@@ -35,7 +35,7 @@ export interface ModifyLunaClientCommandOutput extends ModifyLunaClientResponse,
  *          <p>This action can potentially start a workflow to install the new certificate on the
  *       client's HSMs.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudHSMClient, ModifyLunaClientCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
  * // const { CloudHSMClient, ModifyLunaClientCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import

@@ -24,7 +24,7 @@ export interface CreateImageVersionCommandOutput extends CreateImageVersionRespo
  * <p>Creates a version of the SageMaker image specified by <code>ImageName</code>. The version
  *         represents the Amazon Container Registry (ECR) container image specified by <code>BaseImage</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, CreateImageVersionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateImageVersionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

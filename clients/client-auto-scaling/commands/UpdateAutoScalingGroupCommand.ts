@@ -67,7 +67,7 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *             policies, you can update them by calling the <a>PutScalingPolicy</a>
  *             API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AutoScalingClient, UpdateAutoScalingGroupCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, UpdateAutoScalingGroupCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import

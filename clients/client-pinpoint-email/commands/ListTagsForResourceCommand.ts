@@ -28,7 +28,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *             is a general label that acts as a category for more specific tag values. A tag value
  *             acts as a descriptor within a tag key.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointEmailClient, ListTagsForResourceCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
  * // const { PinpointEmailClient, ListTagsForResourceCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import

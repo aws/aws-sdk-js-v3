@@ -24,7 +24,7 @@ export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __M
 /**
  * <p>Lists the history of SPICE ingestions for a dataset.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, ListIngestionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, ListIngestionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

@@ -140,7 +140,7 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  * 				        </dd>
  *          </dl>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53Client, CreateQueryLoggingConfigCommand } from "@aws-sdk/client-route-53"; // ES Modules import
  * // const { Route53Client, CreateQueryLoggingConfigCommand } = require("@aws-sdk/client-route-53"); // CommonJS import

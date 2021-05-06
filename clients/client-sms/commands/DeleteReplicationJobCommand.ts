@@ -26,7 +26,7 @@ export interface DeleteReplicationJobCommandOutput extends DeleteReplicationJobR
  *             deletes the contents of the Amazon S3 bucket used to store AWS SMS artifacts. The AMIs created
  *             by the replication runs are not deleted.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SMSClient, DeleteReplicationJobCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DeleteReplicationJobCommand } = require("@aws-sdk/client-sms"); // CommonJS import

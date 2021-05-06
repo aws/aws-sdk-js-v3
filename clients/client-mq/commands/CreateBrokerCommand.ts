@@ -23,7 +23,7 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
 /**
  * Creates a broker. Note: This API is asynchronous.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MqClient, CreateBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, CreateBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import

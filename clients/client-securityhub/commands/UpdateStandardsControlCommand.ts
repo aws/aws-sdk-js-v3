@@ -24,7 +24,7 @@ export interface UpdateStandardsControlCommandOutput extends UpdateStandardsCont
  * <p>Used to control whether an individual security standard control is enabled or
  *          disabled.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, UpdateStandardsControlCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, UpdateStandardsControlCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

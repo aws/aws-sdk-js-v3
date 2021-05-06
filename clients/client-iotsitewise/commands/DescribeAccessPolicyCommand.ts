@@ -24,7 +24,7 @@ export interface DescribeAccessPolicyCommandOutput extends DescribeAccessPolicyR
  * <p>Describes an access policy, which specifies an identity's access to an AWS IoT SiteWise Monitor portal or
  *       project.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTSiteWiseClient, DescribeAccessPolicyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, DescribeAccessPolicyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import

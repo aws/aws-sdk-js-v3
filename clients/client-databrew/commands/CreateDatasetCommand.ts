@@ -23,7 +23,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
 /**
  * <p>Creates a new DataBrew dataset.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, CreateDatasetCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, CreateDatasetCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

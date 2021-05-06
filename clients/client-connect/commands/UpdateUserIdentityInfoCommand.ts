@@ -31,7 +31,7 @@ export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
  *      Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *          </important>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, UpdateUserIdentityInfoCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, UpdateUserIdentityInfoCommand } = require("@aws-sdk/client-connect"); // CommonJS import

@@ -23,7 +23,7 @@ export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenRes
 /**
  * <p>Create a JWT token to be used to login to Airflow Web UI with claims based Authentication.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MWAAClient, CreateWebLoginTokenCommand } from "@aws-sdk/client-mwaa"; // ES Modules import
  * // const { MWAAClient, CreateWebLoginTokenCommand } = require("@aws-sdk/client-mwaa"); // CommonJS import

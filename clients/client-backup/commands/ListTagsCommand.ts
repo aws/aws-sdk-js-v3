@@ -28,7 +28,7 @@ export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer 
  *                <code>ListTags</code> are currently only supported with Amazon EFS backups.</p>
  *          </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, ListTagsCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListTagsCommand } = require("@aws-sdk/client-backup"); // CommonJS import

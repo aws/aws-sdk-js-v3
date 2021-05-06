@@ -25,7 +25,7 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
  *          <p>This operation is only used by accounts that are not part of an organization.
  *          Organization accounts do not receive invitations.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, DeleteInvitationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, DeleteInvitationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

@@ -25,7 +25,7 @@ export interface SetSMBGuestPasswordCommandOutput extends SetSMBGuestPasswordOut
  *          user is the user when the authentication method for the file share is set to
  *             <code>GuestAccess</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, SetSMBGuestPasswordCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, SetSMBGuestPasswordCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

@@ -27,7 +27,7 @@ export interface GetMLTaskRunCommandOutput extends GetMLTaskRunResponse, __Metad
  *         <code>GetMLTaskRun</code> with the <code>TaskRunID</code> and its parent transform's
  *         <code>TransformID</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, GetMLTaskRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetMLTaskRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import

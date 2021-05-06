@@ -26,7 +26,7 @@ export interface ListRecoveryPointsByResourceCommandOutput
  * <p>Returns detailed information about recovery points of the type specified by a resource
  *          Amazon Resource Name (ARN).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, ListRecoveryPointsByResourceCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, ListRecoveryPointsByResourceCommand } = require("@aws-sdk/client-backup"); // CommonJS import

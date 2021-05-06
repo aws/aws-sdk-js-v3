@@ -30,7 +30,7 @@ export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBackt
  *             <p>This action only applies to Aurora MySQL DB clusters.</p>
  *         </note>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSClient, DescribeDBClusterBacktracksCommand } from "@aws-sdk/client-rds"; // ES Modules import
  * // const { RDSClient, DescribeDBClusterBacktracksCommand } = require("@aws-sdk/client-rds"); // CommonJS import

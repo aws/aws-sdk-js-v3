@@ -23,7 +23,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
 /**
  * <p>Lists all of the DataBrew datasets.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, ListDatasetsCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, ListDatasetsCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

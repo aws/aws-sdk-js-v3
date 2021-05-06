@@ -25,7 +25,7 @@ export interface StopCrawlerScheduleCommandOutput extends StopCrawlerScheduleRes
  *       <code>NOT_SCHEDULED</code>, but does not stop the crawler if it is
  *       already running.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, StopCrawlerScheduleCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StopCrawlerScheduleCommand } = require("@aws-sdk/client-glue"); // CommonJS import

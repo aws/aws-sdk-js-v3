@@ -24,7 +24,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * <p>Lists the images in your account and their properties. The list can be filtered by
  *         creation time or modified time, and whether the image name contains a specified string.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, ListImagesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, ListImagesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

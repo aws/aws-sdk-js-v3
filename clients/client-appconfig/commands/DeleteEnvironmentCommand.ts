@@ -24,7 +24,7 @@ export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
  * <p>Delete an environment. Deleting an environment does not delete a configuration from a
  *          host.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppConfigClient, DeleteEnvironmentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
  * // const { AppConfigClient, DeleteEnvironmentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import

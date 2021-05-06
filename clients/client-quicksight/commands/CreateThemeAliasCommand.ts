@@ -23,7 +23,7 @@ export interface CreateThemeAliasCommandOutput extends CreateThemeAliasResponse,
 /**
  * <p>Creates a theme alias for a theme.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, CreateThemeAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, CreateThemeAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

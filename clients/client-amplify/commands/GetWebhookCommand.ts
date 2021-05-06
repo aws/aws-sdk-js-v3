@@ -23,7 +23,7 @@ export interface GetWebhookCommandOutput extends GetWebhookResult, __MetadataBea
 /**
  * <p> Returns the webhook information that corresponds to a specified webhook ID. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AmplifyClient, GetWebhookCommand } from "@aws-sdk/client-amplify"; // ES Modules import
  * // const { AmplifyClient, GetWebhookCommand } = require("@aws-sdk/client-amplify"); // CommonJS import

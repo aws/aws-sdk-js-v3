@@ -20,7 +20,7 @@ export interface QueryListsCommandOutput extends __MetadataBearer {}
 /**
  * This test serializes simple and complex lists.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QueryProtocolClient, QueryListsCommand } from "@aws-sdk/aws-query"; // ES Modules import
  * // const { QueryProtocolClient, QueryListsCommand } = require("@aws-sdk/aws-query"); // CommonJS import

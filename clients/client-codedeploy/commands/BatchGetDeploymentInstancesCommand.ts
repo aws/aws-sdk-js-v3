@@ -32,7 +32,7 @@ export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploy
  *                 <code>BatchGetDeploymentTargets</code> works with all compute platforms. The maximum
  *             number of instances that can be returned is 25.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeDeployClient, BatchGetDeploymentInstancesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, BatchGetDeploymentInstancesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import

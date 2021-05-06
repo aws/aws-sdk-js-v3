@@ -25,7 +25,7 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  *    final part of the ARN). The console does not display the user IDs. Instead, list the users and
  *    note the IDs provided in the output.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, DescribeUserCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, DescribeUserCommand } = require("@aws-sdk/client-connect"); // CommonJS import

@@ -23,7 +23,7 @@ export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __Met
 /**
  * <p>Deletes the standard customer profile and all data pertaining to the profile.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CustomerProfilesClient, DeleteProfileCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
  * // const { CustomerProfilesClient, DeleteProfileCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import

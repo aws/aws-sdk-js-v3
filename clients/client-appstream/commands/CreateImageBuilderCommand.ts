@@ -24,7 +24,7 @@ export interface CreateImageBuilderCommandOutput extends CreateImageBuilderResul
  * <p>Creates an image builder. An image builder is a virtual machine that is used to create an image.</p>
  *         <p>The initial state of the builder is <code>PENDING</code>. When it is ready, the state is <code>RUNNING</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppStreamClient, CreateImageBuilderCommand } from "@aws-sdk/client-appstream"; // ES Modules import
  * // const { AppStreamClient, CreateImageBuilderCommand } = require("@aws-sdk/client-appstream"); // CommonJS import

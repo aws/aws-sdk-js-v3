@@ -33,7 +33,7 @@ export interface DescribeWorkingStorageCommandOutput extends DescribeWorkingStor
  *          <p>The response includes disk IDs that are configured as working storage, and it includes
  *          the amount of working storage allocated and used.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, DescribeWorkingStorageCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, DescribeWorkingStorageCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

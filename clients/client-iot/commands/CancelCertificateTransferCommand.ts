@@ -30,7 +30,7 @@ export interface CancelCertificateTransferCommandOutput extends __MetadataBearer
  *          <p>After a certificate transfer is cancelled, the status of the certificate changes from
  *          PENDING_TRANSFER to INACTIVE.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, CancelCertificateTransferCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CancelCertificateTransferCommand } = require("@aws-sdk/client-iot"); // CommonJS import

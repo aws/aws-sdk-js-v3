@@ -24,7 +24,7 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  * <p>Converts an existing secret to a multi-Region secret and begins replication the secret to a
  *       list of new regions. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecretsManagerClient, ReplicateSecretToRegionsCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
  * // const { SecretsManagerClient, ReplicateSecretToRegionsCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import

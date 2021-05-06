@@ -42,7 +42,7 @@ export interface DeleteVaultCommandOutput extends __MetadataBearer {}
  *             Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html">Delete Vault </a> in the
  *             <i>Amazon S3 Glacier Developer Guide</i>. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlacierClient, DeleteVaultCommand } from "@aws-sdk/client-glacier"; // ES Modules import
  * // const { GlacierClient, DeleteVaultCommand } = require("@aws-sdk/client-glacier"); // CommonJS import

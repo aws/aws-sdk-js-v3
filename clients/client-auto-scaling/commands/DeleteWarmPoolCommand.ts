@@ -23,7 +23,7 @@ export interface DeleteWarmPoolCommandOutput extends DeleteWarmPoolAnswer, __Met
 /**
  * <p>Deletes the warm pool for the specified Auto Scaling group.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AutoScalingClient, DeleteWarmPoolCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DeleteWarmPoolCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import

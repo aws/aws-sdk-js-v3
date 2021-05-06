@@ -32,7 +32,7 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * properly (de)serialize successful and error responses based on the
  * the presence of the
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestJsonProtocolClient, GreetingWithErrorsCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, GreetingWithErrorsCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import

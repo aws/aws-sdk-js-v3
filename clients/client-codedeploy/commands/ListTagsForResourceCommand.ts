@@ -24,7 +24,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * <p> Returns a list of tags for the resource identified by a specified Amazon Resource
  *             Name (ARN). Tags are used to organize and categorize your CodeDeploy resources. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeDeployClient, ListTagsForResourceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListTagsForResourceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import

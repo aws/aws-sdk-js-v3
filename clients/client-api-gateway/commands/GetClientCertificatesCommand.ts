@@ -23,7 +23,7 @@ export interface GetClientCertificatesCommandOutput extends ClientCertificates, 
 /**
  * <p>Gets a collection of <a>ClientCertificate</a> resources.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { APIGatewayClient, GetClientCertificatesCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
  * // const { APIGatewayClient, GetClientCertificatesCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import

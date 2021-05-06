@@ -23,7 +23,7 @@ export interface ModifyAquaConfigurationCommandOutput extends ModifyAquaOutputMe
 /**
  * <p>Modifies whether a cluster can use AQUA (Advanced Query Accelerator). </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RedshiftClient, ModifyAquaConfigurationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
  * // const { RedshiftClient, ModifyAquaConfigurationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import

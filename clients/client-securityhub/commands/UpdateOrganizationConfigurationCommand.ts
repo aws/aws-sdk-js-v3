@@ -26,7 +26,7 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * <p>Used to update the configuration related to Organizations. Can only be called from a
  *          Security Hub administrator account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, UpdateOrganizationConfigurationCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, UpdateOrganizationConfigurationCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

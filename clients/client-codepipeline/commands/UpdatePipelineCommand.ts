@@ -26,7 +26,7 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  *             structure of the pipeline. Updating the pipeline increases the version number of the
  *             pipeline by 1.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodePipelineClient, UpdatePipelineCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, UpdatePipelineCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import

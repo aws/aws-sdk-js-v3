@@ -24,7 +24,7 @@ export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateR
  * <p>Deletes a system. New deployments can't contain the system after its deletion.
  *       Existing deployments that contain the system will continue to work because they use a snapshot of the system that is taken when it is deployed.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTThingsGraphClient, DeleteSystemTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
  * // const { IoTThingsGraphClient, DeleteSystemTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import

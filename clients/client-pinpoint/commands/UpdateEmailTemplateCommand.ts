@@ -23,7 +23,7 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
 /**
  * <p>Updates an existing message template for messages that are sent through the email channel.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, UpdateEmailTemplateCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, UpdateEmailTemplateCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

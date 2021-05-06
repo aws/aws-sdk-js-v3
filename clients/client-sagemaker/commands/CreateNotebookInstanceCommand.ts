@@ -59,7 +59,7 @@ export interface CreateNotebookInstanceCommandOutput extends CreateNotebookInsta
  *             validate hosted models. </p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, CreateNotebookInstanceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, CreateNotebookInstanceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

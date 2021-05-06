@@ -27,7 +27,7 @@ export interface ListResourceComplianceSummariesCommandOutput
  *    non-compliant statuses and detailed compliance-item severity counts, according to the filter
  *    criteria you specify.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, ListResourceComplianceSummariesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, ListResourceComplianceSummariesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

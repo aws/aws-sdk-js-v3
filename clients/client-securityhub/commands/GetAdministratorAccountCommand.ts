@@ -25,7 +25,7 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  *          <p>Can be used by both member accounts that are managed using Organizations and accounts that were
  *          invited manually.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SecurityHubClient, GetAdministratorAccountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
  * // const { SecurityHubClient, GetAdministratorAccountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import

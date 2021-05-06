@@ -26,7 +26,7 @@ export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareO
  *          organization or by a delegated administrator.</p>
  *          <p>Note that if a delegated admin is de-registered, portfolio shares created from that account are removed.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogClient, DeletePortfolioShareCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
  * // const { ServiceCatalogClient, DeletePortfolioShareCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import

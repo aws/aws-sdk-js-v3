@@ -23,7 +23,7 @@ export interface DescribeWorkspaceSnapshotsCommandOutput extends DescribeWorkspa
 /**
  * <p>Describes the snapshots for the specified WorkSpace.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkSpacesClient, DescribeWorkspaceSnapshotsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
  * // const { WorkSpacesClient, DescribeWorkspaceSnapshotsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import

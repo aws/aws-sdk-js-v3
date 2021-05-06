@@ -30,7 +30,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  *       request will change only the values that are provided. To clear a value, pass the empty string
  *       (i.e., <code>""</code>).</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoT1ClickProjectsClient, UpdateProjectCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
  * // const { IoT1ClickProjectsClient, UpdateProjectCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import

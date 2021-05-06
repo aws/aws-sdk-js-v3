@@ -30,7 +30,7 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  *             registration token through their browser. The registration token is resolved through
  *             this API to obtain a CustomerIdentifier and product code.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MarketplaceMeteringClient, ResolveCustomerCommand } from "@aws-sdk/client-marketplace-metering"; // ES Modules import
  * // const { MarketplaceMeteringClient, ResolveCustomerCommand } = require("@aws-sdk/client-marketplace-metering"); // CommonJS import

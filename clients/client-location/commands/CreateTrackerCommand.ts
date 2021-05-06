@@ -24,7 +24,7 @@ export interface CreateTrackerCommandOutput extends CreateTrackerResponse, __Met
  * <p>Creates a tracker resource in your AWS account, which lets you retrieve current and
  *             historical location of devices.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LocationClient, CreateTrackerCommand } from "@aws-sdk/client-location"; // ES Modules import
  * // const { LocationClient, CreateTrackerCommand } = require("@aws-sdk/client-location"); // CommonJS import

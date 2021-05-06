@@ -27,7 +27,7 @@ export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalance
 /**
  * <p>Deletes the specified policy from the specified load balancer. This policy must not be enabled for any listeners.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElasticLoadBalancingClient, DeleteLoadBalancerPolicyCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
  * // const { ElasticLoadBalancingClient, DeleteLoadBalancerPolicyCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import

@@ -41,7 +41,7 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  *          the <code>QueryResultTypeConfig</code> parameter.</p>
  *          <p>Each query returns the 100 most relevant results. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, QueryCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, QueryCommand } = require("@aws-sdk/client-kendra"); // CommonJS import

@@ -31,7 +31,7 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  *          <p>For detailed information, see the Task Execution section in the Components and
  *       Terminology topic in the <i>AWS DataSync User Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataSyncClient, StartTaskExecutionCommand } from "@aws-sdk/client-datasync"; // ES Modules import
  * // const { DataSyncClient, StartTaskExecutionCommand } = require("@aws-sdk/client-datasync"); // CommonJS import

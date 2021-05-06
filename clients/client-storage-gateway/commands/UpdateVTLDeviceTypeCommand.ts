@@ -26,7 +26,7 @@ export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOut
  *          a different type of medium changer after a tape gateway is activated. This operation is
  *          only supported in the tape gateway type.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { StorageGatewayClient, UpdateVTLDeviceTypeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
  * // const { StorageGatewayClient, UpdateVTLDeviceTypeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import

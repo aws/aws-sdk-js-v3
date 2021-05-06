@@ -24,7 +24,7 @@ export interface DeleteTemplateAliasCommandOutput extends DeleteTemplateAliasRes
  * <p>Deletes the item that the specified template alias points to. If you provide a specific
  * 			alias, you delete the version of the template that the alias points to.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { QuickSightClient, DeleteTemplateAliasCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
  * // const { QuickSightClient, DeleteTemplateAliasCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import

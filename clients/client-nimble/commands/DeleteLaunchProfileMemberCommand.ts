@@ -23,7 +23,7 @@ export interface DeleteLaunchProfileMemberCommandOutput extends DeleteLaunchProf
 /**
  * <p>Delete a user from launch profile membership.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NimbleClient, DeleteLaunchProfileMemberCommand } from "@aws-sdk/client-nimble"; // ES Modules import
  * // const { NimbleClient, DeleteLaunchProfileMemberCommand } = require("@aws-sdk/client-nimble"); // CommonJS import

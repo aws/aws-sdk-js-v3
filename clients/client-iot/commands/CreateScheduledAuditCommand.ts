@@ -24,7 +24,7 @@ export interface CreateScheduledAuditCommandOutput extends CreateScheduledAuditR
  * <p>Creates a scheduled audit that is run at a specified
  *           time interval.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTClient, CreateScheduledAuditCommand } from "@aws-sdk/client-iot"; // ES Modules import
  * // const { IoTClient, CreateScheduledAuditCommand } = require("@aws-sdk/client-iot"); // CommonJS import

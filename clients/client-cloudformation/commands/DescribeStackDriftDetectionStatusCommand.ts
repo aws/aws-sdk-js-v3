@@ -37,7 +37,7 @@ export interface DescribeStackDriftDetectionStatusCommandOutput
  *          completed, use <a>DescribeStackResourceDrifts</a> to return drift information
  *          about the stack and its resources.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFormationClient, DescribeStackDriftDetectionStatusCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
  * // const { CloudFormationClient, DescribeStackDriftDetectionStatusCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import

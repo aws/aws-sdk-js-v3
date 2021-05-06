@@ -24,7 +24,7 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
  * <p>Describes the actions scheduled for your Auto Scaling group that haven't run or that have not
  *             reached their end time. To describe the actions that have already run, call the <a>DescribeScalingActivities</a> API.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AutoScalingClient, DescribeScheduledActionsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, DescribeScheduledActionsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import

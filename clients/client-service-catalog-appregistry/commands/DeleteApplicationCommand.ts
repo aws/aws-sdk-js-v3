@@ -27,7 +27,7 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
 /**
  * <p>Deletes an application that is specified either by its application ID or name. All associated attribute groups and resources must be disassociated from it before deleting an application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ServiceCatalogAppRegistryClient, DeleteApplicationCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
  * // const { ServiceCatalogAppRegistryClient, DeleteApplicationCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import

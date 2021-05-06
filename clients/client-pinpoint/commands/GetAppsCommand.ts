@@ -23,7 +23,7 @@ export interface GetAppsCommandOutput extends GetAppsResponse, __MetadataBearer 
 /**
  * <p>Retrieves information about all the applications that are associated with your Amazon Pinpoint account.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetAppsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetAppsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

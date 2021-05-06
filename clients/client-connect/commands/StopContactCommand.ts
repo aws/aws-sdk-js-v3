@@ -23,7 +23,7 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
 /**
  * <p>Ends the specified contact.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ConnectClient, StopContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
  * // const { ConnectClient, StopContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import

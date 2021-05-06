@@ -23,7 +23,7 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
 /**
  * <p>Returns the definition of a specific DataBrew schedule.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, DescribeScheduleCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DescribeScheduleCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

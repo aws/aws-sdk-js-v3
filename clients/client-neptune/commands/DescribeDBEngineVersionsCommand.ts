@@ -23,7 +23,7 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
 /**
  * <p>Returns a list of the available DB engines.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { NeptuneClient, DescribeDBEngineVersionsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
  * // const { NeptuneClient, DescribeDBEngineVersionsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import

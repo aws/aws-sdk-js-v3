@@ -23,7 +23,7 @@ export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __Metad
 /**
  * Deletes a broker. Note: This API is asynchronous.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MqClient, DeleteBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
  * // const { MqClient, DeleteBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import

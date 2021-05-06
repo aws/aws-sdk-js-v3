@@ -24,7 +24,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used
  *             to manage a resource. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodePipelineClient, TagResourceCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, TagResourceCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import

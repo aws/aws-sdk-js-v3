@@ -26,7 +26,7 @@ export interface PutResolverQueryLogConfigPolicyCommandOutput
  * <p>Specifies an AWS account that you want to share a query logging configuration with, the query logging configuration that you want to share,
  * 			and the operations that you want the account to be able to perform on the configuration.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { Route53ResolverClient, PutResolverQueryLogConfigPolicyCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
  * // const { Route53ResolverClient, PutResolverQueryLogConfigPolicyCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import

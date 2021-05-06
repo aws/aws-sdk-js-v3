@@ -24,7 +24,7 @@ export interface GetTableVersionsCommandOutput extends GetTableVersionsResponse,
  * <p>Retrieves a list of strings that identify available versions of
  *       a specified table.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, GetTableVersionsCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetTableVersionsCommand } = require("@aws-sdk/client-glue"); // CommonJS import

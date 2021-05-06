@@ -31,7 +31,7 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  *          </note>
  *          <p>Returns the <a>LoggingConfiguration</a> for the specified web ACL.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WAFClient, GetLoggingConfigurationCommand } from "@aws-sdk/client-waf"; // ES Modules import
  * // const { WAFClient, GetLoggingConfigurationCommand } = require("@aws-sdk/client-waf"); // CommonJS import

@@ -23,7 +23,7 @@ export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreRes
 /**
  * <p>Deletes a Data Store. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { HealthLakeClient, DeleteFHIRDatastoreCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, DeleteFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import

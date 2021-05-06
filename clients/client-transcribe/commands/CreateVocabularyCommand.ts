@@ -24,7 +24,7 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  * <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles
  *             transcription of an audio file. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { TranscribeClient, CreateVocabularyCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
  * // const { TranscribeClient, CreateVocabularyCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import

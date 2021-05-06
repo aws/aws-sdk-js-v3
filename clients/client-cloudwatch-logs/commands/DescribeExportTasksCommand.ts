@@ -24,7 +24,7 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * <p>Lists the specified export tasks. You can list all your export tasks or filter
  *       the results based on task ID or task status.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchLogsClient, DescribeExportTasksCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, DescribeExportTasksCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import

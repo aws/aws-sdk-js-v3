@@ -42,7 +42,7 @@ export interface RespondDecisionTaskCompletedCommandOutput extends __MetadataBea
  *         IAM to Manage Access to Amazon SWF Workflows</a> in the
  *       <i>Amazon SWF Developer Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SWFClient, RespondDecisionTaskCompletedCommand } from "@aws-sdk/client-swf"; // ES Modules import
  * // const { SWFClient, RespondDecisionTaskCompletedCommand } = require("@aws-sdk/client-swf"); // CommonJS import

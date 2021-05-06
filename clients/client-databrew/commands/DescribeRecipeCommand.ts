@@ -24,7 +24,7 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  * <p>Returns the definition of a specific DataBrew recipe corresponding to a particular
  *             version.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { DataBrewClient, DescribeRecipeCommand } from "@aws-sdk/client-databrew"; // ES Modules import
  * // const { DataBrewClient, DescribeRecipeCommand } = require("@aws-sdk/client-databrew"); // CommonJS import

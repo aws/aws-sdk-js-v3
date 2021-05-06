@@ -24,7 +24,7 @@ export interface ListDataSourceSyncJobsCommandOutput extends ListDataSourceSyncJ
  * <p>Gets statistics about synchronizing Amazon Kendra with a data
  *       source.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { KendraClient, ListDataSourceSyncJobsCommand } from "@aws-sdk/client-kendra"; // ES Modules import
  * // const { KendraClient, ListDataSourceSyncJobsCommand } = require("@aws-sdk/client-kendra"); // CommonJS import

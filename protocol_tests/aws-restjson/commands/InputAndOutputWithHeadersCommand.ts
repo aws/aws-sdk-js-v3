@@ -24,7 +24,7 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
  * The example tests how requests and responses are serialized when there is
  * no input or output payload but there are HTTP header bindings.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestJsonProtocolClient, InputAndOutputWithHeadersCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, InputAndOutputWithHeadersCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import

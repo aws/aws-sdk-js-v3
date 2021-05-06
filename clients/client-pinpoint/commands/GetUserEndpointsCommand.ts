@@ -23,7 +23,7 @@ export interface GetUserEndpointsCommandOutput extends GetUserEndpointsResponse,
 /**
  * <p>Retrieves information about all the endpoints that are associated with a specific user ID.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { PinpointClient, GetUserEndpointsCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
  * // const { PinpointClient, GetUserEndpointsCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import

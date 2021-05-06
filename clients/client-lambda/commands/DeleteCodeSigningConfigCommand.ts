@@ -24,7 +24,7 @@ export interface DeleteCodeSigningConfigCommandOutput extends DeleteCodeSigningC
  * <p>Deletes the code signing configuration. You can delete the code signing configuration only if no function is
  *       using it. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { LambdaClient, DeleteCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
  * // const { LambdaClient, DeleteCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import

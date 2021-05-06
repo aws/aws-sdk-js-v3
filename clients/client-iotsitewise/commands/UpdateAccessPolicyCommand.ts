@@ -24,7 +24,7 @@ export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyRespo
  * <p>Updates an existing access policy that specifies an identity's access to an AWS IoT SiteWise Monitor
  *       portal or project resource.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTSiteWiseClient, UpdateAccessPolicyCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, UpdateAccessPolicyCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import

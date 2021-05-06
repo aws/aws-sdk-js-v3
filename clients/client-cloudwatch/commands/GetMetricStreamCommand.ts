@@ -23,7 +23,7 @@ export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __M
 /**
  * <p>Returns information about the metric stream that you specify.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchClient, GetMetricStreamCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
  * // const { CloudWatchClient, GetMetricStreamCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import

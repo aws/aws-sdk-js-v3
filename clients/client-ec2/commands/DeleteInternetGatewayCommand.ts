@@ -24,7 +24,7 @@ export interface DeleteInternetGatewayCommandOutput extends __MetadataBearer {}
  * <p>Deletes the specified internet gateway. You must detach the internet gateway from the
  * 			VPC before you can delete it.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, DeleteInternetGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, DeleteInternetGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

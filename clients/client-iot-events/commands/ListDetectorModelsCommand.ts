@@ -24,7 +24,7 @@ export interface ListDetectorModelsCommandOutput extends ListDetectorModelsRespo
  * <p>Lists the detector models you have created. Only the metadata associated with each
  *       detector model is returned.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTEventsClient, ListDetectorModelsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
  * // const { IoTEventsClient, ListDetectorModelsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import

@@ -28,7 +28,7 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  *         <p>By default, only the events occurring within the last hour are returned;
  *             however, you can retrieve up to 14 days' worth of events if necessary.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { ElastiCacheClient, DescribeEventsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
  * // const { ElastiCacheClient, DescribeEventsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import

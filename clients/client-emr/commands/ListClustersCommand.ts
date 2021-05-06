@@ -27,7 +27,7 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  *          returns a marker to track the paging of the cluster list across multiple ListClusters
  *          calls.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EMRClient, ListClustersCommand } from "@aws-sdk/client-emr"; // ES Modules import
  * // const { EMRClient, ListClustersCommand } = require("@aws-sdk/client-emr"); // CommonJS import

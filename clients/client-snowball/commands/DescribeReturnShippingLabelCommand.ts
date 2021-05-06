@@ -23,7 +23,7 @@ export interface DescribeReturnShippingLabelCommandOutput extends DescribeReturn
 /**
  * <p>Information on the shipping label of a Snow device that is being returned to AWS.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SnowballClient, DescribeReturnShippingLabelCommand } from "@aws-sdk/client-snowball"; // ES Modules import
  * // const { SnowballClient, DescribeReturnShippingLabelCommand } = require("@aws-sdk/client-snowball"); // CommonJS import

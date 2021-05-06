@@ -23,7 +23,7 @@ export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsRespons
 /**
  * <p>Sets logging options for AWS IoT SiteWise.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { IoTSiteWiseClient, PutLoggingOptionsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
  * // const { IoTSiteWiseClient, PutLoggingOptionsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import

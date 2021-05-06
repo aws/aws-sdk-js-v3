@@ -25,7 +25,7 @@ export interface DeleteRecoveryPointCommandOutput extends __MetadataBearer {}
  *          <p>If the recovery point ID belongs to a continuous backup, calling this endpoint deletes
  *          the existing continuous backup and stops future continuous backup.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { BackupClient, DeleteRecoveryPointCommand } from "@aws-sdk/client-backup"; // ES Modules import
  * // const { BackupClient, DeleteRecoveryPointCommand } = require("@aws-sdk/client-backup"); // CommonJS import

@@ -21,7 +21,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * <p>Deletes the specified application. Optionally deletes the launched stack associated with
  *             the application and all AWS SMS replication jobs for servers in the application.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SMSClient, DeleteAppCommand } from "@aws-sdk/client-sms"; // ES Modules import
  * // const { SMSClient, DeleteAppCommand } = require("@aws-sdk/client-sms"); // CommonJS import

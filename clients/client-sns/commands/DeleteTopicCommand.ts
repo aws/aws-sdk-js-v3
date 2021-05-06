@@ -23,7 +23,7 @@ export interface DeleteTopicCommandOutput extends __MetadataBearer {}
  *             is idempotent, so deleting a topic that does not exist does not result in an
  *             error.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SNSClient, DeleteTopicCommand } from "@aws-sdk/client-sns"; // ES Modules import
  * // const { SNSClient, DeleteTopicCommand } = require("@aws-sdk/client-sns"); // CommonJS import

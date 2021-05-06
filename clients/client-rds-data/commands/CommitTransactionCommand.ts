@@ -24,7 +24,7 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  * <p>Ends a SQL transaction started with the <code>BeginTransaction</code> operation and
  *             commits the changes.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RDSDataClient, CommitTransactionCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
  * // const { RDSDataClient, CommitTransactionCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import

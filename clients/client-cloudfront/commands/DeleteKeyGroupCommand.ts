@@ -29,7 +29,7 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
  * 			these values, use <code>ListKeyGroups</code> followed by <code>GetKeyGroup</code> or
  * 			<code>GetKeyGroupConfig</code>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudFrontClient, DeleteKeyGroupCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
  * // const { CloudFrontClient, DeleteKeyGroupCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import

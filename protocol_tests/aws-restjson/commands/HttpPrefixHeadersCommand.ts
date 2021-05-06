@@ -23,7 +23,7 @@ export interface HttpPrefixHeadersCommandOutput extends HttpPrefixHeadersInputOu
 /**
  * This examples adds headers to the input of a request and response by prefix.
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { RestJsonProtocolClient, HttpPrefixHeadersCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
  * // const { RestJsonProtocolClient, HttpPrefixHeadersCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import

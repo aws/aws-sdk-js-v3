@@ -24,7 +24,7 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  * <p>Lists all FHIR Data Stores that are in the user’s account, regardless of Data Store
  *          status.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { HealthLakeClient, ListFHIRDatastoresCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
  * // const { HealthLakeClient, ListFHIRDatastoresCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import

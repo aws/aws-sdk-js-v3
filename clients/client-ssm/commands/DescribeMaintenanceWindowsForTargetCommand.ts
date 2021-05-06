@@ -29,7 +29,7 @@ export interface DescribeMaintenanceWindowsForTargetCommandOutput
  * <p>Retrieves information about the maintenance window targets or tasks that an instance is
  *    associated with.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSMClient, DescribeMaintenanceWindowsForTargetCommand } from "@aws-sdk/client-ssm"; // ES Modules import
  * // const { SSMClient, DescribeMaintenanceWindowsForTargetCommand } = require("@aws-sdk/client-ssm"); // CommonJS import

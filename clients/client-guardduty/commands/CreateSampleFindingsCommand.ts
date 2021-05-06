@@ -25,7 +25,7 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  *       specified for <code>findingTypes</code>, the API generates example findings of all supported
  *       finding types.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GuardDutyClient, CreateSampleFindingsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
  * // const { GuardDutyClient, CreateSampleFindingsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import

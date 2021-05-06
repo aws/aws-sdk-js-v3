@@ -20,7 +20,7 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes the client- and server-side session that is associated with the user.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SSOClient, LogoutCommand } from "@aws-sdk/client-sso"; // ES Modules import
  * // const { SSOClient, LogoutCommand } = require("@aws-sdk/client-sso"); // CommonJS import

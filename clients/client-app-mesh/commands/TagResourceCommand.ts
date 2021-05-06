@@ -26,7 +26,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *          changed. When a resource is deleted, the tags associated with that resource are also
  *          deleted.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AppMeshClient, TagResourceCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
  * // const { AppMeshClient, TagResourceCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import

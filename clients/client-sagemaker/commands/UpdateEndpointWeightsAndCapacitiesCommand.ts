@@ -29,7 +29,7 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
  *             updating the endpoint, it sets the status to <code>InService</code>. To check the status
  *             of an endpoint, use the <a>DescribeEndpoint</a> API. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { SageMakerClient, UpdateEndpointWeightsAndCapacitiesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
  * // const { SageMakerClient, UpdateEndpointWeightsAndCapacitiesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import

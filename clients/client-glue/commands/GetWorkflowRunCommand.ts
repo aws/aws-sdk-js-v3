@@ -23,7 +23,7 @@ export interface GetWorkflowRunCommandOutput extends GetWorkflowRunResponse, __M
 /**
  * <p>Retrieves the metadata for a given workflow run. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, GetWorkflowRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, GetWorkflowRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import

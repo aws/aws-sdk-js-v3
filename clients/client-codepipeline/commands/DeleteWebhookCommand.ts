@@ -27,7 +27,7 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  *             deleted webhook is re-created by calling PutWebhook with the same name, it will have a
  *             different URL.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodePipelineClient, DeleteWebhookCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
  * // const { CodePipelineClient, DeleteWebhookCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import

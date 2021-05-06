@@ -23,7 +23,7 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
 /**
  * <p>Starts a job run using a job definition.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { GlueClient, StartJobRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
  * // const { GlueClient, StartJobRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import

@@ -39,7 +39,7 @@ export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
  *             </li>
  *          </ul>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CloudWatchLogsClient, CreateLogStreamCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
  * // const { CloudWatchLogsClient, CreateLogStreamCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import

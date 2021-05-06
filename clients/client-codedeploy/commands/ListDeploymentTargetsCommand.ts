@@ -23,7 +23,7 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
 /**
  * <p> Returns an array of target IDs that are associated a deployment. </p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { CodeDeployClient, ListDeploymentTargetsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
  * // const { CodeDeployClient, ListDeploymentTargetsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import

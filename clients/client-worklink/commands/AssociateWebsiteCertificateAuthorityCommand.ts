@@ -29,7 +29,7 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
  * <p>Imports the root certificate of a certificate authority (CA) used to obtain TLS
  *             certificates used by associated websites within the company network.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { WorkLinkClient, AssociateWebsiteCertificateAuthorityCommand } from "@aws-sdk/client-worklink"; // ES Modules import
  * // const { WorkLinkClient, AssociateWebsiteCertificateAuthorityCommand } = require("@aws-sdk/client-worklink"); // CommonJS import

@@ -29,7 +29,7 @@ export interface AcceptTransitGatewayMulticastDomainAssociationsCommandOutput
 /**
  * <p>Accepts a request to associate subnets with a transit gateway multicast domain.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { EC2Client, AcceptTransitGatewayMulticastDomainAssociationsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
  * // const { EC2Client, AcceptTransitGatewayMulticastDomainAssociationsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import

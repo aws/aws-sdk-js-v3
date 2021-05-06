@@ -29,7 +29,7 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
  *                 instances from your Auto Scaling group</a> in the
  *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { AutoScalingClient, EnterStandbyCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
  * // const { AutoScalingClient, EnterStandbyCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import

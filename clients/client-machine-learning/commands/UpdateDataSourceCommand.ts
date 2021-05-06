@@ -24,7 +24,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  * <p>Updates the <code>DataSourceName</code> of a <code>DataSource</code>.</p>
  *         <p>You can use the <code>GetDataSource</code> operation to view the contents of the updated data element.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MachineLearningClient, UpdateDataSourceCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
  * // const { MachineLearningClient, UpdateDataSourceCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import

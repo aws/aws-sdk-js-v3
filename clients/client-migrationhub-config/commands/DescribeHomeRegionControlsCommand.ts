@@ -28,7 +28,7 @@ export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeReg
  * <p>This API permits filtering on the <code>ControlId</code> and <code>HomeRegion</code>
  *       fields.</p>
  * @example
- * User a bare-bones client and the command you need to make an API call.
+ * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
  * import { MigrationHubConfigClient, DescribeHomeRegionControlsCommand } from "@aws-sdk/client-migrationhub-config"; // ES Modules import
  * // const { MigrationHubConfigClient, DescribeHomeRegionControlsCommand } = require("@aws-sdk/client-migrationhub-config"); // CommonJS import
