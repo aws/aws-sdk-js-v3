@@ -6,6 +6,10 @@ import { EndpointCache } from "./EndpointCache";
 jest.mock("mnemonist");
 
 describe(EndpointCache.name, () => {
+  let endpointCache;
+  const capacity = 100;
+  const key = "key";
+
   const now = Date.now();
   const set = jest.fn();
   const get = jest.fn();
@@ -33,6 +37,7 @@ describe(EndpointCache.name, () => {
       has,
       clear,
     });
+    endpointCache = new EndpointCache(capacity);
   });
 
   afterEach(() => {
@@ -40,21 +45,15 @@ describe(EndpointCache.name, () => {
   });
 
   it("passes capacity to LRUCache", () => {
-    const capacity = 100;
-    new EndpointCache(capacity);
     expect(LRUCache).toHaveBeenCalledTimes(1);
     expect(LRUCache).toHaveBeenCalledWith(capacity);
   });
 
   describe("get", () => {
-    let endpointCache;
-    const key = "key";
-
     beforeEach(() => {
       has.mockReturnValue(true);
       get.mockReturnValue(getEndpointsWithExpiry(mockEndpoints));
       jest.spyOn(Date, "now").mockImplementation(() => now);
-      endpointCache = new EndpointCache(100);
     });
 
     const verifyHasAndGetCalls = () => {
@@ -112,12 +111,8 @@ describe(EndpointCache.name, () => {
   });
 
   describe("set", () => {
-    let endpointCache;
-    const key = "key";
-
     beforeEach(() => {
       jest.spyOn(Date, "now").mockImplementation(() => now);
-      endpointCache = new EndpointCache(100);
     });
 
     it("converts CachePeriodInMinutes to Expires before caching", () => {
@@ -145,5 +140,22 @@ describe(EndpointCache.name, () => {
       expect(set).toHaveBeenCalledTimes(1);
       expect(set).toHaveBeenCalledWith(key, [{ Address: "address", Expires: now + 60 * 1000 }]);
     });
+  });
+
+  it("remove", () => {
+    endpointCache.remove(key);
+    expect(set).toHaveBeenCalledTimes(1);
+    expect(set).toHaveBeenCalledWith(key, []);
+  });
+
+  it("has", () => {
+    endpointCache.has(key);
+    expect(has).toHaveBeenCalledTimes(1);
+    expect(has).toHaveBeenCalledWith(key);
+  });
+
+  it("clear", () => {
+    endpointCache.clear();
+    expect(clear).toHaveBeenCalledTimes(1);
   });
 });
