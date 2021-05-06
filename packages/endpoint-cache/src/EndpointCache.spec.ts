@@ -103,25 +103,27 @@ describe(EndpointCache.name, () => {
       expect(set).toHaveBeenCalledWith(key, []);
     });
 
-    it("returns one of the un-expired endpoints", () => {
-      expect(mockEndpoints.map((endpoint) => endpoint.Address)).toContain(endpointCache.get(key));
-      verifyHasAndGetCalls();
-      expect(set).not.toHaveBeenCalled();
-    });
-
-    it("returns un-expired endpoint", () => {
-      jest.spyOn(Date, "now").mockImplementation(() => now + 90 * 1000);
-      expect(endpointCache.get(key)).toEqual(mockEndpoints[1].Address);
-      verifyHasAndGetCalls();
-      expect(set).not.toHaveBeenCalled();
-    });
-
-    [0, 1].forEach((index) => {
-      it(`returns un-expired endpoint at index ${index}`, () => {
-        jest.spyOn(Math, "floor").mockImplementation(() => index);
-        expect(mockEndpoints.map((endpoint) => endpoint.Address)).toContain(endpointCache.get(key));
+    describe("getEndpoint", () => {
+      it("returns one of the un-expired endpoints", () => {
+        expect(mockEndpoints.map((endpoint) => endpoint.Address)).toContain(endpointCache.getEndpoint(key));
         verifyHasAndGetCalls();
         expect(set).not.toHaveBeenCalled();
+      });
+
+      it("returns un-expired endpoint", () => {
+        jest.spyOn(Date, "now").mockImplementation(() => now + 90 * 1000);
+        expect(endpointCache.getEndpoint(key)).toEqual(mockEndpoints[1].Address);
+        verifyHasAndGetCalls();
+        expect(set).not.toHaveBeenCalled();
+      });
+
+      [0, 1].forEach((index) => {
+        it(`returns un-expired endpoint at index ${index}`, () => {
+          jest.spyOn(Math, "floor").mockImplementation(() => index);
+          expect(mockEndpoints.map((endpoint) => endpoint.Address)).toContain(endpointCache.getEndpoint(key));
+          verifyHasAndGetCalls();
+          expect(set).not.toHaveBeenCalled();
+        });
       });
     });
   });

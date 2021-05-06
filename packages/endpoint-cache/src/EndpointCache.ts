@@ -2,7 +2,7 @@ import { LRUCache } from "mnemonist";
 
 import { Endpoint } from "./Endpoint";
 
-interface EndpointWithExpiry extends Pick<Endpoint, "Address"> {
+export interface EndpointWithExpiry extends Pick<Endpoint, "Address"> {
   Expires: number;
 }
 
@@ -13,16 +13,23 @@ export class EndpointCache {
     this.cache = new LRUCache(capacity);
   }
 
-  private getEndpoint(endpointsWithExpiry: EndpointWithExpiry[]) {
-    const now = Date.now();
-    const endpoints = endpointsWithExpiry
-      .filter((endpoint) => now < endpoint.Expires)
-      .map((endpoint) => endpoint.Address);
+  /**
+   * Returns an un-expired endpoint for the given key.
+   *
+   * @param endpointsWithExpiry
+   * @returns
+   */
+  getEndpoint(key: string) {
+    const endpointsWithExpiry = this.get(key);
+    if (!endpointsWithExpiry || endpointsWithExpiry.length === 0) {
+      return undefined;
+    }
+    const endpoints = endpointsWithExpiry.map((endpoint) => endpoint.Address);
     return endpoints[Math.floor(Math.random() * endpoints.length)];
   }
 
   /**
-   * Returns an un-expired endpoint for the given key.
+   * Returns un-expired endpoints for the given key.
    *
    * @param key
    * @returns
@@ -32,16 +39,19 @@ export class EndpointCache {
       return;
     }
 
-    const endpointsWithExpiry = this.cache.get(key);
-    if (!endpointsWithExpiry) {
+    const value = this.cache.get(key);
+    if (!value) {
       return;
     }
 
-    const endpoint = this.getEndpoint(endpointsWithExpiry);
-    if (endpoint === undefined) {
+    const now = Date.now();
+    const endpointsWithExpiry = value.filter((endpoint) => now < endpoint.Expires);
+    if (endpointsWithExpiry.length === 0) {
       this.delete(key);
+      return undefined;
     }
-    return endpoint;
+
+    return endpointsWithExpiry;
   }
 
   /**
