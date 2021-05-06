@@ -97,7 +97,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    public void serializeInputDocumentBody(
+    protected void serializeInputDocumentBody(
             GenerationContext context,
             OperationShape operation,
             List<HttpBinding> documentBindings
@@ -112,7 +112,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    public void serializeOutputDocumentBody(
+    protected void serializeOutputDocumentBody(
             GenerationContext context,
             OperationShape operation,
             List<HttpBinding> documentBindings
@@ -127,7 +127,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    public void serializeErrorDocumentBody(
+    protected void serializeErrorDocumentBody(
             GenerationContext context,
             StructureShape error,
             List<HttpBinding> documentBindings
@@ -243,7 +243,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    public void deserializeInputDocumentBody(
+    protected void deserializeInputDocumentBody(
             GenerationContext context,
             OperationShape operation,
             List<HttpBinding> documentBindings
@@ -252,7 +252,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    public void deserializeOutputDocumentBody(
+    protected void deserializeOutputDocumentBody(
             GenerationContext context,
             OperationShape operation,
             List<HttpBinding> documentBindings
@@ -261,7 +261,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    public void deserializeErrorDocumentBody(
+    protected void deserializeErrorDocumentBody(
             GenerationContext context,
             StructureShape error,
             List<HttpBinding> documentBindings
