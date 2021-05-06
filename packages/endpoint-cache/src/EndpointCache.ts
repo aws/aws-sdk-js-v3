@@ -21,6 +21,12 @@ export class EndpointCache {
     return endpoints[Math.floor(Math.random() * endpoints.length)];
   }
 
+  /**
+   * Returns an un-expired endpoint for the given key.
+   *
+   * @param key
+   * @returns
+   */
   get(key: string) {
     if (!this.has(key)) {
       return;
@@ -38,6 +44,16 @@ export class EndpointCache {
     return endpoint;
   }
 
+  /**
+   * Stores the endpoints passed for the key in cache.
+   * If not defined, uses empty string for the Address in endpoint.
+   * If not defined, uses one minute for CachePeriodInMinutes in endpoint.
+   * Stores milliseconds elapsed since the UNIX epoch in Expires param based
+   * on value provided in CachePeriodInMinutes.
+   *
+   * @param key
+   * @param endpoints
+   */
   set(key: string, endpoints: Endpoint[]) {
     const now = Date.now();
     this.cache.set(
@@ -49,16 +65,30 @@ export class EndpointCache {
     );
   }
 
+  /**
+   * Removes the value for the given key in the cache.
+   *
+   * @param {string} key
+   */
   remove(key: string) {
     // Replace with remove call once support is added upstream
     // Refs: https://github.com/Yomguithereal/mnemonist/issues/143
     this.cache.set(key, []);
   }
 
-  has(key: string) {
+  /**
+   * Checks whether the key exists in cache.
+   *
+   * @param {string} key
+   * @returns {boolean}
+   */
+  has(key: string): boolean {
     return this.cache.has(key);
   }
 
+  /**
+   * Clears the cache.
+   */
   clear() {
     this.cache.clear();
   }

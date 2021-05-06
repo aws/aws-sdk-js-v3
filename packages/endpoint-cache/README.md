@@ -8,3 +8,9 @@
 ## Usage
 
 You probably shouldn't, at least directly.
+
+## EndpointCache
+
+- uses `mnemonist/lru-cache` for storing the cache.
+- the `set` operation stores milliseconds elapsed since the UNIX epoch in Expires param based on CachePeriodInMinutes provided in Endpoint.
+- the `get` operation returns a random un-expired endpoint.
