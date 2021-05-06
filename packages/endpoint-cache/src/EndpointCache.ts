@@ -83,7 +83,17 @@ export class EndpointCache {
    * @returns {boolean}
    */
   has(key: string): boolean {
-    return this.cache.has(key);
+    if (!this.cache.has(key)) {
+      return false;
+    }
+
+    // Remove call for peek, once remove/delete support is added upstream
+    // Refs: https://github.com/Yomguithereal/mnemonist/issues/143
+    const endpoints = this.cache.peek(key);
+    if (!endpoints) {
+      return false;
+    }
+    return endpoints.length > 0;
   }
 
   /**
