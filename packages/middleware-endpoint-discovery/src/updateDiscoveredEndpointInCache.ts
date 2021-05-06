@@ -35,12 +35,8 @@ export const updateDiscoveredEndpointInCache = async (
   } else {
     // put in a placeholder for endpoints already requested, prevent
     // too much in-flight calls.
-    endpointCache.set(cacheKey, [
-      {
-        Address: "",
-        CachePeriodInMinutes: 1,
-      },
-    ]);
+    const placeholderEndpoints = [{ Address: "", CachePeriodInMinutes: 1 }];
+    endpointCache.set(cacheKey, placeholderEndpoints);
 
     try {
       const command = new options.endpointDiscoveryCommandCtor({
@@ -50,9 +46,14 @@ export const updateDiscoveredEndpointInCache = async (
       const { Endpoints } = await client?.send(command);
       endpointCache.set(cacheKey, Endpoints);
     } catch (error) {
-      endpointCache.delete(cacheKey);
       if (options.isDiscoveredEndpointRequired) {
+        // Endpoint Discovery is required, rethrow error.
+        endpointCache.delete(cacheKey);
         throw error;
+      } else {
+        // Endpoint Discovery is optional.
+        // Set placeHolder endpoint to disable refresh for one minute.
+        endpointCache.set(cacheKey, placeholderEndpoints);
       }
     }
   }
