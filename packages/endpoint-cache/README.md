@@ -13,4 +13,5 @@ You probably shouldn't, at least directly.
 
 - uses `mnemonist/lru-cache` for storing the cache.
 - the `set` operation stores milliseconds elapsed since the UNIX epoch in Expires param based on CachePeriodInMinutes provided in Endpoint.
-- the `get` operation returns a random un-expired endpoint.
+- the `get` operation returns all un-expired endpoints with their Expires values.
+- the `getEndpoint` operation returns a randomly selected un-expired endpoint.
