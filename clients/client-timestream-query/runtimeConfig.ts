@@ -29,7 +29,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
     serviceId: ClientSharedValues.serviceId,
     clientVersion: packageInfo.version,
   }),
-  endpointDiscoveryEnabled: loadNodeConfig(NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS),
+  endpointDiscoveryEnabledProvider: loadNodeConfig(NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS),
   maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
   region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
   requestHandler: new NodeHttpHandler(),

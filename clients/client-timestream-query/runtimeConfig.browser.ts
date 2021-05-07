@@ -25,7 +25,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
     serviceId: ClientSharedValues.serviceId,
     clientVersion: packageInfo.version,
   }),
-  endpointDiscoveryEnabled: undefined,
+  endpointDiscoveryEnabledProvider: () => Promise.resolve(undefined),
   maxAttempts: DEFAULT_MAX_ATTEMPTS,
   region: invalidProvider("Region is missing"),
   requestHandler: new FetchHttpHandler(),
