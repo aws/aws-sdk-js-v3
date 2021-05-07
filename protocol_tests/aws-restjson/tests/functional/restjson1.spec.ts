@@ -51,8 +51,10 @@ import { Readable } from "stream";
 /**
  * Throws an expected exception that contains the serialized request.
  */
-class EXPECTED_REQUEST_SERIALIZATION_ERROR {
-  constructor(readonly request: HttpRequest) {}
+class EXPECTED_REQUEST_SERIALIZATION_ERROR extends Error {
+  constructor(readonly request: HttpRequest) {
+    super();
+  }
 }
 
 /**
