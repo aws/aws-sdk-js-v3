@@ -37,9 +37,17 @@ export const endpointDiscoveryMiddleware = (
   const { client } = config;
   const { endpointDiscoveryCommandCtor } = client?.config;
   const { isDiscoveredEndpointRequired, identifiers } = middlewareConfig;
-  const { commandName } = context;
+  const { clientName, commandName } = context;
+  const isEndpointDiscoveryEnabled = await config.endpointDiscoveryEnabled();
 
   if (isDiscoveredEndpointRequired) {
+    // throw error if endpoint discovery is required, and it's explicitly disabled.
+    if (isEndpointDiscoveryEnabled === false) {
+      throw new Error(
+        `Endpoint Discovery is disabled but ${commandName} on ${clientName} requires it.` +
+          ` Please check your configurations.`
+      );
+    }
     // call await on Endpoint Discovery API utility so that function blocks
     // till discovered endpoint is updated in cache
     await updateDiscoveredEndpointInCache(config, {
@@ -48,13 +56,16 @@ export const endpointDiscoveryMiddleware = (
       endpointDiscoveryCommandCtor,
     });
   } else {
-    // Do not call await await on Endpoint Discovery API utility so that function
-    // does not block, the command will use discovered endpoint, if available.
-    updateDiscoveredEndpointInCache(config, {
-      ...middlewareConfig,
-      commandName,
-      endpointDiscoveryCommandCtor,
-    });
+    // Discover endpoints only if endpoint discovery is explicitly enabled.
+    if (isEndpointDiscoveryEnabled) {
+      // Do not call await await on Endpoint Discovery API utility so that function
+      // does not block, the command will use discovered endpoint, if available.
+      updateDiscoveredEndpointInCache(config, {
+        ...middlewareConfig,
+        commandName,
+        endpointDiscoveryCommandCtor,
+      });
+    }
   }
 
   const { request } = args;
