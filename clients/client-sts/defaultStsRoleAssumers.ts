@@ -39,12 +39,15 @@ export const getDefaultRoleAssumer = (
   stsClientCtor: new (options: STSClientConfig) => STSClient
 ): RoleAssumer => {
   let stsClient: STSClient;
+  let closureSourceCreds: Credentials;
   return async (sourceCreds, params) => {
+    closureSourceCreds = sourceCreds;
     if (!stsClient) {
       const { logger, region } = stsOptions;
       stsClient = new stsClientCtor({
         logger,
-        credentials: sourceCreds,
+        // A hack to make sts client uses the credential in current closure.
+        credentialDefaultProvider: () => async () => closureSourceCreds,
         region: decorateDefaultRegion(region),
       });
     }
