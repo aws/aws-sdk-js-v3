@@ -34,6 +34,13 @@ export const endpointDiscoveryMiddleware = (
 ): FinalizeHandler<any, Output> => async (
   args: FinalizeHandlerArguments<any>
 ): Promise<FinalizeHandlerOutput<Output>> => {
+  if (config.isCustomEndpoint) {
+    if (config.isClientEndpointDiscoveryEnabled) {
+      throw new Error(`Custom endpoint is supplied; endpointDiscoveryEnabled must not be true.`);
+    }
+    return next(args);
+  }
+
   const { client } = config;
   const { endpointDiscoveryCommandCtor } = client?.config;
   const { isDiscoveredEndpointRequired, identifiers } = middlewareConfig;

@@ -4,11 +4,13 @@ import { Client, Command, Provider } from "@aws-sdk/types";
 export interface EndpointDiscoveryClientInputConfig {}
 
 interface PreviouslyResolved {
+  isCustomEndpoint: boolean;
   endpointCacheSize?: number;
   endpointDiscoveryEnabled?: boolean | Provider<boolean | undefined>;
 }
 
 export interface EndpointDiscoveryClientResolvedConfig {
+  isCustomEndpoint: boolean;
   client?: Client<any, any, any>;
   endpointDiscoveryCommandCtor?: new (comandConfig: any) => Command<any, any, any, any, any>;
   endpointCache: EndpointCache;
