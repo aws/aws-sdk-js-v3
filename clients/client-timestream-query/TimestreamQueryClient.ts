@@ -159,6 +159,15 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
+   * Returns whether to call operations with endpoints given by service dynamically.
+   * Setting this config to `true` will enable endpoint discovery for all applicable operations.
+   * Setting it to `false` will explicitly disable endpoint discovery even though operations that
+   * require endpoint discovery will presumably fail. Leaving it to undefined means SDK only do
+   * endpoint discovery when it's required. Defaults to `undefined`.
+   */
+  endpointDiscoveryEnabled: boolean | undefined | __Provider<boolean | undefined>;
 }
 
 type TimestreamQueryClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
