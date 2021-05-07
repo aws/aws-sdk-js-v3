@@ -163,6 +163,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   /**
    * The provider which populates default for endpointDisvoveryEnabled configuration, if it's
    * not passed during client creation.
+   * @internal
    */
   endpointDiscoveryEnabledProvider?: Provider<boolean | undefined>;
 }
