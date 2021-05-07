@@ -1,3 +1,5 @@
+// Please do not touch this file. It's generated from template:
+// https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/sts-client-defaultStsRoleAssumers.ts
 import { Credentials, Provider } from "@aws-sdk/types";
 
 import { AssumeRoleCommand, AssumeRoleCommandInput } from "./commands/AssumeRoleCommand";
@@ -39,12 +41,15 @@ export const getDefaultRoleAssumer = (
   stsClientCtor: new (options: STSClientConfig) => STSClient
 ): RoleAssumer => {
   let stsClient: STSClient;
+  let closureSourceCreds: Credentials;
   return async (sourceCreds, params) => {
+    closureSourceCreds = sourceCreds;
     if (!stsClient) {
       const { logger, region } = stsOptions;
       stsClient = new stsClientCtor({
         logger,
-        credentials: sourceCreds,
+        // A hack to make sts client uses the credential in current closure.
+        credentialDefaultProvider: () => async () => closureSourceCreds,
         region: decorateDefaultRegion(region),
       });
     }
