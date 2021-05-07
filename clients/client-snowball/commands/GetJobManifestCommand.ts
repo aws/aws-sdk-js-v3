@@ -38,7 +38,7 @@ export interface GetJobManifestCommandOutput extends GetJobManifestResult, __Met
  *       associated with that job.</p>
  *
  *
- *          <p>The credentials of a given job, including its manifest file and unlock code, expire 90
+ *          <p>The credentials of a given job, including its manifest file and unlock code, expire 360
  *       days after the job is created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

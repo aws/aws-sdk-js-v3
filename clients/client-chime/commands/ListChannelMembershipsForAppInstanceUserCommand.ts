@@ -32,7 +32,6 @@ export interface ListChannelMembershipsForAppInstanceUserCommandOutput
  *             own. </p>
  *
  *          <note>
- *
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
  *         the API call as the value in the header.</p>
  *          </note>

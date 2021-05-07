@@ -74,12 +74,24 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          can use the API operations to get information about AWS Health events that affect your
  *          AWS services and resources.</p>
  *          <note>
- *             <p>You must have a Business or Enterprise support plan from <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a> to use the AWS Health API. If you call the
- *             AWS Health API from an AWS account that doesn't have a Business or Enterprise support
- *             plan, you receive a <code>SubscriptionRequiredException</code> error.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>You must have a Business or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a> to use the
+ *                   AWS Health API. If you call the AWS Health API from an AWS account that
+ *                   doesn't have a Business or Enterprise Support plan, you receive a
+ *                      <code>SubscriptionRequiredException</code> error.</p>
+ *                </li>
+ *                <li>
+ *                   <p>You can use the AWS Health endpoint health.us-east-1.amazonaws.com (HTTPS) to
+ *                   call the AWS Health API operations. AWS Health supports a multi-Region
+ *                   application architecture and has two regional endpoints in an active-passive
+ *                   configuration. You can use the high availability endpoint example to determine
+ *                   which AWS Region is active, so that you can get the latest information from the
+ *                   API. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/health-api.html">Accessing the AWS Health API</a> in the
+ *                      <i>AWS Health User Guide</i>.</p>
+ *                </li>
+ *             </ul>
  *          </note>
- *          <p>AWS Health has a single endpoint: health.us-east-1.amazonaws.com (HTTPS). Use this
- *          endpoint to call the AWS Health API operations.</p>
  *          <p>For authentication of requests, AWS Health uses the <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing
  *             Process</a>.</p>
  *          <p>If your AWS account is part of AWS Organizations, you can use the AWS Health organizational
@@ -110,11 +122,10 @@ export class Health extends HealthClient {
   /**
    * <p>Returns a list of accounts in the organization from AWS Organizations that are affected by the
    *          provided event. For more information about the different types of AWS Health events, see
-   *          <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>. </p>
+   *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>. </p>
    *          <p>Before you can call this operation, you must first enable AWS Health to work with
-   *          AWS Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
-   *          operation from your organization's management account.</p>
-   *
+   *          AWS Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> operation from your organization's
+   *          management account.</p>
    *          <note>
    *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
    *          </note>
@@ -153,8 +164,8 @@ export class Health extends HealthClient {
   /**
    * <p>Returns a list of entities that have been affected by the specified events, based on the
    *          specified filter criteria. Entities can refer to individual customer resources, groups of
-   *          customer resources, or any other construct, depending on the AWS service. Events that have
-   *          impact beyond that of the affected entities, or where the extent of impact is unknown,
+   *          customer resources, or any other construct, depending on the AWS service. Events that
+   *          have impact beyond that of the affected entities, or where the extent of impact is unknown,
    *          include at least one entity indicating this.</p>
    *          <p>At least one event ARN is required. Results are sorted by the
    *             <code>lastUpdatedTime</code> of the entity, starting with the most recent.</p>
@@ -292,7 +303,6 @@ export class Health extends HealthClient {
    * <p>Returns the number of events of each event type (issue, scheduled change, and account
    *          notification). If no filter is specified, the counts of all events in each category are
    *          returned.</p>
-   *
    *          <note>
    *             <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
    *          </note>
@@ -330,8 +340,8 @@ export class Health extends HealthClient {
    * <p>Returns detailed information about one or more specified events. Information includes
    *          standard event data (AWS Region, service, and so on, as returned by <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a>), a detailed event description, and possible additional metadata
    *          that depends upon the nature of the event. Affected entities are not included. To retrieve
-   *          those, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html">DescribeAffectedEntities</a> operation.</p>
-   *          <p>If a specified event cannot be retrieved, an error message is returned for that
+   *          the entities, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html">DescribeAffectedEntities</a> operation.</p>
+   *          <p>If a specified event can't be retrieved, an error message is returned for that
    *          event.</p>
    *          <note>
    *             <p>This operation supports resource-level permissions. You can use this operation to allow or deny access to specific AWS Health events. For more
@@ -368,32 +378,35 @@ export class Health extends HealthClient {
   }
 
   /**
-   * <p>Returns detailed information about one or more specified events for one or more accounts
-   *          in your organization. Information includes standard event data (AWS Region, service, and
-   *          so on, as returned by <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html">DescribeEventsForOrganization</a>), a detailed event description, and possible
-   *          additional metadata that depends upon the nature of the event. Affected entities are not
-   *          included; to retrieve those, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a> operation.</p>
-   *          <p>Before you can call this operation, you must first enable AWS Health to work with
-   *          AWS Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> operation from your organization's
-   *          management account.</p>
-   *          <p>When you call the <code>DescribeEventDetailsForOrganization</code> operation, you
-   *          specify the <code>organizationEventDetailFilters</code> object in the request. Depending on
-   *          the AWS Health event type, note the following differences:</p>
+   * <p>Returns detailed information about one or more specified events for one or more AWS
+   *          accounts in your organization. This information includes standard event data (such as the
+   *          AWS Region and service), an event description, and (depending on the event) possible
+   *          metadata. This operation doesn't return affected entities, such as the resources related to
+   *          the event. To return affected entities, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a> operation.</p>
+   *          <note>
+   *             <p>Before you can call this operation, you must first enable AWS Health to work with
+   *             AWS Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> operation from your organization's
+   *             management account.</p>
+   *          </note>
+   *          <p>When you call the <code>DescribeEventDetailsForOrganization</code> operation, specify
+   *          the <code>organizationEventDetailFilters</code> object in the request. Depending on the
+   *          AWS Health event type, note the following differences:</p>
    *          <ul>
    *             <li>
-   *                <p>If the event is public, the <code>awsAccountId</code> parameter must be empty. If
-   *                you specify an account ID for a public event, then an error message is returned.
-   *                That's because the event might apply to all AWS accounts and isn't specific to an
-   *                account in your organization.</p>
+   *                <p>To return event details for a public event, you must specify a null value for the
+   *                   <code>awsAccountId</code> parameter. If you specify an account ID for a public
+   *                event, AWS Health returns an error message because public events aren't specific to
+   *                an account.</p>
    *             </li>
    *             <li>
-   *                <p>If the event is specific to an account, then you must specify the
-   *                   <code>awsAccountId</code> parameter in the request. If you don't specify an
-   *                account ID, an error message returns because the event is specific to an AWS
-   *                account in your organization. </p>
+   *                <p>To return event details for an event that is specific to an account in your
+   *                organization,  you must specify the <code>awsAccountId</code> parameter in the
+   *                request. If you don't specify an account ID, AWS Health returns an error message
+   *                because the event is specific to an account in your organization. </p>
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.</p>
+   *
    *          <note>
    *             <p>This operation doesn't support resource-level permissions. You can't use this operation to allow or deny access to specific AWS Health events. For more
    *                   information, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions">Resource- and action-based conditions</a> in the <i>AWS Health User Guide</i>.</p>
@@ -438,20 +451,19 @@ export class Health extends HealthClient {
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>When you call the <code>DescribeEvents</code> operation and specify an entity for the
-   *                <code>entityValues</code> parameter, AWS Health might return public events that
-   *                aren't specific to that resource. For example, if you call <code>DescribeEvents</code>
-   *                and specify an ID for an Amazon Elastic Compute Cloud (Amazon EC2) instance, AWS Health might return events
-   *                that aren't specific to that resource or service. To get events that are specific to a
-   *                service, use the <code>services</code> parameter in the <code>filter</code> object. For
-   *                more information, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.</p>
+   *                   <p>When you call the <code>DescribeEvents</code> operation and specify an entity
+   *                   for the <code>entityValues</code> parameter, AWS Health might return public
+   *                   events that aren't specific to that resource. For example, if you call
+   *                      <code>DescribeEvents</code> and specify an ID for an Amazon Elastic Compute Cloud (Amazon EC2)
+   *                   instance, AWS Health might return events that aren't specific to that resource or
+   *                   service. To get events that are specific to a service, use the
+   *                      <code>services</code> parameter in the <code>filter</code> object. For more
+   *                   information, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.</p>
    *                </li>
    *                <li>
    *                   <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
    *                </li>
    *             </ul>
-   *
-   *
    *          </note>
    */
   public describeEvents(
@@ -588,7 +600,8 @@ export class Health extends HealthClient {
   /**
    * <p>This operation provides status information on enabling or disabling AWS Health to work
    *          with your organization. To call this operation, you must sign in as an IAM user, assume
-   *          an IAM role, or sign in as the root user (not recommended) in the organization's management account.</p>
+   *          an IAM role, or sign in as the root user (not recommended) in the organization's
+   *          management account.</p>
    */
   public describeHealthServiceStatusForOrganization(
     args: DescribeHealthServiceStatusForOrganizationCommandInput,
@@ -678,9 +691,9 @@ export class Health extends HealthClient {
    *             <p>To call this operation, you must meet the following requirements:</p>
    *             <ul>
    *                <li>
-   *                   <p>You must have a Business or Enterprise support plan from <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a> to use the
-   *                   AWS Health API. If you call the AWS Health API from an AWS account that
-   *                   doesn't have a Business or Enterprise support plan, you receive a
+   *                   <p>You must have a Business or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a> to use the AWS Health
+   *                   API. If you call the AWS Health API from an AWS account that doesn't have a
+   *                   Business or Enterprise Support plan, you receive a
    *                      <code>SubscriptionRequiredException</code> error.</p>
    *                </li>
    *                <li>

@@ -21,9 +21,14 @@ export interface UpdatePhoneNumberCommandInput extends UpdatePhoneNumberRequest 
 export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResponse, __MetadataBearer {}
 
 /**
- * <p>Updates phone number details, such as product type or calling name, for the specified phone number ID. You can update one phone number detail at a time. For example, you can update either the product type or the calling name in one action.</p>
- *          <p>For toll-free numbers, you must use the Amazon Chime Voice Connector product type.</p>
- *          <p>Updates to outbound calling names can take up to 72 hours to complete. Pending updates to outbound calling names must be complete before you can request another update.</p>
+ * <p>Updates phone number details, such as product type or calling name, for the specified phone number ID. You can update one phone number
+ *         detail at a time. For example, you can update either the product type or the calling name in one action.</p>
+ *
+ *          <p>For toll-free numbers, you cannot use the Amazon Chime Business Calling product type. For numbers outside the U.S., you must use the
+ *         Amazon Chime SIP Media Application Dial-In product type.</p>
+ *
+ *          <p>Updates to outbound calling names can take 72 hours to complete. Pending updates to outbound calling names must be complete before you
+ *          can request another update.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

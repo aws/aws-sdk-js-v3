@@ -22,6 +22,7 @@ export * from "./commands/DiscoverInputSchemaCommand";
 export * from "./commands/ListApplicationsCommand";
 export * from "./commands/ListApplicationSnapshotsCommand";
 export * from "./commands/ListTagsForResourceCommand";
+export * from "./commands/RollbackApplicationCommand";
 export * from "./commands/StartApplicationCommand";
 export * from "./commands/StopApplicationCommand";
 export * from "./commands/TagResourceCommand";

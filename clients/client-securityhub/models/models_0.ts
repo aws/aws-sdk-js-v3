@@ -974,7 +974,7 @@ export namespace AwsApiGatewayMethodSettings {
 }
 
 /**
- * <p>contains information about a REST API in version 1 of Amazon API Gateway.</p>
+ * <p>Contains information about a REST API in version 1 of Amazon API Gateway.</p>
  */
 export interface AwsApiGatewayRestApiDetails {
   /**
@@ -3261,6 +3261,181 @@ export namespace AwsEc2InstanceDetails {
 }
 
 /**
+ * <p>An association between the network ACL and a subnet.</p>
+ */
+export interface AwsEc2NetworkAclAssociation {
+  /**
+   * <p>The identifier of the association between the network ACL and the subnet.</p>
+   */
+  NetworkAclAssociationId?: string;
+
+  /**
+   * <p>The identifier of the network ACL.</p>
+   */
+  NetworkAclId?: string;
+
+  /**
+   * <p>The identifier of the subnet that is associated with the network ACL.</p>
+   */
+  SubnetId?: string;
+}
+
+export namespace AwsEc2NetworkAclAssociation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2NetworkAclAssociation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An Internet Control Message Protocol (ICMP) type and code.</p>
+ */
+export interface IcmpTypeCode {
+  /**
+   * <p>The ICMP code for which to deny or allow access. To deny or allow all codes, use the value -1.</p>
+   */
+  Code?: number;
+
+  /**
+   * <p>The ICMP type for which to deny or allow access. To deny or allow all types, use the value -1.</p>
+   */
+  Type?: number;
+}
+
+export namespace IcmpTypeCode {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IcmpTypeCode): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A range of ports.</p>
+ */
+export interface PortRangeFromTo {
+  /**
+   * <p>The first port in the port range.</p>
+   */
+  From?: number;
+
+  /**
+   * <p>The last port in the port range.</p>
+   */
+  To?: number;
+}
+
+export namespace PortRangeFromTo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PortRangeFromTo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A rule for the network ACL. Each rule allows or denies access based on the IP address, traffic direction, port, and protocol.</p>
+ */
+export interface AwsEc2NetworkAclEntry {
+  /**
+   * <p>The IPV4 network range for which to deny or allow access.</p>
+   */
+  CidrBlock?: string;
+
+  /**
+   * <p>Whether the rule is an egress rule. An egress rule is a rule that applies to traffic that leaves the subnet.</p>
+   */
+  Egress?: boolean;
+
+  /**
+   * <p>The Internet Control Message Protocol (ICMP) type and code for which to deny or allow access.</p>
+   */
+  IcmpTypeCode?: IcmpTypeCode;
+
+  /**
+   * <p>The IPV6 network range for which to deny or allow access.</p>
+   */
+  Ipv6CidrBlock?: string;
+
+  /**
+   * <p>For TCP or UDP protocols, the range of ports that the rule applies to.</p>
+   */
+  PortRange?: PortRangeFromTo;
+
+  /**
+   * <p>The protocol that the rule applies to. To deny or allow access to all protocols, use the value -1.</p>
+   */
+  Protocol?: string;
+
+  /**
+   * <p>Whether the rule is used to allow access or deny access.</p>
+   */
+  RuleAction?: string;
+
+  /**
+   * <p>The rule number. The rules are processed in order by their number.</p>
+   */
+  RuleNumber?: number;
+}
+
+export namespace AwsEc2NetworkAclEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2NetworkAclEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains details about an EC2 network access control list (ACL).</p>
+ */
+export interface AwsEc2NetworkAclDetails {
+  /**
+   * <p>Whether this is the default network ACL for the VPC.</p>
+   */
+  IsDefault?: boolean;
+
+  /**
+   * <p>The identifier of the network ACL.</p>
+   */
+  NetworkAclId?: string;
+
+  /**
+   * <p>The identifier of the AWS account that owns the network ACL.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The identifier of the VPC for the network ACL.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>Associations between the network ACL and subnets.</p>
+   */
+  Associations?: AwsEc2NetworkAclAssociation[];
+
+  /**
+   * <p>The set of rules in the network ACL.</p>
+   */
+  Entries?: AwsEc2NetworkAclEntry[];
+}
+
+export namespace AwsEc2NetworkAclDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2NetworkAclDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information about the network interface attachment.</p>
  */
 export interface AwsEc2NetworkInterfaceAttachment {
@@ -3657,6 +3832,114 @@ export namespace AwsEc2SecurityGroupDetails {
 }
 
 /**
+ * <p>An IPV6 CIDR block association.</p>
+ */
+export interface Ipv6CidrBlockAssociation {
+  /**
+   * <p>The association ID for the IPv6 CIDR block.</p>
+   */
+  AssociationId?: string;
+
+  /**
+   * <p>The IPv6 CIDR block.</p>
+   */
+  Ipv6CidrBlock?: string;
+
+  /**
+   * <p>Information about the state of the CIDR block.</p>
+   */
+  CidrBlockState?: string;
+}
+
+export namespace Ipv6CidrBlockAssociation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Ipv6CidrBlockAssociation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a subnet in EC2.</p>
+ */
+export interface AwsEc2SubnetDetails {
+  /**
+   * <p>Whether to assign an IPV6 address to a network interface that is created in this subnet.</p>
+   */
+  AssignIpv6AddressOnCreation?: boolean;
+
+  /**
+   * <p>The Availability Zone for the subnet.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The identifier of the Availability Zone for the subnet.</p>
+   */
+  AvailabilityZoneId?: string;
+
+  /**
+   * <p>The number of available IPV4 addresses in the subnet. Does not include addresses for stopped instances.</p>
+   */
+  AvailableIpAddressCount?: number;
+
+  /**
+   * <p>The IPV4 CIDR block that is assigned to the subnet.</p>
+   */
+  CidrBlock?: string;
+
+  /**
+   * <p>Whether this subnet is the default subnet for the Availability Zone.</p>
+   */
+  DefaultForAz?: boolean;
+
+  /**
+   * <p>Whether instances in this subnet receive a public IP address.</p>
+   */
+  MapPublicIpOnLaunch?: boolean;
+
+  /**
+   * <p>The identifier of the AWS account that owns the subnet.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The current state of the subnet.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The ARN of the subnet.</p>
+   */
+  SubnetArn?: string;
+
+  /**
+   * <p>The identifier of the subnet.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The identifier of the VPC that contains the subnet.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The IPV6 CIDR blocks that are associated with the subnet.</p>
+   */
+  Ipv6CidrBlockAssociationSet?: Ipv6CidrBlockAssociation[];
+}
+
+export namespace AwsEc2SubnetDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2SubnetDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>An attachment to an AWS EC2 volume.</p>
  */
 export interface AwsEc2VolumeAttachment {
@@ -3773,35 +4056,6 @@ export namespace CidrBlockAssociation {
 }
 
 /**
- * <p>An IPV6 CIDR block association.</p>
- */
-export interface Ipv6CidrBlockAssociation {
-  /**
-   * <p>The association ID for the IPv6 CIDR block.</p>
-   */
-  AssociationId?: string;
-
-  /**
-   * <p>The IPv6 CIDR block.</p>
-   */
-  Ipv6CidrBlock?: string;
-
-  /**
-   * <p>Information about the state of the CIDR block.</p>
-   */
-  CidrBlockState?: string;
-}
-
-export namespace Ipv6CidrBlockAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ipv6CidrBlockAssociation): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Details about an EC2 VPC.</p>
  */
 export interface AwsEc2VpcDetails {
@@ -3833,6 +4087,187 @@ export namespace AwsEc2VpcDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsEc2VpcDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a link to another environment that is in the same group.</p>
+ */
+export interface AwsElasticBeanstalkEnvironmentEnvironmentLink {
+  /**
+   * <p>The name of the linked environment.</p>
+   */
+  EnvironmentName?: string;
+
+  /**
+   * <p>The name of the environment link.</p>
+   */
+  LinkName?: string;
+}
+
+export namespace AwsElasticBeanstalkEnvironmentEnvironmentLink {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsElasticBeanstalkEnvironmentEnvironmentLink): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A configuration option setting for the environment.</p>
+ */
+export interface AwsElasticBeanstalkEnvironmentOptionSetting {
+  /**
+   * <p>The type of resource that the configuration option is associated with.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * <p>The name of the option.</p>
+   */
+  OptionName?: string;
+
+  /**
+   * <p>The name of the resource.</p>
+   */
+  ResourceName?: string;
+
+  /**
+   * <p>The value of the configuration setting.</p>
+   */
+  Value?: string;
+}
+
+export namespace AwsElasticBeanstalkEnvironmentOptionSetting {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsElasticBeanstalkEnvironmentOptionSetting): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about the tier of the environment.</p>
+ */
+export interface AwsElasticBeanstalkEnvironmentTier {
+  /**
+   * <p>The name of the environment tier.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of environment tier.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The version of the environment tier.</p>
+   */
+  Version?: string;
+}
+
+export namespace AwsElasticBeanstalkEnvironmentTier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsElasticBeanstalkEnvironmentTier): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains details about an Elastic Beanstalk environment.</p>
+ */
+export interface AwsElasticBeanstalkEnvironmentDetails {
+  /**
+   * <p>The name of the application that is associated with the environment.</p>
+   */
+  ApplicationName?: string;
+
+  /**
+   * <p>The URL to the CNAME for this environment.</p>
+   */
+  Cname?: string;
+
+  /**
+   * <p>The creation date for this environment.</p>
+   */
+  DateCreated?: string;
+
+  /**
+   * <p>The date when this environment was last modified.</p>
+   */
+  DateUpdated?: string;
+
+  /**
+   * <p>A description of the environment.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>For load-balanced, autoscaling environments, the URL to the load balancer. For single-instance environments, the IP address of the instance.</p>
+   */
+  EndpointUrl?: string;
+
+  /**
+   * <p>The ARN of the environment.</p>
+   */
+  EnvironmentArn?: string;
+
+  /**
+   * <p>The identifier of the environment.</p>
+   */
+  EnvironmentId?: string;
+
+  /**
+   * <p>Links to other environments in the same group.</p>
+   */
+  EnvironmentLinks?: AwsElasticBeanstalkEnvironmentEnvironmentLink[];
+
+  /**
+   * <p>The name of the environment.</p>
+   */
+  EnvironmentName?: string;
+
+  /**
+   * <p>The configuration setting for the environment.</p>
+   */
+  OptionSettings?: AwsElasticBeanstalkEnvironmentOptionSetting[];
+
+  /**
+   * <p>The ARN of the platform version for the environment.</p>
+   */
+  PlatformArn?: string;
+
+  /**
+   * <p>The name of the solution stack that is deployed with the environment.</p>
+   */
+  SolutionStackName?: string;
+
+  /**
+   * <p>The current operational status of the environment.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The tier of the environment.</p>
+   */
+  Tier?: AwsElasticBeanstalkEnvironmentTier;
+
+  /**
+   * <p>The application version of the environment.</p>
+   */
+  VersionLabel?: string;
+}
+
+export namespace AwsElasticBeanstalkEnvironmentDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsElasticBeanstalkEnvironmentDetails): any => ({
     ...obj,
   });
 }
@@ -9666,9 +10101,24 @@ export interface ResourceDetails {
   AwsEc2Eip?: AwsEc2EipDetails;
 
   /**
+   * <p>Details about a subnet in EC2.</p>
+   */
+  AwsEc2Subnet?: AwsEc2SubnetDetails;
+
+  /**
+   * <p>Details about an EC2 network access control list (ACL).</p>
+   */
+  AwsEc2NetworkAcl?: AwsEc2NetworkAclDetails;
+
+  /**
    * <p>Details about a load balancer.</p>
    */
   AwsElbv2LoadBalancer?: AwsElbv2LoadBalancerDetails;
+
+  /**
+   * <p>Details about an Elastic Beanstalk environment.</p>
+   */
+  AwsElasticBeanstalkEnvironment?: AwsElasticBeanstalkEnvironmentDetails;
 
   /**
    * <p>Details for an Elasticsearch domain.</p>
@@ -12185,183 +12635,6 @@ export namespace DeclineInvitationsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeclineInvitationsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeclineInvitationsResponse {
-  /**
-   * <p>The list of AWS accounts that were not processed. For each account, the list includes
-   *          the account ID and the email address.</p>
-   */
-  UnprocessedAccounts?: Result[];
-}
-
-export namespace DeclineInvitationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeclineInvitationsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteActionTargetRequest {
-  /**
-   * <p>The ARN of the custom action target to delete.</p>
-   */
-  ActionTargetArn: string | undefined;
-}
-
-export namespace DeleteActionTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteActionTargetRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteActionTargetResponse {
-  /**
-   * <p>The ARN of the custom action target that was deleted.</p>
-   */
-  ActionTargetArn: string | undefined;
-}
-
-export namespace DeleteActionTargetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteActionTargetResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteInsightRequest {
-  /**
-   * <p>The ARN of the insight to delete.</p>
-   */
-  InsightArn: string | undefined;
-}
-
-export namespace DeleteInsightRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInsightRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteInsightResponse {
-  /**
-   * <p>The ARN of the insight that was deleted.</p>
-   */
-  InsightArn: string | undefined;
-}
-
-export namespace DeleteInsightResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInsightResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteInvitationsRequest {
-  /**
-   * <p>The list of the account IDs that sent the invitations to delete.</p>
-   */
-  AccountIds: string[] | undefined;
-}
-
-export namespace DeleteInvitationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInvitationsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteInvitationsResponse {
-  /**
-   * <p>The list of AWS accounts for which the invitations were not deleted. For each account,
-   *          the list includes the account ID and the email address.</p>
-   */
-  UnprocessedAccounts?: Result[];
-}
-
-export namespace DeleteInvitationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInvitationsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteMembersRequest {
-  /**
-   * <p>The list of account IDs for the member accounts to delete.</p>
-   */
-  AccountIds: string[] | undefined;
-}
-
-export namespace DeleteMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMembersRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteMembersResponse {
-  /**
-   * <p>The list of AWS accounts that were not deleted. For each account, the list includes the
-   *          account ID and the email address.</p>
-   */
-  UnprocessedAccounts?: Result[];
-}
-
-export namespace DeleteMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMembersResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeActionTargetsRequest {
-  /**
-   * <p>A list of custom action target ARNs for the custom action targets to retrieve.</p>
-   */
-  ActionTargetArns?: string[];
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>DescribeActionTargets</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeActionTargetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeActionTargetsRequest): any => ({
     ...obj,
   });
 }

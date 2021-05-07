@@ -891,6 +891,42 @@ export namespace Tag {
 }
 
 /**
+ * <p>The membership information, including member ARNs, the channel ARN, and membership types.</p>
+ */
+export interface BatchChannelMemberships {
+  /**
+   * <p>The details of a user.</p>
+   */
+  InvitedBy?: Identity;
+
+  /**
+   * <p>The membership types set for the channel users.</p>
+   */
+  Type?: ChannelMembershipType | string;
+
+  /**
+   * <p>The users successfully added to the request.</p>
+   */
+  Members?: Identity[];
+
+  /**
+   * <p>The ARN of the channel to which you're adding users.</p>
+   */
+  ChannelArn?: string;
+}
+
+export namespace BatchChannelMemberships {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchChannelMemberships): any => ({
+    ...obj,
+    ...(obj.InvitedBy && { InvitedBy: Identity.filterSensitiveLog(obj.InvitedBy) }),
+    ...(obj.Members && { Members: obj.Members.map((item) => Identity.filterSensitiveLog(item)) }),
+  });
+}
+
+/**
  * <p>The Amazon Chime SDK attendee fields to create, used with the BatchCreateAttendee action.</p>
  */
 export interface CreateAttendeeRequestItem {
@@ -1009,6 +1045,93 @@ export namespace ResourceLimitExceededException {
    */
   export const filterSensitiveLog = (obj: ResourceLimitExceededException): any => ({
     ...obj,
+  });
+}
+
+export interface BatchCreateChannelMembershipRequest {
+  /**
+   * <p>The ARN of the channel to which you're adding users.</p>
+   */
+  ChannelArn: string | undefined;
+
+  /**
+   * <p>The membership type of a user, <code>DEFAULT</code> or <code>HIDDEN</code>. Default members are always returned as part of
+   *             <code>ListChannelMemberships</code>. Hidden members are only returned if the type filter in <code>ListChannelMemberships</code> equals
+   *             <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported by moderators.</p>
+   */
+  Type?: ChannelMembershipType | string;
+
+  /**
+   * <p>The ARNs of the members you want to add to the channel.</p>
+   */
+  MemberArns: string[] | undefined;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
+   *         <p></p>
+   */
+  ChimeBearer?: string;
+}
+
+export namespace BatchCreateChannelMembershipRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchCreateChannelMembershipRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of failed member ARNs, error codes, and error messages.</p>
+ */
+export interface BatchCreateChannelMembershipError {
+  /**
+   * <p>The ARN of the member that the service couldn't add.</p>
+   */
+  MemberArn?: string;
+
+  /**
+   * <p>The error code.</p>
+   */
+  ErrorCode?: ErrorCode | string;
+
+  /**
+   * <p>The error message. </p>
+   */
+  ErrorMessage?: string;
+}
+
+export namespace BatchCreateChannelMembershipError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchCreateChannelMembershipError): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchCreateChannelMembershipResponse {
+  /**
+   * <p>The list of channel memberships in the response.</p>
+   */
+  BatchChannelMemberships?: BatchChannelMemberships;
+
+  /**
+   * <p>If the action fails for one or more of the memberships in the request, a list of the memberships is returned, along with error codes and error messages.</p>
+   */
+  Errors?: BatchCreateChannelMembershipError[];
+}
+
+export namespace BatchCreateChannelMembershipResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchCreateChannelMembershipResponse): any => ({
+    ...obj,
+    ...(obj.BatchChannelMemberships && {
+      BatchChannelMemberships: BatchChannelMemberships.filterSensitiveLog(obj.BatchChannelMemberships),
+    }),
   });
 }
 
@@ -1252,17 +1375,13 @@ export namespace BatchUnsuspendUserResponse {
 
 export enum PhoneNumberProductType {
   BusinessCalling = "BusinessCalling",
+  SipMediaApplicationDialIn = "SipMediaApplicationDialIn",
   VoiceConnector = "VoiceConnector",
 }
 
 /**
- * <p>
- * The phone number ID, product type, or calling name fields to update, used with the
- * <a>BatchUpdatePhoneNumber</a>
- * and
- * <a>UpdatePhoneNumber</a>
- * actions.
- * </p>
+ * <p>The phone number ID, product type, or calling name fields to update, used with the
+ * <a>BatchUpdatePhoneNumber</a> and <a>UpdatePhoneNumber</a> actions.</p>
  */
 export interface UpdatePhoneNumberRequestItem {
   /**
@@ -1334,11 +1453,8 @@ export enum UserType {
 }
 
 /**
- * <p>
- * The user ID and user fields to update, used with the
- * <a>BatchUpdateUser</a>
- * action.
- * </p>
+ * <p>The user ID and user fields to update, used with the
+ * <a>BatchUpdateUser</a> action.</p>
  */
 export interface UpdateUserRequestItem {
   /**
@@ -2725,13 +2841,12 @@ export interface Meeting {
   MediaPlacement?: MediaPlacement;
 
   /**
-   * <p> The Region in which you create the meeting. Available values: <code>af-south-1</code> ,
-   *                 <code>ap-northeast-1</code> , <code>ap-northeast-2</code> , <code>ap-south-1</code>
-   *             , <code>ap-southeast-1</code> , <code>ap-southeast-2</code> , <code>ca-central-1</code>
-   *             , <code>eu-central-1</code> , <code>eu-north-1</code> , <code>eu-south-1</code> ,
-   *                 <code>eu-west-1</code> , <code>eu-west-2</code> , <code>eu-west-3</code> ,
-   *                 <code>sa-east-1</code> , <code>us-east-1</code> , <code>us-east-2</code> ,
-   *                 <code>us-west-1</code> , <code>us-west-2</code> . </p>
+   * <p>The Region in which you create the meeting. Available values: <code>af-south-1</code>, <code>ap-northeast-1</code>,
+   *     <code>ap-northeast-2</code>, <code>ap-south-1</code>, <code>ap-southeast-1</code>, <code>ap-southeast-2</code>, <code>ca-central-1</code>,
+   *     <code>eu-central-1</code>, <code>eu-north-1</code>, <code>eu-south-1</code>,
+   *                 <code>eu-west-1</code>, <code>eu-west-2</code>, <code>eu-west-3</code>,
+   *                 <code>sa-east-1</code>, <code>us-east-1</code>, <code>us-east-2</code>,
+   *                 <code>us-west-1</code>, <code>us-west-2</code>.</p>
    */
   MediaRegion?: string;
 }
@@ -2785,7 +2900,7 @@ export interface CreateMeetingDialOutRequest {
 
   /**
    * <p>Token used by the Amazon Chime SDK attendee. Call the
-   *     <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_Attendee.htmlCreateAttendee">CreateAttendee</a> action to
+   *     <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateAttendee.html">CreateAttendee</a> action to
    *     get a join token.</p>
    */
   JoinToken: string | undefined;
@@ -3632,12 +3747,12 @@ export namespace CreateSipMediaApplicationResponse {
 
 export interface CreateSipMediaApplicationCallRequest {
   /**
-   * <p>The phone number that a user calls from.</p>
+   * <p>The phone number that a user calls from. This is a phone number in your Amazon Chime phone number inventory.</p>
    */
   FromPhoneNumber: string | undefined;
 
   /**
-   * <p>The phone number that the user dials in order to connect to a meeting.</p>
+   * <p>The phone number that the service should call.</p>
    */
   ToPhoneNumber: string | undefined;
 
@@ -4096,11 +4211,9 @@ export namespace CreateVoiceConnectorResponse {
 }
 
 /**
- * <p>
- * For Amazon Chime Voice Connector groups, the Amazon Chime Voice Connectors to which to route inbound calls. Includes priority configuration settings. Limit: 3
+ * <p>For Amazon Chime Voice Connector groups, the Amazon Chime Voice Connectors to which to route inbound calls. Includes priority configuration settings. Limit: 3
  * <code>VoiceConnectorItems</code>
- * per Amazon Chime Voice Connector group.
- * </p>
+ * per Amazon Chime Voice Connector group.</p>
  */
 export interface VoiceConnectorItem {
   /**
@@ -4949,7 +5062,8 @@ export namespace DescribeChannelBanRequest {
 
 export interface DescribeChannelBanResponse {
   /**
-   * <p>The the details of the ban.</p>
+   * <p>The details of
+   *             the ban.</p>
    */
   ChannelBan?: ChannelBan;
 }
@@ -5915,6 +6029,11 @@ export interface PhoneNumber {
   E164PhoneNumber?: string;
 
   /**
+   * <p>The phone number country. Format: ISO 3166-1 alpha-2.</p>
+   */
+  Country?: string;
+
+  /**
    * <p>The phone number type.</p>
    */
   Type?: PhoneNumberType | string;
@@ -6786,78 +6905,6 @@ export namespace GetVoiceConnectorStreamingConfigurationRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetVoiceConnectorStreamingConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum NotificationTarget {
-  EventBridge = "EventBridge",
-  SNS = "SNS",
-  SQS = "SQS",
-}
-
-/**
- * <p>The targeted recipient for a streaming configuration notification.</p>
- */
-export interface StreamingNotificationTarget {
-  /**
-   * <p>The streaming notification target.</p>
-   */
-  NotificationTarget: NotificationTarget | string | undefined;
-}
-
-export namespace StreamingNotificationTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingNotificationTarget): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The streaming configuration associated with an Amazon Chime Voice Connector. Specifies whether
- *             media streaming is enabled for sending to Amazon Kinesis, and shows the retention period
- *             for the Amazon Kinesis data, in hours.</p>
- */
-export interface StreamingConfiguration {
-  /**
-   * <p>The retention period, in hours, for the Amazon Kinesis data.</p>
-   */
-  DataRetentionInHours: number | undefined;
-
-  /**
-   * <p>When true, media streaming to Amazon Kinesis is turned off.</p>
-   */
-  Disabled?: boolean;
-
-  /**
-   * <p>The streaming notification targets.</p>
-   */
-  StreamingNotificationTargets?: StreamingNotificationTarget[];
-}
-
-export namespace StreamingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingConfiguration): any => ({
-    ...obj,
-  });
-}
-
-export interface GetVoiceConnectorStreamingConfigurationResponse {
-  /**
-   * <p>The streaming configuration details.</p>
-   */
-  StreamingConfiguration?: StreamingConfiguration;
-}
-
-export namespace GetVoiceConnectorStreamingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceConnectorStreamingConfigurationResponse): any => ({
     ...obj,
   });
 }

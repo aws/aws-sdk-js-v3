@@ -17,6 +17,11 @@ import {
 } from "./commands/CreateClusterCommand";
 import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
+  CreateLongTermPricingCommand,
+  CreateLongTermPricingCommandInput,
+  CreateLongTermPricingCommandOutput,
+} from "./commands/CreateLongTermPricingCommand";
+import {
   CreateReturnShippingLabelCommand,
   CreateReturnShippingLabelCommandInput,
   CreateReturnShippingLabelCommandOutput,
@@ -79,6 +84,11 @@ import {
 } from "./commands/ListCompatibleImagesCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
+  ListLongTermPricingCommand,
+  ListLongTermPricingCommandInput,
+  ListLongTermPricingCommandOutput,
+} from "./commands/ListLongTermPricingCommand";
+import {
   UpdateClusterCommand,
   UpdateClusterCommandInput,
   UpdateClusterCommandOutput,
@@ -89,6 +99,11 @@ import {
   UpdateJobShipmentStateCommandInput,
   UpdateJobShipmentStateCommandOutput,
 } from "./commands/UpdateJobShipmentStateCommand";
+import {
+  UpdateLongTermPricingCommand,
+  UpdateLongTermPricingCommandInput,
+  UpdateLongTermPricingCommandOutput,
+} from "./commands/UpdateLongTermPricingCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -238,6 +253,132 @@ export class Snowball extends SnowballClient {
    *       a job for a Snow device. If you're creating a job for a node in a cluster, you only need to provide
    *       the <code>clusterId</code> value; the other job attributes are inherited from the cluster.
    *     </p>
+   *          <note>
+   *             <p>Only the Snowball; Edge device type is supported when ordering clustered jobs.</p>
+   *             <p>The device capacity is optional.</p>
+   *             <p>Availability of device types differ by AWS Region. For more
+   *         information about region availability, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4">AWS Regional Services</a>.</p>
+   *          </note>
+   *
+   *          <p></p>
+   *
+   *          <p class="title">
+   *             <b>AWS Snow Family device types and their capacities.</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>Snow Family device type: <b>SNC1_SSD</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Capacity: T14</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Description: Snowcone </p>
+   *                   </li>
+   *                </ul>
+   *                <p></p>
+   *             </li>
+   *             <li>
+   *                <p>Snow Family device type: <b>SNC1_HDD</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Capacity: T8</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Description: Snowcone </p>
+   *                   </li>
+   *                </ul>
+   *                <p></p>
+   *             </li>
+   *             <li>
+   *                <p>Device type: <b>EDGE_S</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Capacity: T98</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Description: Snowball Edge Storage Optimized for data transfer only </p>
+   *                   </li>
+   *                </ul>
+   *
+   *
+   *                <p></p>
+   *             </li>
+   *             <li>
+   *                <p>Device type: <b>EDGE_CG</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Capacity: T42</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Description: Snowball Edge Compute Optimized with GPU</p>
+   *                   </li>
+   *                </ul>
+   *                <p></p>
+   *             </li>
+   *             <li>
+   *                <p>Device type: <b>EDGE_C</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Capacity: T42</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Description: Snowball Edge Compute Optimized without GPU</p>
+   *                   </li>
+   *                </ul>
+   *                <p></p>
+   *             </li>
+   *             <li>
+   *                <p>Device type: <b>EDGE</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Capacity: T100</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Description: Snowball Edge Storage Optimized with EC2 Compute</p>
+   *                   </li>
+   *                </ul>
+   *                <p></p>
+   *             </li>
+   *             <li>
+   *                <p>Device type: <b>STANDARD</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Capacity: T50</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Description: Original Snowball device</p>
+   *                      <note>
+   *                         <p>This device is only available in the Ningxia, Beijing, and Singapore AWS Regions. </p>
+   *                      </note>
+   *                   </li>
+   *                </ul>
+   *                <p></p>
+   *             </li>
+   *             <li>
+   *                <p>Device type: <b>STANDARD</b>
+   *                </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Capacity: T80</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Description: Original Snowball device</p>
+   *                      <note>
+   *                         <p>This device is only available in the Ningxia, Beijing, and Singapore AWS Regions. </p>
+   *                      </note>
+   *                   </li>
+   *                </ul>
+   *                <p></p>
+   *             </li>
+   *          </ul>
    */
   public createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
   public createJob(args: CreateJobCommandInput, cb: (err: any, data?: CreateJobCommandOutput) => void): void;
@@ -252,6 +393,39 @@ export class Snowball extends SnowballClient {
     cb?: (err: any, data?: CreateJobCommandOutput) => void
   ): Promise<CreateJobCommandOutput> | void {
     const command = new CreateJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a job with long term usage option for a device. The long term usage is a one year or three year long term pricing type for the device.
+   *       You are billed upfront and AWS give discounts for long term pricing. For detailed information see XXXXXXXX</p>
+   */
+  public createLongTermPricing(
+    args: CreateLongTermPricingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLongTermPricingCommandOutput>;
+  public createLongTermPricing(
+    args: CreateLongTermPricingCommandInput,
+    cb: (err: any, data?: CreateLongTermPricingCommandOutput) => void
+  ): void;
+  public createLongTermPricing(
+    args: CreateLongTermPricingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLongTermPricingCommandOutput) => void
+  ): void;
+  public createLongTermPricing(
+    args: CreateLongTermPricingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLongTermPricingCommandOutput) => void),
+    cb?: (err: any, data?: CreateLongTermPricingCommandOutput) => void
+  ): Promise<CreateLongTermPricingCommandOutput> | void {
+    const command = new CreateLongTermPricingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -471,7 +645,7 @@ export class Snowball extends SnowballClient {
    *       associated with that job.</p>
    *
    *
-   *          <p>The credentials of a given job, including its manifest file and unlock code, expire 90
+   *          <p>The credentials of a given job, including its manifest file and unlock code, expire 360
    *       days after the job is created.</p>
    */
   public getJobManifest(
@@ -505,8 +679,8 @@ export class Snowball extends SnowballClient {
 
   /**
    * <p>Returns the <code>UnlockCode</code> code value for the specified job. A particular
-   *         <code>UnlockCode</code> value can be accessed for up to 90 days after the associated job has
-   *       been created.</p>
+   *         <code>UnlockCode</code> value can be accessed for up to 360 days after the associated job
+   *       has been created.</p>
    *
    *          <p>The <code>UnlockCode</code> value is a 29-character code with 25 alphanumeric
    *       characters and 4 hyphens. This code is used to decrypt the manifest file when it is passed
@@ -748,6 +922,38 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * <p>Lists all long term pricing types.</p>
+   */
+  public listLongTermPricing(
+    args: ListLongTermPricingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLongTermPricingCommandOutput>;
+  public listLongTermPricing(
+    args: ListLongTermPricingCommandInput,
+    cb: (err: any, data?: ListLongTermPricingCommandOutput) => void
+  ): void;
+  public listLongTermPricing(
+    args: ListLongTermPricingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLongTermPricingCommandOutput) => void
+  ): void;
+  public listLongTermPricing(
+    args: ListLongTermPricingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLongTermPricingCommandOutput) => void),
+    cb?: (err: any, data?: ListLongTermPricingCommandOutput) => void
+  ): Promise<ListLongTermPricingCommandOutput> | void {
+    const command = new ListLongTermPricingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>While a cluster's <code>ClusterState</code> value is in the <code>AwaitingQuorum</code>
    *       state, you can update some of the information associated with a cluster. Once the cluster
    *       changes to a different job state, usually 60 minutes after the cluster being created, this
@@ -832,6 +1038,38 @@ export class Snowball extends SnowballClient {
     cb?: (err: any, data?: UpdateJobShipmentStateCommandOutput) => void
   ): Promise<UpdateJobShipmentStateCommandOutput> | void {
     const command = new UpdateJobShipmentStateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the long term pricing type.</p>
+   */
+  public updateLongTermPricing(
+    args: UpdateLongTermPricingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLongTermPricingCommandOutput>;
+  public updateLongTermPricing(
+    args: UpdateLongTermPricingCommandInput,
+    cb: (err: any, data?: UpdateLongTermPricingCommandOutput) => void
+  ): void;
+  public updateLongTermPricing(
+    args: UpdateLongTermPricingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLongTermPricingCommandOutput) => void
+  ): void;
+  public updateLongTermPricing(
+    args: UpdateLongTermPricingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLongTermPricingCommandOutput) => void),
+    cb?: (err: any, data?: UpdateLongTermPricingCommandOutput) => void
+  ): Promise<UpdateLongTermPricingCommandOutput> | void {
+    const command = new UpdateLongTermPricingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

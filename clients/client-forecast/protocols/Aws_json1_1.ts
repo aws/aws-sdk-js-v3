@@ -30,6 +30,7 @@ import {
   DeletePredictorBacktestExportJobCommandOutput,
 } from "../commands/DeletePredictorBacktestExportJobCommand";
 import { DeletePredictorCommandInput, DeletePredictorCommandOutput } from "../commands/DeletePredictorCommand";
+import { DeleteResourceTreeCommandInput, DeleteResourceTreeCommandOutput } from "../commands/DeleteResourceTreeCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "../commands/DescribeDatasetCommand";
 import {
   DescribeDatasetGroupCommandInput,
@@ -103,6 +104,7 @@ import {
   DeleteForecastRequest,
   DeletePredictorBacktestExportJobRequest,
   DeletePredictorRequest,
+  DeleteResourceTreeRequest,
   DescribeDatasetGroupRequest,
   DescribeDatasetGroupResponse,
   DescribeDatasetImportJobRequest,
@@ -366,6 +368,19 @@ export const serializeAws_json1_1DeletePredictorBacktestExportJobCommand = async
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeletePredictorBacktestExportJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteResourceTreeCommand = async (
+  input: DeleteResourceTreeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonForecast.DeleteResourceTree",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteResourceTreeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1635,6 +1650,73 @@ const deserializeAws_json1_1DeletePredictorBacktestExportJobCommandError = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePredictorBacktestExportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.forecast#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.forecast#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.forecast#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteResourceTreeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourceTreeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteResourceTreeCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteResourceTreeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteResourceTreeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourceTreeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3293,6 +3375,15 @@ const serializeAws_json1_1DeletePredictorBacktestExportJobRequest = (
 const serializeAws_json1_1DeletePredictorRequest = (input: DeletePredictorRequest, context: __SerdeContext): any => {
   return {
     ...(input.PredictorArn !== undefined && input.PredictorArn !== null && { PredictorArn: input.PredictorArn }),
+  };
+};
+
+const serializeAws_json1_1DeleteResourceTreeRequest = (
+  input: DeleteResourceTreeRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 

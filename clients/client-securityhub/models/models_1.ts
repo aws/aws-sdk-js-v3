@@ -10,6 +10,183 @@ import {
   StandardsSubscription,
 } from "./models_0";
 
+export interface DeclineInvitationsResponse {
+  /**
+   * <p>The list of AWS accounts that were not processed. For each account, the list includes
+   *          the account ID and the email address.</p>
+   */
+  UnprocessedAccounts?: Result[];
+}
+
+export namespace DeclineInvitationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeclineInvitationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteActionTargetRequest {
+  /**
+   * <p>The ARN of the custom action target to delete.</p>
+   */
+  ActionTargetArn: string | undefined;
+}
+
+export namespace DeleteActionTargetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteActionTargetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteActionTargetResponse {
+  /**
+   * <p>The ARN of the custom action target that was deleted.</p>
+   */
+  ActionTargetArn: string | undefined;
+}
+
+export namespace DeleteActionTargetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteActionTargetResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteInsightRequest {
+  /**
+   * <p>The ARN of the insight to delete.</p>
+   */
+  InsightArn: string | undefined;
+}
+
+export namespace DeleteInsightRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteInsightRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteInsightResponse {
+  /**
+   * <p>The ARN of the insight that was deleted.</p>
+   */
+  InsightArn: string | undefined;
+}
+
+export namespace DeleteInsightResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteInsightResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteInvitationsRequest {
+  /**
+   * <p>The list of the account IDs that sent the invitations to delete.</p>
+   */
+  AccountIds: string[] | undefined;
+}
+
+export namespace DeleteInvitationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteInvitationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteInvitationsResponse {
+  /**
+   * <p>The list of AWS accounts for which the invitations were not deleted. For each account,
+   *          the list includes the account ID and the email address.</p>
+   */
+  UnprocessedAccounts?: Result[];
+}
+
+export namespace DeleteInvitationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteInvitationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteMembersRequest {
+  /**
+   * <p>The list of account IDs for the member accounts to delete.</p>
+   */
+  AccountIds: string[] | undefined;
+}
+
+export namespace DeleteMembersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMembersRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteMembersResponse {
+  /**
+   * <p>The list of AWS accounts that were not deleted. For each account, the list includes the
+   *          account ID and the email address.</p>
+   */
+  UnprocessedAccounts?: Result[];
+}
+
+export namespace DeleteMembersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMembersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeActionTargetsRequest {
+  /**
+   * <p>A list of custom action target ARNs for the custom action targets to retrieve.</p>
+   */
+  ActionTargetArns?: string[];
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>DescribeActionTargets</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeActionTargetsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeActionTargetsRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeActionTargetsResponse {
   /**
    * <p>A list of <code>ActionTarget</code> objects. Each object includes the <code>ActionTargetArn</code>,

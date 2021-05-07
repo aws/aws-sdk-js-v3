@@ -37,6 +37,7 @@ import {
   PhoneNumberOrder,
   PhoneNumberProductType,
   PhoneNumberStatus,
+  PhoneNumberType,
   Proxy,
   ProxySession,
   ProxySessionStatus,
@@ -49,7 +50,6 @@ import {
   SipMediaApplicationLoggingConfiguration,
   SipRule,
   SipRuleTargetApplication,
-  StreamingConfiguration,
   Tag,
   User,
   UserSettings,
@@ -60,6 +60,78 @@ import {
   VoiceConnectorSettings,
 } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+export enum NotificationTarget {
+  EventBridge = "EventBridge",
+  SNS = "SNS",
+  SQS = "SQS",
+}
+
+/**
+ * <p>The targeted recipient for a streaming configuration notification.</p>
+ */
+export interface StreamingNotificationTarget {
+  /**
+   * <p>The streaming notification target.</p>
+   */
+  NotificationTarget: NotificationTarget | string | undefined;
+}
+
+export namespace StreamingNotificationTarget {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StreamingNotificationTarget): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The streaming configuration associated with an Amazon Chime Voice Connector. Specifies whether
+ *             media streaming is enabled for sending to Amazon Kinesis, and shows the retention period
+ *             for the Amazon Kinesis data, in hours.</p>
+ */
+export interface StreamingConfiguration {
+  /**
+   * <p>The retention period, in hours, for the Amazon Kinesis data.</p>
+   */
+  DataRetentionInHours: number | undefined;
+
+  /**
+   * <p>When true, media streaming to Amazon Kinesis is turned off.</p>
+   */
+  Disabled?: boolean;
+
+  /**
+   * <p>The streaming notification targets.</p>
+   */
+  StreamingNotificationTargets?: StreamingNotificationTarget[];
+}
+
+export namespace StreamingConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StreamingConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface GetVoiceConnectorStreamingConfigurationResponse {
+  /**
+   * <p>The streaming configuration details.</p>
+   */
+  StreamingConfiguration?: StreamingConfiguration;
+}
+
+export namespace GetVoiceConnectorStreamingConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetVoiceConnectorStreamingConfigurationResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface GetVoiceConnectorTerminationRequest {
   /**
@@ -960,12 +1032,8 @@ export interface ListChannelsRequest {
   AppInstanceArn: string | undefined;
 
   /**
-   * <p>
-   * The privacy setting.
-   * <code>PUBLIC</code>
-   * retrieves all the public channels.
-   * <code>PRIVATE</code>
-   * retrieves private channels. Only an <code>AppInstanceAdmin</code> can retrieve private channels.
+   * <p>The privacy setting. <code>PUBLIC</code> retrieves all the public channels. <code>PRIVATE</code> retrieves private channels. Only an
+   *     <code>AppInstanceAdmin</code> can retrieve private channels.
    * </p>
    */
   Privacy?: ChannelPrivacy | string;
@@ -1502,6 +1570,62 @@ export namespace ListSipRulesResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListSipRulesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSupportedPhoneNumberCountriesRequest {
+  /**
+   * <p>The phone number product type.</p>
+   */
+  ProductType: PhoneNumberProductType | string | undefined;
+}
+
+export namespace ListSupportedPhoneNumberCountriesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSupportedPhoneNumberCountriesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The phone number country.</p>
+ */
+export interface PhoneNumberCountry {
+  /**
+   * <p>The phone number country code. Format: ISO 3166-1 alpha-2.</p>
+   */
+  CountryCode?: string;
+
+  /**
+   * <p>The supported phone number types. </p>
+   */
+  SupportedPhoneNumberTypes?: (PhoneNumberType | string)[];
+}
+
+export namespace PhoneNumberCountry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PhoneNumberCountry): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSupportedPhoneNumberCountriesResponse {
+  /**
+   * <p>The supported phone number countries.</p>
+   */
+  PhoneNumberCountries?: PhoneNumberCountry[];
+}
+
+export namespace ListSupportedPhoneNumberCountriesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSupportedPhoneNumberCountriesResponse): any => ({
     ...obj,
   });
 }
@@ -2473,29 +2597,43 @@ export namespace RestorePhoneNumberResponse {
 
 export interface SearchAvailablePhoneNumbersRequest {
   /**
-   * <p>The area code used to filter results.</p>
+   * <p>The area code used to filter results. Only applies to the
+   *             US.</p>
    */
   AreaCode?: string;
 
   /**
-   * <p>The city used to filter results.</p>
+   * <p>The city used to filter results. Only applies to the
+   *             US.</p>
    */
   City?: string;
 
   /**
-   * <p>The country used to filter results.</p>
+   * <p>The country used to filter results. Defaults to the
+   *             US
+   *             Format: ISO 3166-1 alpha-2.</p>
    */
   Country?: string;
 
   /**
-   * <p>The state used to filter results.</p>
+   * <p>The state used to filter results. Required only if you provide <code>City</code>. Only
+   *             applies to the
+   *             US.</p>
    */
   State?: string;
 
   /**
-   * <p>The toll-free prefix that you use to filter results.</p>
+   * <p>The toll-free prefix that you use to filter results. Only applies to the
+   *             US.</p>
    */
   TollFreePrefix?: string;
+
+  /**
+   * <p>The phone number type used to filter results. Required for
+   *             non-US
+   *             numbers.</p>
+   */
+  PhoneNumberType?: PhoneNumberType | string;
 
   /**
    * <p>The maximum number of results to return in a single call.</p>
@@ -2503,7 +2641,7 @@ export interface SearchAvailablePhoneNumbersRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * <p>The token used to retrieve the next page of results.</p>
    */
   NextToken?: string;
 }
@@ -2522,6 +2660,11 @@ export interface SearchAvailablePhoneNumbersResponse {
    * <p>List of phone numbers, in E.164 format.</p>
    */
   E164PhoneNumbers?: string[];
+
+  /**
+   * <p>The token used to retrieve the next page of search results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace SearchAvailablePhoneNumbersResponse {
@@ -3552,11 +3695,7 @@ export interface UpdateVoiceConnectorGroupRequest {
   Name: string | undefined;
 
   /**
-   * <p>
-   * The
-   * <code>VoiceConnectorItems</code>
-   * to associate with the group.
-   * </p>
+   * <p>The <code>VoiceConnectorItems</code> to associate with the group.</p>
    */
   VoiceConnectorItems: VoiceConnectorItem[] | undefined;
 }

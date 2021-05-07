@@ -19,8 +19,13 @@ export interface AffectedEntity {
   entityArn?: string;
 
   /**
-   * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
-   *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+   * <p>The unique identifier for the event. The event ARN has the
+   * <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
+   *             </code>
+   * format.</p>
+   *          <p>For example, an event ARN might look like the following:</p>
+   *          <p>
+   *             <code>arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
    *          </p>
    */
   eventArn?: string;
@@ -71,8 +76,13 @@ export namespace AffectedEntity {
 
 export interface DescribeAffectedAccountsForOrganizationRequest {
   /**
-   * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
-   *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+   * <p>The unique identifier for the event. The event ARN has the
+   * <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
+   *             </code>
+   * format.</p>
+   *          <p>For example, an event ARN might look like the following:</p>
+   *          <p>
+   *             <code>arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
    *          </p>
    */
   eventArn: string | undefined;
@@ -172,9 +182,8 @@ export namespace InvalidPaginationToken {
 }
 
 /**
- * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and
- *          <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is
- *          set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
+ * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set:
+ *          match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
  *             <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code>
  *          inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where
  *          the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set
@@ -329,13 +338,17 @@ export namespace UnsupportedLocale {
 }
 
 /**
- * <p>The values used to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a> and
- *          <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a> operations.</p>
+ * <p>The values used to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a> and <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a> operations.</p>
  */
 export interface EventAccountFilter {
   /**
-   * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
-   *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+   * <p>The unique identifier for the event. The event ARN has the
+   * <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
+   *             </code>
+   * format.</p>
+   *          <p>For example, an event ARN might look like the following:</p>
+   *          <p>
+   *             <code>arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
    *          </p>
    */
   eventArn: string | undefined;
@@ -391,7 +404,7 @@ export namespace DescribeAffectedEntitiesForOrganizationRequest {
 }
 
 /**
- * <p>Error information returned when a <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a> operation cannot find or process a
+ * <p>Error information returned when a <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a> operation can't find or process a
  *          specific entity.</p>
  */
 export interface OrganizationAffectedEntitiesErrorItem {
@@ -401,8 +414,13 @@ export interface OrganizationAffectedEntitiesErrorItem {
   awsAccountId?: string;
 
   /**
-   * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
-   *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+   * <p>The unique identifier for the event. The event ARN has the
+   * <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
+   *             </code>
+   * format.</p>
+   *          <p>For example, an event ARN might look like the following:</p>
+   *          <p>
+   *             <code>arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
    *          </p>
    */
   eventArn?: string;
@@ -479,13 +497,17 @@ export namespace DescribeEntityAggregatesRequest {
 }
 
 /**
- * <p>The number of entities that are affected by one or more events. Returned by the
- *          <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEntityAggregates.html">DescribeEntityAggregates</a> operation.</p>
+ * <p>The number of entities that are affected by one or more events. Returned by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEntityAggregates.html">DescribeEntityAggregates</a> operation.</p>
  */
 export interface EntityAggregate {
   /**
-   * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
-   *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+   * <p>The unique identifier for the event. The event ARN has the
+   * <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
+   *             </code>
+   * format.</p>
+   *          <p>For example, an event ARN might look like the following:</p>
+   *          <p>
+   *             <code>arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
    *          </p>
    */
   eventArn?: string;
@@ -540,7 +562,7 @@ export enum EventTypeCategory {
 
 /**
  * <p>The values to use to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a> and
- *          <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventAggregates.html">DescribeEventAggregates</a> operations.</p>
+ *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventAggregates.html">DescribeEventAggregates</a> operations.</p>
  */
 export interface EventFilter {
   /**
@@ -561,12 +583,12 @@ export interface EventFilter {
   services?: string[];
 
   /**
-   * <p>A list of AWS regions.</p>
+   * <p>A list of AWS Regions.</p>
    */
   regions?: string[];
 
   /**
-   * <p>A list of AWS availability zones.</p>
+   * <p>A list of AWS Availability Zones.</p>
    */
   availabilityZones?: string[];
 
@@ -730,13 +752,17 @@ export namespace DescribeEventDetailsRequest {
 }
 
 /**
- * <p>Error information returned when a <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation
- *          cannot find a specified event.</p>
+ * <p>Error information returned when a <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation can't find a specified event.</p>
  */
 export interface EventDetailsErrorItem {
   /**
-   * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
-   *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+   * <p>The unique identifier for the event. The event ARN has the
+   * <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
+   *             </code>
+   * format.</p>
+   *          <p>For example, an event ARN might look like the following:</p>
+   *          <p>
+   *             <code>arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
    *          </p>
    */
   eventArn?: string;
@@ -768,9 +794,9 @@ export namespace EventDetailsErrorItem {
  *             <li>
  *                <p>
  *                   <i>Public events</i> might be service events that are not specific
- *                to an AWS account. For example, if there is an issue with an AWS Region, AWS Health
- *                provides information about the event, even if you don't use services or resources in
- *                that Region.</p>
+ *                to an AWS account. For example, if there is an issue with an AWS Region,
+ *                AWS Health provides information about the event, even if you don't use services or
+ *                resources in that Region.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -785,8 +811,13 @@ export namespace EventDetailsErrorItem {
  */
 export interface Event {
   /**
-   * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
-   *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+   * <p>The unique identifier for the event. The event ARN has the
+   * <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
+   *             </code>
+   * format.</p>
+   *          <p>For example, an event ARN might look like the following:</p>
+   *          <p>
+   *             <code>arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
    *          </p>
    */
   arn?: string;
@@ -809,7 +840,7 @@ export interface Event {
   eventTypeCategory?: EventTypeCategory | string;
 
   /**
-   * <p>The AWS region name of the event.</p>
+   * <p>The AWS Region name of the event.</p>
    */
   region?: string;
 
@@ -873,7 +904,8 @@ export namespace Event {
 }
 
 /**
- * <p>The detailed description of the event. Included in the information returned by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation.</p>
+ * <p>The detailed description of the event. Included in the information returned by the
+ *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation.</p>
  */
 export interface EventDescription {
   /**
@@ -892,9 +924,8 @@ export namespace EventDescription {
 }
 
 /**
- * <p>Detailed information about an event. A combination of an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a> object,
- *          an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventDescription.html">EventDescription</a> object, and additional metadata about the event.
- *          Returned by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation.</p>
+ * <p>Detailed information about an event. A combination of an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a> object, an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventDescription.html">EventDescription</a> object, and additional metadata about the event. Returned by
+ *          the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation.</p>
  */
 export interface EventDetails {
   /**
@@ -966,19 +997,24 @@ export namespace DescribeEventDetailsForOrganizationRequest {
 }
 
 /**
- * <p>Error information returned when a <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a>
- *          operation cannot find a specified event.</p>
+ * <p>Error information returned when a <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a> operation can't find a specified
+ *          event.</p>
  */
 export interface OrganizationEventDetailsErrorItem {
   /**
-   * <p>Error information returned when a <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a>
-   *          operation cannot find a specified event.</p>
+   * <p>Error information returned when a <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a> operation can't find a specified
+   *          event.</p>
    */
   awsAccountId?: string;
 
   /**
-   * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
-   *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+   * <p>The unique identifier for the event. The event ARN has the
+   * <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
+   *             </code>
+   * format.</p>
+   *          <p>For example, an event ARN might look like the following:</p>
+   *          <p>
+   *             <code>arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
    *          </p>
    */
   eventArn?: string;
@@ -990,6 +1026,19 @@ export interface OrganizationEventDetailsErrorItem {
 
   /**
    * <p>A message that describes the error.</p>
+   *          <p>If you call the <code>DescribeEventDetailsForOrganization</code>
+   * operation and receive one of the following errors, follow the recommendations in the message:</p>
+   *          <ul>
+   *             <li>
+   *                <p>We couldn't find a public event that matches your request. To find an event that is account specific, you must enter an AWS account ID in the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>We couldn't find an account specific event for the specified AWS account. To find an event that is public, you must enter a null value for the AWS account ID in the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>Your AWS account doesn't include the AWS Support plan required to use the AWS Health API. You must have either a Business or Enterprise Support plan.</p>
+   *             </li>
+   *          </ul>
    */
   errorMessage?: string;
 }
@@ -1004,9 +1053,8 @@ export namespace OrganizationEventDetailsErrorItem {
 }
 
 /**
- * <p>Detailed information about an event. A combination of an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a> object,
- *          an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventDescription.html">EventDescription</a> object, and additional metadata about the event.
- *          Returned by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a> operation.</p>
+ * <p>Detailed information about an event. A combination of an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a> object, an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventDescription.html">EventDescription</a> object, and additional metadata about the event. Returned by
+ *          the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a> operation.</p>
  */
 export interface OrganizationEventDetails {
   /**
@@ -1021,9 +1069,9 @@ export interface OrganizationEventDetails {
    *             <li>
    *                <p>
    *                   <i>Public events</i> might be service events that are not specific
-   *                to an AWS account. For example, if there is an issue with an AWS Region, AWS Health
-   *                provides information about the event, even if you don't use services or resources in
-   *                that Region.</p>
+   *                to an AWS account. For example, if there is an issue with an AWS Region,
+   *                AWS Health provides information about the event, even if you don't use services or
+   *                resources in that Region.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1039,7 +1087,8 @@ export interface OrganizationEventDetails {
   event?: Event;
 
   /**
-   * <p>The detailed description of the event. Included in the information returned by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation.</p>
+   * <p>The detailed description of the event. Included in the information returned by the
+   *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation.</p>
    */
   eventDescription?: EventDescription;
 
@@ -1138,8 +1187,7 @@ export namespace DescribeEventsResponse {
 }
 
 /**
- * <p>The values to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html">DescribeEventsForOrganization</a>
- *          operation.</p>
+ * <p>The values to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html">DescribeEventsForOrganization</a> operation.</p>
  */
 export interface OrganizationEventFilter {
   /**
@@ -1164,9 +1212,8 @@ export interface OrganizationEventFilter {
   regions?: string[];
 
   /**
-   * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and
-   *          <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is
-   *          set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
+   * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set:
+   *          match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
    *             <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code>
    *          inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where
    *          the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set
@@ -1176,9 +1223,8 @@ export interface OrganizationEventFilter {
   startTime?: DateTimeRange;
 
   /**
-   * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and
-   *          <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is
-   *          set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
+   * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set:
+   *          match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
    *             <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code>
    *          inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where
    *          the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set
@@ -1188,9 +1234,8 @@ export interface OrganizationEventFilter {
   endTime?: DateTimeRange;
 
   /**
-   * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and
-   *          <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is
-   *          set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
+   * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set:
+   *          match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
    *             <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code>
    *          inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where
    *          the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set
@@ -1268,14 +1313,19 @@ export namespace DescribeEventsForOrganizationRequest {
  */
 export interface OrganizationEvent {
   /**
-   * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
-   *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
+   * <p>The unique identifier for the event. The event ARN has the
+   * <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
+   *             </code>
+   * format.</p>
+   *          <p>For example, an event ARN might look like the following:</p>
+   *          <p>
+   *             <code>arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
    *          </p>
    */
   arn?: string;
 
   /**
-   * <p>The AWS service that is affected by the event. For example, EC2, RDS.</p>
+   * <p>The AWS service that is affected by the event, such as EC2 and RDS.</p>
    */
   service?: string;
 
@@ -1529,8 +1579,8 @@ export namespace DescribeHealthServiceStatusForOrganizationResponse {
 
 /**
  * <p>
- *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> is already in progress. Wait
- *          for the action to complete before trying again. To get the current status, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html">DescribeHealthServiceStatusForOrganization</a> operation.</p>
+ *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> is already in progress. Wait for the
+ *          action to complete before trying again. To get the current status, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html">DescribeHealthServiceStatusForOrganization</a> operation.</p>
  */
 export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";

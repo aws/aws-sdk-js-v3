@@ -21,6 +21,7 @@ import {
   DescribeServiceIntegrationCommandInput,
   DescribeServiceIntegrationCommandOutput,
 } from "../commands/DescribeServiceIntegrationCommand";
+import { GetCostEstimationCommandInput, GetCostEstimationCommandOutput } from "../commands/GetCostEstimationCommand";
 import {
   GetResourceCollectionCommandInput,
   GetResourceCollectionCommandOutput,
@@ -46,6 +47,10 @@ import {
 } from "../commands/RemoveNotificationChannelCommand";
 import { SearchInsightsCommandInput, SearchInsightsCommandOutput } from "../commands/SearchInsightsCommand";
 import {
+  StartCostEstimationCommandInput,
+  StartCostEstimationCommandOutput,
+} from "../commands/StartCostEstimationCommand";
+import {
   UpdateResourceCollectionCommandInput,
   UpdateResourceCollectionCommandOutput,
 } from "../commands/UpdateResourceCollectionCommand";
@@ -59,10 +64,13 @@ import {
   AnomalyTimeRange,
   CloudFormationCollection,
   CloudFormationCollectionFilter,
+  CloudFormationCostEstimationResourceCollectionFilter,
   CloudFormationHealth,
   CloudWatchMetricsDetail,
   CloudWatchMetricsDimension,
   ConflictException,
+  CostEstimationResourceCollectionFilter,
+  CostEstimationTimeRange,
   EndTimeRange,
   Event,
   EventResource,
@@ -102,8 +110,13 @@ import {
   ResourceCollectionFilter,
   ResourceNotFoundException,
   SearchInsightsFilters,
+  ServiceCollection,
+  ServiceHealth,
+  ServiceInsightHealth,
   ServiceIntegrationConfig,
+  ServiceName,
   ServiceQuotaExceededException,
+  ServiceResourceCost,
   SnsChannelConfig,
   StartTimeRange,
   ThrottlingException,
@@ -124,6 +137,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export const serializeAws_restJson1AddNotificationChannelCommand = async (
   input: AddNotificationChannelCommandInput,
@@ -328,6 +342,29 @@ export const serializeAws_restJson1DescribeServiceIntegrationCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetCostEstimationCommand = async (
+  input: GetCostEstimationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/cost-estimation";
+  const query: any = {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetResourceCollectionCommand = async (
   input: GetResourceCollectionCommandInput,
   context: __SerdeContext
@@ -489,6 +526,7 @@ export const serializeAws_restJson1ListRecommendationsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.InsightId !== undefined && input.InsightId !== null && { InsightId: input.InsightId }),
+    ...(input.Locale !== undefined && input.Locale !== null && { Locale: input.Locale }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -584,6 +622,37 @@ export const serializeAws_restJson1SearchInsightsCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartCostEstimationCommand = async (
+  input: StartCostEstimationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/cost-estimation";
+  let body: any;
+  body = JSON.stringify({
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.ResourceCollection !== undefined &&
+      input.ResourceCollection !== null && {
+        ResourceCollection: serializeAws_restJson1CostEstimationResourceCollectionFilter(
+          input.ResourceCollection,
+          context
+        ),
+      }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -1206,6 +1275,7 @@ export const deserializeAws_restJson1DescribeResourceCollectionHealthCommand = a
     $metadata: deserializeMetadata(output),
     CloudFormation: undefined,
     NextToken: undefined,
+    Service: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.CloudFormation !== undefined && data.CloudFormation !== null) {
@@ -1213,6 +1283,9 @@ export const deserializeAws_restJson1DescribeResourceCollectionHealthCommand = a
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
+  }
+  if (data.Service !== undefined && data.Service !== null) {
+    contents.Service = deserializeAws_restJson1ServiceHealths(data.Service, context);
   }
   return Promise.resolve(contents);
 };
@@ -1320,6 +1393,116 @@ const deserializeAws_restJson1DescribeServiceIntegrationCommandError = async (
     case "com.amazonaws.devopsguru#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.devopsguru#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.devopsguru#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetCostEstimationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCostEstimationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetCostEstimationCommandError(output, context);
+  }
+  const contents: GetCostEstimationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Costs: undefined,
+    NextToken: undefined,
+    ResourceCollection: undefined,
+    Status: undefined,
+    TimeRange: undefined,
+    TotalCost: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Costs !== undefined && data.Costs !== null) {
+    contents.Costs = deserializeAws_restJson1ServiceResourceCosts(data.Costs, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  if (data.ResourceCollection !== undefined && data.ResourceCollection !== null) {
+    contents.ResourceCollection = deserializeAws_restJson1CostEstimationResourceCollectionFilter(
+      data.ResourceCollection,
+      context
+    );
+  }
+  if (data.Status !== undefined && data.Status !== null) {
+    contents.Status = data.Status;
+  }
+  if (data.TimeRange !== undefined && data.TimeRange !== null) {
+    contents.TimeRange = deserializeAws_restJson1CostEstimationTimeRange(data.TimeRange, context);
+  }
+  if (data.TotalCost !== undefined && data.TotalCost !== null) {
+    contents.TotalCost = data.TotalCost;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetCostEstimationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCostEstimationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.devopsguru#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.devopsguru#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.devopsguru#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2164,6 +2347,97 @@ const deserializeAws_restJson1SearchInsightsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1StartCostEstimationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartCostEstimationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartCostEstimationCommandError(output, context);
+  }
+  const contents: StartCostEstimationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartCostEstimationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartCostEstimationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.devopsguru#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.devopsguru#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.devopsguru#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.devopsguru#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.devopsguru#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.devopsguru#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateResourceCollectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2499,6 +2773,44 @@ const serializeAws_restJson1CloudFormationCollection = (
   };
 };
 
+const serializeAws_restJson1CloudFormationCostEstimationResourceCollectionFilter = (
+  input: CloudFormationCostEstimationResourceCollectionFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.StackNames !== undefined &&
+      input.StackNames !== null && {
+        StackNames: serializeAws_restJson1CostEstimationStackNames(input.StackNames, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1CostEstimationResourceCollectionFilter = (
+  input: CostEstimationResourceCollectionFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CloudFormation !== undefined &&
+      input.CloudFormation !== null && {
+        CloudFormation: serializeAws_restJson1CloudFormationCostEstimationResourceCollectionFilter(
+          input.CloudFormation,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_restJson1CostEstimationStackNames = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1EndTimeRange = (input: EndTimeRange, context: __SerdeContext): any => {
   return {
     ...(input.FromTime !== undefined &&
@@ -2644,11 +2956,33 @@ const serializeAws_restJson1SearchInsightsFilters = (input: SearchInsightsFilter
       input.ResourceCollection !== null && {
         ResourceCollection: serializeAws_restJson1ResourceCollection(input.ResourceCollection, context),
       }),
+    ...(input.ServiceCollection !== undefined &&
+      input.ServiceCollection !== null && {
+        ServiceCollection: serializeAws_restJson1ServiceCollection(input.ServiceCollection, context),
+      }),
     ...(input.Severities !== undefined &&
       input.Severities !== null && { Severities: serializeAws_restJson1InsightSeverities(input.Severities, context) }),
     ...(input.Statuses !== undefined &&
       input.Statuses !== null && { Statuses: serializeAws_restJson1InsightStatuses(input.Statuses, context) }),
   };
+};
+
+const serializeAws_restJson1ServiceCollection = (input: ServiceCollection, context: __SerdeContext): any => {
+  return {
+    ...(input.ServiceNames !== undefined &&
+      input.ServiceNames !== null && { ServiceNames: serializeAws_restJson1ServiceNames(input.ServiceNames, context) }),
+  };
+};
+
+const serializeAws_restJson1ServiceNames = (input: (ServiceName | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1SnsChannelConfig = (input: SnsChannelConfig, context: __SerdeContext): any => {
@@ -2776,6 +3110,18 @@ const deserializeAws_restJson1CloudFormationCollectionFilter = (
   } as any;
 };
 
+const deserializeAws_restJson1CloudFormationCostEstimationResourceCollectionFilter = (
+  output: any,
+  context: __SerdeContext
+): CloudFormationCostEstimationResourceCollectionFilter => {
+  return {
+    StackNames:
+      output.StackNames !== undefined && output.StackNames !== null
+        ? deserializeAws_restJson1CostEstimationStackNames(output.StackNames, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1CloudFormationHealth = (output: any, context: __SerdeContext): CloudFormationHealth => {
   return {
     Insight:
@@ -2853,6 +3199,43 @@ const deserializeAws_restJson1CloudWatchMetricsDimensions = (
       }
       return deserializeAws_restJson1CloudWatchMetricsDimension(entry, context);
     });
+};
+
+const deserializeAws_restJson1CostEstimationResourceCollectionFilter = (
+  output: any,
+  context: __SerdeContext
+): CostEstimationResourceCollectionFilter => {
+  return {
+    CloudFormation:
+      output.CloudFormation !== undefined && output.CloudFormation !== null
+        ? deserializeAws_restJson1CloudFormationCostEstimationResourceCollectionFilter(output.CloudFormation, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CostEstimationStackNames = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_restJson1CostEstimationTimeRange = (
+  output: any,
+  context: __SerdeContext
+): CostEstimationTimeRange => {
+  return {
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? new Date(Math.round(output.StartTime * 1000))
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1Event = (output: any, context: __SerdeContext): Event => {
@@ -3113,6 +3496,10 @@ const deserializeAws_restJson1ProactiveInsightSummary = (
       output.ResourceCollection !== undefined && output.ResourceCollection !== null
         ? deserializeAws_restJson1ResourceCollection(output.ResourceCollection, context)
         : undefined,
+    ServiceCollection:
+      output.ServiceCollection !== undefined && output.ServiceCollection !== null
+        ? deserializeAws_restJson1ServiceCollection(output.ServiceCollection, context)
+        : undefined,
     Severity: output.Severity !== undefined && output.Severity !== null ? output.Severity : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
@@ -3223,6 +3610,10 @@ const deserializeAws_restJson1ReactiveInsightSummary = (
     ResourceCollection:
       output.ResourceCollection !== undefined && output.ResourceCollection !== null
         ? deserializeAws_restJson1ResourceCollection(output.ResourceCollection, context)
+        : undefined,
+    ServiceCollection:
+      output.ServiceCollection !== undefined && output.ServiceCollection !== null
+        ? deserializeAws_restJson1ServiceCollection(output.ServiceCollection, context)
         : undefined,
     Severity: output.Severity !== undefined && output.Severity !== null ? output.Severity : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
@@ -3433,6 +3824,49 @@ const deserializeAws_restJson1ResourceCollectionFilter = (
   } as any;
 };
 
+const deserializeAws_restJson1ServiceCollection = (output: any, context: __SerdeContext): ServiceCollection => {
+  return {
+    ServiceNames:
+      output.ServiceNames !== undefined && output.ServiceNames !== null
+        ? deserializeAws_restJson1ServiceNames(output.ServiceNames, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ServiceHealth = (output: any, context: __SerdeContext): ServiceHealth => {
+  return {
+    Insight:
+      output.Insight !== undefined && output.Insight !== null
+        ? deserializeAws_restJson1ServiceInsightHealth(output.Insight, context)
+        : undefined,
+    ServiceName: output.ServiceName !== undefined && output.ServiceName !== null ? output.ServiceName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ServiceHealths = (output: any, context: __SerdeContext): ServiceHealth[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ServiceHealth(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ServiceInsightHealth = (output: any, context: __SerdeContext): ServiceInsightHealth => {
+  return {
+    OpenProactiveInsights:
+      output.OpenProactiveInsights !== undefined && output.OpenProactiveInsights !== null
+        ? output.OpenProactiveInsights
+        : undefined,
+    OpenReactiveInsights:
+      output.OpenReactiveInsights !== undefined && output.OpenReactiveInsights !== null
+        ? output.OpenReactiveInsights
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ServiceIntegrationConfig = (
   output: any,
   context: __SerdeContext
@@ -3443,6 +3877,38 @@ const deserializeAws_restJson1ServiceIntegrationConfig = (
         ? deserializeAws_restJson1OpsCenterIntegration(output.OpsCenter, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1ServiceNames = (output: any, context: __SerdeContext): (ServiceName | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_restJson1ServiceResourceCost = (output: any, context: __SerdeContext): ServiceResourceCost => {
+  return {
+    Cost: output.Cost !== undefined && output.Cost !== null ? output.Cost : undefined,
+    Count: output.Count !== undefined && output.Count !== null ? output.Count : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    UnitCost: output.UnitCost !== undefined && output.UnitCost !== null ? output.UnitCost : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ServiceResourceCosts = (output: any, context: __SerdeContext): ServiceResourceCost[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ServiceResourceCost(entry, context);
+    });
 };
 
 const deserializeAws_restJson1SnsChannelConfig = (output: any, context: __SerdeContext): SnsChannelConfig => {

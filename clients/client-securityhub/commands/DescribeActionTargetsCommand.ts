@@ -1,6 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { DescribeActionTargetsRequest } from "../models/models_0";
-import { DescribeActionTargetsResponse } from "../models/models_1";
+import { DescribeActionTargetsRequest, DescribeActionTargetsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeActionTargetsCommand,
   serializeAws_restJson1DescribeActionTargetsCommand,

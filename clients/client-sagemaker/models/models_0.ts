@@ -910,13 +910,14 @@ export interface OutputDataConfig {
    *             policy with an <code>s3:PutObject</code> permission that only allows objects with
    *             server-side encryption, set the condition key of
    *                 <code>s3:x-amz-server-side-encryption</code> to <code>"aws:kms"</code>. For more
-   *             information, see <a href="https://docs.aws.amazon.com/mazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer
    *                 Guide.</i>
    *          </p>
    *         <p>The KMS key policy must grant permission to the IAM role that you specify in your
    *                 <code>CreateTrainingJob</code>, <code>CreateTransformJob</code>, or
    *                 <code>CreateHyperParameterTuningJob</code> requests. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using Key Policies in AWS KMS</a> in the <i>AWS Key Management Service Developer
+   *                 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
+   *                 Key Policies in AWS KMS</a> in the <i>AWS Key Management Service Developer
    *                 Guide</i>.</p>
    */
   KmsKeyId?: string;
@@ -1059,8 +1060,9 @@ export namespace ResourceConfig {
 }
 
 /**
- * <p>Specifies a limit to how long a model training or compilation job can run. It also
- *             specifies how long you are willing to wait for a managed spot training job to complete.
+ * <p>Specifies a limit to how long a model training job, model compilation job, or
+ *             hyperparameter tuning job can run. It also specifies how long a managed Spot training
+ *             job has to complete.
  *             When the job reaches the time limit, Amazon SageMaker ends the training or compilation job. Use this
  *             API to cap model training costs.</p>
  *         <p>To stop a job, Amazon SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
@@ -1080,17 +1082,21 @@ export namespace ResourceConfig {
  */
 export interface StoppingCondition {
   /**
-   * <p>The maximum length of time, in seconds, that the training or compilation job can run.
-   *             If job does not complete during this time, Amazon SageMaker ends the job. If value is not specified,
-   *             default value is 1 day. The maximum value is 28 days.</p>
+   * <p>The maximum length of time, in seconds, that a training or compilation job can run.
+   *             If the job does not complete during this time, Amazon SageMaker ends the job.</p>
+   *         <p>When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
+   *             specifies the maximum time for all of the attempts in total, not each individual attempt.</p>
+   *         <p>The default value is 1 day. The maximum value is 28 days.</p>
    */
   MaxRuntimeInSeconds?: number;
 
   /**
-   * <p>The maximum length of time, in seconds, how long you are willing to wait for a managed
-   *             spot training job to complete. It is the amount of time spent waiting for Spot capacity
-   *             plus the amount of time the training job runs. It must be equal to or greater than
-   *                 <code>MaxRuntimeInSeconds</code>. </p>
+   * <p>The maximum length of time, in seconds, that a managed Spot training job has to complete.
+   *             It is the amount of time spent waiting for Spot capacity plus the amount of time the job
+   *             can run. It must be equal to or greater than <code>MaxRuntimeInSeconds</code>.  If the job
+   *             does not complete during this time, Amazon SageMaker ends the job.</p>
+   *         <p>When <code>RetryStrategy</code> is specified in the job request, <code>MaxWaitTimeInSeconds</code>
+   *             specifies the maximum time for all of the attempts in total, not each individual attempt.</p>
    */
   MaxWaitTimeInSeconds?: number;
 }
@@ -1142,8 +1148,10 @@ export interface TrainingJobDefinition {
   ResourceConfig: ResourceConfig | undefined;
 
   /**
-   * <p>Specifies a limit to how long a model training job can run. When the job reaches the
-   *             time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs.</p>
+   * <p>Specifies a limit to how long a model training job can run.
+   *             It also specifies how long a managed Spot training job has to complete.
+   *             When the job reaches the time limit, Amazon SageMaker ends
+   *             the training job. Use this API to cap model training costs.</p>
    *         <p>To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal, which delays job
    *             termination for 120 seconds. Algorithms can use this 120-second window to save the model
    *             artifacts.</p>
@@ -1334,7 +1342,7 @@ export interface TransformInput {
    *                     <code>MultiRecord</code>.</p>
    *             <p>For more information about <code>RecordIO</code>, see <a href="https://mxnet.apache.org/api/faq/recordio">Create a Dataset Using
    *                     RecordIO</a> in the MXNet documentation. For more information about
-   *                     <code>TFRecord</code>, see <a href="https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data">Consuming TFRecord data</a> in the TensorFlow documentation.</p>
+   *                     <code>TFRecord</code>, see <a href="https://www.tensorflow.org/guide/data#consuming_tfrecord_data">Consuming TFRecord data</a> in the TensorFlow documentation.</p>
    *         </note>
    */
   SplitType?: SplitType | string;
@@ -3724,11 +3732,12 @@ export enum AuthMode {
 }
 
 /**
- * <p>Location of artifacts for an AutoML candidate job.</p>
+ * <p>The location of artifacts for an AutoML candidate job.</p>
  */
 export interface CandidateArtifactLocations {
   /**
-   * <p>The S3 prefix to the explainability artifacts generated for the AutoML candidate.</p>
+   * <p>The Amazon S3 prefix to the explainability artifacts generated for the AutoML
+   *          candidate.</p>
    */
   Explainability: string | undefined;
 }
@@ -3747,7 +3756,7 @@ export namespace CandidateArtifactLocations {
  */
 export interface CandidateProperties {
   /**
-   * <p>The S3 prefix to the artifacts generated for an AutoML candidate.</p>
+   * <p>The Amazon S3 prefix to the artifacts generated for an AutoML candidate.</p>
    */
   CandidateArtifactLocations?: CandidateArtifactLocations;
 }
@@ -3776,21 +3785,21 @@ export enum CandidateStepType {
 }
 
 /**
- * <p>Information about the steps for a Candidate, and what step it is working on.</p>
+ * <p>Information about the steps for a candidate and what step it is working on.</p>
  */
 export interface AutoMLCandidateStep {
   /**
-   * <p>Whether the Candidate is at the transform, training, or processing step.</p>
+   * <p>Whether the candidate is at the transform, training, or processing step.</p>
    */
   CandidateStepType: CandidateStepType | string | undefined;
 
   /**
-   * <p>The ARN for the Candidate's step.</p>
+   * <p>The ARN for the candidate's step.</p>
    */
   CandidateStepArn: string | undefined;
 
   /**
-   * <p>The name for the Candidate's step.</p>
+   * <p>The name for the candidate's step.</p>
    */
   CandidateStepName: string | undefined;
 }
@@ -3863,7 +3872,7 @@ export interface AutoMLContainerDefinition {
   ModelDataUrl: string | undefined;
 
   /**
-   * <p>Environment variables to set in the container. For more information, see .</p>
+   * <p>The environment variables to set in the container. For more information, see .</p>
    */
   Environment?: { [key: string]: string };
 }
@@ -3885,11 +3894,11 @@ export enum ObjectiveStatus {
 
 /**
  * <p>An Autopilot job returns recommendations, or candidates. Each candidate has futher details
- *          about the steps involed, and the status.</p>
+ *          about the steps involved and the status.</p>
  */
 export interface AutoMLCandidate {
   /**
-   * <p>The candidate name.</p>
+   * <p>The name of the candidate.</p>
    */
   CandidateName: string | undefined;
 
@@ -3899,12 +3908,12 @@ export interface AutoMLCandidate {
   FinalAutoMLJobObjectiveMetric?: FinalAutoMLJobObjectiveMetric;
 
   /**
-   * <p>The objective status.</p>
+   * <p>The objective's status.</p>
    */
   ObjectiveStatus: ObjectiveStatus | string | undefined;
 
   /**
-   * <p>The candidate's steps.</p>
+   * <p>Information about the candidate's steps.</p>
    */
   CandidateSteps: AutoMLCandidateStep[] | undefined;
 
@@ -3914,7 +3923,7 @@ export interface AutoMLCandidate {
   CandidateStatus: CandidateStatus | string | undefined;
 
   /**
-   * <p>The inference containers.</p>
+   * <p>Information about the inference container definitions.</p>
    */
   InferenceContainers?: AutoMLContainerDefinition[];
 
@@ -4037,16 +4046,16 @@ export namespace AutoMLChannel {
 }
 
 /**
- * <p>Artifacts that are generation during a job.</p>
+ * <p>The artifacts that are generated during an AutoML job.</p>
  */
 export interface AutoMLJobArtifacts {
   /**
-   * <p>The URL to the notebook location.</p>
+   * <p>The URL of the notebook location.</p>
    */
   CandidateDefinitionNotebookLocation?: string;
 
   /**
-   * <p>The URL to the notebook location.</p>
+   * <p>The URL of the notebook location.</p>
    */
   DataExplorationNotebookLocation?: string;
 }
@@ -4136,7 +4145,7 @@ export interface AutoMLSecurityConfig {
   EnableInterContainerTrafficEncryption?: boolean;
 
   /**
-   * <p>VPC configuration.</p>
+   * <p>The VPC configuration.</p>
    */
   VpcConfig?: VpcConfig;
 }
@@ -4161,7 +4170,7 @@ export interface AutoMLJobConfig {
   CompletionCriteria?: AutoMLJobCompletionCriteria;
 
   /**
-   * <p>Security configuration for traffic encryption or Amazon VPC settings.</p>
+   * <p>The security configuration for traffic encryption or Amazon VPC settings.</p>
    */
   SecurityConfig?: AutoMLSecurityConfig;
 }
@@ -4189,32 +4198,32 @@ export interface AutoMLJobObjective {
    *                <p>
    *                   <code>MSE</code>: The mean squared error (MSE) is the average of the squared
    *                differences between the predicted and actual values. It is used for regression. MSE
-   *                values are always positive, the better a model is at predicting the actual values the
-   *                smaller the MSE value. When the data contains outliers, they tend to dominate the MSE
-   *                which might cause subpar prediction performance.</p>
+   *                values are always positive: the better a model is at predicting the actual values,
+   *                the smaller the MSE value. When the data contains outliers, they tend to dominate the
+   *                MSE, which might cause subpar prediction performance.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Accuracy</code>: The ratio of the number correctly classified items to the
-   *                total number (correctly and incorrectly) classified. It is used for binary and
-   *                multiclass classification. Measures how close the predicted class values are to the
-   *                actual values. Accuracy values vary between zero and one, one being perfect accuracy
-   *                and zero perfect inaccuracy.</p>
+   *                   <code>Accuracy</code>: The ratio of the number of correctly classified items to
+   *                the total number of (correctly and incorrectly) classified items. It is used for
+   *                binary and multiclass classification. It measures how close the predicted class
+   *                values are to the actual values. Accuracy values vary between zero and one: one
+   *                indicates perfect accuracy and zero indicates perfect inaccuracy.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>F1</code>: The F1 score is the harmonic mean of the precision and recall. It
    *                is used for binary classification into classes traditionally referred to as positive
    *                and negative. Predictions are said to be true when they match their actual (correct)
-   *                class; false when they do not. Precision is the ratio of the true positive
+   *                class and false when they do not. Precision is the ratio of the true positive
    *                predictions to all positive predictions (including the false positives) in a data set
    *                and measures the quality of the prediction when it predicts the positive class.
    *                Recall (or sensitivity) is the ratio of the true positive predictions to all actual
    *                positive instances and measures how completely a model predicts the actual class
    *                members in a data set. The standard F1 score weighs precision and recall equally. But
    *                which metric is paramount typically depends on specific aspects of a problem. F1
-   *                scores vary between zero and one, one being the best possible performance and zero
-   *                the worst.</p>
+   *                scores vary between zero and one: one indicates the best possible performance and
+   *                zero the worst.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4229,19 +4238,20 @@ export interface AutoMLJobObjective {
    *                provides an aggregated measure of the model performance across all possible
    *                classification thresholds. The AUC score can also be interpreted as the probability
    *                that a randomly selected positive data point is more likely to be predicted positive
-   *                than a randomly selected negative example. AUC scores vary between zero and one, one
-   *                being perfect accuracy and one half not better than a random classifier. Values less
-   *                that one half predict worse than a random predictor and such consistently bad
-   *                predictors can be inverted to obtain better than random predictors.</p>
+   *                than a randomly selected negative example. AUC scores vary between zero and one: a
+   *                score of one indicates perfect accuracy and a score of one half indicates that the
+   *                prediction is not better than a random classifier. Values under one half predict less
+   *                accurately than a random predictor. But such consistently bad predictors can simply
+   *                be inverted to obtain better than random predictors.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>F1macro</code>: The F1macro score applies F1 scoring to multiclass
    *                classification. In this context, you have multiple classes to predict. You just
    *                calculate the precision and recall for each class as you did for the positive class
-   *                in binary classification. Then used these values to calculate the F1 score for each
+   *                in binary classification. Then, use these values to calculate the F1 score for each
    *                class and average them to obtain the F1macro score. F1macro scores vary between zero
-   *                and one, one being the best possible performance and zero the worst.</p>
+   *                and one: one indicates the best possible performance and zero the worst.</p>
    *             </li>
    *          </ul>
    *          <p>If you do not specify a metric explicitly, the default behavior is to automatically
@@ -4277,12 +4287,14 @@ export enum AutoMLJobSecondaryStatus {
   ANALYZING_DATA = "AnalyzingData",
   CANDIDATE_DEFINITIONS_GENERATED = "CandidateDefinitionsGenerated",
   COMPLETED = "Completed",
+  DEPLOYING_MODEL = "DeployingModel",
   EXPLAINABILITY_ERROR = "ExplainabilityError",
   FAILED = "Failed",
   FEATURE_ENGINEERING = "FeatureEngineering",
   GENERATING_EXPLAINABILITY_REPORT = "GeneratingExplainabilityReport",
   MAX_AUTO_ML_JOB_RUNTIME_REACHED = "MaxAutoMLJobRuntimeReached",
   MAX_CANDIDATES_REACHED = "MaxCandidatesReached",
+  MODEL_DEPLOYMENT_ERROR = "ModelDeploymentError",
   MODEL_TUNING = "ModelTuning",
   STARTING = "Starting",
   STOPPED = "Stopped",
@@ -5113,8 +5125,8 @@ export namespace ConditionStepMetadata {
 }
 
 /**
- * <p>There was a conflict when you attempted to modify an experiment, trial, or trial
- *       component.</p>
+ * <p>There was a conflict when you attempted to modify a SageMaker entity such as an
+ *       <code>Experiment</code> or <code>Artifact</code>.</p>
  */
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
@@ -5137,18 +5149,19 @@ export enum RepositoryAccessMode {
 }
 
 /**
- * <p>Specifies an authentication configuration for the private docker registry
- *             where your model image is hosted. Specify a value for this property only if you specified <code>Vpc</code> as the value for the
- *             <code>RepositoryAccessMode</code> field of the <code>ImageConfig</code> object that you
- *             passed to a call to <a>CreateModel</a> and the private Docker registry where the model
- *             image is hosted requires authentication.</p>
+ * <p>Specifies an authentication configuration for the private docker registry where your
+ *             model image is hosted. Specify a value for this property only if you specified
+ *                 <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field of the
+ *                 <code>ImageConfig</code> object that you passed to a call to <a>CreateModel</a> and the private Docker registry where the model image is
+ *             hosted requires authentication.</p>
  */
 export interface RepositoryAuthConfig {
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to
    *             authenticate to the private Docker registry where your model image is hosted. For
-   *             information about how to create an AWS Lambda function, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html">Create a Lambda function with the console</a> in the
-   *             <i>AWS Lambda Developer Guide</i>.</p>
+   *             information about how to create an AWS Lambda function, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html">Create a Lambda function
+   *                 with the console</a> in the <i>AWS Lambda Developer
+   *             Guide</i>.</p>
    */
   RepositoryCredentialsProviderArn: string | undefined;
 }
@@ -5185,9 +5198,10 @@ export interface ImageConfig {
 
   /**
    * <p>(Optional) Specifies an authentication configuration for the private docker registry
-   *             where your model image is hosted. Specify a value for this property only if you specified <code>Vpc</code> as the value for the
-   *             <code>RepositoryAccessMode</code> field, and the private Docker registry where the model
-   *         image is hosted requires authentication.</p>
+   *             where your model image is hosted. Specify a value for this property only if you
+   *             specified <code>Vpc</code> as the value for the <code>RepositoryAccessMode</code> field,
+   *             and the private Docker registry where the model image is hosted requires
+   *             authentication.</p>
    */
   RepositoryAuthConfig?: RepositoryAuthConfig;
 }
@@ -6304,6 +6318,43 @@ export namespace CreateArtifactResponse {
   });
 }
 
+/**
+ * <p>Specifies how to generate the endpoint name for an automatic one-click Autopilot model
+ *          deployment.</p>
+ */
+export interface ModelDeployConfig {
+  /**
+   * <p>Set to <code>True</code> to automatically generate an endpoint name for a one-click
+   *          Autopilot model deployment; set to <code>False</code> otherwise. The default value is
+   *             <code>True</code>.</p>
+   *          <note>
+   *             <p>If you set <code>AutoGenerateEndpointName</code> to <code>True</code>, do not specify
+   *             the <code>EndpointName</code>; otherwise a 400 error is thrown.</p>
+   *          </note>
+   */
+  AutoGenerateEndpointName?: boolean;
+
+  /**
+   * <p>Specifies the endpoint name to use for a one-click Autopilot model deployment if the
+   *          endpoint name is not generated automatically.</p>
+   *          <note>
+   *             <p>Specify the <code>EndpointName</code> if and only if you set
+   *                <code>AutoGenerateEndpointName</code> to <code>False</code>; otherwise a 400 error
+   *             is thrown.</p>
+   *          </note>
+   */
+  EndpointName?: string;
+}
+
+export namespace ModelDeployConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelDeployConfig): any => ({
+    ...obj,
+  });
+}
+
 export enum ProblemType {
   BINARY_CLASSIFICATION = "BinaryClassification",
   MULTICLASS_CLASSIFICATION = "MulticlassClassification",
@@ -6327,31 +6378,38 @@ export interface CreateAutoMLJobRequest {
   /**
    * <p>Provides information about encryption and the Amazon S3 output path needed to store
    *          artifacts from an AutoML job. Format(s) supported: CSV.</p>
+   *
+   *          <p><para>Specifies whether to automatically deploy the best &ATP; model to an
+   *          endpoint and the name of that endpoint if deployed automatically.</para></p>
    */
   OutputDataConfig: AutoMLOutputDataConfig | undefined;
 
   /**
    * <p>Defines the type of supervised learning available for the candidates. Options include:
-   *          BinaryClassification, MulticlassClassification, and Regression. For more information, see
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
+   *             <code>BinaryClassification</code>, <code>MulticlassClassification</code>, and
+   *             <code>Regression</code>. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
    *             Amazon SageMaker Autopilot problem types and algorithm support</a>.</p>
    */
   ProblemType?: ProblemType | string;
 
   /**
    * <p>Defines the objective metric used to measure the predictive quality of an AutoML job.
-   *          You provide a <a>AutoMLJobObjective$MetricName</a> and Autopilot infers whether to
+   *          You provide an <a>AutoMLJobObjective$MetricName</a> and Autopilot infers whether to
    *          minimize or maximize it.</p>
    */
   AutoMLJobObjective?: AutoMLJobObjective;
 
   /**
-   * <p>Contains CompletionCriteria and SecurityConfig settings for the AutoML job.</p>
+   * <p>Contains <code>CompletionCriteria</code> and <code>SecurityConfig</code> settings for
+   *          the AutoML job.</p>
    */
   AutoMLJobConfig?: AutoMLJobConfig;
 
   /**
    * <p>The ARN of the role that is used to access the data.</p>
+   *
+   *          <p><para>Specifies whether to automatically deploy the best &ATP; model to an
+   *          endpoint and the name of that endpoint if deployed automatically.</para></p>
    */
   RoleArn: string | undefined;
 
@@ -6366,6 +6424,12 @@ export interface CreateAutoMLJobRequest {
    *          resource.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Specifies how to generate the endpoint name for an automatic one-click Autopilot model
+   *          deployment.</p>
+   */
+  ModelDeployConfig?: ModelDeployConfig;
 }
 
 export namespace CreateAutoMLJobRequest {
@@ -7489,7 +7553,7 @@ export interface EndpointInput {
 
   /**
    * <p>Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key.
-   *          Defauts to <code>FullyReplicated</code>
+   *          Defaults to <code>FullyReplicated</code>
    *          </p>
    */
   S3DataDistributionType?: ProcessingS3DataDistributionType | string;
@@ -7780,6 +7844,11 @@ export namespace MonitoringNetworkConfig {
 export interface MonitoringStoppingCondition {
   /**
    * <p>The maximum runtime allowed in seconds.</p>
+   *          <note>
+   *             <p>The <code>MaxRuntimeInSeconds</code> cannot exceed the frequency of the job. For data quality and
+   *             model explainability, this can be up to 3600 seconds for an hourly schedule. For model
+   *             bias and model quality hourly schedules, this can be up to 1800 seconds.</p>
+   *          </note>
    */
   MaxRuntimeInSeconds: number | undefined;
 }
@@ -8157,6 +8226,8 @@ export interface CreateDomainRequest {
    * <p>Tags to associated with the Domain. Each tag consists of a key and an optional value.
    *          Tag keys must be unique per resource. Tags are searchable using the
    *          <code>Search</code> API.</p>
+   *          <p>Tags that you specify for the Domain are also added to all Apps that the
+   *           Domain launches.</p>
    */
   Tags?: Tag[];
 
@@ -8419,14 +8490,14 @@ export interface ProductionVariantCoreDumpConfig {
    *             encryption with KMS-managed keys for <code>OutputDataConfig</code>. If you use a bucket
    *             policy with an <code>s3:PutObject</code> permission that only allows objects with
    *             server-side encryption, set the condition key of
-   *             <code>s3:x-amz-server-side-encryption</code> to <code>"aws:kms"</code>. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer
-   *                     Guide.</i>
+   *                 <code>s3:x-amz-server-side-encryption</code> to <code>"aws:kms"</code>. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed Encryption
+   *                 Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>
    *          </p>
    *         <p>The KMS key policy must grant permission to the IAM role that you specify in your
-   *             <code>CreateEndpoint</code> and <code>UpdateEndpoint</code> requests. For more information, see
-   *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using Key Policies in AWS KMS</a> in the <i>AWS Key Management Service Developer
-   *                     Guide</i>.</p>
+   *                 <code>CreateEndpoint</code> and <code>UpdateEndpoint</code> requests. For more
+   *             information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using Key Policies in AWS
+   *                 KMS</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
   KmsKeyId?: string;
 }
@@ -9106,7 +9177,7 @@ export namespace HumanLoopActivationConfig {
 }
 
 /**
- * <p>Represents an amount of money in United States dollars/</p>
+ * <p>Represents an amount of money in United States dollars.</p>
  */
 export interface USD {
   /**
@@ -10291,6 +10362,30 @@ export namespace HyperParameterAlgorithmSpecification {
 }
 
 /**
+ * <p>The retry strategy to use when a training job fails due to an
+ *             <code>InternalServerError</code>. <code>RetryStrategy</code> is specified as
+ *             part of the <code>CreateTrainingJob</code> and <code>CreateHyperParameterTuningJob</code>
+ *             requests. You can add the <code>StoppingCondition</code> parameter to the request to
+ *             limit the training time for the complete job.</p>
+ */
+export interface RetryStrategy {
+  /**
+   * <p>The number of times to retry the job. When the job is retried, it's
+   *             <code>SecondaryStatus</code> is changed to <code>STARTING</code>.</p>
+   */
+  MaximumRetryAttempts: number | undefined;
+}
+
+export namespace RetryStrategy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RetryStrategy): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Defines
  *             the training jobs launched by a hyperparameter tuning job.</p>
  */
@@ -10392,8 +10487,8 @@ export interface HyperParameterTrainingJobDefinition {
 
   /**
    * <p>Specifies a limit to how long a model hyperparameter training job can run. It also
-   *             specifies how long you are willing to wait for a managed spot training job to complete.
-   *             When the job reaches the a limit, Amazon SageMaker ends the training job. Use this API to cap model
+   *             specifies how long a managed spot training job has to complete.
+   *             When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model
    *             training costs.</p>
    */
   StoppingCondition: StoppingCondition | undefined;
@@ -10427,6 +10522,12 @@ export interface HyperParameterTrainingJobDefinition {
    *             data. </p>
    */
   CheckpointConfig?: CheckpointConfig;
+
+  /**
+   * <p>The number of times to retry the job when the job fails due to an
+   *             <code>InternalServerError</code>.</p>
+   */
+  RetryStrategy?: RetryStrategy;
 }
 
 export namespace HyperParameterTrainingJobDefinition {
@@ -12710,7 +12811,9 @@ export interface LabelingJobOutputConfig {
   KmsKeyId?: string;
 
   /**
-   * <p>An Amazon Simple Notification Service (Amazon SNS) output topic ARN.</p>
+   * <p>An Amazon Simple Notification Service (Amazon SNS) output topic ARN. Provide a <code>SnsTopicArn</code> if you want to
+   *             do real time chaining to another streaming job and receive an Amazon SNS notifications each
+   *             time a data object is submitted by a worker.</p>
    *          <p>If you provide an <code>SnsTopicArn</code> in <code>OutputConfig</code>, when workers
    *             complete labeling tasks, Ground Truth will send labeling task output data to the SNS output
    *             topic you specify here. </p>
@@ -12980,7 +13083,8 @@ export interface InferenceExecutionConfig {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>DIRECT</code> - Only the individual container that you specify is run.</p>
+   *                   <code>DIRECT</code> - Only the individual container that you specify is
+   *                     run.</p>
    *             </li>
    *          </ul>
    */
@@ -13435,54 +13539,6 @@ export namespace Explainability {
    * @internal
    */
   export const filterSensitiveLog = (obj: Explainability): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Data quality constraints and statistics for a model.</p>
- */
-export interface ModelDataQuality {
-  /**
-   * <p>Data quality statistics for a model.</p>
-   */
-  Statistics?: MetricsSource;
-
-  /**
-   * <p>Data quality constraints for a model.</p>
-   */
-  Constraints?: MetricsSource;
-}
-
-export namespace ModelDataQuality {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelDataQuality): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Model quality statistics and constraints.</p>
- */
-export interface ModelQuality {
-  /**
-   * <p>Model quality statistics.</p>
-   */
-  Statistics?: MetricsSource;
-
-  /**
-   * <p>Model quality constraints.</p>
-   */
-  Constraints?: MetricsSource;
-}
-
-export namespace ModelQuality {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelQuality): any => ({
     ...obj,
   });
 }

@@ -77,6 +77,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  RollbackApplicationCommandInput,
+  RollbackApplicationCommandOutput,
+} from "../commands/RollbackApplicationCommand";
 import { StartApplicationCommandInput, StartApplicationCommandOutput } from "../commands/StartApplicationCommand";
 import { StopApplicationCommandInput, StopApplicationCommandOutput } from "../commands/StopApplicationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -217,6 +221,8 @@ import {
   ResourceInUseException,
   ResourceNotFoundException,
   ResourceProvisionedThroughputExceededException,
+  RollbackApplicationRequest,
+  RollbackApplicationResponse,
   RunConfiguration,
   RunConfigurationDescription,
   RunConfigurationUpdate,
@@ -547,6 +553,19 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RollbackApplicationCommand = async (
+  input: RollbackApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "KinesisAnalytics_20180523.RollbackApplication",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RollbackApplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2464,6 +2483,100 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1RollbackApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RollbackApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RollbackApplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RollbackApplicationResponse(data, context);
+  const response: RollbackApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RollbackApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RollbackApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationException":
+    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1StartApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3218,6 +3331,8 @@ const serializeAws_json1_1AddApplicationCloudWatchLoggingOptionRequest = (
       input.CloudWatchLoggingOption !== null && {
         CloudWatchLoggingOption: serializeAws_json1_1CloudWatchLoggingOption(input.CloudWatchLoggingOption, context),
       }),
+    ...(input.ConditionalToken !== undefined &&
+      input.ConditionalToken !== null && { ConditionalToken: input.ConditionalToken }),
     ...(input.CurrentApplicationVersionId !== undefined &&
       input.CurrentApplicationVersionId !== null && { CurrentApplicationVersionId: input.CurrentApplicationVersionId }),
   };
@@ -3294,6 +3409,8 @@ const serializeAws_json1_1AddApplicationVpcConfigurationRequest = (
   return {
     ...(input.ApplicationName !== undefined &&
       input.ApplicationName !== null && { ApplicationName: input.ApplicationName }),
+    ...(input.ConditionalToken !== undefined &&
+      input.ConditionalToken !== null && { ConditionalToken: input.ConditionalToken }),
     ...(input.CurrentApplicationVersionId !== undefined &&
       input.CurrentApplicationVersionId !== null && { CurrentApplicationVersionId: input.CurrentApplicationVersionId }),
     ...(input.VpcConfiguration !== undefined &&
@@ -3636,6 +3753,8 @@ const serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionRequest = (
       input.ApplicationName !== null && { ApplicationName: input.ApplicationName }),
     ...(input.CloudWatchLoggingOptionId !== undefined &&
       input.CloudWatchLoggingOptionId !== null && { CloudWatchLoggingOptionId: input.CloudWatchLoggingOptionId }),
+    ...(input.ConditionalToken !== undefined &&
+      input.ConditionalToken !== null && { ConditionalToken: input.ConditionalToken }),
     ...(input.CurrentApplicationVersionId !== undefined &&
       input.CurrentApplicationVersionId !== null && { CurrentApplicationVersionId: input.CurrentApplicationVersionId }),
   };
@@ -3714,6 +3833,8 @@ const serializeAws_json1_1DeleteApplicationVpcConfigurationRequest = (
   return {
     ...(input.ApplicationName !== undefined &&
       input.ApplicationName !== null && { ApplicationName: input.ApplicationName }),
+    ...(input.ConditionalToken !== undefined &&
+      input.ConditionalToken !== null && { ConditionalToken: input.ConditionalToken }),
     ...(input.CurrentApplicationVersionId !== undefined &&
       input.CurrentApplicationVersionId !== null && { CurrentApplicationVersionId: input.CurrentApplicationVersionId }),
     ...(input.VpcConfigurationId !== undefined &&
@@ -4395,6 +4516,18 @@ const serializeAws_json1_1ReferenceDataSourceUpdates = (
     });
 };
 
+const serializeAws_json1_1RollbackApplicationRequest = (
+  input: RollbackApplicationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApplicationName !== undefined &&
+      input.ApplicationName !== null && { ApplicationName: input.ApplicationName }),
+    ...(input.CurrentApplicationVersionId !== undefined &&
+      input.CurrentApplicationVersionId !== null && { CurrentApplicationVersionId: input.CurrentApplicationVersionId }),
+  };
+};
+
 const serializeAws_json1_1RunConfiguration = (input: RunConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.ApplicationRestoreConfiguration !== undefined &&
@@ -4671,6 +4804,8 @@ const serializeAws_json1_1UpdateApplicationRequest = (
           context
         ),
       }),
+    ...(input.ConditionalToken !== undefined &&
+      input.ConditionalToken !== null && { ConditionalToken: input.ConditionalToken }),
     ...(input.CurrentApplicationVersionId !== undefined &&
       input.CurrentApplicationVersionId !== null && { CurrentApplicationVersionId: input.CurrentApplicationVersionId }),
     ...(input.RunConfigurationUpdate !== undefined &&
@@ -4939,10 +5074,20 @@ const deserializeAws_json1_1ApplicationDetail = (output: any, context: __SerdeCo
       output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
         : undefined,
+    ApplicationVersionRolledBackFrom:
+      output.ApplicationVersionRolledBackFrom !== undefined && output.ApplicationVersionRolledBackFrom !== null
+        ? output.ApplicationVersionRolledBackFrom
+        : undefined,
+    ApplicationVersionUpdatedFrom:
+      output.ApplicationVersionUpdatedFrom !== undefined && output.ApplicationVersionUpdatedFrom !== null
+        ? output.ApplicationVersionUpdatedFrom
+        : undefined,
     CloudWatchLoggingOptionDescriptions:
       output.CloudWatchLoggingOptionDescriptions !== undefined && output.CloudWatchLoggingOptionDescriptions !== null
         ? deserializeAws_json1_1CloudWatchLoggingOptionDescriptions(output.CloudWatchLoggingOptionDescriptions, context)
         : undefined,
+    ConditionalToken:
+      output.ConditionalToken !== undefined && output.ConditionalToken !== null ? output.ConditionalToken : undefined,
     CreateTimestamp:
       output.CreateTimestamp !== undefined && output.CreateTimestamp !== null
         ? new Date(Math.round(output.CreateTimestamp * 1000))
@@ -5823,6 +5968,18 @@ const deserializeAws_json1_1ResourceProvisionedThroughputExceededException = (
 ): ResourceProvisionedThroughputExceededException => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RollbackApplicationResponse = (
+  output: any,
+  context: __SerdeContext
+): RollbackApplicationResponse => {
+  return {
+    ApplicationDetail:
+      output.ApplicationDetail !== undefined && output.ApplicationDetail !== null
+        ? deserializeAws_json1_1ApplicationDetail(output.ApplicationDetail, context)
+        : undefined,
   } as any;
 };
 

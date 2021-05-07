@@ -23,7 +23,7 @@ export interface UpdateResourceCollectionCommandOutput extends UpdateResourceCol
 /**
  * <p> Updates the collection of resources that DevOps Guru analyzes.
  * 			The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze
- *       	only the AWS resources that are defined in the stacks. This method also creates the IAM role required for you
+ *       	only the AWS resources that are defined in the stacks. You can specify up to 500 AWS CloudFormation stacks. This method also creates the IAM role required for you
  * 			to use DevOps Guru. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

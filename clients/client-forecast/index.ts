@@ -14,6 +14,7 @@ export * from "./commands/DeleteForecastCommand";
 export * from "./commands/DeleteForecastExportJobCommand";
 export * from "./commands/DeletePredictorCommand";
 export * from "./commands/DeletePredictorBacktestExportJobCommand";
+export * from "./commands/DeleteResourceTreeCommand";
 export * from "./commands/DescribeDatasetCommand";
 export * from "./commands/DescribeDatasetGroupCommand";
 export * from "./commands/DescribeDatasetImportJobCommand";

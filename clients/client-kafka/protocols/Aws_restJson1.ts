@@ -101,6 +101,7 @@ import {
   ErrorInfo,
   Firehose,
   ForbiddenException,
+  Iam,
   InternalServerErrorException,
   JmxExporter,
   JmxExporterInfo,
@@ -2158,12 +2159,16 @@ export const deserializeAws_restJson1GetBootstrapBrokersCommand = async (
   const contents: GetBootstrapBrokersCommandOutput = {
     $metadata: deserializeMetadata(output),
     BootstrapBrokerString: undefined,
+    BootstrapBrokerStringSaslIam: undefined,
     BootstrapBrokerStringSaslScram: undefined,
     BootstrapBrokerStringTls: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.bootstrapBrokerString !== undefined && data.bootstrapBrokerString !== null) {
     contents.BootstrapBrokerString = data.bootstrapBrokerString;
+  }
+  if (data.bootstrapBrokerStringSaslIam !== undefined && data.bootstrapBrokerStringSaslIam !== null) {
+    contents.BootstrapBrokerStringSaslIam = data.bootstrapBrokerStringSaslIam;
   }
   if (data.bootstrapBrokerStringSaslScram !== undefined && data.bootstrapBrokerStringSaslScram !== null) {
     contents.BootstrapBrokerStringSaslScram = data.bootstrapBrokerStringSaslScram;
@@ -4283,6 +4288,12 @@ const serializeAws_restJson1Firehose = (input: Firehose, context: __SerdeContext
   };
 };
 
+const serializeAws_restJson1Iam = (input: Iam, context: __SerdeContext): any => {
+  return {
+    ...(input.Enabled !== undefined && input.Enabled !== null && { enabled: input.Enabled }),
+  };
+};
+
 const serializeAws_restJson1JmxExporterInfo = (input: JmxExporterInfo, context: __SerdeContext): any => {
   return {
     ...(input.EnabledInBroker !== undefined &&
@@ -4332,6 +4343,7 @@ const serializeAws_restJson1S3 = (input: S3, context: __SerdeContext): any => {
 
 const serializeAws_restJson1Sasl = (input: Sasl, context: __SerdeContext): any => {
   return {
+    ...(input.Iam !== undefined && input.Iam !== null && { iam: serializeAws_restJson1Iam(input.Iam, context) }),
     ...(input.Scram !== undefined &&
       input.Scram !== null && { scram: serializeAws_restJson1Scram(input.Scram, context) }),
   };
@@ -4822,6 +4834,12 @@ const deserializeAws_restJson1Firehose = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_restJson1Iam = (output: any, context: __SerdeContext): Iam => {
+  return {
+    Enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1JmxExporter = (output: any, context: __SerdeContext): JmxExporter => {
   return {
     EnabledInBroker:
@@ -4935,6 +4953,7 @@ const deserializeAws_restJson1S3 = (output: any, context: __SerdeContext): S3 =>
 
 const deserializeAws_restJson1Sasl = (output: any, context: __SerdeContext): Sasl => {
   return {
+    Iam: output.iam !== undefined && output.iam !== null ? deserializeAws_restJson1Iam(output.iam, context) : undefined,
     Scram:
       output.scram !== undefined && output.scram !== null
         ? deserializeAws_restJson1Scram(output.scram, context)

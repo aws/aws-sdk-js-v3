@@ -14878,6 +14878,10 @@ const serializeAws_json1_1CreateAssociationBatchRequestEntry = (
       input.AutomationTargetParameterName !== null && {
         AutomationTargetParameterName: input.AutomationTargetParameterName,
       }),
+    ...(input.CalendarNames !== undefined &&
+      input.CalendarNames !== null && {
+        CalendarNames: serializeAws_json1_1CalendarNameOrARNList(input.CalendarNames, context),
+      }),
     ...(input.ComplianceSeverity !== undefined &&
       input.ComplianceSeverity !== null && { ComplianceSeverity: input.ComplianceSeverity }),
     ...(input.DocumentVersion !== undefined &&
@@ -14918,6 +14922,10 @@ const serializeAws_json1_1CreateAssociationRequest = (
     ...(input.AutomationTargetParameterName !== undefined &&
       input.AutomationTargetParameterName !== null && {
         AutomationTargetParameterName: input.AutomationTargetParameterName,
+      }),
+    ...(input.CalendarNames !== undefined &&
+      input.CalendarNames !== null && {
+        CalendarNames: serializeAws_json1_1CalendarNameOrARNList(input.CalendarNames, context),
       }),
     ...(input.ComplianceSeverity !== undefined &&
       input.ComplianceSeverity !== null && { ComplianceSeverity: input.ComplianceSeverity }),
@@ -17941,6 +17949,10 @@ const serializeAws_json1_1UpdateAssociationRequest = (
       input.AutomationTargetParameterName !== null && {
         AutomationTargetParameterName: input.AutomationTargetParameterName,
       }),
+    ...(input.CalendarNames !== undefined &&
+      input.CalendarNames !== null && {
+        CalendarNames: serializeAws_json1_1CalendarNameOrARNList(input.CalendarNames, context),
+      }),
     ...(input.ComplianceSeverity !== undefined &&
       input.ComplianceSeverity !== null && { ComplianceSeverity: input.ComplianceSeverity }),
     ...(input.DocumentVersion !== undefined &&
@@ -18392,6 +18404,10 @@ const deserializeAws_json1_1AssociationDescription = (output: any, context: __Se
       output.AutomationTargetParameterName !== undefined && output.AutomationTargetParameterName !== null
         ? output.AutomationTargetParameterName
         : undefined,
+    CalendarNames:
+      output.CalendarNames !== undefined && output.CalendarNames !== null
+        ? deserializeAws_json1_1CalendarNameOrARNList(output.CalendarNames, context)
+        : undefined,
     ComplianceSeverity:
       output.ComplianceSeverity !== undefined && output.ComplianceSeverity !== null
         ? output.ComplianceSeverity
@@ -18632,6 +18648,10 @@ const deserializeAws_json1_1AssociationVersionInfo = (output: any, context: __Se
     AssociationVersion:
       output.AssociationVersion !== undefined && output.AssociationVersion !== null
         ? output.AssociationVersion
+        : undefined,
+    CalendarNames:
+      output.CalendarNames !== undefined && output.CalendarNames !== null
+        ? deserializeAws_json1_1CalendarNameOrARNList(output.CalendarNames, context)
         : undefined,
     ComplianceSeverity:
       output.ComplianceSeverity !== undefined && output.ComplianceSeverity !== null
@@ -19014,6 +19034,17 @@ const deserializeAws_json1_1AutomationStepNotFoundException = (
   } as any;
 };
 
+const deserializeAws_json1_1CalendarNameOrARNList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const deserializeAws_json1_1CancelCommandResult = (output: any, context: __SerdeContext): CancelCommandResult => {
   return {} as any;
 };
@@ -19348,6 +19379,10 @@ const deserializeAws_json1_1CreateAssociationBatchRequestEntry = (
     AutomationTargetParameterName:
       output.AutomationTargetParameterName !== undefined && output.AutomationTargetParameterName !== null
         ? output.AutomationTargetParameterName
+        : undefined,
+    CalendarNames:
+      output.CalendarNames !== undefined && output.CalendarNames !== null
+        ? deserializeAws_json1_1CalendarNameOrARNList(output.CalendarNames, context)
         : undefined,
     ComplianceSeverity:
       output.ComplianceSeverity !== undefined && output.ComplianceSeverity !== null

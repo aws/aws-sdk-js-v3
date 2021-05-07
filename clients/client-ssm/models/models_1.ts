@@ -4235,6 +4235,14 @@ export interface AssociationVersionInfo {
   ApplyOnlyAtCronInterval?: boolean;
 
   /**
+   * <p>The names or Amazon Resource Names (ARNs) of the Systems Manager Change Calendar type
+   *   documents your associations are gated under. The associations for this version only run when
+   *   that Change Calendar is open.  For more information, see
+   *   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">AWS Systems Manager Change Calendar</a>.</p>
+   */
+  CalendarNames?: string[];
+
+  /**
    * <p>The combination of AWS Regions and AWS accounts where you wanted to run the association when
    *    this association version was created.</p>
    */
@@ -9322,6 +9330,14 @@ export interface UpdateAssociationRequest {
    *    updating it and according to the interval specified.</p>
    */
   ApplyOnlyAtCronInterval?: boolean;
+
+  /**
+   * <p>The names or Amazon Resource Names (ARNs) of the Systems Manager Change Calendar type
+   *    documents you want to gate your associations under. The associations only run when that Change
+   *    Calendar is open. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">AWS Systems Manager Change
+   *     Calendar</a>.</p>
+   */
+  CalendarNames?: string[];
 
   /**
    * <p>A location is a combination of AWS Regions and AWS accounts where you want to run the

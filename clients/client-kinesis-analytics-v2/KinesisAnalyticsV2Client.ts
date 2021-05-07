@@ -77,6 +77,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  RollbackApplicationCommandInput,
+  RollbackApplicationCommandOutput,
+} from "./commands/RollbackApplicationCommand";
 import { StartApplicationCommandInput, StartApplicationCommandOutput } from "./commands/StartApplicationCommand";
 import { StopApplicationCommandInput, StopApplicationCommandOutput } from "./commands/StopApplicationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -160,6 +164,7 @@ export type ServiceInputTypes =
   | ListApplicationSnapshotsCommandInput
   | ListApplicationsCommandInput
   | ListTagsForResourceCommandInput
+  | RollbackApplicationCommandInput
   | StartApplicationCommandInput
   | StopApplicationCommandInput
   | TagResourceCommandInput
@@ -190,6 +195,7 @@ export type ServiceOutputTypes =
   | ListApplicationSnapshotsCommandOutput
   | ListApplicationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | RollbackApplicationCommandOutput
   | StartApplicationCommandOutput
   | StopApplicationCommandOutput
   | TagResourceCommandOutput

@@ -15,6 +15,7 @@ import {
 } from "./commands/DeleteProfileObjectTypeCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
 import { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "./commands/GetIntegrationCommand";
+import { GetMatchesCommandInput, GetMatchesCommandOutput } from "./commands/GetMatchesCommand";
 import {
   GetProfileObjectTypeCommandInput,
   GetProfileObjectTypeCommandOutput,
@@ -42,6 +43,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { MergeProfilesCommandInput, MergeProfilesCommandOutput } from "./commands/MergeProfilesCommand";
 import { PutIntegrationCommandInput, PutIntegrationCommandOutput } from "./commands/PutIntegrationCommand";
 import { PutProfileObjectCommandInput, PutProfileObjectCommandOutput } from "./commands/PutProfileObjectCommand";
 import {
@@ -122,6 +124,7 @@ export type ServiceInputTypes =
   | DeleteProfileObjectTypeCommandInput
   | GetDomainCommandInput
   | GetIntegrationCommandInput
+  | GetMatchesCommandInput
   | GetProfileObjectTypeCommandInput
   | GetProfileObjectTypeTemplateCommandInput
   | ListAccountIntegrationsCommandInput
@@ -131,6 +134,7 @@ export type ServiceInputTypes =
   | ListProfileObjectTypesCommandInput
   | ListProfileObjectsCommandInput
   | ListTagsForResourceCommandInput
+  | MergeProfilesCommandInput
   | PutIntegrationCommandInput
   | PutProfileObjectCommandInput
   | PutProfileObjectTypeCommandInput
@@ -152,6 +156,7 @@ export type ServiceOutputTypes =
   | DeleteProfileObjectTypeCommandOutput
   | GetDomainCommandOutput
   | GetIntegrationCommandOutput
+  | GetMatchesCommandOutput
   | GetProfileObjectTypeCommandOutput
   | GetProfileObjectTypeTemplateCommandOutput
   | ListAccountIntegrationsCommandOutput
@@ -161,6 +166,7 @@ export type ServiceOutputTypes =
   | ListProfileObjectTypesCommandOutput
   | ListProfileObjectsCommandOutput
   | ListTagsForResourceCommandOutput
+  | MergeProfilesCommandOutput
   | PutIntegrationCommandOutput
   | PutProfileObjectCommandOutput
   | PutProfileObjectTypeCommandOutput

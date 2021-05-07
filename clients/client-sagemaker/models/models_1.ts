@@ -62,15 +62,15 @@ import {
   LabelingJobOutputConfig,
   LabelingJobStoppingConditions,
   MetadataProperties,
+  MetricsSource,
   ModelApprovalStatus,
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
   ModelBiasJobInput,
-  ModelDataQuality,
+  ModelDeployConfig,
   ModelExplainabilityAppSpecification,
   ModelExplainabilityBaselineConfig,
   ModelExplainabilityJobInput,
-  ModelQuality,
   MonitoringConstraintsResource,
   MonitoringGroundTruthS3Input,
   MonitoringNetworkConfig,
@@ -91,6 +91,7 @@ import {
   ProductionVariant,
   ResourceConfig,
   ResourceSpec,
+  RetryStrategy,
   StoppingCondition,
   Tag,
   TrainingSpecification,
@@ -103,6 +104,54 @@ import {
   VpcConfig,
 } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+/**
+ * <p>Data quality constraints and statistics for a model.</p>
+ */
+export interface ModelDataQuality {
+  /**
+   * <p>Data quality statistics for a model.</p>
+   */
+  Statistics?: MetricsSource;
+
+  /**
+   * <p>Data quality constraints for a model.</p>
+   */
+  Constraints?: MetricsSource;
+}
+
+export namespace ModelDataQuality {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelDataQuality): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Model quality statistics and constraints.</p>
+ */
+export interface ModelQuality {
+  /**
+   * <p>Model quality statistics.</p>
+   */
+  Statistics?: MetricsSource;
+
+  /**
+   * <p>Model quality constraints.</p>
+   */
+  Constraints?: MetricsSource;
+}
+
+export namespace ModelQuality {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelQuality): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Contains metrics captured from a model.</p>
@@ -1071,9 +1120,9 @@ export interface CreateNotebookInstanceInput {
 
   /**
    * <p>Sets whether Amazon SageMaker provides internet access to the notebook instance. If you set this
-   *             to <code>Disabled</code> this notebook instance will be able to access resources only in
-   *             your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless
-   *             your configure a NAT Gateway in your VPC.</p>
+   *             to <code>Disabled</code> this notebook instance is able to access resources only in your
+   *             VPC, and is not be able to connect to Amazon SageMaker training and endpoint services unless you
+   *             configure a NAT Gateway in your VPC.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>. You can set the value
    *             of this parameter to <code>Disabled</code> only if you set a value for the
    *                 <code>SubnetId</code> parameter.</p>
@@ -2374,8 +2423,10 @@ export interface CreateTrainingJobRequest {
   VpcConfig?: VpcConfig;
 
   /**
-   * <p>Specifies a limit to how long a model training job can run. When the job reaches the
-   *             time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs.</p>
+   * <p>Specifies a limit to how long a model training job can run.
+   *             It also specifies how long a managed Spot training job has to complete.
+   *             When the job reaches the time limit, Amazon SageMaker ends
+   *             the training job. Use this API to cap model training costs.</p>
    *         <p>To stop a job, Amazon SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
    *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
    *             model artifacts, so the results of training are not lost. </p>
@@ -2484,6 +2535,12 @@ export interface CreateTrainingJobRequest {
    * <p>The environment variables to set in the Docker container.</p>
    */
   Environment?: { [key: string]: string };
+
+  /**
+   * <p>The number of times to retry the job when the job fails due to an
+   *             <code>InternalServerError</code>.</p>
+   */
+  RetryStrategy?: RetryStrategy;
 }
 
 export namespace CreateTrainingJobRequest {
@@ -2553,17 +2610,20 @@ export interface DataProcessing {
    *             are <code>None</code> and <code>Input</code>. The default value is <code>None</code>,
    *             which specifies not to join the input with the transformed data. If you want the batch
    *             transform job to join the original input data with the transformed data, set
-   *                 <code>JoinSource</code> to <code>Input</code>. </p>
-   *
+   *             <code>JoinSource</code> to <code>Input</code>. You can specify <code>OutputFilter</code>
+   *             as an additional filter to select a portion of the joined dataset and store it in the output file.</p>
    *         <p>For JSON or JSONLines objects, such as a JSON array, Amazon SageMaker adds the transformed data to
    *             the input JSON object in an attribute called <code>SageMakerOutput</code>. The joined
    *             result for JSON must be a key-value pair object. If the input is not a key-value pair
    *             object, Amazon SageMaker creates a new JSON file. In the new JSON file, and the input data is stored
    *             under the <code>SageMakerInput</code> key and the results are stored in
    *                 <code>SageMakerOutput</code>.</p>
-   *         <p>For CSV files, Amazon SageMaker combines the transformed data with the input data at the end of
-   *             the input data and stores it in the output file. The joined data has the joined input
-   *             data followed by the transformed data and the output is a CSV file. </p>
+   *         <p>For CSV data, Amazon SageMaker takes each row as a JSON array and joins the transformed
+   *             data with the input by appending each transformed row to the end of the input.
+   *             The joined data has the original input data followed by the transformed data and
+   *             the output is a CSV file.</p>
+   *         <p>For information on how joining in applied, see
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow">Workflow for Associating Inferences with Input Records</a>.</p>
    */
   JoinSource?: JoinSource | string;
 }
@@ -3047,7 +3107,7 @@ export interface CreateUserProfileRequest {
   DomainId: string | undefined;
 
   /**
-   * <p>A name for the UserProfile.</p>
+   * <p>A name for the UserProfile. This value is not case sensitive.</p>
    */
   UserProfileName: string | undefined;
 
@@ -3068,6 +3128,8 @@ export interface CreateUserProfileRequest {
   /**
    * <p>Each tag consists of a key and an optional value.
    *          Tag keys must be unique per resource.</p>
+   *          <p>Tags that you specify for the User Profile are also added to all Apps that the
+   *           User Profile launches.</p>
    */
   Tags?: Tag[];
 
@@ -4874,6 +4936,28 @@ export namespace DescribeAutoMLJobRequest {
 }
 
 /**
+ * <p>Provides information about the endpoint of the model deployment.</p>
+ */
+export interface ModelDeployResult {
+  /**
+   * <p>The name of the endpoint to which the model has been deployed.</p>
+   *          <note>
+   *             <p>If model deployment fails, this field is omitted from the response.</p>
+   *          </note>
+   */
+  EndpointName?: string;
+}
+
+export namespace ModelDeployResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelDeployResult): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The resolved attributes.</p>
  */
 export interface ResolvedAttributes {
@@ -4961,22 +5045,22 @@ export interface DescribeAutoMLJobResponse {
   LastModifiedTime: Date | undefined;
 
   /**
-   * <p>Returns the job's FailureReason.</p>
+   * <p>Returns the failure reason for an AutoML job, when applicable.</p>
    */
   FailureReason?: string;
 
   /**
-   * <p>Returns a list of reasons for partial failures within an AutoML job. </p>
+   * <p>Returns a list of reasons for partial failures within an AutoML job.</p>
    */
   PartialFailureReasons?: AutoMLPartialFailureReason[];
 
   /**
-   * <p>Returns the job's BestCandidate.</p>
+   * <p>Returns the job's best <code>AutoMLCandidate</code>.</p>
    */
   BestCandidate?: AutoMLCandidate;
 
   /**
-   * <p>Returns the status of the AutoML job's AutoMLJobStatus.</p>
+   * <p>Returns the status of the AutoML job.</p>
    */
   AutoMLJobStatus: AutoMLJobStatus | string | undefined;
 
@@ -4986,21 +5070,34 @@ export interface DescribeAutoMLJobResponse {
   AutoMLJobSecondaryStatus: AutoMLJobSecondaryStatus | string | undefined;
 
   /**
-   * <p>Returns the job's output from GenerateCandidateDefinitionsOnly.</p>
+   * <p>Indicates whether the output for an AutoML job generates candidate definitions
+   *          only.</p>
    */
   GenerateCandidateDefinitionsOnly?: boolean;
 
   /**
-   * <p>Returns information on the job's artifacts found in AutoMLJobArtifacts.</p>
+   * <p>Returns information on the job's artifacts found in
+   *          <code>AutoMLJobArtifacts</code>.</p>
    */
   AutoMLJobArtifacts?: AutoMLJobArtifacts;
 
   /**
-   * <p>This contains ProblemType, AutoMLJobObjective and CompletionCriteria. If you do not
-   *          provide these values, they are auto-inferred. If you do provide them, they are the values
-   *          you provide.</p>
+   * <p>This contains <code>ProblemType</code>, <code>AutoMLJobObjective</code> and
+   *             <code>CompletionCriteria</code>. If you do not provide these values, they are
+   *          auto-inferred. If you do provide them, the values used are the ones you provide.</p>
    */
   ResolvedAttributes?: ResolvedAttributes;
+
+  /**
+   * <p>Indicates whether the model was deployed automatically to an endpoint and the name of
+   *          that endpoint if deployed automatically.</p>
+   */
+  ModelDeployConfig?: ModelDeployConfig;
+
+  /**
+   * <p>Provides information about endpoint for the model deployment.</p>
+   */
+  ModelDeployResult?: ModelDeployResult;
 }
 
 export namespace DescribeAutoMLJobResponse {
@@ -5086,7 +5183,7 @@ export namespace DescribeCompilationJobRequest {
  * <p>Provides information about the location that is configured for storing model
  *             artifacts. </p>
  *         <p>Model artifacts are the output that results from training a model, and typically
- *             consist of trained parameters, a model defintion that desribes how to compute
+ *             consist of trained parameters, a model defintion that describes how to compute
  *             inferences, and other metadata.</p>
  */
 export interface ModelArtifacts {
@@ -8959,6 +9056,7 @@ export enum SecondaryStatus {
   MAX_RUNTIME_EXCEEDED = "MaxRuntimeExceeded",
   MAX_WAIT_TIME_EXCEEDED = "MaxWaitTimeExceeded",
   PREPARING_TRAINING_STACK = "PreparingTrainingStack",
+  RESTARTING = "Restarting",
   STARTING = "Starting",
   STOPPED = "Stopped",
   STOPPING = "Stopping",
@@ -9333,7 +9431,7 @@ export interface DescribeTrainingJobResponse {
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>PreparingTrainingStack</code>
+   *                     <code>PreparingTraining</code>
    *                 </p>
    *             </li>
    *             <li>
@@ -9392,8 +9490,9 @@ export interface DescribeTrainingJobResponse {
   VpcConfig?: VpcConfig;
 
   /**
-   * <p>Specifies a limit to how long a model training job can run. It also specifies the
-   *             maximum time to wait for a spot instance. When the job reaches the time limit, Amazon SageMaker ends
+   * <p>Specifies a limit to how long a model training job can run.
+   *             It also specifies how long a managed Spot training job has to complete.
+   *             When the job reaches the time limit, Amazon SageMaker ends
    *             the training job. Use this API to cap model training costs.</p>
    *         <p>To stop a job, Amazon SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
    *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
@@ -9557,6 +9656,12 @@ export interface DescribeTrainingJobResponse {
    * <p>Profiling status of a training job.</p>
    */
   ProfilingStatus?: ProfilingStatus | string;
+
+  /**
+   * <p>The number of times to retry the job when the job fails due to an
+   *             <code>InternalServerError</code>.</p>
+   */
+  RetryStrategy?: RetryStrategy;
 
   /**
    * <p>The environment variables to set in the Docker container.</p>
@@ -10089,7 +10194,7 @@ export interface DescribeUserProfileRequest {
   DomainId: string | undefined;
 
   /**
-   * <p>The user profile name.</p>
+   * <p>The user profile name. This value is not case sensitive.</p>
    */
   UserProfileName: string | undefined;
 }
@@ -10305,112 +10410,6 @@ export namespace Workforce {
    * @internal
    */
   export const filterSensitiveLog = (obj: Workforce): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeWorkforceResponse {
-  /**
-   * <p>A single private workforce, which is automatically created when you create your first
-   *             private work team. You can create one private work force in each AWS Region. By default,
-   *             any workforce-related API operation used in a specific region will apply to the
-   *             workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
-   */
-  Workforce: Workforce | undefined;
-}
-
-export namespace DescribeWorkforceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkforceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeWorkteamRequest {
-  /**
-   * <p>The name of the work team to return a description of.</p>
-   */
-  WorkteamName: string | undefined;
-}
-
-export namespace DescribeWorkteamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkteamRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides details about a labeling work team.</p>
- */
-export interface Workteam {
-  /**
-   * <p>The name of the work team.</p>
-   */
-  WorkteamName: string | undefined;
-
-  /**
-   * <p>A list of <code>MemberDefinition</code> objects that contains objects that identify
-   *             the workers that make up the work team. </p>
-   *         <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP).
-   *             For private workforces created using Amazon Cognito use
-   *             <code>CognitoMemberDefinition</code>. For workforces created using your own OIDC identity
-   *             provider (IdP) use <code>OidcMemberDefinition</code>.</p>
-   */
-  MemberDefinitions: MemberDefinition[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that identifies the work team.</p>
-   */
-  WorkteamArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the workforce.</p>
-   */
-  WorkforceArn?: string;
-
-  /**
-   * <p>The Amazon Marketplace identifier for a vendor's work team.</p>
-   */
-  ProductListingIds?: string[];
-
-  /**
-   * <p>A description of the work team.</p>
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>The URI of the labeling job's user interface. Workers open this URI to start labeling
-   *             your data objects.</p>
-   */
-  SubDomain?: string;
-
-  /**
-   * <p>The date and time that the work team was created (timestamp).</p>
-   */
-  CreateDate?: Date;
-
-  /**
-   * <p>The date and time that the work team was last updated (timestamp).</p>
-   */
-  LastUpdatedDate?: Date;
-
-  /**
-   * <p>Configures SNS notifications of available or expiring work items for work
-   *             teams.</p>
-   */
-  NotificationConfiguration?: NotificationConfiguration;
-}
-
-export namespace Workteam {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Workteam): any => ({
     ...obj,
   });
 }

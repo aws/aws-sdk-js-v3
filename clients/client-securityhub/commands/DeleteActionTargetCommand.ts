@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { DeleteActionTargetRequest, DeleteActionTargetResponse } from "../models/models_0";
+import { DeleteActionTargetRequest, DeleteActionTargetResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteActionTargetCommand,
   serializeAws_restJson1DeleteActionTargetCommand,

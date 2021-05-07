@@ -110,6 +110,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  RollbackApplicationCommand,
+  RollbackApplicationCommandInput,
+  RollbackApplicationCommandOutput,
+} from "./commands/RollbackApplicationCommand";
+import {
   StartApplicationCommand,
   StartApplicationCommandInput,
   StartApplicationCommandOutput,
@@ -916,6 +921,44 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Reverts the application to the previous running version. You can
+   *             roll back an application if you suspect it is stuck in a transient status. </p>
+   *         <p>You can roll back an application only if it is in the <code>UPDATING</code>
+   *             or <code>AUTOSCALING</code> status.</p>
+   *         <p>When you rollback an application, it loads state data from the last successful snapshot.
+   *         If the application has no snapshots, Kinesis Data Analytics rejects the rollback request.</p>
+   *         <p>This action is not supported for Kinesis Data Analytics for SQL applications.</p>
+   */
+  public rollbackApplication(
+    args: RollbackApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RollbackApplicationCommandOutput>;
+  public rollbackApplication(
+    args: RollbackApplicationCommandInput,
+    cb: (err: any, data?: RollbackApplicationCommandOutput) => void
+  ): void;
+  public rollbackApplication(
+    args: RollbackApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RollbackApplicationCommandOutput) => void
+  ): void;
+  public rollbackApplication(
+    args: RollbackApplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RollbackApplicationCommandOutput) => void),
+    cb?: (err: any, data?: RollbackApplicationCommandOutput) => void
+  ): Promise<RollbackApplicationCommandOutput> | void {
+    const command = new RollbackApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -29,15 +29,15 @@ export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
  * 			further attempts every 15 minutes. With Amazon CloudWatch, you can create alarms for the
  * 			metrics <code>CRLGenerated</code> and <code>MisconfiguredCRLBucket</code>. For more
  * 			information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCloudWatch.html">Supported CloudWatch Metrics</a>.</p>
- * 		       <note>
+ *          <note>
  *                         <p>Both PCA and the IAM principal must have permission to write to
  *                         the S3 bucket that you specify. If the IAM principal making the call
  *                         does not have permission to write to the bucket, then an exception is
  *                         thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html">Configure
  *                         Access to ACM Private CA</a>.</p>
  *                 </note>
- * 		       <p>ACM Private CA also writes revocation information to the audit report. For more information,
- * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a>.</p>
+ *          <p>ACM Private CA also writes
+ * 			revocation information to the audit report. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a>.</p>
  * 		       <note>
  * 			         <p>You cannot revoke a root CA self-signed certificate.</p>
  * 		       </note>

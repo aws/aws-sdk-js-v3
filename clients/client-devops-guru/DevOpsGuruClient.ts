@@ -21,6 +21,7 @@ import {
   DescribeServiceIntegrationCommandInput,
   DescribeServiceIntegrationCommandOutput,
 } from "./commands/DescribeServiceIntegrationCommand";
+import { GetCostEstimationCommandInput, GetCostEstimationCommandOutput } from "./commands/GetCostEstimationCommand";
 import {
   GetResourceCollectionCommandInput,
   GetResourceCollectionCommandOutput,
@@ -45,6 +46,10 @@ import {
   RemoveNotificationChannelCommandOutput,
 } from "./commands/RemoveNotificationChannelCommand";
 import { SearchInsightsCommandInput, SearchInsightsCommandOutput } from "./commands/SearchInsightsCommand";
+import {
+  StartCostEstimationCommandInput,
+  StartCostEstimationCommandOutput,
+} from "./commands/StartCostEstimationCommand";
 import {
   UpdateResourceCollectionCommandInput,
   UpdateResourceCollectionCommandOutput,
@@ -119,6 +124,7 @@ export type ServiceInputTypes =
   | DescribeInsightCommandInput
   | DescribeResourceCollectionHealthCommandInput
   | DescribeServiceIntegrationCommandInput
+  | GetCostEstimationCommandInput
   | GetResourceCollectionCommandInput
   | ListAnomaliesForInsightCommandInput
   | ListEventsCommandInput
@@ -128,6 +134,7 @@ export type ServiceInputTypes =
   | PutFeedbackCommandInput
   | RemoveNotificationChannelCommandInput
   | SearchInsightsCommandInput
+  | StartCostEstimationCommandInput
   | UpdateResourceCollectionCommandInput
   | UpdateServiceIntegrationCommandInput;
 
@@ -140,6 +147,7 @@ export type ServiceOutputTypes =
   | DescribeInsightCommandOutput
   | DescribeResourceCollectionHealthCommandOutput
   | DescribeServiceIntegrationCommandOutput
+  | GetCostEstimationCommandOutput
   | GetResourceCollectionCommandOutput
   | ListAnomaliesForInsightCommandOutput
   | ListEventsCommandOutput
@@ -149,6 +157,7 @@ export type ServiceOutputTypes =
   | PutFeedbackCommandOutput
   | RemoveNotificationChannelCommandOutput
   | SearchInsightsCommandOutput
+  | StartCostEstimationCommandOutput
   | UpdateResourceCollectionCommandOutput
   | UpdateServiceIntegrationCommandOutput;
 

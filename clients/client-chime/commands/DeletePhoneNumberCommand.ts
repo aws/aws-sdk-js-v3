@@ -21,15 +21,13 @@ export interface DeletePhoneNumberCommandInput extends DeletePhoneNumberRequest 
 export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Moves the specified phone number into the <b>Deletionqueue</b>. A
- *             phone number must be disassociated from any users or Amazon Chime Voice Connectors
- *             before it can be deleted.</p>
+ * <p>Moves the specified phone number into the <b>Deletion
+ *                 queue</b>. A phone number must be disassociated from any
+ *             users or Amazon Chime Voice Connectors before it can be deleted.</p>
  *
- *          <p>
- * Deleted phone numbers remain in the
+ *          <p>Deleted phone numbers remain in the
  * <b>Deletion queue</b>
- * for 7 days before they are deleted permanently.
- * </p>
+ * for 7 days before they are deleted permanently.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

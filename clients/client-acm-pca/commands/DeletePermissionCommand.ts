@@ -28,7 +28,7 @@ export interface DeletePermissionCommandOutput extends __MetadataBearer {}
  * 			renew the affected certificates automatically.</p>
  * 		       <p>Permissions can be granted with the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreatePermission.html">CreatePermission</a> action and
  * 			listed with the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListPermissions.html">ListPermissions</a> action. </p>
- * 		       <p class="title">
+ *          <p class="title">
  *             <b>About Permissions</b>
  *          </p>
  *          <ul>

@@ -1,6 +1,7 @@
 export * from "./RestXmlProtocolClient";
 export * from "./RestXmlProtocol";
 export * from "./commands/AllQueryStringTypesCommand";
+export * from "./commands/BodyWithXmlNameCommand";
 export * from "./commands/ConstantAndVariableQueryStringCommand";
 export * from "./commands/ConstantQueryStringCommand";
 export * from "./commands/EmptyInputAndEmptyOutputCommand";

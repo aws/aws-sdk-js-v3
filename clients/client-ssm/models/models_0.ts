@@ -946,12 +946,20 @@ export interface CreateAssociationRequest {
   SyncCompliance?: AssociationSyncCompliance | string;
 
   /**
-   * <p>By default, when you create a new associations, the system runs it immediately after it is
+   * <p>By default, when you create a new association, the system runs it immediately after it is
    *    created and then according to the schedule you specified. Specify this option if you don't want
    *    an association to run immediately after you create it. This parameter is not supported for rate
    *    expressions.</p>
    */
   ApplyOnlyAtCronInterval?: boolean;
+
+  /**
+   * <p>The names or Amazon Resource Names (ARNs) of the Systems Manager Change Calendar type
+   *    documents you want to gate your associations under. The associations only run when that Change
+   *    Calendar is open. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">AWS Systems Manager Change
+   *     Calendar</a>.</p>
+   */
+  CalendarNames?: string[];
 
   /**
    * <p>A location is a combination of AWS Regions and AWS accounts where you want to run the
@@ -1182,6 +1190,14 @@ export interface AssociationDescription {
    *    expressions.</p>
    */
   ApplyOnlyAtCronInterval?: boolean;
+
+  /**
+   * <p>The names or Amazon Resource Names (ARNs) of the Systems Manager Change Calendar type
+   *   documents your associations are gated under. The associations only run when that Change
+   *   Calendar is open. For more information, see
+   *   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">AWS Systems Manager Change Calendar</a>.</p>
+   */
+  CalendarNames?: string[];
 
   /**
    * <p>The combination of AWS Regions and AWS accounts where you want to run the
@@ -1466,6 +1482,14 @@ export interface CreateAssociationBatchRequestEntry {
    *    expressions.</p>
    */
   ApplyOnlyAtCronInterval?: boolean;
+
+  /**
+   * <p>The names or Amazon Resource Names (ARNs) of the Systems Manager Change Calendar type
+   *   documents your associations are gated under. The associations only run when that Change
+   *   Calendar is open.  For more information, see
+   *   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">AWS Systems Manager Change Calendar</a>.</p>
+   */
+  CalendarNames?: string[];
 
   /**
    * <p>Use this action to create an association in multiple Regions and multiple accounts.</p>

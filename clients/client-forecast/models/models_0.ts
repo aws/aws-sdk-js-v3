@@ -1894,6 +1894,23 @@ export namespace DeletePredictorBacktestExportJobRequest {
   });
 }
 
+export interface DeleteResourceTreeRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the parent resource to delete. All child resources
+   *             of the parent resource will also be deleted.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace DeleteResourceTreeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteResourceTreeRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeDatasetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -2239,7 +2256,7 @@ export interface DescribeDatasetImportJobResponse {
   DataSource?: DataSource;
 
   /**
-   * <p>The estimated time in minutes for the dataset import job to complete.</p>
+   * <p>The estimated time remaining in minutes for the dataset import job to complete.</p>
    */
   EstimatedTimeRemainingInMinutes?: number;
 
@@ -2373,7 +2390,7 @@ export interface DescribeForecastResponse {
   DatasetGroupArn?: string;
 
   /**
-   * <p>The estimated time in minutes for the forecast job to complete.</p>
+   * <p>The estimated time remaining in minutes for the forecast job to complete.</p>
    */
   EstimatedTimeRemainingInMinutes?: number;
 
@@ -2773,7 +2790,7 @@ export interface DescribePredictorResponse {
   PredictorExecutionDetails?: PredictorExecutionDetails;
 
   /**
-   * <p>The estimated time in minutes for the predictor training job to complete.</p>
+   * <p>The estimated time remaining in minutes for the predictor training job to complete.</p>
    */
   EstimatedTimeRemainingInMinutes?: number;
 

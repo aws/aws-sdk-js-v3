@@ -23,7 +23,7 @@ export interface PutPolicyCommandOutput extends __MetadataBearer {}
  * 			Manager (RAM). For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach a Policy for Cross-Account
  * 			Access</a>.</p>
  * 		       <p>The policy can be displayed with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetPolicy.html">GetPolicy</a> and removed with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePolicy.html">DeletePolicy</a>.</p>
- * 		       <p class="title">
+ *          <p class="title">
  *             <b>About Policies</b>
  *          </p>
  *          <ul>

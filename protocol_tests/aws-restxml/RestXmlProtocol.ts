@@ -5,6 +5,11 @@ import {
   AllQueryStringTypesCommandOutput,
 } from "./commands/AllQueryStringTypesCommand";
 import {
+  BodyWithXmlNameCommand,
+  BodyWithXmlNameCommandInput,
+  BodyWithXmlNameCommandOutput,
+} from "./commands/BodyWithXmlNameCommand";
+import {
   ConstantAndVariableQueryStringCommand,
   ConstantAndVariableQueryStringCommandInput,
   ConstantAndVariableQueryStringCommandOutput,
@@ -262,6 +267,39 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     cb?: (err: any, data?: AllQueryStringTypesCommandOutput) => void
   ): Promise<AllQueryStringTypesCommandOutput> | void {
     const command = new AllQueryStringTypesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * The following example serializes a body that uses an XML name,
+   * changing the wrapper name.
+   */
+  public bodyWithXmlName(
+    args: BodyWithXmlNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BodyWithXmlNameCommandOutput>;
+  public bodyWithXmlName(
+    args: BodyWithXmlNameCommandInput,
+    cb: (err: any, data?: BodyWithXmlNameCommandOutput) => void
+  ): void;
+  public bodyWithXmlName(
+    args: BodyWithXmlNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BodyWithXmlNameCommandOutput) => void
+  ): void;
+  public bodyWithXmlName(
+    args: BodyWithXmlNameCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BodyWithXmlNameCommandOutput) => void),
+    cb?: (err: any, data?: BodyWithXmlNameCommandOutput) => void
+  ): Promise<BodyWithXmlNameCommandOutput> | void {
+    const command = new BodyWithXmlNameCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1678,6 +1716,7 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
    * 6. Flattened XML lists with @xmlName.
    * 7. Flattened XML lists with @xmlNamespace.
    * 8. Lists of structures.
+   * 9. Flattened XML list of structures
    */
   public xmlLists(args: XmlListsCommandInput, options?: __HttpHandlerOptions): Promise<XmlListsCommandOutput>;
   public xmlLists(args: XmlListsCommandInput, cb: (err: any, data?: XmlListsCommandOutput) => void): void;

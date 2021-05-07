@@ -1151,6 +1151,14 @@ export class SageMaker extends SageMakerClient {
    *                 job by specifying them in the <code>Tags</code> parameter of <a>CreateHyperParameterTuningJob</a>
    *             </p>
    *         </note>
+   *         <note>
+   *             <p>Tags that you add to a SageMaker Studio Domain or User Profile by calling this API are also
+   *                 added to any Apps that the Domain or User Profile launches after you
+   *                 call this API, but not to Apps that the Domain or User Profile launched
+   *                 before you called this API. To make sure that the tags associated with a
+   *                 Domain or User Profile are also added to all Apps that the
+   *                 Domain or User Profile launches, add the tags when you first create the Domain or User Profile by specifying them in the <code>Tags</code> parameter of <a>CreateDomain</a> or <a>CreateUserProfile</a>.</p>
+   *         </note>
    */
   public addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
   public addTags(args: AddTagsCommandInput, cb: (err: any, data?: AddTagsCommandOutput) => void): void;
@@ -1214,6 +1222,13 @@ export class SageMaker extends SageMakerClient {
    *         Generally, an action involves at least one input or output artifact. For more information, see
    *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon SageMaker
    *           ML Lineage Tracking</a>.</p>
+   *          <note>
+   *             <p>
+   *                <code>CreateAction</code> can only be invoked from within an SageMaker managed
+   *           environment. This includes SageMaker training jobs, processing jobs, transform jobs, and SageMaker
+   *           notebooks. A call to <code>CreateAction</code> from outside one of these
+   *           environments results in an error.</p>
+   *          </note>
    */
   public createAction(
     args: CreateActionCommandInput,
@@ -1343,6 +1358,13 @@ export class SageMaker extends SageMakerClient {
    *         the ECR registry path of an image. For more information, see
    *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon SageMaker
    *           ML Lineage Tracking</a>.</p>
+   *          <note>
+   *             <p>
+   *                <code>CreateArtifact</code> can only be invoked from within an SageMaker managed
+   *           environment. This includes SageMaker training jobs, processing jobs, transform jobs, and SageMaker
+   *           notebooks. A call to <code>CreateArtifact</code> from outside one of these
+   *           environments results in an error.</p>
+   *          </note>
    */
   public createArtifact(
     args: CreateArtifactCommandInput,
@@ -1515,6 +1537,13 @@ export class SageMaker extends SageMakerClient {
    *         an endpoint and a model package. For more information, see
    *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html">Amazon SageMaker
    *           ML Lineage Tracking</a>.</p>
+   *          <note>
+   *             <p>
+   *                <code>CreateContext</code> can only be invoked from within an SageMaker managed
+   *           environment. This includes SageMaker training jobs, processing jobs, transform jobs, and SageMaker
+   *           notebooks. A call to <code>CreateContext</code> from outside one of these
+   *           environments results in an error.</p>
+   *          </note>
    */
   public createContext(
     args: CreateContextCommandInput,
@@ -1896,7 +1925,7 @@ export class SageMaker extends SageMakerClient {
    *          <p>The goal of an experiment is to determine the components that produce the best model.
    *       Multiple trials are performed, each one isolating and measuring the impact of a change to one
    *       or more inputs, while keeping the remaining inputs constant.</p>
-   *          <p>When you use Amazon SageMaker Studio or the Amazon SageMaker Python SDK, all experiments, trials, and trial
+   *          <p>When you use SageMaker Studio or the SageMaker Python SDK, all experiments, trials, and trial
    *       components are automatically tracked, logged, and indexed. When you use the AWS SDK for Python (Boto), you
    *       must use the logging APIs provided by the SDK.</p>
    *          <p>You can add tags to experiments, trials, trial components and then use the <a>Search</a> API to search for the tags.</p>
@@ -2810,7 +2839,6 @@ export class SageMaker extends SageMakerClient {
    *                 <p>
    *                   <code>OutputDataConfig</code> - Identifies the Amazon S3 bucket where you want
    *                     Amazon SageMaker to save the results of model training. </p>
-   *                 <p></p>
    *             </li>
    *             <li>
    *                 <p>
@@ -2838,12 +2866,17 @@ export class SageMaker extends SageMakerClient {
    *                 <p>
    *                   <code>StoppingCondition</code> - To help cap training costs, use
    *                         <code>MaxRuntimeInSeconds</code> to set a time limit for training. Use
-   *                         <code>MaxWaitTimeInSeconds</code> to specify how long you are willing to
-   *                     wait for a managed spot training job to complete. </p>
+   *                         <code>MaxWaitTimeInSeconds</code> to specify how long
+   *                         a managed spot training job has to complete. </p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>Environment</code> - The environment variables to set in the Docker container.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RetryStrategy</code> - The number of times to retry the job when the
+   *                     job fails due to an <code>InternalServerError</code>.</p>
    *             </li>
    *          </ul>
    *         <p> For more information about Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
@@ -2944,10 +2977,10 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Creates an Amazon SageMaker <i>trial</i>. A trial is a set of steps called
+   * <p>Creates an SageMaker <i>trial</i>. A trial is a set of steps called
    *         <i>trial components</i> that produce a machine learning model. A trial is part
-   *       of a single Amazon SageMaker <i>experiment</i>.</p>
-   *          <p>When you use Amazon SageMaker Studio or the Amazon SageMaker Python SDK, all experiments, trials, and trial
+   *       of a single SageMaker <i>experiment</i>.</p>
+   *          <p>When you use SageMaker Studio or the SageMaker Python SDK, all experiments, trials, and trial
    *       components are automatically tracked, logged, and indexed. When you use the AWS SDK for Python (Boto), you
    *       must use the logging APIs provided by the SDK.</p>
    *          <p>You can add tags to a trial and then use the <a>Search</a> API to search for
@@ -2985,15 +3018,15 @@ export class SageMaker extends SageMakerClient {
    *       component can be used in multiple trials.</p>
    *          <p>Trial components include pre-processing jobs, training jobs, and batch transform
    *       jobs.</p>
-   *          <p>When you use Amazon SageMaker Studio or the Amazon SageMaker Python SDK, all experiments, trials, and trial
+   *          <p>When you use SageMaker Studio or the SageMaker Python SDK, all experiments, trials, and trial
    *       components are automatically tracked, logged, and indexed. When you use the AWS SDK for Python (Boto), you
    *       must use the logging APIs provided by the SDK.</p>
    *          <p>You can add tags to a trial component and then use the <a>Search</a> API to
    *       search for the tags.</p>
    *          <note>
    *             <p>
-   *                <code>CreateTrialComponent</code> can only be invoked from within an Amazon SageMaker managed
-   *         environment. This includes Amazon SageMaker training jobs, processing jobs, transform jobs, and Amazon SageMaker
+   *                <code>CreateTrialComponent</code> can only be invoked from within an SageMaker managed
+   *         environment. This includes SageMaker training jobs, processing jobs, transform jobs, and SageMaker
    *         notebooks. A call to <code>CreateTrialComponent</code> from outside one of these
    *         environments results in an error.</p>
    *          </note>
@@ -3573,7 +3606,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Deletes an Amazon SageMaker experiment. All trials associated with the experiment must be deleted
+   * <p>Deletes an SageMaker experiment. All trials associated with the experiment must be deleted
    *       first. Use the <a>ListTrials</a> API to get a list of the trials associated with
    *       the experiment.</p>
    */
@@ -4102,7 +4135,10 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Deletes a pipeline if there are no in-progress executions.</p>
+   * <p>Deletes a pipeline if there are no running instances of the pipeline. To delete a
+   *         pipeline, you must stop all running instances of the pipeline using the
+   *         <code>StopPipelineExecution</code> API. When you delete a pipeline, all instances of the
+   *         pipeline are deleted.</p>
    */
   public deletePipeline(
     args: DeletePipelineCommandInput,
@@ -4171,6 +4207,11 @@ export class SageMaker extends SageMakerClient {
    *         <note>
    *             <p>When you call this API to delete tags from a hyperparameter tuning job, the
    *                 deleted tags are not removed from training jobs that the hyperparameter tuning job
+   *                 launched before you called this API.</p>
+   *         </note>
+   *         <note>
+   *             <p>When you call this API to delete tags from a SageMaker Studio Domain or User Profile, the
+   *                 deleted tags are not removed from Apps that the SageMaker Studio Domain or User Profile
    *                 launched before you called this API.</p>
    *         </note>
    */
@@ -7555,16 +7596,15 @@ export class SageMaker extends SageMakerClient {
    *             <p>When <code>StatusEquals</code> and <code>MaxResults</code> are set at the same
    *                 time, the <code>MaxResults</code> number of training jobs are first retrieved
    *                 ignoring the <code>StatusEquals</code> parameter and then they are filtered by the
-   *                     <code>StatusEquals</code> parameter, which is returned as a response. For
-   *                 example, if <code>ListTrainingJobs</code> is invoked with the following
-   *                 parameters:</p>
+   *                 <code>StatusEquals</code> parameter, which is returned as a response.</p>
+   *             <p>For example, if <code>ListTrainingJobs</code> is invoked with the following parameters:</p>
    *             <p>
    *                <code>{ ... MaxResults: 100, StatusEquals: InProgress ... }</code>
    *             </p>
-   *             <p>Then, 100 trainings jobs with any status including those other than
-   *                     <code>InProgress</code> are selected first (sorted according the creation time,
-   *                 from the latest to the oldest) and those with status <code>InProgress</code> are
-   *                 returned.</p>
+   *             <p>First, 100 trainings jobs with any status, including those other than
+   *                 <code>InProgress</code>, are selected (sorted according to the creation time,
+   *                 from the most current to the oldest). Next, those with a status of
+   *                 <code>InProgress</code> are returned.</p>
    *             <p>You can quickly test the API using the following AWS CLI code.</p>
    *             <p>
    *                <code>aws sagemaker list-training-jobs --max-results 100 --status-equals

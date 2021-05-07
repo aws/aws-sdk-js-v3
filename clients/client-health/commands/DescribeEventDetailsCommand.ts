@@ -24,8 +24,8 @@ export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsR
  * <p>Returns detailed information about one or more specified events. Information includes
  *          standard event data (AWS Region, service, and so on, as returned by <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a>), a detailed event description, and possible additional metadata
  *          that depends upon the nature of the event. Affected entities are not included. To retrieve
- *          those, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html">DescribeAffectedEntities</a> operation.</p>
- *          <p>If a specified event cannot be retrieved, an error message is returned for that
+ *          the entities, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html">DescribeAffectedEntities</a> operation.</p>
+ *          <p>If a specified event can't be retrieved, an error message is returned for that
  *          event.</p>
  *          <note>
  *             <p>This operation supports resource-level permissions. You can use this operation to allow or deny access to specific AWS Health events. For more

@@ -21,11 +21,9 @@ export interface DeleteVoiceConnectorGroupCommandInput extends DeleteVoiceConnec
 export interface DeleteVoiceConnectorGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>
- * Deletes the specified Amazon Chime Voice Connector group. Any
+ * <p>Deletes the specified Amazon Chime Voice Connector group. Any
  * <code>VoiceConnectorItems</code>
- * and phone numbers associated with the group must be removed before it can be deleted.
- * </p>
+ * and phone numbers associated with the group must be removed before it can be deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

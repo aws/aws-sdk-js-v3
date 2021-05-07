@@ -29,6 +29,7 @@ export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBe
  * 6. Flattened XML lists with @xmlName.
  * 7. Flattened XML lists with @xmlNamespace.
  * 8. Lists of structures.
+ * 9. Flattened XML list of structures
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

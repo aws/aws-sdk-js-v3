@@ -30,20 +30,19 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>When you call the <code>DescribeEvents</code> operation and specify an entity for the
- *                <code>entityValues</code> parameter, AWS Health might return public events that
- *                aren't specific to that resource. For example, if you call <code>DescribeEvents</code>
- *                and specify an ID for an Amazon Elastic Compute Cloud (Amazon EC2) instance, AWS Health might return events
- *                that aren't specific to that resource or service. To get events that are specific to a
- *                service, use the <code>services</code> parameter in the <code>filter</code> object. For
- *                more information, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.</p>
+ *                   <p>When you call the <code>DescribeEvents</code> operation and specify an entity
+ *                   for the <code>entityValues</code> parameter, AWS Health might return public
+ *                   events that aren't specific to that resource. For example, if you call
+ *                      <code>DescribeEvents</code> and specify an ID for an Amazon Elastic Compute Cloud (Amazon EC2)
+ *                   instance, AWS Health might return events that aren't specific to that resource or
+ *                   service. To get events that are specific to a service, use the
+ *                      <code>services</code> parameter in the <code>filter</code> object. For more
+ *                   information, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.</p>
  *                </li>
  *                <li>
  *                   <p>This API operation uses pagination. Specify the <code>nextToken</code> parameter in the next request to return more results.</p>
  *                </li>
  *             </ul>
- *
- *
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
