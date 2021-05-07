@@ -1,10 +1,12 @@
 import { RedshiftClient } from "../RedshiftClient";
 import { DescribeClustersCommand, DescribeClustersCommandInput } from "../commands/DescribeClustersCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, createWaiter } from "@aws-sdk/util-waiter";
+import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (client: RedshiftClient, input: DescribeClustersCommandInput): Promise<WaiterResult> => {
+  let reason;
   try {
     let result: any = await client.send(new DescribeClustersCommand(input));
+    reason = result;
     try {
       let returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Clusters);
@@ -18,7 +20,7 @@ const checkState = async (client: RedshiftClient, input: DescribeClustersCommand
         allStringEq_5 = allStringEq_5 && element_4 == "completed";
       }
       if (allStringEq_5) {
-        return { state: WaiterState.SUCCESS };
+        return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
@@ -31,17 +33,18 @@ const checkState = async (client: RedshiftClient, input: DescribeClustersCommand
       };
       for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "deleting") {
-          return { state: WaiterState.FAILURE };
+          return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
-  } catch (exception) {}
-  return { state: WaiterState.RETRY };
+  } catch (exception) {
+    reason = exception;
+  }
+  return { state: WaiterState.RETRY, reason };
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeClustersCommand for polling.
+ *  @deprecated Use waitUntilClusterRestored instead. waitForClusterRestored does not throw error in non-success cases.
  */
 export const waitForClusterRestored = async (
   params: WaiterConfiguration<RedshiftClient>,
@@ -49,4 +52,17 @@ export const waitForClusterRestored = async (
 ): Promise<WaiterResult> => {
   const serviceDefaults = { minDelay: 60, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+};
+/**
+ *
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeClustersCommand for polling.
+ */
+export const waitUntilClusterRestored = async (
+  params: WaiterConfiguration<RedshiftClient>,
+  input: DescribeClustersCommandInput
+): Promise<WaiterResult> => {
+  const serviceDefaults = { minDelay: 60, maxDelay: 120 };
+  const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+  return checkExceptions(result);
 };

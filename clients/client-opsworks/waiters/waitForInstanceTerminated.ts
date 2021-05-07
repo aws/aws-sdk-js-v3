@@ -1,10 +1,12 @@
 import { OpsWorksClient } from "../OpsWorksClient";
 import { DescribeInstancesCommand, DescribeInstancesCommandInput } from "../commands/DescribeInstancesCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, createWaiter } from "@aws-sdk/util-waiter";
+import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (client: OpsWorksClient, input: DescribeInstancesCommandInput): Promise<WaiterResult> => {
+  let reason;
   try {
     let result: any = await client.send(new DescribeInstancesCommand(input));
+    reason = result;
     try {
       let returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Instances);
@@ -18,7 +20,7 @@ const checkState = async (client: OpsWorksClient, input: DescribeInstancesComman
         allStringEq_5 = allStringEq_5 && element_4 == "terminated";
       }
       if (allStringEq_5) {
-        return { state: WaiterState.SUCCESS };
+        return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
@@ -31,7 +33,7 @@ const checkState = async (client: OpsWorksClient, input: DescribeInstancesComman
       };
       for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "booting") {
-          return { state: WaiterState.FAILURE };
+          return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
@@ -45,7 +47,7 @@ const checkState = async (client: OpsWorksClient, input: DescribeInstancesComman
       };
       for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "online") {
-          return { state: WaiterState.FAILURE };
+          return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
@@ -59,7 +61,7 @@ const checkState = async (client: OpsWorksClient, input: DescribeInstancesComman
       };
       for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "pending") {
-          return { state: WaiterState.FAILURE };
+          return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
@@ -73,7 +75,7 @@ const checkState = async (client: OpsWorksClient, input: DescribeInstancesComman
       };
       for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "rebooting") {
-          return { state: WaiterState.FAILURE };
+          return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
@@ -87,7 +89,7 @@ const checkState = async (client: OpsWorksClient, input: DescribeInstancesComman
       };
       for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "requested") {
-          return { state: WaiterState.FAILURE };
+          return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
@@ -101,7 +103,7 @@ const checkState = async (client: OpsWorksClient, input: DescribeInstancesComman
       };
       for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "running_setup") {
-          return { state: WaiterState.FAILURE };
+          return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
@@ -115,7 +117,7 @@ const checkState = async (client: OpsWorksClient, input: DescribeInstancesComman
       };
       for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "setup_failed") {
-          return { state: WaiterState.FAILURE };
+          return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
@@ -129,21 +131,21 @@ const checkState = async (client: OpsWorksClient, input: DescribeInstancesComman
       };
       for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "start_failed") {
-          return { state: WaiterState.FAILURE };
+          return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
   } catch (exception) {
+    reason = exception;
     if (exception.name && exception.name == "ResourceNotFoundException") {
-      return { state: WaiterState.SUCCESS };
+      return { state: WaiterState.SUCCESS, reason };
     }
   }
-  return { state: WaiterState.RETRY };
+  return { state: WaiterState.RETRY, reason };
 };
 /**
  * Wait until OpsWorks instance is terminated.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInstancesCommand for polling.
+ *  @deprecated Use waitUntilInstanceTerminated instead. waitForInstanceTerminated does not throw error in non-success cases.
  */
 export const waitForInstanceTerminated = async (
   params: WaiterConfiguration<OpsWorksClient>,
@@ -151,4 +153,17 @@ export const waitForInstanceTerminated = async (
 ): Promise<WaiterResult> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+};
+/**
+ * Wait until OpsWorks instance is terminated.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInstancesCommand for polling.
+ */
+export const waitUntilInstanceTerminated = async (
+  params: WaiterConfiguration<OpsWorksClient>,
+  input: DescribeInstancesCommandInput
+): Promise<WaiterResult> => {
+  const serviceDefaults = { minDelay: 15, maxDelay: 120 };
+  const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+  return checkExceptions(result);
 };

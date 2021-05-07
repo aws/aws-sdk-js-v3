@@ -21,7 +21,7 @@ const randomInRange = (min: number, max: number) => min + Math.random() * (max -
  * @param stateChecker function that checks the acceptor states on each poll.
  */
 export const runPolling = async <Client, Input>(
-  { minDelay, maxDelay, maxWaitTime, abortController, client }: WaiterOptions<Client>,
+  { minDelay, maxDelay, maxWaitTime, abortController, client, abortSignal }: WaiterOptions<Client>,
   input: Input,
   acceptorChecks: (client: Client, input: Input) => Promise<WaiterResult>
 ): Promise<WaiterResult> => {
@@ -36,7 +36,7 @@ export const runPolling = async <Client, Input>(
   // Pre-compute this number to avoid Number type overflow.
   const attemptCeiling = Math.log(maxDelay / minDelay) / Math.log(2) + 1;
   while (true) {
-    if (abortController?.signal?.aborted) {
+    if (abortController?.signal?.aborted || abortSignal?.aborted) {
       return { state: WaiterState.ABORTED };
     }
     const delay = exponentialBackoffWithJitter(minDelay, maxDelay, attemptCeiling, currentAttempt);

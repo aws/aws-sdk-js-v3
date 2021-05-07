@@ -1,35 +1,6 @@
-import { AbortController } from "@aws-sdk/types";
+import { WaiterConfiguration as WaiterConfiguration__ } from "@aws-sdk/types";
 
-export interface WaiterConfiguration<Client> {
-  /**
-   * Required service client
-   */
-  client: Client;
-
-  /**
-   * The amount of time in seconds a user is willing to wait for a waiter to complete.
-   */
-  maxWaitTime: number;
-
-  /**
-   * Abort controller. Used for ending the waiter early.
-   */
-  abortController?: AbortController;
-
-  /**
-   * The minimum amount of time to delay between retries in seconds. This is the
-   * floor of the exponential backoff. This value defaults to service default
-   * if not specified. This value MUST be less than or equal to maxDelay and greater than 0.
-   */
-  minDelay?: number;
-
-  /**
-   * The maximum amount of time to delay between retries in seconds. This is the
-   * ceiling of the exponential backoff. This value defaults to service default
-   * if not specified. If specified, this value MUST be greater than or equal to 1.
-   */
-  maxDelay?: number;
-}
+export interface WaiterConfiguration<T> extends WaiterConfiguration__<T> {}
 
 /**
  * @private
@@ -55,4 +26,38 @@ export enum WaiterState {
 
 export type WaiterResult = {
   state: WaiterState;
+
+  /**
+   * (optional) Indicates a reason for why a waiter has reached its state.
+   */
+  reason?: any;
+};
+
+/**
+ * Handles and throws exceptions resulting from the waiterResult
+ * @param result WaiterResult
+ */
+export const checkExceptions = (result: WaiterResult): WaiterResult => {
+  if (result.state === WaiterState.ABORTED) {
+    const abortError = new Error(
+      `${JSON.stringify({
+        ...result,
+        reason: "Request was aborted",
+      })}`
+    );
+    abortError.name = "AbortError";
+    throw abortError;
+  } else if (result.state === WaiterState.TIMEOUT) {
+    const timeoutError = new Error(
+      `${JSON.stringify({
+        ...result,
+        reason: "Waiter has timed out",
+      })}`
+    );
+    timeoutError.name = "TimeoutError";
+    throw timeoutError;
+  } else if (result.state !== WaiterState.SUCCESS) {
+    throw new Error(`${JSON.stringify({ result })}`);
+  }
+  return result;
 };

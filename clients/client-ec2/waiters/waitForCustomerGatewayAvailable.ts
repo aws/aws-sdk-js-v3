@@ -3,11 +3,13 @@ import {
   DescribeCustomerGatewaysCommand,
   DescribeCustomerGatewaysCommandInput,
 } from "../commands/DescribeCustomerGatewaysCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, createWaiter } from "@aws-sdk/util-waiter";
+import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (client: EC2Client, input: DescribeCustomerGatewaysCommandInput): Promise<WaiterResult> => {
+  let reason;
   try {
     let result: any = await client.send(new DescribeCustomerGatewaysCommand(input));
+    reason = result;
     try {
       let returnComparator = () => {
         let flat_1: any[] = [].concat(...result.CustomerGateways);
@@ -21,7 +23,7 @@ const checkState = async (client: EC2Client, input: DescribeCustomerGatewaysComm
         allStringEq_5 = allStringEq_5 && element_4 == "available";
       }
       if (allStringEq_5) {
-        return { state: WaiterState.SUCCESS };
+        return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
@@ -34,7 +36,7 @@ const checkState = async (client: EC2Client, input: DescribeCustomerGatewaysComm
       };
       for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "deleted") {
-          return { state: WaiterState.FAILURE };
+          return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
@@ -48,17 +50,18 @@ const checkState = async (client: EC2Client, input: DescribeCustomerGatewaysComm
       };
       for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "deleting") {
-          return { state: WaiterState.FAILURE };
+          return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
-  } catch (exception) {}
-  return { state: WaiterState.RETRY };
+  } catch (exception) {
+    reason = exception;
+  }
+  return { state: WaiterState.RETRY, reason };
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeCustomerGatewaysCommand for polling.
+ *  @deprecated Use waitUntilCustomerGatewayAvailable instead. waitForCustomerGatewayAvailable does not throw error in non-success cases.
  */
 export const waitForCustomerGatewayAvailable = async (
   params: WaiterConfiguration<EC2Client>,
@@ -66,4 +69,17 @@ export const waitForCustomerGatewayAvailable = async (
 ): Promise<WaiterResult> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+};
+/**
+ *
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeCustomerGatewaysCommand for polling.
+ */
+export const waitUntilCustomerGatewayAvailable = async (
+  params: WaiterConfiguration<EC2Client>,
+  input: DescribeCustomerGatewaysCommandInput
+): Promise<WaiterResult> => {
+  const serviceDefaults = { minDelay: 15, maxDelay: 120 };
+  const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+  return checkExceptions(result);
 };

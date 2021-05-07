@@ -1,13 +1,15 @@
 import { MachineLearningClient } from "../MachineLearningClient";
 import { DescribeEvaluationsCommand, DescribeEvaluationsCommandInput } from "../commands/DescribeEvaluationsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, createWaiter } from "@aws-sdk/util-waiter";
+import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (
   client: MachineLearningClient,
   input: DescribeEvaluationsCommandInput
 ): Promise<WaiterResult> => {
+  let reason;
   try {
     let result: any = await client.send(new DescribeEvaluationsCommand(input));
+    reason = result;
     try {
       let returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Results);
@@ -21,7 +23,7 @@ const checkState = async (
         allStringEq_5 = allStringEq_5 && element_4 == "COMPLETED";
       }
       if (allStringEq_5) {
-        return { state: WaiterState.SUCCESS };
+        return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
@@ -34,17 +36,18 @@ const checkState = async (
       };
       for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "FAILED") {
-          return { state: WaiterState.FAILURE };
+          return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
-  } catch (exception) {}
-  return { state: WaiterState.RETRY };
+  } catch (exception) {
+    reason = exception;
+  }
+  return { state: WaiterState.RETRY, reason };
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeEvaluationsCommand for polling.
+ *  @deprecated Use waitUntilEvaluationAvailable instead. waitForEvaluationAvailable does not throw error in non-success cases.
  */
 export const waitForEvaluationAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,
@@ -52,4 +55,17 @@ export const waitForEvaluationAvailable = async (
 ): Promise<WaiterResult> => {
   const serviceDefaults = { minDelay: 30, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+};
+/**
+ *
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeEvaluationsCommand for polling.
+ */
+export const waitUntilEvaluationAvailable = async (
+  params: WaiterConfiguration<MachineLearningClient>,
+  input: DescribeEvaluationsCommandInput
+): Promise<WaiterResult> => {
+  const serviceDefaults = { minDelay: 30, maxDelay: 120 };
+  const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+  return checkExceptions(result);
 };

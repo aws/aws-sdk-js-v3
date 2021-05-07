@@ -3,11 +3,13 @@ import {
   DescribeInstanceStatusCommand,
   DescribeInstanceStatusCommandInput,
 } from "../commands/DescribeInstanceStatusCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, createWaiter } from "@aws-sdk/util-waiter";
+import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (client: EC2Client, input: DescribeInstanceStatusCommandInput): Promise<WaiterResult> => {
+  let reason;
   try {
     let result: any = await client.send(new DescribeInstanceStatusCommand(input));
+    reason = result;
     try {
       let returnComparator = () => {
         let flat_1: any[] = [].concat(...result.InstanceStatuses);
@@ -21,16 +23,17 @@ const checkState = async (client: EC2Client, input: DescribeInstanceStatusComman
         allStringEq_5 = allStringEq_5 && element_4 == "ok";
       }
       if (allStringEq_5) {
-        return { state: WaiterState.SUCCESS };
+        return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
-  } catch (exception) {}
-  return { state: WaiterState.RETRY };
+  } catch (exception) {
+    reason = exception;
+  }
+  return { state: WaiterState.RETRY, reason };
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInstanceStatusCommand for polling.
+ *  @deprecated Use waitUntilSystemStatusOk instead. waitForSystemStatusOk does not throw error in non-success cases.
  */
 export const waitForSystemStatusOk = async (
   params: WaiterConfiguration<EC2Client>,
@@ -38,4 +41,17 @@ export const waitForSystemStatusOk = async (
 ): Promise<WaiterResult> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+};
+/**
+ *
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInstanceStatusCommand for polling.
+ */
+export const waitUntilSystemStatusOk = async (
+  params: WaiterConfiguration<EC2Client>,
+  input: DescribeInstanceStatusCommandInput
+): Promise<WaiterResult> => {
+  const serviceDefaults = { minDelay: 15, maxDelay: 120 };
+  const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+  return checkExceptions(result);
 };

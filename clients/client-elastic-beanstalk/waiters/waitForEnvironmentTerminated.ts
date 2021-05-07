@@ -1,13 +1,15 @@
 import { ElasticBeanstalkClient } from "../ElasticBeanstalkClient";
 import { DescribeEnvironmentsCommand, DescribeEnvironmentsCommandInput } from "../commands/DescribeEnvironmentsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, createWaiter } from "@aws-sdk/util-waiter";
+import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (
   client: ElasticBeanstalkClient,
   input: DescribeEnvironmentsCommandInput
 ): Promise<WaiterResult> => {
+  let reason;
   try {
     let result: any = await client.send(new DescribeEnvironmentsCommand(input));
+    reason = result;
     try {
       let returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Environments);
@@ -21,7 +23,7 @@ const checkState = async (
         allStringEq_5 = allStringEq_5 && element_4 == "Terminated";
       }
       if (allStringEq_5) {
-        return { state: WaiterState.SUCCESS };
+        return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
     try {
@@ -37,16 +39,17 @@ const checkState = async (
         allStringEq_5 = allStringEq_5 && element_4 == "Terminating";
       }
       if (allStringEq_5) {
-        return { state: WaiterState.RETRY };
+        return { state: WaiterState.RETRY, reason };
       }
     } catch (e) {}
-  } catch (exception) {}
-  return { state: WaiterState.RETRY };
+  } catch (exception) {
+    reason = exception;
+  }
+  return { state: WaiterState.RETRY, reason };
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeEnvironmentsCommand for polling.
+ *  @deprecated Use waitUntilEnvironmentTerminated instead. waitForEnvironmentTerminated does not throw error in non-success cases.
  */
 export const waitForEnvironmentTerminated = async (
   params: WaiterConfiguration<ElasticBeanstalkClient>,
@@ -54,4 +57,17 @@ export const waitForEnvironmentTerminated = async (
 ): Promise<WaiterResult> => {
   const serviceDefaults = { minDelay: 20, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+};
+/**
+ *
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeEnvironmentsCommand for polling.
+ */
+export const waitUntilEnvironmentTerminated = async (
+  params: WaiterConfiguration<ElasticBeanstalkClient>,
+  input: DescribeEnvironmentsCommandInput
+): Promise<WaiterResult> => {
+  const serviceDefaults = { minDelay: 20, maxDelay: 120 };
+  const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+  return checkExceptions(result);
 };

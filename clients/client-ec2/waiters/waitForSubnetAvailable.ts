@@ -1,10 +1,12 @@
 import { EC2Client } from "../EC2Client";
 import { DescribeSubnetsCommand, DescribeSubnetsCommandInput } from "../commands/DescribeSubnetsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, createWaiter } from "@aws-sdk/util-waiter";
+import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (client: EC2Client, input: DescribeSubnetsCommandInput): Promise<WaiterResult> => {
+  let reason;
   try {
     let result: any = await client.send(new DescribeSubnetsCommand(input));
+    reason = result;
     try {
       let returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Subnets);
@@ -18,16 +20,17 @@ const checkState = async (client: EC2Client, input: DescribeSubnetsCommandInput)
         allStringEq_5 = allStringEq_5 && element_4 == "available";
       }
       if (allStringEq_5) {
-        return { state: WaiterState.SUCCESS };
+        return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
-  } catch (exception) {}
-  return { state: WaiterState.RETRY };
+  } catch (exception) {
+    reason = exception;
+  }
+  return { state: WaiterState.RETRY, reason };
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeSubnetsCommand for polling.
+ *  @deprecated Use waitUntilSubnetAvailable instead. waitForSubnetAvailable does not throw error in non-success cases.
  */
 export const waitForSubnetAvailable = async (
   params: WaiterConfiguration<EC2Client>,
@@ -35,4 +38,17 @@ export const waitForSubnetAvailable = async (
 ): Promise<WaiterResult> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+};
+/**
+ *
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeSubnetsCommand for polling.
+ */
+export const waitUntilSubnetAvailable = async (
+  params: WaiterConfiguration<EC2Client>,
+  input: DescribeSubnetsCommandInput
+): Promise<WaiterResult> => {
+  const serviceDefaults = { minDelay: 15, maxDelay: 120 };
+  const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+  return checkExceptions(result);
 };

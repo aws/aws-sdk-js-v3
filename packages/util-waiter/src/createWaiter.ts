@@ -34,5 +34,10 @@ export const createWaiter = async <Client, Input>(
   if (options.abortController) {
     exitConditions.push(abortTimeout(options.abortController.signal));
   }
+
+  if (options.abortSignal) {
+    exitConditions.push(abortTimeout(options.abortSignal));
+  }
+
   return Promise.race(exitConditions);
 };

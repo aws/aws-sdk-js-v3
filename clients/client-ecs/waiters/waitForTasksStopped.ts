@@ -1,10 +1,12 @@
 import { ECSClient } from "../ECSClient";
 import { DescribeTasksCommand, DescribeTasksCommandInput } from "../commands/DescribeTasksCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, createWaiter } from "@aws-sdk/util-waiter";
+import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (client: ECSClient, input: DescribeTasksCommandInput): Promise<WaiterResult> => {
+  let reason;
   try {
     let result: any = await client.send(new DescribeTasksCommand(input));
+    reason = result;
     try {
       let returnComparator = () => {
         let flat_1: any[] = [].concat(...result.tasks);
@@ -18,16 +20,17 @@ const checkState = async (client: ECSClient, input: DescribeTasksCommandInput): 
         allStringEq_5 = allStringEq_5 && element_4 == "STOPPED";
       }
       if (allStringEq_5) {
-        return { state: WaiterState.SUCCESS };
+        return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
-  } catch (exception) {}
-  return { state: WaiterState.RETRY };
+  } catch (exception) {
+    reason = exception;
+  }
+  return { state: WaiterState.RETRY, reason };
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeTasksCommand for polling.
+ *  @deprecated Use waitUntilTasksStopped instead. waitForTasksStopped does not throw error in non-success cases.
  */
 export const waitForTasksStopped = async (
   params: WaiterConfiguration<ECSClient>,
@@ -35,4 +38,17 @@ export const waitForTasksStopped = async (
 ): Promise<WaiterResult> => {
   const serviceDefaults = { minDelay: 6, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+};
+/**
+ *
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeTasksCommand for polling.
+ */
+export const waitUntilTasksStopped = async (
+  params: WaiterConfiguration<ECSClient>,
+  input: DescribeTasksCommandInput
+): Promise<WaiterResult> => {
+  const serviceDefaults = { minDelay: 6, maxDelay: 120 };
+  const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+  return checkExceptions(result);
 };
