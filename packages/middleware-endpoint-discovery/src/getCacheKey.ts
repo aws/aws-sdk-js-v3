@@ -11,12 +11,10 @@ export const getCacheKey = async (
     identifiers?: Map<String, String>;
   }
 ) => {
-  const region = await config.region();
   const { accessKeyId } = await config.credentials();
   const { identifiers } = options;
   return {
     commandName,
-    ...(region && { region }),
     ...(accessKeyId && { accessKeyId }),
     ...(identifiers && { identifiers }),
   }.toString();
