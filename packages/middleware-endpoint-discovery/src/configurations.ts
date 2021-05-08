@@ -14,6 +14,7 @@ export const NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS: LoadedConfigSelectors<boole
         if (value === "") {
           throw Error(`Environment variable ${envKey} can't be empty of undefined, got "${value}"`);
         }
+        // @ts-ignore Argument of type 'string | undefined' is not assignable to parameter of type 'string'
         return !isFalsy(value);
       }
     }
