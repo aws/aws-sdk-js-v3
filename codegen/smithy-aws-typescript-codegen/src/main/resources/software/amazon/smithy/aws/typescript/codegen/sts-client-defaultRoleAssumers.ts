@@ -1,5 +1,3 @@
-// Please do not touch this file. It's generated from template:
-// https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/sts-client-defaultRoleAssumers.ts
 import {
   DefaultCredentialProvider,
   getDefaultRoleAssumer as StsGetDefaultRoleAssumer,
