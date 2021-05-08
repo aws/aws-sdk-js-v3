@@ -58,6 +58,7 @@
     "@aws-sdk/util-utf8-browser": "3.13.1",
     "@aws-sdk/util-utf8-node": "3.13.1",
     "fast-xml-parser": "3.19.0",
+    "he": "^1.0.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
