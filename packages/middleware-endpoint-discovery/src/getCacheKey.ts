@@ -14,8 +14,7 @@ export const getCacheKey = async (
   const { accessKeyId } = await config.credentials();
   const { identifiers } = options;
   return {
-    commandName,
     ...(accessKeyId && { accessKeyId }),
-    ...(identifiers && { identifiers }),
+    ...(identifiers && { commandName, identifiers }),
   }.toString();
 };
