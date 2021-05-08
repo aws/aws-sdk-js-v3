@@ -52,7 +52,13 @@ export const updateDiscoveredEndpointInCache = async (
       }
       if (options.isDiscoveredEndpointRequired) {
         // Endpoint Discovery is required, rethrow error.
-        throw error;
+        throw Object.assign(
+          new Error(
+            `The operation to discover endpoint failed.` +
+              `Please retry, or provide a custom endpoint and disable endpoint discovery to proceed.`
+          ),
+          { reason: error }
+        );
       } else {
         // Endpoint Discovery is optional. No error needs to be thrown.
         // Set placeHolder endpoint to disable refresh for one minute.
