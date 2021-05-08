@@ -11,7 +11,7 @@ export const NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS: LoadedConfigSelectors<boole
       const envKey = ENV_ENDPOINT_DISCOVERY[i];
       if (envKey in env) {
         const value = env[envKey];
-        if (value === "" || value === undefined) {
+        if (value === "") {
           throw Error(`Environment variable ${envKey} can't be empty of undefined, got "${value}"`);
         }
         return !isFalsy(value);
