@@ -69,8 +69,9 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         }
         if (!areAllOptionalAuthOperations(model, service)) {
             writer.addImport("Credentials", "__Credentials", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-            writer.writeDocs("Default credentials provider; Not available in browser runtime.")
-                .write("credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;\n");
+            writer.writeDocs("Default credentials provider; Not available in browser runtime.\n"
+                            + "@internal");
+            writer.write("credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;\n");
         }
     }
 

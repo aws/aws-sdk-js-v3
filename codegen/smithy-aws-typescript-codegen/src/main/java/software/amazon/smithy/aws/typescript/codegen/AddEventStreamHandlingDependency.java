@@ -71,7 +71,8 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
         if (hasEventStreamInput(model, settings.getService(model))) {
             writer.addImport("EventStreamPayloadHandlerProvider", "__EventStreamPayloadHandlerProvider",
                     TypeScriptDependency.AWS_SDK_TYPES.packageName);
-            writer.writeDocs("The function that provides necessary utilities for handling request event stream.");
+            writer.writeDocs("The function that provides necessary utilities for handling request event stream.\n"
+                            + "@internal");
             writer.write("eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;\n");
         }
     }

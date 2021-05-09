@@ -49,7 +49,8 @@ public class AddStreamHasherDependency implements TypeScriptIntegration {
         writer.addImport("Readable", "Readable", "stream");
         writer.addImport("StreamHasher", "__StreamHasher", "@aws-sdk/types");
         writer.writeDocs("A function that, given a hash constructor and a stream, calculates the \n"
-                + "hash of the streamed value");
+                + "hash of the streamed value.\n"
+                + "@internal");
         writer.write("streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;\n");
     }
 
