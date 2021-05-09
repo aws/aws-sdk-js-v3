@@ -12,7 +12,7 @@ export const endpointDiscoveryMiddlewareOptions: FinalizeRequestHandlerOptions =
 
 export type EndpointDiscoveryMiddlewareConfig = {
   isDiscoveredEndpointRequired: boolean;
-  identifiers?: Map<string, string>;
+  identifiers?: { [key: string]: string };
 };
 
 export const getEndpointDiscoveryCommandPlugin = (
