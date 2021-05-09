@@ -23,7 +23,7 @@ export const updateDiscoveredEndpointInCache = async (
 
   // Wait for other endpoint operations to complete before making new calls.
   while (endpoints && endpoints.length === 1 && endpoints[0].Address === "") {
-    await sleep(60 * 1000);
+    await sleep(1000);
     endpoints = endpointCache.get(cacheKey);
   }
 

@@ -62,12 +62,12 @@ describe(updateDiscoveredEndpointInCache.name, () => {
 
       expect(setTimeout).toHaveBeenCalledTimes(num);
       for (let i = 0; i < num; i++) {
-        expect(setTimeout).toHaveBeenNthCalledWith(i + 1, expect.any(Function), 60 * 1000);
+        expect(setTimeout).toHaveBeenNthCalledWith(i + 1, expect.any(Function), 1000);
       }
     });
 
     for (let i = 0; i <= num * 3; i++) {
-      jest.advanceTimersByTime(60 * 1000);
+      jest.advanceTimersByTime(1000);
       await Promise.resolve(); // allow any pending jobs in the PromiseJobs queue to run
     }
   });
