@@ -7,13 +7,18 @@ export const getCacheKey = async (
   commandName: string,
   config: { credentials: Provider<Credentials> },
   options: {
-    identifiers?: Map<String, String>;
+    identifiers?: Map<string, string>;
   }
 ) => {
   const { accessKeyId } = await config.credentials();
   const { identifiers } = options;
-  return {
+  return JSON.stringify({
     ...(accessKeyId && { accessKeyId }),
-    ...(identifiers && { commandName, identifiers }),
-  }.toString();
+    ...(identifiers && {
+      commandName,
+      identifiers: Array.from(identifiers)
+        .sort()
+        .reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {}),
+    }),
+  });
 };
