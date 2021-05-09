@@ -28,8 +28,7 @@ export const endpointDiscoveryMiddleware = (
     return next(args);
   }
 
-  const { client } = config;
-  const { endpointDiscoveryCommandCtor } = client?.config;
+  const { client, endpointDiscoveryCommandCtor } = config;
   const { isDiscoveredEndpointRequired, identifiers } = middlewareConfig;
   const { clientName, commandName } = context;
   const isEndpointDiscoveryEnabled = await config.endpointDiscoveryEnabled();
@@ -47,7 +46,7 @@ export const endpointDiscoveryMiddleware = (
     await updateDiscoveredEndpointInCache(config, {
       ...middlewareConfig,
       commandName,
-      endpointDiscoveryCommandCtor,
+      endpointDiscoveryCommandCtor: endpointDiscoveryCommandCtor!,
     });
   } else {
     // Discover endpoints only if endpoint discovery is explicitly enabled.
@@ -57,7 +56,7 @@ export const endpointDiscoveryMiddleware = (
       updateDiscoveredEndpointInCache(config, {
         ...middlewareConfig,
         commandName,
-        endpointDiscoveryCommandCtor,
+        endpointDiscoveryCommandCtor: endpointDiscoveryCommandCtor!,
       });
     }
   }
