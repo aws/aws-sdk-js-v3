@@ -28,7 +28,7 @@ export const endpointDiscoveryMiddleware = (
     return next(args);
   }
 
-  const { client, endpointDiscoveryCommandCtor } = config;
+  const { endpointDiscoveryCommandCtor } = config;
   const { isDiscoveredEndpointRequired, identifiers } = middlewareConfig;
   const { clientName, commandName } = context;
   const isEndpointDiscoveryEnabled = await config.endpointDiscoveryEnabled();
