@@ -15,9 +15,7 @@ export const updateDiscoveredEndpointInCache = async (
   config: EndpointDiscoveryClientResolvedConfig,
   options: updateDiscoveredEndpointInCacheOptions
 ) => {
-  const { client } = config;
-  const { endpointCache } = client?.config;
-
+  const { client, endpointCache } = config;
   const { commandName, identifiers } = options;
   const cacheKey = await getCacheKey(commandName, client?.config, { identifiers });
 
@@ -25,7 +23,7 @@ export const updateDiscoveredEndpointInCache = async (
 
   // Wait for other endpoint operations to complete before making new calls.
   while (endpoints && endpoints.length === 1 && endpoints[0].Address === "") {
-    await sleep(1000);
+    await sleep(60 * 1000);
     endpoints = endpointCache.get(cacheKey);
   }
 
@@ -55,7 +53,7 @@ export const updateDiscoveredEndpointInCache = async (
         throw Object.assign(
           new Error(
             `The operation to discover endpoint failed.` +
-              `Please retry, or provide a custom endpoint and disable endpoint discovery to proceed.`
+              ` Please retry, or provide a custom endpoint and disable endpoint discovery to proceed.`
           ),
           { reason: error }
         );
