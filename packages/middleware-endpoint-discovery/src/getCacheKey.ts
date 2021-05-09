@@ -1,12 +1,11 @@
-import { RegionResolvedConfig } from "@aws-sdk/config-resolver";
-import { AwsAuthResolvedConfig } from "@aws-sdk/middleware-signing";
+import { Credentials, Provider } from "@aws-sdk/types";
 
 /**
  * Generate key to index the endpoints in the cache
  */
 export const getCacheKey = async (
   commandName: string,
-  config: AwsAuthResolvedConfig & RegionResolvedConfig,
+  config: { credentials: Provider<Credentials> },
   options: {
     identifiers?: Map<String, String>;
   }

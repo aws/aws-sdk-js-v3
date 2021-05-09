@@ -12,14 +12,12 @@ describe(getCacheKey.name, () => {
   };
 
   it("returns accessKeyId in cacheKey", async () => {
-    // @ts-ignore is missing the following properties from type 'AwsAuthResolvedConfig'
     const cacheKey = await getCacheKey(commandName, config, {});
     expect(cacheKey).toEqual({ accessKeyId: mockCredentials.accessKeyId }.toString());
   });
 
   it("returns commandName and identifiers if passed", async () => {
-    const identifiers = { key: "value" };
-    // @ts-ignore is missing the following properties from type 'AwsAuthResolvedConfig'
+    const identifiers = new Map().set("key", "string");
     const cacheKey = await getCacheKey(commandName, config, { identifiers });
     expect(cacheKey).toEqual({ accessKeyId: mockCredentials.accessKeyId, commandName, identifiers }.toString());
   });
