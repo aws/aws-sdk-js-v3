@@ -1,10 +1,11 @@
 import { EndpointCache } from "@aws-sdk/endpoint-cache";
-import { Client, Command, Provider } from "@aws-sdk/types";
+import { Client, Command, Credentials, Provider } from "@aws-sdk/types";
 
 export interface EndpointDiscoveryClientInputConfig {}
 
 interface PreviouslyResolved {
   isCustomEndpoint: boolean;
+  credentials: Provider<Credentials>;
   /**
    * The size of the client cache storing endpoints from endpoint discovery operations.
    * Defaults to 1000.
@@ -23,6 +24,7 @@ interface PreviouslyResolved {
 
 export interface EndpointDiscoveryClientResolvedConfig {
   isCustomEndpoint: boolean;
+  credentials: Provider<Credentials>;
   client?: Client<any, any, any>;
   endpointDiscoveryCommandCtor?: new (comandConfig: any) => Command<any, any, any, any, any>;
   endpointCache: EndpointCache;

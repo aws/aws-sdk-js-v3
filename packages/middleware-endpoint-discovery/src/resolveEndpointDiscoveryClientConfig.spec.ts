@@ -6,6 +6,7 @@ jest.mock("@aws-sdk/endpoint-cache");
 
 describe(resolveEndpointDiscoveryClientConfig.name, () => {
   const isCustomEndpoint = false;
+  const credentials = jest.fn();
   const endpointDiscoveryEnabledProvider = jest.fn().mockResolvedValue(undefined);
 
   afterEach(() => {
@@ -17,6 +18,7 @@ describe(resolveEndpointDiscoveryClientConfig.name, () => {
       const endpointCacheSize = 100;
       resolveEndpointDiscoveryClientConfig({
         isCustomEndpoint,
+        credentials,
         endpointCacheSize,
         endpointDiscoveryEnabledProvider,
       });
@@ -26,6 +28,7 @@ describe(resolveEndpointDiscoveryClientConfig.name, () => {
     it("creates cache of size 1000 if endpointCacheSize not passed", () => {
       resolveEndpointDiscoveryClientConfig({
         isCustomEndpoint,
+        credentials,
         endpointDiscoveryEnabledProvider,
       });
       expect(EndpointCache).toBeCalledWith(1000);
@@ -36,6 +39,7 @@ describe(resolveEndpointDiscoveryClientConfig.name, () => {
     it.each<boolean>([false, true])(`sets to value passed in the config: %s`, (endpointDiscoveryEnabled) => {
       const resolvedConfig = resolveEndpointDiscoveryClientConfig({
         isCustomEndpoint,
+        credentials,
         endpointDiscoveryEnabled,
         endpointDiscoveryEnabledProvider,
       });
@@ -47,6 +51,7 @@ describe(resolveEndpointDiscoveryClientConfig.name, () => {
     it(`sets to endpointDiscoveryEnabledProvider if value is not passed`, () => {
       const resolvedConfig = resolveEndpointDiscoveryClientConfig({
         isCustomEndpoint,
+        credentials,
         endpointDiscoveryEnabledProvider,
       });
       expect(resolvedConfig.endpointDiscoveryEnabled).toBe(endpointDiscoveryEnabledProvider);

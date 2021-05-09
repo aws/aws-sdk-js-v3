@@ -17,7 +17,7 @@ export const updateDiscoveredEndpointInCache = async (
 ) => {
   const { client, endpointCache } = config;
   const { commandName, identifiers } = options;
-  const cacheKey = await getCacheKey(commandName, client?.config, { identifiers });
+  const cacheKey = await getCacheKey(commandName, config, { identifiers });
 
   let endpoints = endpointCache.get(cacheKey);
 
