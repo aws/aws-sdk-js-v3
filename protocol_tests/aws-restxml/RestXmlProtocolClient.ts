@@ -2,6 +2,7 @@ import {
   AllQueryStringTypesCommandInput,
   AllQueryStringTypesCommandOutput,
 } from "./commands/AllQueryStringTypesCommand";
+import { BodyWithXmlNameCommandInput, BodyWithXmlNameCommandOutput } from "./commands/BodyWithXmlNameCommand";
 import {
   ConstantAndVariableQueryStringCommandInput,
   ConstantAndVariableQueryStringCommandOutput,
@@ -176,6 +177,7 @@ import {
 
 export type ServiceInputTypes =
   | AllQueryStringTypesCommandInput
+  | BodyWithXmlNameCommandInput
   | ConstantAndVariableQueryStringCommandInput
   | ConstantQueryStringCommandInput
   | EmptyInputAndEmptyOutputCommandInput
@@ -229,6 +231,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AllQueryStringTypesCommandOutput
+  | BodyWithXmlNameCommandOutput
   | ConstantAndVariableQueryStringCommandOutput
   | ConstantQueryStringCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput

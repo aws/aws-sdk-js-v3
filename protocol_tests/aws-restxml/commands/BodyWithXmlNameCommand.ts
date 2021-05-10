@@ -1,6 +1,9 @@
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
-import { XmlListsInputOutput } from "../models/models_0";
-import { deserializeAws_restXmlXmlListsCommand, serializeAws_restXmlXmlListsCommand } from "../protocols/Aws_restXml";
+import { BodyWithXmlNameInputOutput } from "../models/models_0";
+import {
+  deserializeAws_restXmlBodyWithXmlNameCommand,
+  serializeAws_restXmlBodyWithXmlNameCommand,
+} from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -14,46 +17,36 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export interface XmlListsCommandInput extends XmlListsInputOutput {}
-export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBearer {}
+export interface BodyWithXmlNameCommandInput extends BodyWithXmlNameInputOutput {}
+export interface BodyWithXmlNameCommandOutput extends BodyWithXmlNameInputOutput, __MetadataBearer {}
 
 /**
- * This test case serializes XML lists for the following cases for both
- * input and output:
- *
- * 1. Normal XML lists.
- * 2. Normal XML sets.
- * 3. XML lists of lists.
- * 4. XML lists with @xmlName on its members
- * 5. Flattened XML lists.
- * 6. Flattened XML lists with @xmlName.
- * 7. Flattened XML lists with @xmlNamespace.
- * 8. Lists of structures.
- * 9. Flattened XML list of structures
+ * The following example serializes a body that uses an XML name,
+ * changing the wrapper name.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RestXmlProtocolClient, XmlListsCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
- * // const { RestXmlProtocolClient, XmlListsCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import
+ * import { RestXmlProtocolClient, BodyWithXmlNameCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, BodyWithXmlNameCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const command = new XmlListsCommand(input);
+ * const command = new BodyWithXmlNameCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link XmlListsCommandInput} for command's `input` shape.
- * @see {@link XmlListsCommandOutput} for command's `response` shape.
+ * @see {@link BodyWithXmlNameCommandInput} for command's `input` shape.
+ * @see {@link BodyWithXmlNameCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
  *
  */
-export class XmlListsCommand extends $Command<
-  XmlListsCommandInput,
-  XmlListsCommandOutput,
+export class BodyWithXmlNameCommand extends $Command<
+  BodyWithXmlNameCommandInput,
+  BodyWithXmlNameCommandOutput,
   RestXmlProtocolClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: XmlListsCommandInput) {
+  constructor(readonly input: BodyWithXmlNameCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -66,20 +59,20 @@ export class XmlListsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<XmlListsCommandInput, XmlListsCommandOutput> {
+  ): Handler<BodyWithXmlNameCommandInput, BodyWithXmlNameCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RestXmlProtocolClient";
-    const commandName = "XmlListsCommand";
+    const commandName = "BodyWithXmlNameCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlListsInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: XmlListsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: BodyWithXmlNameInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: BodyWithXmlNameInputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -89,12 +82,12 @@ export class XmlListsCommand extends $Command<
     );
   }
 
-  private serialize(input: XmlListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlXmlListsCommand(input, context);
+  private serialize(input: BodyWithXmlNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlBodyWithXmlNameCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlListsCommandOutput> {
-    return deserializeAws_restXmlXmlListsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BodyWithXmlNameCommandOutput> {
+    return deserializeAws_restXmlBodyWithXmlNameCommand(output, context);
   }
 
   // Start section: command_body_extra
