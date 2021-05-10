@@ -30,6 +30,7 @@ import {
   DeletePredictorBacktestExportJobCommandOutput,
 } from "./commands/DeletePredictorBacktestExportJobCommand";
 import { DeletePredictorCommandInput, DeletePredictorCommandOutput } from "./commands/DeletePredictorCommand";
+import { DeleteResourceTreeCommandInput, DeleteResourceTreeCommandOutput } from "./commands/DeleteResourceTreeCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import {
   DescribeDatasetGroupCommandInput,
@@ -140,6 +141,7 @@ export type ServiceInputTypes =
   | DeleteForecastExportJobCommandInput
   | DeletePredictorBacktestExportJobCommandInput
   | DeletePredictorCommandInput
+  | DeleteResourceTreeCommandInput
   | DescribeDatasetCommandInput
   | DescribeDatasetGroupCommandInput
   | DescribeDatasetImportJobCommandInput
@@ -176,6 +178,7 @@ export type ServiceOutputTypes =
   | DeleteForecastExportJobCommandOutput
   | DeletePredictorBacktestExportJobCommandOutput
   | DeletePredictorCommandOutput
+  | DeleteResourceTreeCommandOutput
   | DescribeDatasetCommandOutput
   | DescribeDatasetGroupCommandOutput
   | DescribeDatasetImportJobCommandOutput

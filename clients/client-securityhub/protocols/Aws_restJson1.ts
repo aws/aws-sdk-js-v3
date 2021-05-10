@@ -186,6 +186,9 @@ import {
   AwsDynamoDbTableStreamSpecification,
   AwsEc2EipDetails,
   AwsEc2InstanceDetails,
+  AwsEc2NetworkAclAssociation,
+  AwsEc2NetworkAclDetails,
+  AwsEc2NetworkAclEntry,
   AwsEc2NetworkInterfaceAttachment,
   AwsEc2NetworkInterfaceDetails,
   AwsEc2NetworkInterfaceIpV6AddressDetail,
@@ -197,9 +200,14 @@ import {
   AwsEc2SecurityGroupIpv6Range,
   AwsEc2SecurityGroupPrefixListId,
   AwsEc2SecurityGroupUserIdGroupPair,
+  AwsEc2SubnetDetails,
   AwsEc2VolumeAttachment,
   AwsEc2VolumeDetails,
   AwsEc2VpcDetails,
+  AwsElasticBeanstalkEnvironmentDetails,
+  AwsElasticBeanstalkEnvironmentEnvironmentLink,
+  AwsElasticBeanstalkEnvironmentOptionSetting,
+  AwsElasticBeanstalkEnvironmentTier,
   AwsElasticsearchDomainDetails,
   AwsElasticsearchDomainDomainEndpointOptions,
   AwsElasticsearchDomainEncryptionAtRestOptions,
@@ -320,6 +328,7 @@ import {
   FindingProviderFields,
   FindingProviderSeverity,
   GeoLocation,
+  IcmpTypeCode,
   ImportFindingsError,
   InternalException,
   InvalidAccessException,
@@ -346,6 +355,7 @@ import {
   PortProbeAction,
   PortProbeDetail,
   PortRange,
+  PortRangeFromTo,
   ProcessDetails,
   Range,
   Recommendation,
@@ -7524,6 +7534,79 @@ const serializeAws_restJson1AwsEc2InstanceDetails = (input: AwsEc2InstanceDetail
   };
 };
 
+const serializeAws_restJson1AwsEc2NetworkAclAssociation = (
+  input: AwsEc2NetworkAclAssociation,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.NetworkAclAssociationId !== undefined &&
+      input.NetworkAclAssociationId !== null && { NetworkAclAssociationId: input.NetworkAclAssociationId }),
+    ...(input.NetworkAclId !== undefined && input.NetworkAclId !== null && { NetworkAclId: input.NetworkAclId }),
+    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
+  };
+};
+
+const serializeAws_restJson1AwsEc2NetworkAclAssociationList = (
+  input: AwsEc2NetworkAclAssociation[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AwsEc2NetworkAclAssociation(entry, context);
+    });
+};
+
+const serializeAws_restJson1AwsEc2NetworkAclDetails = (
+  input: AwsEc2NetworkAclDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Associations !== undefined &&
+      input.Associations !== null && {
+        Associations: serializeAws_restJson1AwsEc2NetworkAclAssociationList(input.Associations, context),
+      }),
+    ...(input.Entries !== undefined &&
+      input.Entries !== null && { Entries: serializeAws_restJson1AwsEc2NetworkAclEntryList(input.Entries, context) }),
+    ...(input.IsDefault !== undefined && input.IsDefault !== null && { IsDefault: input.IsDefault }),
+    ...(input.NetworkAclId !== undefined && input.NetworkAclId !== null && { NetworkAclId: input.NetworkAclId }),
+    ...(input.OwnerId !== undefined && input.OwnerId !== null && { OwnerId: input.OwnerId }),
+    ...(input.VpcId !== undefined && input.VpcId !== null && { VpcId: input.VpcId }),
+  };
+};
+
+const serializeAws_restJson1AwsEc2NetworkAclEntry = (input: AwsEc2NetworkAclEntry, context: __SerdeContext): any => {
+  return {
+    ...(input.CidrBlock !== undefined && input.CidrBlock !== null && { CidrBlock: input.CidrBlock }),
+    ...(input.Egress !== undefined && input.Egress !== null && { Egress: input.Egress }),
+    ...(input.IcmpTypeCode !== undefined &&
+      input.IcmpTypeCode !== null && { IcmpTypeCode: serializeAws_restJson1IcmpTypeCode(input.IcmpTypeCode, context) }),
+    ...(input.Ipv6CidrBlock !== undefined && input.Ipv6CidrBlock !== null && { Ipv6CidrBlock: input.Ipv6CidrBlock }),
+    ...(input.PortRange !== undefined &&
+      input.PortRange !== null && { PortRange: serializeAws_restJson1PortRangeFromTo(input.PortRange, context) }),
+    ...(input.Protocol !== undefined && input.Protocol !== null && { Protocol: input.Protocol }),
+    ...(input.RuleAction !== undefined && input.RuleAction !== null && { RuleAction: input.RuleAction }),
+    ...(input.RuleNumber !== undefined && input.RuleNumber !== null && { RuleNumber: input.RuleNumber }),
+  };
+};
+
+const serializeAws_restJson1AwsEc2NetworkAclEntryList = (
+  input: AwsEc2NetworkAclEntry[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AwsEc2NetworkAclEntry(entry, context);
+    });
+};
+
 const serializeAws_restJson1AwsEc2NetworkInterfaceAttachment = (
   input: AwsEc2NetworkInterfaceAttachment,
   context: __SerdeContext
@@ -7809,6 +7892,35 @@ const serializeAws_restJson1AwsEc2SecurityGroupUserIdGroupPairList = (
     });
 };
 
+const serializeAws_restJson1AwsEc2SubnetDetails = (input: AwsEc2SubnetDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.AssignIpv6AddressOnCreation !== undefined &&
+      input.AssignIpv6AddressOnCreation !== null && { AssignIpv6AddressOnCreation: input.AssignIpv6AddressOnCreation }),
+    ...(input.AvailabilityZone !== undefined &&
+      input.AvailabilityZone !== null && { AvailabilityZone: input.AvailabilityZone }),
+    ...(input.AvailabilityZoneId !== undefined &&
+      input.AvailabilityZoneId !== null && { AvailabilityZoneId: input.AvailabilityZoneId }),
+    ...(input.AvailableIpAddressCount !== undefined &&
+      input.AvailableIpAddressCount !== null && { AvailableIpAddressCount: input.AvailableIpAddressCount }),
+    ...(input.CidrBlock !== undefined && input.CidrBlock !== null && { CidrBlock: input.CidrBlock }),
+    ...(input.DefaultForAz !== undefined && input.DefaultForAz !== null && { DefaultForAz: input.DefaultForAz }),
+    ...(input.Ipv6CidrBlockAssociationSet !== undefined &&
+      input.Ipv6CidrBlockAssociationSet !== null && {
+        Ipv6CidrBlockAssociationSet: serializeAws_restJson1Ipv6CidrBlockAssociationList(
+          input.Ipv6CidrBlockAssociationSet,
+          context
+        ),
+      }),
+    ...(input.MapPublicIpOnLaunch !== undefined &&
+      input.MapPublicIpOnLaunch !== null && { MapPublicIpOnLaunch: input.MapPublicIpOnLaunch }),
+    ...(input.OwnerId !== undefined && input.OwnerId !== null && { OwnerId: input.OwnerId }),
+    ...(input.State !== undefined && input.State !== null && { State: input.State }),
+    ...(input.SubnetArn !== undefined && input.SubnetArn !== null && { SubnetArn: input.SubnetArn }),
+    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
+    ...(input.VpcId !== undefined && input.VpcId !== null && { VpcId: input.VpcId }),
+  };
+};
+
 const serializeAws_restJson1AwsEc2VolumeAttachment = (input: AwsEc2VolumeAttachment, context: __SerdeContext): any => {
   return {
     ...(input.AttachTime !== undefined && input.AttachTime !== null && { AttachTime: input.AttachTime }),
@@ -7863,6 +7975,109 @@ const serializeAws_restJson1AwsEc2VpcDetails = (input: AwsEc2VpcDetails, context
         ),
       }),
     ...(input.State !== undefined && input.State !== null && { State: input.State }),
+  };
+};
+
+const serializeAws_restJson1AwsElasticBeanstalkEnvironmentDetails = (
+  input: AwsElasticBeanstalkEnvironmentDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApplicationName !== undefined &&
+      input.ApplicationName !== null && { ApplicationName: input.ApplicationName }),
+    ...(input.Cname !== undefined && input.Cname !== null && { Cname: input.Cname }),
+    ...(input.DateCreated !== undefined && input.DateCreated !== null && { DateCreated: input.DateCreated }),
+    ...(input.DateUpdated !== undefined && input.DateUpdated !== null && { DateUpdated: input.DateUpdated }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.EndpointUrl !== undefined && input.EndpointUrl !== null && { EndpointUrl: input.EndpointUrl }),
+    ...(input.EnvironmentArn !== undefined &&
+      input.EnvironmentArn !== null && { EnvironmentArn: input.EnvironmentArn }),
+    ...(input.EnvironmentId !== undefined && input.EnvironmentId !== null && { EnvironmentId: input.EnvironmentId }),
+    ...(input.EnvironmentLinks !== undefined &&
+      input.EnvironmentLinks !== null && {
+        EnvironmentLinks: serializeAws_restJson1AwsElasticBeanstalkEnvironmentEnvironmentLinks(
+          input.EnvironmentLinks,
+          context
+        ),
+      }),
+    ...(input.EnvironmentName !== undefined &&
+      input.EnvironmentName !== null && { EnvironmentName: input.EnvironmentName }),
+    ...(input.OptionSettings !== undefined &&
+      input.OptionSettings !== null && {
+        OptionSettings: serializeAws_restJson1AwsElasticBeanstalkEnvironmentOptionSettings(
+          input.OptionSettings,
+          context
+        ),
+      }),
+    ...(input.PlatformArn !== undefined && input.PlatformArn !== null && { PlatformArn: input.PlatformArn }),
+    ...(input.SolutionStackName !== undefined &&
+      input.SolutionStackName !== null && { SolutionStackName: input.SolutionStackName }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
+    ...(input.Tier !== undefined &&
+      input.Tier !== null && { Tier: serializeAws_restJson1AwsElasticBeanstalkEnvironmentTier(input.Tier, context) }),
+    ...(input.VersionLabel !== undefined && input.VersionLabel !== null && { VersionLabel: input.VersionLabel }),
+  };
+};
+
+const serializeAws_restJson1AwsElasticBeanstalkEnvironmentEnvironmentLink = (
+  input: AwsElasticBeanstalkEnvironmentEnvironmentLink,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EnvironmentName !== undefined &&
+      input.EnvironmentName !== null && { EnvironmentName: input.EnvironmentName }),
+    ...(input.LinkName !== undefined && input.LinkName !== null && { LinkName: input.LinkName }),
+  };
+};
+
+const serializeAws_restJson1AwsElasticBeanstalkEnvironmentEnvironmentLinks = (
+  input: AwsElasticBeanstalkEnvironmentEnvironmentLink[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AwsElasticBeanstalkEnvironmentEnvironmentLink(entry, context);
+    });
+};
+
+const serializeAws_restJson1AwsElasticBeanstalkEnvironmentOptionSetting = (
+  input: AwsElasticBeanstalkEnvironmentOptionSetting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Namespace !== undefined && input.Namespace !== null && { Namespace: input.Namespace }),
+    ...(input.OptionName !== undefined && input.OptionName !== null && { OptionName: input.OptionName }),
+    ...(input.ResourceName !== undefined && input.ResourceName !== null && { ResourceName: input.ResourceName }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1AwsElasticBeanstalkEnvironmentOptionSettings = (
+  input: AwsElasticBeanstalkEnvironmentOptionSetting[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AwsElasticBeanstalkEnvironmentOptionSetting(entry, context);
+    });
+};
+
+const serializeAws_restJson1AwsElasticBeanstalkEnvironmentTier = (
+  input: AwsElasticBeanstalkEnvironmentTier,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Version !== undefined && input.Version !== null && { Version: input.Version }),
   };
 };
 
@@ -11012,6 +11227,13 @@ const serializeAws_restJson1GeoLocation = (input: GeoLocation, context: __SerdeC
   };
 };
 
+const serializeAws_restJson1IcmpTypeCode = (input: IcmpTypeCode, context: __SerdeContext): any => {
+  return {
+    ...(input.Code !== undefined && input.Code !== null && { Code: input.Code }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+  };
+};
+
 const serializeAws_restJson1IpFilter = (input: IpFilter, context: __SerdeContext): any => {
   return {
     ...(input.Cidr !== undefined && input.Cidr !== null && { Cidr: input.Cidr }),
@@ -11367,6 +11589,13 @@ const serializeAws_restJson1PortRange = (input: PortRange, context: __SerdeConte
   };
 };
 
+const serializeAws_restJson1PortRangeFromTo = (input: PortRangeFromTo, context: __SerdeContext): any => {
+  return {
+    ...(input.From !== undefined && input.From !== null && { From: input.From }),
+    ...(input.To !== undefined && input.To !== null && { To: input.To }),
+  };
+};
+
 const serializeAws_restJson1PortRangeList = (input: PortRange[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -11546,6 +11775,10 @@ const serializeAws_restJson1ResourceDetails = (input: ResourceDetails, context: 
       input.AwsEc2Instance !== null && {
         AwsEc2Instance: serializeAws_restJson1AwsEc2InstanceDetails(input.AwsEc2Instance, context),
       }),
+    ...(input.AwsEc2NetworkAcl !== undefined &&
+      input.AwsEc2NetworkAcl !== null && {
+        AwsEc2NetworkAcl: serializeAws_restJson1AwsEc2NetworkAclDetails(input.AwsEc2NetworkAcl, context),
+      }),
     ...(input.AwsEc2NetworkInterface !== undefined &&
       input.AwsEc2NetworkInterface !== null && {
         AwsEc2NetworkInterface: serializeAws_restJson1AwsEc2NetworkInterfaceDetails(
@@ -11557,12 +11790,23 @@ const serializeAws_restJson1ResourceDetails = (input: ResourceDetails, context: 
       input.AwsEc2SecurityGroup !== null && {
         AwsEc2SecurityGroup: serializeAws_restJson1AwsEc2SecurityGroupDetails(input.AwsEc2SecurityGroup, context),
       }),
+    ...(input.AwsEc2Subnet !== undefined &&
+      input.AwsEc2Subnet !== null && {
+        AwsEc2Subnet: serializeAws_restJson1AwsEc2SubnetDetails(input.AwsEc2Subnet, context),
+      }),
     ...(input.AwsEc2Volume !== undefined &&
       input.AwsEc2Volume !== null && {
         AwsEc2Volume: serializeAws_restJson1AwsEc2VolumeDetails(input.AwsEc2Volume, context),
       }),
     ...(input.AwsEc2Vpc !== undefined &&
       input.AwsEc2Vpc !== null && { AwsEc2Vpc: serializeAws_restJson1AwsEc2VpcDetails(input.AwsEc2Vpc, context) }),
+    ...(input.AwsElasticBeanstalkEnvironment !== undefined &&
+      input.AwsElasticBeanstalkEnvironment !== null && {
+        AwsElasticBeanstalkEnvironment: serializeAws_restJson1AwsElasticBeanstalkEnvironmentDetails(
+          input.AwsElasticBeanstalkEnvironment,
+          context
+        ),
+      }),
     ...(input.AwsElasticsearchDomain !== undefined &&
       input.AwsElasticsearchDomain !== null && {
         AwsElasticsearchDomain: serializeAws_restJson1AwsElasticsearchDomainDetails(
@@ -13483,6 +13727,88 @@ const deserializeAws_restJson1AwsEc2InstanceDetails = (output: any, context: __S
   } as any;
 };
 
+const deserializeAws_restJson1AwsEc2NetworkAclAssociation = (
+  output: any,
+  context: __SerdeContext
+): AwsEc2NetworkAclAssociation => {
+  return {
+    NetworkAclAssociationId:
+      output.NetworkAclAssociationId !== undefined && output.NetworkAclAssociationId !== null
+        ? output.NetworkAclAssociationId
+        : undefined,
+    NetworkAclId: output.NetworkAclId !== undefined && output.NetworkAclId !== null ? output.NetworkAclId : undefined,
+    SubnetId: output.SubnetId !== undefined && output.SubnetId !== null ? output.SubnetId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsEc2NetworkAclAssociationList = (
+  output: any,
+  context: __SerdeContext
+): AwsEc2NetworkAclAssociation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AwsEc2NetworkAclAssociation(entry, context);
+    });
+};
+
+const deserializeAws_restJson1AwsEc2NetworkAclDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsEc2NetworkAclDetails => {
+  return {
+    Associations:
+      output.Associations !== undefined && output.Associations !== null
+        ? deserializeAws_restJson1AwsEc2NetworkAclAssociationList(output.Associations, context)
+        : undefined,
+    Entries:
+      output.Entries !== undefined && output.Entries !== null
+        ? deserializeAws_restJson1AwsEc2NetworkAclEntryList(output.Entries, context)
+        : undefined,
+    IsDefault: output.IsDefault !== undefined && output.IsDefault !== null ? output.IsDefault : undefined,
+    NetworkAclId: output.NetworkAclId !== undefined && output.NetworkAclId !== null ? output.NetworkAclId : undefined,
+    OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsEc2NetworkAclEntry = (output: any, context: __SerdeContext): AwsEc2NetworkAclEntry => {
+  return {
+    CidrBlock: output.CidrBlock !== undefined && output.CidrBlock !== null ? output.CidrBlock : undefined,
+    Egress: output.Egress !== undefined && output.Egress !== null ? output.Egress : undefined,
+    IcmpTypeCode:
+      output.IcmpTypeCode !== undefined && output.IcmpTypeCode !== null
+        ? deserializeAws_restJson1IcmpTypeCode(output.IcmpTypeCode, context)
+        : undefined,
+    Ipv6CidrBlock:
+      output.Ipv6CidrBlock !== undefined && output.Ipv6CidrBlock !== null ? output.Ipv6CidrBlock : undefined,
+    PortRange:
+      output.PortRange !== undefined && output.PortRange !== null
+        ? deserializeAws_restJson1PortRangeFromTo(output.PortRange, context)
+        : undefined,
+    Protocol: output.Protocol !== undefined && output.Protocol !== null ? output.Protocol : undefined,
+    RuleAction: output.RuleAction !== undefined && output.RuleAction !== null ? output.RuleAction : undefined,
+    RuleNumber: output.RuleNumber !== undefined && output.RuleNumber !== null ? output.RuleNumber : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsEc2NetworkAclEntryList = (
+  output: any,
+  context: __SerdeContext
+): AwsEc2NetworkAclEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AwsEc2NetworkAclEntry(entry, context);
+    });
+};
+
 const deserializeAws_restJson1AwsEc2NetworkInterfaceAttachment = (
   output: any,
   context: __SerdeContext
@@ -13770,6 +14096,40 @@ const deserializeAws_restJson1AwsEc2SecurityGroupUserIdGroupPairList = (
     });
 };
 
+const deserializeAws_restJson1AwsEc2SubnetDetails = (output: any, context: __SerdeContext): AwsEc2SubnetDetails => {
+  return {
+    AssignIpv6AddressOnCreation:
+      output.AssignIpv6AddressOnCreation !== undefined && output.AssignIpv6AddressOnCreation !== null
+        ? output.AssignIpv6AddressOnCreation
+        : undefined,
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
+    AvailabilityZoneId:
+      output.AvailabilityZoneId !== undefined && output.AvailabilityZoneId !== null
+        ? output.AvailabilityZoneId
+        : undefined,
+    AvailableIpAddressCount:
+      output.AvailableIpAddressCount !== undefined && output.AvailableIpAddressCount !== null
+        ? output.AvailableIpAddressCount
+        : undefined,
+    CidrBlock: output.CidrBlock !== undefined && output.CidrBlock !== null ? output.CidrBlock : undefined,
+    DefaultForAz: output.DefaultForAz !== undefined && output.DefaultForAz !== null ? output.DefaultForAz : undefined,
+    Ipv6CidrBlockAssociationSet:
+      output.Ipv6CidrBlockAssociationSet !== undefined && output.Ipv6CidrBlockAssociationSet !== null
+        ? deserializeAws_restJson1Ipv6CidrBlockAssociationList(output.Ipv6CidrBlockAssociationSet, context)
+        : undefined,
+    MapPublicIpOnLaunch:
+      output.MapPublicIpOnLaunch !== undefined && output.MapPublicIpOnLaunch !== null
+        ? output.MapPublicIpOnLaunch
+        : undefined,
+    OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    SubnetArn: output.SubnetArn !== undefined && output.SubnetArn !== null ? output.SubnetArn : undefined,
+    SubnetId: output.SubnetId !== undefined && output.SubnetId !== null ? output.SubnetId : undefined,
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1AwsEc2VolumeAttachment = (
   output: any,
   context: __SerdeContext
@@ -13827,6 +14187,108 @@ const deserializeAws_restJson1AwsEc2VpcDetails = (output: any, context: __SerdeC
         ? deserializeAws_restJson1Ipv6CidrBlockAssociationList(output.Ipv6CidrBlockAssociationSet, context)
         : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElasticBeanstalkEnvironmentDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsElasticBeanstalkEnvironmentDetails => {
+  return {
+    ApplicationName:
+      output.ApplicationName !== undefined && output.ApplicationName !== null ? output.ApplicationName : undefined,
+    Cname: output.Cname !== undefined && output.Cname !== null ? output.Cname : undefined,
+    DateCreated: output.DateCreated !== undefined && output.DateCreated !== null ? output.DateCreated : undefined,
+    DateUpdated: output.DateUpdated !== undefined && output.DateUpdated !== null ? output.DateUpdated : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    EndpointUrl: output.EndpointUrl !== undefined && output.EndpointUrl !== null ? output.EndpointUrl : undefined,
+    EnvironmentArn:
+      output.EnvironmentArn !== undefined && output.EnvironmentArn !== null ? output.EnvironmentArn : undefined,
+    EnvironmentId:
+      output.EnvironmentId !== undefined && output.EnvironmentId !== null ? output.EnvironmentId : undefined,
+    EnvironmentLinks:
+      output.EnvironmentLinks !== undefined && output.EnvironmentLinks !== null
+        ? deserializeAws_restJson1AwsElasticBeanstalkEnvironmentEnvironmentLinks(output.EnvironmentLinks, context)
+        : undefined,
+    EnvironmentName:
+      output.EnvironmentName !== undefined && output.EnvironmentName !== null ? output.EnvironmentName : undefined,
+    OptionSettings:
+      output.OptionSettings !== undefined && output.OptionSettings !== null
+        ? deserializeAws_restJson1AwsElasticBeanstalkEnvironmentOptionSettings(output.OptionSettings, context)
+        : undefined,
+    PlatformArn: output.PlatformArn !== undefined && output.PlatformArn !== null ? output.PlatformArn : undefined,
+    SolutionStackName:
+      output.SolutionStackName !== undefined && output.SolutionStackName !== null
+        ? output.SolutionStackName
+        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Tier:
+      output.Tier !== undefined && output.Tier !== null
+        ? deserializeAws_restJson1AwsElasticBeanstalkEnvironmentTier(output.Tier, context)
+        : undefined,
+    VersionLabel: output.VersionLabel !== undefined && output.VersionLabel !== null ? output.VersionLabel : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElasticBeanstalkEnvironmentEnvironmentLink = (
+  output: any,
+  context: __SerdeContext
+): AwsElasticBeanstalkEnvironmentEnvironmentLink => {
+  return {
+    EnvironmentName:
+      output.EnvironmentName !== undefined && output.EnvironmentName !== null ? output.EnvironmentName : undefined,
+    LinkName: output.LinkName !== undefined && output.LinkName !== null ? output.LinkName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElasticBeanstalkEnvironmentEnvironmentLinks = (
+  output: any,
+  context: __SerdeContext
+): AwsElasticBeanstalkEnvironmentEnvironmentLink[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AwsElasticBeanstalkEnvironmentEnvironmentLink(entry, context);
+    });
+};
+
+const deserializeAws_restJson1AwsElasticBeanstalkEnvironmentOptionSetting = (
+  output: any,
+  context: __SerdeContext
+): AwsElasticBeanstalkEnvironmentOptionSetting => {
+  return {
+    Namespace: output.Namespace !== undefined && output.Namespace !== null ? output.Namespace : undefined,
+    OptionName: output.OptionName !== undefined && output.OptionName !== null ? output.OptionName : undefined,
+    ResourceName: output.ResourceName !== undefined && output.ResourceName !== null ? output.ResourceName : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElasticBeanstalkEnvironmentOptionSettings = (
+  output: any,
+  context: __SerdeContext
+): AwsElasticBeanstalkEnvironmentOptionSetting[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AwsElasticBeanstalkEnvironmentOptionSetting(entry, context);
+    });
+};
+
+const deserializeAws_restJson1AwsElasticBeanstalkEnvironmentTier = (
+  output: any,
+  context: __SerdeContext
+): AwsElasticBeanstalkEnvironmentTier => {
+  return {
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
   } as any;
 };
 
@@ -17257,6 +17719,13 @@ const deserializeAws_restJson1GeoLocation = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_restJson1IcmpTypeCode = (output: any, context: __SerdeContext): IcmpTypeCode => {
+  return {
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ImportFindingsError = (output: any, context: __SerdeContext): ImportFindingsError => {
   return {
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
@@ -17783,6 +18252,13 @@ const deserializeAws_restJson1PortRange = (output: any, context: __SerdeContext)
   } as any;
 };
 
+const deserializeAws_restJson1PortRangeFromTo = (output: any, context: __SerdeContext): PortRangeFromTo => {
+  return {
+    From: output.From !== undefined && output.From !== null ? output.From : undefined,
+    To: output.To !== undefined && output.To !== null ? output.To : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1PortRangeList = (output: any, context: __SerdeContext): PortRange[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -18009,6 +18485,10 @@ const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeCo
       output.AwsEc2Instance !== undefined && output.AwsEc2Instance !== null
         ? deserializeAws_restJson1AwsEc2InstanceDetails(output.AwsEc2Instance, context)
         : undefined,
+    AwsEc2NetworkAcl:
+      output.AwsEc2NetworkAcl !== undefined && output.AwsEc2NetworkAcl !== null
+        ? deserializeAws_restJson1AwsEc2NetworkAclDetails(output.AwsEc2NetworkAcl, context)
+        : undefined,
     AwsEc2NetworkInterface:
       output.AwsEc2NetworkInterface !== undefined && output.AwsEc2NetworkInterface !== null
         ? deserializeAws_restJson1AwsEc2NetworkInterfaceDetails(output.AwsEc2NetworkInterface, context)
@@ -18017,6 +18497,10 @@ const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeCo
       output.AwsEc2SecurityGroup !== undefined && output.AwsEc2SecurityGroup !== null
         ? deserializeAws_restJson1AwsEc2SecurityGroupDetails(output.AwsEc2SecurityGroup, context)
         : undefined,
+    AwsEc2Subnet:
+      output.AwsEc2Subnet !== undefined && output.AwsEc2Subnet !== null
+        ? deserializeAws_restJson1AwsEc2SubnetDetails(output.AwsEc2Subnet, context)
+        : undefined,
     AwsEc2Volume:
       output.AwsEc2Volume !== undefined && output.AwsEc2Volume !== null
         ? deserializeAws_restJson1AwsEc2VolumeDetails(output.AwsEc2Volume, context)
@@ -18024,6 +18508,10 @@ const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeCo
     AwsEc2Vpc:
       output.AwsEc2Vpc !== undefined && output.AwsEc2Vpc !== null
         ? deserializeAws_restJson1AwsEc2VpcDetails(output.AwsEc2Vpc, context)
+        : undefined,
+    AwsElasticBeanstalkEnvironment:
+      output.AwsElasticBeanstalkEnvironment !== undefined && output.AwsElasticBeanstalkEnvironment !== null
+        ? deserializeAws_restJson1AwsElasticBeanstalkEnvironmentDetails(output.AwsElasticBeanstalkEnvironment, context)
         : undefined,
     AwsElasticsearchDomain:
       output.AwsElasticsearchDomain !== undefined && output.AwsElasticsearchDomain !== null

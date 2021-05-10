@@ -354,6 +354,25 @@ export namespace ConnectorOperator {
   });
 }
 
+/**
+ * <p>The flag that enables the matching process of duplicate profiles.</p>
+ */
+export interface MatchingRequest {
+  /**
+   * <p>The flag that enables the matching process of duplicate profiles.</p>
+   */
+  Enabled: boolean | undefined;
+}
+
+export namespace MatchingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MatchingRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateDomainRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -381,6 +400,11 @@ export interface CreateDomainRequest {
   DeadLetterQueueUrl?: string;
 
   /**
+   * <p>The process of matching duplicate profiles. This process runs every Saturday at 12AM.</p>
+   */
+  Matching?: MatchingRequest;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
@@ -391,6 +415,25 @@ export namespace CreateDomainRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateDomainRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The flag that enables the matching process of duplicate profiles.</p>
+ */
+export interface MatchingResponse {
+  /**
+   * <p>The flag that enables the matching process of duplicate profiles.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace MatchingResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MatchingResponse): any => ({
     ...obj,
   });
 }
@@ -418,6 +461,11 @@ export interface CreateDomainResponse {
    *          ingesting data from third party applications.</p>
    */
   DeadLetterQueueUrl?: string;
+
+  /**
+   * <p>The process of matching duplicate profiles. This process runs every Saturday at 12AM.</p>
+   */
+  Matching?: MatchingResponse;
 
   /**
    * <p>The timestamp of when the domain was created.</p>
@@ -468,7 +516,7 @@ export interface CreateProfileRequest {
   AccountNumber?: string;
 
   /**
-   * <p>Any additional information relevant to the customer's profile.</p>
+   * <p>Any additional information relevant to the customer’s profile.</p>
    */
   AdditionalInformation?: string;
 
@@ -498,18 +546,18 @@ export interface CreateProfileRequest {
   LastName?: string;
 
   /**
-   * <p>The customer’s birth date.</p>
+   * <p>The customer’s birth date. </p>
    */
   BirthDate?: string;
 
   /**
-   * <p>The gender with which the customer identifies.</p>
+   * <p>The gender with which the customer identifies. </p>
    */
   Gender?: Gender | string;
 
   /**
-   * <p>The customer's phone number, which has not been specified as a mobile, home, or business
-   *          number.</p>
+   * <p>The customer’s phone number, which has not been specified as a mobile, home, or business
+   *          number. </p>
    */
   PhoneNumber?: string;
 
@@ -529,8 +577,8 @@ export interface CreateProfileRequest {
   BusinessPhoneNumber?: string;
 
   /**
-   * <p>The customer's email address, which has not been specified as a personal or business
-   *          address.</p>
+   * <p>The customer’s email address, which has not been specified as a personal or business
+   *          address. </p>
    */
   EmailAddress?: string;
 
@@ -835,7 +883,7 @@ export namespace DeleteProfileObjectTypeResponse {
 
 export interface GetDomainRequest {
   /**
-   * <p>A unique name for the domain.</p>
+   * <p>The unique name of the domain.</p>
    */
   DomainName: string | undefined;
 }
@@ -913,6 +961,11 @@ export interface GetDomainResponse {
    * <p>Usage-specific statistics about the domain.</p>
    */
   Stats?: DomainStats;
+
+  /**
+   * <p>The process of matching duplicate profiles. This process runs every Saturday at 12AM.</p>
+   */
+  Matching?: MatchingResponse;
 
   /**
    * <p>The timestamp of when the domain was created.</p>
@@ -997,6 +1050,88 @@ export namespace GetIntegrationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetIntegrationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMatchesRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+}
+
+export namespace GetMatchesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMatchesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The Match group object.</p>
+ */
+export interface MatchItem {
+  /**
+   * <p>The unique identifiers for this group of profiles that match.</p>
+   */
+  MatchId?: string;
+
+  /**
+   * <p>A list of identifiers for profiles that match.</p>
+   */
+  ProfileIds?: string[];
+}
+
+export namespace MatchItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MatchItem): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMatchesResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The timestamp this version of Match Result generated.</p>
+   */
+  MatchGenerationDate?: Date;
+
+  /**
+   * <p>The number of potential matches found.</p>
+   */
+  PotentialMatches?: number;
+
+  /**
+   * <p>The list of matched profiles for this instance.</p>
+   */
+  Matches?: MatchItem[];
+}
+
+export namespace GetMatchesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMatchesResponse): any => ({
     ...obj,
   });
 }
@@ -1723,6 +1858,174 @@ export namespace ListTagsForResourceResponse {
   });
 }
 
+/**
+ * <p>A duplicate customer profile that is to be merged into a main profile. </p>
+ */
+export interface FieldSourceProfileIds {
+  /**
+   * <p>A unique identifier for the account number field to be merged. </p>
+   */
+  AccountNumber?: string;
+
+  /**
+   * <p>A unique identifier for the additional information field to be merged.</p>
+   */
+  AdditionalInformation?: string;
+
+  /**
+   * <p>A unique identifier for the party type field to be merged.</p>
+   */
+  PartyType?: string;
+
+  /**
+   * <p>A unique identifier for the business name field to be merged.</p>
+   */
+  BusinessName?: string;
+
+  /**
+   * <p>A unique identifier for the first name field to be merged.</p>
+   */
+  FirstName?: string;
+
+  /**
+   * <p>A unique identifier for the middle name field to be merged.</p>
+   */
+  MiddleName?: string;
+
+  /**
+   * <p>A unique identifier for the last name field to be merged.</p>
+   */
+  LastName?: string;
+
+  /**
+   * <p>A unique identifier for the birthdate field to be merged.</p>
+   */
+  BirthDate?: string;
+
+  /**
+   * <p>A unique identifier for the gender field to be merged.</p>
+   */
+  Gender?: string;
+
+  /**
+   * <p>A unique identifier for the phone number field to be merged.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>A unique identifier for the mobile phone number field to be merged.</p>
+   */
+  MobilePhoneNumber?: string;
+
+  /**
+   * <p>A unique identifier for the home phone number field to be merged.</p>
+   */
+  HomePhoneNumber?: string;
+
+  /**
+   * <p>A unique identifier for the business phone number field to be merged.</p>
+   */
+  BusinessPhoneNumber?: string;
+
+  /**
+   * <p>A unique identifier for the email address field to be merged.</p>
+   */
+  EmailAddress?: string;
+
+  /**
+   * <p>A unique identifier for the personal email address field to be merged.</p>
+   */
+  PersonalEmailAddress?: string;
+
+  /**
+   * <p>A unique identifier for the party type field to be merged.</p>
+   */
+  BusinessEmailAddress?: string;
+
+  /**
+   * <p>A unique identifier for the party type field to be merged.</p>
+   */
+  Address?: string;
+
+  /**
+   * <p>A unique identifier for the shipping address field to be merged.</p>
+   */
+  ShippingAddress?: string;
+
+  /**
+   * <p>A unique identifier for the mailing address field to be merged.</p>
+   */
+  MailingAddress?: string;
+
+  /**
+   * <p>A unique identifier for the billing type field to be merged.</p>
+   */
+  BillingAddress?: string;
+
+  /**
+   * <p>A unique identifier for the attributes field to be merged.</p>
+   */
+  Attributes?: { [key: string]: string };
+}
+
+export namespace FieldSourceProfileIds {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FieldSourceProfileIds): any => ({
+    ...obj,
+  });
+}
+
+export interface MergeProfilesRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The identifier of the profile to be taken.</p>
+   */
+  MainProfileId: string | undefined;
+
+  /**
+   * <p>The identifier of the profile to be merged into MainProfileId.</p>
+   */
+  ProfileIdsToBeMerged: string[] | undefined;
+
+  /**
+   * <p>The identifiers of the fields in the profile that has the information you want to apply to the
+   *          merge. For example, say you want to merge EmailAddress from Profile1 into MainProfile. This would be the
+   *          identifier of the EmailAddress field in Profile1. </p>
+   */
+  FieldSourceProfileIds?: FieldSourceProfileIds;
+}
+
+export namespace MergeProfilesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MergeProfilesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface MergeProfilesResponse {
+  /**
+   * <p>A message that indicates the merge request is complete.</p>
+   */
+  Message?: string;
+}
+
+export namespace MergeProfilesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MergeProfilesResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum SourceConnectorType {
   MARKETO = "Marketo",
   S3 = "S3",
@@ -2125,8 +2428,8 @@ export namespace TriggerConfig {
 
 /**
  * <p>The configurations that control how Customer Profiles retrieves data from the source,
- *          Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf
- *          of customers.</p>
+ *          Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf of
+ *          customers.</p>
  */
 export interface FlowDefinition {
   /**
@@ -2446,10 +2749,9 @@ export interface SearchProfilesRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>A searchable identifier of a customer profile. The predefined keys you can use to search
-   *          include: _account, _profileId, _fullName, _phone, _email, _ctrContactId, _marketoLeadId,
-   *          _salesforceAccountId, _salesforceContactId, _zendeskUserId, _zendeskExternalId,
-   *          _serviceNowSystemId.</p>
+   * <p>A searchable identifier of a customer profile. The predefined keys you can use to search include: _account, _profileId,
+   *          _fullName, _phone, _email, _ctrContactId, _marketoLeadId, _salesforceAccountId,
+   *          _salesforceContactId, _zendeskUserId, _zendeskExternalId, _serviceNowSystemId.</p>
    */
   KeyName: string | undefined;
 
@@ -2483,7 +2785,7 @@ export interface Profile {
   AccountNumber?: string;
 
   /**
-   * <p>Any additional information relevant to the customer's profile.</p>
+   * <p>Any additional information relevant to the customer’s profile.</p>
    */
   AdditionalInformation?: string;
 
@@ -2513,12 +2815,12 @@ export interface Profile {
   LastName?: string;
 
   /**
-   * <p>The customer’s birth date.</p>
+   * <p>The customer’s birth date. </p>
    */
   BirthDate?: string;
 
   /**
-   * <p>The gender with which the customer identifies.</p>
+   * <p>The gender with which the customer identifies. </p>
    */
   Gender?: Gender | string;
 
@@ -2544,8 +2846,8 @@ export interface Profile {
   BusinessPhoneNumber?: string;
 
   /**
-   * <p>The customer's email address, which has not been specified as a personal or business
-   *          address.</p>
+   * <p>The customer’s email address, which has not been specified as a personal or business
+   *          address. </p>
    */
   EmailAddress?: string;
 
@@ -2682,7 +2984,7 @@ export namespace UntagResourceResponse {
 
 export interface UpdateDomainRequest {
   /**
-   * <p>The unique name for the domain.</p>
+   * <p>The unique name of the domain.</p>
    */
   DomainName: string | undefined;
 
@@ -2709,6 +3011,11 @@ export interface UpdateDomainRequest {
   DeadLetterQueueUrl?: string;
 
   /**
+   * <p>The process of matching duplicate profiles. This process runs every Saturday at 12AM.</p>
+   */
+  Matching?: MatchingRequest;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
@@ -2725,7 +3032,7 @@ export namespace UpdateDomainRequest {
 
 export interface UpdateDomainResponse {
   /**
-   * <p>The unique name for the domain.</p>
+   * <p>The unique name of the domain.</p>
    */
   DomainName: string | undefined;
 
@@ -2746,6 +3053,11 @@ export interface UpdateDomainResponse {
    *          ingesting data from third party applications.</p>
    */
   DeadLetterQueueUrl?: string;
+
+  /**
+   * <p>The process of matching duplicate profiles. This process runs every Saturday at 12AM.</p>
+   */
+  Matching?: MatchingResponse;
 
   /**
    * <p>The timestamp of when the domain was created.</p>
@@ -2848,7 +3160,7 @@ export interface UpdateProfileRequest {
   ProfileId: string | undefined;
 
   /**
-   * <p>Any additional information relevant to the customer's profile.</p>
+   * <p>Any additional information relevant to the customer’s profile.</p>
    */
   AdditionalInformation?: string;
 
@@ -2883,18 +3195,18 @@ export interface UpdateProfileRequest {
   LastName?: string;
 
   /**
-   * <p>The customer’s birth date.</p>
+   * <p>The customer’s birth date. </p>
    */
   BirthDate?: string;
 
   /**
-   * <p>The gender with which the customer identifies.</p>
+   * <p>The gender with which the customer identifies. </p>
    */
   Gender?: Gender | string;
 
   /**
-   * <p>The customer's phone number, which has not been specified as a mobile, home, or business
-   *          number.</p>
+   * <p>The customer’s phone number, which has not been specified as a mobile, home, or business
+   *          number. </p>
    */
   PhoneNumber?: string;
 
@@ -2914,8 +3226,8 @@ export interface UpdateProfileRequest {
   BusinessPhoneNumber?: string;
 
   /**
-   * <p>The customer's email address, which has not been specified as a personal or business
-   *          address.</p>
+   * <p>The customer’s email address, which has not been specified as a personal or business
+   *          address. </p>
    */
   EmailAddress?: string;
 

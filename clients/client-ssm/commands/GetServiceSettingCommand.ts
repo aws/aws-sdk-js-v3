@@ -33,7 +33,6 @@ export interface GetServiceSettingCommandOutput extends GetServiceSettingResult,
  *    permission for the setting. Use the <a>UpdateServiceSetting</a> API action to change
  *    the default setting. Or use the <a>ResetServiceSetting</a> to change the value back to
  *    the original value defined by the AWS service team.</p>
- *
  *          <p>Query the current service setting for the account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

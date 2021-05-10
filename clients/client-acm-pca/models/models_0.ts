@@ -428,6 +428,11 @@ export enum CertificateAuthorityType {
   SUBORDINATE = "SUBORDINATE",
 }
 
+export enum KeyStorageSecurityStandard {
+  FIPS_140_2_LEVEL_2_OR_HIGHER = "FIPS_140_2_LEVEL_2_OR_HIGHER",
+  FIPS_140_2_LEVEL_3_OR_HIGHER = "FIPS_140_2_LEVEL_3_OR_HIGHER",
+}
+
 /**
  * <p>Contains configuration information for a certificate revocation list (CRL). Your
  * 			private certificate authority (CA) creates base CRLs. Delta CRLs are not supported. You
@@ -437,7 +442,7 @@ export enum CertificateAuthorityType {
  * 			private CA copies the CNAME or the S3 bucket name to the <b>CRL
  * 				Distribution Points</b> extension of each certificate it issues. Your S3
  * 			bucket policy must give write permission to ACM Private CA. </p>
- * 		       <p>ACM Private CAA assets that are stored in Amazon S3 can be protected with encryption.
+ * 		       <p>ACM Private CA assets that are stored in Amazon S3 can be protected with encryption.
  *   For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption">Encrypting Your
  * 			CRLs</a>.</p>
  * 		       <p>Your private CA uses the value in the <b>ExpirationInDays</b> parameter to calculate the <b>nextUpdate</b> field in the CRL. The CRL is refreshed at 1/2 the age of next
@@ -656,6 +661,18 @@ export interface CreateCertificateAuthorityRequest {
    * 			PCA recognizes that you are requesting multiple certificate authorities.</p>
    */
   IdempotencyToken?: string;
+
+  /**
+   * <p>Specifies a cryptographic key management compliance standard used for handling CA
+   * 			keys.</p>
+   * 		       <p>Default: FIPS_140_2_LEVEL_3_OR_HIGHER</p>
+   * 		       <p>Note: AWS Region ap-northeast-3 supports only FIPS_140_2_LEVEL_2_OR_HIGHER. You must
+   * 			explicitly specify this parameter and value when creating a CA in that Region.
+   * 			Specifying a different value (or no value) results in an
+   * 				<code>InvalidArgsException</code> with the message "A certificate authority cannot
+   * 			be created in this region with the specified security standard."</p>
+   */
+  KeyStorageSecurityStandard?: KeyStorageSecurityStandard | string;
 
   /**
    * <p>Key-value pairs that will be attached to the new private CA. You can associate up to
@@ -1214,6 +1231,17 @@ export interface CertificateAuthority {
    * 				<code>PermanentDeletionTimeInDays</code> parameter of the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html">DeleteCertificateAuthorityRequest</a> action. </p>
    */
   RestorableUntil?: Date;
+
+  /**
+   * <p>Defines a cryptographic key management compliance standard used for handling CA keys. </p>
+   * 		       <p>Default: FIPS_140_2_LEVEL_3_OR_HIGHER</p>
+   * 		       <p>Note: AWS Region ap-northeast-3 supports only FIPS_140_2_LEVEL_2_OR_HIGHER. You must
+   * 			explicitly specify this parameter and value when creating a CA in that Region.
+   * 			Specifying a different value (or no value) results in an
+   * 				<code>InvalidArgsException</code> with the message "A certificate authority cannot
+   * 			be created in this region with the specified security standard."</p>
+   */
+  KeyStorageSecurityStandard?: KeyStorageSecurityStandard | string;
 }
 
 export namespace CertificateAuthority {
@@ -1731,8 +1759,8 @@ export namespace Extensions {
  * 				<code>APIPassthrough</code> or <code>APICSRPassthrough</code> template variant must
  * 			be selected, or else this parameter is ignored. </p>
  * 		       <p>If conflicting or duplicate certificate information is supplied from other sources,
- * 			ACM Private CA applies <a href="xxxxx">order of operation rules</a> to determine what
- * 			information is used.</p>
+ * 			ACM Private CA applies <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations">order of
+ * 				operation rules</a> to determine what information is used.</p>
  */
 export interface ApiPassthrough {
   /**
@@ -1850,8 +1878,8 @@ export interface IssueCertificateRequest {
    * 			be selected, or else this parameter is ignored. For more information about using these
    * 			templates, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html">Understanding Certificate Templates</a>.</p>
    * 		       <p>If conflicting or duplicate certificate information is supplied during certificate
-   * 			issuance, ACM Private CA applies <a href="xxxxx">order of operation rules</a> to determine
-   * 			what information is used.</p>
+   * 			issuance, ACM Private CA applies <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations">order of
+   * 				operation rules</a> to determine what information is used.</p>
    */
   ApiPassthrough?: ApiPassthrough;
 

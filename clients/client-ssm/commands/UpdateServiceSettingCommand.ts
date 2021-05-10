@@ -33,7 +33,6 @@ export interface UpdateServiceSettingCommandOutput extends UpdateServiceSettingR
  *    permission for the setting. Use the <a>GetServiceSetting</a> API action to view the
  *    current value. Or, use the <a>ResetServiceSetting</a> to change the value back to the
  *    original value defined by the AWS service team.</p>
- *
  *          <p>Update the service setting for the account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

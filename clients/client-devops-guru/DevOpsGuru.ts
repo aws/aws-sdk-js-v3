@@ -40,6 +40,11 @@ import {
   DescribeServiceIntegrationCommandOutput,
 } from "./commands/DescribeServiceIntegrationCommand";
 import {
+  GetCostEstimationCommand,
+  GetCostEstimationCommandInput,
+  GetCostEstimationCommandOutput,
+} from "./commands/GetCostEstimationCommand";
+import {
   GetResourceCollectionCommand,
   GetResourceCollectionCommandInput,
   GetResourceCollectionCommandOutput,
@@ -76,6 +81,11 @@ import {
   SearchInsightsCommandInput,
   SearchInsightsCommandOutput,
 } from "./commands/SearchInsightsCommand";
+import {
+  StartCostEstimationCommand,
+  StartCostEstimationCommandInput,
+  StartCostEstimationCommandOutput,
+} from "./commands/StartCostEstimationCommand";
 import {
   UpdateResourceCollectionCommand,
   UpdateResourceCollectionCommandInput,
@@ -325,7 +335,7 @@ export class DevOpsGuru extends DevOpsGuruClient {
    * <p>
    *    		Returns the number of open proactive insights, open reactive insights, and the Mean Time to Recover (MTTR) for all closed insights in
    *    		resource collections in your account. You specify the type of AWS resources collection. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the AWS resources that are defined in the stacks.
+   *       	only the AWS resources that are defined in the stacks. You can specify up to 500 AWS CloudFormation stacks.
    *    	</p>
    */
   public describeResourceCollectionHealth(
@@ -394,9 +404,45 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * <p>Returns an estimate of the monthly cost for DevOps Guru to analyze your AWS resources.
+   * 			For more information,
+   * 			see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html">Estimate your
+   * 			Amazon DevOps Guru costs</a> and
+   * 			<a href="http://aws.amazon.com/devops-guru/pricing/">Amazon DevOps Guru pricing</a>.</p>
+   */
+  public getCostEstimation(
+    args: GetCostEstimationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCostEstimationCommandOutput>;
+  public getCostEstimation(
+    args: GetCostEstimationCommandInput,
+    cb: (err: any, data?: GetCostEstimationCommandOutput) => void
+  ): void;
+  public getCostEstimation(
+    args: GetCostEstimationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCostEstimationCommandOutput) => void
+  ): void;
+  public getCostEstimation(
+    args: GetCostEstimationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCostEstimationCommandOutput) => void),
+    cb?: (err: any, data?: GetCostEstimationCommandOutput) => void
+  ): Promise<GetCostEstimationCommandOutput> | void {
+    const command = new GetCostEstimationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>
    *    		Returns lists AWS resources that are of the specified resource collection type. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the AWS resources that are defined in the stacks.
+   *       	only the AWS resources that are defined in the stacks. You can specify up to 500 AWS CloudFormation stacks.
    *    	</p>
    */
   public getResourceCollection(
@@ -696,9 +742,41 @@ export class DevOpsGuru extends DevOpsGuruClient {
   }
 
   /**
+   * <p>Starts the creation of an estimate of the monthly cost to analyze your AWS resources.</p>
+   */
+  public startCostEstimation(
+    args: StartCostEstimationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCostEstimationCommandOutput>;
+  public startCostEstimation(
+    args: StartCostEstimationCommandInput,
+    cb: (err: any, data?: StartCostEstimationCommandOutput) => void
+  ): void;
+  public startCostEstimation(
+    args: StartCostEstimationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCostEstimationCommandOutput) => void
+  ): void;
+  public startCostEstimation(
+    args: StartCostEstimationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartCostEstimationCommandOutput) => void),
+    cb?: (err: any, data?: StartCostEstimationCommandOutput) => void
+  ): Promise<StartCostEstimationCommandOutput> | void {
+    const command = new StartCostEstimationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p> Updates the collection of resources that DevOps Guru analyzes.
    * 			The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze
-   *       	only the AWS resources that are defined in the stacks. This method also creates the IAM role required for you
+   *       	only the AWS resources that are defined in the stacks. You can specify up to 500 AWS CloudFormation stacks. This method also creates the IAM role required for you
    * 			to use DevOps Guru. </p>
    */
   public updateResourceCollection(

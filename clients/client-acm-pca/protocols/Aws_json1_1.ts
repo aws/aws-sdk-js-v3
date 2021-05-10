@@ -2767,6 +2767,8 @@ const serializeAws_json1_1CreateCertificateAuthorityRequest = (
       input.CertificateAuthorityType !== null && { CertificateAuthorityType: input.CertificateAuthorityType }),
     ...(input.IdempotencyToken !== undefined &&
       input.IdempotencyToken !== null && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.KeyStorageSecurityStandard !== undefined &&
+      input.KeyStorageSecurityStandard !== null && { KeyStorageSecurityStandard: input.KeyStorageSecurityStandard }),
     ...(input.RevocationConfiguration !== undefined &&
       input.RevocationConfiguration !== null && {
         RevocationConfiguration: serializeAws_json1_1RevocationConfiguration(input.RevocationConfiguration, context),
@@ -3293,6 +3295,10 @@ const deserializeAws_json1_1CertificateAuthority = (output: any, context: __Serd
         : undefined,
     FailureReason:
       output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
+    KeyStorageSecurityStandard:
+      output.KeyStorageSecurityStandard !== undefined && output.KeyStorageSecurityStandard !== null
+        ? output.KeyStorageSecurityStandard
+        : undefined,
     LastStateChangeAt:
       output.LastStateChangeAt !== undefined && output.LastStateChangeAt !== null
         ? new Date(Math.round(output.LastStateChangeAt * 1000))

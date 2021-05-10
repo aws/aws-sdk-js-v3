@@ -1579,6 +1579,7 @@ export enum RobotSoftwareSuiteType {
 
 export enum RobotSoftwareSuiteVersionType {
   Dashing = "Dashing",
+  Foxy = "Foxy",
   Kinetic = "Kinetic",
   Melodic = "Melodic",
 }

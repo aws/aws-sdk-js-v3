@@ -31,7 +31,22 @@ export interface UpdateApplicationMaintenanceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates the configuration for the automatic maintenance that Kinesis Data Analytics performs on the application. For information about automatic application maintenance, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/maintenance.html">Kinesis Data Analytics for Apache Flink Maintenance</a>.</p>
+ * <p>Updates the maintenance configuration of the Kinesis Data Analytics application. </p>
+ *          <p>You can invoke this operation on an application that is in one of the two following
+ *       states: <code>READY</code> or <code>RUNNING</code>. If you invoke it when the application is
+ *       in a state other than these two states, it throws a <code>ResourceInUseException</code>. The
+ *       service makes use of the updated configuration the next time it schedules maintenance for the
+ *       application. If you invoke this operation after the service schedules maintenance, the service
+ *       will apply the configuration update the next time it schedules maintenance for the
+ *       application. This means that you might not see the maintenance configuration update applied to
+ *       the maintenance process that follows a successful invocation of this operation, but to the
+ *       following maintenance process instead.</p>
+ *          <p>To see the current maintenance configuration of your application, invoke the
+ *       <a>DescribeApplication</a> operation.</p>
+ *          <p>For information about application maintenance, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/maintenance.html">Kinesis Data Analytics for Apache Flink Maintenance</a>.</p>
+ *          <note>
+ *             <p>This operation is supported only for Amazon Kinesis Data Analytics for Apache Flink.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

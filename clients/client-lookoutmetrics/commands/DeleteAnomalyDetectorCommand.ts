@@ -22,7 +22,7 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
 
 /**
  * <p>Deletes a detector. Deleting an anomaly detector will delete all of its corresponding resources including any
- *       configured datasets and alerts. </p>
+ *       configured datasets and alerts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

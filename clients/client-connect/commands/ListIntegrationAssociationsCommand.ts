@@ -23,8 +23,7 @@ export interface ListIntegrationAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Provides summary information about the AppIntegration associations for the specified Amazon Connect
+ * <p>Provides summary information about the AppIntegration associations for the specified Amazon Connect
  *    instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -21,8 +21,7 @@ export interface DeleteIntegrationAssociationCommandInput extends DeleteIntegrat
 export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Deletes an AppIntegration association from an Amazon Connect instance. The association must not have
+ * <p>Deletes an AppIntegration association from an Amazon Connect instance. The association must not have
  *    any use cases associated with it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

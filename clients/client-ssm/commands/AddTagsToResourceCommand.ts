@@ -29,7 +29,6 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  *    instances that helps you track each instance's owner and stack level. For example: Key=Owner and
  *    Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or
  *    Test.</p>
- *
  *          <p>Each resource can have a maximum of 50 tags. </p>
  *          <p>We recommend that you devise a set of tag keys that meets your needs for each resource type.
  *    Using a consistent set of tag keys makes it easier for you to manage your resources. You can

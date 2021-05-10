@@ -1697,7 +1697,13 @@ export const serializeAws_restJson1UpdateWirelessGatewayCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.JoinEuiFilters !== undefined &&
+      input.JoinEuiFilters !== null && {
+        JoinEuiFilters: serializeAws_restJson1JoinEuiFilters(input.JoinEuiFilters, context),
+      }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.NetIdFilters !== undefined &&
+      input.NetIdFilters !== null && { NetIdFilters: serializeAws_restJson1NetIdFilters(input.NetIdFilters, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -6484,6 +6490,28 @@ const serializeAws_restJson1FactoryPresetFreqsList = (input: number[], context: 
     });
 };
 
+const serializeAws_restJson1JoinEuiFilters = (input: string[][], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1JoinEuiRange(entry, context);
+    });
+};
+
+const serializeAws_restJson1JoinEuiRange = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1LoRaWANDevice = (input: LoRaWANDevice, context: __SerdeContext): any => {
   return {
     ...(input.AbpV1_0_x !== undefined &&
@@ -6537,7 +6565,15 @@ const serializeAws_restJson1LoRaWANDeviceProfile = (input: LoRaWANDeviceProfile,
 const serializeAws_restJson1LoRaWANGateway = (input: LoRaWANGateway, context: __SerdeContext): any => {
   return {
     ...(input.GatewayEui !== undefined && input.GatewayEui !== null && { GatewayEui: input.GatewayEui }),
+    ...(input.JoinEuiFilters !== undefined &&
+      input.JoinEuiFilters !== null && {
+        JoinEuiFilters: serializeAws_restJson1JoinEuiFilters(input.JoinEuiFilters, context),
+      }),
+    ...(input.NetIdFilters !== undefined &&
+      input.NetIdFilters !== null && { NetIdFilters: serializeAws_restJson1NetIdFilters(input.NetIdFilters, context) }),
     ...(input.RfRegion !== undefined && input.RfRegion !== null && { RfRegion: input.RfRegion }),
+    ...(input.SubBands !== undefined &&
+      input.SubBands !== null && { SubBands: serializeAws_restJson1SubBands(input.SubBands, context) }),
   };
 };
 
@@ -6591,6 +6627,17 @@ const serializeAws_restJson1LoRaWANUpdateGatewayTaskCreate = (
         UpdateVersion: serializeAws_restJson1LoRaWANGatewayVersion(input.UpdateVersion, context),
       }),
   };
+};
+
+const serializeAws_restJson1NetIdFilters = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1OtaaV1_0_x = (input: OtaaV1_0_x, context: __SerdeContext): any => {
@@ -6647,6 +6694,17 @@ const serializeAws_restJson1SidewalkUpdateAccount = (input: SidewalkUpdateAccoun
     ...(input.AppServerPrivateKey !== undefined &&
       input.AppServerPrivateKey !== null && { AppServerPrivateKey: input.AppServerPrivateKey }),
   };
+};
+
+const serializeAws_restJson1SubBands = (input: number[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -6783,6 +6841,28 @@ const deserializeAws_restJson1FactoryPresetFreqsList = (output: any, context: __
     });
 };
 
+const deserializeAws_restJson1JoinEuiFilters = (output: any, context: __SerdeContext): string[][] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1JoinEuiRange(entry, context);
+    });
+};
+
+const deserializeAws_restJson1JoinEuiRange = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const deserializeAws_restJson1LoRaWANDevice = (output: any, context: __SerdeContext): LoRaWANDevice => {
   return {
     AbpV1_0_x:
@@ -6864,7 +6944,19 @@ const deserializeAws_restJson1LoRaWANDeviceProfile = (output: any, context: __Se
 const deserializeAws_restJson1LoRaWANGateway = (output: any, context: __SerdeContext): LoRaWANGateway => {
   return {
     GatewayEui: output.GatewayEui !== undefined && output.GatewayEui !== null ? output.GatewayEui : undefined,
+    JoinEuiFilters:
+      output.JoinEuiFilters !== undefined && output.JoinEuiFilters !== null
+        ? deserializeAws_restJson1JoinEuiFilters(output.JoinEuiFilters, context)
+        : undefined,
+    NetIdFilters:
+      output.NetIdFilters !== undefined && output.NetIdFilters !== null
+        ? deserializeAws_restJson1NetIdFilters(output.NetIdFilters, context)
+        : undefined,
     RfRegion: output.RfRegion !== undefined && output.RfRegion !== null ? output.RfRegion : undefined,
+    SubBands:
+      output.SubBands !== undefined && output.SubBands !== null
+        ? deserializeAws_restJson1SubBands(output.SubBands, context)
+        : undefined,
   } as any;
 };
 
@@ -6991,6 +7083,17 @@ const deserializeAws_restJson1LoRaWANUpdateGatewayTaskEntry = (
   } as any;
 };
 
+const deserializeAws_restJson1NetIdFilters = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const deserializeAws_restJson1OtaaV1_0_x = (output: any, context: __SerdeContext): OtaaV1_0_x => {
   return {
     AppEui: output.AppEui !== undefined && output.AppEui !== null ? output.AppEui : undefined,
@@ -7115,6 +7218,17 @@ const deserializeAws_restJson1SidewalkListDevice = (output: any, context: __Serd
         ? output.SidewalkManufacturingSn
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1SubBands = (output: any, context: __SerdeContext): number[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {

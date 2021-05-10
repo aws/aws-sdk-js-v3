@@ -65,6 +65,10 @@ import {
   DescribeApplicationSnapshotCommandOutput,
 } from "./commands/DescribeApplicationSnapshotCommand";
 import {
+  DescribeApplicationVersionCommandInput,
+  DescribeApplicationVersionCommandOutput,
+} from "./commands/DescribeApplicationVersionCommand";
+import {
   DiscoverInputSchemaCommandInput,
   DiscoverInputSchemaCommandOutput,
 } from "./commands/DiscoverInputSchemaCommand";
@@ -72,11 +76,19 @@ import {
   ListApplicationSnapshotsCommandInput,
   ListApplicationSnapshotsCommandOutput,
 } from "./commands/ListApplicationSnapshotsCommand";
+import {
+  ListApplicationVersionsCommandInput,
+  ListApplicationVersionsCommandOutput,
+} from "./commands/ListApplicationVersionsCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  RollbackApplicationCommandInput,
+  RollbackApplicationCommandOutput,
+} from "./commands/RollbackApplicationCommand";
 import { StartApplicationCommandInput, StartApplicationCommandOutput } from "./commands/StartApplicationCommand";
 import { StopApplicationCommandInput, StopApplicationCommandOutput } from "./commands/StopApplicationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -156,10 +168,13 @@ export type ServiceInputTypes =
   | DeleteApplicationVpcConfigurationCommandInput
   | DescribeApplicationCommandInput
   | DescribeApplicationSnapshotCommandInput
+  | DescribeApplicationVersionCommandInput
   | DiscoverInputSchemaCommandInput
   | ListApplicationSnapshotsCommandInput
+  | ListApplicationVersionsCommandInput
   | ListApplicationsCommandInput
   | ListTagsForResourceCommandInput
+  | RollbackApplicationCommandInput
   | StartApplicationCommandInput
   | StopApplicationCommandInput
   | TagResourceCommandInput
@@ -186,10 +201,13 @@ export type ServiceOutputTypes =
   | DeleteApplicationVpcConfigurationCommandOutput
   | DescribeApplicationCommandOutput
   | DescribeApplicationSnapshotCommandOutput
+  | DescribeApplicationVersionCommandOutput
   | DiscoverInputSchemaCommandOutput
   | ListApplicationSnapshotsCommandOutput
+  | ListApplicationVersionsCommandOutput
   | ListApplicationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | RollbackApplicationCommandOutput
   | StartApplicationCommandOutput
   | StopApplicationCommandOutput
   | TagResourceCommandOutput

@@ -1162,7 +1162,7 @@ export interface OutputChannelMapping {
   InputChannels?: number[];
 
   /**
-   * Use this setting to specify your remix values when they have a decimal component, such as  -10.312, 0.08, or 4.9. MediaConvert rounds your remixing values to the nearest thousandth.
+   * Use this setting to specify your remix values when they have a decimal component, such as -10.312, 0.08, or 4.9. MediaConvert rounds your remixing values to the nearest thousandth.
    */
   InputChannelsFineTune?: number[];
 }
@@ -1468,6 +1468,12 @@ export enum DvbSubtitleBackgroundColor {
   WHITE = "WHITE",
 }
 
+export enum DvbddsHandling {
+  NONE = "NONE",
+  NO_DISPLAY_WINDOW = "NO_DISPLAY_WINDOW",
+  SPECIFIED = "SPECIFIED",
+}
+
 export enum DvbSubtitleFontColor {
   BLACK = "BLACK",
   BLUE = "BLUE",
@@ -1523,6 +1529,21 @@ export interface DvbSubDestinationSettings {
   BackgroundOpacity?: number;
 
   /**
+   * Specify how MediaConvert handles the display definition segment (DDS). Keep the default, None (NONE), to exclude the DDS from this set of captions. Choose No display window (NO_DISPLAY_WINDOW) to have MediaConvert include the DDS but not include display window data. In this case, MediaConvert writes that information to the page composition segment (PCS) instead. Choose Specify (SPECIFIED) to have MediaConvert set up the display window based on the values that you specify in related job settings. For video resolutions that are 576 pixels or smaller in height, MediaConvert doesn't include the DDS, regardless of the value you choose for DDS handling (ddsHandling). In this case, it doesn't write the display window data to the PCS either. Related settings: Use the settings DDS x-coordinate (ddsXCoordinate) and DDS y-coordinate (ddsYCoordinate) to specify the offset between the top left corner of the display window and the top left corner of the video frame. All burn-in and DVB-Sub font settings must match.
+   */
+  DdsHandling?: DvbddsHandling | string;
+
+  /**
+   * Use this setting, along with DDS y-coordinate (ddsYCoordinate), to specify the upper left corner of the display definition segment (DDS) display window. With this setting, specify the distance, in pixels, between the left side of the frame and the left side of the DDS display window. Keep the default value, 0, to have MediaConvert automatically choose this offset. Related setting: When you use this setting, you must set DDS handling (ddsHandling) to a value other than None (NONE). MediaConvert uses these values to determine whether to write page position data to the DDS or to the page composition segment (PCS). All burn-in and DVB-Sub font settings must match.
+   */
+  DdsXCoordinate?: number;
+
+  /**
+   * Use this setting, along with DDS x-coordinate (ddsXCoordinate), to specify the upper left corner of the display definition segment (DDS) display window. With this setting, specify the distance, in pixels, between the top of the frame and the top of the DDS display window. Keep the default value, 0, to have MediaConvert automatically choose this offset. Related setting: When you use this setting, you must set DDS handling (ddsHandling) to a value other than None (NONE). MediaConvert uses these values to determine whether to write page position data to the DDS or to the page composition segment (PCS). All burn-in and DVB-Sub font settings must match.
+   */
+  DdsYCoordinate?: number;
+
+  /**
    * Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
    */
   FontColor?: DvbSubtitleFontColor | string;
@@ -1548,6 +1569,11 @@ export interface DvbSubDestinationSettings {
    * A positive integer indicates the exact font size in points. Set to 0 for automatic font size selection. All burn-in and DVB-Sub font settings must match.
    */
   FontSize?: number;
+
+  /**
+   * Specify the height, in pixels, of this set of DVB-Sub captions. The default value is 576 pixels. Related setting: When you use this setting, you must set DDS handling (ddsHandling) to a value other than None (NONE). All burn-in and DVB-Sub font settings must match.
+   */
+  Height?: number;
 
   /**
    * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
@@ -1589,6 +1615,11 @@ export interface DvbSubDestinationSettings {
    * Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.
    */
   TeletextSpacing?: DvbSubtitleTeletextSpacing | string;
+
+  /**
+   * Specify the width, in pixels, of this set of DVB-Sub captions. The default value is 720 pixels. Related setting: When you use this setting, you must set DDS handling (ddsHandling) to a value other than None (NONE). All burn-in and DVB-Sub font settings must match.
+   */
+  Width?: number;
 
   /**
    * Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit x_position is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
@@ -2790,6 +2821,12 @@ export enum InputRotate {
   DEGREE_0 = "DEGREE_0",
 }
 
+export enum InputSampleRange {
+  FOLLOW = "FOLLOW",
+  FULL_RANGE = "FULL_RANGE",
+  LIMITED_RANGE = "LIMITED_RANGE",
+}
+
 /**
  * Input video selectors contain the video settings for the input. Each of your inputs can have up to one video selector.
  */
@@ -2828,6 +2865,11 @@ export interface VideoSelector {
    * Use Rotate (InputRotate) to specify how the service rotates your video. You can choose automatic rotation or specify a rotation. You can specify a clockwise rotation of 0, 90, 180, or 270 degrees. If your input video container is .mov or .mp4 and your input has rotation metadata, you can choose Automatic to have the service rotate your video according to the rotation specified in the metadata. The rotation must be within one degree of 90, 180, or 270 degrees. If the rotation metadata specifies any other rotation, the service will default to no rotation. By default, the service does no rotation, even if your input video has rotation metadata. The service doesn't pass through rotation metadata.
    */
   Rotate?: InputRotate | string;
+
+  /**
+   * Use this setting when your input video codec is AVC-Intra. Ignore this setting for all other inputs. If the sample range metadata in your input video is accurate, or if you don't know about sample range, keep the default value, Follow (FOLLOW), for this setting. When you do, the service automatically detects your input sample range. If your input video has metadata indicating the wrong sample range, specify the accurate sample range here. When you do, MediaConvert ignores any sample range information in the input metadata. Regardless of whether MediaConvert uses the input sample range or the sample range that you specify, MediaConvert uses the sample range for transcoding and also writes it to the output metadata.
+   */
+  SampleRange?: InputSampleRange | string;
 }
 
 export namespace VideoSelector {
@@ -3299,6 +3341,85 @@ export namespace EsamSettings {
    * @internal
    */
   export const filterSensitiveLog = (obj: EsamSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Use these settings only when you use Kantar watermarking. Specify the values that MediaConvert uses to generate and place Kantar watermarks in your output audio. These settings apply to every output in your job. In addition to specifying these values, you also need to store your Kantar credentials in AWS Secrets Manager. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/kantar-watermarking.html.
+ */
+export interface KantarWatermarkSettings {
+  /**
+   * Provide an audio channel name from your Kantar audio license.
+   */
+  ChannelName?: string;
+
+  /**
+   * Specify a unique identifier for Kantar to use for this piece of content.
+   */
+  ContentReference?: string;
+
+  /**
+   * Provide the name of the AWS Secrets Manager secret where your Kantar credentials are stored. Note that your MediaConvert service role must provide access to this secret. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/granting-permissions-for-mediaconvert-to-access-secrets-manager-secret.html. For instructions on creating a secret, see https://docs.aws.amazon.com/secretsmanager/latest/userguide/tutorials_basic.html, in the AWS Secrets Manager User Guide.
+   */
+  CredentialsSecretName?: string;
+
+  /**
+   * Optional. Specify an offset, in whole seconds, from the start of your output and the beginning of the watermarking. When you don't specify an offset, Kantar defaults to zero.
+   */
+  FileOffset?: number;
+
+  /**
+   * Provide your Kantar license ID number. You should get this number from Kantar.
+   */
+  KantarLicenseId?: number;
+
+  /**
+   * Provide the HTTPS endpoint to the Kantar server. You should get this endpoint from Kantar.
+   */
+  KantarServerUrl?: string;
+
+  /**
+   * Optional. Specify the Amazon S3 bucket where you want MediaConvert to store your Kantar watermark XML logs. When you don't specify a bucket, MediaConvert doesn't save these logs. Note that your MediaConvert service role must provide access to this location. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html
+   */
+  LogDestination?: string;
+
+  /**
+   * You can optionally use this field to specify the first timestamp that Kantar embeds during watermarking. Kantar suggests that you be very cautious when using this Kantar feature, and that you use it only on channels that are managed specifically for use with this feature by your Audience Measurement Operator. For more information about this feature, contact Kantar technical support.
+   */
+  Metadata3?: string;
+
+  /**
+   * Additional metadata that MediaConvert sends to Kantar. Maximum length is 50 characters.
+   */
+  Metadata4?: string;
+
+  /**
+   * Additional metadata that MediaConvert sends to Kantar. Maximum length is 50 characters.
+   */
+  Metadata5?: string;
+
+  /**
+   * Additional metadata that MediaConvert sends to Kantar. Maximum length is 50 characters.
+   */
+  Metadata6?: string;
+
+  /**
+   * Additional metadata that MediaConvert sends to Kantar. Maximum length is 50 characters.
+   */
+  Metadata7?: string;
+
+  /**
+   * Additional metadata that MediaConvert sends to Kantar. Maximum length is 50 characters.
+   */
+  Metadata8?: string;
+}
+
+export namespace KantarWatermarkSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KantarWatermarkSettings): any => ({
     ...obj,
   });
 }
@@ -5141,6 +5262,11 @@ export interface M3u8Settings {
   AudioPids?: number[];
 
   /**
+   * Specify the maximum time, in milliseconds, between Program Clock References (PCRs) inserted into the transport stream.
+   */
+  MaxPcrInterval?: number;
+
+  /**
    * If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
    */
   NielsenId3?: M3u8NielsenId3 | string;
@@ -5653,90 +5779,4 @@ export enum Av1RateControlMode {
 export enum Av1SpatialAdaptiveQuantization {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
-}
-
-/**
- * Required when you set Codec, under VideoDescription>CodecSettings to the value AV1.
- */
-export interface Av1Settings {
-  /**
-   * Specify the strength of any adaptive quantization filters that you enable. The value that you choose here applies to Spatial adaptive quantization (spatialAdaptiveQuantization).
-   */
-  AdaptiveQuantization?: Av1AdaptiveQuantization | string;
-
-  /**
-   * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the settings FramerateNumerator and FramerateDenominator.
-   */
-  FramerateControl?: Av1FramerateControl | string;
-
-  /**
-   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
-   */
-  FramerateConversionAlgorithm?: Av1FramerateConversionAlgorithm | string;
-
-  /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
-   */
-  FramerateDenominator?: number;
-
-  /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
-   */
-  FramerateNumerator?: number;
-
-  /**
-   * Specify the GOP length (keyframe interval) in frames. With AV1, MediaConvert doesn't support GOP length in seconds. This value must be greater than zero and preferably equal to 1 + ((numberBFrames + 1) * x), where x is an integer value.
-   */
-  GopSize?: number;
-
-  /**
-   * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate control mode is QVBR.
-   */
-  MaxBitrate?: number;
-
-  /**
-   * Specify from the number of B-frames, in the range of 0-15. For AV1 encoding, we recommend using 7 or 15. Choose a larger number for a lower bitrate and smaller file size; choose a smaller number for better video quality.
-   */
-  NumberBFramesBetweenReferenceFrames?: number;
-
-  /**
-   * Settings for quality-defined variable bitrate encoding with the AV1 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate control mode.
-   */
-  QvbrSettings?: Av1QvbrSettings;
-
-  /**
-   * 'With AV1 outputs, for rate control mode, MediaConvert supports only quality-defined variable bitrate (QVBR). You can''t use CBR or VBR.'
-   */
-  RateControlMode?: Av1RateControlMode | string;
-
-  /**
-   * Specify the number of slices per picture. This value must be 1, 2, 4, 8, 16, or 32. For progressive pictures, this value must be less than or equal to the number of macroblock rows. For interlaced pictures, this value must be less than or equal to half the number of macroblock rows.
-   */
-  Slices?: number;
-
-  /**
-   * Keep the default value, Enabled (ENABLED), to adjust quantization within each frame based on spatial variation of content complexity. When you enable this feature, the encoder uses fewer bits on areas that can sustain more distortion with no noticeable visual degradation and uses more bits on areas where any small distortion will be noticeable. For example, complex textured blocks are encoded with fewer bits and smooth textured blocks are encoded with more bits. Enabling this feature will almost always improve your video quality. Note, though, that this feature doesn't take into account where the viewer's attention is likely to be. If viewers are likely to be focusing their attention on a part of the screen with a lot of complex texture, you might choose to disable this feature. Related setting: When you enable spatial adaptive quantization, set the value for Adaptive quantization (adaptiveQuantization) depending on your content. For homogeneous content, such as cartoons and video games, set it to Low. For content with a wider variety of textures, set it to High or Higher.
-   */
-  SpatialAdaptiveQuantization?: Av1SpatialAdaptiveQuantization | string;
-}
-
-export namespace Av1Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Av1Settings): any => ({
-    ...obj,
-  });
-}
-
-export enum AvcIntraClass {
-  CLASS_100 = "CLASS_100",
-  CLASS_200 = "CLASS_200",
-  CLASS_4K_2K = "CLASS_4K_2K",
-  CLASS_50 = "CLASS_50",
-}
-
-export enum AvcIntraUhdQualityTuningLevel {
-  MULTI_PASS = "MULTI_PASS",
-  SINGLE_PASS = "SINGLE_PASS",
 }

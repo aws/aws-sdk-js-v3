@@ -4,6 +4,10 @@ import { CreateAddressCommandInput, CreateAddressCommandOutput } from "../comman
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "../commands/CreateClusterCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "../commands/CreateJobCommand";
 import {
+  CreateLongTermPricingCommandInput,
+  CreateLongTermPricingCommandOutput,
+} from "../commands/CreateLongTermPricingCommand";
+import {
   CreateReturnShippingLabelCommandInput,
   CreateReturnShippingLabelCommandOutput,
 } from "../commands/CreateReturnShippingLabelCommand";
@@ -26,12 +30,20 @@ import {
   ListCompatibleImagesCommandOutput,
 } from "../commands/ListCompatibleImagesCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
+import {
+  ListLongTermPricingCommandInput,
+  ListLongTermPricingCommandOutput,
+} from "../commands/ListLongTermPricingCommand";
 import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "../commands/UpdateClusterCommand";
 import { UpdateJobCommandInput, UpdateJobCommandOutput } from "../commands/UpdateJobCommand";
 import {
   UpdateJobShipmentStateCommandInput,
   UpdateJobShipmentStateCommandOutput,
 } from "../commands/UpdateJobShipmentStateCommand";
+import {
+  UpdateLongTermPricingCommandInput,
+  UpdateLongTermPricingCommandOutput,
+} from "../commands/UpdateLongTermPricingCommand";
 import {
   Address,
   CancelClusterRequest,
@@ -49,6 +61,8 @@ import {
   CreateClusterResult,
   CreateJobRequest,
   CreateJobResult,
+  CreateLongTermPricingRequest,
+  CreateLongTermPricingResult,
   CreateReturnShippingLabelRequest,
   CreateReturnShippingLabelResult,
   DataTransfer,
@@ -96,6 +110,9 @@ import {
   ListCompatibleImagesResult,
   ListJobsRequest,
   ListJobsResult,
+  ListLongTermPricingRequest,
+  ListLongTermPricingResult,
+  LongTermPricingListEntry,
   Notification,
   ReturnShippingLabelAlreadyExistsException,
   S3Resource,
@@ -110,6 +127,8 @@ import {
   UpdateJobResult,
   UpdateJobShipmentStateRequest,
   UpdateJobShipmentStateResult,
+  UpdateLongTermPricingRequest,
+  UpdateLongTermPricingResult,
   WirelessConnection,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -184,6 +203,19 @@ export const serializeAws_json1_1CreateJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateLongTermPricingCommand = async (
+  input: CreateLongTermPricingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSIESnowballJobManagementService.CreateLongTermPricing",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateLongTermPricingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -369,6 +401,19 @@ export const serializeAws_json1_1ListJobsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListLongTermPricingCommand = async (
+  input: ListLongTermPricingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSIESnowballJobManagementService.ListLongTermPricing",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListLongTermPricingRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateClusterCommand = async (
   input: UpdateClusterCommandInput,
   context: __SerdeContext
@@ -405,6 +450,19 @@ export const serializeAws_json1_1UpdateJobShipmentStateCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateJobShipmentStateRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateLongTermPricingCommand = async (
+  input: UpdateLongTermPricingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSIESnowballJobManagementService.UpdateLongTermPricing",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateLongTermPricingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -753,6 +811,60 @@ const deserializeAws_json1_1CreateJobCommandError = async (
     case "com.amazonaws.snowball#KMSRequestFailedException":
       response = {
         ...(await deserializeAws_json1_1KMSRequestFailedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateLongTermPricingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLongTermPricingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateLongTermPricingCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateLongTermPricingResult(data, context);
+  const response: CreateLongTermPricingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateLongTermPricingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLongTermPricingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1618,6 +1730,68 @@ const deserializeAws_json1_1ListJobsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListLongTermPricingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLongTermPricingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListLongTermPricingCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListLongTermPricingResult(data, context);
+  const response: ListLongTermPricingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListLongTermPricingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLongTermPricingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.snowball#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1835,6 +2009,60 @@ const deserializeAws_json1_1UpdateJobShipmentStateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateLongTermPricingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLongTermPricingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateLongTermPricingCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateLongTermPricingResult(data, context);
+  const response: UpdateLongTermPricingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateLongTermPricingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLongTermPricingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
       response = {
@@ -2099,6 +2327,8 @@ const serializeAws_json1_1CreateJobRequest = (input: CreateJobRequest, context: 
       input.ForwardingAddressId !== null && { ForwardingAddressId: input.ForwardingAddressId }),
     ...(input.JobType !== undefined && input.JobType !== null && { JobType: input.JobType }),
     ...(input.KmsKeyARN !== undefined && input.KmsKeyARN !== null && { KmsKeyARN: input.KmsKeyARN }),
+    ...(input.LongTermPricingId !== undefined &&
+      input.LongTermPricingId !== null && { LongTermPricingId: input.LongTermPricingId }),
     ...(input.Notification !== undefined &&
       input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
     ...(input.Resources !== undefined &&
@@ -2111,6 +2341,19 @@ const serializeAws_json1_1CreateJobRequest = (input: CreateJobRequest, context: 
     ...(input.SnowballType !== undefined && input.SnowballType !== null && { SnowballType: input.SnowballType }),
     ...(input.TaxDocuments !== undefined &&
       input.TaxDocuments !== null && { TaxDocuments: serializeAws_json1_1TaxDocuments(input.TaxDocuments, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateLongTermPricingRequest = (
+  input: CreateLongTermPricingRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IsLongTermPricingAutoRenew !== undefined &&
+      input.IsLongTermPricingAutoRenew !== null && { IsLongTermPricingAutoRenew: input.IsLongTermPricingAutoRenew }),
+    ...(input.LongTermPricingType !== undefined &&
+      input.LongTermPricingType !== null && { LongTermPricingType: input.LongTermPricingType }),
+    ...(input.SnowballType !== undefined && input.SnowballType !== null && { SnowballType: input.SnowballType }),
   };
 };
 
@@ -2330,6 +2573,16 @@ const serializeAws_json1_1ListJobsRequest = (input: ListJobsRequest, context: __
   };
 };
 
+const serializeAws_json1_1ListLongTermPricingRequest = (
+  input: ListLongTermPricingRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1Notification = (input: Notification, context: __SerdeContext): any => {
   return {
     ...(input.JobStatesToNotify !== undefined &&
@@ -2422,6 +2675,20 @@ const serializeAws_json1_1UpdateJobShipmentStateRequest = (
   return {
     ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
     ...(input.ShipmentState !== undefined && input.ShipmentState !== null && { ShipmentState: input.ShipmentState }),
+  };
+};
+
+const serializeAws_json1_1UpdateLongTermPricingRequest = (
+  input: UpdateLongTermPricingRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IsLongTermPricingAutoRenew !== undefined &&
+      input.IsLongTermPricingAutoRenew !== null && { IsLongTermPricingAutoRenew: input.IsLongTermPricingAutoRenew }),
+    ...(input.LongTermPricingId !== undefined &&
+      input.LongTermPricingId !== null && { LongTermPricingId: input.LongTermPricingId }),
+    ...(input.ReplacementJob !== undefined &&
+      input.ReplacementJob !== null && { ReplacementJob: input.ReplacementJob }),
   };
 };
 
@@ -2581,6 +2848,18 @@ const deserializeAws_json1_1CreateClusterResult = (output: any, context: __Serde
 const deserializeAws_json1_1CreateJobResult = (output: any, context: __SerdeContext): CreateJobResult => {
   return {
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateLongTermPricingResult = (
+  output: any,
+  context: __SerdeContext
+): CreateLongTermPricingResult => {
+  return {
+    LongTermPricingId:
+      output.LongTermPricingId !== undefined && output.LongTermPricingId !== null
+        ? output.LongTermPricingId
+        : undefined,
   } as any;
 };
 
@@ -2871,6 +3150,10 @@ const deserializeAws_json1_1JobMetadata = (output: any, context: __SerdeContext)
     JobState: output.JobState !== undefined && output.JobState !== null ? output.JobState : undefined,
     JobType: output.JobType !== undefined && output.JobType !== null ? output.JobType : undefined,
     KmsKeyARN: output.KmsKeyARN !== undefined && output.KmsKeyARN !== null ? output.KmsKeyARN : undefined,
+    LongTermPricingId:
+      output.LongTermPricingId !== undefined && output.LongTermPricingId !== null
+        ? output.LongTermPricingId
+        : undefined,
     Notification:
       output.Notification !== undefined && output.Notification !== null
         ? deserializeAws_json1_1Notification(output.Notification, context)
@@ -3015,6 +3298,85 @@ const deserializeAws_json1_1ListJobsResult = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_json1_1ListLongTermPricingResult = (
+  output: any,
+  context: __SerdeContext
+): ListLongTermPricingResult => {
+  return {
+    LongTermPricingEntries:
+      output.LongTermPricingEntries !== undefined && output.LongTermPricingEntries !== null
+        ? deserializeAws_json1_1LongTermPricingEntryList(output.LongTermPricingEntries, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LongTermPricingAssociatedJobIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_json1_1LongTermPricingEntryList = (
+  output: any,
+  context: __SerdeContext
+): LongTermPricingListEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LongTermPricingListEntry(entry, context);
+    });
+};
+
+const deserializeAws_json1_1LongTermPricingListEntry = (
+  output: any,
+  context: __SerdeContext
+): LongTermPricingListEntry => {
+  return {
+    CurrentActiveJob:
+      output.CurrentActiveJob !== undefined && output.CurrentActiveJob !== null ? output.CurrentActiveJob : undefined,
+    IsLongTermPricingAutoRenew:
+      output.IsLongTermPricingAutoRenew !== undefined && output.IsLongTermPricingAutoRenew !== null
+        ? output.IsLongTermPricingAutoRenew
+        : undefined,
+    JobIds:
+      output.JobIds !== undefined && output.JobIds !== null
+        ? deserializeAws_json1_1LongTermPricingAssociatedJobIdList(output.JobIds, context)
+        : undefined,
+    LongTermPricingEndDate:
+      output.LongTermPricingEndDate !== undefined && output.LongTermPricingEndDate !== null
+        ? new Date(Math.round(output.LongTermPricingEndDate * 1000))
+        : undefined,
+    LongTermPricingId:
+      output.LongTermPricingId !== undefined && output.LongTermPricingId !== null
+        ? output.LongTermPricingId
+        : undefined,
+    LongTermPricingStartDate:
+      output.LongTermPricingStartDate !== undefined && output.LongTermPricingStartDate !== null
+        ? new Date(Math.round(output.LongTermPricingStartDate * 1000))
+        : undefined,
+    LongTermPricingStatus:
+      output.LongTermPricingStatus !== undefined && output.LongTermPricingStatus !== null
+        ? output.LongTermPricingStatus
+        : undefined,
+    LongTermPricingType:
+      output.LongTermPricingType !== undefined && output.LongTermPricingType !== null
+        ? output.LongTermPricingType
+        : undefined,
+    ReplacementJob:
+      output.ReplacementJob !== undefined && output.ReplacementJob !== null ? output.ReplacementJob : undefined,
+    SnowballType: output.SnowballType !== undefined && output.SnowballType !== null ? output.SnowballType : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Notification = (output: any, context: __SerdeContext): Notification => {
   return {
     JobStatesToNotify:
@@ -3121,6 +3483,13 @@ const deserializeAws_json1_1UpdateJobShipmentStateResult = (
   output: any,
   context: __SerdeContext
 ): UpdateJobShipmentStateResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateLongTermPricingResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateLongTermPricingResult => {
   return {} as any;
 };
 

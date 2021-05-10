@@ -230,7 +230,14 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   Message?: string;
+  /**
+   * <p>Id of the resource in the conflicting operation.</p>
+   */
   ResourceId?: string;
+
+  /**
+   * <p>Type of the resource in the conflicting operation.</p>
+   */
   ResourceType?: string;
 }
 
@@ -268,7 +275,14 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
+  /**
+   * <p>Id of the not found resource.</p>
+   */
   ResourceId?: string;
+
+  /**
+   * <p>Type of the font found resource.</p>
+   */
   ResourceType?: string;
 }
 
@@ -949,6 +963,21 @@ export interface LoRaWANGateway {
    * <p>The frequency band (RFRegion) value.</p>
    */
   RfRegion?: string;
+
+  /**
+   * <p>A list of JoinEuiRange used by LoRa gateways to filter LoRa frames.</p>
+   */
+  JoinEuiFilters?: string[][];
+
+  /**
+   * <p>A list of NetId values that are used by LoRa gateways to filter the uplink frames.</p>
+   */
+  NetIdFilters?: string[];
+
+  /**
+   * <p>A list of integer indicating which sub bands are supported by LoRa gateway.</p>
+   */
+  SubBands?: number[];
 }
 
 export namespace LoRaWANGateway {
@@ -3315,6 +3344,9 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   name: "TooManyTagsException";
   $fault: "client";
   Message?: string;
+  /**
+   * <p>Name of the resource that exceeds maximum number of tags allowed.</p>
+   */
   ResourceName?: string;
 }
 
@@ -3582,6 +3614,16 @@ export interface UpdateWirelessGatewayRequest {
    * <p>A new description of the resource.</p>
    */
   Description?: string;
+
+  /**
+   * <p>A list of JoinEuiRange used by LoRa gateways to filter LoRa frames.</p>
+   */
+  JoinEuiFilters?: string[][];
+
+  /**
+   * <p>A list of NetId values that are used by LoRa gateways to filter the uplink frames.</p>
+   */
+  NetIdFilters?: string[];
 }
 
 export namespace UpdateWirelessGatewayRequest {

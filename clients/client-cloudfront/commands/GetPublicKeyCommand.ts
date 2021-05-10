@@ -1,5 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { GetPublicKeyRequest, GetPublicKeyResult } from "../models/models_0";
+import { GetPublicKeyRequest, GetPublicKeyResult } from "../models/models_1";
 import {
   deserializeAws_restXmlGetPublicKeyCommand,
   serializeAws_restXmlGetPublicKeyCommand,

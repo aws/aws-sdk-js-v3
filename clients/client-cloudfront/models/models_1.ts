@@ -19,9 +19,14 @@ import {
   FieldLevelEncryptionConfig,
   FieldLevelEncryptionProfile,
   FieldLevelEncryptionProfileConfig,
+  FunctionConfig,
+  FunctionStage,
+  FunctionSummary,
   HttpVersion,
+  Invalidation,
   KeyGroup,
   KeyGroupConfig,
+  MonitoringSubscription,
   OriginGroups,
   OriginRequestPolicy,
   OriginRequestPolicyConfig,
@@ -39,8 +44,478 @@ import {
   TrustedSigners,
   ViewerCertificate,
 } from "./models_0";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+export interface GetFieldLevelEncryptionProfileRequest {
+  /**
+   * <p>Get the ID for the field-level encryption profile information.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetFieldLevelEncryptionProfileRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFieldLevelEncryptionProfileRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFieldLevelEncryptionProfileResult {
+  /**
+   * <p>Return the field-level encryption profile information.</p>
+   */
+  FieldLevelEncryptionProfile?: FieldLevelEncryptionProfile;
+
+  /**
+   * <p>The current version of the field level encryption profile. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetFieldLevelEncryptionProfileResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFieldLevelEncryptionProfileResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFieldLevelEncryptionProfileConfigRequest {
+  /**
+   * <p>Get the ID for the field-level encryption profile configuration information.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetFieldLevelEncryptionProfileConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFieldLevelEncryptionProfileConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFieldLevelEncryptionProfileConfigResult {
+  /**
+   * <p>Return the field-level encryption profile configuration information.</p>
+   */
+  FieldLevelEncryptionProfileConfig?: FieldLevelEncryptionProfileConfig;
+
+  /**
+   * <p>The current version of the field-level encryption profile configuration result. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetFieldLevelEncryptionProfileConfigResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFieldLevelEncryptionProfileConfigResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFunctionRequest {
+  /**
+   * <p>The name of the function whose code you are getting.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The function’s stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
+   */
+  Stage?: FunctionStage | string;
+}
+
+export namespace GetFunctionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFunctionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFunctionResult {
+  /**
+   * <p>The function code of a CloudFront function.</p>
+   */
+  FunctionCode?: Uint8Array;
+
+  /**
+   * <p>The version identifier for the current version of the CloudFront function.</p>
+   */
+  ETag?: string;
+
+  /**
+   * <p>The content type (media type) of the response.</p>
+   */
+  ContentType?: string;
+}
+
+export namespace GetFunctionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFunctionResult): any => ({
+    ...obj,
+    ...(obj.FunctionCode && { FunctionCode: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>The request to get an invalidation's information. </p>
+ */
+export interface GetInvalidationRequest {
+  /**
+   * <p>The distribution's ID.</p>
+   */
+  DistributionId: string | undefined;
+
+  /**
+   * <p>The identifier for the invalidation request, for example,
+   * 			<code>IDFDVBD632BHDS5</code>.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetInvalidationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInvalidationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The returned result of the corresponding request.</p>
+ */
+export interface GetInvalidationResult {
+  /**
+   * <p>The invalidation's information. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html">Invalidation Complex Type</a>. </p>
+   */
+  Invalidation?: Invalidation;
+}
+
+export namespace GetInvalidationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInvalidationResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified invalidation does not exist.</p>
+ */
+export interface NoSuchInvalidation extends __SmithyException, $MetadataBearer {
+  name: "NoSuchInvalidation";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchInvalidation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NoSuchInvalidation): any => ({
+    ...obj,
+  });
+}
+
+export interface GetKeyGroupRequest {
+  /**
+   * <p>The identifier of the key group that you are getting. To get the identifier, use
+   * 			<code>ListKeyGroups</code>.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetKeyGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetKeyGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetKeyGroupResult {
+  /**
+   * <p>The key group.</p>
+   */
+  KeyGroup?: KeyGroup;
+
+  /**
+   * <p>The identifier for this version of the key group.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetKeyGroupResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetKeyGroupResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetKeyGroupConfigRequest {
+  /**
+   * <p>The identifier of the key group whose configuration you are getting. To get the
+   * 			identifier, use <code>ListKeyGroups</code>.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetKeyGroupConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetKeyGroupConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetKeyGroupConfigResult {
+  /**
+   * <p>The key group configuration.</p>
+   */
+  KeyGroupConfig?: KeyGroupConfig;
+
+  /**
+   * <p>The identifier for this version of the key group.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetKeyGroupConfigResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetKeyGroupConfigResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMonitoringSubscriptionRequest {
+  /**
+   * <p>The ID of the distribution that you are getting metrics information for.</p>
+   */
+  DistributionId: string | undefined;
+}
+
+export namespace GetMonitoringSubscriptionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMonitoringSubscriptionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMonitoringSubscriptionResult {
+  /**
+   * <p>A monitoring subscription. This structure contains information about whether additional
+   * 			CloudWatch metrics are enabled for a given CloudFront distribution.</p>
+   */
+  MonitoringSubscription?: MonitoringSubscription;
+}
+
+export namespace GetMonitoringSubscriptionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMonitoringSubscriptionResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetOriginRequestPolicyRequest {
+  /**
+   * <p>The unique identifier for the origin request policy. If the origin request policy is
+   * 			attached to a distribution’s cache behavior, you can get the policy’s identifier using
+   * 			<code>ListDistributions</code> or <code>GetDistribution</code>. If the origin request
+   * 			policy is not attached to a cache behavior, you can get the identifier using
+   * 			<code>ListOriginRequestPolicies</code>.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetOriginRequestPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetOriginRequestPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetOriginRequestPolicyResult {
+  /**
+   * <p>The origin request policy.</p>
+   */
+  OriginRequestPolicy?: OriginRequestPolicy;
+
+  /**
+   * <p>The current version of the origin request policy.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetOriginRequestPolicyResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetOriginRequestPolicyResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetOriginRequestPolicyConfigRequest {
+  /**
+   * <p>The unique identifier for the origin request policy. If the origin request policy is
+   * 			attached to a distribution’s cache behavior, you can get the policy’s identifier using
+   * 			<code>ListDistributions</code> or <code>GetDistribution</code>. If the origin request
+   * 			policy is not attached to a cache behavior, you can get the identifier using
+   * 			<code>ListOriginRequestPolicies</code>.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetOriginRequestPolicyConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetOriginRequestPolicyConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetOriginRequestPolicyConfigResult {
+  /**
+   * <p>The origin request policy configuration.</p>
+   */
+  OriginRequestPolicyConfig?: OriginRequestPolicyConfig;
+
+  /**
+   * <p>The current version of the origin request policy.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetOriginRequestPolicyConfigResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetOriginRequestPolicyConfigResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetPublicKeyRequest {
+  /**
+   * <p>The identifier of the public key you are getting.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetPublicKeyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPublicKeyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetPublicKeyResult {
+  /**
+   * <p>The public key.</p>
+   */
+  PublicKey?: PublicKey;
+
+  /**
+   * <p>The identifier for this version of the public key.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetPublicKeyResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPublicKeyResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetPublicKeyConfigRequest {
+  /**
+   * <p>The identifier of the public key whose configuration you are getting.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetPublicKeyConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPublicKeyConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetPublicKeyConfigResult {
+  /**
+   * <p>A public key configuration.</p>
+   */
+  PublicKeyConfig?: PublicKeyConfig;
+
+  /**
+   * <p>The identifier for this version of the public key configuration.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetPublicKeyConfigResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPublicKeyConfigResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetRealtimeLogConfigRequest {
+  /**
+   * <p>The name of the real-time log configuration to get.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the real-time log configuration to get.</p>
+   */
+  ARN?: string;
+}
+
+export namespace GetRealtimeLogConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetRealtimeLogConfigRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface GetRealtimeLogConfigResult {
   /**
@@ -906,7 +1381,8 @@ export interface FieldLevelEncryptionSummary {
   LastModifiedTime: Date | undefined;
 
   /**
-   * <p>An optional comment about the field-level encryption item.</p>
+   * <p>An optional comment about the field-level encryption item. The comment cannot be longer than
+   * 			128 characters.</p>
    */
   Comment?: string;
 
@@ -1035,7 +1511,8 @@ export interface FieldLevelEncryptionProfileSummary {
   EncryptionEntities: EncryptionEntities | undefined;
 
   /**
-   * <p>An optional comment for the field-level encryption profile summary.</p>
+   * <p>An optional comment for the field-level encryption profile summary. The comment cannot be
+   * 			longer than 128 characters.</p>
    */
   Comment?: string;
 }
@@ -1097,6 +1574,88 @@ export namespace ListFieldLevelEncryptionProfilesResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListFieldLevelEncryptionProfilesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFunctionsRequest {
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list of
+   * 			functions. The response includes functions in the list that occur after the marker. To
+   * 			get the next page of the list, set this field’s value to the value of
+   * 			<code>NextMarker</code> from the current page’s response.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of functions that you want in the response.</p>
+   */
+  MaxItems?: number;
+
+  /**
+   * <p>An optional filter to return only the functions that are in the specified stage,
+   * 			either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
+   */
+  Stage?: FunctionStage | string;
+}
+
+export namespace ListFunctionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFunctionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of CloudFront functions.</p>
+ */
+export interface FunctionList {
+  /**
+   * <p>If there are more items in the list than are in this response, this element is
+   * 			present. It contains the value that you should use in the <code>Marker</code> field of a
+   * 			subsequent request to continue listing functions where you left off.</p>
+   */
+  NextMarker?: string;
+
+  /**
+   * <p>The maximum number of functions requested.</p>
+   */
+  MaxItems: number | undefined;
+
+  /**
+   * <p>The number of functions returned in the response.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>Contains the functions in the list.</p>
+   */
+  Items?: FunctionSummary[];
+}
+
+export namespace FunctionList {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FunctionList): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFunctionsResult {
+  /**
+   * <p>A list of CloudFront functions.</p>
+   */
+  FunctionList?: FunctionList;
+}
+
+export namespace ListFunctionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFunctionsResult): any => ({
     ...obj,
   });
 }
@@ -1501,7 +2060,8 @@ export interface PublicKeySummary {
   EncodedKey: string | undefined;
 
   /**
-   * <p>A comment to describe the public key.</p>
+   * <p>A comment to describe the public key. The comment cannot be longer than 128
+   * 			characters.</p>
    */
   Comment?: string;
 }
@@ -1869,6 +2429,44 @@ export namespace ListTagsForResourceResult {
   });
 }
 
+export interface PublishFunctionRequest {
+  /**
+   * <p>The name of the function that you are publishing.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the function that you are publishing, which
+   * 			you can get using <code>DescribeFunction</code>.</p>
+   */
+  IfMatch: string | undefined;
+}
+
+export namespace PublishFunctionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PublishFunctionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PublishFunctionResult {
+  /**
+   * <p>Contains configuration information and metadata about a CloudFront function.</p>
+   */
+  FunctionSummary?: FunctionSummary;
+}
+
+export namespace PublishFunctionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PublishFunctionResult): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p> The request to add tags to a CloudFront resource.</p>
  */
@@ -1889,6 +2487,121 @@ export namespace TagResourceRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The CloudFront function failed.</p>
+ */
+export interface TestFunctionFailed extends __SmithyException, $MetadataBearer {
+  name: "TestFunctionFailed";
+  $fault: "server";
+  Message?: string;
+}
+
+export namespace TestFunctionFailed {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestFunctionFailed): any => ({
+    ...obj,
+  });
+}
+
+export interface TestFunctionRequest {
+  /**
+   * <p>The name of the function that you are testing.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the function that you are testing, which
+   * 			you can get using <code>DescribeFunction</code>.</p>
+   */
+  IfMatch: string | undefined;
+
+  /**
+   * <p>The stage of the function that you are testing, either <code>DEVELOPMENT</code> or
+   * 			<code>LIVE</code>.</p>
+   */
+  Stage?: FunctionStage | string;
+
+  /**
+   * <p>The event object to test the function with. For more information about the structure of the
+   * 			event object, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html#test-function">Testing functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  EventObject: Uint8Array | undefined;
+}
+
+export namespace TestFunctionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestFunctionRequest): any => ({
+    ...obj,
+    ...(obj.EventObject && { EventObject: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>Contains the result of testing a CloudFront function with <code>TestFunction</code>.</p>
+ */
+export interface TestResult {
+  /**
+   * <p>Contains configuration information and metadata about the CloudFront function that was
+   * 			tested.</p>
+   */
+  FunctionSummary?: FunctionSummary;
+
+  /**
+   * <p>The amount of time that the function took to run as a percentage of the maximum
+   * 			allowed time. For example, a compute utilization of 35 means that the function completed
+   * 			in 35% of the maximum allowed time.</p>
+   */
+  ComputeUtilization?: string;
+
+  /**
+   * <p>Contains the log lines that the function wrote (if any) when running the test.</p>
+   */
+  FunctionExecutionLogs?: string[];
+
+  /**
+   * <p>If the result of testing the function was an error, this field contains the error
+   * 			message.</p>
+   */
+  FunctionErrorMessage?: string;
+
+  /**
+   * <p>The event object returned by the function. For more information about the structure of the
+   * 			event object, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html">Event object
+   * 			structure</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  FunctionOutput?: string;
+}
+
+export namespace TestResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestResult): any => ({
+    ...obj,
+  });
+}
+
+export interface TestFunctionResult {
+  /**
+   * <p>An object that represents the result of running the function with the provided event
+   * 			object.</p>
+   */
+  TestResult?: TestResult;
+}
+
+export namespace TestFunctionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestFunctionResult): any => ({
     ...obj,
   });
 }
@@ -2212,6 +2925,61 @@ export namespace UpdateFieldLevelEncryptionProfileResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateFieldLevelEncryptionProfileResult): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFunctionRequest {
+  /**
+   * <p>The name of the function that you are updating.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the function that you are updating, which
+   * 			you can get using <code>DescribeFunction</code>.</p>
+   */
+  IfMatch: string | undefined;
+
+  /**
+   * <p>Configuration information about the function.</p>
+   */
+  FunctionConfig: FunctionConfig | undefined;
+
+  /**
+   * <p>The function code. For more information about writing a CloudFront function, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html">Writing function
+   * 			code for CloudFront Functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  FunctionCode: Uint8Array | undefined;
+}
+
+export namespace UpdateFunctionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFunctionRequest): any => ({
+    ...obj,
+    ...(obj.FunctionCode && { FunctionCode: SENSITIVE_STRING }),
+  });
+}
+
+export interface UpdateFunctionResult {
+  /**
+   * <p>Contains configuration information and metadata about a CloudFront function.</p>
+   */
+  FunctionSummary?: FunctionSummary;
+
+  /**
+   * <p>The version identifier for the current version of the CloudFront function.</p>
+   */
+  ETag?: string;
+}
+
+export namespace UpdateFunctionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFunctionResult): any => ({
     ...obj,
   });
 }

@@ -23,9 +23,7 @@ export interface ListPackageVersionAssetsCommandOutput extends ListPackageVersio
 /**
  * <p>
  *        Returns a list of
- *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">
- *                <code>AssetSummary</code>
- *             </a>
+ *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">AssetSummary</a>
  *        objects for assets in a package version.
  *      </p>
  * @example

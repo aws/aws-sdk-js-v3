@@ -49,7 +49,7 @@ export namespace LambdaConfiguration {
  */
 export interface SNSConfiguration {
   /**
-   * <p>THe ARN of the IAM role that has access to the target SNS topic.</p>
+   * <p>The ARN of the IAM role that has access to the target SNS topic.</p>
    */
   RoleArn: string | undefined;
 
@@ -814,7 +814,7 @@ export interface AppFlowConfig {
   RoleArn: string | undefined;
 
   /**
-   * <p>The name of the flow.</p>
+   * <p> name of the flow.</p>
    */
   FlowName: string | undefined;
 }

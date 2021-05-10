@@ -1972,7 +1972,7 @@ export interface CreateAssessmentFrameworkControlSet {
    * The name of the specified control set.
    * </p>
    */
-  name?: string;
+  name: string | undefined;
 
   /**
    * <p>
@@ -3508,7 +3508,7 @@ export interface Evidence {
 
   /**
    * <p>
-   *          Specifies whether the evidence is inclded in the assessment report.
+   *          Specifies whether the evidence is included in the assessment report.
    *       </p>
    */
   assessmentReportSelection?: string;
@@ -4850,7 +4850,7 @@ export interface UpdateAssessmentFrameworkControlSet {
    * The name of the control set.
    * </p>
    */
-  name?: string;
+  name: string | undefined;
 
   /**
    * <p>

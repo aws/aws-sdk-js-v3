@@ -90,6 +90,11 @@ import {
   DescribeApplicationSnapshotCommandOutput,
 } from "./commands/DescribeApplicationSnapshotCommand";
 import {
+  DescribeApplicationVersionCommand,
+  DescribeApplicationVersionCommandInput,
+  DescribeApplicationVersionCommandOutput,
+} from "./commands/DescribeApplicationVersionCommand";
+import {
   DiscoverInputSchemaCommand,
   DiscoverInputSchemaCommandInput,
   DiscoverInputSchemaCommandOutput,
@@ -100,6 +105,11 @@ import {
   ListApplicationSnapshotsCommandOutput,
 } from "./commands/ListApplicationSnapshotsCommand";
 import {
+  ListApplicationVersionsCommand,
+  ListApplicationVersionsCommandInput,
+  ListApplicationVersionsCommandOutput,
+} from "./commands/ListApplicationVersionsCommand";
+import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
@@ -109,6 +119,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  RollbackApplicationCommand,
+  RollbackApplicationCommandInput,
+  RollbackApplicationCommandOutput,
+} from "./commands/RollbackApplicationCommand";
 import {
   StartApplicationCommand,
   StartApplicationCommandInput,
@@ -788,6 +803,41 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   }
 
   /**
+   * <p>Provides a detailed description of a specified version of the application. To see a list of all the versions of an application, invoke the <a>ListApplicationVersions</a> operation.</p>
+   *          <note>
+   *             <p>This operation is supported only for Amazon Kinesis Data Analytics for Apache Flink.</p>
+   *          </note>
+   */
+  public describeApplicationVersion(
+    args: DescribeApplicationVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApplicationVersionCommandOutput>;
+  public describeApplicationVersion(
+    args: DescribeApplicationVersionCommandInput,
+    cb: (err: any, data?: DescribeApplicationVersionCommandOutput) => void
+  ): void;
+  public describeApplicationVersion(
+    args: DescribeApplicationVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApplicationVersionCommandOutput) => void
+  ): void;
+  public describeApplicationVersion(
+    args: DescribeApplicationVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeApplicationVersionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeApplicationVersionCommandOutput) => void
+  ): Promise<DescribeApplicationVersionCommandOutput> | void {
+    const command = new DescribeApplicationVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Infers a schema for a SQL-based Kinesis Data Analytics application by evaluating
    *       sample records on the specified streaming source (Kinesis data stream or Kinesis Data Firehose
    *       delivery stream) or Amazon S3 object. In the response, the operation returns the inferred
@@ -894,6 +944,44 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   }
 
   /**
+   * <p>Lists all the versions for the specified application, including versions that were rolled back. The response also includes a summary of the configuration
+   *       associated with each version.</p>
+   *
+   *          <p>To get the complete description of a specific application version, invoke the <a>DescribeApplicationVersion</a> operation.</p>
+   *          <note>
+   *             <p>This operation is supported only for Amazon Kinesis Data Analytics for Apache Flink.</p>
+   *          </note>
+   */
+  public listApplicationVersions(
+    args: ListApplicationVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationVersionsCommandOutput>;
+  public listApplicationVersions(
+    args: ListApplicationVersionsCommandInput,
+    cb: (err: any, data?: ListApplicationVersionsCommandOutput) => void
+  ): void;
+  public listApplicationVersions(
+    args: ListApplicationVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationVersionsCommandOutput) => void
+  ): void;
+  public listApplicationVersions(
+    args: ListApplicationVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListApplicationVersionsCommandOutput) => void
+  ): Promise<ListApplicationVersionsCommandOutput> | void {
+    const command = new ListApplicationVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the list of key-value tags assigned to the application. For more information, see
    *         <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using Tagging</a>.</p>
    */
@@ -916,6 +1004,44 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Reverts the application to the previous running version. You can
+   *             roll back an application if you suspect it is stuck in a transient status. </p>
+   *         <p>You can roll back an application only if it is in the <code>UPDATING</code>
+   *             or <code>AUTOSCALING</code> status.</p>
+   *         <p>When you rollback an application, it loads state data from the last successful snapshot.
+   *         If the application has no snapshots, Kinesis Data Analytics rejects the rollback request.</p>
+   *         <p>This action is not supported for Kinesis Data Analytics for SQL applications.</p>
+   */
+  public rollbackApplication(
+    args: RollbackApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RollbackApplicationCommandOutput>;
+  public rollbackApplication(
+    args: RollbackApplicationCommandInput,
+    cb: (err: any, data?: RollbackApplicationCommandOutput) => void
+  ): void;
+  public rollbackApplication(
+    args: RollbackApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RollbackApplicationCommandOutput) => void
+  ): void;
+  public rollbackApplication(
+    args: RollbackApplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RollbackApplicationCommandOutput) => void),
+    cb?: (err: any, data?: RollbackApplicationCommandOutput) => void
+  ): Promise<RollbackApplicationCommandOutput> | void {
+    const command = new RollbackApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1099,7 +1225,22 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
   }
 
   /**
-   * <p>Updates the configuration for the automatic maintenance that Kinesis Data Analytics performs on the application. For information about automatic application maintenance, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/maintenance.html">Kinesis Data Analytics for Apache Flink Maintenance</a>.</p>
+   * <p>Updates the maintenance configuration of the Kinesis Data Analytics application. </p>
+   *          <p>You can invoke this operation on an application that is in one of the two following
+   *       states: <code>READY</code> or <code>RUNNING</code>. If you invoke it when the application is
+   *       in a state other than these two states, it throws a <code>ResourceInUseException</code>. The
+   *       service makes use of the updated configuration the next time it schedules maintenance for the
+   *       application. If you invoke this operation after the service schedules maintenance, the service
+   *       will apply the configuration update the next time it schedules maintenance for the
+   *       application. This means that you might not see the maintenance configuration update applied to
+   *       the maintenance process that follows a successful invocation of this operation, but to the
+   *       following maintenance process instead.</p>
+   *          <p>To see the current maintenance configuration of your application, invoke the
+   *       <a>DescribeApplication</a> operation.</p>
+   *          <p>For information about application maintenance, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/maintenance.html">Kinesis Data Analytics for Apache Flink Maintenance</a>.</p>
+   *          <note>
+   *             <p>This operation is supported only for Amazon Kinesis Data Analytics for Apache Flink.</p>
+   *          </note>
    */
   public updateApplicationMaintenanceConfiguration(
     args: UpdateApplicationMaintenanceConfigurationCommandInput,

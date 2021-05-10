@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { UpdateOpsMetadataRequest, UpdateOpsMetadataResult } from "../models/models_1";
+import { UpdateOpsMetadataRequest, UpdateOpsMetadataResult } from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateOpsMetadataCommand,
   serializeAws_json1_1UpdateOpsMetadataCommand,

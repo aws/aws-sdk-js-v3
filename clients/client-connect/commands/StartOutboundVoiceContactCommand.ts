@@ -25,7 +25,7 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  *    actions in the contact flow that's specified (in <code>ContactFlowId</code>).</p>
  *
  *          <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If
- *    the contact flow places an outbound call to a contact, and then puts the contact in queue,  the
+ *    the contact flow places an outbound call to a contact, and then puts the contact in queue, the
  *    call is then routed to the agent, like any other inbound case.</p>
  *
  *          <p>There is a 60-second dialing timeout for this operation. If the call is not connected after

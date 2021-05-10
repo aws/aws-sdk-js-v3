@@ -290,7 +290,7 @@ export class LookoutMetrics extends LookoutMetricsClient {
 
   /**
    * <p>Deletes a detector. Deleting an anomaly detector will delete all of its corresponding resources including any
-   *       configured datasets and alerts. </p>
+   *       configured datasets and alerts.</p>
    */
   public deleteAnomalyDetector(
     args: DeleteAnomalyDetectorCommandInput,
@@ -323,6 +323,8 @@ export class LookoutMetrics extends LookoutMetricsClient {
 
   /**
    * <p>Describes an alert.</p>
+   *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
+   *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
    */
   public describeAlert(
     args: DescribeAlertCommandInput,
@@ -387,6 +389,8 @@ export class LookoutMetrics extends LookoutMetricsClient {
 
   /**
    * <p>Describes a detector.</p>
+   *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
+   *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
    */
   public describeAnomalyDetector(
     args: DescribeAnomalyDetectorCommandInput,
@@ -419,6 +423,8 @@ export class LookoutMetrics extends LookoutMetricsClient {
 
   /**
    * <p>Describes a dataset.</p>
+   *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
+   *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
    */
   public describeMetricSet(
     args: DescribeMetricSetCommandInput,
@@ -541,6 +547,8 @@ export class LookoutMetrics extends LookoutMetricsClient {
 
   /**
    * <p>Lists the alerts attached to a detector.</p>
+   *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
+   *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
    */
   public listAlerts(args: ListAlertsCommandInput, options?: __HttpHandlerOptions): Promise<ListAlertsCommandOutput>;
   public listAlerts(args: ListAlertsCommandInput, cb: (err: any, data?: ListAlertsCommandOutput) => void): void;
@@ -567,6 +575,8 @@ export class LookoutMetrics extends LookoutMetricsClient {
 
   /**
    * <p>Lists the detectors in the current AWS Region.</p>
+   *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
+   *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
    */
   public listAnomalyDetectors(
     args: ListAnomalyDetectorsCommandInput,
@@ -663,6 +673,8 @@ export class LookoutMetrics extends LookoutMetricsClient {
 
   /**
    * <p>Lists the datasets in the current AWS Region.</p>
+   *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
+   *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
    */
   public listMetricSets(
     args: ListMetricSetsCommandInput,

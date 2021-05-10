@@ -28,17 +28,14 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  *    synchronize Inventory data from multiple AWS Regions to a single S3 bucket. For more information,
  *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring Resource Data
  *     Sync for Inventory</a> in the <i>AWS Systems Manager User Guide</i>.</p>
- *
  *          <p>You can configure Systems Manager Explorer to use the <code>SyncFromSource</code> type to synchronize
  *    operational work items (OpsItems) and operational data (OpsData) from multiple AWS Regions to a
  *    single S3 bucket. This type can synchronize OpsItems and OpsData from multiple AWS accounts and
  *    Regions or <code>EntireOrganization</code> by using AWS Organizations. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting up Systems Manager Explorer to display data from multiple accounts and Regions</a> in the
  *     <i>AWS Systems Manager User Guide</i>.</p>
- *
  *          <p>A resource data sync is an asynchronous operation that returns immediately. After a
  *    successful initial sync is completed, the system continuously syncs data. To check the status of
  *    a sync, use the <a>ListResourceDataSync</a>.</p>
- *
  *          <note>
  *             <p>By default, data is not encrypted in Amazon S3. We strongly recommend that you enable encryption
  *     in Amazon S3 to ensure secure data storage. We also recommend that you secure access to the Amazon S3

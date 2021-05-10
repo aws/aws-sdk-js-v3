@@ -22,6 +22,14 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
 
 /**
  * <p>Retrieves a token for federation.</p>
+ *          <note>
+ *             <p>This API doesn't support root users. If you try to invoke GetFederationToken with root
+ *     credentials, an error message similar to the following one appears: </p>
+ *             <p>
+ *                <code>Provided identity: Principal: .... User: .... cannot be used for federation with
+ *      Amazon Connect</code>
+ *             </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

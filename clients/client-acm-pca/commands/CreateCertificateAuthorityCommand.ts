@@ -30,10 +30,10 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * 			validity period of the CRL), the Amazon S3 bucket that will contain the CRL, and a CNAME
  * 			alias for the S3 bucket that is included in certificates issued by the CA. If
  * 			successful, this action returns the Amazon Resource Name (ARN) of the CA.</p>
- * 		       <p>ACM Private CAA assets that are stored in Amazon S3 can be protected with encryption.
+ * 		       <p>ACM Private CA assets that are stored in Amazon S3 can be protected with encryption.
  *   For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption">Encrypting Your
  * 			CRLs</a>.</p>
- * 		       <note>
+ *          <note>
  *                         <p>Both PCA and the IAM principal must have permission to write to
  *                         the S3 bucket that you specify. If the IAM principal making the call
  *                         does not have permission to write to the bucket, then an exception is

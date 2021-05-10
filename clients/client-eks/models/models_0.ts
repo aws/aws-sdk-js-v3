@@ -118,10 +118,10 @@ export interface Addon {
   serviceAccountRoleArn?: string;
 
   /**
-   * <p>The metadata that you apply to the cluster to assist with categorization and
+   * <p>The metadata that you apply to the add-on to assist with categorization and
    *             organization. Each tag consists of a key and an optional value, both of which you
-   *             define. Cluster tags do not propagate to any other resources associated with the
-   *             cluster. </p>
+   *             define. Add-on tags do not propagate to any other resources associated with the cluster.
+   *         </p>
    */
   tags?: { [key: string]: string };
 }
@@ -226,16 +226,15 @@ export namespace AddonInfo {
 export type AMITypes = "AL2_ARM_64" | "AL2_x86_64" | "AL2_x86_64_GPU" | "CUSTOM";
 
 /**
- * <p>Identifies the AWS Key Management Service (AWS KMS) customer master key (CMK) used to encrypt the
- *             secrets.</p>
+ * <p>Identifies the AWS Key Management Service (AWS KMS) key used to encrypt the secrets.</p>
  */
 export interface Provider {
   /**
-   * <p>Amazon Resource Name (ARN) or alias of the customer master key (CMK). The CMK must be symmetric,
-   *             created in the same region as the cluster, and if the CMK was created in a different
-   *             account, the user must have access to the CMK. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html">Allowing
-   *                 Users in Other Accounts to Use a CMK</a> in the <i>AWS Key Management Service Developer
-   *                 Guide</i>.</p>
+   * <p>Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same
+   *             region as the cluster, and if the KMS key was created in a different account, the user
+   *             must have access to the KMS key. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html">Allowing
+   *                 Users in Other Accounts to Use a KMS key</a> in the <i>AWS Key Management Service
+   *                 Developer Guide</i>.</p>
    */
   keyArn?: string;
 }
@@ -259,8 +258,7 @@ export interface EncryptionConfig {
   resources?: string[];
 
   /**
-   * <p>AWS Key Management Service (AWS KMS) customer master key (CMK). Either the ARN or the alias can be
-   *             used.</p>
+   * <p>AWS Key Management Service (AWS KMS) key. Either the ARN or the alias can be used.</p>
    */
   provider?: Provider;
 }
@@ -404,6 +402,8 @@ export enum UpdateParamType {
   RELEASE_VERSION = "ReleaseVersion",
   RESOLVE_CONFLICTS = "ResolveConflicts",
   SERVICE_ACCOUNT_ROLE_ARN = "ServiceAccountRoleArn",
+  TAINTS_TO_ADD = "TaintsToAdd",
+  TAINTS_TO_REMOVE = "TaintsToRemove",
   VERSION = "Version",
 }
 
@@ -1785,8 +1785,9 @@ export namespace RemoteAccessConfig {
 
 /**
  * <p>An object representing the scaling configuration details for the Auto Scaling group
- *             that is associated with your node group. If you specify a value for any property, then
- *             you must specify values for all of the properties.</p>
+ *             that is associated with your node group. When creating a node group, you must specify
+ *             all or none of the properties. When updating a node group, you can specify any or none
+ *             of the properties.</p>
  */
 export interface NodegroupScalingConfig {
   /**
@@ -1817,6 +1818,41 @@ export namespace NodegroupScalingConfig {
   });
 }
 
+export enum TaintEffect {
+  NO_EXECUTE = "NO_EXECUTE",
+  NO_SCHEDULE = "NO_SCHEDULE",
+  PREFER_NO_SCHEDULE = "PREFER_NO_SCHEDULE",
+}
+
+/**
+ * <p>A property that allows a node to repel a set of pods.</p>
+ */
+export interface Taint {
+  /**
+   * <p>The key of the taint.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>The value of the taint.</p>
+   */
+  value?: string;
+
+  /**
+   * <p>The effect of the taint.</p>
+   */
+  effect?: TaintEffect | string;
+}
+
+export namespace Taint {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Taint): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateNodegroupRequest {
   /**
    * <p>The name of the cluster to create the node group in.</p>
@@ -1843,9 +1879,7 @@ export interface CreateNodegroupRequest {
 
   /**
    * <p>The subnets to use for the Auto Scaling group that is created for your node group.
-   *             These subnets must have the tag key <code>kubernetes.io/cluster/CLUSTER_NAME</code> with
-   *             a value of <code>shared</code>, where <code>CLUSTER_NAME</code> is replaced with the
-   *             name of your cluster. If you specify <code>launchTemplate</code>, then don't specify  <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">
+   *             If you specify <code>launchTemplate</code>, then don't specify  <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">
    *                <code>SubnetId</code>
    *             </a> in your launch template, or the node group
    *             deployment will fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch template support</a> in the Amazon EKS User Guide.</p>
@@ -1905,6 +1939,11 @@ export interface CreateNodegroupRequest {
    *             created.</p>
    */
   labels?: { [key: string]: string };
+
+  /**
+   * <p>The Kubernetes taints to be applied to the nodes in the node group.</p>
+   */
+  taints?: Taint[];
 
   /**
    * <p>The metadata to apply to the node group to assist with categorization and
@@ -2264,6 +2303,14 @@ export interface Nodegroup {
    *         </note>
    */
   labels?: { [key: string]: string };
+
+  /**
+   * <p>The Kubernetes taints to be applied to the nodes in the node group when they are
+   *             created. Effect is one of <code>NoSchedule</code>, <code>PreferNoSchedule</code>, or <code>NoExecute</code>. Kubernetes taints
+   *             can be used together with tolerations to control how workloads are scheduled to your
+   *             nodes.</p>
+   */
+  taints?: Taint[];
 
   /**
    * <p>The resources associated with the node group, such as Auto Scaling groups and security
@@ -3664,6 +3711,30 @@ export namespace UpdateLabelsPayload {
   });
 }
 
+/**
+ * <p>An object representing the details of an update to a taints payload.</p>
+ */
+export interface UpdateTaintsPayload {
+  /**
+   * <p>Kubernetes taints to be added or updated.</p>
+   */
+  addOrUpdateTaints?: Taint[];
+
+  /**
+   * <p>Kubernetes taints to be removed.</p>
+   */
+  removeTaints?: Taint[];
+}
+
+export namespace UpdateTaintsPayload {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTaintsPayload): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateNodegroupConfigRequest {
   /**
    * <p>The name of the Amazon EKS cluster that the managed node group resides in.</p>
@@ -3680,6 +3751,12 @@ export interface UpdateNodegroupConfigRequest {
    *             update.</p>
    */
   labels?: UpdateLabelsPayload;
+
+  /**
+   * <p>The Kubernetes taints to be applied to the nodes in the node group after the
+   *             update.</p>
+   */
+  taints?: UpdateTaintsPayload;
 
   /**
    * <p>The scaling configuration details for the Auto Scaling group after the update.</p>

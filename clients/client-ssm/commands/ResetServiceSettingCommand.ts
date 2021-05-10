@@ -33,7 +33,6 @@ export interface ResetServiceSettingCommandOutput extends ResetServiceSettingRes
  *    permission for the setting. Use the <a>GetServiceSetting</a> API action to view the
  *    current value. Use the <a>UpdateServiceSetting</a> API action to change the default
  *    setting. </p>
- *
  *          <p>Reset the service setting for the account to the default value as provisioned by the AWS
  *    service team. </p>
  * @example

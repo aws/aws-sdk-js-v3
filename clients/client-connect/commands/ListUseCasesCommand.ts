@@ -21,8 +21,7 @@ export interface ListUseCasesCommandInput extends ListUseCasesRequest {}
 export interface ListUseCasesCommandOutput extends ListUseCasesResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Lists the use cases. </p>
+ * <p>Lists the use cases. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

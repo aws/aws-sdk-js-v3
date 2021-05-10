@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LakeFormationClient` and
-the commands you need, for example `BatchGrantPermissionsCommand`:
+the commands you need, for example `AddLFTagsToResourceCommand`:
 
 ```js
 // ES5 example
-const { LakeFormationClient, BatchGrantPermissionsCommand } = require("@aws-sdk/client-lakeformation");
+const { LakeFormationClient, AddLFTagsToResourceCommand } = require("@aws-sdk/client-lakeformation");
 ```
 
 ```ts
 // ES6+ example
-import { LakeFormationClient, BatchGrantPermissionsCommand } from "@aws-sdk/client-lakeformation";
+import { LakeFormationClient, AddLFTagsToResourceCommand } from "@aws-sdk/client-lakeformation";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new LakeFormationClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchGrantPermissionsCommand(params);
+const command = new AddLFTagsToResourceCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.LakeFormation({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchGrantPermissions(params);
+  const data = await client.addLFTagsToResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .batchGrantPermissions(params)
+  .addLFTagsToResource(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.batchGrantPermissions(params, (err, data) => {
+client.addLFTagsToResource(params, (err, data) => {
   // proccess err and data.
 });
 ```

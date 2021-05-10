@@ -734,12 +734,11 @@ import {
   ModelBiasAppSpecification,
   ModelBiasBaselineConfig,
   ModelBiasJobInput,
-  ModelDataQuality,
+  ModelDeployConfig,
   ModelExplainabilityAppSpecification,
   ModelExplainabilityBaselineConfig,
   ModelExplainabilityJobInput,
   ModelPackageContainerDefinition,
-  ModelQuality,
   MonitoringClusterConfig,
   MonitoringConstraintsResource,
   MonitoringGroundTruthS3Input,
@@ -770,6 +769,7 @@ import {
   ResourceLimits,
   ResourceNotFound,
   ResourceSpec,
+  RetryStrategy,
   S3DataSource,
   S3StorageConfig,
   SharingSettings,
@@ -985,8 +985,6 @@ import {
   DescribeUserProfileRequest,
   DescribeUserProfileResponse,
   DescribeWorkforceRequest,
-  DescribeWorkforceResponse,
-  DescribeWorkteamRequest,
   EdgeModel,
   ExperimentConfig,
   ExperimentSource,
@@ -998,12 +996,15 @@ import {
   MetricData,
   ModelArtifacts,
   ModelClientConfig,
+  ModelDataQuality,
+  ModelDeployResult,
   ModelDigests,
   ModelMetrics,
   ModelPackageStatusDetails,
   ModelPackageStatusItem,
   ModelPackageValidationProfile,
   ModelPackageValidationSpecification,
+  ModelQuality,
   ModelQualityAppSpecification,
   ModelQualityBaselineConfig,
   ModelQualityJobInput,
@@ -1057,9 +1058,10 @@ import {
   TrialSource,
   UiTemplateInfo,
   Workforce,
-  Workteam,
 } from "../models/models_1";
 import {
+  DescribeWorkforceResponse,
+  DescribeWorkteamRequest,
   DescribeWorkteamResponse,
   DesiredWeightAndCapacity,
   Device,
@@ -1307,17 +1309,18 @@ import {
   UpdatePipelineExecutionResponse,
   UpdatePipelineRequest,
   UpdatePipelineResponse,
-  UpdateTrainingJobRequest,
-  UpdateTrainingJobResponse,
-  UpdateTrialRequest,
   UserProfileDetails,
   VariantProperty,
+  Workteam,
 } from "../models/models_2";
 import {
   SearchExpression,
   SearchRequest,
+  UpdateTrainingJobRequest,
+  UpdateTrainingJobResponse,
   UpdateTrialComponentRequest,
   UpdateTrialComponentResponse,
+  UpdateTrialRequest,
   UpdateTrialResponse,
   UpdateUserProfileRequest,
   UpdateUserProfileResponse,
@@ -17377,6 +17380,10 @@ const serializeAws_json1_1CreateAutoMLJobRequest = (input: CreateAutoMLJobReques
       input.InputDataConfig !== null && {
         InputDataConfig: serializeAws_json1_1AutoMLInputDataConfig(input.InputDataConfig, context),
       }),
+    ...(input.ModelDeployConfig !== undefined &&
+      input.ModelDeployConfig !== null && {
+        ModelDeployConfig: serializeAws_json1_1ModelDeployConfig(input.ModelDeployConfig, context),
+      }),
     ...(input.OutputDataConfig !== undefined &&
       input.OutputDataConfig !== null && {
         OutputDataConfig: serializeAws_json1_1AutoMLOutputDataConfig(input.OutputDataConfig, context),
@@ -18218,6 +18225,10 @@ const serializeAws_json1_1CreateTrainingJobRequest = (
     ...(input.ResourceConfig !== undefined &&
       input.ResourceConfig !== null && {
         ResourceConfig: serializeAws_json1_1ResourceConfig(input.ResourceConfig, context),
+      }),
+    ...(input.RetryStrategy !== undefined &&
+      input.RetryStrategy !== null && {
+        RetryStrategy: serializeAws_json1_1RetryStrategy(input.RetryStrategy, context),
       }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
     ...(input.StoppingCondition !== undefined &&
@@ -19832,6 +19843,10 @@ const serializeAws_json1_1HyperParameterTrainingJobDefinition = (
     ...(input.ResourceConfig !== undefined &&
       input.ResourceConfig !== null && {
         ResourceConfig: serializeAws_json1_1ResourceConfig(input.ResourceConfig, context),
+      }),
+    ...(input.RetryStrategy !== undefined &&
+      input.RetryStrategy !== null && {
+        RetryStrategy: serializeAws_json1_1RetryStrategy(input.RetryStrategy, context),
       }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
     ...(input.StaticHyperParameters !== undefined &&
@@ -21458,6 +21473,14 @@ const serializeAws_json1_1ModelDataQuality = (input: ModelDataQuality, context: 
   };
 };
 
+const serializeAws_json1_1ModelDeployConfig = (input: ModelDeployConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.AutoGenerateEndpointName !== undefined &&
+      input.AutoGenerateEndpointName !== null && { AutoGenerateEndpointName: input.AutoGenerateEndpointName }),
+    ...(input.EndpointName !== undefined && input.EndpointName !== null && { EndpointName: input.EndpointName }),
+  };
+};
+
 const serializeAws_json1_1ModelExplainabilityAppSpecification = (
   input: ModelExplainabilityAppSpecification,
   context: __SerdeContext
@@ -22581,6 +22604,13 @@ const serializeAws_json1_1RetentionPolicy = (input: RetentionPolicy, context: __
   return {
     ...(input.HomeEfsFileSystem !== undefined &&
       input.HomeEfsFileSystem !== null && { HomeEfsFileSystem: input.HomeEfsFileSystem }),
+  };
+};
+
+const serializeAws_json1_1RetryStrategy = (input: RetryStrategy, context: __SerdeContext): any => {
+  return {
+    ...(input.MaximumRetryAttempts !== undefined &&
+      input.MaximumRetryAttempts !== null && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
   };
 };
 
@@ -26069,6 +26099,14 @@ const deserializeAws_json1_1DescribeAutoMLJobResponse = (
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
+    ModelDeployConfig:
+      output.ModelDeployConfig !== undefined && output.ModelDeployConfig !== null
+        ? deserializeAws_json1_1ModelDeployConfig(output.ModelDeployConfig, context)
+        : undefined,
+    ModelDeployResult:
+      output.ModelDeployResult !== undefined && output.ModelDeployResult !== null
+        ? deserializeAws_json1_1ModelDeployResult(output.ModelDeployResult, context)
+        : undefined,
     OutputDataConfig:
       output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
         ? deserializeAws_json1_1AutoMLOutputDataConfig(output.OutputDataConfig, context)
@@ -27554,6 +27592,10 @@ const deserializeAws_json1_1DescribeTrainingJobResponse = (
       output.ResourceConfig !== undefined && output.ResourceConfig !== null
         ? deserializeAws_json1_1ResourceConfig(output.ResourceConfig, context)
         : undefined,
+    RetryStrategy:
+      output.RetryStrategy !== undefined && output.RetryStrategy !== null
+        ? deserializeAws_json1_1RetryStrategy(output.RetryStrategy, context)
+        : undefined,
     RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
     SecondaryStatus:
       output.SecondaryStatus !== undefined && output.SecondaryStatus !== null ? output.SecondaryStatus : undefined,
@@ -28880,6 +28922,10 @@ const deserializeAws_json1_1HyperParameterTrainingJobDefinition = (
     ResourceConfig:
       output.ResourceConfig !== undefined && output.ResourceConfig !== null
         ? deserializeAws_json1_1ResourceConfig(output.ResourceConfig, context)
+        : undefined,
+    RetryStrategy:
+      output.RetryStrategy !== undefined && output.RetryStrategy !== null
+        ? deserializeAws_json1_1RetryStrategy(output.RetryStrategy, context)
         : undefined,
     RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
     StaticHyperParameters:
@@ -30406,6 +30452,22 @@ const deserializeAws_json1_1ModelDataQuality = (output: any, context: __SerdeCon
       output.Statistics !== undefined && output.Statistics !== null
         ? deserializeAws_json1_1MetricsSource(output.Statistics, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ModelDeployConfig = (output: any, context: __SerdeContext): ModelDeployConfig => {
+  return {
+    AutoGenerateEndpointName:
+      output.AutoGenerateEndpointName !== undefined && output.AutoGenerateEndpointName !== null
+        ? output.AutoGenerateEndpointName
+        : undefined,
+    EndpointName: output.EndpointName !== undefined && output.EndpointName !== null ? output.EndpointName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ModelDeployResult = (output: any, context: __SerdeContext): ModelDeployResult => {
+  return {
+    EndpointName: output.EndpointName !== undefined && output.EndpointName !== null ? output.EndpointName : undefined,
   } as any;
 };
 
@@ -32716,6 +32778,15 @@ const deserializeAws_json1_1ResponseMIMETypes = (output: any, context: __SerdeCo
     });
 };
 
+const deserializeAws_json1_1RetryStrategy = (output: any, context: __SerdeContext): RetryStrategy => {
+  return {
+    MaximumRetryAttempts:
+      output.MaximumRetryAttempts !== undefined && output.MaximumRetryAttempts !== null
+        ? output.MaximumRetryAttempts
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1RuleParameters = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -33217,6 +33288,10 @@ const deserializeAws_json1_1TrainingJob = (output: any, context: __SerdeContext)
     ResourceConfig:
       output.ResourceConfig !== undefined && output.ResourceConfig !== null
         ? deserializeAws_json1_1ResourceConfig(output.ResourceConfig, context)
+        : undefined,
+    RetryStrategy:
+      output.RetryStrategy !== undefined && output.RetryStrategy !== null
+        ? deserializeAws_json1_1RetryStrategy(output.RetryStrategy, context)
         : undefined,
     RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
     SecondaryStatus:

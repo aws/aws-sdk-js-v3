@@ -21,8 +21,7 @@ export interface CreateUseCaseCommandInput extends CreateUseCaseRequest {}
 export interface CreateUseCaseCommandOutput extends CreateUseCaseResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Creates a use case for an AppIntegration association.</p>
+ * <p>Creates a use case for an AppIntegration association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

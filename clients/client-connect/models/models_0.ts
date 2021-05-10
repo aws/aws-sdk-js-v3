@@ -872,6 +872,11 @@ export interface CreateIntegrationAssociationRequest {
    * <p>The type of the data source.</p>
    */
   SourceType: SourceType | string | undefined;
+
+  /**
+   * <p>One or more tags.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateIntegrationAssociationRequest {
@@ -1184,6 +1189,9 @@ export interface MediaConcurrency {
 
   /**
    * <p>The number of contacts an agent can have on a channel simultaneously.</p>
+   *          <p>Valid Range for <code>VOICE</code>: Minimum value of 1. Maximum value of 1.</p>
+   *          <p>Valid Range for <code>CHAT</code>: Minimum value of 1. Maximum value of 5.</p>
+   *          <p>Valid Range for <code>TASK</code>: Minimum value of 1. Maximum value of 10.</p>
    */
   Concurrency: number | undefined;
 }
@@ -1286,6 +1294,11 @@ export interface CreateUseCaseRequest {
    *    association can have only one of each use case type.</p>
    */
   UseCaseType: UseCaseType | string | undefined;
+
+  /**
+   * <p>One or more tags.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateUseCaseRequest {
@@ -1856,8 +1869,7 @@ export namespace HoursOfOperationTimeSlice {
  */
 export interface HoursOfOperationConfig {
   /**
-   * <p>The
-   *   day that the hours of operation applies to.</p>
+   * <p>The day that the hours of operation applies to.</p>
    */
   Day?: HoursOfOperationDays | string;
 
@@ -2028,7 +2040,8 @@ export interface Instance {
   InstanceStatus?: InstanceStatus | string;
 
   /**
-   * <p>Relevant details why the instance was not successfully created. </p>
+   * <p>Relevant
+   *    details why the instance was not successfully created. </p>
    */
   StatusReason?: InstanceStatusReason;
 
@@ -3566,6 +3579,10 @@ export interface GetMetricDataRequest {
    * <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is
    *    retrieved only for the resources associated with the queues or channels included in the filter.
    *    You can include both queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK channels are supported.</p>
+   *          <note>
+   *             <p>To filter by <code>Queues</code>, enter the queue
+   *     ID/ARN, not the name of the queue.</p>
+   *          </note>
    */
   Filters: Filters | undefined;
 
@@ -3573,7 +3590,7 @@ export interface GetMetricDataRequest {
    * <p>The grouping applied to the metrics returned. For example, when results are grouped by
    *    queue, the metrics returned are grouped by queue. The values returned apply to the metrics for
    *    each queue rather than aggregated for all queues.</p>
-   *          <p>The only supported grouping is <code>QUEUE</code>.</p>
+   *
    *          <p>If no grouping is specified, a summary of metrics for all queues is returned.</p>
    */
   Groupings?: (Grouping | string)[];
@@ -3705,10 +3722,12 @@ export interface GetMetricDataRequest {
    *             </dd>
    *             <dt>SERVICE_LEVEL</dt>
    *             <dd>
+   *                <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p>
    *                <p>Unit: PERCENT</p>
    *                <p>Statistic: AVG</p>
-   *                <p>Threshold: Only "Less than" comparisons are supported, with the following service level
-   *       thresholds: 15, 20, 25, 30, 45, 60, 90, 120, 180, 240, 300, 600</p>
+   *                <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800
+   *       (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for
+   *       "Less than"). </p>
    *             </dd>
    *          </dl>
    */
@@ -5747,10 +5766,9 @@ export interface StartChatContactRequest {
   /**
    * <p>The identifier of the contact flow for initiating the chat.
    *    To
-   *    see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On
-   *    the contact flow page, under the name of the contact flow, choose <b>Show
-   *     additional flow information</b>. The ContactFlowId is the last part of the ARN, shown
-   *    here in bold: </p>
+   *    see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the
+   *    contact flow. On the contact flow page, under the name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of
+   *    the ARN, shown here in bold: </p>
    *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
    *          </p>
    */
@@ -5936,10 +5954,11 @@ export interface StartOutboundVoiceContactRequest {
 
   /**
    * <p>The
-   *    identifier of the contact flow for the outbound call. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On
-   *    the contact flow page, under the name of the contact flow, choose <b>Show
-   *     additional flow information</b>. The ContactFlowId is the last part of the ARN, shown
-   *    here in bold: </p>
+   *    identifier of the contact flow for the outbound call. To see the ContactFlowId in the Amazon Connect
+   *    console user interface, on the navigation menu go to <b>Routing</b>,
+   *     <b>Contact Flows</b>. Choose the contact flow. On the contact flow
+   *    page, under the name of the contact flow, choose <b>Show additional flow
+   *     information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p>
    *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
    *          </p>
    */
@@ -6728,8 +6747,9 @@ export interface UpdateRoutingProfileQueuesRequest {
   RoutingProfileId: string | undefined;
 
   /**
-   * <p>The queues to be updated for this routing profile. Queues must first be associated to the
-   *    routing profile. You can do this using AssociateRoutingProfileQueues.</p>
+   * <p>The queues to be updated for this routing profile.
+   *    Queues must first be associated to the routing
+   *    profile. You can do this using AssociateRoutingProfileQueues.</p>
    */
   QueueConfigs: RoutingProfileQueueConfig[] | undefined;
 }

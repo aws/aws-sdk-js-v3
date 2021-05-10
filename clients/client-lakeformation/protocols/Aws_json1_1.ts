@@ -1,4 +1,8 @@
 import {
+  AddLFTagsToResourceCommandInput,
+  AddLFTagsToResourceCommandOutput,
+} from "../commands/AddLFTagsToResourceCommand";
+import {
   BatchGrantPermissionsCommandInput,
   BatchGrantPermissionsCommandOutput,
 } from "../commands/BatchGrantPermissionsCommand";
@@ -6,6 +10,8 @@ import {
   BatchRevokePermissionsCommandInput,
   BatchRevokePermissionsCommandOutput,
 } from "../commands/BatchRevokePermissionsCommand";
+import { CreateLFTagCommandInput, CreateLFTagCommandOutput } from "../commands/CreateLFTagCommand";
+import { DeleteLFTagCommandInput, DeleteLFTagCommandOutput } from "../commands/DeleteLFTagCommand";
 import { DeregisterResourceCommandInput, DeregisterResourceCommandOutput } from "../commands/DeregisterResourceCommand";
 import { DescribeResourceCommandInput, DescribeResourceCommandOutput } from "../commands/DescribeResourceCommand";
 import {
@@ -16,7 +22,10 @@ import {
   GetEffectivePermissionsForPathCommandInput,
   GetEffectivePermissionsForPathCommandOutput,
 } from "../commands/GetEffectivePermissionsForPathCommand";
+import { GetLFTagCommandInput, GetLFTagCommandOutput } from "../commands/GetLFTagCommand";
+import { GetResourceLFTagsCommandInput, GetResourceLFTagsCommandOutput } from "../commands/GetResourceLFTagsCommand";
 import { GrantPermissionsCommandInput, GrantPermissionsCommandOutput } from "../commands/GrantPermissionsCommand";
+import { ListLFTagsCommandInput, ListLFTagsCommandOutput } from "../commands/ListLFTagsCommand";
 import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "../commands/ListPermissionsCommand";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "../commands/ListResourcesCommand";
 import {
@@ -24,9 +33,25 @@ import {
   PutDataLakeSettingsCommandOutput,
 } from "../commands/PutDataLakeSettingsCommand";
 import { RegisterResourceCommandInput, RegisterResourceCommandOutput } from "../commands/RegisterResourceCommand";
+import {
+  RemoveLFTagsFromResourceCommandInput,
+  RemoveLFTagsFromResourceCommandOutput,
+} from "../commands/RemoveLFTagsFromResourceCommand";
 import { RevokePermissionsCommandInput, RevokePermissionsCommandOutput } from "../commands/RevokePermissionsCommand";
+import {
+  SearchDatabasesByLFTagsCommandInput,
+  SearchDatabasesByLFTagsCommandOutput,
+} from "../commands/SearchDatabasesByLFTagsCommand";
+import {
+  SearchTablesByLFTagsCommandInput,
+  SearchTablesByLFTagsCommandOutput,
+} from "../commands/SearchTablesByLFTagsCommand";
+import { UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "../commands/UpdateLFTagCommand";
 import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "../commands/UpdateResourceCommand";
 import {
+  AccessDeniedException,
+  AddLFTagsToResourceRequest,
+  AddLFTagsToResourceResponse,
   AlreadyExistsException,
   BatchGrantPermissionsRequest,
   BatchGrantPermissionsResponse,
@@ -35,12 +60,17 @@ import {
   BatchRevokePermissionsRequest,
   BatchRevokePermissionsResponse,
   CatalogResource,
+  ColumnLFTag,
   ColumnWildcard,
   ConcurrentModificationException,
+  CreateLFTagRequest,
+  CreateLFTagResponse,
   DataLakePrincipal,
   DataLakeSettings,
   DataLocationResource,
   DatabaseResource,
+  DeleteLFTagRequest,
+  DeleteLFTagResponse,
   DeregisterResourceRequest,
   DeregisterResourceResponse,
   DescribeResourceRequest,
@@ -53,10 +83,22 @@ import {
   GetDataLakeSettingsResponse,
   GetEffectivePermissionsForPathRequest,
   GetEffectivePermissionsForPathResponse,
+  GetLFTagRequest,
+  GetLFTagResponse,
+  GetResourceLFTagsRequest,
+  GetResourceLFTagsResponse,
+  GlueEncryptionException,
   GrantPermissionsRequest,
   GrantPermissionsResponse,
   InternalServiceException,
   InvalidInputException,
+  LFTag,
+  LFTagError,
+  LFTagKeyResource,
+  LFTagPair,
+  LFTagPolicyResource,
+  ListLFTagsRequest,
+  ListLFTagsResponse,
   ListPermissionsRequest,
   ListPermissionsResponse,
   ListResourcesRequest,
@@ -69,13 +111,24 @@ import {
   PutDataLakeSettingsResponse,
   RegisterResourceRequest,
   RegisterResourceResponse,
+  RemoveLFTagsFromResourceRequest,
+  RemoveLFTagsFromResourceResponse,
   Resource,
   ResourceInfo,
+  ResourceNumberLimitExceededException,
   RevokePermissionsRequest,
   RevokePermissionsResponse,
+  SearchDatabasesByLFTagsRequest,
+  SearchDatabasesByLFTagsResponse,
+  SearchTablesByLFTagsRequest,
+  SearchTablesByLFTagsResponse,
   TableResource,
   TableWildcard,
   TableWithColumnsResource,
+  TaggedDatabase,
+  TaggedTable,
+  UpdateLFTagRequest,
+  UpdateLFTagResponse,
   UpdateResourceRequest,
   UpdateResourceResponse,
 } from "../models/models_0";
@@ -88,6 +141,19 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+export const serializeAws_json1_1AddLFTagsToResourceCommand = async (
+  input: AddLFTagsToResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLakeFormation.AddLFTagsToResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AddLFTagsToResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_json1_1BatchGrantPermissionsCommand = async (
   input: BatchGrantPermissionsCommandInput,
@@ -112,6 +178,32 @@ export const serializeAws_json1_1BatchRevokePermissionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchRevokePermissionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateLFTagCommand = async (
+  input: CreateLFTagCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLakeFormation.CreateLFTag",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateLFTagRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteLFTagCommand = async (
+  input: DeleteLFTagCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLakeFormation.DeleteLFTag",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteLFTagRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -167,6 +259,32 @@ export const serializeAws_json1_1GetEffectivePermissionsForPathCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetLFTagCommand = async (
+  input: GetLFTagCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLakeFormation.GetLFTag",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetLFTagRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetResourceLFTagsCommand = async (
+  input: GetResourceLFTagsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLakeFormation.GetResourceLFTags",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetResourceLFTagsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GrantPermissionsCommand = async (
   input: GrantPermissionsCommandInput,
   context: __SerdeContext
@@ -177,6 +295,19 @@ export const serializeAws_json1_1GrantPermissionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GrantPermissionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListLFTagsCommand = async (
+  input: ListLFTagsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLakeFormation.ListLFTags",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListLFTagsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -232,6 +363,19 @@ export const serializeAws_json1_1RegisterResourceCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1RemoveLFTagsFromResourceCommand = async (
+  input: RemoveLFTagsFromResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLakeFormation.RemoveLFTagsFromResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RemoveLFTagsFromResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1RevokePermissionsCommand = async (
   input: RevokePermissionsCommandInput,
   context: __SerdeContext
@@ -242,6 +386,45 @@ export const serializeAws_json1_1RevokePermissionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RevokePermissionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1SearchDatabasesByLFTagsCommand = async (
+  input: SearchDatabasesByLFTagsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLakeFormation.SearchDatabasesByLFTags",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1SearchDatabasesByLFTagsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1SearchTablesByLFTagsCommand = async (
+  input: SearchTablesByLFTagsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLakeFormation.SearchTablesByLFTags",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1SearchTablesByLFTagsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateLFTagCommand = async (
+  input: UpdateLFTagCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLakeFormation.UpdateLFTag",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateLFTagRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -256,6 +439,100 @@ export const serializeAws_json1_1UpdateResourceCommand = async (
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_json1_1AddLFTagsToResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddLFTagsToResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AddLFTagsToResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AddLFTagsToResourceResponse(data, context);
+  const response: AddLFTagsToResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AddLFTagsToResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddLFTagsToResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConcurrentModificationException":
+    case "com.amazonaws.lakeformation#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1BatchGrantPermissionsCommand = async (
@@ -349,6 +626,186 @@ const deserializeAws_json1_1BatchRevokePermissionsCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateLFTagCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLFTagCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateLFTagCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateLFTagResponse(data, context);
+  const response: CreateLFTagCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateLFTagCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLFTagCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNumberLimitExceededException":
+    case "com.amazonaws.lakeformation#ResourceNumberLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteLFTagCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLFTagCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteLFTagCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteLFTagResponse(data, context);
+  const response: DeleteLFTagCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteLFTagCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLFTagCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
       response = {
@@ -686,6 +1143,186 @@ const deserializeAws_json1_1GetEffectivePermissionsForPathCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetLFTagCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLFTagCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetLFTagCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetLFTagResponse(data, context);
+  const response: GetLFTagCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetLFTagCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLFTagCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetResourceLFTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceLFTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetResourceLFTagsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetResourceLFTagsResponse(data, context);
+  const response: GetResourceLFTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetResourceLFTagsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceLFTagsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GlueEncryptionException":
+    case "com.amazonaws.lakeformation#GlueEncryptionException":
+      response = {
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GrantPermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -735,6 +1372,84 @@ const deserializeAws_json1_1GrantPermissionsCommandError = async (
     case "com.amazonaws.lakeformation#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListLFTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLFTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListLFTagsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListLFTagsResponse(data, context);
+  const response: ListLFTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListLFTagsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLFTagsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1036,6 +1751,108 @@ const deserializeAws_json1_1RegisterResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1RemoveLFTagsFromResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveLFTagsFromResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RemoveLFTagsFromResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RemoveLFTagsFromResourceResponse(data, context);
+  const response: RemoveLFTagsFromResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RemoveLFTagsFromResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveLFTagsFromResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConcurrentModificationException":
+    case "com.amazonaws.lakeformation#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GlueEncryptionException":
+    case "com.amazonaws.lakeformation#GlueEncryptionException":
+      response = {
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1RevokePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1085,6 +1902,288 @@ const deserializeAws_json1_1RevokePermissionsCommandError = async (
     case "com.amazonaws.lakeformation#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1SearchDatabasesByLFTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchDatabasesByLFTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1SearchDatabasesByLFTagsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1SearchDatabasesByLFTagsResponse(data, context);
+  const response: SearchDatabasesByLFTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1SearchDatabasesByLFTagsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchDatabasesByLFTagsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GlueEncryptionException":
+    case "com.amazonaws.lakeformation#GlueEncryptionException":
+      response = {
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1SearchTablesByLFTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchTablesByLFTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1SearchTablesByLFTagsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1SearchTablesByLFTagsResponse(data, context);
+  const response: SearchTablesByLFTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1SearchTablesByLFTagsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchTablesByLFTagsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GlueEncryptionException":
+    case "com.amazonaws.lakeformation#GlueEncryptionException":
+      response = {
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateLFTagCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLFTagCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateLFTagCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateLFTagResponse(data, context);
+  const response: UpdateLFTagCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateLFTagCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLFTagCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConcurrentModificationException":
+    case "com.amazonaws.lakeformation#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1184,6 +2283,21 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
+  const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1AlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1222,6 +2336,21 @@ const deserializeAws_json1_1EntityNotFoundExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1EntityNotFoundException(body, context);
   const contents: EntityNotFoundException = {
     name: "EntityNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1GlueEncryptionExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<GlueEncryptionException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1GlueEncryptionException(body, context);
+  const contents: GlueEncryptionException = {
+    name: "GlueEncryptionException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1272,6 +2401,34 @@ const deserializeAws_json1_1OperationTimeoutExceptionResponse = async (
     ...deserialized,
   };
   return contents;
+};
+
+const deserializeAws_json1_1ResourceNumberLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNumberLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ResourceNumberLimitExceededException(body, context);
+  const contents: ResourceNumberLimitExceededException = {
+    name: "ResourceNumberLimitExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const serializeAws_json1_1AddLFTagsToResourceRequest = (
+  input: AddLFTagsToResourceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.LFTags !== undefined &&
+      input.LFTags !== null && { LFTags: serializeAws_json1_1LFTagsList(input.LFTags, context) }),
+    ...(input.Resource !== undefined &&
+      input.Resource !== null && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
+  };
 };
 
 const serializeAws_json1_1BatchGrantPermissionsRequest = (
@@ -1357,6 +2514,15 @@ const serializeAws_json1_1ColumnWildcard = (input: ColumnWildcard, context: __Se
   };
 };
 
+const serializeAws_json1_1CreateLFTagRequest = (input: CreateLFTagRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.TagKey !== undefined && input.TagKey !== null && { TagKey: input.TagKey }),
+    ...(input.TagValues !== undefined &&
+      input.TagValues !== null && { TagValues: serializeAws_json1_1TagValueList(input.TagValues, context) }),
+  };
+};
+
 const serializeAws_json1_1DatabaseResource = (input: DatabaseResource, context: __SerdeContext): any => {
   return {
     ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
@@ -1416,6 +2582,13 @@ const serializeAws_json1_1DataLocationResource = (input: DataLocationResource, c
   };
 };
 
+const serializeAws_json1_1DeleteLFTagRequest = (input: DeleteLFTagRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.TagKey !== undefined && input.TagKey !== null && { TagKey: input.TagKey }),
+  };
+};
+
 const serializeAws_json1_1DeregisterResourceRequest = (
   input: DeregisterResourceRequest,
   context: __SerdeContext
@@ -1429,6 +2602,17 @@ const serializeAws_json1_1DescribeResourceRequest = (input: DescribeResourceRequ
   return {
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
+};
+
+const serializeAws_json1_1Expression = (input: LFTag[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1LFTag(entry, context);
+    });
 };
 
 const serializeAws_json1_1FilterCondition = (input: FilterCondition, context: __SerdeContext): any => {
@@ -1475,6 +2659,26 @@ const serializeAws_json1_1GetEffectivePermissionsForPathRequest = (
   };
 };
 
+const serializeAws_json1_1GetLFTagRequest = (input: GetLFTagRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.TagKey !== undefined && input.TagKey !== null && { TagKey: input.TagKey }),
+  };
+};
+
+const serializeAws_json1_1GetResourceLFTagsRequest = (
+  input: GetResourceLFTagsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.Resource !== undefined &&
+      input.Resource !== null && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
+    ...(input.ShowAssignedLFTags !== undefined &&
+      input.ShowAssignedLFTags !== null && { ShowAssignedLFTags: input.ShowAssignedLFTags }),
+  };
+};
+
 const serializeAws_json1_1GrantPermissionsRequest = (input: GrantPermissionsRequest, context: __SerdeContext): any => {
   return {
     ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
@@ -1488,6 +2692,62 @@ const serializeAws_json1_1GrantPermissionsRequest = (input: GrantPermissionsRequ
       input.Principal !== null && { Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context) }),
     ...(input.Resource !== undefined &&
       input.Resource !== null && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
+  };
+};
+
+const serializeAws_json1_1LFTag = (input: LFTag, context: __SerdeContext): any => {
+  return {
+    ...(input.TagKey !== undefined && input.TagKey !== null && { TagKey: input.TagKey }),
+    ...(input.TagValues !== undefined &&
+      input.TagValues !== null && { TagValues: serializeAws_json1_1TagValueList(input.TagValues, context) }),
+  };
+};
+
+const serializeAws_json1_1LFTagKeyResource = (input: LFTagKeyResource, context: __SerdeContext): any => {
+  return {
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.TagKey !== undefined && input.TagKey !== null && { TagKey: input.TagKey }),
+    ...(input.TagValues !== undefined &&
+      input.TagValues !== null && { TagValues: serializeAws_json1_1TagValueList(input.TagValues, context) }),
+  };
+};
+
+const serializeAws_json1_1LFTagPair = (input: LFTagPair, context: __SerdeContext): any => {
+  return {
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.TagKey !== undefined && input.TagKey !== null && { TagKey: input.TagKey }),
+    ...(input.TagValues !== undefined &&
+      input.TagValues !== null && { TagValues: serializeAws_json1_1TagValueList(input.TagValues, context) }),
+  };
+};
+
+const serializeAws_json1_1LFTagPolicyResource = (input: LFTagPolicyResource, context: __SerdeContext): any => {
+  return {
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.Expression !== undefined &&
+      input.Expression !== null && { Expression: serializeAws_json1_1Expression(input.Expression, context) }),
+    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
+  };
+};
+
+const serializeAws_json1_1LFTagsList = (input: LFTagPair[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1LFTagPair(entry, context);
+    });
+};
+
+const serializeAws_json1_1ListLFTagsRequest = (input: ListLFTagsRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResourceShareType !== undefined &&
+      input.ResourceShareType !== null && { ResourceShareType: input.ResourceShareType }),
   };
 };
 
@@ -1568,6 +2828,19 @@ const serializeAws_json1_1RegisterResourceRequest = (input: RegisterResourceRequ
   };
 };
 
+const serializeAws_json1_1RemoveLFTagsFromResourceRequest = (
+  input: RemoveLFTagsFromResourceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.LFTags !== undefined &&
+      input.LFTags !== null && { LFTags: serializeAws_json1_1LFTagsList(input.LFTags, context) }),
+    ...(input.Resource !== undefined &&
+      input.Resource !== null && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
+  };
+};
+
 const serializeAws_json1_1Resource = (input: Resource, context: __SerdeContext): any => {
   return {
     ...(input.Catalog !== undefined &&
@@ -1578,6 +2851,12 @@ const serializeAws_json1_1Resource = (input: Resource, context: __SerdeContext):
       }),
     ...(input.Database !== undefined &&
       input.Database !== null && { Database: serializeAws_json1_1DatabaseResource(input.Database, context) }),
+    ...(input.LFTag !== undefined &&
+      input.LFTag !== null && { LFTag: serializeAws_json1_1LFTagKeyResource(input.LFTag, context) }),
+    ...(input.LFTagPolicy !== undefined &&
+      input.LFTagPolicy !== null && {
+        LFTagPolicy: serializeAws_json1_1LFTagPolicyResource(input.LFTagPolicy, context),
+      }),
     ...(input.Table !== undefined &&
       input.Table !== null && { Table: serializeAws_json1_1TableResource(input.Table, context) }),
     ...(input.TableWithColumns !== undefined &&
@@ -1603,6 +2882,32 @@ const serializeAws_json1_1RevokePermissionsRequest = (
       input.Principal !== null && { Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context) }),
     ...(input.Resource !== undefined &&
       input.Resource !== null && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
+  };
+};
+
+const serializeAws_json1_1SearchDatabasesByLFTagsRequest = (
+  input: SearchDatabasesByLFTagsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.Expression !== undefined &&
+      input.Expression !== null && { Expression: serializeAws_json1_1Expression(input.Expression, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1SearchTablesByLFTagsRequest = (
+  input: SearchTablesByLFTagsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.Expression !== undefined &&
+      input.Expression !== null && { Expression: serializeAws_json1_1Expression(input.Expression, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -1650,6 +2955,17 @@ const serializeAws_json1_1TableWithColumnsResource = (
   };
 };
 
+const serializeAws_json1_1TagValueList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1TrustedResourceOwners = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -1661,11 +2977,44 @@ const serializeAws_json1_1TrustedResourceOwners = (input: string[], context: __S
     });
 };
 
+const serializeAws_json1_1UpdateLFTagRequest = (input: UpdateLFTagRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.TagKey !== undefined && input.TagKey !== null && { TagKey: input.TagKey }),
+    ...(input.TagValuesToAdd !== undefined &&
+      input.TagValuesToAdd !== null && {
+        TagValuesToAdd: serializeAws_json1_1TagValueList(input.TagValuesToAdd, context),
+      }),
+    ...(input.TagValuesToDelete !== undefined &&
+      input.TagValuesToDelete !== null && {
+        TagValuesToDelete: serializeAws_json1_1TagValueList(input.TagValuesToDelete, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1UpdateResourceRequest = (input: UpdateResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
   };
+};
+
+const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AddLFTagsToResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): AddLFTagsToResourceResponse => {
+  return {
+    Failures:
+      output.Failures !== undefined && output.Failures !== null
+        ? deserializeAws_json1_1LFTagErrors(output.Failures, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1AlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
@@ -1757,6 +3106,27 @@ const deserializeAws_json1_1CatalogResource = (output: any, context: __SerdeCont
   return {} as any;
 };
 
+const deserializeAws_json1_1ColumnLFTag = (output: any, context: __SerdeContext): ColumnLFTag => {
+  return {
+    LFTags:
+      output.LFTags !== undefined && output.LFTags !== null
+        ? deserializeAws_json1_1LFTagsList(output.LFTags, context)
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ColumnLFTagsList = (output: any, context: __SerdeContext): ColumnLFTag[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ColumnLFTag(entry, context);
+    });
+};
+
 const deserializeAws_json1_1ColumnNames = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -1784,6 +3154,21 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1CreateLFTagResponse = (output: any, context: __SerdeContext): CreateLFTagResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DatabaseLFTagsList = (output: any, context: __SerdeContext): TaggedDatabase[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TaggedDatabase(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DatabaseResource = (output: any, context: __SerdeContext): DatabaseResource => {
@@ -1841,6 +3226,10 @@ const deserializeAws_json1_1DataLocationResource = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1DeleteLFTagResponse = (output: any, context: __SerdeContext): DeleteLFTagResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeregisterResourceResponse = (
   output: any,
   context: __SerdeContext
@@ -1885,6 +3274,17 @@ const deserializeAws_json1_1ErrorDetail = (output: any, context: __SerdeContext)
   } as any;
 };
 
+const deserializeAws_json1_1Expression = (output: any, context: __SerdeContext): LFTag[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LFTag(entry, context);
+    });
+};
+
 const deserializeAws_json1_1GetDataLakeSettingsResponse = (
   output: any,
   context: __SerdeContext
@@ -1910,6 +3310,46 @@ const deserializeAws_json1_1GetEffectivePermissionsForPathResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1GetLFTagResponse = (output: any, context: __SerdeContext): GetLFTagResponse => {
+  return {
+    CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
+    TagKey: output.TagKey !== undefined && output.TagKey !== null ? output.TagKey : undefined,
+    TagValues:
+      output.TagValues !== undefined && output.TagValues !== null
+        ? deserializeAws_json1_1TagValueList(output.TagValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetResourceLFTagsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetResourceLFTagsResponse => {
+  return {
+    LFTagOnDatabase:
+      output.LFTagOnDatabase !== undefined && output.LFTagOnDatabase !== null
+        ? deserializeAws_json1_1LFTagsList(output.LFTagOnDatabase, context)
+        : undefined,
+    LFTagsOnColumns:
+      output.LFTagsOnColumns !== undefined && output.LFTagsOnColumns !== null
+        ? deserializeAws_json1_1ColumnLFTagsList(output.LFTagsOnColumns, context)
+        : undefined,
+    LFTagsOnTable:
+      output.LFTagsOnTable !== undefined && output.LFTagsOnTable !== null
+        ? deserializeAws_json1_1LFTagsList(output.LFTagsOnTable, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GlueEncryptionException = (
+  output: any,
+  context: __SerdeContext
+): GlueEncryptionException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1GrantPermissionsResponse = (
   output: any,
   context: __SerdeContext
@@ -1929,6 +3369,94 @@ const deserializeAws_json1_1InternalServiceException = (
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LFTag = (output: any, context: __SerdeContext): LFTag => {
+  return {
+    TagKey: output.TagKey !== undefined && output.TagKey !== null ? output.TagKey : undefined,
+    TagValues:
+      output.TagValues !== undefined && output.TagValues !== null
+        ? deserializeAws_json1_1TagValueList(output.TagValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LFTagError = (output: any, context: __SerdeContext): LFTagError => {
+  return {
+    Error:
+      output.Error !== undefined && output.Error !== null
+        ? deserializeAws_json1_1ErrorDetail(output.Error, context)
+        : undefined,
+    LFTag:
+      output.LFTag !== undefined && output.LFTag !== null
+        ? deserializeAws_json1_1LFTagPair(output.LFTag, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LFTagErrors = (output: any, context: __SerdeContext): LFTagError[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LFTagError(entry, context);
+    });
+};
+
+const deserializeAws_json1_1LFTagKeyResource = (output: any, context: __SerdeContext): LFTagKeyResource => {
+  return {
+    CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
+    TagKey: output.TagKey !== undefined && output.TagKey !== null ? output.TagKey : undefined,
+    TagValues:
+      output.TagValues !== undefined && output.TagValues !== null
+        ? deserializeAws_json1_1TagValueList(output.TagValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LFTagPair = (output: any, context: __SerdeContext): LFTagPair => {
+  return {
+    CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
+    TagKey: output.TagKey !== undefined && output.TagKey !== null ? output.TagKey : undefined,
+    TagValues:
+      output.TagValues !== undefined && output.TagValues !== null
+        ? deserializeAws_json1_1TagValueList(output.TagValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LFTagPolicyResource = (output: any, context: __SerdeContext): LFTagPolicyResource => {
+  return {
+    CatalogId: output.CatalogId !== undefined && output.CatalogId !== null ? output.CatalogId : undefined,
+    Expression:
+      output.Expression !== undefined && output.Expression !== null
+        ? deserializeAws_json1_1Expression(output.Expression, context)
+        : undefined,
+    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LFTagsList = (output: any, context: __SerdeContext): LFTagPair[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LFTagPair(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ListLFTagsResponse = (output: any, context: __SerdeContext): ListLFTagsResponse => {
+  return {
+    LFTags:
+      output.LFTags !== undefined && output.LFTags !== null
+        ? deserializeAws_json1_1LFTagsList(output.LFTags, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
 };
 
@@ -2058,6 +3586,18 @@ const deserializeAws_json1_1RegisterResourceResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1RemoveLFTagsFromResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): RemoveLFTagsFromResourceResponse => {
+  return {
+    Failures:
+      output.Failures !== undefined && output.Failures !== null
+        ? deserializeAws_json1_1LFTagErrors(output.Failures, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
     Catalog:
@@ -2071,6 +3611,14 @@ const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): R
     Database:
       output.Database !== undefined && output.Database !== null
         ? deserializeAws_json1_1DatabaseResource(output.Database, context)
+        : undefined,
+    LFTag:
+      output.LFTag !== undefined && output.LFTag !== null
+        ? deserializeAws_json1_1LFTagKeyResource(output.LFTag, context)
+        : undefined,
+    LFTagPolicy:
+      output.LFTagPolicy !== undefined && output.LFTagPolicy !== null
+        ? deserializeAws_json1_1LFTagPolicyResource(output.LFTagPolicy, context)
         : undefined,
     Table:
       output.Table !== undefined && output.Table !== null
@@ -2105,6 +3653,15 @@ const deserializeAws_json1_1ResourceInfoList = (output: any, context: __SerdeCon
     });
 };
 
+const deserializeAws_json1_1ResourceNumberLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): ResourceNumberLimitExceededException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ResourceShareList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -2121,6 +3678,43 @@ const deserializeAws_json1_1RevokePermissionsResponse = (
   context: __SerdeContext
 ): RevokePermissionsResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1SearchDatabasesByLFTagsResponse = (
+  output: any,
+  context: __SerdeContext
+): SearchDatabasesByLFTagsResponse => {
+  return {
+    DatabaseList:
+      output.DatabaseList !== undefined && output.DatabaseList !== null
+        ? deserializeAws_json1_1DatabaseLFTagsList(output.DatabaseList, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SearchTablesByLFTagsResponse = (
+  output: any,
+  context: __SerdeContext
+): SearchTablesByLFTagsResponse => {
+  return {
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    TableList:
+      output.TableList !== undefined && output.TableList !== null
+        ? deserializeAws_json1_1TableLFTagsList(output.TableList, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TableLFTagsList = (output: any, context: __SerdeContext): TaggedTable[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TaggedTable(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TableResource = (output: any, context: __SerdeContext): TableResource => {
@@ -2158,6 +3752,51 @@ const deserializeAws_json1_1TableWithColumnsResource = (
   } as any;
 };
 
+const deserializeAws_json1_1TaggedDatabase = (output: any, context: __SerdeContext): TaggedDatabase => {
+  return {
+    Database:
+      output.Database !== undefined && output.Database !== null
+        ? deserializeAws_json1_1DatabaseResource(output.Database, context)
+        : undefined,
+    LFTags:
+      output.LFTags !== undefined && output.LFTags !== null
+        ? deserializeAws_json1_1LFTagsList(output.LFTags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TaggedTable = (output: any, context: __SerdeContext): TaggedTable => {
+  return {
+    LFTagOnDatabase:
+      output.LFTagOnDatabase !== undefined && output.LFTagOnDatabase !== null
+        ? deserializeAws_json1_1LFTagsList(output.LFTagOnDatabase, context)
+        : undefined,
+    LFTagsOnColumns:
+      output.LFTagsOnColumns !== undefined && output.LFTagsOnColumns !== null
+        ? deserializeAws_json1_1ColumnLFTagsList(output.LFTagsOnColumns, context)
+        : undefined,
+    LFTagsOnTable:
+      output.LFTagsOnTable !== undefined && output.LFTagsOnTable !== null
+        ? deserializeAws_json1_1LFTagsList(output.LFTagsOnTable, context)
+        : undefined,
+    Table:
+      output.Table !== undefined && output.Table !== null
+        ? deserializeAws_json1_1TableResource(output.Table, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TagValueList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const deserializeAws_json1_1TrustedResourceOwners = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -2167,6 +3806,10 @@ const deserializeAws_json1_1TrustedResourceOwners = (output: any, context: __Ser
       }
       return entry;
     });
+};
+
+const deserializeAws_json1_1UpdateLFTagResponse = (output: any, context: __SerdeContext): UpdateLFTagResponse => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateResourceResponse = (output: any, context: __SerdeContext): UpdateResourceResponse => {

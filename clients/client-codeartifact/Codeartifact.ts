@@ -748,9 +748,7 @@ export class Codeartifact extends CodeartifactClient {
   /**
    * <p>
    *          Returns a
-   *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainDescription.html">
-   *                <code>DomainDescription</code>
-   *             </a>
+   *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainDescription.html">DomainDescription</a>
    *       object that contains information about the requested domain.
    *      </p>
    */
@@ -786,9 +784,7 @@ export class Codeartifact extends CodeartifactClient {
   /**
    * <p>
    *        Returns a
-   *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">
-   *                <code>PackageVersionDescription</code>
-   *             </a>
+   *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
    *        object that contains information about the requested package version.
    *      </p>
    */
@@ -897,19 +893,13 @@ export class Codeartifact extends CodeartifactClient {
    *     </p>
    *
    *          <p>
-   *       To view all disposed package versions in a repository, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">
-   *                <code>ListPackageVersions</code>
-   *             </a> and set the
-   *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax">
-   *                <code>status</code>
-   *             </a> parameter
+   *       To view all disposed package versions in a repository, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a> and set the
+   *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax">status</a> parameter
    *       to <code>Disposed</code>.
    *     </p>
    *
    *          <p>
-   *       To view information about a disposed package version, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html">
-   *                <code>DescribePackageVersion</code>
-   *             </a>..
+   *       To view information about a disposed package version, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html">DescribePackageVersion</a>.
    *     </p>
    */
   public disposePackageVersions(
@@ -1226,9 +1216,7 @@ export class Codeartifact extends CodeartifactClient {
   /**
    * <p>
    *         Returns a list of
-   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">
-   *                <code>PackageSummary</code>
-   *             </a>
+   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">PackageSummary</a>
    *         objects for packages in a repository that match the request parameters.
    *       </p>
    */
@@ -1261,9 +1249,7 @@ export class Codeartifact extends CodeartifactClient {
   /**
    * <p>
    *        Returns a list of
-   *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">
-   *                <code>AssetSummary</code>
-   *             </a>
+   *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">AssetSummary</a>
    *        objects for assets in a package version.
    *      </p>
    */
@@ -1299,9 +1285,7 @@ export class Codeartifact extends CodeartifactClient {
   /**
    * <p>
    *          Returns the direct dependencies for a package version. The dependencies are returned as
-   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">
-   *                <code>PackageDependency</code>
-   *             </a>
+   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">PackageDependency</a>
    *           objects. CodeArtifact extracts the dependencies for a package version from the metadata file for the package
    *           format (for example, the <code>package.json</code> file for npm packages and the <code>pom.xml</code> file
    *         for Maven). Any package version dependencies that are not listed in the configuration file are not returned.
@@ -1339,9 +1323,7 @@ export class Codeartifact extends CodeartifactClient {
   /**
    * <p>
    *         Returns a list of
-   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">
-   *                <code>PackageVersionSummary</code>
-   *             </a>
+   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">PackageVersionSummary</a>
    *         objects for package versions in a repository that match the request parameters.
    *       </p>
    */
@@ -1377,9 +1359,7 @@ export class Codeartifact extends CodeartifactClient {
   /**
    * <p>
    *        Returns a list of
-   *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">
-   *                <code>RepositorySummary</code>
-   *             </a>
+   *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">RepositorySummary</a>
    *        objects. Each <code>RepositorySummary</code> contains information about a repository in the specified AWS account and that matches the input
    *        parameters.
    *      </p>
@@ -1416,9 +1396,7 @@ export class Codeartifact extends CodeartifactClient {
   /**
    * <p>
    *        Returns a list of
-   *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">
-   *                <code>RepositorySummary</code>
-   *             </a>
+   *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">RepositorySummary</a>
    *        objects. Each <code>RepositorySummary</code> contains information about a repository in the specified domain and that matches the input
    *        parameters.
    *      </p>

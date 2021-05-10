@@ -109,6 +109,25 @@ export namespace BrokerNodeGroupInfo {
 }
 
 /**
+ * <p>Details for IAM access control.</p>
+ */
+export interface Iam {
+  /**
+   * <p>Indicates whether IAM access control is enabled.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace Iam {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Iam): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Details for SASL/SCRAM client authentication.</p>
  */
 export interface Scram {
@@ -135,6 +154,11 @@ export interface Sasl {
    * <p>Details for SASL/SCRAM client authentication.</p>
    */
   Scram?: Scram;
+
+  /**
+   * <p>Indicates whether IAM access control is enabled.</p>
+   */
+  Iam?: Iam;
 }
 
 export namespace Sasl {
@@ -1905,6 +1929,11 @@ export interface GetBootstrapBrokersResponse {
    * <p>A string containing one or more DNS names (or IP) and Sasl Scram port pairs.</p>
    */
   BootstrapBrokerStringSaslScram?: string;
+
+  /**
+   * <p>A string that contains one or more DNS names (or IP addresses) and SASL IAM port pairs.</p>
+   */
+  BootstrapBrokerStringSaslIam?: string;
 }
 
 export namespace GetBootstrapBrokersResponse {

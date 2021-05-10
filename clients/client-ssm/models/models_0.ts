@@ -154,7 +154,6 @@ export interface AddTagsToResourceRequest {
    *    has a <code>ResourceID</code> of either <code>aws/ssm/MyGroup/appmanager</code> or
    *     <code>/aws/ssm/MyGroup/appmanager</code>.</p>
    *          <p>For the Document and Parameter values, use the name of the resource.</p>
-   *
    *          <note>
    *             <p>The ManagedInstance type for this API action is only for on-premises managed instances. You
    *     must specify the name of the managed instance in the following format: mi-ID_number. For
@@ -296,6 +295,141 @@ export namespace AlreadyExistsException {
    * @internal
    */
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateOpsItemRelatedItemRequest {
+  /**
+   * <p>The ID of the OpsItem to which you want to associate a resource as a related item.</p>
+   */
+  OpsItemId: string | undefined;
+
+  /**
+   * <p>The type of association that you want to create between an OpsItem and a resource. OpsCenter
+   *    supports <code>IsParentOf</code> and <code>RelatesTo</code> association types.</p>
+   */
+  AssociationType: string | undefined;
+
+  /**
+   * <p>The type of resource that you want to associate with an OpsItem. OpsCenter supports the
+   *    following types:</p>
+   *          <p>
+   *             <code>AWS::SSMIncidents::IncidentRecord</code>: an Incident Manager incident. Incident
+   *    Manager is a capability of AWS Systems Manager.</p>
+   *          <p>
+   *             <code>AWS::SSM::Document</code>: a Systems Manager (SSM) document.</p>
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS resource that you want to associate with the
+   *    OpsItem.</p>
+   */
+  ResourceUri: string | undefined;
+}
+
+export namespace AssociateOpsItemRelatedItemRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateOpsItemRelatedItemRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateOpsItemRelatedItemResponse {
+  /**
+   * <p>The association ID.</p>
+   */
+  AssociationId?: string;
+}
+
+export namespace AssociateOpsItemRelatedItemResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateOpsItemRelatedItemResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A specified parameter argument isn't valid. Verify the available arguments and try
+ *    again.</p>
+ */
+export interface OpsItemInvalidParameterException extends __SmithyException, $MetadataBearer {
+  name: "OpsItemInvalidParameterException";
+  $fault: "client";
+  ParameterNames?: string[];
+  Message?: string;
+}
+
+export namespace OpsItemInvalidParameterException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OpsItemInvalidParameterException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request caused OpsItems to exceed one or more quotas. For information about OpsItem
+ *    quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What are the resource limits for OpsCenter?</a>.</p>
+ */
+export interface OpsItemLimitExceededException extends __SmithyException, $MetadataBearer {
+  name: "OpsItemLimitExceededException";
+  $fault: "client";
+  ResourceTypes?: string[];
+  Limit?: number;
+  LimitType?: string;
+  Message?: string;
+}
+
+export namespace OpsItemLimitExceededException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OpsItemLimitExceededException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
+ */
+export interface OpsItemNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "OpsItemNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace OpsItemNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OpsItemNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The Amazon Resource Name (ARN) is already associated with the OpsItem.</p>
+ */
+export interface OpsItemRelatedItemAlreadyExistsException extends __SmithyException, $MetadataBearer {
+  name: "OpsItemRelatedItemAlreadyExistsException";
+  $fault: "client";
+  Message?: string;
+  ResourceUri?: string;
+  OpsItemId?: string;
+}
+
+export namespace OpsItemRelatedItemAlreadyExistsException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OpsItemRelatedItemAlreadyExistsException): any => ({
     ...obj,
   });
 }
@@ -509,7 +643,6 @@ export interface CreateActivationRequest {
    *     ID and code. When you specify the activation ID and code, tags assigned to the activation are
    *     automatically applied to the on-premises servers or VMs.</p>
    *          </important>
-   *
    *          <p>You can't add tags to or delete tags from an existing activation. You can tag your
    *    on-premises servers and VMs after they connect to Systems Manager for the first time and are assigned a
    *    managed instance ID. This means they are listed in the AWS Systems Manager console with an ID that is
@@ -946,12 +1079,20 @@ export interface CreateAssociationRequest {
   SyncCompliance?: AssociationSyncCompliance | string;
 
   /**
-   * <p>By default, when you create a new associations, the system runs it immediately after it is
+   * <p>By default, when you create a new association, the system runs it immediately after it is
    *    created and then according to the schedule you specified. Specify this option if you don't want
    *    an association to run immediately after you create it. This parameter is not supported for rate
    *    expressions.</p>
    */
   ApplyOnlyAtCronInterval?: boolean;
+
+  /**
+   * <p>The names or Amazon Resource Names (ARNs) of the Systems Manager Change Calendar type
+   *    documents you want to gate your associations under. The associations only run when that Change
+   *    Calendar is open. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">AWS Systems Manager Change
+   *     Calendar</a>.</p>
+   */
+  CalendarNames?: string[];
 
   /**
    * <p>A location is a combination of AWS Regions and AWS accounts where you want to run the
@@ -1182,6 +1323,14 @@ export interface AssociationDescription {
    *    expressions.</p>
    */
   ApplyOnlyAtCronInterval?: boolean;
+
+  /**
+   * <p>The names or Amazon Resource Names (ARNs) of the Systems Manager Change Calendar type
+   *   documents your associations are gated under. The associations only run when that Change
+   *   Calendar is open. For more information, see
+   *   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">AWS Systems Manager Change Calendar</a>.</p>
+   */
+  CalendarNames?: string[];
 
   /**
    * <p>The combination of AWS Regions and AWS accounts where you want to run the
@@ -1468,6 +1617,14 @@ export interface CreateAssociationBatchRequestEntry {
   ApplyOnlyAtCronInterval?: boolean;
 
   /**
+   * <p>The names or Amazon Resource Names (ARNs) of the Systems Manager Change Calendar type
+   *   documents your associations are gated under. The associations only run when that Change
+   *   Calendar is open.  For more information, see
+   *   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">AWS Systems Manager Change Calendar</a>.</p>
+   */
+  CalendarNames?: string[];
+
+  /**
    * <p>Use this action to create an association in multiple Regions and multiple accounts.</p>
    */
   TargetLocations?: TargetLocation[];
@@ -1636,6 +1793,8 @@ export enum DocumentType {
   DeploymentStrategy = "DeploymentStrategy",
   Package = "Package",
   Policy = "Policy",
+  ProblemAnalysis = "ProblemAnalysis",
+  ProblemAnalysisTemplate = "ProblemAnalysisTemplate",
   Session = "Session",
 }
 
@@ -1735,6 +1894,13 @@ export interface CreateDocumentRequest {
   Name: string | undefined;
 
   /**
+   * <p>An optional field where you can specify a friendly name for the Systems Manager document. This value
+   *    can differ for each version of the document. You can update this value at a later time using the
+   *     <a>UpdateDocument</a> action.</p>
+   */
+  DisplayName?: string;
+
+  /**
    * <p>An optional field specifying the version of the artifact you are creating with the document.
    *    For example, "Release 12, Update 6". This value is unique across all versions of a document, and
    *    cannot be changed.</p>
@@ -1766,7 +1932,6 @@ export interface CreateDocumentRequest {
    *    different ways, such as by purpose, owner, or environment. For example, you might want to tag an
    *    SSM document to identify the types of targets or the environment where it will run. In this case,
    *    you could specify the following key name/value pairs:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -1938,6 +2103,12 @@ export interface DocumentDescription {
    * <p>The name of the Systems Manager document.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The friendly name of the Systems Manager document. This value can differ for each version of the
+   *    document. If you want to update this value, see <a>UpdateDocument</a>.</p>
+   */
+  DisplayName?: string;
 
   /**
    * <p>The version of the artifact associated with the document.</p>
@@ -2450,7 +2621,6 @@ export interface CreateOpsItemRequest {
    *    provided by the <a>DescribeOpsItems</a> API action) can view and search on the
    *    specified data. Operational data that is not searchable is only viewable by users who have access
    *    to the OpsItem (as provided by the <a>GetOpsItem</a> API action).</p>
-   *
    *          <p>Use the <code>/aws/resources</code> key in OperationalData to specify a related resource in
    *    the request. Use the <code>/aws/automations</code> key in OperationalData to associate an
    *    Automation runbook with the OpsItem. To view AWS CLI example commands that use these keys, see
@@ -2493,11 +2663,9 @@ export interface CreateOpsItemRequest {
    * <p>Optional metadata that you assign to a resource. You can restrict access to OpsItems by
    *    using an inline IAM policy that specifies tags. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions">Getting started with OpsCenter</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    *          <p>Tags use a key-value pair. For example:</p>
-   *
    *          <p>
    *             <code>Key=Department,Value=Finance</code>
    *          </p>
-   *
    *          <note>
    *             <p>To add tags to an existing OpsItem, use the <a>AddTagsToResource</a>
    *     action.</p>
@@ -2580,48 +2748,6 @@ export namespace OpsItemAlreadyExistsException {
    * @internal
    */
   export const filterSensitiveLog = (obj: OpsItemAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A specified parameter argument isn't valid. Verify the available arguments and try
- *    again.</p>
- */
-export interface OpsItemInvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "OpsItemInvalidParameterException";
-  $fault: "client";
-  ParameterNames?: string[];
-  Message?: string;
-}
-
-export namespace OpsItemInvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsItemInvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request caused OpsItems to exceed one or more quotas. For information about OpsItem
- *    quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What are the resource limits for OpsCenter?</a>.</p>
- */
-export interface OpsItemLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "OpsItemLimitExceededException";
-  $fault: "client";
-  ResourceTypes?: string[];
-  Limit?: number;
-  LimitType?: string;
-  Message?: string;
-}
-
-export namespace OpsItemLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsItemLimitExceededException): any => ({
     ...obj,
   });
 }
@@ -5284,8 +5410,8 @@ export interface DescribeAutomationStepExecutionsRequest {
   MaxResults?: number;
 
   /**
-   * <p>A boolean that indicates whether to list step executions in reverse order by start time. The
-   *    default value is 'false'.</p>
+   * <p>Indicates whether to list step executions in reverse order by start time. The default value
+   *    is 'false'.</p>
    */
   ReverseOrder?: boolean;
 }
@@ -8724,122 +8850,6 @@ export namespace DescribeParametersResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeParametersResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified filter option is not valid. Valid options are Equals and BeginsWith. For Path
- *    filter, valid options are Recursive and OneLevel.</p>
- */
-export interface InvalidFilterOption extends __SmithyException, $MetadataBearer {
-  name: "InvalidFilterOption";
-  $fault: "client";
-  /**
-   * <p>The specified filter option is not valid. Valid options are Equals and BeginsWith. For Path
-   *    filter, valid options are Recursive and OneLevel.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidFilterOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidFilterOption): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePatchBaselinesRequest {
-  /**
-   * <p>Each element in the array is a structure containing: </p>
-   *          <p>Key: (string, "NAME_PREFIX" or "OWNER")</p>
-   *          <p>Value: (array of strings, exactly 1 entry, between 1 and 255 characters)</p>
-   */
-  Filters?: PatchOrchestratorFilter[];
-
-  /**
-   * <p>The maximum number of patch baselines to return (per page).</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a previous
-   *    call.)</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribePatchBaselinesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePatchBaselinesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Defines the basic information about a patch baseline.</p>
- */
-export interface PatchBaselineIdentity {
-  /**
-   * <p>The ID of the patch baseline.</p>
-   */
-  BaselineId?: string;
-
-  /**
-   * <p>The name of the patch baseline.</p>
-   */
-  BaselineName?: string;
-
-  /**
-   * <p>Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
-   *   </p>
-   */
-  OperatingSystem?: OperatingSystem | string;
-
-  /**
-   * <p>The description of the patch baseline.</p>
-   */
-  BaselineDescription?: string;
-
-  /**
-   * <p>Whether this is the default baseline. Note that Systems Manager supports creating multiple default
-   *    patch baselines. For example, you can create a default patch baseline for each operating
-   *    system.</p>
-   */
-  DefaultBaseline?: boolean;
-}
-
-export namespace PatchBaselineIdentity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PatchBaselineIdentity): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribePatchBaselinesResult {
-  /**
-   * <p>An array of PatchBaselineIdentity elements.</p>
-   */
-  BaselineIdentities?: PatchBaselineIdentity[];
-
-  /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to
-   *    return, the string is empty.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribePatchBaselinesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePatchBaselinesResult): any => ({
     ...obj,
   });
 }

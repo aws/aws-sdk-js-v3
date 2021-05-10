@@ -15,6 +15,7 @@ import {
 } from "../commands/DeleteProfileObjectTypeCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "../commands/GetDomainCommand";
 import { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "../commands/GetIntegrationCommand";
+import { GetMatchesCommandInput, GetMatchesCommandOutput } from "../commands/GetMatchesCommand";
 import {
   GetProfileObjectTypeCommandInput,
   GetProfileObjectTypeCommandOutput,
@@ -42,6 +43,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { MergeProfilesCommandInput, MergeProfilesCommandOutput } from "../commands/MergeProfilesCommand";
 import { PutIntegrationCommandInput, PutIntegrationCommandOutput } from "../commands/PutIntegrationCommand";
 import { PutProfileObjectCommandInput, PutProfileObjectCommandOutput } from "../commands/PutProfileObjectCommand";
 import {
@@ -59,6 +61,7 @@ import {
   BadRequestException,
   ConnectorOperator,
   DomainStats,
+  FieldSourceProfileIds,
   FlowDefinition,
   IncrementalPullConfig,
   InternalServerException,
@@ -68,6 +71,9 @@ import {
   ListProfileObjectTypeTemplateItem,
   ListProfileObjectsItem,
   MarketoSourceProperties,
+  MatchItem,
+  MatchingRequest,
+  MatchingResponse,
   ObjectTypeField,
   ObjectTypeKey,
   OperatorPropertiesKeys,
@@ -160,6 +166,8 @@ export const serializeAws_restJson1CreateDomainCommand = async (
       input.DefaultEncryptionKey !== null && { DefaultEncryptionKey: input.DefaultEncryptionKey }),
     ...(input.DefaultExpirationDays !== undefined &&
       input.DefaultExpirationDays !== null && { DefaultExpirationDays: input.DefaultExpirationDays }),
+    ...(input.Matching !== undefined &&
+      input.Matching !== null && { Matching: serializeAws_restJson1MatchingRequest(input.Matching, context) }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -509,6 +517,39 @@ export const serializeAws_restJson1GetIntegrationCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetMatchesCommand = async (
+  input: GetMatchesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/domains/{DomainName}/matches";
+  if (input.DomainName !== undefined) {
+    const labelValue: string = input.DomainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DomainName.");
+    }
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DomainName.");
+  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetProfileObjectTypeCommand = async (
   input: GetProfileObjectTypeCommandInput,
   context: __SerdeContext
@@ -785,6 +826,47 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1MergeProfilesCommand = async (
+  input: MergeProfilesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/domains/{DomainName}/profiles/objects/merge";
+  if (input.DomainName !== undefined) {
+    const labelValue: string = input.DomainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DomainName.");
+    }
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DomainName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.FieldSourceProfileIds !== undefined &&
+      input.FieldSourceProfileIds !== null && {
+        FieldSourceProfileIds: serializeAws_restJson1FieldSourceProfileIds(input.FieldSourceProfileIds, context),
+      }),
+    ...(input.MainProfileId !== undefined && input.MainProfileId !== null && { MainProfileId: input.MainProfileId }),
+    ...(input.ProfileIdsToBeMerged !== undefined &&
+      input.ProfileIdsToBeMerged !== null && {
+        ProfileIdsToBeMerged: serializeAws_restJson1ProfileIdToBeMergedList(input.ProfileIdsToBeMerged, context),
+      }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1PutIntegrationCommand = async (
   input: PutIntegrationCommandInput,
   context: __SerdeContext
@@ -1042,6 +1124,8 @@ export const serializeAws_restJson1UpdateDomainCommand = async (
       input.DefaultEncryptionKey !== null && { DefaultEncryptionKey: input.DefaultEncryptionKey }),
     ...(input.DefaultExpirationDays !== undefined &&
       input.DefaultExpirationDays !== null && { DefaultExpirationDays: input.DefaultExpirationDays }),
+    ...(input.Matching !== undefined &&
+      input.Matching !== null && { Matching: serializeAws_restJson1MatchingRequest(input.Matching, context) }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1233,6 +1317,7 @@ export const deserializeAws_restJson1CreateDomainCommand = async (
     DefaultExpirationDays: undefined,
     DomainName: undefined,
     LastUpdatedAt: undefined,
+    Matching: undefined,
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1253,6 +1338,9 @@ export const deserializeAws_restJson1CreateDomainCommand = async (
   }
   if (data.LastUpdatedAt !== undefined && data.LastUpdatedAt !== null) {
     contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
+  }
+  if (data.Matching !== undefined && data.Matching !== null) {
+    contents.Matching = deserializeAws_restJson1MatchingResponse(data.Matching, context);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
@@ -1953,6 +2041,7 @@ export const deserializeAws_restJson1GetDomainCommand = async (
     DefaultExpirationDays: undefined,
     DomainName: undefined,
     LastUpdatedAt: undefined,
+    Matching: undefined,
     Stats: undefined,
     Tags: undefined,
   };
@@ -1974,6 +2063,9 @@ export const deserializeAws_restJson1GetDomainCommand = async (
   }
   if (data.LastUpdatedAt !== undefined && data.LastUpdatedAt !== null) {
     contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
+  }
+  if (data.Matching !== undefined && data.Matching !== null) {
+    contents.Matching = deserializeAws_restJson1MatchingResponse(data.Matching, context);
   }
   if (data.Stats !== undefined && data.Stats !== null) {
     contents.Stats = deserializeAws_restJson1DomainStats(data.Stats, context);
@@ -2095,6 +2187,105 @@ const deserializeAws_restJson1GetIntegrationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntegrationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.customerprofiles#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BadRequestException":
+    case "com.amazonaws.customerprofiles#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.customerprofiles#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.customerprofiles#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetMatchesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMatchesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetMatchesCommandError(output, context);
+  }
+  const contents: GetMatchesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    MatchGenerationDate: undefined,
+    Matches: undefined,
+    NextToken: undefined,
+    PotentialMatches: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.MatchGenerationDate !== undefined && data.MatchGenerationDate !== null) {
+    contents.MatchGenerationDate = new Date(Math.round(data.MatchGenerationDate * 1000));
+  }
+  if (data.Matches !== undefined && data.Matches !== null) {
+    contents.Matches = deserializeAws_restJson1MatchesList(data.Matches, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  if (data.PotentialMatches !== undefined && data.PotentialMatches !== null) {
+    contents.PotentialMatches = data.PotentialMatches;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetMatchesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMatchesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3011,6 +3202,85 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1MergeProfilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MergeProfilesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MergeProfilesCommandError(output, context);
+  }
+  const contents: MergeProfilesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Message: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1MergeProfilesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MergeProfilesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.customerprofiles#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.customerprofiles#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.customerprofiles#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1PutIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3572,6 +3842,7 @@ export const deserializeAws_restJson1UpdateDomainCommand = async (
     DefaultExpirationDays: undefined,
     DomainName: undefined,
     LastUpdatedAt: undefined,
+    Matching: undefined,
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3592,6 +3863,9 @@ export const deserializeAws_restJson1UpdateDomainCommand = async (
   }
   if (data.LastUpdatedAt !== undefined && data.LastUpdatedAt !== null) {
     contents.LastUpdatedAt = new Date(Math.round(data.LastUpdatedAt * 1000));
+  }
+  if (data.Matching !== undefined && data.Matching !== null) {
+    contents.Matching = deserializeAws_restJson1MatchingResponse(data.Matching, context);
   }
   if (data.Tags !== undefined && data.Tags !== null) {
     contents.Tags = deserializeAws_restJson1TagMap(data.Tags, context);
@@ -3867,6 +4141,18 @@ const serializeAws_restJson1Attributes = (input: { [key: string]: string }, cont
   }, {});
 };
 
+const serializeAws_restJson1AttributeSourceIdMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
 const serializeAws_restJson1ConnectorOperator = (input: ConnectorOperator, context: __SerdeContext): any => {
   return {
     ...(input.Marketo !== undefined && input.Marketo !== null && { Marketo: input.Marketo }),
@@ -3898,6 +4184,44 @@ const serializeAws_restJson1FieldNameList = (input: string[], context: __SerdeCo
       }
       return entry;
     });
+};
+
+const serializeAws_restJson1FieldSourceProfileIds = (input: FieldSourceProfileIds, context: __SerdeContext): any => {
+  return {
+    ...(input.AccountNumber !== undefined && input.AccountNumber !== null && { AccountNumber: input.AccountNumber }),
+    ...(input.AdditionalInformation !== undefined &&
+      input.AdditionalInformation !== null && { AdditionalInformation: input.AdditionalInformation }),
+    ...(input.Address !== undefined && input.Address !== null && { Address: input.Address }),
+    ...(input.Attributes !== undefined &&
+      input.Attributes !== null && {
+        Attributes: serializeAws_restJson1AttributeSourceIdMap(input.Attributes, context),
+      }),
+    ...(input.BillingAddress !== undefined &&
+      input.BillingAddress !== null && { BillingAddress: input.BillingAddress }),
+    ...(input.BirthDate !== undefined && input.BirthDate !== null && { BirthDate: input.BirthDate }),
+    ...(input.BusinessEmailAddress !== undefined &&
+      input.BusinessEmailAddress !== null && { BusinessEmailAddress: input.BusinessEmailAddress }),
+    ...(input.BusinessName !== undefined && input.BusinessName !== null && { BusinessName: input.BusinessName }),
+    ...(input.BusinessPhoneNumber !== undefined &&
+      input.BusinessPhoneNumber !== null && { BusinessPhoneNumber: input.BusinessPhoneNumber }),
+    ...(input.EmailAddress !== undefined && input.EmailAddress !== null && { EmailAddress: input.EmailAddress }),
+    ...(input.FirstName !== undefined && input.FirstName !== null && { FirstName: input.FirstName }),
+    ...(input.Gender !== undefined && input.Gender !== null && { Gender: input.Gender }),
+    ...(input.HomePhoneNumber !== undefined &&
+      input.HomePhoneNumber !== null && { HomePhoneNumber: input.HomePhoneNumber }),
+    ...(input.LastName !== undefined && input.LastName !== null && { LastName: input.LastName }),
+    ...(input.MailingAddress !== undefined &&
+      input.MailingAddress !== null && { MailingAddress: input.MailingAddress }),
+    ...(input.MiddleName !== undefined && input.MiddleName !== null && { MiddleName: input.MiddleName }),
+    ...(input.MobilePhoneNumber !== undefined &&
+      input.MobilePhoneNumber !== null && { MobilePhoneNumber: input.MobilePhoneNumber }),
+    ...(input.PartyType !== undefined && input.PartyType !== null && { PartyType: input.PartyType }),
+    ...(input.PersonalEmailAddress !== undefined &&
+      input.PersonalEmailAddress !== null && { PersonalEmailAddress: input.PersonalEmailAddress }),
+    ...(input.PhoneNumber !== undefined && input.PhoneNumber !== null && { PhoneNumber: input.PhoneNumber }),
+    ...(input.ShippingAddress !== undefined &&
+      input.ShippingAddress !== null && { ShippingAddress: input.ShippingAddress }),
+  };
 };
 
 const serializeAws_restJson1FlowDefinition = (input: FlowDefinition, context: __SerdeContext): any => {
@@ -3946,6 +4270,12 @@ const serializeAws_restJson1MarketoSourceProperties = (
   };
 };
 
+const serializeAws_restJson1MatchingRequest = (input: MatchingRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+  };
+};
+
 const serializeAws_restJson1ObjectTypeField = (input: ObjectTypeField, context: __SerdeContext): any => {
   return {
     ...(input.ContentType !== undefined && input.ContentType !== null && { ContentType: input.ContentType }),
@@ -3973,6 +4303,17 @@ const serializeAws_restJson1ObjectTypeKeyList = (input: ObjectTypeKey[], context
         return null as any;
       }
       return serializeAws_restJson1ObjectTypeKey(entry, context);
+    });
+};
+
+const serializeAws_restJson1ProfileIdToBeMergedList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 
@@ -4399,6 +4740,33 @@ const deserializeAws_restJson1ListProfileObjectTypeTemplateItem = (
   } as any;
 };
 
+const deserializeAws_restJson1MatchesList = (output: any, context: __SerdeContext): MatchItem[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MatchItem(entry, context);
+    });
+};
+
+const deserializeAws_restJson1MatchingResponse = (output: any, context: __SerdeContext): MatchingResponse => {
+  return {
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MatchItem = (output: any, context: __SerdeContext): MatchItem => {
+  return {
+    MatchId: output.MatchId !== undefined && output.MatchId !== null ? output.MatchId : undefined,
+    ProfileIds:
+      output.ProfileIds !== undefined && output.ProfileIds !== null
+        ? deserializeAws_restJson1ProfileIdList(output.ProfileIds, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ObjectTypeField = (output: any, context: __SerdeContext): ObjectTypeField => {
   return {
     ContentType: output.ContentType !== undefined && output.ContentType !== null ? output.ContentType : undefined,
@@ -4488,6 +4856,17 @@ const deserializeAws_restJson1Profile = (output: any, context: __SerdeContext): 
         ? deserializeAws_restJson1Address(output.ShippingAddress, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1ProfileIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1ProfileList = (output: any, context: __SerdeContext): Profile[] => {

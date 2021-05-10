@@ -5,6 +5,11 @@ import {
   AddTagsToResourceCommandOutput,
 } from "./commands/AddTagsToResourceCommand";
 import {
+  AssociateOpsItemRelatedItemCommand,
+  AssociateOpsItemRelatedItemCommandInput,
+  AssociateOpsItemRelatedItemCommandOutput,
+} from "./commands/AssociateOpsItemRelatedItemCommand";
+import {
   CancelCommandCommand,
   CancelCommandCommandInput,
   CancelCommandCommandOutput,
@@ -290,6 +295,11 @@ import {
   DescribeSessionsCommandOutput,
 } from "./commands/DescribeSessionsCommand";
 import {
+  DisassociateOpsItemRelatedItemCommand,
+  DisassociateOpsItemRelatedItemCommandInput,
+  DisassociateOpsItemRelatedItemCommandOutput,
+} from "./commands/DisassociateOpsItemRelatedItemCommand";
+import {
   GetAutomationExecutionCommand,
   GetAutomationExecutionCommandInput,
   GetAutomationExecutionCommandOutput,
@@ -461,6 +471,11 @@ import {
   ListOpsItemEventsCommandInput,
   ListOpsItemEventsCommandOutput,
 } from "./commands/ListOpsItemEventsCommand";
+import {
+  ListOpsItemRelatedItemsCommand,
+  ListOpsItemRelatedItemsCommandInput,
+  ListOpsItemRelatedItemsCommandOutput,
+} from "./commands/ListOpsItemRelatedItemsCommand";
 import {
   ListOpsMetadataCommand,
   ListOpsMetadataCommandInput,
@@ -662,8 +677,26 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <p>To get started, verify prerequisites and configure managed instances. For more information,
  *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Setting up
  *     AWS Systems Manager</a> in the <i>AWS Systems Manager User Guide</i>.</p>
- *          <p>For information about other API actions you can perform on EC2 instances, see the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>. For information
- *    about how to use a Query API, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making API requests</a>. </p>
+ *          <p class="title">
+ *             <b>Related resources</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>For information about how to use a Query API, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making API requests</a>. </p>
+ *             </li>
+ *             <li>
+ *                <p>For information about other API actions you can perform on EC2 instances, see the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For information about AWS AppConfig, a capability of Systems Manager, see the <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/">AWS AppConfig User Guide</a> and the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/">AWS AppConfig API
+ *      Reference</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For information about AWS Incident Manager, a capability of Systems Manager, see the <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/">AWS Incident Manager User Guide</a>
+ *      and the <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/">AWS Incident Manager API
+ *       Reference</a>.</p>
+ *             </li>
+ *          </ul>
  */
 export class SSM extends SSMClient {
   /**
@@ -675,7 +708,6 @@ export class SSM extends SSMClient {
    *    instances that helps you track each instance's owner and stack level. For example: Key=Owner and
    *    Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or
    *    Test.</p>
-   *
    *          <p>Each resource can have a maximum of 50 tags. </p>
    *          <p>We recommend that you devise a set of tag keys that meets your needs for each resource type.
    *    Using a consistent set of tag keys makes it easier for you to manage your resources. You can
@@ -703,6 +735,40 @@ export class SSM extends SSMClient {
     cb?: (err: any, data?: AddTagsToResourceCommandOutput) => void
   ): Promise<AddTagsToResourceCommandOutput> | void {
     const command = new AddTagsToResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates a related resource to a Systems Manager OpsCenter OpsItem. For example, you can
+   *    associate an Incident Manager incident or analysis with an OpsItem. Incident Manager is a
+   *    capability of AWS Systems Manager.</p>
+   */
+  public associateOpsItemRelatedItem(
+    args: AssociateOpsItemRelatedItemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateOpsItemRelatedItemCommandOutput>;
+  public associateOpsItemRelatedItem(
+    args: AssociateOpsItemRelatedItemCommandInput,
+    cb: (err: any, data?: AssociateOpsItemRelatedItemCommandOutput) => void
+  ): void;
+  public associateOpsItemRelatedItem(
+    args: AssociateOpsItemRelatedItemCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateOpsItemRelatedItemCommandOutput) => void
+  ): void;
+  public associateOpsItemRelatedItem(
+    args: AssociateOpsItemRelatedItemCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateOpsItemRelatedItemCommandOutput) => void),
+    cb?: (err: any, data?: AssociateOpsItemRelatedItemCommandOutput) => void
+  ): Promise<AssociateOpsItemRelatedItemCommandOutput> | void {
+    const command = new AssociateOpsItemRelatedItemCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1089,17 +1155,14 @@ export class SSM extends SSMClient {
    *    synchronize Inventory data from multiple AWS Regions to a single S3 bucket. For more information,
    *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring Resource Data
    *     Sync for Inventory</a> in the <i>AWS Systems Manager User Guide</i>.</p>
-   *
    *          <p>You can configure Systems Manager Explorer to use the <code>SyncFromSource</code> type to synchronize
    *    operational work items (OpsItems) and operational data (OpsData) from multiple AWS Regions to a
    *    single S3 bucket. This type can synchronize OpsItems and OpsData from multiple AWS accounts and
    *    Regions or <code>EntireOrganization</code> by using AWS Organizations. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting up Systems Manager Explorer to display data from multiple accounts and Regions</a> in the
    *     <i>AWS Systems Manager User Guide</i>.</p>
-   *
    *          <p>A resource data sync is an asynchronous operation that returns immediately. After a
    *    successful initial sync is completed, the system continuously syncs data. To check the status of
    *    a sync, use the <a>ListResourceDataSync</a>.</p>
-   *
    *          <note>
    *             <p>By default, data is not encrypted in Amazon S3. We strongly recommend that you enable encryption
    *     in Amazon S3 to ensure secure data storage. We also recommend that you secure access to the Amazon S3
@@ -2725,6 +2788,40 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * <p>Deletes the association between an OpsItem and a related resource. For example, this API
+   *    action can delete an Incident Manager incident from an OpsItem. Incident Manager is a capability
+   *    of AWS Systems Manager.</p>
+   */
+  public disassociateOpsItemRelatedItem(
+    args: DisassociateOpsItemRelatedItemCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateOpsItemRelatedItemCommandOutput>;
+  public disassociateOpsItemRelatedItem(
+    args: DisassociateOpsItemRelatedItemCommandInput,
+    cb: (err: any, data?: DisassociateOpsItemRelatedItemCommandOutput) => void
+  ): void;
+  public disassociateOpsItemRelatedItem(
+    args: DisassociateOpsItemRelatedItemCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateOpsItemRelatedItemCommandOutput) => void
+  ): void;
+  public disassociateOpsItemRelatedItem(
+    args: DisassociateOpsItemRelatedItemCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateOpsItemRelatedItemCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateOpsItemRelatedItemCommandOutput) => void
+  ): Promise<DisassociateOpsItemRelatedItemCommandOutput> | void {
+    const command = new DisassociateOpsItemRelatedItemCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Get detailed information about a particular Automation execution.</p>
    */
   public getAutomationExecution(
@@ -3502,7 +3599,6 @@ export class SSM extends SSMClient {
    *    permission for the setting. Use the <a>UpdateServiceSetting</a> API action to change
    *    the default setting. Or use the <a>ResetServiceSetting</a> to change the value back to
    *    the original value defined by the AWS service team.</p>
-   *
    *          <p>Query the current service setting for the account. </p>
    */
   public getServiceSetting(
@@ -3952,6 +4048,38 @@ export class SSM extends SSMClient {
     cb?: (err: any, data?: ListOpsItemEventsCommandOutput) => void
   ): Promise<ListOpsItemEventsCommandOutput> | void {
     const command = new ListOpsItemEventsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all related-item resources associated with an OpsItem.</p>
+   */
+  public listOpsItemRelatedItems(
+    args: ListOpsItemRelatedItemsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOpsItemRelatedItemsCommandOutput>;
+  public listOpsItemRelatedItems(
+    args: ListOpsItemRelatedItemsCommandInput,
+    cb: (err: any, data?: ListOpsItemRelatedItemsCommandOutput) => void
+  ): void;
+  public listOpsItemRelatedItems(
+    args: ListOpsItemRelatedItemsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOpsItemRelatedItemsCommandOutput) => void
+  ): void;
+  public listOpsItemRelatedItems(
+    args: ListOpsItemRelatedItemsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOpsItemRelatedItemsCommandOutput) => void),
+    cb?: (err: any, data?: ListOpsItemRelatedItemsCommandOutput) => void
+  ): Promise<ListOpsItemRelatedItemsCommandOutput> | void {
+    const command = new ListOpsItemRelatedItemsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4458,7 +4586,6 @@ export class SSM extends SSMClient {
    *    permission for the setting. Use the <a>GetServiceSetting</a> API action to view the
    *    current value. Use the <a>UpdateServiceSetting</a> API action to change the default
    *    setting. </p>
-   *
    *          <p>Reset the service setting for the account to the default value as provisioned by the AWS
    *    service team. </p>
    */
@@ -5361,7 +5488,6 @@ export class SSM extends SSMClient {
    *    permission for the setting. Use the <a>GetServiceSetting</a> API action to view the
    *    current value. Or, use the <a>ResetServiceSetting</a> to change the value back to the
    *    original value defined by the AWS service team.</p>
-   *
    *          <p>Update the service setting for the account. </p>
    */
   public updateServiceSetting(

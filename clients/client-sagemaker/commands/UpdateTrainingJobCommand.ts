@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateTrainingJobRequest, UpdateTrainingJobResponse } from "../models/models_2";
+import { UpdateTrainingJobRequest, UpdateTrainingJobResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1UpdateTrainingJobCommand,
   serializeAws_json1_1UpdateTrainingJobCommand,

@@ -23,9 +23,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResult, __Met
 /**
  * <p>
  *          Returns a
- *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainDescription.html">
- *                <code>DomainDescription</code>
- *             </a>
+ *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DomainDescription.html">DomainDescription</a>
  *       object that contains information about the requested domain.
  *      </p>
  * @example

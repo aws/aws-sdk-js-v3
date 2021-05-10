@@ -609,6 +609,62 @@ export namespace ForwardedValues {
 export type EventType = "origin-request" | "origin-response" | "viewer-request" | "viewer-response";
 
 /**
+ * <p>A CloudFront function that is associated with a cache behavior in a CloudFront
+ * 			distribution.</p>
+ */
+export interface FunctionAssociation {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function.</p>
+   */
+  FunctionARN: string | undefined;
+
+  /**
+   * <p>The event type of the function, either <code>viewer-request</code> or
+   * 			<code>viewer-response</code>. You cannot use origin-facing event types
+   * 			(<code>origin-request</code> and <code>origin-response</code>) with a CloudFront
+   * 			function.</p>
+   */
+  EventType: EventType | string | undefined;
+}
+
+export namespace FunctionAssociation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FunctionAssociation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of CloudFront functions that are associated with a cache behavior in a CloudFront distribution.
+ * 			CloudFront functions must be published to the <code>LIVE</code> stage to associate them with a
+ * 			cache behavior.</p>
+ */
+export interface FunctionAssociations {
+  /**
+   * <p>The number of CloudFront functions in the list.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The CloudFront functions that are associated with a cache behavior in a CloudFront distribution.  CloudFront
+   * 			functions must be published to the <code>LIVE</code> stage to associate them with a
+   * 			cache behavior.</p>
+   */
+  Items?: FunctionAssociation[];
+}
+
+export namespace FunctionAssociations {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FunctionAssociations): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>A complex type that contains a Lambda function association.</p>
  */
 export interface LambdaFunctionAssociation {
@@ -918,6 +974,13 @@ export interface CacheBehavior {
   LambdaFunctionAssociations?: LambdaFunctionAssociations;
 
   /**
+   * <p>A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must
+   * 			be published to the <code>LIVE</code> stage to associate them with a cache
+   * 			behavior.</p>
+   */
+  FunctionAssociations?: FunctionAssociations;
+
+  /**
    * <p>The value of <code>ID</code> for the field-level encryption configuration that you want CloudFront
    * 			to use for encrypting specific fields of data for this cache behavior.</p>
    */
@@ -932,7 +995,10 @@ export interface CacheBehavior {
   /**
    * <p>The unique identifier of the cache policy that is attached to this cache behavior. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   *             <i>Amazon CloudFront Developer Guide</i>.</p>
+   *         <p>A <code>CacheBehavior</code> must include either a
+   *             <code>CachePolicyId</code> or <code>ForwardedValues</code>. We recommend that you
+   *             use a <code>CachePolicyId</code>.</p>
    */
   CachePolicyId?: string;
 
@@ -954,7 +1020,10 @@ export interface CacheBehavior {
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
    * 		       <p>If you want to send values to the origin but not include them in the cache key, use an
    * 			origin request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating origin request policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html">Using the managed origin request policies</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   *             <i>Amazon CloudFront Developer Guide</i>.</p>
+   *         <p>A <code>CacheBehavior</code> must include either a
+   *             <code>CachePolicyId</code> or <code>ForwardedValues</code>. We recommend that you
+   *             use a <code>CachePolicyId</code>.</p>
    * 		       <p>A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.</p>
    */
   ForwardedValues?: ForwardedValues;
@@ -1378,7 +1447,8 @@ export namespace ParametersInCacheKeyAndForwardedToOrigin {
  */
 export interface CachePolicyConfig {
   /**
-   * <p>A comment to describe the cache policy.</p>
+   * <p>A comment to describe the cache policy. The comment cannot be longer than 128
+   * 			characters.</p>
    */
   Comment?: string;
 
@@ -1806,7 +1876,8 @@ export interface CloudFrontOriginAccessIdentityConfig {
   CallerReference: string | undefined;
 
   /**
-   * <p>Any comments you want to include about the origin access identity. </p>
+   * <p>An optional comment to describe the origin access identity. The comment cannot be longer
+   * 			than 128 characters.</p>
    */
   Comment: string | undefined;
 }
@@ -2210,6 +2281,13 @@ export interface DefaultCacheBehavior {
   LambdaFunctionAssociations?: LambdaFunctionAssociations;
 
   /**
+   * <p>A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must
+   * 			be published to the <code>LIVE</code> stage to associate them with a cache
+   * 			behavior.</p>
+   */
+  FunctionAssociations?: FunctionAssociations;
+
+  /**
    * <p>The value of <code>ID</code> for the field-level encryption configuration that you want CloudFront
    * 			to use for encrypting specific fields of data for the default cache behavior.</p>
    */
@@ -2224,7 +2302,10 @@ export interface DefaultCacheBehavior {
   /**
    * <p>The unique identifier of the cache policy that is attached to the default cache behavior.
    * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   *             <i>Amazon CloudFront Developer Guide</i>.</p>
+   *         <p>A <code>DefaultCacheBehavior</code> must include either a
+   *             <code>CachePolicyId</code> or <code>ForwardedValues</code>. We recommend that you
+   *             use a <code>CachePolicyId</code>.</p>
    */
   CachePolicyId?: string;
 
@@ -2246,7 +2327,10 @@ export interface DefaultCacheBehavior {
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
    * 		       <p>If you want to send values to the origin but not include them in the cache key, use an
    * 			origin request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating origin request policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html">Using the managed origin request policies</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   *             <i>Amazon CloudFront Developer Guide</i>.</p>
+   *         <p>A <code>DefaultCacheBehavior</code> must include either a
+   *             <code>CachePolicyId</code> or <code>ForwardedValues</code>. We recommend that you
+   *             use a <code>CachePolicyId</code>.</p>
    * 		       <p>A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.</p>
    */
   ForwardedValues?: ForwardedValues;
@@ -3305,13 +3389,8 @@ export interface DistributionConfig {
   CustomErrorResponses?: CustomErrorResponses;
 
   /**
-   * <p>Any comments you want to include about the distribution.</p>
-   * 		       <p>If you don't want to specify a comment, include an empty <code>Comment</code>
-   * 			element.</p>
-   * 		       <p>To delete an existing comment, update the distribution configuration and include an
-   * 			empty <code>Comment</code> element.</p>
-   * 		       <p>To add or change a comment, update the distribution configuration and specify the new
-   * 			comment.</p>
+   * <p>An optional comment to describe the distribution. The comment cannot be longer than 128
+   * 			characters.</p>
    */
   Comment: string | undefined;
 
@@ -3660,6 +3739,24 @@ export namespace InvalidForwardCookies {
    * @internal
    */
   export const filterSensitiveLog = (obj: InvalidForwardCookies): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A CloudFront function association is invalid.</p>
+ */
+export interface InvalidFunctionAssociation extends __SmithyException, $MetadataBearer {
+  name: "InvalidFunctionAssociation";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidFunctionAssociation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidFunctionAssociation): any => ({
     ...obj,
   });
 }
@@ -4049,6 +4146,42 @@ export namespace NoSuchOriginRequestPolicy {
 }
 
 /**
+ * <p>The real-time log configuration does not exist.</p>
+ */
+export interface NoSuchRealtimeLogConfig extends __SmithyException, $MetadataBearer {
+  name: "NoSuchRealtimeLogConfig";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchRealtimeLogConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NoSuchRealtimeLogConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified real-time log configuration belongs to a different AWS account.</p>
+ */
+export interface RealtimeLogConfigOwnerMismatch extends __SmithyException, $MetadataBearer {
+  name: "RealtimeLogConfigOwnerMismatch";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace RealtimeLogConfigOwnerMismatch {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RealtimeLogConfigOwnerMismatch): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>You cannot create more cache behaviors for the distribution.</p>
  */
 export interface TooManyCacheBehaviors extends __SmithyException, $MetadataBearer {
@@ -4217,6 +4350,26 @@ export namespace TooManyDistributionsAssociatedToOriginRequestPolicy {
 }
 
 /**
+ * <p>You have reached the maximum number of distributions that are associated with a CloudFront
+ * 			function. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export interface TooManyDistributionsWithFunctionAssociations extends __SmithyException, $MetadataBearer {
+  name: "TooManyDistributionsWithFunctionAssociations";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyDistributionsWithFunctionAssociations {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TooManyDistributionsWithFunctionAssociations): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Processing your request would cause the maximum number of distributions with Lambda function associations per owner
  * 			to be exceeded.</p>
  */
@@ -4250,6 +4403,26 @@ export namespace TooManyDistributionsWithSingleFunctionARN {
    * @internal
    */
   export const filterSensitiveLog = (obj: TooManyDistributionsWithSingleFunctionARN): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You have reached the maximum number of CloudFront function associations for this
+ * 			distribution. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export interface TooManyFunctionAssociations extends __SmithyException, $MetadataBearer {
+  name: "TooManyFunctionAssociations";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyFunctionAssociations {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TooManyFunctionAssociations): any => ({
     ...obj,
   });
 }
@@ -4748,7 +4921,8 @@ export interface FieldLevelEncryptionConfig {
   CallerReference: string | undefined;
 
   /**
-   * <p>An optional comment about the configuration.</p>
+   * <p>An optional comment about the configuration. The comment cannot be longer than 128
+   * 			characters.</p>
    */
   Comment?: string;
 
@@ -5050,7 +5224,8 @@ export interface FieldLevelEncryptionProfileConfig {
   CallerReference: string | undefined;
 
   /**
-   * <p>An optional comment for the field-level encryption profile.</p>
+   * <p>An optional comment for the field-level encryption profile. The comment cannot be longer
+   * 			than 128 characters.</p>
    */
   Comment?: string;
 
@@ -5246,6 +5421,229 @@ export namespace TooManyFieldLevelEncryptionProfiles {
    * @internal
    */
   export const filterSensitiveLog = (obj: TooManyFieldLevelEncryptionProfiles): any => ({
+    ...obj,
+  });
+}
+
+export enum FunctionRuntime {
+  cloudfront_js_1_0 = "cloudfront-js-1.0",
+}
+
+/**
+ * <p>Contains configuration information about a CloudFront function.</p>
+ */
+export interface FunctionConfig {
+  /**
+   * <p>A comment to describe the function.</p>
+   */
+  Comment: string | undefined;
+
+  /**
+   * <p>The function’s runtime environment. The only valid value is
+   * 			<code>cloudfront-js-1.0</code>.</p>
+   */
+  Runtime: FunctionRuntime | string | undefined;
+}
+
+export namespace FunctionConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FunctionConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFunctionRequest {
+  /**
+   * <p>A name to identify the function.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Configuration information about the function, including an optional comment and the
+   * 			function’s runtime.</p>
+   */
+  FunctionConfig: FunctionConfig | undefined;
+
+  /**
+   * <p>The function code. For more information about writing a CloudFront function, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html">Writing function
+   * 			code for CloudFront Functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  FunctionCode: Uint8Array | undefined;
+}
+
+export namespace CreateFunctionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFunctionRequest): any => ({
+    ...obj,
+    ...(obj.FunctionCode && { FunctionCode: SENSITIVE_STRING }),
+  });
+}
+
+export enum FunctionStage {
+  DEVELOPMENT = "DEVELOPMENT",
+  LIVE = "LIVE",
+}
+
+/**
+ * <p>Contains metadata about a CloudFront function.</p>
+ */
+export interface FunctionMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the function. The ARN uniquely identifies the
+   * 			function.</p>
+   */
+  FunctionARN: string | undefined;
+
+  /**
+   * <p>The stage that the function is in, either <code>DEVELOPMENT</code> or
+   * 			<code>LIVE</code>.</p>
+   * 		       <p>When a function is in the <code>DEVELOPMENT</code> stage, you can test the function with
+   * 				<code>TestFunction</code>, and update it with <code>UpdateFunction</code>.</p>
+   * 		       <p>When a function is in the <code>LIVE</code> stage, you can attach the function to a
+   * 			distribution’s cache behavior, using the function’s ARN.</p>
+   */
+  Stage?: FunctionStage | string;
+
+  /**
+   * <p>The date and time when the function was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The date and time when the function was most recently updated.</p>
+   */
+  LastModifiedTime: Date | undefined;
+}
+
+export namespace FunctionMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FunctionMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains configuration information and metadata about a CloudFront function.</p>
+ */
+export interface FunctionSummary {
+  /**
+   * <p>The name of the CloudFront function.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The status of the CloudFront function.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>Contains configuration information about a CloudFront function.</p>
+   */
+  FunctionConfig: FunctionConfig | undefined;
+
+  /**
+   * <p>Contains metadata about a CloudFront function.</p>
+   */
+  FunctionMetadata: FunctionMetadata | undefined;
+}
+
+export namespace FunctionSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FunctionSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFunctionResult {
+  /**
+   * <p>Contains configuration information and metadata about a CloudFront function.</p>
+   */
+  FunctionSummary?: FunctionSummary;
+
+  /**
+   * <p>The URL of the CloudFront function. Use the URL to manage the function with the CloudFront
+   * 			API.</p>
+   */
+  Location?: string;
+
+  /**
+   * <p>The version identifier for the current version of the CloudFront function.</p>
+   */
+  ETag?: string;
+}
+
+export namespace CreateFunctionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFunctionResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A function with the same name already exists in this AWS account. To create a
+ * 			function, you must provide a unique name. To update an existing function, use
+ * 			<code>UpdateFunction</code>.</p>
+ */
+export interface FunctionAlreadyExists extends __SmithyException, $MetadataBearer {
+  name: "FunctionAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace FunctionAlreadyExists {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FunctionAlreadyExists): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The function is too large. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export interface FunctionSizeLimitExceeded extends __SmithyException, $MetadataBearer {
+  name: "FunctionSizeLimitExceeded";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace FunctionSizeLimitExceeded {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FunctionSizeLimitExceeded): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You have reached the maximum number of CloudFront functions for this AWS account. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export interface TooManyFunctions extends __SmithyException, $MetadataBearer {
+  name: "TooManyFunctions";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyFunctions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TooManyFunctions): any => ({
     ...obj,
   });
 }
@@ -5451,7 +5849,8 @@ export interface KeyGroupConfig {
   Items: string[] | undefined;
 
   /**
-   * <p>A comment to describe the key group.</p>
+   * <p>A comment to describe the key group. The comment cannot be longer than 128
+   * 			characters.</p>
    */
   Comment?: string;
 }
@@ -5680,6 +6079,24 @@ export namespace CreateMonitoringSubscriptionResult {
   });
 }
 
+/**
+ * <p>This operation is not supported in this region.</p>
+ */
+export interface UnsupportedOperation extends __SmithyException, $MetadataBearer {
+  name: "UnsupportedOperation";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace UnsupportedOperation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnsupportedOperation): any => ({
+    ...obj,
+  });
+}
+
 export type OriginRequestPolicyCookieBehavior = "all" | "none" | "whitelist";
 
 /**
@@ -5859,7 +6276,8 @@ export namespace OriginRequestPolicyQueryStringsConfig {
  */
 export interface OriginRequestPolicyConfig {
   /**
-   * <p>A comment to describe the origin request policy.</p>
+   * <p>A comment to describe the origin request policy. The comment cannot be longer than 128
+   * 			characters.</p>
    */
   Comment?: string;
 
@@ -6108,7 +6526,8 @@ export interface PublicKeyConfig {
   EncodedKey: string | undefined;
 
   /**
-   * <p>A comment to describe the public key.</p>
+   * <p>A comment to describe the public key. The comment cannot be longer than 128
+   * 			characters.</p>
    */
   Comment?: string;
 }
@@ -6866,7 +7285,7 @@ export namespace InvalidIfMatchVersion {
 }
 
 /**
- * <p>The precondition given in one or more of the request header fields evaluated to
+ * <p>The precondition in one or more of the request fields evaluated to
  * 			<code>false</code>.</p>
  */
 export interface PreconditionFailed extends __SmithyException, $MetadataBearer {
@@ -7115,6 +7534,65 @@ export namespace FieldLevelEncryptionProfileInUse {
   });
 }
 
+export interface DeleteFunctionRequest {
+  /**
+   * <p>The name of the function that you are deleting.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the function that you are deleting, which
+   * 			you can get using <code>DescribeFunction</code>.</p>
+   */
+  IfMatch: string | undefined;
+}
+
+export namespace DeleteFunctionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFunctionRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Cannot delete the function because it’s attached to one or more cache
+ * 			behaviors.</p>
+ */
+export interface FunctionInUse extends __SmithyException, $MetadataBearer {
+  name: "FunctionInUse";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace FunctionInUse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FunctionInUse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The function does not exist.</p>
+ */
+export interface NoSuchFunctionExists extends __SmithyException, $MetadataBearer {
+  name: "NoSuchFunctionExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchFunctionExists {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NoSuchFunctionExists): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteKeyGroupRequest {
   /**
    * <p>The identifier of the key group that you are deleting. To get the identifier, use
@@ -7308,24 +7786,6 @@ export namespace DeleteRealtimeLogConfigRequest {
 }
 
 /**
- * <p>The real-time log configuration does not exist.</p>
- */
-export interface NoSuchRealtimeLogConfig extends __SmithyException, $MetadataBearer {
-  name: "NoSuchRealtimeLogConfig";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchRealtimeLogConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchRealtimeLogConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Cannot delete the real-time log configuration because it is attached to one or more cache
  * 			behaviors.</p>
  */
@@ -7402,6 +7862,48 @@ export namespace StreamingDistributionNotDisabled {
    * @internal
    */
   export const filterSensitiveLog = (obj: StreamingDistributionNotDisabled): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFunctionRequest {
+  /**
+   * <p>The name of the function that you are getting information about.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The function’s stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
+   */
+  Stage?: FunctionStage | string;
+}
+
+export namespace DescribeFunctionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFunctionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFunctionResult {
+  /**
+   * <p>Contains configuration information and metadata about a CloudFront function.</p>
+   */
+  FunctionSummary?: FunctionSummary;
+
+  /**
+   * <p>The version identifier for the current version of the CloudFront function.</p>
+   */
+  ETag?: string;
+}
+
+export namespace DescribeFunctionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFunctionResult): any => ({
     ...obj,
   });
 }
@@ -7739,428 +8241,6 @@ export namespace GetFieldLevelEncryptionConfigResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetFieldLevelEncryptionConfigResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetFieldLevelEncryptionProfileRequest {
-  /**
-   * <p>Get the ID for the field-level encryption profile information.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetFieldLevelEncryptionProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFieldLevelEncryptionProfileRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetFieldLevelEncryptionProfileResult {
-  /**
-   * <p>Return the field-level encryption profile information.</p>
-   */
-  FieldLevelEncryptionProfile?: FieldLevelEncryptionProfile;
-
-  /**
-   * <p>The current version of the field level encryption profile. For example: <code>E2QWRUHAPOMQZL</code>.</p>
-   */
-  ETag?: string;
-}
-
-export namespace GetFieldLevelEncryptionProfileResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFieldLevelEncryptionProfileResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetFieldLevelEncryptionProfileConfigRequest {
-  /**
-   * <p>Get the ID for the field-level encryption profile configuration information.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetFieldLevelEncryptionProfileConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFieldLevelEncryptionProfileConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetFieldLevelEncryptionProfileConfigResult {
-  /**
-   * <p>Return the field-level encryption profile configuration information.</p>
-   */
-  FieldLevelEncryptionProfileConfig?: FieldLevelEncryptionProfileConfig;
-
-  /**
-   * <p>The current version of the field-level encryption profile configuration result. For example: <code>E2QWRUHAPOMQZL</code>.</p>
-   */
-  ETag?: string;
-}
-
-export namespace GetFieldLevelEncryptionProfileConfigResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFieldLevelEncryptionProfileConfigResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request to get an invalidation's information. </p>
- */
-export interface GetInvalidationRequest {
-  /**
-   * <p>The distribution's ID.</p>
-   */
-  DistributionId: string | undefined;
-
-  /**
-   * <p>The identifier for the invalidation request, for example,
-   * 			<code>IDFDVBD632BHDS5</code>.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetInvalidationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInvalidationRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The returned result of the corresponding request.</p>
- */
-export interface GetInvalidationResult {
-  /**
-   * <p>The invalidation's information. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html">Invalidation Complex Type</a>. </p>
-   */
-  Invalidation?: Invalidation;
-}
-
-export namespace GetInvalidationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInvalidationResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified invalidation does not exist.</p>
- */
-export interface NoSuchInvalidation extends __SmithyException, $MetadataBearer {
-  name: "NoSuchInvalidation";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchInvalidation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchInvalidation): any => ({
-    ...obj,
-  });
-}
-
-export interface GetKeyGroupRequest {
-  /**
-   * <p>The identifier of the key group that you are getting. To get the identifier, use
-   * 			<code>ListKeyGroups</code>.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetKeyGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetKeyGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetKeyGroupResult {
-  /**
-   * <p>The key group.</p>
-   */
-  KeyGroup?: KeyGroup;
-
-  /**
-   * <p>The identifier for this version of the key group.</p>
-   */
-  ETag?: string;
-}
-
-export namespace GetKeyGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetKeyGroupResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetKeyGroupConfigRequest {
-  /**
-   * <p>The identifier of the key group whose configuration you are getting. To get the
-   * 			identifier, use <code>ListKeyGroups</code>.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetKeyGroupConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetKeyGroupConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetKeyGroupConfigResult {
-  /**
-   * <p>The key group configuration.</p>
-   */
-  KeyGroupConfig?: KeyGroupConfig;
-
-  /**
-   * <p>The identifier for this version of the key group.</p>
-   */
-  ETag?: string;
-}
-
-export namespace GetKeyGroupConfigResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetKeyGroupConfigResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetMonitoringSubscriptionRequest {
-  /**
-   * <p>The ID of the distribution that you are getting metrics information for.</p>
-   */
-  DistributionId: string | undefined;
-}
-
-export namespace GetMonitoringSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMonitoringSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetMonitoringSubscriptionResult {
-  /**
-   * <p>A monitoring subscription. This structure contains information about whether additional
-   * 			CloudWatch metrics are enabled for a given CloudFront distribution.</p>
-   */
-  MonitoringSubscription?: MonitoringSubscription;
-}
-
-export namespace GetMonitoringSubscriptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMonitoringSubscriptionResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetOriginRequestPolicyRequest {
-  /**
-   * <p>The unique identifier for the origin request policy. If the origin request policy is
-   * 			attached to a distribution’s cache behavior, you can get the policy’s identifier using
-   * 			<code>ListDistributions</code> or <code>GetDistribution</code>. If the origin request
-   * 			policy is not attached to a cache behavior, you can get the identifier using
-   * 			<code>ListOriginRequestPolicies</code>.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetOriginRequestPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOriginRequestPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetOriginRequestPolicyResult {
-  /**
-   * <p>The origin request policy.</p>
-   */
-  OriginRequestPolicy?: OriginRequestPolicy;
-
-  /**
-   * <p>The current version of the origin request policy.</p>
-   */
-  ETag?: string;
-}
-
-export namespace GetOriginRequestPolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOriginRequestPolicyResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetOriginRequestPolicyConfigRequest {
-  /**
-   * <p>The unique identifier for the origin request policy. If the origin request policy is
-   * 			attached to a distribution’s cache behavior, you can get the policy’s identifier using
-   * 			<code>ListDistributions</code> or <code>GetDistribution</code>. If the origin request
-   * 			policy is not attached to a cache behavior, you can get the identifier using
-   * 			<code>ListOriginRequestPolicies</code>.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetOriginRequestPolicyConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOriginRequestPolicyConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetOriginRequestPolicyConfigResult {
-  /**
-   * <p>The origin request policy configuration.</p>
-   */
-  OriginRequestPolicyConfig?: OriginRequestPolicyConfig;
-
-  /**
-   * <p>The current version of the origin request policy.</p>
-   */
-  ETag?: string;
-}
-
-export namespace GetOriginRequestPolicyConfigResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOriginRequestPolicyConfigResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetPublicKeyRequest {
-  /**
-   * <p>The identifier of the public key you are getting.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetPublicKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPublicKeyRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetPublicKeyResult {
-  /**
-   * <p>The public key.</p>
-   */
-  PublicKey?: PublicKey;
-
-  /**
-   * <p>The identifier for this version of the public key.</p>
-   */
-  ETag?: string;
-}
-
-export namespace GetPublicKeyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPublicKeyResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetPublicKeyConfigRequest {
-  /**
-   * <p>The identifier of the public key whose configuration you are getting.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetPublicKeyConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPublicKeyConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetPublicKeyConfigResult {
-  /**
-   * <p>A public key configuration.</p>
-   */
-  PublicKeyConfig?: PublicKeyConfig;
-
-  /**
-   * <p>The identifier for this version of the public key configuration.</p>
-   */
-  ETag?: string;
-}
-
-export namespace GetPublicKeyConfigResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPublicKeyConfigResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetRealtimeLogConfigRequest {
-  /**
-   * <p>The name of the real-time log configuration to get.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the real-time log configuration to get.</p>
-   */
-  ARN?: string;
-}
-
-export namespace GetRealtimeLogConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRealtimeLogConfigRequest): any => ({
     ...obj,
   });
 }

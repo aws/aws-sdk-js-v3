@@ -27,7 +27,6 @@ export * from "./commands/DisassociateVPCFromHostedZoneCommand";
 export * from "./commands/EnableHostedZoneDNSSECCommand";
 export * from "./commands/GetAccountLimitCommand";
 export * from "./commands/GetChangeCommand";
-export * from "./waiters/waitForResourceRecordSetsChanged";
 export * from "./commands/GetCheckerIpRangesCommand";
 export * from "./commands/GetDNSSECCommand";
 export * from "./commands/GetGeoLocationCommand";

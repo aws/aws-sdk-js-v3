@@ -22,8 +22,8 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
 
 /**
  * <p>Returns the <code>UnlockCode</code> code value for the specified job. A particular
- *         <code>UnlockCode</code> value can be accessed for up to 90 days after the associated job has
- *       been created.</p>
+ *         <code>UnlockCode</code> value can be accessed for up to 360 days after the associated job
+ *       has been created.</p>
  *
  *          <p>The <code>UnlockCode</code> value is a 29-character code with 25 alphanumeric
  *       characters and 4 hyphens. This code is used to decrypt the manifest file when it is passed

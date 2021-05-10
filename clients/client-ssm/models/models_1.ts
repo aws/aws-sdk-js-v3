@@ -31,7 +31,6 @@ import {
   ParameterTier,
   ParameterType,
   PatchAction,
-  PatchBaselineIdentity,
   PatchComplianceLevel,
   PatchFilterGroup,
   PatchOrchestratorFilter,
@@ -52,6 +51,122 @@ import {
 } from "./models_0";
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+/**
+ * <p>The specified filter option is not valid. Valid options are Equals and BeginsWith. For Path
+ *    filter, valid options are Recursive and OneLevel.</p>
+ */
+export interface InvalidFilterOption extends __SmithyException, $MetadataBearer {
+  name: "InvalidFilterOption";
+  $fault: "client";
+  /**
+   * <p>The specified filter option is not valid. Valid options are Equals and BeginsWith. For Path
+   *    filter, valid options are Recursive and OneLevel.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidFilterOption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidFilterOption): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribePatchBaselinesRequest {
+  /**
+   * <p>Each element in the array is a structure containing: </p>
+   *          <p>Key: (string, "NAME_PREFIX" or "OWNER")</p>
+   *          <p>Value: (array of strings, exactly 1 entry, between 1 and 255 characters)</p>
+   */
+  Filters?: PatchOrchestratorFilter[];
+
+  /**
+   * <p>The maximum number of patch baselines to return (per page).</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribePatchBaselinesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribePatchBaselinesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines the basic information about a patch baseline.</p>
+ */
+export interface PatchBaselineIdentity {
+  /**
+   * <p>The ID of the patch baseline.</p>
+   */
+  BaselineId?: string;
+
+  /**
+   * <p>The name of the patch baseline.</p>
+   */
+  BaselineName?: string;
+
+  /**
+   * <p>Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
+   *   </p>
+   */
+  OperatingSystem?: OperatingSystem | string;
+
+  /**
+   * <p>The description of the patch baseline.</p>
+   */
+  BaselineDescription?: string;
+
+  /**
+   * <p>Whether this is the default baseline. Note that Systems Manager supports creating multiple default
+   *    patch baselines. For example, you can create a default patch baseline for each operating
+   *    system.</p>
+   */
+  DefaultBaseline?: boolean;
+}
+
+export namespace PatchBaselineIdentity {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PatchBaselineIdentity): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribePatchBaselinesResult {
+  /**
+   * <p>An array of PatchBaselineIdentity elements.</p>
+   */
+  BaselineIdentities?: PatchBaselineIdentity[];
+
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to
+   *    return, the string is empty.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribePatchBaselinesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribePatchBaselinesResult): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribePatchGroupsRequest {
   /**
@@ -558,6 +673,59 @@ export namespace DescribeSessionsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeSessionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateOpsItemRelatedItemRequest {
+  /**
+   * <p>The ID of the OpsItem for which you want to delete an association between the OpsItem and a
+   *    related resource.</p>
+   */
+  OpsItemId: string | undefined;
+
+  /**
+   * <p>The ID of the association for which you want to delete an association between the OpsItem
+   *    and a related resource.</p>
+   */
+  AssociationId: string | undefined;
+}
+
+export namespace DisassociateOpsItemRelatedItemRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateOpsItemRelatedItemRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateOpsItemRelatedItemResponse {}
+
+export namespace DisassociateOpsItemRelatedItemResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateOpsItemRelatedItemResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The association was not found using the parameters you specified in the call. Verify the
+ *    information and try again.</p>
+ */
+export interface OpsItemRelatedItemAssociationNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "OpsItemRelatedItemAssociationNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace OpsItemRelatedItemAssociationNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OpsItemRelatedItemAssociationNotFoundException): any => ({
     ...obj,
   });
 }
@@ -1074,7 +1242,6 @@ export interface GetCommandInvocationResult {
    *    than <code>Status</code>. For more information about these statuses, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding
    *     command statuses</a> in the <i>AWS Systems Manager User Guide</i>.
    *     <code>StatusDetails</code> can be one of the following values:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>Pending: The command has not been sent to the instance.</p>
@@ -1513,6 +1680,17 @@ export interface GetDocumentResult {
    * <p>The name of the Systems Manager document.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The date the Systems Manager document was created.</p>
+   */
+  CreatedDate?: Date;
+
+  /**
+   * <p>The friendly name of the Systems Manager document. This value can differ for each version of the
+   *    document. If you want to update this value, see <a>UpdateDocument</a>.</p>
+   */
+  DisplayName?: string;
 
   /**
    * <p>The version of the artifact associated with the document. For example, "Release 12, Update
@@ -2368,21 +2546,21 @@ export interface MaintenanceWindowAutomationParameters {
 
   /**
    * <p>The parameters for the AUTOMATION task.</p>
-   *
    *          <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p>
    *          <note>
+   *
    *             <p>
    *                <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the
    *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
    *       For information about how Systems Manager handles these options for the supported maintenance
    *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
+   *
    *             <p>
    *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
    *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
    *       about how Systems Manager handles these options for the supported maintenance window task
    *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
-   *             <p>For AUTOMATION task types,
-   *     Systems Manager ignores any values specified for these parameters.</p>
+   *             <p>For AUTOMATION task types, Systems Manager ignores any values specified for these parameters.</p>
    *          </note>
    */
   Parameters?: { [key: string]: string[] };
@@ -2401,18 +2579,20 @@ export namespace MaintenanceWindowAutomationParameters {
  * <p>The parameters for a LAMBDA task type.</p>
  *          <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p>
  *          <note>
+ *
  *             <p>
  *                <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the
  *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
  *       For information about how Systems Manager handles these options for the supported maintenance
  *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
+ *
  *             <p>
  *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
  *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
  *       about how Systems Manager handles these options for the supported maintenance window task
  *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *             <p>For Lambda tasks, Systems Manager
- *     ignores any values specified for TaskParameters and LoggingInfo.</p>
+ *             <p>For Lambda tasks, Systems Manager ignores any values specified for TaskParameters and
+ *     LoggingInfo.</p>
  *          </note>
  */
 export interface MaintenanceWindowLambdaParameters {
@@ -2501,19 +2681,21 @@ export namespace NotificationConfig {
  * <p>The parameters for a RUN_COMMAND task type.</p>
  *          <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p>
  *          <note>
+ *
  *             <p>
  *                <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the
  *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
  *       For information about how Systems Manager handles these options for the supported maintenance
  *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
+ *
  *             <p>
  *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
  *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
  *       about how Systems Manager handles these options for the supported maintenance window task
  *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *             <p>For Run Command tasks, Systems Manager
- *     uses specified values for <code>TaskParameters</code> and <code>LoggingInfo</code> only if no
- *     values are specified for <code>TaskInvocationParameters</code>. </p>
+ *             <p>For Run Command tasks, Systems Manager uses specified values for <code>TaskParameters</code> and
+ *      <code>LoggingInfo</code> only if no values are specified for
+ *      <code>TaskInvocationParameters</code>. </p>
  *          </note>
  */
 export interface MaintenanceWindowRunCommandParameters {
@@ -2596,19 +2778,20 @@ export namespace MaintenanceWindowRunCommandParameters {
  * <p>The parameters for a STEP_FUNCTIONS task.</p>
  *          <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p>
  *          <note>
+ *
  *             <p>
  *                <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the
  *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
  *       For information about how Systems Manager handles these options for the supported maintenance
  *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
+ *
  *             <p>
  *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
  *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
  *       about how Systems Manager handles these options for the supported maintenance window task
  *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *             <p>For Step Functions tasks,
- *     Systems Manager ignores any values specified for <code>TaskParameters</code> and
- *     <code>LoggingInfo</code>.</p>
+ *             <p>For Step Functions tasks, Systems Manager ignores any values specified for
+ *      <code>TaskParameters</code> and <code>LoggingInfo</code>.</p>
  *          </note>
  */
 export interface MaintenanceWindowStepFunctionsParameters {
@@ -2903,7 +3086,6 @@ export interface OpsItem {
    *    provided by the <a>DescribeOpsItems</a> API action) can view and search on the
    *    specified data. Operational data that is not searchable is only viewable by users who have access
    *    to the OpsItem (as provided by the <a>GetOpsItem</a> API action).</p>
-   *
    *          <p>Use the <code>/aws/resources</code> key in OperationalData to specify a related resource in
    *    the request. Use the <code>/aws/automations</code> key in OperationalData to associate an
    *    Automation runbook with the OpsItem. To view AWS CLI example commands that use these keys, see
@@ -2968,24 +3150,6 @@ export namespace GetOpsItemResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetOpsItemResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
- */
-export interface OpsItemNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "OpsItemNotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace OpsItemNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsItemNotFoundException): any => ({
     ...obj,
   });
 }
@@ -3761,7 +3925,6 @@ export namespace GetServiceSettingRequest {
 
 /**
  * <p>The service setting data structure.</p>
- *
  *          <p>
  *             <code>ServiceSetting</code> is an account-level setting for an AWS service. This setting
  *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -4233,6 +4396,14 @@ export interface AssociationVersionInfo {
    *    expressions.</p>
    */
   ApplyOnlyAtCronInterval?: boolean;
+
+  /**
+   * <p>The names or Amazon Resource Names (ARNs) of the Systems Manager Change Calendar type
+   *   documents your associations are gated under. The associations for this version only run when
+   *   that Change Calendar is open.  For more information, see
+   *   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">AWS Systems Manager Change Calendar</a>.</p>
+   */
+  CalendarNames?: string[];
 
   /**
    * <p>The combination of AWS Regions and AWS accounts where you wanted to run the association when
@@ -5796,6 +5967,17 @@ export interface DocumentIdentifier {
   Name?: string;
 
   /**
+   * <p>The date the Systems Manager document was created.</p>
+   */
+  CreatedDate?: Date;
+
+  /**
+   * <p>An optional field where you can specify a friendly name for the Systems Manager document. This value
+   *    can differ for each version of the document. If you want to update this value, see <a>UpdateDocument</a>.</p>
+   */
+  DisplayName?: string;
+
+  /**
    * <p>The AWS user account that created the document.</p>
    */
   Owner?: string;
@@ -5929,6 +6111,12 @@ export interface DocumentVersionInfo {
    * <p>The document name.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The friendly name of the Systems Manager document. This value can differ for each version of the
+   *    document. If you want to update this value, see <a>UpdateDocument</a>.</p>
+   */
+  DisplayName?: string;
 
   /**
    * <p>The document version.</p>
@@ -6173,7 +6361,8 @@ export namespace OpsItemIdentity {
 }
 
 /**
- * <p>Summary information about an OpsItem event.</p>
+ * <p>Summary information about an OpsItem event or that associated an OpsItem with a related
+ *    item.</p>
  */
 export interface OpsItemEventSummary {
   /**
@@ -6239,6 +6428,161 @@ export namespace ListOpsItemEventsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListOpsItemEventsResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum OpsItemRelatedItemsFilterKey {
+  ASSOCIATION_ID = "AssociationId",
+  RESOURCE_TYPE = "ResourceType",
+  RESOURCE_URI = "ResourceUri",
+}
+
+export enum OpsItemRelatedItemsFilterOperator {
+  EQUAL = "Equal",
+}
+
+/**
+ * <p>Describes a filter for a specific list of related-item resources. </p>
+ */
+export interface OpsItemRelatedItemsFilter {
+  /**
+   * <p>The name of the filter key. Supported values include <code>ResourceUri</code>,
+   *     <code>ResourceType</code>, or <code>AssociationId</code>.</p>
+   */
+  Key: OpsItemRelatedItemsFilterKey | string | undefined;
+
+  /**
+   * <p>The values for the filter.</p>
+   */
+  Values: string[] | undefined;
+
+  /**
+   * <p>The operator used by the filter call. The only supported operator is
+   *    <code>EQUAL</code>.</p>
+   */
+  Operator: OpsItemRelatedItemsFilterOperator | string | undefined;
+}
+
+export namespace OpsItemRelatedItemsFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OpsItemRelatedItemsFilter): any => ({
+    ...obj,
+  });
+}
+
+export interface ListOpsItemRelatedItemsRequest {
+  /**
+   * <p>The ID of the OpsItem for which you want to list all related-item resources.</p>
+   */
+  OpsItemId?: string;
+
+  /**
+   * <p>One or more OpsItem filters. Use a filter to return a more specific list of results. </p>
+   */
+  Filters?: OpsItemRelatedItemsFilter[];
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListOpsItemRelatedItemsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListOpsItemRelatedItemsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary information about related-item resources for an OpsItem.</p>
+ */
+export interface OpsItemRelatedItemSummary {
+  /**
+   * <p>The OpsItem ID.</p>
+   */
+  OpsItemId?: string;
+
+  /**
+   * <p>The association ID.</p>
+   */
+  AssociationId?: string;
+
+  /**
+   * <p>The resource type.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>The association type.</p>
+   */
+  AssociationType?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the related-item resource.</p>
+   */
+  ResourceUri?: string;
+
+  /**
+   * <p>Information about the user or resource that created an OpsItem event.</p>
+   */
+  CreatedBy?: OpsItemIdentity;
+
+  /**
+   * <p>The time the related-item association was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>Information about the user or resource that created an OpsItem event.</p>
+   */
+  LastModifiedBy?: OpsItemIdentity;
+
+  /**
+   * <p>The time the related-item association was last updated.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+export namespace OpsItemRelatedItemSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OpsItemRelatedItemSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListOpsItemRelatedItemsResponse {
+  /**
+   * <p>The token for the next set of items to return. Use this token to get the next set of
+   *    results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of related-item resources for the specified OpsItem.</p>
+   */
+  Summaries?: OpsItemRelatedItemSummary[];
+}
+
+export namespace ListOpsItemRelatedItemsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListOpsItemRelatedItemsResponse): any => ({
     ...obj,
   });
 }
@@ -6500,7 +6844,6 @@ export enum LastResourceDataSyncStatus {
 /**
  * <p>The data type name for including resource data sync state. There are four sync
  *    states:</p>
- *
  *          <p>
  *             <code>OrganizationNotExists</code> (Your organization doesn't exist)</p>
  *          <p>
@@ -6541,7 +6884,6 @@ export interface ResourceDataSyncSourceWithState {
   /**
    * <p>The data type name for including resource data sync state. There are four sync
    *    states:</p>
-   *
    *          <p>
    *             <code>OrganizationNotExists</code>: Your organization doesn't exist.</p>
    *          <p>
@@ -7532,7 +7874,6 @@ export interface PutParameterRequest {
    *    Systems Manager parameter to identify the type of resource to which it applies, the environment, or the
    *    type of configuration data referenced by the parameter. In this case, you could specify the
    *    following key name/value pairs:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -7622,7 +7963,6 @@ export interface PutParameterRequest {
   /**
    * <p>One or more policies to apply to a parameter. This action takes a JSON array. Parameter
    *    Store supports the following policy types:</p>
-   *
    *          <p>Expiration: This policy deletes the parameter after it expires. When you create the policy,
    *    you specify the expiration date. You can update the expiration date and time by updating the
    *    policy. Updating the <i>parameter</i> does not affect the expiration date and time.
@@ -7633,7 +7973,6 @@ export interface PutParameterRequest {
    *          <p>NoChangeNotification: This policy triggers a CloudWatch event if a parameter has not been
    *    modified for a specified period of time. This policy type is useful when, for example, a secret
    *    needs to be changed within a period of time, but it has not been changed.</p>
-   *
    *          <p>All existing policies are preserved until you send new policies or an empty policy. For more
    *    information about parameter policies, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Assigning parameter
    *     policies</a>. </p>
@@ -9324,6 +9663,14 @@ export interface UpdateAssociationRequest {
   ApplyOnlyAtCronInterval?: boolean;
 
   /**
+   * <p>The names or Amazon Resource Names (ARNs) of the Systems Manager Change Calendar type
+   *    documents you want to gate your associations under. The associations only run when that Change
+   *    Calendar is open. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">AWS Systems Manager Change
+   *     Calendar</a>.</p>
+   */
+  CalendarNames?: string[];
+
+  /**
    * <p>A location is a combination of AWS Regions and AWS accounts where you want to run the
    *    association. Use this action to update an association in multiple Regions and multiple
    *    accounts.</p>
@@ -9484,9 +9831,16 @@ export interface UpdateDocumentRequest {
   Attachments?: AttachmentsSource[];
 
   /**
-   * <p>The name of the document that you want to update.</p>
+   * <p>The name of the Systems Manager document that you want to update.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The friendly name of the Systems Manager document that you want to update. This value can differ for
+   *    each version of the document. If you do not specify a value for this parameter in your request,
+   *    the existing value is applied to the new document version.</p>
+   */
+  DisplayName?: string;
 
   /**
    * <p>An optional field specifying the version of the artifact you are updating with the document.
@@ -9846,677 +10200,5 @@ export namespace UpdateMaintenanceWindowResult {
   export const filterSensitiveLog = (obj: UpdateMaintenanceWindowResult): any => ({
     ...obj,
     ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
-export interface UpdateMaintenanceWindowTargetRequest {
-  /**
-   * <p>The maintenance window ID with which to modify the target.</p>
-   */
-  WindowId: string | undefined;
-
-  /**
-   * <p>The target ID to modify.</p>
-   */
-  WindowTargetId: string | undefined;
-
-  /**
-   * <p>The targets to add or replace.</p>
-   */
-  Targets?: Target[];
-
-  /**
-   * <p>User-provided value that will be included in any CloudWatch events raised while running
-   *    tasks for these targets in this maintenance window.</p>
-   */
-  OwnerInformation?: string;
-
-  /**
-   * <p>A name for the update.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>An optional description for the update.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>If True, then all fields that are required by the RegisterTargetWithMaintenanceWindow action
-   *    are also required for this API request. Optional fields that are not specified are set to
-   *    null.</p>
-   */
-  Replace?: boolean;
-}
-
-export namespace UpdateMaintenanceWindowTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMaintenanceWindowTargetRequest): any => ({
-    ...obj,
-    ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
-export interface UpdateMaintenanceWindowTargetResult {
-  /**
-   * <p>The maintenance window ID specified in the update request.</p>
-   */
-  WindowId?: string;
-
-  /**
-   * <p>The target ID specified in the update request.</p>
-   */
-  WindowTargetId?: string;
-
-  /**
-   * <p>The updated targets.</p>
-   */
-  Targets?: Target[];
-
-  /**
-   * <p>The updated owner.</p>
-   */
-  OwnerInformation?: string;
-
-  /**
-   * <p>The updated name.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The updated description.</p>
-   */
-  Description?: string;
-}
-
-export namespace UpdateMaintenanceWindowTargetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMaintenanceWindowTargetResult): any => ({
-    ...obj,
-    ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
-export interface UpdateMaintenanceWindowTaskRequest {
-  /**
-   * <p>The maintenance window ID that contains the task to modify.</p>
-   */
-  WindowId: string | undefined;
-
-  /**
-   * <p>The task ID to modify.</p>
-   */
-  WindowTaskId: string | undefined;
-
-  /**
-   * <p>The targets (either instances or tags) to modify. Instances are specified using
-   *    Key=instanceids,Values=instanceID_1,instanceID_2. Tags are specified using
-   *    Key=tag_name,Values=tag_value. </p>
-   *          <note>
-   *             <p>One or more targets must be specified for maintenance window Run Command-type tasks.
-   *     Depending on the task, targets are optional for other maintenance window task types (Automation,
-   *     AWS Lambda, and AWS Step Functions). For more information about running tasks that do not
-   *     specify targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">Registering
-   *      maintenance window tasks without targets</a> in the
-   *     <i>AWS Systems Manager User Guide</i>.</p>
-   *          </note>
-   */
-  Targets?: Target[];
-
-  /**
-   * <p>The task ARN to modify.</p>
-   */
-  TaskArn?: string;
-
-  /**
-   * <p>The ARN of the IAM service role for Systems Manager to assume when running a
-   *   maintenance window task. If you do not specify a service role ARN, Systems Manager uses your account's
-   *   service-linked role.  If no service-linked role for Systems Manager exists in your account, it is created when you run
-   *   <code>RegisterTaskWithMaintenanceWindow</code>.</p>
-   *          <p>For more information, see the following topics in the in the <i>AWS Systems Manager User Guide</i>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions">Using
-   *     service-linked roles for Systems Manager</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role">Should I use a service-linked role or a custom service role to run maintenance window tasks?
-   *    </a>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  ServiceRoleArn?: string;
-
-  /**
-   * <p>The parameters to modify.</p>
-   *          <note>
-   *             <p>
-   *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
-   *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
-   *       about how Systems Manager handles these options for the supported maintenance window task
-   *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
-   *          </note>
-   *          <p>The map has the following format:</p>
-   *          <p>Key: string, between 1 and 255 characters</p>
-   *          <p>Value: an array of strings, each string is between 1 and 255 characters</p>
-   */
-  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
-
-  /**
-   * <p>The parameters that the task should use during execution. Populate only the fields that
-   *    match the task type. All other fields should be empty.</p>
-   *          <important>
-   *             <p>When you update a maintenance window task that has options specified in
-   *      <code>TaskInvocationParameters</code>, you must provide again all the
-   *      <code>TaskInvocationParameters</code> values that you want to retain. The values you do not
-   *     specify again are removed. For example, suppose that when you registered a Run Command task, you
-   *     specified <code>TaskInvocationParameters</code> values for <code>Comment</code>,
-   *      <code>NotificationConfig</code>, and <code>OutputS3BucketName</code>. If you update the
-   *     maintenance window task and specify only a different <code>OutputS3BucketName</code> value, the
-   *     values for <code>Comment</code> and <code>NotificationConfig</code> are removed.</p>
-   *          </important>
-   */
-  TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
-
-  /**
-   * <p>The new task priority to specify. The lower the number, the higher the priority. Tasks that
-   *    have the same priority are scheduled in parallel.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>The new <code>MaxConcurrency</code> value you want to specify. <code>MaxConcurrency</code>
-   *    is the number of targets that are allowed to run this task in parallel.</p>
-   *          <note>
-   *             <p>For maintenance window tasks without a target specified, you cannot supply a value for this
-   *     option. Instead, the system inserts a placeholder value of <code>1</code>, which may be reported
-   *     in the response to this command. This value does not affect the running of your task and can be
-   *     ignored.</p>
-   *          </note>
-   */
-  MaxConcurrency?: string;
-
-  /**
-   * <p>The new <code>MaxErrors</code> value to specify. <code>MaxErrors</code> is the maximum
-   *    number of errors that are allowed before the task stops being scheduled.</p>
-   *          <note>
-   *             <p>For maintenance window tasks without a target specified, you cannot supply a value for this
-   *     option. Instead, the system inserts a placeholder value of <code>1</code>, which may be reported
-   *     in the response to this command. This value does not affect the running of your task and can be
-   *     ignored.</p>
-   *          </note>
-   */
-  MaxErrors?: string;
-
-  /**
-   * <p>The new logging location in Amazon S3 to specify.</p>
-   *          <note>
-   *             <p>
-   *                <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the
-   *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
-   *       For information about how Systems Manager handles these options for the supported maintenance
-   *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
-   *          </note>
-   */
-  LoggingInfo?: LoggingInfo;
-
-  /**
-   * <p>The new task name to specify.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The new task description to specify.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>If True, then all fields that are required by the RegisterTaskWithMaintenanceWindow action
-   *    are also required for this API request. Optional fields that are not specified are set to
-   *    null.</p>
-   */
-  Replace?: boolean;
-}
-
-export namespace UpdateMaintenanceWindowTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMaintenanceWindowTaskRequest): any => ({
-    ...obj,
-    ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
-    ...(obj.TaskInvocationParameters && {
-      TaskInvocationParameters: MaintenanceWindowTaskInvocationParameters.filterSensitiveLog(
-        obj.TaskInvocationParameters
-      ),
-    }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
-export interface UpdateMaintenanceWindowTaskResult {
-  /**
-   * <p>The ID of the maintenance window that was updated.</p>
-   */
-  WindowId?: string;
-
-  /**
-   * <p>The task ID of the maintenance window that was updated.</p>
-   */
-  WindowTaskId?: string;
-
-  /**
-   * <p>The updated target values.</p>
-   */
-  Targets?: Target[];
-
-  /**
-   * <p>The updated task ARN value.</p>
-   */
-  TaskArn?: string;
-
-  /**
-   * <p>The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for
-   *    maintenance window Run Command tasks.</p>
-   */
-  ServiceRoleArn?: string;
-
-  /**
-   * <p>The updated parameter values.</p>
-   *          <note>
-   *             <p>
-   *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
-   *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
-   *       about how Systems Manager handles these options for the supported maintenance window task
-   *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
-   *          </note>
-   */
-  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
-
-  /**
-   * <p>The updated parameter values.</p>
-   */
-  TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
-
-  /**
-   * <p>The updated priority value.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>The updated MaxConcurrency value.</p>
-   */
-  MaxConcurrency?: string;
-
-  /**
-   * <p>The updated MaxErrors value.</p>
-   */
-  MaxErrors?: string;
-
-  /**
-   * <p>The updated logging information in Amazon S3.</p>
-   *          <note>
-   *             <p>
-   *                <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the
-   *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
-   *       For information about how Systems Manager handles these options for the supported maintenance
-   *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
-   *          </note>
-   */
-  LoggingInfo?: LoggingInfo;
-
-  /**
-   * <p>The updated task name.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The updated task description.</p>
-   */
-  Description?: string;
-}
-
-export namespace UpdateMaintenanceWindowTaskResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMaintenanceWindowTaskResult): any => ({
-    ...obj,
-    ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
-    ...(obj.TaskInvocationParameters && {
-      TaskInvocationParameters: MaintenanceWindowTaskInvocationParameters.filterSensitiveLog(
-        obj.TaskInvocationParameters
-      ),
-    }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
-export interface UpdateManagedInstanceRoleRequest {
-  /**
-   * <p>The ID of the managed instance where you want to update the role.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The IAM role you want to assign or change.</p>
-   */
-  IamRole: string | undefined;
-}
-
-export namespace UpdateManagedInstanceRoleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateManagedInstanceRoleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateManagedInstanceRoleResult {}
-
-export namespace UpdateManagedInstanceRoleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateManagedInstanceRoleResult): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateOpsItemRequest {
-  /**
-   * <p>Update the information about the OpsItem. Provide enough information so that users reading
-   *    this OpsItem for the first time understand the issue. </p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Add new keys or edit existing key-value pairs of the OperationalData map in the OpsItem
-   *    object.</p>
-   *          <p>Operational data is custom data that provides useful reference details about the OpsItem.
-   *    For example, you can specify log files, error strings, license keys, troubleshooting tips, or
-   *    other relevant data. You enter operational data as key-value pairs. The key has a maximum length
-   *    of 128 characters. The value has a maximum size of 20 KB.</p>
-   *
-   *          <important>
-   *             <p>Operational data keys <i>can't</i> begin with the following: amazon, aws,
-   *     amzn, ssm, /amazon, /aws, /amzn, /ssm.</p>
-   *          </important>
-   *
-   *          <p>You can choose to make the data searchable by other users in the account or you can restrict
-   *    search access. Searchable data means that all users with access to the OpsItem Overview page (as
-   *    provided by the <a>DescribeOpsItems</a> API action) can view and search on the
-   *    specified data. Operational data that is not searchable is only viewable by users who have access
-   *    to the OpsItem (as provided by the <a>GetOpsItem</a> API action).</p>
-   *
-   *          <p>Use the <code>/aws/resources</code> key in OperationalData to specify a related resource in
-   *    the request. Use the <code>/aws/automations</code> key in OperationalData to associate an
-   *    Automation runbook with the OpsItem. To view AWS CLI example commands that use these keys, see
-   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems">Creating OpsItems manually</a> in the <i>AWS Systems Manager User Guide</i>.</p>
-   */
-  OperationalData?: { [key: string]: OpsItemDataValue };
-
-  /**
-   * <p>Keys that you want to remove from the OperationalData map.</p>
-   */
-  OperationalDataToDelete?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this
-   *    OpsItem is edited or changed.</p>
-   */
-  Notifications?: OpsItemNotification[];
-
-  /**
-   * <p>The importance of this OpsItem in relation to other OpsItems in the system.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>One or more OpsItems that share something in common with the current OpsItems. For example,
-   *    related OpsItems can include OpsItems with similar error messages, impacted resources, or
-   *    statuses for the impacted resource.</p>
-   */
-  RelatedOpsItems?: RelatedOpsItem[];
-
-  /**
-   * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
-   *     <code>Resolved</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html#OpsCenter-working-with-OpsItems-editing-details">Editing OpsItem details</a> in the <i>AWS Systems Manager User Guide</i>.</p>
-   */
-  Status?: OpsItemStatus | string;
-
-  /**
-   * <p>The ID of the OpsItem.</p>
-   */
-  OpsItemId: string | undefined;
-
-  /**
-   * <p>A short heading that describes the nature of the OpsItem and the impacted resource.</p>
-   */
-  Title?: string;
-
-  /**
-   * <p>Specify a new category for an OpsItem.</p>
-   */
-  Category?: string;
-
-  /**
-   * <p>Specify a new severity for an OpsItem.</p>
-   */
-  Severity?: string;
-
-  /**
-   * <p>The time a runbook workflow started. Currently reported only for the OpsItem type
-   *     <code>/aws/changerequest</code>.</p>
-   */
-  ActualStartTime?: Date;
-
-  /**
-   * <p>The time a runbook workflow ended. Currently reported only for the OpsItem type
-   *     <code>/aws/changerequest</code>.</p>
-   */
-  ActualEndTime?: Date;
-
-  /**
-   * <p>The time specified in a change request for a runbook workflow to start. Currently supported
-   *    only for the OpsItem type <code>/aws/changerequest</code>.</p>
-   */
-  PlannedStartTime?: Date;
-
-  /**
-   * <p>The time specified in a change request for a runbook workflow to end. Currently supported
-   *    only for the OpsItem type <code>/aws/changerequest</code>.</p>
-   */
-  PlannedEndTime?: Date;
-}
-
-export namespace UpdateOpsItemRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOpsItemRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateOpsItemResponse {}
-
-export namespace UpdateOpsItemResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOpsItemResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The OpsMetadata object exceeds the maximum number of OpsMetadata keys that you can assign to
- *    an application in Application Manager.</p>
- */
-export interface OpsMetadataKeyLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "OpsMetadataKeyLimitExceededException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace OpsMetadataKeyLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsMetadataKeyLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateOpsMetadataRequest {
-  /**
-   * <p>The Amazon Resoure Name (ARN) of the OpsMetadata Object to update.</p>
-   */
-  OpsMetadataArn: string | undefined;
-
-  /**
-   * <p>Metadata to add to an OpsMetadata object.</p>
-   */
-  MetadataToUpdate?: { [key: string]: MetadataValue };
-
-  /**
-   * <p>The metadata keys to delete from the OpsMetadata object. </p>
-   */
-  KeysToDelete?: string[];
-}
-
-export namespace UpdateOpsMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOpsMetadataRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateOpsMetadataResult {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the OpsMetadata Object that was updated.</p>
-   */
-  OpsMetadataArn?: string;
-}
-
-export namespace UpdateOpsMetadataResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOpsMetadataResult): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePatchBaselineRequest {
-  /**
-   * <p>The ID of the patch baseline to update.</p>
-   */
-  BaselineId: string | undefined;
-
-  /**
-   * <p>The name of the patch baseline.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A set of global filters used to include patches in the baseline.</p>
-   */
-  GlobalFilters?: PatchFilterGroup;
-
-  /**
-   * <p>A set of rules used to include patches in the baseline.</p>
-   */
-  ApprovalRules?: PatchRuleGroup;
-
-  /**
-   * <p>A list of explicitly approved patches for the baseline.</p>
-   *          <p>For information about accepted formats for lists of approved patches and rejected patches,
-   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
-   *                         package name formats for approved and rejected patch lists</a> in the <i>AWS Systems Manager User Guide</i>.</p>
-   */
-  ApprovedPatches?: string[];
-
-  /**
-   * <p>Assigns a new compliance severity level to an existing patch baseline.</p>
-   */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
-
-  /**
-   * <p>Indicates whether the list of approved patches includes non-security updates that should be
-   *    applied to the instances. The default value is 'false'. Applies to Linux instances only.</p>
-   */
-  ApprovedPatchesEnableNonSecurity?: boolean;
-
-  /**
-   * <p>A list of explicitly rejected patches for the baseline.</p>
-   *          <p>For information about accepted formats for lists of approved patches and rejected patches,
-   *                         see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html">About
-   *                         package name formats for approved and rejected patch lists</a> in the <i>AWS Systems Manager User Guide</i>.</p>
-   */
-  RejectedPatches?: string[];
-
-  /**
-   * <p>The action for Patch Manager to take on patches included in the RejectedPackages
-   *    list.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>ALLOW_AS_DEPENDENCY</b>: A package in the Rejected patches
-   *      list is installed only if it is a dependency of another package. It is considered compliant
-   *      with the patch baseline, and its status is reported as <i>InstalledOther</i>.
-   *      This is the default action if no option is specified.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>BLOCK</b>: Packages in the RejectedPatches list, and packages
-   *      that include them as dependencies, are not installed under any circumstances. If a package was
-   *      installed before it was added to the Rejected patches list, it is considered non-compliant with
-   *      the patch baseline, and its status is reported as
-   *      <i>InstalledRejected</i>.</p>
-   *             </li>
-   *          </ul>
-   */
-  RejectedPatchesAction?: PatchAction | string;
-
-  /**
-   * <p>A description of the patch baseline.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Information about the patches to use to update the instances, including target operating
-   *    systems and source repositories. Applies to Linux instances only.</p>
-   */
-  Sources?: PatchSource[];
-
-  /**
-   * <p>If True, then all fields that are required by the CreatePatchBaseline action are also
-   *    required for this API request. Optional fields that are not specified are set to null.</p>
-   */
-  Replace?: boolean;
-}
-
-export namespace UpdatePatchBaselineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePatchBaselineRequest): any => ({
-    ...obj,
-    ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSource.filterSensitiveLog(item)) }),
   });
 }

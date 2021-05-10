@@ -23,9 +23,7 @@ export interface DescribePackageVersionCommandOutput extends DescribePackageVers
 /**
  * <p>
  *        Returns a
- *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">
- *                <code>PackageVersionDescription</code>
- *             </a>
+ *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">PackageVersionDescription</a>
  *        object that contains information about the requested package version.
  *      </p>
  * @example

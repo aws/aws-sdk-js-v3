@@ -22,6 +22,8 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
 
 /**
  * <p>Lists the alerts attached to a detector.</p>
+ *          <p>Amazon Lookout for Metrics API actions are eventually consistent. If you do a read operation on a resource
+ *       immediately after creating or modifying it, use retries to allow time for the write operation to complete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
