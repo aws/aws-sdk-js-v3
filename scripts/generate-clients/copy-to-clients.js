@@ -21,7 +21,7 @@ const getOverwritablePredicate = (packageName) => (pathName) => {
     "README.md",
   ];
   const additionalGeneratedFiles = {
-    "@aws-sdk/client-sts": ["defaultRoleAssumers.ts", "defaultStsRoleAssumers.ts"],
+    "@aws-sdk/client-sts": ["defaultRoleAssumers.ts", "defaultStsRoleAssumers.ts", "defaultRoleAssumers.spec.ts"],
   };
   return (
     pathName
