@@ -243,7 +243,7 @@ export const serializeAws_restXmlBodyWithXmlNameCommand = async (
   let resolvedPath = "/BodyWithXmlName";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("BodyWithXmlNameInputOutput");
+  const bodyNode = new __XmlNode("Ahoy");
   if (input.nested !== undefined) {
     const node = serializeAws_restXmlPayloadWithXmlName(input.nested, context).withName("nested");
     bodyNode.addChildNode(node);
