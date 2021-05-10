@@ -1,5 +1,3 @@
-// Please do not touch this file. It's generated from template in:
-// https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/sts-client-defaultRoleAssumers.spec.ts
 import { HttpResponse } from "@aws-sdk/protocol-http";
 import { Readable } from "stream";
 const assumeRoleResponse = `<AssumeRoleResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
