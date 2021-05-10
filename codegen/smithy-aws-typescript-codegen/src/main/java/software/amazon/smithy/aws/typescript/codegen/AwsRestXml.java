@@ -31,6 +31,7 @@ import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
 import software.amazon.smithy.utils.SmithyInternalApi;
@@ -164,13 +165,18 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
 
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
-        writer.write("const bodyNode = new __XmlNode($S);", inputShapeId.getName(serviceShape));
+        
+        // Handle the @xmlName trait for the input shape.
+        StructureShape inputShape = context.getModel().expectShape(inputShapeId, StructureShape.class);
+        String nodeName = inputShape.getTrait(XmlNameTrait.class)
+                .map(XmlNameTrait::getValue)
+                .orElse(inputShapeId.getName(serviceShape));
+        writer.write("const bodyNode = new __XmlNode($S);", nodeName);
 
         // Add @xmlNamespace value of the service to the root node,
         // fall back to one from the input shape.
         boolean serviceXmlns = AwsProtocolUtils.writeXmlNamespace(context, serviceShape, "bodyNode");
         if (!serviceXmlns) {
-            StructureShape inputShape = context.getModel().expectShape(inputShapeId, StructureShape.class);
             AwsProtocolUtils.writeXmlNamespace(context, inputShape, "bodyNode");
         }
 
