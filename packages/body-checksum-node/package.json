@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/body-checksum-node",
-  "version": "3.13.1",
+  "version": "3.15.0",
   "scripts": {
     "prepublishOnly": "yarn build && downlevel-dts dist/types dist/types/ts3.4",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -19,9 +19,9 @@
   "dependencies": {
     "@aws-sdk/chunked-stream-reader-node": "3.13.1",
     "@aws-sdk/is-array-buffer": "3.13.1",
-    "@aws-sdk/protocol-http": "3.13.1",
-    "@aws-sdk/sha256-tree-hash": "3.13.1",
-    "@aws-sdk/types": "3.13.1",
+    "@aws-sdk/protocol-http": "3.15.0",
+    "@aws-sdk/sha256-tree-hash": "3.15.0",
+    "@aws-sdk/types": "3.15.0",
     "@aws-sdk/util-hex-encoding": "3.13.1",
     "tslib": "^2.0.0"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/protocol-http",
-  "version": "3.13.1",
+  "version": "3.15.0",
   "scripts": {
     "prepublishOnly": "yarn build && downlevel-dts dist/types dist/types/ts3.4",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -18,7 +18,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "3.13.1",
+    "@aws-sdk/types": "3.15.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
