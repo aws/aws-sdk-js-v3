@@ -19,7 +19,6 @@ import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSig
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
-import java.io.File;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
