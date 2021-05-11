@@ -721,8 +721,8 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
-import { decode as heDecode } from "he";
 
 export const serializeAws_queryAcceptReservedNodeExchangeCommand = async (
   input: AcceptReservedNodeExchangeCommandInput,

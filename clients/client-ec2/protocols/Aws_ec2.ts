@@ -2896,8 +2896,8 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
-import { decode as heDecode } from "he";
 import { v4 as generateIdempotencyToken } from "uuid";
 
 export const serializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand = async (

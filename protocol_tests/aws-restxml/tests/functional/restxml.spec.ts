@@ -53,8 +53,8 @@ import { XmlUnionsCommand } from "../../commands/XmlUnionsCommand";
 import { ComplexError, InvalidGreeting } from "../../models/models_0";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { Encoder as __Encoder } from "@aws-sdk/types";
+import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
-import { decode as heDecode } from "he";
 import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { Readable } from "stream";
@@ -5888,7 +5888,7 @@ const compareEquivalentXmlBodies = (expectedBody: string, generatedBody: string)
     ignoreAttributes: false,
     parseNodeValue: false,
     trimValues: false,
-    tagValueProcessor: (val: any, tagName: any) => (val.trim() === "" ? "" : heDecode(val)),
+    tagValueProcessor: (val: any, tagName: any) => (val.trim() === "" ? "" : decodeHTML(val)),
   };
 
   const parseXmlBody = (body: string) => {

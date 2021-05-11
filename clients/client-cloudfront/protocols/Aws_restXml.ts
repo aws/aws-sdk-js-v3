@@ -486,8 +486,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
+import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
-import { decode as heDecode } from "he";
 
 export const serializeAws_restXmlCreateCachePolicyCommand = async (
   input: CreateCachePolicyCommandInput,
