@@ -68,7 +68,7 @@ export class EndpointCache {
     const now = Date.now();
     this.cache.set(
       key,
-      endpoints.map(({ Address = "", CachePeriodInMinutes = 1 }) => ({
+      endpoints.map(({ Address, CachePeriodInMinutes }) => ({
         Address,
         Expires: now + CachePeriodInMinutes * 60 * 1000,
       }))
