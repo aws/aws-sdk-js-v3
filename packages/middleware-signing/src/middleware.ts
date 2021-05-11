@@ -58,3 +58,5 @@ export const getAwsAuthPlugin = (options: AwsAuthResolvedConfig): Pluggable<any,
     clientStack.addRelativeTo(awsAuthMiddleware(options), awsAuthMiddlewareOptions);
   },
 });
+
+export const getSigV4AuthPlugin = getAwsAuthPlugin;
