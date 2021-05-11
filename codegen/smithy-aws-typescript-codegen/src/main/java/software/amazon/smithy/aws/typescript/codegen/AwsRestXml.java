@@ -165,7 +165,7 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
 
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
-        
+
         // Handle the @xmlName trait for the input shape.
         StructureShape inputShape = context.getModel().expectShape(inputShapeId, StructureShape.class);
         String nodeName = inputShape.getTrait(XmlNameTrait.class)
