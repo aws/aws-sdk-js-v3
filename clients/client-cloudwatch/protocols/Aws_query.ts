@@ -191,6 +191,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { parse as xmlParse } from "fast-xml-parser";
+import { decode as heDecode } from "he";
 
 export const serializeAws_queryDeleteAlarmsCommand = async (
   input: DeleteAlarmsCommandInput,
@@ -6351,14 +6352,6 @@ const buildHttpRpcRequest = async (
   return new __HttpRequest(contents);
 };
 
-const decodeEscapedXML = (str: string) =>
-  str
-    .replace(/&amp;/g, "&")
-    .replace(/&apos;/g, "'")
-    .replace(/&quot;/g, '"')
-    .replace(/&gt;/g, ">")
-    .replace(/&lt;/g, "<");
-
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
@@ -6367,7 +6360,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         ignoreAttributes: false,
         parseNodeValue: false,
         trimValues: false,
-        tagValueProcessor: (val, tagName) => (val.trim() === "" ? "" : decodeEscapedXML(val)),
+        tagValueProcessor: (val, tagName) => (val.trim() === "" ? "" : heDecode(val)),
       });
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];

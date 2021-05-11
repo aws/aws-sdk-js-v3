@@ -57,11 +57,13 @@
     "@aws-sdk/util-utf8-node": "3.13.1",
     "@aws-sdk/util-waiter": "3.15.0",
     "fast-xml-parser": "3.19.0",
+    "he": "1.2.0",
     "tslib": "^2.0.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@aws-sdk/client-documentation-generator": "3.15.0",
+    "@types/he": "1.1.1",
     "@types/node": "^12.7.5",
     "@types/uuid": "^8.3.0",
     "downlevel-dts": "0.7.0",

@@ -102,7 +102,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { parse as xmlParse } from "fast-xml-parser";
-import { decode as xmlDecode } from "he";
+import { decode as heDecode } from "he";
 
 export const serializeAws_queryAddPermissionCommand = async (
   input: AddPermissionCommandInput,
@@ -3139,7 +3139,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         ignoreAttributes: false,
         parseNodeValue: false,
         trimValues: false,
-        tagValueProcessor: (val, tagName) => (val.trim() === "" ? "" : xmlDecode(val)),
+        tagValueProcessor: (val, tagName) => (val.trim() === "" ? "" : heDecode(val)),
       });
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
