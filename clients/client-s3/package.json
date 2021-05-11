@@ -78,7 +78,6 @@
   "devDependencies": {
     "@aws-sdk/client-documentation-generator": "3.15.0",
     "@types/chai": "^4.2.11",
-    "@types/he": "1.1.1",
     "@types/mocha": "^8.0.4",
     "@types/node": "^12.7.5",
     "downlevel-dts": "0.7.0",
