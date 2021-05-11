@@ -40,6 +40,32 @@ export namespace AllQueryStringTypesInput {
   });
 }
 
+export interface PayloadWithXmlName {
+  name?: string;
+}
+
+export namespace PayloadWithXmlName {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PayloadWithXmlName): any => ({
+    ...obj,
+  });
+}
+
+export interface BodyWithXmlNameInputOutput {
+  nested?: PayloadWithXmlName;
+}
+
+export namespace BodyWithXmlNameInputOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BodyWithXmlNameInputOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface ComplexNestedErrorData {
   Foo?: string;
 }
@@ -242,19 +268,6 @@ export namespace HttpPayloadTraitsWithMediaTypeInputOutput {
    * @internal
    */
   export const filterSensitiveLog = (obj: HttpPayloadTraitsWithMediaTypeInputOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface PayloadWithXmlName {
-  name?: string;
-}
-
-export namespace PayloadWithXmlName {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PayloadWithXmlName): any => ({
     ...obj,
   });
 }
@@ -700,6 +713,7 @@ export interface XmlListsInputOutput {
   flattenedListWithMemberNamespace?: string[];
   flattenedListWithNamespace?: string[];
   structureList?: StructureListMember[];
+  flattenedStructureList?: StructureListMember[];
 }
 
 export namespace XmlListsInputOutput {

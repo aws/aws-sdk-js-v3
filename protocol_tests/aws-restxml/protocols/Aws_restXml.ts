@@ -2,6 +2,7 @@ import {
   AllQueryStringTypesCommandInput,
   AllQueryStringTypesCommandOutput,
 } from "../commands/AllQueryStringTypesCommand";
+import { BodyWithXmlNameCommandInput, BodyWithXmlNameCommandOutput } from "../commands/BodyWithXmlNameCommand";
 import {
   ConstantAndVariableQueryStringCommandInput,
   ConstantAndVariableQueryStringCommandOutput,
@@ -228,6 +229,34 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restXmlBodyWithXmlNameCommand = async (
+  input: BodyWithXmlNameCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  let resolvedPath = "/BodyWithXmlName";
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("Ahoy");
+  if (input.nested !== undefined) {
+    const node = serializeAws_restXmlPayloadWithXmlName(input.nested, context).withName("nested");
+    bodyNode.addChildNode(node);
+  }
+  body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -1568,6 +1597,13 @@ export const serializeAws_restXmlXmlEmptyListsCommand = async (
       bodyNode.addChildNode(node);
     });
   }
+  if (input.flattenedStructureList !== undefined) {
+    const nodes = serializeAws_restXmlStructureList(input.flattenedStructureList, context);
+    nodes.map((node: any) => {
+      node = node.withName("flattenedStructureList");
+      bodyNode.addChildNode(node);
+    });
+  }
   if (input.integerList !== undefined) {
     const nodes = serializeAws_restXmlIntegerList(input.integerList, context);
     const containerNode = new __XmlNode("integerList");
@@ -1809,6 +1845,13 @@ export const serializeAws_restXmlXmlListsCommand = async (
     const nodes = serializeAws_restXmlListWithNamespace(input.flattenedListWithNamespace, context);
     nodes.map((node: any) => {
       node = node.withName("flattenedListWithNamespace");
+      bodyNode.addChildNode(node);
+    });
+  }
+  if (input.flattenedStructureList !== undefined) {
+    const nodes = serializeAws_restXmlStructureList(input.flattenedStructureList, context);
+    nodes.map((node: any) => {
+      node = node.withName("flattenedStructureList");
       bodyNode.addChildNode(node);
     });
   }
@@ -2068,6 +2111,53 @@ const deserializeAws_restXmlAllQueryStringTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AllQueryStringTypesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlBodyWithXmlNameCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BodyWithXmlNameCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlBodyWithXmlNameCommandError(output, context);
+  }
+  const contents: BodyWithXmlNameCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nested: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data["nested"] !== undefined) {
+    contents.nested = deserializeAws_restXmlPayloadWithXmlName(data["nested"], context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlBodyWithXmlNameCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BodyWithXmlNameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4116,6 +4206,7 @@ export const deserializeAws_restXmlXmlEmptyListsCommand = async (
     flattenedList2: undefined,
     flattenedListWithMemberNamespace: undefined,
     flattenedListWithNamespace: undefined,
+    flattenedStructureList: undefined,
     integerList: undefined,
     nestedStringList: undefined,
     renamedListMembers: undefined,
@@ -4173,6 +4264,15 @@ export const deserializeAws_restXmlXmlEmptyListsCommand = async (
   if (data["flattenedListWithNamespace"] !== undefined) {
     contents.flattenedListWithNamespace = deserializeAws_restXmlListWithNamespace(
       __getArrayIfSingleItem(data["flattenedListWithNamespace"]),
+      context
+    );
+  }
+  if (data.flattenedStructureList === "") {
+    contents.flattenedStructureList = [];
+  }
+  if (data["flattenedStructureList"] !== undefined) {
+    contents.flattenedStructureList = deserializeAws_restXmlStructureList(
+      __getArrayIfSingleItem(data["flattenedStructureList"]),
       context
     );
   }
@@ -4468,6 +4568,7 @@ export const deserializeAws_restXmlXmlListsCommand = async (
     flattenedList2: undefined,
     flattenedListWithMemberNamespace: undefined,
     flattenedListWithNamespace: undefined,
+    flattenedStructureList: undefined,
     integerList: undefined,
     nestedStringList: undefined,
     renamedListMembers: undefined,
@@ -4525,6 +4626,15 @@ export const deserializeAws_restXmlXmlListsCommand = async (
   if (data["flattenedListWithNamespace"] !== undefined) {
     contents.flattenedListWithNamespace = deserializeAws_restXmlListWithNamespace(
       __getArrayIfSingleItem(data["flattenedListWithNamespace"]),
+      context
+    );
+  }
+  if (data.flattenedStructureList === "") {
+    contents.flattenedStructureList = [];
+  }
+  if (data["flattenedStructureList"] !== undefined) {
+    contents.flattenedStructureList = deserializeAws_restXmlStructureList(
+      __getArrayIfSingleItem(data["flattenedStructureList"]),
       context
     );
   }
