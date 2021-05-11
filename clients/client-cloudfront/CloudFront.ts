@@ -30,6 +30,11 @@ import {
   CreateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/CreateFieldLevelEncryptionProfileCommand";
 import {
+  CreateFunctionCommand,
+  CreateFunctionCommandInput,
+  CreateFunctionCommandOutput,
+} from "./commands/CreateFunctionCommand";
+import {
   CreateInvalidationCommand,
   CreateInvalidationCommandInput,
   CreateInvalidationCommandOutput,
@@ -95,6 +100,11 @@ import {
   DeleteFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/DeleteFieldLevelEncryptionProfileCommand";
 import {
+  DeleteFunctionCommand,
+  DeleteFunctionCommandInput,
+  DeleteFunctionCommandOutput,
+} from "./commands/DeleteFunctionCommand";
+import {
   DeleteKeyGroupCommand,
   DeleteKeyGroupCommandInput,
   DeleteKeyGroupCommandOutput,
@@ -124,6 +134,11 @@ import {
   DeleteStreamingDistributionCommandInput,
   DeleteStreamingDistributionCommandOutput,
 } from "./commands/DeleteStreamingDistributionCommand";
+import {
+  DescribeFunctionCommand,
+  DescribeFunctionCommandInput,
+  DescribeFunctionCommandOutput,
+} from "./commands/DescribeFunctionCommand";
 import {
   GetCachePolicyCommand,
   GetCachePolicyCommandInput,
@@ -174,6 +189,7 @@ import {
   GetFieldLevelEncryptionProfileConfigCommandInput,
   GetFieldLevelEncryptionProfileConfigCommandOutput,
 } from "./commands/GetFieldLevelEncryptionProfileConfigCommand";
+import { GetFunctionCommand, GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
 import {
   GetInvalidationCommand,
   GetInvalidationCommandInput,
@@ -276,6 +292,11 @@ import {
   ListFieldLevelEncryptionProfilesCommandOutput,
 } from "./commands/ListFieldLevelEncryptionProfilesCommand";
 import {
+  ListFunctionsCommand,
+  ListFunctionsCommandInput,
+  ListFunctionsCommandOutput,
+} from "./commands/ListFunctionsCommand";
+import {
   ListInvalidationsCommand,
   ListInvalidationsCommandInput,
   ListInvalidationsCommandOutput,
@@ -310,7 +331,17 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PublishFunctionCommand,
+  PublishFunctionCommandInput,
+  PublishFunctionCommandOutput,
+} from "./commands/PublishFunctionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  TestFunctionCommand,
+  TestFunctionCommandInput,
+  TestFunctionCommandOutput,
+} from "./commands/TestFunctionCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -341,6 +372,11 @@ import {
   UpdateFieldLevelEncryptionProfileCommandInput,
   UpdateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/UpdateFieldLevelEncryptionProfileCommand";
+import {
+  UpdateFunctionCommand,
+  UpdateFunctionCommandInput,
+  UpdateFunctionCommandOutput,
+} from "./commands/UpdateFunctionCommand";
 import {
   UpdateKeyGroupCommand,
   UpdateKeyGroupCommandInput,
@@ -591,6 +627,48 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: CreateFieldLevelEncryptionProfileCommandOutput) => void
   ): Promise<CreateFieldLevelEncryptionProfileCommandOutput> | void {
     const command = new CreateFieldLevelEncryptionProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a CloudFront function.</p>
+   * 		       <p>To create a function, you provide the function code and some configuration information
+   * 			about the function. The response contains an Amazon Resource Name (ARN) that uniquely
+   * 			identifies the function.</p>
+   * 		       <p>When you create a function, it’s in the <code>DEVELOPMENT</code> stage. In this stage, you
+   * 			can test the function with <code>TestFunction</code>, and update it with
+   * 			<code>UpdateFunction</code>.</p>
+   * 		       <p>When you’re ready to use your function with a CloudFront distribution, use
+   * 			<code>PublishFunction</code> to copy the function from the <code>DEVELOPMENT</code>
+   * 			stage to <code>LIVE</code>. When it’s live, you can attach the function to a
+   * 			distribution’s cache behavior, using the function’s ARN.</p>
+   */
+  public createFunction(
+    args: CreateFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFunctionCommandOutput>;
+  public createFunction(
+    args: CreateFunctionCommandInput,
+    cb: (err: any, data?: CreateFunctionCommandOutput) => void
+  ): void;
+  public createFunction(
+    args: CreateFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFunctionCommandOutput) => void
+  ): void;
+  public createFunction(
+    args: CreateFunctionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFunctionCommandOutput) => void),
+    cb?: (err: any, data?: CreateFunctionCommandOutput) => void
+  ): Promise<CreateFunctionCommandOutput> | void {
+    const command = new CreateFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1065,6 +1143,44 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Deletes a CloudFront function.</p>
+   * 		       <p>You cannot delete a function if it’s associated with a cache behavior. First, update your
+   * 			distributions to remove the function association from all cache behaviors, then delete
+   * 			the function.</p>
+   * 		       <p>To delete a function, you must provide the function’s name and version
+   * 			(<code>ETag</code> value). To get these values, you can use <code>ListFunctions</code>
+   * 			and <code>DescribeFunction</code>.</p>
+   */
+  public deleteFunction(
+    args: DeleteFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFunctionCommandOutput>;
+  public deleteFunction(
+    args: DeleteFunctionCommandInput,
+    cb: (err: any, data?: DeleteFunctionCommandOutput) => void
+  ): void;
+  public deleteFunction(
+    args: DeleteFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFunctionCommandOutput) => void
+  ): void;
+  public deleteFunction(
+    args: DeleteFunctionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFunctionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFunctionCommandOutput) => void
+  ): Promise<DeleteFunctionCommandOutput> | void {
+    const command = new DeleteFunctionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a key group.</p>
    * 		       <p>You cannot delete a key group that is referenced in a cache behavior. First update
    * 			your distributions to remove the key group from all cache behaviors, then delete the key
@@ -1311,6 +1427,42 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: DeleteStreamingDistributionCommandOutput) => void
   ): Promise<DeleteStreamingDistributionCommandOutput> | void {
     const command = new DeleteStreamingDistributionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets configuration information and metadata about a CloudFront function, but not the function’s
+   * 			code. To get a function’s code, use <code>GetFunction</code>.</p>
+   * 		       <p>To get configuration information and metadata about a function, you must provide the
+   * 			function’s name and stage. To get these values, you can use
+   * 			<code>ListFunctions</code>.</p>
+   */
+  public describeFunction(
+    args: DescribeFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFunctionCommandOutput>;
+  public describeFunction(
+    args: DescribeFunctionCommandInput,
+    cb: (err: any, data?: DescribeFunctionCommandOutput) => void
+  ): void;
+  public describeFunction(
+    args: DescribeFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFunctionCommandOutput) => void
+  ): void;
+  public describeFunction(
+    args: DescribeFunctionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFunctionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFunctionCommandOutput) => void
+  ): Promise<DescribeFunctionCommandOutput> | void {
+    const command = new DescribeFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1651,6 +1803,35 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: GetFieldLevelEncryptionProfileConfigCommandOutput) => void
   ): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> | void {
     const command = new GetFieldLevelEncryptionProfileConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the code of a CloudFront function. To get configuration information and metadata about
+   * 			a function, use <code>DescribeFunction</code>.</p>
+   * 		       <p>To get a function’s code, you must provide the function’s name and stage. To get these
+   * 			values, you can use <code>ListFunctions</code>.</p>
+   */
+  public getFunction(args: GetFunctionCommandInput, options?: __HttpHandlerOptions): Promise<GetFunctionCommandOutput>;
+  public getFunction(args: GetFunctionCommandInput, cb: (err: any, data?: GetFunctionCommandOutput) => void): void;
+  public getFunction(
+    args: GetFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFunctionCommandOutput) => void
+  ): void;
+  public getFunction(
+    args: GetFunctionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFunctionCommandOutput) => void),
+    cb?: (err: any, data?: GetFunctionCommandOutput) => void
+  ): Promise<GetFunctionCommandOutput> | void {
+    const command = new GetFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2394,6 +2575,45 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Gets a list of all CloudFront functions in your AWS account.</p>
+   * 		       <p>You can optionally apply a filter to return only the functions that are in the
+   * 			specified stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listFunctions(
+    args: ListFunctionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFunctionsCommandOutput>;
+  public listFunctions(
+    args: ListFunctionsCommandInput,
+    cb: (err: any, data?: ListFunctionsCommandOutput) => void
+  ): void;
+  public listFunctions(
+    args: ListFunctionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFunctionsCommandOutput) => void
+  ): void;
+  public listFunctions(
+    args: ListFunctionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFunctionsCommandOutput) => void),
+    cb?: (err: any, data?: ListFunctionsCommandOutput) => void
+  ): Promise<ListFunctionsCommandOutput> | void {
+    const command = new ListFunctionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists invalidation batches. </p>
    */
   public listInvalidations(
@@ -2635,6 +2855,46 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Publishes a CloudFront function by copying the function code from the <code>DEVELOPMENT</code>
+   * 			stage to <code>LIVE</code>. This automatically updates all cache behaviors that are
+   * 			using this function to use the newly published copy in the <code>LIVE</code>
+   * 			stage.</p>
+   * 		       <p>When a function is published to the <code>LIVE</code> stage, you can attach the function to
+   * 			a distribution’s cache behavior, using the function’s Amazon Resource Name (ARN).</p>
+   * 		       <p>To publish a function, you must provide the function’s name and version (<code>ETag</code>
+   * 			value). To get these values, you can use <code>ListFunctions</code> and
+   * 			<code>DescribeFunction</code>.</p>
+   */
+  public publishFunction(
+    args: PublishFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PublishFunctionCommandOutput>;
+  public publishFunction(
+    args: PublishFunctionCommandInput,
+    cb: (err: any, data?: PublishFunctionCommandOutput) => void
+  ): void;
+  public publishFunction(
+    args: PublishFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PublishFunctionCommandOutput) => void
+  ): void;
+  public publishFunction(
+    args: PublishFunctionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PublishFunctionCommandOutput) => void),
+    cb?: (err: any, data?: PublishFunctionCommandOutput) => void
+  ): Promise<PublishFunctionCommandOutput> | void {
+    const command = new PublishFunctionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Add tags to a CloudFront resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -2650,6 +2910,44 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Tests a CloudFront function.</p>
+   * 		       <p>To test a function, you provide an <i>event object</i> that represents an HTTP
+   * 			request or response that your CloudFront distribution could receive in production. CloudFront runs
+   * 			the function, passing it the event object that you provided, and returns the function’s
+   * 			result (the modified event object) in the response. The response also contains function
+   * 			logs and error messages, if any exist. For more information about testing functions, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html#test-function">Testing functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>To test a function, you provide the function’s name and version (<code>ETag</code> value)
+   * 			along with the event object. To get the function’s name and version, you can use
+   * 			<code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
+   */
+  public testFunction(
+    args: TestFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TestFunctionCommandOutput>;
+  public testFunction(args: TestFunctionCommandInput, cb: (err: any, data?: TestFunctionCommandOutput) => void): void;
+  public testFunction(
+    args: TestFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestFunctionCommandOutput) => void
+  ): void;
+  public testFunction(
+    args: TestFunctionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TestFunctionCommandOutput) => void),
+    cb?: (err: any, data?: TestFunctionCommandOutput) => void
+  ): Promise<TestFunctionCommandOutput> | void {
+    const command = new TestFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2937,6 +3235,43 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: UpdateFieldLevelEncryptionProfileCommandOutput) => void
   ): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> | void {
     const command = new UpdateFieldLevelEncryptionProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a CloudFront function.</p>
+   * 		       <p>You can update a function’s code or the comment that describes the function. You
+   * 			cannot update a function’s name.</p>
+   * 		       <p>To update a function, you provide the function’s name and version (<code>ETag</code> value)
+   * 			along with the updated function code. To get the name and version, you can use
+   * 			<code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
+   */
+  public updateFunction(
+    args: UpdateFunctionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFunctionCommandOutput>;
+  public updateFunction(
+    args: UpdateFunctionCommandInput,
+    cb: (err: any, data?: UpdateFunctionCommandOutput) => void
+  ): void;
+  public updateFunction(
+    args: UpdateFunctionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFunctionCommandOutput) => void
+  ): void;
+  public updateFunction(
+    args: UpdateFunctionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFunctionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFunctionCommandOutput) => void
+  ): Promise<UpdateFunctionCommandOutput> | void {
+    const command = new UpdateFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

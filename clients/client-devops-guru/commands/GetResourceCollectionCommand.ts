@@ -23,7 +23,7 @@ export interface GetResourceCollectionCommandOutput extends GetResourceCollectio
 /**
  * <p>
  *    		Returns lists AWS resources that are of the specified resource collection type. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze
- *       	only the AWS resources that are defined in the stacks.
+ *       	only the AWS resources that are defined in the stacks. You can specify up to 500 AWS CloudFormation stacks.
  *    	</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

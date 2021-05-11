@@ -130,10 +130,10 @@ export class ACMPCA extends ACMPCAClient {
    * 			validity period of the CRL), the Amazon S3 bucket that will contain the CRL, and a CNAME
    * 			alias for the S3 bucket that is included in certificates issued by the CA. If
    * 			successful, this action returns the Amazon Resource Name (ARN) of the CA.</p>
-   * 		       <p>ACM Private CAA assets that are stored in Amazon S3 can be protected with encryption.
+   * 		       <p>ACM Private CA assets that are stored in Amazon S3 can be protected with encryption.
    *   For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption">Encrypting Your
    * 			CRLs</a>.</p>
-   * 		       <note>
+   *          <note>
    *                         <p>Both PCA and the IAM principal must have permission to write to
    *                         the S3 bucket that you specify. If the IAM principal making the call
    *                         does not have permission to write to the bucket, then an exception is
@@ -176,7 +176,7 @@ export class ACMPCA extends ACMPCAClient {
    *
    * 			The <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> and <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> actions use
    * 			the private key. </p>
-   * 		       <note>
+   *          <note>
    *                         <p>Both PCA and the IAM principal must have permission to write to
    *                         the S3 bucket that you specify. If the IAM principal making the call
    *                         does not have permission to write to the bucket, then an exception is
@@ -184,7 +184,7 @@ export class ACMPCA extends ACMPCAClient {
    *                         Access to ACM Private CA</a>.</p>
    *                 </note>
    *
-   * 		       <p>ACM Private CAA assets that are stored in Amazon S3 can be protected with encryption.
+   * 		       <p>ACM Private CA assets that are stored in Amazon S3 can be protected with encryption.
    *   For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuditReport.html#audit-report-encryption">Encrypting Your Audit
    * 				Reports</a>.</p>
    */
@@ -336,7 +336,7 @@ export class ACMPCA extends ACMPCAClient {
    * 			renew the affected certificates automatically.</p>
    * 		       <p>Permissions can be granted with the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreatePermission.html">CreatePermission</a> action and
    * 			listed with the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListPermissions.html">ListPermissions</a> action. </p>
-   * 		       <p class="title">
+   *          <p class="title">
    *             <b>About Permissions</b>
    *          </p>
    *          <ul>
@@ -675,7 +675,7 @@ export class ACMPCA extends ACMPCAClient {
    * 			resource or the policy cannot be found, this action returns a
    * 				<code>ResourceNotFoundException</code>. </p>
    * 		       <p>The policy can be attached or updated with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_PutPolicy.html">PutPolicy</a> and removed with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePolicy.html">DeletePolicy</a>.</p>
-   * 		       <p class="title">
+   *          <p class="title">
    *             <b>About Policies</b>
    *          </p>
    *          <ul>
@@ -1052,7 +1052,7 @@ export class ACMPCA extends ACMPCAClient {
    * 			Manager (RAM). For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html">Attach a Policy for Cross-Account
    * 			Access</a>.</p>
    * 		       <p>The policy can be displayed with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetPolicy.html">GetPolicy</a> and removed with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePolicy.html">DeletePolicy</a>.</p>
-   * 		       <p class="title">
+   *          <p class="title">
    *             <b>About Policies</b>
    *          </p>
    *          <ul>
@@ -1154,15 +1154,15 @@ export class ACMPCA extends ACMPCAClient {
    * 			further attempts every 15 minutes. With Amazon CloudWatch, you can create alarms for the
    * 			metrics <code>CRLGenerated</code> and <code>MisconfiguredCRLBucket</code>. For more
    * 			information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCloudWatch.html">Supported CloudWatch Metrics</a>.</p>
-   * 		       <note>
+   *          <note>
    *                         <p>Both PCA and the IAM principal must have permission to write to
    *                         the S3 bucket that you specify. If the IAM principal making the call
    *                         does not have permission to write to the bucket, then an exception is
    *                         thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html">Configure
    *                         Access to ACM Private CA</a>.</p>
    *                 </note>
-   * 		       <p>ACM Private CA also writes revocation information to the audit report. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a>.</p>
+   *          <p>ACM Private CA also writes
+   * 			revocation information to the audit report. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a>.</p>
    * 		       <note>
    * 			         <p>You cannot revoke a root CA self-signed certificate.</p>
    * 		       </note>
@@ -1276,7 +1276,7 @@ export class ACMPCA extends ACMPCAClient {
    * 			private CA must be in the <code>ACTIVE</code> or <code>DISABLED</code> state before you
    * 			can update it. You can disable a private CA that is in the <code>ACTIVE</code> state or
    * 			make a CA that is in the <code>DISABLED</code> state active again.</p>
-   * 		       <note>
+   *          <note>
    *                         <p>Both PCA and the IAM principal must have permission to write to
    *                         the S3 bucket that you specify. If the IAM principal making the call
    *                         does not have permission to write to the bucket, then an exception is

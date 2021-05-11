@@ -753,6 +753,9 @@ export class Connect extends ConnectClient {
    *          <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any
    *    storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It also does not
    *    allow for any configurations on features, such as Contact Lens for Amazon Connect. </p>
+   *          <p>Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days.
+   * If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances.
+   * You must wait 30 days before you can restart creating and deleting instances in your account.</p>
    */
   public createInstance(
     args: CreateInstanceCommandInput,
@@ -784,8 +787,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Create an AppIntegration association with an Amazon Connect instance.</p>
+   * <p>Create an AppIntegration association with an Amazon Connect instance.</p>
    */
   public createIntegrationAssociation(
     args: CreateIntegrationAssociationCommandInput,
@@ -909,8 +911,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Creates a use case for an AppIntegration association.</p>
+   * <p>Creates a use case for an AppIntegration association.</p>
    */
   public createUseCase(
     args: CreateUseCaseCommandInput,
@@ -1004,6 +1005,9 @@ export class Connect extends ConnectClient {
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Deletes the Amazon Connect instance.</p>
+   *          <p>Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days.
+   * If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances.
+   * You must wait 30 days before you can restart creating and deleting instances in your account.</p>
    */
   public deleteInstance(
     args: DeleteInstanceCommandInput,
@@ -1035,8 +1039,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Deletes an AppIntegration association from an Amazon Connect instance. The association must not have
+   * <p>Deletes an AppIntegration association from an Amazon Connect instance. The association must not have
    *    any use cases associated with it.</p>
    */
   public deleteIntegrationAssociation(
@@ -1102,8 +1105,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Deletes a use case from an AppIntegration association.</p>
+   * <p>Deletes a use case from an AppIntegration association.</p>
    */
   public deleteUseCase(
     args: DeleteUseCaseCommandInput,
@@ -1860,6 +1862,14 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Retrieves a token for federation.</p>
+   *          <note>
+   *             <p>This API doesn't support root users. If you try to invoke GetFederationToken with root
+   *     credentials, an error message similar to the following one appears: </p>
+   *             <p>
+   *                <code>Provided identity: Principal: .... User: .... cannot be used for federation with
+   *      Amazon Connect</code>
+   *             </p>
+   *          </note>
    */
   public getFederationToken(
     args: GetFederationTokenCommandInput,
@@ -1892,6 +1902,7 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Gets historical metric data from the specified Amazon Connect instance.</p>
+   *
    *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics
    *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
@@ -2131,8 +2142,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Provides summary information about the AppIntegration associations for the specified Amazon Connect
+   * <p>Provides summary information about the AppIntegration associations for the specified Amazon Connect
    *    instance.</p>
    */
   public listIntegrationAssociations(
@@ -2321,6 +2331,10 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Provides information about the queues for the specified Amazon Connect instance.</p>
+   *          <p>If you do not specify a <code>QueueTypes</code>
+   *    parameter, both standard and agent queues are returned. This might cause an unexpected truncation
+   *    of results if you have more than 1000 agents and you limit the number of results of the API call
+   *    in code.</p>
    *          <p>For more information about queues, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html">Queues: Standard and
    *     Agent</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
@@ -2550,8 +2564,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Lists the use cases. </p>
+   * <p>Lists the use cases. </p>
    */
   public listUseCases(
     args: ListUseCasesCommandInput,
@@ -2686,7 +2699,7 @@ export class Connect extends ConnectClient {
    *          <ul>
    *             <li>
    *                <p>API rate limit is exceeded. API TPS throttling returns a <code>TooManyRequests</code>
-   *      exception from the API Gateway.</p>
+   *      exception.</p>
    *             </li>
    *             <li>
    *                <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">quota for concurrent active
@@ -2771,7 +2784,7 @@ export class Connect extends ConnectClient {
    *    actions in the contact flow that's specified (in <code>ContactFlowId</code>).</p>
    *
    *          <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If
-   *    the contact flow places an outbound call to a contact, and then puts the contact in queue,  the
+   *    the contact flow places an outbound call to a contact, and then puts the contact in queue, the
    *    call is then routed to the agent, like any other inbound case.</p>
    *
    *          <p>There is a 60-second dialing timeout for this operation. If the call is not connected after
@@ -2946,8 +2959,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Adds the specified tags to the specified resource.</p>
-   *          <p>The supported resource types are users, routing profiles, queues, quick connects, and contact
-   *    flows.</p>
+   *          <p>The supported resource types are users, routing profiles, queues, quick connects, and
+   *    contact flows.</p>
    *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
    *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
@@ -3007,14 +3020,18 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Creates or updates the contact attributes associated with the specified contact.</p>
-   *          <p>You can add or update attributes for both ongoing and completed contacts. For example, while
-   *    the call is active, you can update the customer's name or the reason the customer called. You can
-   *    add notes about steps that the agent took during the call that display to the next agent that
-   *    takes the call. You can also update attributes for a contact using data from your CRM application
-   *    and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis,
-   *    such as legal review or to identify abusive callers.</p>
-   *          <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted.</p>
+   * <p>Creates or updates
+   *    user-defined contact attributes
+   *    associated with the specified contact.</p>
+   *          <p>You can create or update user-defined attributes for both ongoing and completed contacts.
+   *    For example, while the call is active, you can update the customer's name or the reason the
+   *    customer called. You can add notes about steps that the agent took during the call that display
+   *    to the next agent that takes the call. You can also update attributes for a contact using data
+   *    from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls
+   *    for additional analysis, such as legal review or to identify abusive callers.</p>
+   *          <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted. For
+   *    information about CTR retention and the maximum size of the CTR attributes section, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
+   *     specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
    *
    *          <p>
    *             <b>Important:</b> You cannot use the operation to update
@@ -3222,8 +3239,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Updates the maximum number of contacts allowed in a queue before it is
-   *    considered full.</p>
+   *          <p>Updates the maximum number of contacts allowed in a queue before it is considered
+   *    full.</p>
    */
   public updateQueueMaxContacts(
     args: UpdateQueueMaxContactsCommandInput,
@@ -3256,7 +3273,7 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Updates the name and description of a queue.  At least <code>Name</code> or <code>Description</code> must be provided.</p>
+   *          <p>Updates the name and description of a queue. At least <code>Name</code> or <code>Description</code> must be provided.</p>
    */
   public updateQueueName(
     args: UpdateQueueNameCommandInput,
@@ -3488,7 +3505,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Updates the name and description of a routing profile. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
+   * <p>Updates the name and description of a routing profile. The request accepts the following data in JSON format.
+   *    At least <code>Name</code> or <code>Description</code> must be provided.</p>
    */
   public updateRoutingProfileName(
     args: UpdateRoutingProfileNameCommandInput,

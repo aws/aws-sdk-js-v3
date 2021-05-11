@@ -47,7 +47,6 @@ import {
   AutomatedAbrSettings,
   AutomatedEncodingSettings,
   Av1QvbrSettings,
-  Av1Settings,
   AvailBlanking,
   BurninDestinationSettings,
   CaptionDescription,
@@ -99,6 +98,7 @@ import {
   InputTemplate,
   InsertableImage,
   JobMessages,
+  KantarWatermarkSettings,
   M2tsScte35Esam,
   M2tsSettings,
   M3u8Settings,
@@ -144,6 +144,7 @@ import {
   WebvttDestinationSettings,
 } from "../models/models_0";
 import {
+  Av1Settings,
   AvcIntraSettings,
   AvcIntraUhdSettings,
   BadRequestException,
@@ -4587,12 +4588,18 @@ const serializeAws_restJson1DvbSubDestinationSettings = (
       input.BackgroundColor !== null && { backgroundColor: input.BackgroundColor }),
     ...(input.BackgroundOpacity !== undefined &&
       input.BackgroundOpacity !== null && { backgroundOpacity: input.BackgroundOpacity }),
+    ...(input.DdsHandling !== undefined && input.DdsHandling !== null && { ddsHandling: input.DdsHandling }),
+    ...(input.DdsXCoordinate !== undefined &&
+      input.DdsXCoordinate !== null && { ddsXCoordinate: input.DdsXCoordinate }),
+    ...(input.DdsYCoordinate !== undefined &&
+      input.DdsYCoordinate !== null && { ddsYCoordinate: input.DdsYCoordinate }),
     ...(input.FontColor !== undefined && input.FontColor !== null && { fontColor: input.FontColor }),
     ...(input.FontOpacity !== undefined && input.FontOpacity !== null && { fontOpacity: input.FontOpacity }),
     ...(input.FontResolution !== undefined &&
       input.FontResolution !== null && { fontResolution: input.FontResolution }),
     ...(input.FontScript !== undefined && input.FontScript !== null && { fontScript: input.FontScript }),
     ...(input.FontSize !== undefined && input.FontSize !== null && { fontSize: input.FontSize }),
+    ...(input.Height !== undefined && input.Height !== null && { height: input.Height }),
     ...(input.OutlineColor !== undefined && input.OutlineColor !== null && { outlineColor: input.OutlineColor }),
     ...(input.OutlineSize !== undefined && input.OutlineSize !== null && { outlineSize: input.OutlineSize }),
     ...(input.ShadowColor !== undefined && input.ShadowColor !== null && { shadowColor: input.ShadowColor }),
@@ -4603,6 +4610,7 @@ const serializeAws_restJson1DvbSubDestinationSettings = (
       input.SubtitlingType !== null && { subtitlingType: input.SubtitlingType }),
     ...(input.TeletextSpacing !== undefined &&
       input.TeletextSpacing !== null && { teletextSpacing: input.TeletextSpacing }),
+    ...(input.Width !== undefined && input.Width !== null && { width: input.Width }),
     ...(input.XPosition !== undefined && input.XPosition !== null && { xPosition: input.XPosition }),
     ...(input.YPosition !== undefined && input.YPosition !== null && { yPosition: input.YPosition }),
   };
@@ -5301,6 +5309,10 @@ const serializeAws_restJson1JobSettings = (input: JobSettings, context: __SerdeC
       input.Esam !== null && { esam: serializeAws_restJson1EsamSettings(input.Esam, context) }),
     ...(input.Inputs !== undefined &&
       input.Inputs !== null && { inputs: serializeAws_restJson1__listOfInput(input.Inputs, context) }),
+    ...(input.KantarWatermark !== undefined &&
+      input.KantarWatermark !== null && {
+        kantarWatermark: serializeAws_restJson1KantarWatermarkSettings(input.KantarWatermark, context),
+      }),
     ...(input.MotionImageInserter !== undefined &&
       input.MotionImageInserter !== null && {
         motionImageInserter: serializeAws_restJson1MotionImageInserter(input.MotionImageInserter, context),
@@ -5342,6 +5354,10 @@ const serializeAws_restJson1JobTemplateSettings = (input: JobTemplateSettings, c
       input.Esam !== null && { esam: serializeAws_restJson1EsamSettings(input.Esam, context) }),
     ...(input.Inputs !== undefined &&
       input.Inputs !== null && { inputs: serializeAws_restJson1__listOfInputTemplate(input.Inputs, context) }),
+    ...(input.KantarWatermark !== undefined &&
+      input.KantarWatermark !== null && {
+        kantarWatermark: serializeAws_restJson1KantarWatermarkSettings(input.KantarWatermark, context),
+      }),
     ...(input.MotionImageInserter !== undefined &&
       input.MotionImageInserter !== null && {
         motionImageInserter: serializeAws_restJson1MotionImageInserter(input.MotionImageInserter, context),
@@ -5369,6 +5385,32 @@ const serializeAws_restJson1JobTemplateSettings = (input: JobTemplateSettings, c
       input.TimedMetadataInsertion !== null && {
         timedMetadataInsertion: serializeAws_restJson1TimedMetadataInsertion(input.TimedMetadataInsertion, context),
       }),
+  };
+};
+
+const serializeAws_restJson1KantarWatermarkSettings = (
+  input: KantarWatermarkSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ChannelName !== undefined && input.ChannelName !== null && { channelName: input.ChannelName }),
+    ...(input.ContentReference !== undefined &&
+      input.ContentReference !== null && { contentReference: input.ContentReference }),
+    ...(input.CredentialsSecretName !== undefined &&
+      input.CredentialsSecretName !== null && { credentialsSecretName: input.CredentialsSecretName }),
+    ...(input.FileOffset !== undefined && input.FileOffset !== null && { fileOffset: input.FileOffset }),
+    ...(input.KantarLicenseId !== undefined &&
+      input.KantarLicenseId !== null && { kantarLicenseId: input.KantarLicenseId }),
+    ...(input.KantarServerUrl !== undefined &&
+      input.KantarServerUrl !== null && { kantarServerUrl: input.KantarServerUrl }),
+    ...(input.LogDestination !== undefined &&
+      input.LogDestination !== null && { logDestination: input.LogDestination }),
+    ...(input.Metadata3 !== undefined && input.Metadata3 !== null && { metadata3: input.Metadata3 }),
+    ...(input.Metadata4 !== undefined && input.Metadata4 !== null && { metadata4: input.Metadata4 }),
+    ...(input.Metadata5 !== undefined && input.Metadata5 !== null && { metadata5: input.Metadata5 }),
+    ...(input.Metadata6 !== undefined && input.Metadata6 !== null && { metadata6: input.Metadata6 }),
+    ...(input.Metadata7 !== undefined && input.Metadata7 !== null && { metadata7: input.Metadata7 }),
+    ...(input.Metadata8 !== undefined && input.Metadata8 !== null && { metadata8: input.Metadata8 }),
   };
 };
 
@@ -5459,6 +5501,8 @@ const serializeAws_restJson1M3u8Settings = (input: M3u8Settings, context: __Serd
       input.AudioPids !== null && {
         audioPids: serializeAws_restJson1__listOf__integerMin32Max8182(input.AudioPids, context),
       }),
+    ...(input.MaxPcrInterval !== undefined &&
+      input.MaxPcrInterval !== null && { maxPcrInterval: input.MaxPcrInterval }),
     ...(input.NielsenId3 !== undefined && input.NielsenId3 !== null && { nielsenId3: input.NielsenId3 }),
     ...(input.PatInterval !== undefined && input.PatInterval !== null && { patInterval: input.PatInterval }),
     ...(input.PcrControl !== undefined && input.PcrControl !== null && { pcrControl: input.PcrControl }),
@@ -6260,6 +6304,7 @@ const serializeAws_restJson1VideoSelector = (input: VideoSelector, context: __Se
     ...(input.Pid !== undefined && input.Pid !== null && { pid: input.Pid }),
     ...(input.ProgramNumber !== undefined && input.ProgramNumber !== null && { programNumber: input.ProgramNumber }),
     ...(input.Rotate !== undefined && input.Rotate !== null && { rotate: input.Rotate }),
+    ...(input.SampleRange !== undefined && input.SampleRange !== null && { sampleRange: input.SampleRange }),
   };
 };
 
@@ -7714,12 +7759,18 @@ const deserializeAws_restJson1DvbSubDestinationSettings = (
       output.backgroundOpacity !== undefined && output.backgroundOpacity !== null
         ? output.backgroundOpacity
         : undefined,
+    DdsHandling: output.ddsHandling !== undefined && output.ddsHandling !== null ? output.ddsHandling : undefined,
+    DdsXCoordinate:
+      output.ddsXCoordinate !== undefined && output.ddsXCoordinate !== null ? output.ddsXCoordinate : undefined,
+    DdsYCoordinate:
+      output.ddsYCoordinate !== undefined && output.ddsYCoordinate !== null ? output.ddsYCoordinate : undefined,
     FontColor: output.fontColor !== undefined && output.fontColor !== null ? output.fontColor : undefined,
     FontOpacity: output.fontOpacity !== undefined && output.fontOpacity !== null ? output.fontOpacity : undefined,
     FontResolution:
       output.fontResolution !== undefined && output.fontResolution !== null ? output.fontResolution : undefined,
     FontScript: output.fontScript !== undefined && output.fontScript !== null ? output.fontScript : undefined,
     FontSize: output.fontSize !== undefined && output.fontSize !== null ? output.fontSize : undefined,
+    Height: output.height !== undefined && output.height !== null ? output.height : undefined,
     OutlineColor: output.outlineColor !== undefined && output.outlineColor !== null ? output.outlineColor : undefined,
     OutlineSize: output.outlineSize !== undefined && output.outlineSize !== null ? output.outlineSize : undefined,
     ShadowColor: output.shadowColor !== undefined && output.shadowColor !== null ? output.shadowColor : undefined,
@@ -7733,6 +7784,7 @@ const deserializeAws_restJson1DvbSubDestinationSettings = (
       output.subtitlingType !== undefined && output.subtitlingType !== null ? output.subtitlingType : undefined,
     TeletextSpacing:
       output.teletextSpacing !== undefined && output.teletextSpacing !== null ? output.teletextSpacing : undefined,
+    Width: output.width !== undefined && output.width !== null ? output.width : undefined,
     XPosition: output.xPosition !== undefined && output.xPosition !== null ? output.xPosition : undefined,
     YPosition: output.yPosition !== undefined && output.yPosition !== null ? output.yPosition : undefined,
   } as any;
@@ -8706,6 +8758,10 @@ const deserializeAws_restJson1JobSettings = (output: any, context: __SerdeContex
       output.inputs !== undefined && output.inputs !== null
         ? deserializeAws_restJson1__listOfInput(output.inputs, context)
         : undefined,
+    KantarWatermark:
+      output.kantarWatermark !== undefined && output.kantarWatermark !== null
+        ? deserializeAws_restJson1KantarWatermarkSettings(output.kantarWatermark, context)
+        : undefined,
     MotionImageInserter:
       output.motionImageInserter !== undefined && output.motionImageInserter !== null
         ? deserializeAws_restJson1MotionImageInserter(output.motionImageInserter, context)
@@ -8785,6 +8841,10 @@ const deserializeAws_restJson1JobTemplateSettings = (output: any, context: __Ser
       output.inputs !== undefined && output.inputs !== null
         ? deserializeAws_restJson1__listOfInputTemplate(output.inputs, context)
         : undefined,
+    KantarWatermark:
+      output.kantarWatermark !== undefined && output.kantarWatermark !== null
+        ? deserializeAws_restJson1KantarWatermarkSettings(output.kantarWatermark, context)
+        : undefined,
     MotionImageInserter:
       output.motionImageInserter !== undefined && output.motionImageInserter !== null
         ? deserializeAws_restJson1MotionImageInserter(output.motionImageInserter, context)
@@ -8809,6 +8869,34 @@ const deserializeAws_restJson1JobTemplateSettings = (output: any, context: __Ser
       output.timedMetadataInsertion !== undefined && output.timedMetadataInsertion !== null
         ? deserializeAws_restJson1TimedMetadataInsertion(output.timedMetadataInsertion, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1KantarWatermarkSettings = (
+  output: any,
+  context: __SerdeContext
+): KantarWatermarkSettings => {
+  return {
+    ChannelName: output.channelName !== undefined && output.channelName !== null ? output.channelName : undefined,
+    ContentReference:
+      output.contentReference !== undefined && output.contentReference !== null ? output.contentReference : undefined,
+    CredentialsSecretName:
+      output.credentialsSecretName !== undefined && output.credentialsSecretName !== null
+        ? output.credentialsSecretName
+        : undefined,
+    FileOffset: output.fileOffset !== undefined && output.fileOffset !== null ? output.fileOffset : undefined,
+    KantarLicenseId:
+      output.kantarLicenseId !== undefined && output.kantarLicenseId !== null ? output.kantarLicenseId : undefined,
+    KantarServerUrl:
+      output.kantarServerUrl !== undefined && output.kantarServerUrl !== null ? output.kantarServerUrl : undefined,
+    LogDestination:
+      output.logDestination !== undefined && output.logDestination !== null ? output.logDestination : undefined,
+    Metadata3: output.metadata3 !== undefined && output.metadata3 !== null ? output.metadata3 : undefined,
+    Metadata4: output.metadata4 !== undefined && output.metadata4 !== null ? output.metadata4 : undefined,
+    Metadata5: output.metadata5 !== undefined && output.metadata5 !== null ? output.metadata5 : undefined,
+    Metadata6: output.metadata6 !== undefined && output.metadata6 !== null ? output.metadata6 : undefined,
+    Metadata7: output.metadata7 !== undefined && output.metadata7 !== null ? output.metadata7 : undefined,
+    Metadata8: output.metadata8 !== undefined && output.metadata8 !== null ? output.metadata8 : undefined,
   } as any;
 };
 
@@ -8921,6 +9009,8 @@ const deserializeAws_restJson1M3u8Settings = (output: any, context: __SerdeConte
       output.audioPids !== undefined && output.audioPids !== null
         ? deserializeAws_restJson1__listOf__integerMin32Max8182(output.audioPids, context)
         : undefined,
+    MaxPcrInterval:
+      output.maxPcrInterval !== undefined && output.maxPcrInterval !== null ? output.maxPcrInterval : undefined,
     NielsenId3: output.nielsenId3 !== undefined && output.nielsenId3 !== null ? output.nielsenId3 : undefined,
     PatInterval: output.patInterval !== undefined && output.patInterval !== null ? output.patInterval : undefined,
     PcrControl: output.pcrControl !== undefined && output.pcrControl !== null ? output.pcrControl : undefined,
@@ -9941,6 +10031,7 @@ const deserializeAws_restJson1VideoSelector = (output: any, context: __SerdeCont
     ProgramNumber:
       output.programNumber !== undefined && output.programNumber !== null ? output.programNumber : undefined,
     Rotate: output.rotate !== undefined && output.rotate !== null ? output.rotate : undefined,
+    SampleRange: output.sampleRange !== undefined && output.sampleRange !== null ? output.sampleRange : undefined,
   } as any;
 };
 

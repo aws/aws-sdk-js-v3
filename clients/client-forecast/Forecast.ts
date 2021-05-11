@@ -70,6 +70,11 @@ import {
   DeletePredictorCommandOutput,
 } from "./commands/DeletePredictorCommand";
 import {
+  DeleteResourceTreeCommand,
+  DeleteResourceTreeCommandInput,
+  DeleteResourceTreeCommandOutput,
+} from "./commands/DeleteResourceTreeCommand";
+import {
   DescribeDatasetCommand,
   DescribeDatasetCommandInput,
   DescribeDatasetCommandOutput,
@@ -805,6 +810,69 @@ export class Forecast extends ForecastClient {
     cb?: (err: any, data?: DeletePredictorBacktestExportJobCommandOutput) => void
   ): Promise<DeletePredictorBacktestExportJobCommandOutput> | void {
     const command = new DeletePredictorBacktestExportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an entire resource tree. This operation will delete the parent resource and
+   *             its child resources.</p>
+   *         <p>Child resources are resources that were created from another resource. For example,
+   *             when a forecast is generated from a predictor, the forecast is the child resource and
+   *             the predictor is the parent resource.</p>
+   *         <p>Amazon Forecast resources possess the following parent-child resource hierarchies:</p>
+   *
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <b>Dataset Group</b>: predictors, predictor backtest
+   *                     export jobs, forecasts, forecast export jobs</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>Dataset</b>: dataset import jobs</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>Predictor</b>: predictor backtest export jobs,
+   *                     forecasts, forecast export jobs</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <b>Forecast</b>: forecast export jobs</p>
+   *             </li>
+   *          </ul>
+   *         <note>
+   *             <p>
+   *                <code>DeleteResourceTree</code> will only delete Amazon Forecast resources, and will not
+   *                 delete datasets or exported files stored in Amazon S3. </p>
+   *         </note>
+   */
+  public deleteResourceTree(
+    args: DeleteResourceTreeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourceTreeCommandOutput>;
+  public deleteResourceTree(
+    args: DeleteResourceTreeCommandInput,
+    cb: (err: any, data?: DeleteResourceTreeCommandOutput) => void
+  ): void;
+  public deleteResourceTree(
+    args: DeleteResourceTreeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourceTreeCommandOutput) => void
+  ): void;
+  public deleteResourceTree(
+    args: DeleteResourceTreeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourceTreeCommandOutput) => void),
+    cb?: (err: any, data?: DeleteResourceTreeCommandOutput) => void
+  ): Promise<DeleteResourceTreeCommandOutput> | void {
+    const command = new DeleteResourceTreeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

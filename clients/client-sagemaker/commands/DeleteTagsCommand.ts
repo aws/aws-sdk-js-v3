@@ -28,6 +28,11 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  *                 deleted tags are not removed from training jobs that the hyperparameter tuning job
  *                 launched before you called this API.</p>
  *         </note>
+ *         <note>
+ *             <p>When you call this API to delete tags from a SageMaker Studio Domain or User Profile, the
+ *                 deleted tags are not removed from Apps that the SageMaker Studio Domain or User Profile
+ *                 launched before you called this API.</p>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

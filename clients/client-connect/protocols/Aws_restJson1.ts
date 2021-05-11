@@ -747,6 +747,7 @@ export const serializeAws_restJson1CreateIntegrationAssociationCommand = async (
     ...(input.SourceApplicationUrl !== undefined &&
       input.SourceApplicationUrl !== null && { SourceApplicationUrl: input.SourceApplicationUrl }),
     ...(input.SourceType !== undefined && input.SourceType !== null && { SourceType: input.SourceType }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -918,6 +919,7 @@ export const serializeAws_restJson1CreateUseCaseCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
     ...(input.UseCaseType !== undefined && input.UseCaseType !== null && { UseCaseType: input.UseCaseType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();

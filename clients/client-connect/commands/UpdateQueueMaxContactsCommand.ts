@@ -22,8 +22,8 @@ export interface UpdateQueueMaxContactsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Updates the maximum number of contacts allowed in a queue before it is
- *    considered full.</p>
+ *          <p>Updates the maximum number of contacts allowed in a queue before it is considered
+ *    full.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

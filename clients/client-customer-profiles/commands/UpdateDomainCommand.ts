@@ -23,7 +23,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
 /**
  * <p>Updates the properties of a domain, including creating or selecting a dead letter queue
  *          or an encryption key.</p>
- *          <p>Once a domain is created, the name can’t be changed.</p>
+ *          <p>After a domain is created, the name can’t be changed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

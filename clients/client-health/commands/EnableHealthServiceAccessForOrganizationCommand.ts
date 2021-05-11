@@ -28,9 +28,9 @@ export interface EnableHealthServiceAccessForOrganizationCommandOutput extends _
  *             <p>To call this operation, you must meet the following requirements:</p>
  *             <ul>
  *                <li>
- *                   <p>You must have a Business or Enterprise support plan from <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a> to use the
- *                   AWS Health API. If you call the AWS Health API from an AWS account that
- *                   doesn't have a Business or Enterprise support plan, you receive a
+ *                   <p>You must have a Business or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a> to use the AWS Health
+ *                   API. If you call the AWS Health API from an AWS account that doesn't have a
+ *                   Business or Enterprise Support plan, you receive a
  *                      <code>SubscriptionRequiredException</code> error.</p>
  *                </li>
  *                <li>

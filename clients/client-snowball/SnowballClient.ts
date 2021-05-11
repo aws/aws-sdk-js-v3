@@ -4,6 +4,10 @@ import { CreateAddressCommandInput, CreateAddressCommandOutput } from "./command
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
+  CreateLongTermPricingCommandInput,
+  CreateLongTermPricingCommandOutput,
+} from "./commands/CreateLongTermPricingCommand";
+import {
   CreateReturnShippingLabelCommandInput,
   CreateReturnShippingLabelCommandOutput,
 } from "./commands/CreateReturnShippingLabelCommand";
@@ -26,12 +30,20 @@ import {
   ListCompatibleImagesCommandOutput,
 } from "./commands/ListCompatibleImagesCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import {
+  ListLongTermPricingCommandInput,
+  ListLongTermPricingCommandOutput,
+} from "./commands/ListLongTermPricingCommand";
 import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
 import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
 import {
   UpdateJobShipmentStateCommandInput,
   UpdateJobShipmentStateCommandOutput,
 } from "./commands/UpdateJobShipmentStateCommand";
+import {
+  UpdateLongTermPricingCommandInput,
+  UpdateLongTermPricingCommandOutput,
+} from "./commands/UpdateLongTermPricingCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -89,6 +101,7 @@ export type ServiceInputTypes =
   | CreateAddressCommandInput
   | CreateClusterCommandInput
   | CreateJobCommandInput
+  | CreateLongTermPricingCommandInput
   | CreateReturnShippingLabelCommandInput
   | DescribeAddressCommandInput
   | DescribeAddressesCommandInput
@@ -103,9 +116,11 @@ export type ServiceInputTypes =
   | ListClustersCommandInput
   | ListCompatibleImagesCommandInput
   | ListJobsCommandInput
+  | ListLongTermPricingCommandInput
   | UpdateClusterCommandInput
   | UpdateJobCommandInput
-  | UpdateJobShipmentStateCommandInput;
+  | UpdateJobShipmentStateCommandInput
+  | UpdateLongTermPricingCommandInput;
 
 export type ServiceOutputTypes =
   | CancelClusterCommandOutput
@@ -113,6 +128,7 @@ export type ServiceOutputTypes =
   | CreateAddressCommandOutput
   | CreateClusterCommandOutput
   | CreateJobCommandOutput
+  | CreateLongTermPricingCommandOutput
   | CreateReturnShippingLabelCommandOutput
   | DescribeAddressCommandOutput
   | DescribeAddressesCommandOutput
@@ -127,9 +143,11 @@ export type ServiceOutputTypes =
   | ListClustersCommandOutput
   | ListCompatibleImagesCommandOutput
   | ListJobsCommandOutput
+  | ListLongTermPricingCommandOutput
   | UpdateClusterCommandOutput
   | UpdateJobCommandOutput
-  | UpdateJobShipmentStateCommandOutput;
+  | UpdateJobShipmentStateCommandOutput
+  | UpdateLongTermPricingCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

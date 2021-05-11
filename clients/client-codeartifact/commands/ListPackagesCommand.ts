@@ -23,9 +23,7 @@ export interface ListPackagesCommandOutput extends ListPackagesResult, __Metadat
 /**
  * <p>
  *         Returns a list of
- *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">
- *                <code>PackageSummary</code>
- *             </a>
+ *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">PackageSummary</a>
  *         objects for packages in a repository that match the request parameters.
  *       </p>
  * @example

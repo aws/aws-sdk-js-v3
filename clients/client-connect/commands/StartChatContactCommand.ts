@@ -31,7 +31,7 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *          <ul>
  *             <li>
  *                <p>API rate limit is exceeded. API TPS throttling returns a <code>TooManyRequests</code>
- *      exception from the API Gateway.</p>
+ *      exception.</p>
  *             </li>
  *             <li>
  *                <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">quota for concurrent active

@@ -3,14 +3,80 @@ import {
   MemberDefinition,
   NotificationConfiguration,
   OidcConfig,
+  ProfilerRuleConfiguration,
   SourceIpConfig,
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
   Workforce,
-  Workteam,
 } from "./models_1";
-import { Filter, NestedFilters, ResourceType, SearchSortOrder } from "./models_2";
+import { Filter, NestedFilters, ProfilerConfigForUpdate, ResourceType, SearchSortOrder, Workteam } from "./models_2";
+
+export interface UpdateTrainingJobRequest {
+  /**
+   * <p>The name of a training job to update the Debugger profiling configuration.</p>
+   */
+  TrainingJobName: string | undefined;
+
+  /**
+   * <p>Configuration information for Debugger system monitoring, framework profiling, and
+   *             storage paths.</p>
+   */
+  ProfilerConfig?: ProfilerConfigForUpdate;
+
+  /**
+   * <p>Configuration information for Debugger rules for profiling system and framework
+   *             metrics.</p>
+   */
+  ProfilerRuleConfigurations?: ProfilerRuleConfiguration[];
+}
+
+export namespace UpdateTrainingJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTrainingJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateTrainingJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training job.</p>
+   */
+  TrainingJobArn: string | undefined;
+}
+
+export namespace UpdateTrainingJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTrainingJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateTrialRequest {
+  /**
+   * <p>The name of the trial to update.</p>
+   */
+  TrialName: string | undefined;
+
+  /**
+   * <p>The name of the trial as displayed. The name doesn't need to be unique. If
+   *         <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
+   */
+  DisplayName?: string;
+}
+
+export namespace UpdateTrialRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateTrialRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface UpdateTrialResponse {
   /**

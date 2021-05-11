@@ -22,7 +22,7 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * 			resource or the policy cannot be found, this action returns a
  * 				<code>ResourceNotFoundException</code>. </p>
  * 		       <p>The policy can be attached or updated with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_PutPolicy.html">PutPolicy</a> and removed with <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePolicy.html">DeletePolicy</a>.</p>
- * 		       <p class="title">
+ *          <p class="title">
  *             <b>About Policies</b>
  *          </p>
  *          <ul>

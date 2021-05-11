@@ -41,7 +41,7 @@ export async function* paginateSelectAggregateResourceConfig(
   let page: SelectAggregateResourceConfigCommandOutput;
   while (hasNext) {
     input.NextToken = token;
-    input["MaxResults"] = config.pageSize;
+    input["Limit"] = config.pageSize;
     if (config.client instanceof ConfigService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof ConfigServiceClient) {

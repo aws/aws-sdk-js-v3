@@ -33,11 +33,8 @@ export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __Met
  *             deleted account from your <code>Disabled</code> accounts list, you must contact AWS
  *             Support.</p>
  *
- *          <p>
- * After 90 days, deleted accounts are permanently removed from your
- * <code>Disabled</code>
- * accounts list.
- * </p>
+ *          <p>After 90 days, deleted accounts are permanently removed from your
+ * <code>Disabled</code> accounts list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -178,7 +178,7 @@ export namespace DescribeChangeSetRequest {
 }
 
 /**
- * <p>A product entity contains data that describes your product, its supported features,
+ * <p>An entity contains data that describes your product, its supported features,
  *             and how it can be used or launched by your customer. </p>
  */
 export interface Entity {
@@ -251,6 +251,11 @@ export interface ChangeSummary {
    * <p>An array of <code>ErrorDetail</code> objects associated with the change.</p>
    */
   ErrorDetailList?: ErrorDetail[];
+
+  /**
+   * <p>Optional name for the change.</p>
+   */
+  ChangeName?: string;
 }
 
 export namespace ChangeSummary {
@@ -811,6 +816,11 @@ export interface Change {
    *             change.</p>
    */
   Details: string | undefined;
+
+  /**
+   * <p>Optional name for the change.</p>
+   */
+  ChangeName?: string;
 }
 
 export namespace Change {

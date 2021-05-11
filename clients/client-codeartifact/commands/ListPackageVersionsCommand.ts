@@ -23,9 +23,7 @@ export interface ListPackageVersionsCommandOutput extends ListPackageVersionsRes
 /**
  * <p>
  *         Returns a list of
- *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">
- *                <code>PackageVersionSummary</code>
- *             </a>
+ *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">PackageVersionSummary</a>
  *         objects for package versions in a repository that match the request parameters.
  *       </p>
  * @example

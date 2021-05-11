@@ -942,6 +942,7 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1Change = (input: Change, context: __SerdeContext): any => {
   return {
+    ...(input.ChangeName !== undefined && input.ChangeName !== null && { ChangeName: input.ChangeName }),
     ...(input.ChangeType !== undefined && input.ChangeType !== null && { ChangeType: input.ChangeType }),
     ...(input.Details !== undefined && input.Details !== null && { Details: input.Details }),
     ...(input.Entity !== undefined &&
@@ -1051,6 +1052,7 @@ const deserializeAws_restJson1ChangeSetSummaryListItem = (
 
 const deserializeAws_restJson1ChangeSummary = (output: any, context: __SerdeContext): ChangeSummary => {
   return {
+    ChangeName: output.ChangeName !== undefined && output.ChangeName !== null ? output.ChangeName : undefined,
     ChangeType: output.ChangeType !== undefined && output.ChangeType !== null ? output.ChangeType : undefined,
     Details: output.Details !== undefined && output.Details !== null ? output.Details : undefined,
     Entity:

@@ -2278,7 +2278,8 @@
         "name": {
           "target": "com.amazonaws.auditmanager#ControlSetName",
           "traits": {
-            "smithy.api#documentation": "<p>\nThe name of the specified control set.\n</p>"
+            "smithy.api#documentation": "<p>\nThe name of the specified control set.\n</p>",
+            "smithy.api#required": {}
           }
         },
         "controls": {
@@ -3346,7 +3347,7 @@
         "assessmentReportSelection": {
           "target": "com.amazonaws.auditmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>\n         Specifies whether the evidence is inclded in the assessment report.\n      </p>"
+            "smithy.api#documentation": "<p>\n         Specifies whether the evidence is included in the assessment report.\n      </p>"
           }
         }
       },
@@ -6239,7 +6240,8 @@
         "name": {
           "target": "com.amazonaws.auditmanager#ControlSetName",
           "traits": {
-            "smithy.api#documentation": "<p>\nThe name of the control set.\n</p>"
+            "smithy.api#documentation": "<p>\nThe name of the control set.\n</p>",
+            "smithy.api#required": {}
           }
         },
         "controls": {

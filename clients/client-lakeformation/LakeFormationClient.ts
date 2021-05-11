@@ -1,4 +1,8 @@
 import {
+  AddLFTagsToResourceCommandInput,
+  AddLFTagsToResourceCommandOutput,
+} from "./commands/AddLFTagsToResourceCommand";
+import {
   BatchGrantPermissionsCommandInput,
   BatchGrantPermissionsCommandOutput,
 } from "./commands/BatchGrantPermissionsCommand";
@@ -6,6 +10,8 @@ import {
   BatchRevokePermissionsCommandInput,
   BatchRevokePermissionsCommandOutput,
 } from "./commands/BatchRevokePermissionsCommand";
+import { CreateLFTagCommandInput, CreateLFTagCommandOutput } from "./commands/CreateLFTagCommand";
+import { DeleteLFTagCommandInput, DeleteLFTagCommandOutput } from "./commands/DeleteLFTagCommand";
 import { DeregisterResourceCommandInput, DeregisterResourceCommandOutput } from "./commands/DeregisterResourceCommand";
 import { DescribeResourceCommandInput, DescribeResourceCommandOutput } from "./commands/DescribeResourceCommand";
 import {
@@ -16,7 +22,10 @@ import {
   GetEffectivePermissionsForPathCommandInput,
   GetEffectivePermissionsForPathCommandOutput,
 } from "./commands/GetEffectivePermissionsForPathCommand";
+import { GetLFTagCommandInput, GetLFTagCommandOutput } from "./commands/GetLFTagCommand";
+import { GetResourceLFTagsCommandInput, GetResourceLFTagsCommandOutput } from "./commands/GetResourceLFTagsCommand";
 import { GrantPermissionsCommandInput, GrantPermissionsCommandOutput } from "./commands/GrantPermissionsCommand";
+import { ListLFTagsCommandInput, ListLFTagsCommandOutput } from "./commands/ListLFTagsCommand";
 import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
 import {
@@ -24,7 +33,20 @@ import {
   PutDataLakeSettingsCommandOutput,
 } from "./commands/PutDataLakeSettingsCommand";
 import { RegisterResourceCommandInput, RegisterResourceCommandOutput } from "./commands/RegisterResourceCommand";
+import {
+  RemoveLFTagsFromResourceCommandInput,
+  RemoveLFTagsFromResourceCommandOutput,
+} from "./commands/RemoveLFTagsFromResourceCommand";
 import { RevokePermissionsCommandInput, RevokePermissionsCommandOutput } from "./commands/RevokePermissionsCommand";
+import {
+  SearchDatabasesByLFTagsCommandInput,
+  SearchDatabasesByLFTagsCommandOutput,
+} from "./commands/SearchDatabasesByLFTagsCommand";
+import {
+  SearchTablesByLFTagsCommandInput,
+  SearchTablesByLFTagsCommandOutput,
+} from "./commands/SearchTablesByLFTagsCommand";
+import { UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "./commands/UpdateLFTagCommand";
 import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -78,33 +100,53 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | AddLFTagsToResourceCommandInput
   | BatchGrantPermissionsCommandInput
   | BatchRevokePermissionsCommandInput
+  | CreateLFTagCommandInput
+  | DeleteLFTagCommandInput
   | DeregisterResourceCommandInput
   | DescribeResourceCommandInput
   | GetDataLakeSettingsCommandInput
   | GetEffectivePermissionsForPathCommandInput
+  | GetLFTagCommandInput
+  | GetResourceLFTagsCommandInput
   | GrantPermissionsCommandInput
+  | ListLFTagsCommandInput
   | ListPermissionsCommandInput
   | ListResourcesCommandInput
   | PutDataLakeSettingsCommandInput
   | RegisterResourceCommandInput
+  | RemoveLFTagsFromResourceCommandInput
   | RevokePermissionsCommandInput
+  | SearchDatabasesByLFTagsCommandInput
+  | SearchTablesByLFTagsCommandInput
+  | UpdateLFTagCommandInput
   | UpdateResourceCommandInput;
 
 export type ServiceOutputTypes =
+  | AddLFTagsToResourceCommandOutput
   | BatchGrantPermissionsCommandOutput
   | BatchRevokePermissionsCommandOutput
+  | CreateLFTagCommandOutput
+  | DeleteLFTagCommandOutput
   | DeregisterResourceCommandOutput
   | DescribeResourceCommandOutput
   | GetDataLakeSettingsCommandOutput
   | GetEffectivePermissionsForPathCommandOutput
+  | GetLFTagCommandOutput
+  | GetResourceLFTagsCommandOutput
   | GrantPermissionsCommandOutput
+  | ListLFTagsCommandOutput
   | ListPermissionsCommandOutput
   | ListResourcesCommandOutput
   | PutDataLakeSettingsCommandOutput
   | RegisterResourceCommandOutput
+  | RemoveLFTagsFromResourceCommandOutput
   | RevokePermissionsCommandOutput
+  | SearchDatabasesByLFTagsCommandOutput
+  | SearchTablesByLFTagsCommandOutput
+  | UpdateLFTagCommandOutput
   | UpdateResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

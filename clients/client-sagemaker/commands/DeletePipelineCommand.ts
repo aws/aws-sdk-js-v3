@@ -21,7 +21,10 @@ export interface DeletePipelineCommandInput extends DeletePipelineRequest {}
 export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a pipeline if there are no in-progress executions.</p>
+ * <p>Deletes a pipeline if there are no running instances of the pipeline. To delete a
+ *         pipeline, you must stop all running instances of the pipeline using the
+ *         <code>StopPipelineExecution</code> API. When you delete a pipeline, all instances of the
+ *         pipeline are deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

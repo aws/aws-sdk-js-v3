@@ -42,8 +42,7 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *                <i>Amazon EKS User Guide</i>
  *             </i>. </p>
  *         <important>
- *             <p>At this time, you can not update the subnets or security group IDs for an existing
- *                 cluster.</p>
+ *             <p>You can't update the subnets or security group IDs for an existing cluster.</p>
  *         </important>
  *         <p>Cluster updates are asynchronous, and they should finish within a few minutes. During
  *             an update, the cluster status moves to <code>UPDATING</code> (this status transition is

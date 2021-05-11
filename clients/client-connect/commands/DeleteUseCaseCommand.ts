@@ -21,8 +21,7 @@ export interface DeleteUseCaseCommandInput extends DeleteUseCaseRequest {}
 export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Deletes a use case from an AppIntegration association.</p>
+ * <p>Deletes a use case from an AppIntegration association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

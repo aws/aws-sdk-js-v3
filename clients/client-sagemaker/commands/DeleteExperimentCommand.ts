@@ -21,7 +21,7 @@ export interface DeleteExperimentCommandInput extends DeleteExperimentRequest {}
 export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon SageMaker experiment. All trials associated with the experiment must be deleted
+ * <p>Deletes an SageMaker experiment. All trials associated with the experiment must be deleted
  *       first. Use the <a>ListTrials</a> API to get a list of the trials associated with
  *       the experiment.</p>
  * @example

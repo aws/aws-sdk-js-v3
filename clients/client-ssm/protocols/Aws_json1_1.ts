@@ -1,4 +1,8 @@
 import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "../commands/AddTagsToResourceCommand";
+import {
+  AssociateOpsItemRelatedItemCommandInput,
+  AssociateOpsItemRelatedItemCommandOutput,
+} from "../commands/AssociateOpsItemRelatedItemCommand";
 import { CancelCommandCommandInput, CancelCommandCommandOutput } from "../commands/CancelCommandCommand";
 import {
   CancelMaintenanceWindowExecutionCommandInput,
@@ -177,6 +181,10 @@ import {
 } from "../commands/DescribePatchPropertiesCommand";
 import { DescribeSessionsCommandInput, DescribeSessionsCommandOutput } from "../commands/DescribeSessionsCommand";
 import {
+  DisassociateOpsItemRelatedItemCommandInput,
+  DisassociateOpsItemRelatedItemCommandOutput,
+} from "../commands/DisassociateOpsItemRelatedItemCommand";
+import {
   GetAutomationExecutionCommandInput,
   GetAutomationExecutionCommandOutput,
 } from "../commands/GetAutomationExecutionCommand";
@@ -275,6 +283,10 @@ import {
   ListInventoryEntriesCommandOutput,
 } from "../commands/ListInventoryEntriesCommand";
 import { ListOpsItemEventsCommandInput, ListOpsItemEventsCommandOutput } from "../commands/ListOpsItemEventsCommand";
+import {
+  ListOpsItemRelatedItemsCommandInput,
+  ListOpsItemRelatedItemsCommandOutput,
+} from "../commands/ListOpsItemRelatedItemsCommand";
 import { ListOpsMetadataCommandInput, ListOpsMetadataCommandOutput } from "../commands/ListOpsMetadataCommand";
 import {
   ListResourceComplianceSummariesCommandInput,
@@ -397,6 +409,8 @@ import {
   AddTagsToResourceRequest,
   AddTagsToResourceResult,
   AlreadyExistsException,
+  AssociateOpsItemRelatedItemRequest,
+  AssociateOpsItemRelatedItemResponse,
   AssociatedInstances,
   AssociationAlreadyExists,
   AssociationDescription,
@@ -520,8 +534,6 @@ import {
   DescribeOpsItemsResponse,
   DescribeParametersRequest,
   DescribeParametersResult,
-  DescribePatchBaselinesRequest,
-  DescribePatchBaselinesResult,
   DocumentAlreadyExists,
   DocumentDescription,
   DocumentLimitExceeded,
@@ -557,7 +569,6 @@ import {
   InvalidDocumentVersion,
   InvalidFilter,
   InvalidFilterKey,
-  InvalidFilterOption,
   InvalidFilterValue,
   InvalidInstanceId,
   InvalidInstanceInformationFilterValue,
@@ -592,7 +603,9 @@ import {
   OpsItemFilter,
   OpsItemInvalidParameterException,
   OpsItemLimitExceededException,
+  OpsItemNotFoundException,
   OpsItemNotification,
+  OpsItemRelatedItemAlreadyExistsException,
   OpsItemSummary,
   OpsMetadataAlreadyExistsException,
   OpsMetadataInvalidArgumentException,
@@ -606,7 +619,6 @@ import {
   ParameterStringFilter,
   ParametersFilter,
   Patch,
-  PatchBaselineIdentity,
   PatchComplianceData,
   PatchFilter,
   PatchFilterGroup,
@@ -671,6 +683,8 @@ import {
   ComplianceTypeCountLimitExceededException,
   CompliantSummary,
   CustomSchemaCountLimitExceededException,
+  DescribePatchBaselinesRequest,
+  DescribePatchBaselinesResult,
   DescribePatchGroupStateRequest,
   DescribePatchGroupStateResult,
   DescribePatchGroupsRequest,
@@ -679,6 +693,8 @@ import {
   DescribePatchPropertiesResult,
   DescribeSessionsRequest,
   DescribeSessionsResponse,
+  DisassociateOpsItemRelatedItemRequest,
+  DisassociateOpsItemRelatedItemResponse,
   DocumentDefaultVersionDescription,
   DocumentFilter,
   DocumentIdentifier,
@@ -749,6 +765,7 @@ import {
   InvalidAutomationSignalException,
   InvalidAutomationStatusUpdateException,
   InvalidDocumentType,
+  InvalidFilterOption,
   InvalidInventoryGroupException,
   InvalidInventoryItemContextException,
   InvalidItemContentException,
@@ -795,6 +812,8 @@ import {
   ListInventoryEntriesResult,
   ListOpsItemEventsRequest,
   ListOpsItemEventsResponse,
+  ListOpsItemRelatedItemsRequest,
+  ListOpsItemRelatedItemsResponse,
   ListOpsMetadataRequest,
   ListOpsMetadataResult,
   ListResourceComplianceSummariesRequest,
@@ -820,10 +839,11 @@ import {
   OpsItemEventFilter,
   OpsItemEventSummary,
   OpsItemIdentity,
-  OpsItemNotFoundException,
+  OpsItemRelatedItemAssociationNotFoundException,
+  OpsItemRelatedItemSummary,
+  OpsItemRelatedItemsFilter,
   OpsMetadata,
   OpsMetadataFilter,
-  OpsMetadataKeyLimitExceededException,
   OpsResultAttribute,
   Parameter,
   ParameterAlreadyExists,
@@ -833,6 +853,7 @@ import {
   ParameterPatternMismatchException,
   ParameterVersionLabelLimitExceeded,
   ParameterVersionNotFound,
+  PatchBaselineIdentity,
   PatchGroupPatchBaselineMapping,
   PoliciesLimitExceededException,
   ProgressCounters,
@@ -905,6 +926,14 @@ import {
   UpdateDocumentResult,
   UpdateMaintenanceWindowRequest,
   UpdateMaintenanceWindowResult,
+} from "../models/models_1";
+import {
+  GetInventoryRequest,
+  GetOpsSummaryRequest,
+  InventoryAggregator,
+  OpsAggregator,
+  OpsMetadataKeyLimitExceededException,
+  ResourceDataSyncConflictException,
   UpdateMaintenanceWindowTargetRequest,
   UpdateMaintenanceWindowTargetResult,
   UpdateMaintenanceWindowTaskRequest,
@@ -916,13 +945,6 @@ import {
   UpdateOpsMetadataRequest,
   UpdateOpsMetadataResult,
   UpdatePatchBaselineRequest,
-} from "../models/models_1";
-import {
-  GetInventoryRequest,
-  GetOpsSummaryRequest,
-  InventoryAggregator,
-  OpsAggregator,
-  ResourceDataSyncConflictException,
   UpdatePatchBaselineResult,
   UpdateResourceDataSyncRequest,
   UpdateResourceDataSyncResult,
@@ -950,6 +972,19 @@ export const serializeAws_json1_1AddTagsToResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AddTagsToResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1AssociateOpsItemRelatedItemCommand = async (
+  input: AssociateOpsItemRelatedItemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonSSM.AssociateOpsItemRelatedItem",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AssociateOpsItemRelatedItemRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1694,6 +1729,19 @@ export const serializeAws_json1_1DescribeSessionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DisassociateOpsItemRelatedItemCommand = async (
+  input: DisassociateOpsItemRelatedItemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonSSM.DisassociateOpsItemRelatedItem",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DisassociateOpsItemRelatedItemRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetAutomationExecutionCommand = async (
   input: GetAutomationExecutionCommandInput,
   context: __SerdeContext
@@ -2159,6 +2207,19 @@ export const serializeAws_json1_1ListOpsItemEventsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListOpsItemEventsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListOpsItemRelatedItemsCommand = async (
+  input: ListOpsItemRelatedItemsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonSSM.ListOpsItemRelatedItems",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListOpsItemRelatedItemsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2721,6 +2782,92 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
     case "com.amazonaws.ssm#TooManyUpdates":
       response = {
         ...(await deserializeAws_json1_1TooManyUpdatesResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1AssociateOpsItemRelatedItemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateOpsItemRelatedItemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AssociateOpsItemRelatedItemCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AssociateOpsItemRelatedItemResponse(data, context);
+  const response: AssociateOpsItemRelatedItemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AssociateOpsItemRelatedItemCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateOpsItemRelatedItemCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsItemInvalidParameterException":
+    case "com.amazonaws.ssm#OpsItemInvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1OpsItemInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsItemLimitExceededException":
+    case "com.amazonaws.ssm#OpsItemLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1OpsItemLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsItemNotFoundException":
+    case "com.amazonaws.ssm#OpsItemNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1OpsItemNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsItemRelatedItemAlreadyExistsException":
+    case "com.amazonaws.ssm#OpsItemRelatedItemAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1OpsItemRelatedItemAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6804,6 +6951,84 @@ const deserializeAws_json1_1DescribeSessionsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DisassociateOpsItemRelatedItemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateOpsItemRelatedItemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DisassociateOpsItemRelatedItemCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DisassociateOpsItemRelatedItemResponse(data, context);
+  const response: DisassociateOpsItemRelatedItemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DisassociateOpsItemRelatedItemCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateOpsItemRelatedItemCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsItemInvalidParameterException":
+    case "com.amazonaws.ssm#OpsItemInvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1OpsItemInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsItemNotFoundException":
+    case "com.amazonaws.ssm#OpsItemNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1OpsItemNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsItemRelatedItemAssociationNotFoundException":
+    case "com.amazonaws.ssm#OpsItemRelatedItemAssociationNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1OpsItemRelatedItemAssociationNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetAutomationExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9391,6 +9616,68 @@ const deserializeAws_json1_1ListOpsItemEventsCommandError = async (
     case "com.amazonaws.ssm#OpsItemNotFoundException":
       response = {
         ...(await deserializeAws_json1_1OpsItemNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListOpsItemRelatedItemsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOpsItemRelatedItemsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListOpsItemRelatedItemsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListOpsItemRelatedItemsResponse(data, context);
+  const response: ListOpsItemRelatedItemsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListOpsItemRelatedItemsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOpsItemRelatedItemsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OpsItemInvalidParameterException":
+    case "com.amazonaws.ssm#OpsItemInvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1OpsItemInvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -13876,6 +14163,36 @@ const deserializeAws_json1_1OpsItemNotFoundExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1OpsItemRelatedItemAlreadyExistsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OpsItemRelatedItemAlreadyExistsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1OpsItemRelatedItemAlreadyExistsException(body, context);
+  const contents: OpsItemRelatedItemAlreadyExistsException = {
+    name: "OpsItemRelatedItemAlreadyExistsException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1OpsItemRelatedItemAssociationNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OpsItemRelatedItemAssociationNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1OpsItemRelatedItemAssociationNotFoundException(body, context);
+  const contents: OpsItemRelatedItemAssociationNotFoundException = {
+    name: "OpsItemRelatedItemAssociationNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1OpsMetadataAlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -14449,6 +14766,19 @@ const serializeAws_json1_1AddTagsToResourceRequest = (
   };
 };
 
+const serializeAws_json1_1AssociateOpsItemRelatedItemRequest = (
+  input: AssociateOpsItemRelatedItemRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AssociationType !== undefined &&
+      input.AssociationType !== null && { AssociationType: input.AssociationType }),
+    ...(input.OpsItemId !== undefined && input.OpsItemId !== null && { OpsItemId: input.OpsItemId }),
+    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
+    ...(input.ResourceUri !== undefined && input.ResourceUri !== null && { ResourceUri: input.ResourceUri }),
+  };
+};
+
 const serializeAws_json1_1AssociationExecutionFilter = (
   input: AssociationExecutionFilter,
   context: __SerdeContext
@@ -14878,6 +15208,10 @@ const serializeAws_json1_1CreateAssociationBatchRequestEntry = (
       input.AutomationTargetParameterName !== null && {
         AutomationTargetParameterName: input.AutomationTargetParameterName,
       }),
+    ...(input.CalendarNames !== undefined &&
+      input.CalendarNames !== null && {
+        CalendarNames: serializeAws_json1_1CalendarNameOrARNList(input.CalendarNames, context),
+      }),
     ...(input.ComplianceSeverity !== undefined &&
       input.ComplianceSeverity !== null && { ComplianceSeverity: input.ComplianceSeverity }),
     ...(input.DocumentVersion !== undefined &&
@@ -14919,6 +15253,10 @@ const serializeAws_json1_1CreateAssociationRequest = (
       input.AutomationTargetParameterName !== null && {
         AutomationTargetParameterName: input.AutomationTargetParameterName,
       }),
+    ...(input.CalendarNames !== undefined &&
+      input.CalendarNames !== null && {
+        CalendarNames: serializeAws_json1_1CalendarNameOrARNList(input.CalendarNames, context),
+      }),
     ...(input.ComplianceSeverity !== undefined &&
       input.ComplianceSeverity !== null && { ComplianceSeverity: input.ComplianceSeverity }),
     ...(input.DocumentVersion !== undefined &&
@@ -14954,6 +15292,7 @@ const serializeAws_json1_1CreateDocumentRequest = (input: CreateDocumentRequest,
         Attachments: serializeAws_json1_1AttachmentsSourceList(input.Attachments, context),
       }),
     ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
+    ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
     ...(input.DocumentFormat !== undefined &&
       input.DocumentFormat !== null && { DocumentFormat: input.DocumentFormat }),
     ...(input.DocumentType !== undefined && input.DocumentType !== null && { DocumentType: input.DocumentType }),
@@ -15658,6 +15997,16 @@ const serializeAws_json1_1DescribeSessionsRequest = (input: DescribeSessionsRequ
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.State !== undefined && input.State !== null && { State: input.State }),
+  };
+};
+
+const serializeAws_json1_1DisassociateOpsItemRelatedItemRequest = (
+  input: DisassociateOpsItemRelatedItemRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AssociationId !== undefined && input.AssociationId !== null && { AssociationId: input.AssociationId }),
+    ...(input.OpsItemId !== undefined && input.OpsItemId !== null && { OpsItemId: input.OpsItemId }),
   };
 };
 
@@ -16453,6 +16802,19 @@ const serializeAws_json1_1ListOpsItemEventsRequest = (
   };
 };
 
+const serializeAws_json1_1ListOpsItemRelatedItemsRequest = (
+  input: ListOpsItemRelatedItemsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1OpsItemRelatedItemsFilters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.OpsItemId !== undefined && input.OpsItemId !== null && { OpsItemId: input.OpsItemId }),
+  };
+};
+
 const serializeAws_json1_1ListOpsMetadataRequest = (input: ListOpsMetadataRequest, context: __SerdeContext): any => {
   return {
     ...(input.Filters !== undefined &&
@@ -16916,6 +17278,43 @@ const serializeAws_json1_1OpsItemOperationalData = (
 };
 
 const serializeAws_json1_1OpsItemOpsDataKeysList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1OpsItemRelatedItemsFilter = (
+  input: OpsItemRelatedItemsFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Operator !== undefined && input.Operator !== null && { Operator: input.Operator }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_json1_1OpsItemRelatedItemsFilterValues(input.Values, context) }),
+  };
+};
+
+const serializeAws_json1_1OpsItemRelatedItemsFilters = (
+  input: OpsItemRelatedItemsFilter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1OpsItemRelatedItemsFilter(entry, context);
+    });
+};
+
+const serializeAws_json1_1OpsItemRelatedItemsFilterValues = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -17941,6 +18340,10 @@ const serializeAws_json1_1UpdateAssociationRequest = (
       input.AutomationTargetParameterName !== null && {
         AutomationTargetParameterName: input.AutomationTargetParameterName,
       }),
+    ...(input.CalendarNames !== undefined &&
+      input.CalendarNames !== null && {
+        CalendarNames: serializeAws_json1_1CalendarNameOrARNList(input.CalendarNames, context),
+      }),
     ...(input.ComplianceSeverity !== undefined &&
       input.ComplianceSeverity !== null && { ComplianceSeverity: input.ComplianceSeverity }),
     ...(input.DocumentVersion !== undefined &&
@@ -18015,6 +18418,7 @@ const serializeAws_json1_1UpdateDocumentRequest = (input: UpdateDocumentRequest,
         Attachments: serializeAws_json1_1AttachmentsSourceList(input.Attachments, context),
       }),
     ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
+    ...(input.DisplayName !== undefined && input.DisplayName !== null && { DisplayName: input.DisplayName }),
     ...(input.DocumentFormat !== undefined &&
       input.DocumentFormat !== null && { DocumentFormat: input.DocumentFormat }),
     ...(input.DocumentVersion !== undefined &&
@@ -18334,6 +18738,16 @@ const deserializeAws_json1_1AssociatedInstances = (output: any, context: __Serde
   return {} as any;
 };
 
+const deserializeAws_json1_1AssociateOpsItemRelatedItemResponse = (
+  output: any,
+  context: __SerdeContext
+): AssociateOpsItemRelatedItemResponse => {
+  return {
+    AssociationId:
+      output.AssociationId !== undefined && output.AssociationId !== null ? output.AssociationId : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Association = (output: any, context: __SerdeContext): Association => {
   return {
     AssociationId:
@@ -18391,6 +18805,10 @@ const deserializeAws_json1_1AssociationDescription = (output: any, context: __Se
     AutomationTargetParameterName:
       output.AutomationTargetParameterName !== undefined && output.AutomationTargetParameterName !== null
         ? output.AutomationTargetParameterName
+        : undefined,
+    CalendarNames:
+      output.CalendarNames !== undefined && output.CalendarNames !== null
+        ? deserializeAws_json1_1CalendarNameOrARNList(output.CalendarNames, context)
         : undefined,
     ComplianceSeverity:
       output.ComplianceSeverity !== undefined && output.ComplianceSeverity !== null
@@ -18632,6 +19050,10 @@ const deserializeAws_json1_1AssociationVersionInfo = (output: any, context: __Se
     AssociationVersion:
       output.AssociationVersion !== undefined && output.AssociationVersion !== null
         ? output.AssociationVersion
+        : undefined,
+    CalendarNames:
+      output.CalendarNames !== undefined && output.CalendarNames !== null
+        ? deserializeAws_json1_1CalendarNameOrARNList(output.CalendarNames, context)
         : undefined,
     ComplianceSeverity:
       output.ComplianceSeverity !== undefined && output.ComplianceSeverity !== null
@@ -19014,6 +19436,17 @@ const deserializeAws_json1_1AutomationStepNotFoundException = (
   } as any;
 };
 
+const deserializeAws_json1_1CalendarNameOrARNList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const deserializeAws_json1_1CancelCommandResult = (output: any, context: __SerdeContext): CancelCommandResult => {
   return {} as any;
 };
@@ -19348,6 +19781,10 @@ const deserializeAws_json1_1CreateAssociationBatchRequestEntry = (
     AutomationTargetParameterName:
       output.AutomationTargetParameterName !== undefined && output.AutomationTargetParameterName !== null
         ? output.AutomationTargetParameterName
+        : undefined,
+    CalendarNames:
+      output.CalendarNames !== undefined && output.CalendarNames !== null
+        ? deserializeAws_json1_1CalendarNameOrARNList(output.CalendarNames, context)
         : undefined,
     ComplianceSeverity:
       output.ComplianceSeverity !== undefined && output.ComplianceSeverity !== null
@@ -20053,6 +20490,13 @@ const deserializeAws_json1_1DescribeSessionsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DisassociateOpsItemRelatedItemResponse = (
+  output: any,
+  context: __SerdeContext
+): DisassociateOpsItemRelatedItemResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DocumentAlreadyExists = (output: any, context: __SerdeContext): DocumentAlreadyExists => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -20090,6 +20534,7 @@ const deserializeAws_json1_1DocumentDescription = (output: any, context: __Serde
     DefaultVersion:
       output.DefaultVersion !== undefined && output.DefaultVersion !== null ? output.DefaultVersion : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
     DocumentFormat:
       output.DocumentFormat !== undefined && output.DocumentFormat !== null ? output.DocumentFormat : undefined,
     DocumentType: output.DocumentType !== undefined && output.DocumentType !== null ? output.DocumentType : undefined,
@@ -20142,6 +20587,11 @@ const deserializeAws_json1_1DocumentDescription = (output: any, context: __Serde
 const deserializeAws_json1_1DocumentIdentifier = (output: any, context: __SerdeContext): DocumentIdentifier => {
   return {
     Author: output.Author !== undefined && output.Author !== null ? output.Author : undefined,
+    CreatedDate:
+      output.CreatedDate !== undefined && output.CreatedDate !== null
+        ? new Date(Math.round(output.CreatedDate * 1000))
+        : undefined,
+    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
     DocumentFormat:
       output.DocumentFormat !== undefined && output.DocumentFormat !== null ? output.DocumentFormat : undefined,
     DocumentType: output.DocumentType !== undefined && output.DocumentType !== null ? output.DocumentType : undefined,
@@ -20311,6 +20761,7 @@ const deserializeAws_json1_1DocumentVersionInfo = (output: any, context: __Serde
       output.CreatedDate !== undefined && output.CreatedDate !== null
         ? new Date(Math.round(output.CreatedDate * 1000))
         : undefined,
+    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
     DocumentFormat:
       output.DocumentFormat !== undefined && output.DocumentFormat !== null ? output.DocumentFormat : undefined,
     DocumentVersion:
@@ -20566,6 +21017,11 @@ const deserializeAws_json1_1GetDocumentResult = (output: any, context: __SerdeCo
         ? deserializeAws_json1_1AttachmentContentList(output.AttachmentsContent, context)
         : undefined,
     Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
+    CreatedDate:
+      output.CreatedDate !== undefined && output.CreatedDate !== null
+        ? new Date(Math.round(output.CreatedDate * 1000))
+        : undefined,
+    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
     DocumentFormat:
       output.DocumentFormat !== undefined && output.DocumentFormat !== null ? output.DocumentFormat : undefined,
     DocumentType: output.DocumentType !== undefined && output.DocumentType !== null ? output.DocumentType : undefined,
@@ -21971,6 +22427,19 @@ const deserializeAws_json1_1ListOpsItemEventsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListOpsItemRelatedItemsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListOpsItemRelatedItemsResponse => {
+  return {
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    Summaries:
+      output.Summaries !== undefined && output.Summaries !== null
+        ? deserializeAws_json1_1OpsItemRelatedItemSummaries(output.Summaries, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListOpsMetadataResult = (output: any, context: __SerdeContext): ListOpsMetadataResult => {
   return {
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
@@ -22797,6 +23266,71 @@ const deserializeAws_json1_1OpsItemParameterNamesList = (output: any, context: _
       }
       return entry;
     });
+};
+
+const deserializeAws_json1_1OpsItemRelatedItemAlreadyExistsException = (
+  output: any,
+  context: __SerdeContext
+): OpsItemRelatedItemAlreadyExistsException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    OpsItemId: output.OpsItemId !== undefined && output.OpsItemId !== null ? output.OpsItemId : undefined,
+    ResourceUri: output.ResourceUri !== undefined && output.ResourceUri !== null ? output.ResourceUri : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OpsItemRelatedItemAssociationNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): OpsItemRelatedItemAssociationNotFoundException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OpsItemRelatedItemSummaries = (
+  output: any,
+  context: __SerdeContext
+): OpsItemRelatedItemSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1OpsItemRelatedItemSummary(entry, context);
+    });
+};
+
+const deserializeAws_json1_1OpsItemRelatedItemSummary = (
+  output: any,
+  context: __SerdeContext
+): OpsItemRelatedItemSummary => {
+  return {
+    AssociationId:
+      output.AssociationId !== undefined && output.AssociationId !== null ? output.AssociationId : undefined,
+    AssociationType:
+      output.AssociationType !== undefined && output.AssociationType !== null ? output.AssociationType : undefined,
+    CreatedBy:
+      output.CreatedBy !== undefined && output.CreatedBy !== null
+        ? deserializeAws_json1_1OpsItemIdentity(output.CreatedBy, context)
+        : undefined,
+    CreatedTime:
+      output.CreatedTime !== undefined && output.CreatedTime !== null
+        ? new Date(Math.round(output.CreatedTime * 1000))
+        : undefined,
+    LastModifiedBy:
+      output.LastModifiedBy !== undefined && output.LastModifiedBy !== null
+        ? deserializeAws_json1_1OpsItemIdentity(output.LastModifiedBy, context)
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    OpsItemId: output.OpsItemId !== undefined && output.OpsItemId !== null ? output.OpsItemId : undefined,
+    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+    ResourceUri: output.ResourceUri !== undefined && output.ResourceUri !== null ? output.ResourceUri : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1OpsItemSummaries = (output: any, context: __SerdeContext): OpsItemSummary[] => {

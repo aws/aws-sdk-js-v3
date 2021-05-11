@@ -25,6 +25,11 @@ import {
   BatchCreateAttendeeCommandOutput,
 } from "./commands/BatchCreateAttendeeCommand";
 import {
+  BatchCreateChannelMembershipCommand,
+  BatchCreateChannelMembershipCommandInput,
+  BatchCreateChannelMembershipCommandOutput,
+} from "./commands/BatchCreateChannelMembershipCommand";
+import {
   BatchCreateRoomMembershipCommand,
   BatchCreateRoomMembershipCommandInput,
   BatchCreateRoomMembershipCommandOutput,
@@ -589,6 +594,11 @@ import {
   ListSipRulesCommandOutput,
 } from "./commands/ListSipRulesCommand";
 import {
+  ListSupportedPhoneNumberCountriesCommand,
+  ListSupportedPhoneNumberCountriesCommandInput,
+  ListSupportedPhoneNumberCountriesCommandOutput,
+} from "./commands/ListSupportedPhoneNumberCountriesCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -1033,6 +1043,38 @@ export class Chime extends ChimeClient {
   }
 
   /**
+   * <p>Adds a specified number of users to a channel. </p>
+   */
+  public batchCreateChannelMembership(
+    args: BatchCreateChannelMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchCreateChannelMembershipCommandOutput>;
+  public batchCreateChannelMembership(
+    args: BatchCreateChannelMembershipCommandInput,
+    cb: (err: any, data?: BatchCreateChannelMembershipCommandOutput) => void
+  ): void;
+  public batchCreateChannelMembership(
+    args: BatchCreateChannelMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchCreateChannelMembershipCommandOutput) => void
+  ): void;
+  public batchCreateChannelMembership(
+    args: BatchCreateChannelMembershipCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchCreateChannelMembershipCommandOutput) => void),
+    cb?: (err: any, data?: BatchCreateChannelMembershipCommandOutput) => void
+  ): Promise<BatchCreateChannelMembershipCommandOutput> | void {
+    const command = new BatchCreateChannelMembershipCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Adds up to 50 members to a chat room in an Amazon Chime Enterprise account. Members can be users or bots. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
    */
   public batchCreateRoomMembership(
@@ -1197,15 +1239,16 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>
-   * Updates phone number product types or calling names. You can update one attribute at a time for each
-   * <code>UpdatePhoneNumberRequestItem</code>
-   * . For example, you can update either the product type or the calling name.
-   * </p>
-   *          <p>For product types, choose from Amazon Chime Business Calling and Amazon Chime Voice Connector.
-   *             For toll-free numbers, you must use the Amazon Chime Voice Connector product
-   *             type.</p>
-   *          <p>Updates to outbound calling names can take up to 72 hours to complete. Pending updates to outbound calling names must be complete before you can request another update.</p>
+   * <p>Updates phone number product types or calling names. You can update one attribute at a time for each
+   *         <code>UpdatePhoneNumberRequestItem</code>. For example, you can update the product type or the calling name.</p>
+   *
+   *          <p>For toll-free numbers, you cannot use the Amazon Chime Business Calling product type. For
+   *             numbers outside the
+   *             US,
+   *             you must use the Amazon Chime SIP Media Application Dial-In product type.</p>
+   *
+   *          <p>Updates to outbound calling names can take 72 hours to complete. Pending updates to outbound calling names must be complete before you
+   *             can request another update.</p>
    */
   public batchUpdatePhoneNumber(
     args: BatchUpdatePhoneNumberCommandInput,
@@ -1808,9 +1851,10 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Creates an order for phone numbers to be provisioned. Choose from Amazon Chime Business Calling
-   *             and Amazon Chime Voice Connector product types. For toll-free numbers, you must use the
-   *             Amazon Chime Voice Connector product type.</p>
+   * <p>Creates an order for phone numbers to be provisioned. For toll-free numbers, you cannot
+   *             use the Amazon Chime Business Calling product type. For numbers outside the
+   *             US,
+   *             you must use the Amazon Chime SIP Media Application Dial-In product type.</p>
    */
   public createPhoneNumberOrder(
     args: CreatePhoneNumberOrderCommandInput,
@@ -2141,11 +2185,8 @@ export class Chime extends ChimeClient {
    *             deleted account from your <code>Disabled</code> accounts list, you must contact AWS
    *             Support.</p>
    *
-   *          <p>
-   * After 90 days, deleted accounts are permanently removed from your
-   * <code>Disabled</code>
-   * accounts list.
-   * </p>
+   *          <p>After 90 days, deleted accounts are permanently removed from your
+   * <code>Disabled</code> accounts list.</p>
    */
   public deleteAccount(
     args: DeleteAccountCommandInput,
@@ -2307,15 +2348,10 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>
-   * Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their
-   * <code>JoinToken</code>
-   * . Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted. For more information about the Amazon Chime SDK, see
+   * <p>Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their
+   * <code>JoinToken</code>. Attendees are automatically deleted when a Amazon Chime SDK meeting is deleted. For more information about the Amazon Chime SDK, see
    * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
-   * in the
-   * <i>Amazon Chime Developer Guide</i>
-   * .
-   * </p>
+   * in the <i>Amazon Chime Developer Guide</i>.</p>
    */
   public deleteAttendee(
     args: DeleteAttendeeCommandInput,
@@ -2566,10 +2602,10 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Deletes the specified Amazon Chime SDK meeting. When a meeting is deleted, its attendees are
-   *             also deleted, clients connected to the meeting are disconnected, and clients can no
-   *             longer join the meeting. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime
-   *                 SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
+   * <p>Deletes the specified Amazon Chime SDK meeting. The operation deletes all attendees, disconnects all clients, and prevents new clients from
+   *     joining the meeting. For more information about the Amazon Chime SDK, see
+   *     <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a> in the
+   *     <i>Amazon Chime Developer Guide</i>.</p>
    */
   public deleteMeeting(
     args: DeleteMeetingCommandInput,
@@ -2601,15 +2637,13 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Moves the specified phone number into the <b>Deletionqueue</b>. A
-   *             phone number must be disassociated from any users or Amazon Chime Voice Connectors
-   *             before it can be deleted.</p>
+   * <p>Moves the specified phone number into the <b>Deletion
+   *                 queue</b>. A phone number must be disassociated from any
+   *             users or Amazon Chime Voice Connectors before it can be deleted.</p>
    *
-   *          <p>
-   * Deleted phone numbers remain in the
+   *          <p>Deleted phone numbers remain in the
    * <b>Deletion queue</b>
-   * for 7 days before they are deleted permanently.
-   * </p>
+   * for 7 days before they are deleted permanently.</p>
    */
   public deletePhoneNumber(
     args: DeletePhoneNumberCommandInput,
@@ -2863,11 +2897,9 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>
-   * Deletes the specified Amazon Chime Voice Connector group. Any
+   * <p>Deletes the specified Amazon Chime Voice Connector group. Any
    * <code>VoiceConnectorItems</code>
-   * and phone numbers associated with the group must be removed before it can be deleted.
-   * </p>
+   * and phone numbers associated with the group must be removed before it can be deleted.</p>
    */
   public deleteVoiceConnectorGroup(
     args: DeleteVoiceConnectorGroupCommandInput,
@@ -4567,7 +4599,7 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>Lists the Amazon Chime accounts under the administrator's AWS account. You can filter accounts
-   *             by account name prefix. To find out which Amazon Chime account a user belongs to, toucan
+   *             by account name prefix. To find out which Amazon Chime account a user belongs to, you can
    *             filter by the user's email address, which returns one account result.</p>
    */
   public listAccounts(
@@ -4874,7 +4906,6 @@ export class Chime extends ChimeClient {
    *             own. </p>
    *
    *          <note>
-   *
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
    *         the API call as the value in the header.</p>
    *          </note>
@@ -4912,7 +4943,8 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>.
-   *             By default, sorted by creation timestamp in descending order .</p>
+   *             By default, sorted by creation timestamp in descending
+   *             order.</p>
    *
    *          <note>
    *             <p>Redacted messages appear in the results as empty, since they are only redacted, not deleted.
@@ -4997,22 +5029,15 @@ export class Chime extends ChimeClient {
    *          </p>
    *          <ul>
    *             <li>
-   *
-   *                <p>
-   * Use privacy =
-   * <code>PUBLIC</code>
-   * to retrieve all public channels in the account
-   * </p>
+   *                <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the account.</p>
    *             </li>
    *             <li>
-   *
    *                <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to list the
    *                     private channels in an account.</p>
    *             </li>
    *          </ul>
    *
    *          <note>
-   *
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
    *         the API call as the value in the header.</p>
    *          </note>
@@ -5355,6 +5380,38 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: ListSipRulesCommandOutput) => void
   ): Promise<ListSipRulesCommandOutput> | void {
     const command = new ListSipRulesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists supported phone number countries.</p>
+   */
+  public listSupportedPhoneNumberCountries(
+    args: ListSupportedPhoneNumberCountriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSupportedPhoneNumberCountriesCommandOutput>;
+  public listSupportedPhoneNumberCountries(
+    args: ListSupportedPhoneNumberCountriesCommandInput,
+    cb: (err: any, data?: ListSupportedPhoneNumberCountriesCommandOutput) => void
+  ): void;
+  public listSupportedPhoneNumberCountries(
+    args: ListSupportedPhoneNumberCountriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSupportedPhoneNumberCountriesCommandOutput) => void
+  ): void;
+  public listSupportedPhoneNumberCountries(
+    args: ListSupportedPhoneNumberCountriesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSupportedPhoneNumberCountriesCommandOutput) => void),
+    cb?: (err: any, data?: ListSupportedPhoneNumberCountriesCommandOutput) => void
+  ): Promise<ListSupportedPhoneNumberCountriesCommandOutput> | void {
+    const command = new ListSupportedPhoneNumberCountriesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -6174,7 +6231,13 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Searches phone numbers that can be ordered.</p>
+   * <p>Searches for phone numbers that can be ordered. For
+   *             US
+   *             numbers, provide at least one of the following search filters: <code>AreaCode</code>,
+   *                 <code>City</code>, <code>State</code>, or <code>TollFreePrefix</code>. If you
+   *             provide <code>City</code>, you must also provide <code>State</code>. Numbers outside the
+   *             US
+   *             only support the <code>PhoneNumberType</code> filter, which you must use.</p>
    */
   public searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
@@ -6722,9 +6785,14 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Updates phone number details, such as product type or calling name, for the specified phone number ID. You can update one phone number detail at a time. For example, you can update either the product type or the calling name in one action.</p>
-   *          <p>For toll-free numbers, you must use the Amazon Chime Voice Connector product type.</p>
-   *          <p>Updates to outbound calling names can take up to 72 hours to complete. Pending updates to outbound calling names must be complete before you can request another update.</p>
+   * <p>Updates phone number details, such as product type or calling name, for the specified phone number ID. You can update one phone number
+   *         detail at a time. For example, you can update either the product type or the calling name in one action.</p>
+   *
+   *          <p>For toll-free numbers, you cannot use the Amazon Chime Business Calling product type. For numbers outside the U.S., you must use the
+   *         Amazon Chime SIP Media Application Dial-In product type.</p>
+   *
+   *          <p>Updates to outbound calling names can take 72 hours to complete. Pending updates to outbound calling names must be complete before you
+   *          can request another update.</p>
    */
   public updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,

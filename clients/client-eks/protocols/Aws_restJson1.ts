@@ -118,10 +118,12 @@ import {
   ResourceNotFoundException,
   ServerException,
   ServiceUnavailableException,
+  Taint,
   UnsupportedAvailabilityZoneException,
   Update,
   UpdateLabelsPayload,
   UpdateParam,
+  UpdateTaintsPayload,
   VpcConfigRequest,
   VpcConfigResponse,
 } from "../models/models_0";
@@ -388,6 +390,8 @@ export const serializeAws_restJson1CreateNodegroupCommand = async (
     ...(input.subnets !== undefined &&
       input.subnets !== null && { subnets: serializeAws_restJson1StringList(input.subnets, context) }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.taints !== undefined &&
+      input.taints !== null && { taints: serializeAws_restJson1taintsList(input.taints, context) }),
     ...(input.version !== undefined && input.version !== null && { version: input.version }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1260,6 +1264,8 @@ export const serializeAws_restJson1UpdateNodegroupConfigCommand = async (
       input.scalingConfig !== null && {
         scalingConfig: serializeAws_restJson1NodegroupScalingConfig(input.scalingConfig, context),
       }),
+    ...(input.taints !== undefined &&
+      input.taints !== null && { taints: serializeAws_restJson1UpdateTaintsPayload(input.taints, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4624,6 +4630,25 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
   }, {});
 };
 
+const serializeAws_restJson1Taint = (input: Taint, context: __SerdeContext): any => {
+  return {
+    ...(input.effect !== undefined && input.effect !== null && { effect: input.effect }),
+    ...(input.key !== undefined && input.key !== null && { key: input.key }),
+    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+  };
+};
+
+const serializeAws_restJson1taintsList = (input: Taint[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Taint(entry, context);
+    });
+};
+
 const serializeAws_restJson1UpdateLabelsPayload = (input: UpdateLabelsPayload, context: __SerdeContext): any => {
   return {
     ...(input.addOrUpdateLabels !== undefined &&
@@ -4634,6 +4659,17 @@ const serializeAws_restJson1UpdateLabelsPayload = (input: UpdateLabelsPayload, c
       input.removeLabels !== null && {
         removeLabels: serializeAws_restJson1labelsKeyList(input.removeLabels, context),
       }),
+  };
+};
+
+const serializeAws_restJson1UpdateTaintsPayload = (input: UpdateTaintsPayload, context: __SerdeContext): any => {
+  return {
+    ...(input.addOrUpdateTaints !== undefined &&
+      input.addOrUpdateTaints !== null && {
+        addOrUpdateTaints: serializeAws_restJson1taintsList(input.addOrUpdateTaints, context),
+      }),
+    ...(input.removeTaints !== undefined &&
+      input.removeTaints !== null && { removeTaints: serializeAws_restJson1taintsList(input.removeTaints, context) }),
   };
 };
 
@@ -5181,6 +5217,10 @@ const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext)
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1TagMap(output.tags, context)
         : undefined,
+    taints:
+      output.taints !== undefined && output.taints !== null
+        ? deserializeAws_restJson1taintsList(output.taints, context)
+        : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
 };
@@ -5307,6 +5347,25 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
       [key]: value,
     };
   }, {});
+};
+
+const deserializeAws_restJson1Taint = (output: any, context: __SerdeContext): Taint => {
+  return {
+    effect: output.effect !== undefined && output.effect !== null ? output.effect : undefined,
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1taintsList = (output: any, context: __SerdeContext): Taint[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Taint(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Update = (output: any, context: __SerdeContext): Update => {

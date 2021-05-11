@@ -21,7 +21,8 @@ export interface UpdateRoutingProfileNameCommandInput extends UpdateRoutingProfi
 export interface UpdateRoutingProfileNameCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates the name and description of a routing profile. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
+ * <p>Updates the name and description of a routing profile. The request accepts the following data in JSON format.
+ *    At least <code>Name</code> or <code>Description</code> must be provided.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

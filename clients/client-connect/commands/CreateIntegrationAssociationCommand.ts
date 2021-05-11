@@ -23,8 +23,7 @@ export interface CreateIntegrationAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Create an AppIntegration association with an Amazon Connect instance.</p>
+ * <p>Create an AppIntegration association with an Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

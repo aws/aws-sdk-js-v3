@@ -19,6 +19,10 @@ import {
   BatchCreateAttendeeCommandOutput,
 } from "../commands/BatchCreateAttendeeCommand";
 import {
+  BatchCreateChannelMembershipCommandInput,
+  BatchCreateChannelMembershipCommandOutput,
+} from "../commands/BatchCreateChannelMembershipCommand";
+import {
   BatchCreateRoomMembershipCommandInput,
   BatchCreateRoomMembershipCommandOutput,
 } from "../commands/BatchCreateRoomMembershipCommand";
@@ -353,6 +357,10 @@ import {
 } from "../commands/ListSipMediaApplicationsCommand";
 import { ListSipRulesCommandInput, ListSipRulesCommandOutput } from "../commands/ListSipRulesCommand";
 import {
+  ListSupportedPhoneNumberCountriesCommandInput,
+  ListSupportedPhoneNumberCountriesCommandOutput,
+} from "../commands/ListSupportedPhoneNumberCountriesCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
@@ -510,6 +518,8 @@ import {
   AppInstanceUserSummary,
   Attendee,
   BadRequestException,
+  BatchChannelMemberships,
+  BatchCreateChannelMembershipError,
   Bot,
   BusinessCallingSettings,
   Capability,
@@ -556,6 +566,7 @@ import {
   PhoneNumberCapabilities,
   PhoneNumberError,
   PhoneNumberOrder,
+  PhoneNumberType,
   Proxy,
   ProxySession,
   ResourceLimitExceededException,
@@ -572,8 +583,6 @@ import {
   SipMediaApplicationLoggingConfiguration,
   SipRule,
   SipRuleTargetApplication,
-  StreamingConfiguration,
-  StreamingNotificationTarget,
   Tag,
   TelephonySettings,
   ThrottledClientException,
@@ -589,7 +598,14 @@ import {
   VoiceConnectorItem,
   VoiceConnectorSettings,
 } from "../models/models_0";
-import { Invite, Termination, TerminationHealth } from "../models/models_1";
+import {
+  Invite,
+  PhoneNumberCountry,
+  StreamingConfiguration,
+  StreamingNotificationTarget,
+  Termination,
+  TerminationHealth,
+} from "../models/models_1";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -809,6 +825,53 @@ export const serializeAws_restJson1BatchCreateAttendeeCommand = async (
   return new __HttpRequest({
     protocol,
     hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1BatchCreateChannelMembershipCommand = async (
+  input: BatchCreateChannelMembershipCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
+  let resolvedPath = "/channels/{ChannelArn}/memberships";
+  if (input.ChannelArn !== undefined) {
+    const labelValue: string = input.ChannelArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ChannelArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ChannelArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ChannelArn.");
+  }
+  const query: any = {
+    operation: "batch-create",
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.MemberArns !== undefined &&
+      input.MemberArns !== null && { MemberArns: serializeAws_restJson1MemberArns(input.MemberArns, context) }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "messaging-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
     port,
     method: "POST",
     headers,
@@ -5099,6 +5162,29 @@ export const serializeAws_restJson1ListSipRulesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListSupportedPhoneNumberCountriesCommand = async (
+  input: ListSupportedPhoneNumberCountriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/phone-number-countries";
+  const query: any = {
+    ...(input.ProductType !== undefined && { "product-type": input.ProductType }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
@@ -6014,6 +6100,7 @@ export const serializeAws_restJson1SearchAvailablePhoneNumbersCommand = async (
     ...(input.Country !== undefined && { country: input.Country }),
     ...(input.State !== undefined && { state: input.State }),
     ...(input.TollFreePrefix !== undefined && { "toll-free-prefix": input.TollFreePrefix }),
+    ...(input.PhoneNumberType !== undefined && { "phone-number-type": input.PhoneNumberType }),
     ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
   };
@@ -7588,6 +7675,108 @@ const deserializeAws_restJson1BatchCreateAttendeeCommandError = async (
     case "com.amazonaws.chime#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1BatchCreateChannelMembershipCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchCreateChannelMembershipCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchCreateChannelMembershipCommandError(output, context);
+  }
+  const contents: BatchCreateChannelMembershipCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    BatchChannelMemberships: undefined,
+    Errors: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.BatchChannelMemberships !== undefined && data.BatchChannelMemberships !== null) {
+    contents.BatchChannelMemberships = deserializeAws_restJson1BatchChannelMemberships(
+      data.BatchChannelMemberships,
+      context
+    );
+  }
+  if (data.Errors !== undefined && data.Errors !== null) {
+    contents.Errors = deserializeAws_restJson1BatchCreateChannelMembershipErrors(data.Errors, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1BatchCreateChannelMembershipCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchCreateChannelMembershipCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -11613,6 +11802,14 @@ const deserializeAws_restJson1DeleteChannelMembershipCommandError = async (
     case "com.amazonaws.chime#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.chime#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -20419,6 +20616,112 @@ const deserializeAws_restJson1ListSipRulesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListSupportedPhoneNumberCountriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSupportedPhoneNumberCountriesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListSupportedPhoneNumberCountriesCommandError(output, context);
+  }
+  const contents: ListSupportedPhoneNumberCountriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    PhoneNumberCountries: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.PhoneNumberCountries !== undefined && data.PhoneNumberCountries !== null) {
+    contents.PhoneNumberCountries = deserializeAws_restJson1PhoneNumberCountriesList(
+      data.PhoneNumberCountries,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListSupportedPhoneNumberCountriesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSupportedPhoneNumberCountriesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.chime#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -22935,10 +23238,14 @@ export const deserializeAws_restJson1SearchAvailablePhoneNumbersCommand = async 
   const contents: SearchAvailablePhoneNumbersCommandOutput = {
     $metadata: deserializeMetadata(output),
     E164PhoneNumbers: undefined,
+    NextToken: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.E164PhoneNumbers !== undefined && data.E164PhoneNumbers !== null) {
     contents.E164PhoneNumbers = deserializeAws_restJson1E164PhoneNumberList(data.E164PhoneNumbers, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
   }
   return Promise.resolve(contents);
 };
@@ -26328,6 +26635,17 @@ const serializeAws_restJson1MeetingTagList = (input: Tag[], context: __SerdeCont
     });
 };
 
+const serializeAws_restJson1MemberArns = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1MembershipItem = (input: MembershipItem, context: __SerdeContext): any => {
   return {
     ...(input.MemberId !== undefined && input.MemberId !== null && { MemberId: input.MemberId }),
@@ -26980,6 +27298,24 @@ const deserializeAws_restJson1AttendeeList = (output: any, context: __SerdeConte
     });
 };
 
+const deserializeAws_restJson1BatchChannelMemberships = (
+  output: any,
+  context: __SerdeContext
+): BatchChannelMemberships => {
+  return {
+    ChannelArn: output.ChannelArn !== undefined && output.ChannelArn !== null ? output.ChannelArn : undefined,
+    InvitedBy:
+      output.InvitedBy !== undefined && output.InvitedBy !== null
+        ? deserializeAws_restJson1Identity(output.InvitedBy, context)
+        : undefined,
+    Members:
+      output.Members !== undefined && output.Members !== null
+        ? deserializeAws_restJson1Members(output.Members, context)
+        : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1BatchCreateAttendeeErrorList = (
   output: any,
   context: __SerdeContext
@@ -26991,6 +27327,31 @@ const deserializeAws_restJson1BatchCreateAttendeeErrorList = (
         return null as any;
       }
       return deserializeAws_restJson1CreateAttendeeError(entry, context);
+    });
+};
+
+const deserializeAws_restJson1BatchCreateChannelMembershipError = (
+  output: any,
+  context: __SerdeContext
+): BatchCreateChannelMembershipError => {
+  return {
+    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    MemberArn: output.MemberArn !== undefined && output.MemberArn !== null ? output.MemberArn : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BatchCreateChannelMembershipErrors = (
+  output: any,
+  context: __SerdeContext
+): BatchCreateChannelMembershipError[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchCreateChannelMembershipError(entry, context);
     });
 };
 
@@ -27583,6 +27944,17 @@ const deserializeAws_restJson1MemberErrorList = (output: any, context: __SerdeCo
     });
 };
 
+const deserializeAws_restJson1Members = (output: any, context: __SerdeContext): Identity[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Identity(entry, context);
+    });
+};
+
 const deserializeAws_restJson1MessagingSessionEndpoint = (
   output: any,
   context: __SerdeContext
@@ -27676,6 +28048,7 @@ const deserializeAws_restJson1PhoneNumber = (output: any, context: __SerdeContex
       output.Capabilities !== undefined && output.Capabilities !== null
         ? deserializeAws_restJson1PhoneNumberCapabilities(output.Capabilities, context)
         : undefined,
+    Country: output.Country !== undefined && output.Country !== null ? output.Country : undefined,
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
         ? new Date(output.CreatedTimestamp)
@@ -27737,6 +28110,30 @@ const deserializeAws_restJson1PhoneNumberCapabilities = (
     OutboundCall: output.OutboundCall !== undefined && output.OutboundCall !== null ? output.OutboundCall : undefined,
     OutboundMMS: output.OutboundMMS !== undefined && output.OutboundMMS !== null ? output.OutboundMMS : undefined,
     OutboundSMS: output.OutboundSMS !== undefined && output.OutboundSMS !== null ? output.OutboundSMS : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PhoneNumberCountriesList = (
+  output: any,
+  context: __SerdeContext
+): PhoneNumberCountry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PhoneNumberCountry(entry, context);
+    });
+};
+
+const deserializeAws_restJson1PhoneNumberCountry = (output: any, context: __SerdeContext): PhoneNumberCountry => {
+  return {
+    CountryCode: output.CountryCode !== undefined && output.CountryCode !== null ? output.CountryCode : undefined,
+    SupportedPhoneNumberTypes:
+      output.SupportedPhoneNumberTypes !== undefined && output.SupportedPhoneNumberTypes !== null
+        ? deserializeAws_restJson1PhoneNumberTypeList(output.SupportedPhoneNumberTypes, context)
+        : undefined,
   } as any;
 };
 
@@ -27802,6 +28199,20 @@ const deserializeAws_restJson1PhoneNumberOrderList = (output: any, context: __Se
         return null as any;
       }
       return deserializeAws_restJson1PhoneNumberOrder(entry, context);
+    });
+};
+
+const deserializeAws_restJson1PhoneNumberTypeList = (
+  output: any,
+  context: __SerdeContext
+): (PhoneNumberType | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 

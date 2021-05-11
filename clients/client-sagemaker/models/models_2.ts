@@ -44,6 +44,7 @@ import {
   OutputDataConfig,
   ResourceConfig,
   ResourceLimits,
+  RetryStrategy,
   StoppingCondition,
   Tag,
   TransformInput,
@@ -76,6 +77,7 @@ import {
   LabelCounters,
   LabelingJobOutput,
   LabelingJobStatus,
+  MemberDefinition,
   MetricData,
   ModelArtifacts,
   ModelClientConfig,
@@ -91,6 +93,7 @@ import {
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   NotebookInstanceStatus,
+  NotificationConfiguration,
   ObjectiveStatusCounters,
   OfflineStoreStatus,
   OfflineStoreStatusValue,
@@ -102,7 +105,6 @@ import {
   ProcessingResources,
   ProcessingStoppingCondition,
   ProductionVariantSummary,
-  ProfilerRuleConfiguration,
   ProjectStatus,
   RootAccess,
   ScheduleStatus,
@@ -122,9 +124,114 @@ import {
   TrialSource,
   UserProfileStatus,
   Workforce,
-  Workteam,
   _InstanceType,
 } from "./models_1";
+
+export interface DescribeWorkforceResponse {
+  /**
+   * <p>A single private workforce, which is automatically created when you create your first
+   *             private work team. You can create one private work force in each AWS Region. By default,
+   *             any workforce-related API operation used in a specific region will apply to the
+   *             workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
+   */
+  Workforce: Workforce | undefined;
+}
+
+export namespace DescribeWorkforceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeWorkforceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeWorkteamRequest {
+  /**
+   * <p>The name of the work team to return a description of.</p>
+   */
+  WorkteamName: string | undefined;
+}
+
+export namespace DescribeWorkteamRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeWorkteamRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details about a labeling work team.</p>
+ */
+export interface Workteam {
+  /**
+   * <p>The name of the work team.</p>
+   */
+  WorkteamName: string | undefined;
+
+  /**
+   * <p>A list of <code>MemberDefinition</code> objects that contains objects that identify
+   *             the workers that make up the work team. </p>
+   *         <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP).
+   *             For private workforces created using Amazon Cognito use
+   *             <code>CognitoMemberDefinition</code>. For workforces created using your own OIDC identity
+   *             provider (IdP) use <code>OidcMemberDefinition</code>.</p>
+   */
+  MemberDefinitions: MemberDefinition[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the work team.</p>
+   */
+  WorkteamArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the workforce.</p>
+   */
+  WorkforceArn?: string;
+
+  /**
+   * <p>The Amazon Marketplace identifier for a vendor's work team.</p>
+   */
+  ProductListingIds?: string[];
+
+  /**
+   * <p>A description of the work team.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The URI of the labeling job's user interface. Workers open this URI to start labeling
+   *             your data objects.</p>
+   */
+  SubDomain?: string;
+
+  /**
+   * <p>The date and time that the work team was created (timestamp).</p>
+   */
+  CreateDate?: Date;
+
+  /**
+   * <p>The date and time that the work team was last updated (timestamp).</p>
+   */
+  LastUpdatedDate?: Date;
+
+  /**
+   * <p>Configures SNS notifications of available or expiring work items for work
+   *             teams.</p>
+   */
+  NotificationConfiguration?: NotificationConfiguration;
+}
+
+export namespace Workteam {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Workteam): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeWorkteamResponse {
   /**
@@ -1963,7 +2070,7 @@ export interface LabelingJobForWorkteamSummary {
   JobReferenceCode: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The AWS account ID of the account used to start the labeling job.</p>
    */
   WorkRequesterAccountId: string | undefined;
 
@@ -2578,12 +2685,12 @@ export interface ListAutoMLJobsRequest {
   StatusEquals?: AutoMLJobStatus | string;
 
   /**
-   * <p>The sort order for the results. The default is Descending.</p>
+   * <p>The sort order for the results. The default is <code>Descending</code>.</p>
    */
   SortOrder?: AutoMLSortOrder | string;
 
   /**
-   * <p>The parameter by which to sort the results. The default is AutoMLJobName.</p>
+   * <p>The parameter by which to sort the results. The default is <code>Name</code>.</p>
    */
   SortBy?: AutoMLSortBy | string;
 
@@ -2680,7 +2787,7 @@ export namespace ListCandidatesForAutoMLJobRequest {
 
 export interface ListCandidatesForAutoMLJobResponse {
   /**
-   * <p>Summaries about the Candidates.</p>
+   * <p>Summaries about the <code>AutoMLCandidates</code>.</p>
    */
   Candidates: AutoMLCandidate[] | undefined;
 
@@ -3477,7 +3584,7 @@ export interface ListEndpointsInput {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of endpoints to return in the response.</p>
+   * <p>The maximum number of endpoints to return in the response. This value defaults to 10.</p>
    */
   MaxResults?: number;
 
@@ -8399,8 +8506,10 @@ export interface TrainingJob {
   VpcConfig?: VpcConfig;
 
   /**
-   * <p>Specifies a limit to how long a model training job can run. When the job reaches the
-   *             time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs.</p>
+   * <p>Specifies a limit to how long a model training job can run.
+   *             It also specifies how long a managed Spot training job has to complete.
+   *             When the job reaches the time limit, Amazon SageMaker ends
+   *             the training job. Use this API to cap model training costs.</p>
    *         <p>To stop a job, Amazon SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
    *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
    *             model artifacts, so the results of training are not lost. </p>
@@ -8534,6 +8643,12 @@ export interface TrainingJob {
    * <p>The environment variables to set in the Docker container.</p>
    */
   Environment?: { [key: string]: string };
+
+  /**
+   * <p>The number of times to retry the job when the job fails due to an
+   *             <code>InternalServerError</code>.</p>
+   */
+  RetryStrategy?: RetryStrategy;
 
   /**
    * <p>An array of key-value pairs. You can use tags to categorize your AWS resources in
@@ -10290,72 +10405,6 @@ export namespace UpdatePipelineExecutionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdatePipelineExecutionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateTrainingJobRequest {
-  /**
-   * <p>The name of a training job to update the Debugger profiling configuration.</p>
-   */
-  TrainingJobName: string | undefined;
-
-  /**
-   * <p>Configuration information for Debugger system monitoring, framework profiling, and
-   *             storage paths.</p>
-   */
-  ProfilerConfig?: ProfilerConfigForUpdate;
-
-  /**
-   * <p>Configuration information for Debugger rules for profiling system and framework
-   *             metrics.</p>
-   */
-  ProfilerRuleConfigurations?: ProfilerRuleConfiguration[];
-}
-
-export namespace UpdateTrainingJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTrainingJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateTrainingJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the training job.</p>
-   */
-  TrainingJobArn: string | undefined;
-}
-
-export namespace UpdateTrainingJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTrainingJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateTrialRequest {
-  /**
-   * <p>The name of the trial to update.</p>
-   */
-  TrialName: string | undefined;
-
-  /**
-   * <p>The name of the trial as displayed. The name doesn't need to be unique. If
-   *         <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
-   */
-  DisplayName?: string;
-}
-
-export namespace UpdateTrialRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTrialRequest): any => ({
     ...obj,
   });
 }

@@ -522,6 +522,7 @@ export enum SnowballType {
   EDGE_CG = "EDGE_CG",
   EDGE_S = "EDGE_S",
   SNC1_HDD = "SNC1_HDD",
+  SNC1_SSD = "SNC1_SSD",
   STANDARD = "STANDARD",
 }
 
@@ -567,6 +568,12 @@ export interface CreateClusterRequest {
   /**
    * <p>The type of job for this cluster. Currently, the only job type supported for clusters
    *       is <code>LOCAL_USE</code>.</p>
+   *
+   *          <p>For more information, see
+   *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
+   *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
+   *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
+   *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
   JobType: JobType | string | undefined;
 
@@ -603,13 +610,18 @@ export interface CreateClusterRequest {
 
   /**
    * <p>The type of AWS Snow Family device to use for this cluster.
-   *
    *     </p>
    *          <note>
    *             <p>For cluster jobs, AWS Snow Family currently supports only the <code>EDGE</code> device type.</p>
    *          </note>
+   *
+   *          <p>For more information, see
+   *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
+   *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
+   *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
+   *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
-  SnowballType?: SnowballType | string;
+  SnowballType: SnowballType | string | undefined;
 
   /**
    * <p>The shipping speed for each node in this cluster. This speed doesn't dictate how soon
@@ -818,6 +830,7 @@ export namespace DeviceConfiguration {
 export enum SnowballCapacity {
   NO_PREFERENCE = "NoPreference",
   T100 = "T100",
+  T14 = "T14",
   T42 = "T42",
   T50 = "T50",
   T8 = "T8",
@@ -875,6 +888,12 @@ export interface CreateJobRequest {
    * <p>If your job is being created in one of the US regions, you have the option of
    *       specifying what size Snow device you'd like for this job. In all other regions, Snowballs come
    *       with 80 TB in storage capacity.</p>
+   *
+   *          <p>For more information, see
+   *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
+   *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
+   *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
+   *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
   SnowballCapacityPreference?: SnowballCapacity | string;
 
@@ -927,6 +946,12 @@ export interface CreateJobRequest {
    *       device type for cluster jobs is <code>EDGE</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html">Snowball Edge Device
    *       Options</a> in the Snowball Edge Developer Guide.</p>
+   *
+   *          <p>For more information, see
+   *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
+   *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
+   *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
+   *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
   SnowballType?: SnowballType | string;
 
@@ -943,8 +968,19 @@ export interface CreateJobRequest {
 
   /**
    * <p>Defines the device configuration for an AWS Snowcone job.</p>
+   *
+   *          <p>For more information, see
+   *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
+   *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
+   *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
+   *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
   DeviceConfiguration?: DeviceConfiguration;
+
+  /**
+   * <p>The ID of the long term pricing type for the device.</p>
+   */
+  LongTermPricingId?: string;
 }
 
 export namespace CreateJobRequest {
@@ -969,6 +1005,53 @@ export namespace CreateJobResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateJobResult): any => ({
+    ...obj,
+  });
+}
+
+export enum LongTermPricingType {
+  ONE_YEAR = "OneYear",
+  THREE_YEAR = "ThreeYear",
+}
+
+export interface CreateLongTermPricingRequest {
+  /**
+   * <p>The type of long term pricing option you want for the device - one year or three year long term pricing.</p>
+   */
+  LongTermPricingType: LongTermPricingType | string | undefined;
+
+  /**
+   * <p>Specifies whether the current long term pricing type for the device should be renewed.</p>
+   */
+  IsLongTermPricingAutoRenew?: boolean;
+
+  /**
+   * <p>The type of AWS Snow Family device to use for the long term pricing job.</p>
+   */
+  SnowballType?: SnowballType | string;
+}
+
+export namespace CreateLongTermPricingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLongTermPricingRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateLongTermPricingResult {
+  /**
+   * <p>The ID of the long term pricing type for the device.</p>
+   */
+  LongTermPricingId?: string;
+}
+
+export namespace CreateLongTermPricingResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLongTermPricingResult): any => ({
     ...obj,
   });
 }
@@ -1570,6 +1653,12 @@ export interface JobMetadata {
    * <p>The Snow device capacity preference for this job, specified at job creation. In US
    *       regions, you can choose between 50 TB and 80 TB Snowballs. All other regions use 80 TB
    *       capacity Snowballs.</p>
+   *
+   *          <p>For more information, see
+   *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
+   *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
+   *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
+   *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
   SnowballCapacityPreference?: SnowballCapacity | string;
 
@@ -1617,6 +1706,11 @@ export interface JobMetadata {
    * <p>The container for <code>SnowconeDeviceConfiguration</code>. </p>
    */
   DeviceConfiguration?: DeviceConfiguration;
+
+  /**
+   * <p>The ID of the long term pricing type for the device.</p>
+   */
+  LongTermPricingId?: string;
 }
 
 export namespace JobMetadata {
@@ -1656,7 +1750,7 @@ export interface DescribeReturnShippingLabelRequest {
    * <p>The automatically generated ID for a job, for example
    *       <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
    */
-  JobId?: string;
+  JobId: string | undefined;
 }
 
 export namespace DescribeReturnShippingLabelRequest {
@@ -1743,7 +1837,7 @@ export namespace GetJobUnlockCodeRequest {
 export interface GetJobUnlockCodeResult {
   /**
    * <p>The <code>UnlockCode</code> value for the specified job. The <code>UnlockCode</code>
-   *       value can be accessed for up to 90 days after the job has been created.</p>
+   *       value can be accessed for up to 360 days after the job has been created.</p>
    */
   UnlockCode?: string;
 }
@@ -2139,6 +2233,116 @@ export namespace ListJobsResult {
   });
 }
 
+export interface ListLongTermPricingRequest {
+  /**
+   * <p>The maximum number of <code>ListLongTermPricing</code> objects to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Because HTTP requests are stateless, this is the starting point for your next list of
+   *       <code>ListLongTermPricing</code> to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListLongTermPricingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLongTermPricingRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Each <code>LongTermPricingListEntry</code> object contains information about a long term pricing type.</p>
+ */
+export interface LongTermPricingListEntry {
+  /**
+   * <p>The ID of the long term pricing type for the device.</p>
+   */
+  LongTermPricingId?: string;
+
+  /**
+   * <p>The end date the long term pricing contract.</p>
+   */
+  LongTermPricingEndDate?: Date;
+
+  /**
+   * <p>The start date of the long term pricing contract.</p>
+   */
+  LongTermPricingStartDate?: Date;
+
+  /**
+   * <p>The type of long term pricing that was selected for the device.</p>
+   */
+  LongTermPricingType?: LongTermPricingType | string;
+
+  /**
+   * <p>The current active jobs on the device the long term pricing type.</p>
+   */
+  CurrentActiveJob?: string;
+
+  /**
+   * <p>A new device that replaces a device that is ordered with long term pricing.</p>
+   */
+  ReplacementJob?: string;
+
+  /**
+   * <p>If set to <code>true</code>, specifies that the current long term pricing type for the
+   *       device should be automatically renewed before the long term pricing contract expires.</p>
+   */
+  IsLongTermPricingAutoRenew?: boolean;
+
+  /**
+   * <p>The status of the long term pricing type.</p>
+   */
+  LongTermPricingStatus?: string;
+
+  /**
+   * <p>The type of AWS Snow Family device associated with this long term pricing job.</p>
+   */
+  SnowballType?: SnowballType | string;
+
+  /**
+   * <p>The IDs of the jobs that are associated with a long term pricing type.</p>
+   */
+  JobIds?: string[];
+}
+
+export namespace LongTermPricingListEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LongTermPricingListEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLongTermPricingResult {
+  /**
+   * <p>Each <code>LongTermPricingEntry</code> object contains a status, ID, and other information
+   *       about the <code>LongTermPricing</code> type. </p>
+   */
+  LongTermPricingEntries?: LongTermPricingListEntry[];
+
+  /**
+   * <p>Because HTTP requests are stateless, this is the starting point for your next list of
+   *       returned <code>ListLongTermPricing</code> list.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListLongTermPricingResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLongTermPricingResult): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateClusterRequest {
   /**
    * <p>The cluster ID of the cluster that you want to update, for example
@@ -2250,6 +2454,12 @@ export interface UpdateJobRequest {
   /**
    * <p>The updated <code>SnowballCapacityPreference</code> of this job's <a>JobMetadata</a> object. The 50 TB Snowballs are only available in the US
    *       regions.</p>
+   *
+   *          <p>For more information, see
+   *       "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html" (Snow
+   *       Family Devices and Capacity) in the <i>Snowcone User Guide</i> or
+   *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
+   *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
   SnowballCapacityPreference?: SnowballCapacity | string;
 
@@ -2316,6 +2526,44 @@ export namespace UpdateJobShipmentStateResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateJobShipmentStateResult): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateLongTermPricingRequest {
+  /**
+   * <p>The ID of the long term pricing type for the device.</p>
+   */
+  LongTermPricingId: string | undefined;
+
+  /**
+   * <p>Specifies that a device that is ordered with long term pricing should be replaced with a new device.</p>
+   */
+  ReplacementJob?: string;
+
+  /**
+   * <p>If set to <code>true</code>, specifies that the current long term pricing type for the
+   *       device should be automatically renewed before the long term pricing contract expires.</p>
+   */
+  IsLongTermPricingAutoRenew?: boolean;
+}
+
+export namespace UpdateLongTermPricingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateLongTermPricingRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateLongTermPricingResult {}
+
+export namespace UpdateLongTermPricingResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateLongTermPricingResult): any => ({
     ...obj,
   });
 }

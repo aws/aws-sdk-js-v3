@@ -28,15 +28,23 @@ export interface AddApplicationCloudWatchLoggingOptionRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The version ID of the Kinesis Data Analytics application. You can retrieve the application version ID using
+   * <p>The version ID of the Kinesis Data Analytics application.
+   *         You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.You can retrieve the application version ID using
    *       <a>DescribeApplication</a>.</p>
    */
-  CurrentApplicationVersionId: number | undefined;
+  CurrentApplicationVersionId?: number;
 
   /**
    * <p>Provides the Amazon CloudWatch log stream Amazon Resource Name (ARN). </p>
    */
   CloudWatchLoggingOption: CloudWatchLoggingOption | undefined;
+
+  /**
+   * <p>A value you use to implement strong concurrency for application updates.
+   *           You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
+   *           You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>.</p>
+   */
+  ConditionalToken?: string;
 }
 
 export namespace AddApplicationCloudWatchLoggingOptionRequest {
@@ -571,7 +579,8 @@ export interface AddApplicationInputRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The current version of your application. You can use the <a>DescribeApplication</a> operation to find the current application version.</p>
+   * <p>The current version of your application.
+   *         You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.You can use the <a>DescribeApplication</a> operation to find the current application version.</p>
    */
   CurrentApplicationVersionId: number | undefined;
 
@@ -872,7 +881,9 @@ export interface AddApplicationInputProcessingConfigurationRequest {
 
   /**
    * <p>The version of the application to which you want to add the input processing
-   *       configuration. You can use the <a>DescribeApplication</a> operation to get the
+   *       configuration.
+   *       You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
+   *         You can use the <a>DescribeApplication</a> operation to get the
    *       current application version. If the version specified is not the current version, the
    *         <code>ConcurrentModificationException</code> is returned.</p>
    */
@@ -1071,7 +1082,9 @@ export interface AddApplicationOutputRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The version of the application to which you want to add the output configuration. You can
+   * <p>The version of the application to which you want to add the output configuration.
+   *         You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
+   *         You can
    *       use the <a>DescribeApplication</a> operation to get the current application
    *       version. If the version specified is not the current version, the
    *         <code>ConcurrentModificationException</code> is returned. </p>
@@ -1339,7 +1352,8 @@ export interface AddApplicationReferenceDataSourceRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The version of the application for which you are adding the reference data source. You can
+   * <p>The version of the application for which you are adding the reference data source.
+   *         You can
    *       use the <a>DescribeApplication</a> operation to get the current application
    *       version. If the version specified is not the current version, the
    *         <code>ConcurrentModificationException</code> is returned.</p>
@@ -1501,16 +1515,25 @@ export interface AddApplicationVpcConfigurationRequest {
 
   /**
    * <p>The version of the application to which you want to add the VPC
-   *       configuration. You can use the <a>DescribeApplication</a> operation to get the
+   *       configuration.
+   *       You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
+   *           You can use the <a>DescribeApplication</a> operation to get the
    *       current application version. If the version specified is not the current version, the
    *         <code>ConcurrentModificationException</code> is returned.</p>
    */
-  CurrentApplicationVersionId: number | undefined;
+  CurrentApplicationVersionId?: number;
 
   /**
    * <p>Description of the VPC to add to the application.</p>
    */
   VpcConfiguration: VpcConfiguration | undefined;
+
+  /**
+   * <p>A value you use to implement strong concurrency for application updates.
+   *            You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
+   *            You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>.</p>
+   */
+  ConditionalToken?: string;
 }
 
 export namespace AddApplicationVpcConfigurationRequest {
@@ -3285,16 +3308,16 @@ export namespace ApplicationConfigurationUpdate {
 }
 
 /**
- * <p>Describes the time window for automatic application maintenance.</p>
+ * <p>The details of the maintenance configuration for the application.</p>
  */
 export interface ApplicationMaintenanceConfigurationDescription {
   /**
-   * <p>The start time for the automatic maintenance window.</p>
+   * <p>The start time for the maintenance window.</p>
    */
   ApplicationMaintenanceWindowStartTime: string | undefined;
 
   /**
-   * <p>The end time for the automatic maintenance window.</p>
+   * <p>The end time for the maintenance window.</p>
    */
   ApplicationMaintenanceWindowEndTime: string | undefined;
 }
@@ -3314,6 +3337,8 @@ export enum ApplicationStatus {
   FORCE_STOPPING = "FORCE_STOPPING",
   MAINTENANCE = "MAINTENANCE",
   READY = "READY",
+  ROLLED_BACK = "ROLLED_BACK",
+  ROLLING_BACK = "ROLLING_BACK",
   RUNNING = "RUNNING",
   STARTING = "STARTING",
   STOPPING = "STOPPING",
@@ -3389,9 +3414,31 @@ export interface ApplicationDetail {
   CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
 
   /**
-   * <p>Describes the time window for automatic application maintenance.</p>
+   * <p>The details of the maintenance configuration for the application.</p>
    */
   ApplicationMaintenanceConfigurationDescription?: ApplicationMaintenanceConfigurationDescription;
+
+  /**
+   * <p>The previous application version before the latest application update. <a>RollbackApplication</a>
+   *         reverts the application to this version.</p>
+   */
+  ApplicationVersionUpdatedFrom?: number;
+
+  /**
+   * <p>If you reverted the application using <a>RollbackApplication</a>,
+   *         the application version when <code>RollbackApplication</code> was called.</p>
+   */
+  ApplicationVersionRolledBackFrom?: number;
+
+  /**
+   * <p>A value you use to implement strong concurrency for application updates.</p>
+   */
+  ConditionalToken?: string;
+
+  /**
+   * <p>The version to which you want to roll back the application.</p>
+   */
+  ApplicationVersionRolledBackTo?: number;
 }
 
 export namespace ApplicationDetail {
@@ -3404,11 +3451,11 @@ export namespace ApplicationDetail {
 }
 
 /**
- * <p>Describes the updated time window for automatic application maintenance.</p>
+ * <p>Describes the updated maintenance configuration for the application.</p>
  */
 export interface ApplicationMaintenanceConfigurationUpdate {
   /**
-   * <p>The updated start time for the automatic maintenance window.</p>
+   * <p>The updated start time for the maintenance window.</p>
    */
   ApplicationMaintenanceWindowStartTimeUpdate: string | undefined;
 }
@@ -3457,6 +3504,30 @@ export namespace ApplicationSummary {
    * @internal
    */
   export const filterSensitiveLog = (obj: ApplicationSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The summary of the application version.</p>
+ */
+export interface ApplicationVersionSummary {
+  /**
+   * <p>The ID of the application version. Kinesis Data Analytics updates the <code>ApplicationVersionId</code> each time you update the application.</p>
+   */
+  ApplicationVersionId: number | undefined;
+
+  /**
+   * <p>The status of the application.</p>
+   */
+  ApplicationStatus: ApplicationStatus | string | undefined;
+}
+
+export namespace ApplicationVersionSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ApplicationVersionSummary): any => ({
     ...obj,
   });
 }
@@ -3760,16 +3831,25 @@ export interface DeleteApplicationCloudWatchLoggingOptionRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The version ID of the application. You can retrieve the application version ID using
+   * <p>The version ID of the application.
+   *         You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
+   *         You can retrieve the application version ID using
    *     <a>DescribeApplication</a>.</p>
    */
-  CurrentApplicationVersionId: number | undefined;
+  CurrentApplicationVersionId?: number;
 
   /**
    * <p>The <code>CloudWatchLoggingOptionId</code> of the Amazon CloudWatch logging option to
-   *       delete. You can get the <code>CloudWatchLoggingOptionId</code> by using the <a>DescribeApplication</a> operation. </p>
+   *          delete. You can get the <code>CloudWatchLoggingOptionId</code> by using the <a>DescribeApplication</a> operation. </p>
    */
   CloudWatchLoggingOptionId: string | undefined;
+
+  /**
+   * <p>A value you use to implement strong concurrency for application updates.
+   *           You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
+   *           You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>.</p>
+   */
+  ConditionalToken?: string;
 }
 
 export namespace DeleteApplicationCloudWatchLoggingOptionRequest {
@@ -4015,15 +4095,23 @@ export interface DeleteApplicationVpcConfigurationRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The current application version ID. You can retrieve the application version ID using
+   * <p>The current application version ID. You must provide the <code>ApplicationVersionID</code>
+   *            or the <code>ConditionalToken</code>.You can retrieve the application version ID using
    *         <a>DescribeApplication</a>.</p>
    */
-  CurrentApplicationVersionId: number | undefined;
+  CurrentApplicationVersionId?: number;
 
   /**
    * <p>The ID of the VPC configuration to delete.</p>
    */
   VpcConfigurationId: string | undefined;
+
+  /**
+   * <p>A value you use to implement strong concurrency for application updates.
+   *            You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
+   *            You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>.</p>
+   */
+  ConditionalToken?: string;
 }
 
 export namespace DeleteApplicationVpcConfigurationRequest {
@@ -4169,6 +4257,44 @@ export namespace DescribeApplicationSnapshotResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeApplicationSnapshotResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeApplicationVersionRequest {
+  /**
+   * <p>The name of the application for which you want to get the version description.</p>
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * <p>The ID of the application version for which you want to get the description.</p>
+   */
+  ApplicationVersionId: number | undefined;
+}
+
+export namespace DescribeApplicationVersionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeApplicationVersionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeApplicationVersionResponse {
+  /**
+   * <p>Describes the application, including the application Amazon Resource Name (ARN), status,
+   *       latest version, and input and output configurations.</p>
+   */
+  ApplicationVersionDetail?: ApplicationDetail;
+}
+
+export namespace DescribeApplicationVersionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeApplicationVersionResponse): any => ({
     ...obj,
   });
 }
@@ -4435,6 +4561,57 @@ export namespace ListApplicationSnapshotsResponse {
   });
 }
 
+export interface ListApplicationVersionsRequest {
+  /**
+   * <p>The name of the application for which you want to list all versions.</p>
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * <p>The maximum number of versions to list in this invocation of the operation.</p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>If a previous invocation of this operation returned a pagination token, pass it into this value to retrieve the next set of results. For more information about pagination, see
+   *       <a href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Using the AWS Command Line Interface's Pagination Options</a>.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListApplicationVersionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListApplicationVersionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListApplicationVersionsResponse {
+  /**
+   * <p>A list of the application versions and the associated configuration summaries. The list includes application versions that were rolled back.</p>
+   *          <p>To get the complete description of a specific application version, invoke the <a>DescribeApplicationVersion</a> operation.</p>
+   */
+  ApplicationVersionSummaries?: ApplicationVersionSummary[];
+
+  /**
+   * <p>The pagination token for the next set of results, or <code>null</code> if there are no additional results.
+   *       To retrieve the next set of items, pass this token into a subsequent invocation of this operation. For more information about pagination, see
+   *       <a href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Using the AWS Command Line Interface's Pagination Options</a>.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListApplicationVersionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListApplicationVersionsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the application for which to retrieve tags.</p>
@@ -4463,6 +4640,45 @@ export namespace ListTagsForResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RollbackApplicationRequest {
+  /**
+   * <p>The name of the application.</p>
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * <p>The current application version ID. You can retrieve the application version ID using
+   *             <a>DescribeApplication</a>.</p>
+   */
+  CurrentApplicationVersionId: number | undefined;
+}
+
+export namespace RollbackApplicationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RollbackApplicationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RollbackApplicationResponse {
+  /**
+   * <p>Describes the application, including the application Amazon Resource Name (ARN), status,
+   *       latest version, and input and output configurations.</p>
+   */
+  ApplicationDetail: ApplicationDetail | undefined;
+}
+
+export namespace RollbackApplicationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RollbackApplicationResponse): any => ({
     ...obj,
   });
 }
@@ -4692,10 +4908,11 @@ export interface UpdateApplicationRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The current application version ID. You can retrieve the application version ID using
+   * <p>The current application version ID. You must provide the <code>ApplicationVersionID</code>
+   *           or the <code>ConditionalToken</code>.You can retrieve the application version ID using
    *       <a>DescribeApplication</a>.</p>
    */
-  CurrentApplicationVersionId: number | undefined;
+  CurrentApplicationVersionId?: number;
 
   /**
    * <p>Describes application configuration updates.</p>
@@ -4718,6 +4935,13 @@ export interface UpdateApplicationRequest {
    *       use <a>AddApplicationCloudWatchLoggingOption</a>.</p>
    */
   CloudWatchLoggingOptionUpdates?: CloudWatchLoggingOptionUpdate[];
+
+  /**
+   * <p>A value you use to implement strong concurrency for application updates.
+   *           You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
+   *           You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>.</p>
+   */
+  ConditionalToken?: string;
 }
 
 export namespace UpdateApplicationRequest {
@@ -4747,7 +4971,7 @@ export namespace UpdateApplicationResponse {
 
 export interface UpdateApplicationMaintenanceConfigurationRequest {
   /**
-   * <p>The name of the application for which you want to update the maintenance time window.</p>
+   * <p>The name of the application for which you want to update the maintenance configuration.</p>
    */
   ApplicationName: string | undefined;
 

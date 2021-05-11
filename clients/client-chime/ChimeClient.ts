@@ -19,6 +19,10 @@ import {
   BatchCreateAttendeeCommandOutput,
 } from "./commands/BatchCreateAttendeeCommand";
 import {
+  BatchCreateChannelMembershipCommandInput,
+  BatchCreateChannelMembershipCommandOutput,
+} from "./commands/BatchCreateChannelMembershipCommand";
+import {
   BatchCreateRoomMembershipCommandInput,
   BatchCreateRoomMembershipCommandOutput,
 } from "./commands/BatchCreateRoomMembershipCommand";
@@ -353,6 +357,10 @@ import {
 } from "./commands/ListSipMediaApplicationsCommand";
 import { ListSipRulesCommandInput, ListSipRulesCommandOutput } from "./commands/ListSipRulesCommand";
 import {
+  ListSupportedPhoneNumberCountriesCommandInput,
+  ListSupportedPhoneNumberCountriesCommandOutput,
+} from "./commands/ListSupportedPhoneNumberCountriesCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -551,6 +559,7 @@ export type ServiceInputTypes =
   | AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput
   | AssociateSigninDelegateGroupsWithAccountCommandInput
   | BatchCreateAttendeeCommandInput
+  | BatchCreateChannelMembershipCommandInput
   | BatchCreateRoomMembershipCommandInput
   | BatchDeletePhoneNumberCommandInput
   | BatchSuspendUserCommandInput
@@ -675,6 +684,7 @@ export type ServiceInputTypes =
   | ListRoomsCommandInput
   | ListSipMediaApplicationsCommandInput
   | ListSipRulesCommandInput
+  | ListSupportedPhoneNumberCountriesCommandInput
   | ListTagsForResourceCommandInput
   | ListUsersCommandInput
   | ListVoiceConnectorGroupsCommandInput
@@ -734,6 +744,7 @@ export type ServiceOutputTypes =
   | AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput
   | AssociateSigninDelegateGroupsWithAccountCommandOutput
   | BatchCreateAttendeeCommandOutput
+  | BatchCreateChannelMembershipCommandOutput
   | BatchCreateRoomMembershipCommandOutput
   | BatchDeletePhoneNumberCommandOutput
   | BatchSuspendUserCommandOutput
@@ -858,6 +869,7 @@ export type ServiceOutputTypes =
   | ListRoomsCommandOutput
   | ListSipMediaApplicationsCommandOutput
   | ListSipRulesCommandOutput
+  | ListSupportedPhoneNumberCountriesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUsersCommandOutput
   | ListVoiceConnectorGroupsCommandOutput

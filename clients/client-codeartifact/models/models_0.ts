@@ -999,12 +999,8 @@ export namespace CreateDomainResult {
 /**
  * <p>
  *        Information about an upstream repository. A list of <code>UpstreamRepository</code> objects is an input parameter to
- *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_CreateRepository.html">
- *                <code>CreateRepository</code>
- *             </a>
- *        and <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdateRepository.html">
- *                <code>UpdateRepository</code>
- *             </a>.
+ *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_CreateRepository.html">CreateRepository</a>
+ *        and <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdateRepository.html">UpdateRepository</a>.
  *      </p>
  */
 export interface UpstreamRepository {
@@ -2766,9 +2762,7 @@ export namespace ListDomainsRequest {
 
 /**
  * <p> Information about a domain, including its name, Amazon Resource Name (ARN), and status.
- *       The <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListDomains.html">
- *                <code>ListDomains</code>
- *             </a> operation returns a list of <code>DomainSummary</code>
+ *       The <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListDomains.html">ListDomains</a> operation returns a list of <code>DomainSummary</code>
  *       objects. </p>
  */
 export interface DomainSummary {
@@ -2970,9 +2964,7 @@ export namespace ListPackagesRequest {
 /**
  * <p>
  *       Details about a package, including its format, namespace, and name. The
- *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackages.html">
- *                <code>ListPackages</code>
- *             </a>
+ *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackages.html">ListPackages</a>
  *       operation returns a list of <code>PackageSummary</code> objects.
  *     </p>
  */
@@ -3047,9 +3039,7 @@ export namespace PackageSummary {
 export interface ListPackagesResult {
   /**
    * <p>
-   *         The list of returned <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">
-   *                <code>PackageSummary</code>
-   *             </a>
+   *         The list of returned <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">PackageSummary</a>
    *         objects.
    *        </p>
    */
@@ -3247,9 +3237,7 @@ export interface ListPackageVersionAssetsResult {
 
   /**
    * <p>
-   *       The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">
-   *                <code>AssetSummary</code>
-   *             </a> objects.
+   *       The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">AssetSummary</a> objects.
    *     </p>
    */
   assets?: AssetSummary[];
@@ -3514,9 +3502,7 @@ export interface ListPackageVersionDependenciesResult {
 
   /**
    * <p>
-   *       The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">
-   *                <code>PackageDependency</code>
-   *             </a> objects.
+   *       The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">PackageDependency</a> objects.
    *     </p>
    */
   dependencies?: PackageDependency[];
@@ -3683,9 +3669,7 @@ export namespace ListPackageVersionsRequest {
 /**
  * <p>
  *        Details about a package version, including its status, version, and revision. The
- *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">
- *                <code>ListPackageVersions</code>
- *             </a>
+ *        <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a>
  *        operation returns a list of <code>PackageVersionSummary</code> objects.
  *      </p>
  */
@@ -3829,9 +3813,7 @@ export interface ListPackageVersionsResult {
   /**
    * <p>
    *         The returned list of
-   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">
-   *                <code>PackageVersionSummary</code>
-   *             </a>
+   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">PackageVersionSummary</a>
    *         objects.
    *        </p>
    */
@@ -3887,9 +3869,7 @@ export namespace ListRepositoriesRequest {
 
 /**
  * <p> Details about a repository, including its Amazon Resource Name (ARN), description, and
- *       domain information. The <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListRepositories.html">
- *                <code>ListRepositories</code>
- *             </a> operation returns a list of
+ *       domain information. The <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListRepositories.html">ListRepositories</a> operation returns a list of
  *         <code>RepositorySummary</code> objects. </p>
  */
 export interface RepositorySummary {
@@ -3947,9 +3927,7 @@ export namespace RepositorySummary {
 export interface ListRepositoriesResult {
   /**
    * <p>
-   *         The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">
-   *                <code>RepositorySummary</code>
-   *             </a>
+   *         The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">RepositorySummary</a>
    *         objects.
    *        </p>
    */

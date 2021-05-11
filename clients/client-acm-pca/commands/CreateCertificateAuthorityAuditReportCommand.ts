@@ -32,7 +32,7 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
  *
  * 			The <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> and <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> actions use
  * 			the private key. </p>
- * 		       <note>
+ *          <note>
  *                         <p>Both PCA and the IAM principal must have permission to write to
  *                         the S3 bucket that you specify. If the IAM principal making the call
  *                         does not have permission to write to the bucket, then an exception is
@@ -40,7 +40,7 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
  *                         Access to ACM Private CA</a>.</p>
  *                 </note>
  *
- * 		       <p>ACM Private CAA assets that are stored in Amazon S3 can be protected with encryption.
+ * 		       <p>ACM Private CA assets that are stored in Amazon S3 can be protected with encryption.
  *   For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuditReport.html#audit-report-encryption">Encrypting Your Audit
  * 				Reports</a>.</p>
  * @example

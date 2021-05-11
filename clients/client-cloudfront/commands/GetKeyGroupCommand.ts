@@ -1,5 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { GetKeyGroupRequest, GetKeyGroupResult } from "../models/models_0";
+import { GetKeyGroupRequest, GetKeyGroupResult } from "../models/models_1";
 import {
   deserializeAws_restXmlGetKeyGroupCommand,
   serializeAws_restXmlGetKeyGroupCommand,

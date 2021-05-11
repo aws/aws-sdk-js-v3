@@ -2,10 +2,10 @@ import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>A resource to be created or added already exists.</p>
+ * <p>Access to a resource was denied.</p>
  */
-export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "AlreadyExistsException";
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
+  name: "AccessDeniedException";
   $fault: "client";
   /**
    * <p>A message describing the problem.</p>
@@ -13,43 +13,40 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace AlreadyExistsException {
+export namespace AccessDeniedException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
 }
 
-export enum Permission {
-  ALL = "ALL",
-  ALTER = "ALTER",
-  CREATE_DATABASE = "CREATE_DATABASE",
-  CREATE_TABLE = "CREATE_TABLE",
-  DATA_LOCATION_ACCESS = "DATA_LOCATION_ACCESS",
-  DELETE = "DELETE",
-  DESCRIBE = "DESCRIBE",
-  DROP = "DROP",
-  INSERT = "INSERT",
-  SELECT = "SELECT",
-}
-
 /**
- * <p>The AWS Lake Formation principal. Supported principals are IAM users or IAM roles.</p>
+ * <p>A structure containing a tag key-value pair.</p>
  */
-export interface DataLakePrincipal {
+export interface LFTagPair {
   /**
-   * <p>An identifier for the AWS Lake Formation principal.</p>
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
    */
-  DataLakePrincipalIdentifier?: string;
+  CatalogId?: string;
+
+  /**
+   * <p>The key-name for the tag.</p>
+   */
+  TagKey: string | undefined;
+
+  /**
+   * <p>A list of possible values an attribute can take.</p>
+   */
+  TagValues: string[] | undefined;
 }
 
-export namespace DataLakePrincipal {
+export namespace LFTagPair {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DataLakePrincipal): any => ({
+  export const filterSensitiveLog = (obj: LFTagPair): any => ({
     ...obj,
   });
 }
@@ -112,6 +109,93 @@ export namespace DataLocationResource {
    * @internal
    */
   export const filterSensitiveLog = (obj: DataLocationResource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure containing a tag key and values for a resource.</p>
+ */
+export interface LFTagKeyResource {
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The key-name for the tag.</p>
+   */
+  TagKey: string | undefined;
+
+  /**
+   * <p>A list of possible values an attribute can take.</p>
+   */
+  TagValues: string[] | undefined;
+}
+
+export namespace LFTagKeyResource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LFTagKeyResource): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure that allows an admin to grant user permissions on certain conditions. For example, granting a role access to all columns not tagged 'PII' of tables tagged 'Prod'.</p>
+ */
+export interface LFTag {
+  /**
+   * <p>The key-name for the tag.</p>
+   */
+  TagKey: string | undefined;
+
+  /**
+   * <p>A list of possible values an attribute can take.</p>
+   */
+  TagValues: string[] | undefined;
+}
+
+export namespace LFTag {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LFTag): any => ({
+    ...obj,
+  });
+}
+
+export enum ResourceType {
+  DATABASE = "DATABASE",
+  TABLE = "TABLE",
+}
+
+/**
+ * <p>A structure containing a list of tag conditions that apply to a resource's tag policy.</p>
+ */
+export interface LFTagPolicyResource {
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The resource type for which the tag policy applies.</p>
+   */
+  ResourceType: ResourceType | string | undefined;
+
+  /**
+   * <p>A list of tag conditions that apply to the resource's tag policy.</p>
+   */
+  Expression: LFTag[] | undefined;
+}
+
+export namespace LFTagPolicyResource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LFTagPolicyResource): any => ({
     ...obj,
   });
 }
@@ -253,6 +337,16 @@ export interface Resource {
    * <p>The location of an Amazon S3 path where permissions are granted or revoked. </p>
    */
   DataLocation?: DataLocationResource;
+
+  /**
+   * <p>The tag key and values attached to a resource.</p>
+   */
+  LFTag?: LFTagKeyResource;
+
+  /**
+   * <p>A list of tag conditions that define a resource's tag policy.</p>
+   */
+  LFTagPolicy?: LFTagPolicyResource;
 }
 
 export namespace Resource {
@@ -260,6 +354,259 @@ export namespace Resource {
    * @internal
    */
   export const filterSensitiveLog = (obj: Resource): any => ({
+    ...obj,
+  });
+}
+
+export interface AddLFTagsToResourceRequest {
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The resource to which to attach a tag.</p>
+   */
+  Resource: Resource | undefined;
+
+  /**
+   * <p>The tags to attach to the resource.</p>
+   */
+  LFTags: LFTagPair[] | undefined;
+}
+
+export namespace AddLFTagsToResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AddLFTagsToResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains details about an error.</p>
+ */
+export interface ErrorDetail {
+  /**
+   * <p>The code associated with this error.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>A message describing the error.</p>
+   */
+  ErrorMessage?: string;
+}
+
+export namespace ErrorDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ErrorDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure containing an error related to a <code>TagResource</code> or <code>UnTagResource</code> operation.</p>
+ */
+export interface LFTagError {
+  /**
+   * <p>The key-name of the tag.</p>
+   */
+  LFTag?: LFTagPair;
+
+  /**
+   * <p>An error that occurred with the attachment or detachment of the tag.</p>
+   */
+  Error?: ErrorDetail;
+}
+
+export namespace LFTagError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LFTagError): any => ({
+    ...obj,
+  });
+}
+
+export interface AddLFTagsToResourceResponse {
+  /**
+   * <p>A list of failures to tag the resource.</p>
+   */
+  Failures?: LFTagError[];
+}
+
+export namespace AddLFTagsToResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AddLFTagsToResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Two processes are trying to modify a resource simultaneously.</p>
+ */
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
+  name: "ConcurrentModificationException";
+  $fault: "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace ConcurrentModificationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A specified entity does not exist</p>
+ */
+export interface EntityNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "EntityNotFoundException";
+  $fault: "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace EntityNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EntityNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An internal service error occurred.</p>
+ */
+export interface InternalServiceException extends __SmithyException, $MetadataBearer {
+  name: "InternalServiceException";
+  $fault: "server";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace InternalServiceException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input provided was not valid.</p>
+ */
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
+  name: "InvalidInputException";
+  $fault: "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace InvalidInputException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The operation timed out.</p>
+ */
+export interface OperationTimeoutException extends __SmithyException, $MetadataBearer {
+  name: "OperationTimeoutException";
+  $fault: "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace OperationTimeoutException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OperationTimeoutException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A resource to be created or added already exists.</p>
+ */
+export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
+  name: "AlreadyExistsException";
+  $fault: "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace AlreadyExistsException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
+    ...obj,
+  });
+}
+
+export enum Permission {
+  ALL = "ALL",
+  ALTER = "ALTER",
+  ALTER_TAG = "ALTER_TAG",
+  ASSOCIATE_TAG = "ASSOCIATE_TAG",
+  CREATE_DATABASE = "CREATE_DATABASE",
+  CREATE_TABLE = "CREATE_TABLE",
+  CREATE_TAG = "CREATE_TAG",
+  DATA_LOCATION_ACCESS = "DATA_LOCATION_ACCESS",
+  DELETE = "DELETE",
+  DELETE_TAG = "DELETE_TAG",
+  DESCRIBE = "DESCRIBE",
+  DESCRIBE_TAG = "DESCRIBE_TAG",
+  DROP = "DROP",
+  INSERT = "INSERT",
+  SELECT = "SELECT",
+}
+
+/**
+ * <p>The AWS Lake Formation principal. Supported principals are IAM users or IAM roles.</p>
+ */
+export interface DataLakePrincipal {
+  /**
+   * <p>An identifier for the AWS Lake Formation principal.</p>
+   */
+  DataLakePrincipalIdentifier?: string;
+}
+
+export namespace DataLakePrincipal {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataLakePrincipal): any => ({
     ...obj,
   });
 }
@@ -325,30 +672,6 @@ export namespace BatchGrantPermissionsRequest {
 }
 
 /**
- * <p>Contains details about an error.</p>
- */
-export interface ErrorDetail {
-  /**
-   * <p>The code associated with this error.</p>
-   */
-  ErrorCode?: string;
-
-  /**
-   * <p>A message describing the error.</p>
-   */
-  ErrorMessage?: string;
-}
-
-export namespace ErrorDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorDetail): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>A list of failures when performing a batch grant or batch revoke operation.</p>
  */
 export interface BatchPermissionsFailureEntry {
@@ -384,48 +707,6 @@ export namespace BatchGrantPermissionsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: BatchGrantPermissionsResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input provided was not valid.</p>
- */
-export interface InvalidInputException extends __SmithyException, $MetadataBearer {
-  name: "InvalidInputException";
-  $fault: "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-}
-
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The operation timed out.</p>
- */
-export interface OperationTimeoutException extends __SmithyException, $MetadataBearer {
-  name: "OperationTimeoutException";
-  $fault: "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-}
-
-export namespace OperationTimeoutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationTimeoutException): any => ({
     ...obj,
   });
 }
@@ -467,6 +748,96 @@ export namespace BatchRevokePermissionsResponse {
   });
 }
 
+export interface CreateLFTagRequest {
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The key-name for the tag.</p>
+   */
+  TagKey: string | undefined;
+
+  /**
+   * <p>A list of possible values an attribute can take.</p>
+   */
+  TagValues: string[] | undefined;
+}
+
+export namespace CreateLFTagRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLFTagRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateLFTagResponse {}
+
+export namespace CreateLFTagResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLFTagResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A resource numerical limit was exceeded.</p>
+ */
+export interface ResourceNumberLimitExceededException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNumberLimitExceededException";
+  $fault: "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export namespace ResourceNumberLimitExceededException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceNumberLimitExceededException): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteLFTagRequest {
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The key-name for the tag to delete.</p>
+   */
+  TagKey: string | undefined;
+}
+
+export namespace DeleteLFTagRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLFTagRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteLFTagResponse {}
+
+export namespace DeleteLFTagResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLFTagResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeregisterResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to deregister.</p>
@@ -490,48 +861,6 @@ export namespace DeregisterResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeregisterResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A specified entity does not exist</p>
- */
-export interface EntityNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "EntityNotFoundException";
-  $fault: "client";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-}
-
-export namespace EntityNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityNotFoundException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An internal service error occurred.</p>
- */
-export interface InternalServiceException extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceException";
-  $fault: "server";
-  /**
-   * <p>A message describing the problem.</p>
-   */
-  Message?: string;
-}
-
-export namespace InternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
 }
@@ -723,11 +1052,11 @@ export namespace GetEffectivePermissionsForPathRequest {
 /**
  * <p>A structure containing the additional details to be returned in the <code>AdditionalDetails</code> attribute of <code>PrincipalResourcePermissions</code>.</p>
  *
- *          <p>If a catalog resource is shared through AWS Resource Access Manager (AWS RAM), then there will exist a corresponding RAM share resource ARN.</p>
+ *          <p>If a catalog resource is shared through AWS Resource Access Manager (AWS RAM), then there will exist a corresponding RAM resource share ARN.</p>
  */
 export interface DetailsMap {
   /**
-   * <p>A share resource ARN for a catalog resource shared through AWS Resource Access Manager (AWS RAM).</p>
+   * <p>A resource share ARN for a catalog resource shared through AWS Resource Access Manager (AWS RAM).</p>
    */
   ResourceShare?: string[];
 }
@@ -766,7 +1095,7 @@ export interface PrincipalResourcePermissions {
   PermissionsWithGrantOption?: (Permission | string)[];
 
   /**
-   * <p>This attribute can be used to return any additional details of <code>PrincipalResourcePermissions</code>. Currently returns only as a RAM share resource ARN.</p>
+   * <p>This attribute can be used to return any additional details of <code>PrincipalResourcePermissions</code>. Currently returns only as a RAM resource share ARN.</p>
    */
   AdditionalDetails?: DetailsMap;
 }
@@ -801,11 +1130,134 @@ export namespace GetEffectivePermissionsForPathResponse {
   });
 }
 
+export interface GetLFTagRequest {
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The key-name for the tag.</p>
+   */
+  TagKey: string | undefined;
+}
+
+export namespace GetLFTagRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetLFTagRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetLFTagResponse {
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The key-name for the tag.</p>
+   */
+  TagKey?: string;
+
+  /**
+   * <p>A list of possible values an attribute can take.</p>
+   */
+  TagValues?: string[];
+}
+
+export namespace GetLFTagResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetLFTagResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetResourceLFTagsRequest {
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The resource for which you want to return tags.</p>
+   */
+  Resource: Resource | undefined;
+
+  /**
+   * <p>Indicates whether to show the assigned tags.</p>
+   */
+  ShowAssignedLFTags?: boolean;
+}
+
+export namespace GetResourceLFTagsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetResourceLFTagsRequest): any => ({
+    ...obj,
+  });
+}
+
 /**
- * <p>Two processes are trying to modify a resource simultaneously.</p>
+ * <p>A structure containing the name of a column resource and the tags attached to it.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
+export interface ColumnLFTag {
+  /**
+   * <p>The name of a column resource.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The tags attached to a column resource.</p>
+   */
+  LFTags?: LFTagPair[];
+}
+
+export namespace ColumnLFTag {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ColumnLFTag): any => ({
+    ...obj,
+  });
+}
+
+export interface GetResourceLFTagsResponse {
+  /**
+   * <p>A list of tags applied to a database resource.</p>
+   */
+  LFTagOnDatabase?: LFTagPair[];
+
+  /**
+   * <p>A list of tags applied to a table resource.</p>
+   */
+  LFTagsOnTable?: LFTagPair[];
+
+  /**
+   * <p>A list of tags applied to a column resource.</p>
+   */
+  LFTagsOnColumns?: ColumnLFTag[];
+}
+
+export namespace GetResourceLFTagsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetResourceLFTagsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An encryption operation failed.</p>
+ */
+export interface GlueEncryptionException extends __SmithyException, $MetadataBearer {
+  name: "GlueEncryptionException";
   $fault: "client";
   /**
    * <p>A message describing the problem.</p>
@@ -813,11 +1265,11 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace ConcurrentModificationException {
+export namespace GlueEncryptionException {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
+  export const filterSensitiveLog = (obj: GlueEncryptionException): any => ({
     ...obj,
   });
 }
@@ -870,10 +1322,71 @@ export namespace GrantPermissionsResponse {
   });
 }
 
+export enum ResourceShareType {
+  ALL = "ALL",
+  FOREIGN = "FOREIGN",
+}
+
+export interface ListLFTagsRequest {
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>If resource share type is <code>ALL</code>, returns both in-account tags and shared tags that the requester has permission to view. If resource share type is <code>FOREIGN</code>, returns all share tags that the requester can view. If no resource share type is passed, lists tags in the given catalog ID that the requester has permission to view.</p>
+   */
+  ResourceShareType?: ResourceShareType | string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListLFTagsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLFTagsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLFTagsResponse {
+  /**
+   * <p>A list of tags that the requested has permission to view.</p>
+   */
+  LFTags?: LFTagPair[];
+
+  /**
+   * <p>A continuation token, present if the current list segment is not the last.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListLFTagsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLFTagsResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum DataLakeResourceType {
   CATALOG = "CATALOG",
   DATABASE = "DATABASE",
   DATA_LOCATION = "DATA_LOCATION",
+  LF_TAG = "LF_TAG",
+  LF_TAG_POLICY = "LF_TAG_POLICY",
+  LF_TAG_POLICY_DATABASE = "LF_TAG_POLICY_DATABASE",
+  LF_TAG_POLICY_TABLE = "LF_TAG_POLICY_TABLE",
   TABLE = "TABLE",
 }
 
@@ -1107,6 +1620,48 @@ export namespace RegisterResourceResponse {
   });
 }
 
+export interface RemoveLFTagsFromResourceRequest {
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The resource where you want to remove a tag.</p>
+   */
+  Resource: Resource | undefined;
+
+  /**
+   * <p>The tags to be removed from the resource.</p>
+   */
+  LFTags: LFTagPair[] | undefined;
+}
+
+export namespace RemoveLFTagsFromResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveLFTagsFromResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveLFTagsFromResourceResponse {
+  /**
+   * <p>A list of failures to untag a resource.</p>
+   */
+  Failures?: LFTagError[];
+}
+
+export namespace RemoveLFTagsFromResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveLFTagsFromResourceResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface RevokePermissionsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
@@ -1151,6 +1706,210 @@ export namespace RevokePermissionsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: RevokePermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchDatabasesByLFTagsRequest {
+  /**
+   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>A list of conditions (<code>LFTag</code> structures) to search for in database resources.</p>
+   */
+  Expression: LFTag[] | undefined;
+}
+
+export namespace SearchDatabasesByLFTagsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchDatabasesByLFTagsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure describing a database resource with tags.</p>
+ */
+export interface TaggedDatabase {
+  /**
+   * <p>A database that has tags attached to it.</p>
+   */
+  Database?: DatabaseResource;
+
+  /**
+   * <p>A list of tags attached to the database.</p>
+   */
+  LFTags?: LFTagPair[];
+}
+
+export namespace TaggedDatabase {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TaggedDatabase): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchDatabasesByLFTagsResponse {
+  /**
+   * <p>A continuation token, present if the current list segment is not the last.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of databases that meet the tag conditions.</p>
+   */
+  DatabaseList?: TaggedDatabase[];
+}
+
+export namespace SearchDatabasesByLFTagsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchDatabasesByLFTagsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchTablesByLFTagsRequest {
+  /**
+   * <p>A continuation token, if this is not the first call to retrieve this list.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>A list of conditions (<code>LFTag</code> structures) to search for in table resources.</p>
+   */
+  Expression: LFTag[] | undefined;
+}
+
+export namespace SearchTablesByLFTagsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchTablesByLFTagsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure describing a table resource with tags.</p>
+ */
+export interface TaggedTable {
+  /**
+   * <p>A table that has tags attached to it.</p>
+   */
+  Table?: TableResource;
+
+  /**
+   * <p>A list of tags attached to the database where the table resides.</p>
+   */
+  LFTagOnDatabase?: LFTagPair[];
+
+  /**
+   * <p>A list of tags attached to the table.</p>
+   */
+  LFTagsOnTable?: LFTagPair[];
+
+  /**
+   * <p>A list of tags attached to columns in the table.</p>
+   */
+  LFTagsOnColumns?: ColumnLFTag[];
+}
+
+export namespace TaggedTable {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TaggedTable): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchTablesByLFTagsResponse {
+  /**
+   * <p>A continuation token, present if the current list segment is not the last.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of tables that meet the tag conditions.</p>
+   */
+  TableList?: TaggedTable[];
+}
+
+export namespace SearchTablesByLFTagsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchTablesByLFTagsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateLFTagRequest {
+  /**
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The key-name for the tag for which to add or delete values.</p>
+   */
+  TagKey: string | undefined;
+
+  /**
+   * <p>A list of tag values to delete from the tag.</p>
+   */
+  TagValuesToDelete?: string[];
+
+  /**
+   * <p>A list of tag values to add from the tag.</p>
+   */
+  TagValuesToAdd?: string[];
+}
+
+export namespace UpdateLFTagRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateLFTagRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateLFTagResponse {}
+
+export namespace UpdateLFTagResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateLFTagResponse): any => ({
     ...obj,
   });
 }

@@ -1,5 +1,5 @@
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { UpdateManagedInstanceRoleRequest, UpdateManagedInstanceRoleResult } from "../models/models_1";
+import { UpdateManagedInstanceRoleRequest, UpdateManagedInstanceRoleResult } from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateManagedInstanceRoleCommand,
   serializeAws_json1_1UpdateManagedInstanceRoleCommand,
