@@ -42,7 +42,7 @@ public final class AwsServiceIdIntegration implements TypeScriptIntegration {
         return shape -> {
             Symbol symbol = symbolProvider.toSymbol(shape);
 
-            if (!shape.isServiceShape()) {
+            if (!shape.isServiceShape() || !settings.generateClient()) {
                 return symbol;
             }
 
