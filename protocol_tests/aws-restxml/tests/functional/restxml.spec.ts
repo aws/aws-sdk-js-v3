@@ -354,7 +354,7 @@ it("BodyWithXmlName:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<Ahoy><name>Phreddy</name></Ahoy>`;
+    const bodyString = `<Ahoy><nested><name>Phreddy</name></nested></Ahoy>`;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -372,7 +372,7 @@ it("BodyWithXmlName:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<Ahoy><name>Phreddy</name></Ahoy>`
+      `<Ahoy><nested><name>Phreddy</name></nested></Ahoy>`
     ),
   });
 
