@@ -124,9 +124,8 @@ final class AwsProtocolUtils {
         writer.addImport("getValueFromTextNode", "__getValueFromTextNode", "@aws-sdk/smithy-client");
         writer.addDependency(AwsDependency.XML_PARSER);
         writer.addDependency(AwsDependency.HTML_ENTITIES);
-        writer.addDependency(AwsDependency.TYPES_HTML_ENTITIES);
         writer.addImport("parse", "xmlParse", "fast-xml-parser");
-        writer.addImport("decode", "heDecode", "he");
+        writer.addImport("decodeHTML", "decodeHTML", "entities");
         writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): "
                 + "any => collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
                     writer.openBlock("if (encoded.length) {", "}", () -> {
