@@ -83,7 +83,7 @@ export class SdkClientTocPlugin extends RendererComponent {
     return (
       model.kindOf(ReflectionKind.Class) &&
       model.name.endsWith("Command") &&
-      model.children?.some((child) => child.name === "resolveMiddleware") &&
+      // model.children?.some((child) => child.name === "resolveMiddleware") &&
       this.belongsToClientPackage(model)
     );
   }
