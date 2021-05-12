@@ -3688,7 +3688,9 @@ export const serializeAws_restJson1GetGlobalSettingsCommand = async (
   input: GetGlobalSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/settings";
   let body: any;
   body = "";
@@ -3736,7 +3738,9 @@ export const serializeAws_restJson1GetMessagingSessionEndpointCommand = async (
   input: GetMessagingSessionEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/endpoints/messaging-session";
   let body: any;
   body = "";
@@ -3819,7 +3823,9 @@ export const serializeAws_restJson1GetPhoneNumberSettingsCommand = async (
   input: GetPhoneNumberSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/settings/phone-number";
   let body: any;
   body = "";

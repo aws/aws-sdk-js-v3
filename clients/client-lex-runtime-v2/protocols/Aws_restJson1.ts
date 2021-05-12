@@ -1884,6 +1884,12 @@ const serializeAws_restJson1Value = (input: Value, context: __SerdeContext): any
   };
 };
 
+const deserializeAws_restJson1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ActiveContext = (output: any, context: __SerdeContext): ActiveContext => {
   return {
     contextAttributes:
@@ -1948,6 +1954,12 @@ const deserializeAws_restJson1AudioResponseEvent = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_restJson1BadGatewayException = (output: any, context: __SerdeContext): BadGatewayException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Button = (output: any, context: __SerdeContext): Button => {
   return {
     text: output.text !== undefined && output.text !== null ? output.text : undefined,
@@ -1969,6 +1981,21 @@ const deserializeAws_restJson1ButtonsList = (output: any, context: __SerdeContex
 const deserializeAws_restJson1ConfidenceScore = (output: any, context: __SerdeContext): ConfidenceScore => {
   return {
     score: output.score !== undefined && output.score !== null ? output.score : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DependencyFailedException = (
+  output: any,
+  context: __SerdeContext
+): DependencyFailedException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
@@ -2032,6 +2059,15 @@ const deserializeAws_restJson1IntentResultEvent = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1InternalServerException = (
+  output: any,
+  context: __SerdeContext
+): InternalServerException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Interpretation = (output: any, context: __SerdeContext): Interpretation => {
   return {
     intent:
@@ -2091,6 +2127,15 @@ const deserializeAws_restJson1PlaybackInterruptionEvent = (
       output.causedByEventId !== undefined && output.causedByEventId !== null ? output.causedByEventId : undefined,
     eventId: output.eventId !== undefined && output.eventId !== null ? output.eventId : undefined,
     eventReason: output.eventReason !== undefined && output.eventReason !== null ? output.eventReason : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ResourceNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): ResourceNotFoundException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
@@ -2159,6 +2204,92 @@ const deserializeAws_restJson1Slots = (output: any, context: __SerdeContext): { 
   }, {});
 };
 
+const deserializeAws_restJson1StartConversationResponseEventStream = (
+  output: any,
+  context: __SerdeContext
+): StartConversationResponseEventStream => {
+  if (output.AccessDeniedException !== undefined && output.AccessDeniedException !== null) {
+    return {
+      AccessDeniedException: deserializeAws_restJson1AccessDeniedException(output.AccessDeniedException, context),
+    };
+  }
+  if (output.AudioResponseEvent !== undefined && output.AudioResponseEvent !== null) {
+    return {
+      AudioResponseEvent: deserializeAws_restJson1AudioResponseEvent(output.AudioResponseEvent, context),
+    };
+  }
+  if (output.BadGatewayException !== undefined && output.BadGatewayException !== null) {
+    return {
+      BadGatewayException: deserializeAws_restJson1BadGatewayException(output.BadGatewayException, context),
+    };
+  }
+  if (output.ConflictException !== undefined && output.ConflictException !== null) {
+    return {
+      ConflictException: deserializeAws_restJson1ConflictException(output.ConflictException, context),
+    };
+  }
+  if (output.DependencyFailedException !== undefined && output.DependencyFailedException !== null) {
+    return {
+      DependencyFailedException: deserializeAws_restJson1DependencyFailedException(
+        output.DependencyFailedException,
+        context
+      ),
+    };
+  }
+  if (output.HeartbeatEvent !== undefined && output.HeartbeatEvent !== null) {
+    return {
+      HeartbeatEvent: deserializeAws_restJson1HeartbeatEvent(output.HeartbeatEvent, context),
+    };
+  }
+  if (output.IntentResultEvent !== undefined && output.IntentResultEvent !== null) {
+    return {
+      IntentResultEvent: deserializeAws_restJson1IntentResultEvent(output.IntentResultEvent, context),
+    };
+  }
+  if (output.InternalServerException !== undefined && output.InternalServerException !== null) {
+    return {
+      InternalServerException: deserializeAws_restJson1InternalServerException(output.InternalServerException, context),
+    };
+  }
+  if (output.PlaybackInterruptionEvent !== undefined && output.PlaybackInterruptionEvent !== null) {
+    return {
+      PlaybackInterruptionEvent: deserializeAws_restJson1PlaybackInterruptionEvent(
+        output.PlaybackInterruptionEvent,
+        context
+      ),
+    };
+  }
+  if (output.ResourceNotFoundException !== undefined && output.ResourceNotFoundException !== null) {
+    return {
+      ResourceNotFoundException: deserializeAws_restJson1ResourceNotFoundException(
+        output.ResourceNotFoundException,
+        context
+      ),
+    };
+  }
+  if (output.TextResponseEvent !== undefined && output.TextResponseEvent !== null) {
+    return {
+      TextResponseEvent: deserializeAws_restJson1TextResponseEvent(output.TextResponseEvent, context),
+    };
+  }
+  if (output.ThrottlingException !== undefined && output.ThrottlingException !== null) {
+    return {
+      ThrottlingException: deserializeAws_restJson1ThrottlingException(output.ThrottlingException, context),
+    };
+  }
+  if (output.TranscriptEvent !== undefined && output.TranscriptEvent !== null) {
+    return {
+      TranscriptEvent: deserializeAws_restJson1TranscriptEvent(output.TranscriptEvent, context),
+    };
+  }
+  if (output.ValidationException !== undefined && output.ValidationException !== null) {
+    return {
+      ValidationException: deserializeAws_restJson1ValidationException(output.ValidationException, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
 const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -2192,10 +2323,22 @@ const deserializeAws_restJson1TextResponseEvent = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1TranscriptEvent = (output: any, context: __SerdeContext): TranscriptEvent => {
   return {
     eventId: output.eventId !== undefined && output.eventId !== null ? output.eventId : undefined,
     transcript: output.transcript !== undefined && output.transcript !== null ? output.transcript : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 

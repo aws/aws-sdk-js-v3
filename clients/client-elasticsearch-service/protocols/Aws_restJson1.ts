@@ -513,7 +513,9 @@ export const serializeAws_restJson1DeleteElasticsearchServiceRoleCommand = async
   input: DeleteElasticsearchServiceRoleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/2015-01-01/es/role";
   let body: any;
   body = "";
@@ -1062,7 +1064,9 @@ export const serializeAws_restJson1ListDomainNamesCommand = async (
   input: ListDomainNamesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/2015-01-01/domain";
   let body: any;
   body = "";

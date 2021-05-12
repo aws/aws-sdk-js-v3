@@ -694,7 +694,9 @@ export const serializeAws_restJson1DeregisterAccountCommand = async (
   input: DeregisterAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/account/deregisterAccount";
   let body: any;
   body = "";
@@ -773,7 +775,9 @@ export const serializeAws_restJson1GetAccountStatusCommand = async (
   input: GetAccountStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/account/status";
   let body: any;
   body = "";
@@ -1211,7 +1215,9 @@ export const serializeAws_restJson1GetOrganizationAdminAccountCommand = async (
   input: GetOrganizationAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/account/organizationAdminAccount";
   let body: any;
   body = "";
@@ -1231,7 +1237,9 @@ export const serializeAws_restJson1GetServicesInScopeCommand = async (
   input: GetServicesInScopeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/services";
   let body: any;
   body = "";

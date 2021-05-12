@@ -1303,7 +1303,9 @@ export const serializeAws_restXmlGetCheckerIpRangesCommand = async (
   input: GetCheckerIpRangesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/2013-04-01/checkeripranges";
   let body: any;
   body = "";
@@ -1404,7 +1406,9 @@ export const serializeAws_restXmlGetHealthCheckCountCommand = async (
   input: GetHealthCheckCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/2013-04-01/healthcheckcount";
   let body: any;
   body = "";
@@ -1508,7 +1512,9 @@ export const serializeAws_restXmlGetHostedZoneCountCommand = async (
   input: GetHostedZoneCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/2013-04-01/hostedzonecount";
   let body: any;
   body = "";
@@ -1723,7 +1729,9 @@ export const serializeAws_restXmlGetTrafficPolicyInstanceCountCommand = async (
   input: GetTrafficPolicyInstanceCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/2013-04-01/trafficpolicyinstancecount";
   let body: any;
   body = "";

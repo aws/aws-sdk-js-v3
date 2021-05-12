@@ -874,7 +874,9 @@ export const serializeAws_restJson1DescribeOrganizationConfigurationCommand = as
   input: DescribeOrganizationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/organization/configuration";
   let body: any;
   body = "";
@@ -1041,7 +1043,9 @@ export const serializeAws_restJson1DisableSecurityHubCommand = async (
   input: DisableSecurityHubCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/accounts";
   let body: any;
   body = "";
@@ -1061,7 +1065,9 @@ export const serializeAws_restJson1DisassociateFromAdministratorAccountCommand =
   input: DisassociateFromAdministratorAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/administrator/disassociate";
   let body: any;
   body = "";
@@ -1081,7 +1087,9 @@ export const serializeAws_restJson1DisassociateFromMasterAccountCommand = async 
   input: DisassociateFromMasterAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/master/disassociate";
   let body: any;
   body = "";
@@ -1201,7 +1209,9 @@ export const serializeAws_restJson1GetAdministratorAccountCommand = async (
   input: GetAdministratorAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/administrator";
   let body: any;
   body = "";
@@ -1343,7 +1353,9 @@ export const serializeAws_restJson1GetInvitationsCountCommand = async (
   input: GetInvitationsCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/invitations/count";
   let body: any;
   body = "";
@@ -1363,7 +1375,9 @@ export const serializeAws_restJson1GetMasterAccountCommand = async (
   input: GetMasterAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/master";
   let body: any;
   body = "";
