@@ -1,4 +1,7 @@
 import {
+  Decoder,
+  Encoder,
+  Hash,
   InitializeHandler,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
@@ -8,10 +11,13 @@ import {
   Pluggable,
   SourceData,
 } from "@aws-sdk/types";
+interface PreviouslyResolved {
+  base64Encoder: Encoder;
+  md5: { new (): Hash };
+  utf8Decoder: Decoder;
+}
 
-import { ResolvedSsecMiddlewareConfig } from "./configuration";
-
-export function ssecMiddleware(options: ResolvedSsecMiddlewareConfig): InitializeMiddleware<any, any> {
+export function ssecMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: InitializeHandler<any, Output>
   ): InitializeHandler<any, Output> => async (
@@ -62,7 +68,7 @@ export const ssecMiddlewareOptions: InitializeHandlerOptions = {
   override: true,
 };
 
-export const getSsecPlugin = (config: ResolvedSsecMiddlewareConfig): Pluggable<any, any> => ({
+export const getSsecPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(ssecMiddleware(config), ssecMiddlewareOptions);
   },

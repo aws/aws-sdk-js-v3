@@ -7,6 +7,10 @@ export interface EventStreamSerdeResolvedConfig {
 }
 
 interface PreviouslyResolved {
+  /**
+   * Provide the event stream marshaller for the given runtime
+   * @internal
+   */
   eventStreamSerdeProvider: EventStreamSerdeProvider;
 }
 

@@ -19,7 +19,14 @@ interface PreviouslyResolved {
 }
 
 export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> {
+  /**
+   * Resolved value for input {@link EndpointsResolvedConfig.endpoint}
+   */
   endpoint: Provider<Endpoint>;
+  /**
+   * Whether the endpoint is specified by caller.
+   * @internal
+   */
   isCustomEndpoint: boolean;
 }
 

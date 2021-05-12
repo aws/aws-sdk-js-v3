@@ -6,6 +6,9 @@ interface PreviouslyResolved {
   requestHandler: RequestHandler<any, any>;
 }
 export interface HostHeaderResolvedConfig {
+  /**
+   * The HTTP handler to use. Fetch in browser and Https in Nodejs.
+   */
   requestHandler: RequestHandler<any, any>;
 }
 export function resolveHostHeaderConfig<T>(

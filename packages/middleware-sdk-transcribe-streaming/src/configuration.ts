@@ -11,7 +11,13 @@ interface PreviouslyResolved {
 }
 
 export interface WebSocketResolvedConfig {
+  /**
+   * Resolved value of input config {@link AwsAuthInputConfig.signer}
+   */
   signer: Provider<RequestSigner>;
+  /**
+   * The HTTP handler to use. Fetch in browser and Https in Nodejs.
+   */
   requestHandler: RequestHandler<any, any>;
 }
 

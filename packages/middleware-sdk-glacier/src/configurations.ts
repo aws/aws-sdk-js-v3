@@ -6,7 +6,7 @@ import { addGlacierApiVersionMiddleware, addGlacierApiVersionMiddlewareOptions }
 
 export interface GlacierMiddlewareInputConfig {}
 
-interface PreviouslyResolved {
+export interface PreviouslyResolved {
   apiVersion: string;
   sha256: HashConstructor;
   utf8Decoder: Decoder;
@@ -14,24 +14,6 @@ interface PreviouslyResolved {
     request: HttpRequest,
     Options: { sha256: HashConstructor; utf8Decoder: Decoder }
   ) => Promise<[string, string]>;
-}
-
-export interface ResolvedGlacierMiddlewareConfig {
-  apiVersion: string;
-  sha256: HashConstructor;
-  utf8Decoder: Decoder;
-  bodyChecksumGenerator: (
-    request: HttpRequest,
-    Options: { sha256: HashConstructor; utf8Decoder: Decoder }
-  ) => Promise<[string, string]>;
-}
-
-export function resolveGlacierMiddlewareConfig<T>(
-  input: T & PreviouslyResolved & GlacierMiddlewareInputConfig
-): T & ResolvedGlacierMiddlewareConfig {
-  return {
-    ...input,
-  };
 }
 
 export const getGlacierPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({

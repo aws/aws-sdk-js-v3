@@ -26,6 +26,9 @@ export interface RegionInputConfig {
 interface PreviouslyResolved {}
 
 export interface RegionResolvedConfig {
+  /**
+   * Resolved value for input config {@link RegionInputConfig.region}
+   */
   region: Provider<string>;
 }
 

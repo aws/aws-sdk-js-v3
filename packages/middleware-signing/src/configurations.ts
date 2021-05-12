@@ -41,9 +41,21 @@ interface PreviouslyResolved {
   sha256: HashConstructor;
 }
 export interface AwsAuthResolvedConfig {
+  /**
+   * Resolved value for input config {@link AwsAuthInputConfig.credentials}
+   */
   credentials: Provider<Credentials>;
+  /**
+   * Resolved value for input config {@link AwsAuthInputConfig.signer}
+   */
   signer: Provider<RequestSigner>;
+  /**
+   * Resolved value for input config {@link AwsAuthInputConfig.signingEscapePath}
+   */
   signingEscapePath: boolean;
+  /**
+   * Resolved value for input config {@link AwsAuthInputConfig.systemClockOffset}
+   */
   systemClockOffset: number;
 }
 

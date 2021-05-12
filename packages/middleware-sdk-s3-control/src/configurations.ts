@@ -19,10 +19,27 @@ interface PreviouslyResolved {
 }
 
 export interface S3ControlResolvedConfig {
+  /**
+   * Whether the endpoint is specified by caller.
+   * @internal
+   */
   isCustomEndpoint: boolean;
+  /**
+   * Resolved value for input config {@link S3ControlInputConfig.useDualstackEndpoint}
+   */
   useDualstackEndpoint: boolean;
+  /**
+   * Resolved value for input config {@link S3ControlInputConfig.useArnRegion}
+   */
   useArnRegion: Provider<boolean>;
+  /**
+   * Resolved value for input config {@link RegionInputConfig.region}
+   */
   region: Provider<string>;
+  /**
+   * Fetch related hostname, signing name or signing region with given region.
+   * @internal
+   */
   regionInfoProvider: RegionInfoProvider;
 }
 
