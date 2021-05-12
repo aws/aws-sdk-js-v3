@@ -375,6 +375,9 @@ export const serializeAws_restXmlCreateBucketCommand = async (
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   let body: any;
+  if (input.CreateBucketConfiguration !== undefined) {
+    body = serializeAws_restXmlCreateBucketConfiguration(input.CreateBucketConfiguration, context);
+  }
   let contents: any;
   if (input.CreateBucketConfiguration !== undefined) {
     contents = serializeAws_restXmlCreateBucketConfiguration(input.CreateBucketConfiguration, context);
@@ -1966,6 +1969,9 @@ export const serializeAws_restXmlPutBucketLifecycleConfigurationCommand = async 
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   let body: any;
+  if (input.LifecycleConfiguration !== undefined) {
+    body = serializeAws_restXmlLifecycleConfiguration(input.LifecycleConfiguration, context);
+  }
   let contents: any;
   if (input.LifecycleConfiguration !== undefined) {
     contents = serializeAws_restXmlLifecycleConfiguration(input.LifecycleConfiguration, context);
@@ -2068,6 +2074,9 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
     throw new Error("No value provided for input HTTP label: Bucket.");
   }
   let body: any;
+  if (input.Tagging !== undefined) {
+    body = serializeAws_restXmlTagging(input.Tagging, context);
+  }
   let contents: any;
   if (input.Tagging !== undefined) {
     contents = serializeAws_restXmlTagging(input.Tagging, context);
@@ -2162,6 +2171,9 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
   };
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
   let body: any;
+  if (input.PublicAccessBlockConfiguration !== undefined) {
+    body = serializeAws_restXmlPublicAccessBlockConfiguration(input.PublicAccessBlockConfiguration, context);
+  }
   let contents: any;
   if (input.PublicAccessBlockConfiguration !== undefined) {
     contents = serializeAws_restXmlPublicAccessBlockConfiguration(input.PublicAccessBlockConfiguration, context);

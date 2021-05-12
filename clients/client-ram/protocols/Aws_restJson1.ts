@@ -333,7 +333,9 @@ export const serializeAws_restJson1EnableSharingWithAwsOrganizationCommand = asy
   input: EnableSharingWithAwsOrganizationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/enablesharingwithawsorganization";
   let body: any;
   body = "";

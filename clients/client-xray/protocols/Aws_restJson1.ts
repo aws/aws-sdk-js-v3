@@ -260,7 +260,9 @@ export const serializeAws_restJson1GetEncryptionConfigCommand = async (
   input: GetEncryptionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/EncryptionConfig";
   let body: any;
   body = "";

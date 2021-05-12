@@ -268,7 +268,9 @@ export const serializeAws_restJson1EmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/EmptyInputAndEmptyOutput";
   let body: any;
   body = "";
@@ -288,7 +290,9 @@ export const serializeAws_restJson1EndpointOperationCommand = async (
   input: EndpointOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/EndpointOperation";
   let body: any;
   body = "";
@@ -350,7 +354,9 @@ export const serializeAws_restJson1GreetingWithErrorsCommand = async (
   input: GreetingWithErrorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/GreetingWithErrors";
   let body: any;
   body = "";
@@ -501,7 +507,9 @@ export const serializeAws_restJson1HttpPrefixHeadersResponseCommand = async (
   input: HttpPrefixHeadersResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/HttpPrefixHeadersResponse";
   let body: any;
   body = "";
@@ -738,7 +746,9 @@ export const serializeAws_restJson1HttpResponseCodeCommand = async (
   input: HttpResponseCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/HttpResponseCode";
   let body: any;
   body = "";
@@ -782,7 +792,9 @@ export const serializeAws_restJson1IgnoreQueryParamsInResponseCommand = async (
   input: IgnoreQueryParamsInResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/IgnoreQueryParamsInResponse";
   let body: any;
   body = "";
@@ -1148,7 +1160,9 @@ export const serializeAws_restJson1NoInputAndNoOutputCommand = async (
   input: NoInputAndNoOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/NoInputAndNoOutput";
   let body: any;
   body = "";
@@ -1168,7 +1182,9 @@ export const serializeAws_restJson1NoInputAndOutputCommand = async (
   input: NoInputAndOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/NoInputAndOutputOutput";
   let body: any;
   body = "";

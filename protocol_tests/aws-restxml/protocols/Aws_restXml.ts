@@ -323,7 +323,9 @@ export const serializeAws_restXmlEmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/EmptyInputAndEmptyOutput";
   let body: any;
   body = "";
@@ -343,7 +345,9 @@ export const serializeAws_restXmlEndpointOperationCommand = async (
   input: EndpointOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/EndpointOperation";
   let body: any;
   body = "";
@@ -503,7 +507,9 @@ export const serializeAws_restXmlFlattenedXmlMapWithXmlNamespaceCommand = async 
   input: FlattenedXmlMapWithXmlNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/FlattenedXmlMapWithXmlNamespace";
   let body: any;
   body = "";
@@ -523,7 +529,9 @@ export const serializeAws_restXmlGreetingWithErrorsCommand = async (
   input: GreetingWithErrorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/GreetingWithErrors";
   let body: any;
   body = "";
@@ -549,6 +557,9 @@ export const serializeAws_restXmlHttpPayloadTraitsCommand = async (
   };
   let resolvedPath = "/HttpPayloadTraits";
   let body: any;
+  if (input.blob !== undefined) {
+    body = input.blob;
+  }
   let contents: any;
   if (input.blob !== undefined) {
     contents = input.blob;
@@ -576,6 +587,9 @@ export const serializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommand = async (
   };
   let resolvedPath = "/HttpPayloadTraitsWithMediaType";
   let body: any;
+  if (input.blob !== undefined) {
+    body = input.blob;
+  }
   let contents: any;
   if (input.blob !== undefined) {
     contents = input.blob;
@@ -602,6 +616,9 @@ export const serializeAws_restXmlHttpPayloadWithMemberXmlNameCommand = async (
   };
   let resolvedPath = "/HttpPayloadWithMemberXmlName";
   let body: any;
+  if (input.nested !== undefined) {
+    body = serializeAws_restXmlPayloadWithXmlName(input.nested, context);
+  }
   let contents: any;
   if (input.nested !== undefined) {
     contents = serializeAws_restXmlPayloadWithXmlName(input.nested, context);
@@ -629,6 +646,9 @@ export const serializeAws_restXmlHttpPayloadWithStructureCommand = async (
   };
   let resolvedPath = "/HttpPayloadWithStructure";
   let body: any;
+  if (input.nested !== undefined) {
+    body = serializeAws_restXmlNestedPayload(input.nested, context);
+  }
   let contents: any;
   if (input.nested !== undefined) {
     contents = serializeAws_restXmlNestedPayload(input.nested, context);
@@ -656,6 +676,9 @@ export const serializeAws_restXmlHttpPayloadWithXmlNameCommand = async (
   };
   let resolvedPath = "/HttpPayloadWithXmlName";
   let body: any;
+  if (input.nested !== undefined) {
+    body = serializeAws_restXmlPayloadWithXmlName(input.nested, context);
+  }
   let contents: any;
   if (input.nested !== undefined) {
     contents = serializeAws_restXmlPayloadWithXmlName(input.nested, context);
@@ -683,6 +706,9 @@ export const serializeAws_restXmlHttpPayloadWithXmlNamespaceCommand = async (
   };
   let resolvedPath = "/HttpPayloadWithXmlNamespace";
   let body: any;
+  if (input.nested !== undefined) {
+    body = serializeAws_restXmlPayloadWithXmlNamespace(input.nested, context);
+  }
   let contents: any;
   if (input.nested !== undefined) {
     contents = serializeAws_restXmlPayloadWithXmlNamespace(input.nested, context);
@@ -711,6 +737,9 @@ export const serializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand = a
   };
   let resolvedPath = "/HttpPayloadWithXmlNamespaceAndPrefix";
   let body: any;
+  if (input.nested !== undefined) {
+    body = serializeAws_restXmlPayloadWithXmlNamespaceAndPrefix(input.nested, context);
+  }
   let contents: any;
   if (input.nested !== undefined) {
     contents = serializeAws_restXmlPayloadWithXmlNamespaceAndPrefix(input.nested, context);
@@ -980,7 +1009,9 @@ export const serializeAws_restXmlHttpResponseCodeCommand = async (
   input: HttpResponseCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/HttpResponseCode";
   let body: any;
   body = "";
@@ -1000,7 +1031,9 @@ export const serializeAws_restXmlIgnoreQueryParamsInResponseCommand = async (
   input: IgnoreQueryParamsInResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/IgnoreQueryParamsInResponse";
   let body: any;
   body = "";
@@ -1113,7 +1146,9 @@ export const serializeAws_restXmlNoInputAndNoOutputCommand = async (
   input: NoInputAndNoOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/NoInputAndNoOutput";
   let body: any;
   body = "";
@@ -1133,7 +1168,9 @@ export const serializeAws_restXmlNoInputAndOutputCommand = async (
   input: NoInputAndOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/xml",
+  };
   let resolvedPath = "/NoInputAndOutputOutput";
   let body: any;
   body = "";
@@ -1468,6 +1505,9 @@ export const serializeAws_restXmlXmlAttributesOnPayloadCommand = async (
   };
   let resolvedPath = "/XmlAttributesOnPayload";
   let body: any;
+  if (input.payload !== undefined) {
+    body = serializeAws_restXmlXmlAttributesInputOutput(input.payload, context);
+  }
   let contents: any;
   if (input.payload !== undefined) {
     contents = serializeAws_restXmlXmlAttributesInputOutput(input.payload, context);

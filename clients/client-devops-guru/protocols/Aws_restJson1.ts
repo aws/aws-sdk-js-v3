@@ -168,7 +168,9 @@ export const serializeAws_restJson1DescribeAccountHealthCommand = async (
   input: DescribeAccountHealthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/accounts/health";
   let body: any;
   body = "";
@@ -326,7 +328,9 @@ export const serializeAws_restJson1DescribeServiceIntegrationCommand = async (
   input: DescribeServiceIntegrationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/service-integrations";
   let body: any;
   body = "";

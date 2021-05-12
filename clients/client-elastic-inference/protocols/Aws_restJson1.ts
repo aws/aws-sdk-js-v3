@@ -103,7 +103,9 @@ export const serializeAws_restJson1DescribeAcceleratorTypesCommand = async (
   input: DescribeAcceleratorTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/describe-accelerator-types";
   let body: any;
   body = "";

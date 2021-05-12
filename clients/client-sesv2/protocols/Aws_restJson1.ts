@@ -1033,7 +1033,9 @@ export const serializeAws_restJson1GetAccountCommand = async (
   input: GetAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/v2/email/account";
   let body: any;
   body = "";
@@ -1280,7 +1282,9 @@ export const serializeAws_restJson1GetDeliverabilityDashboardOptionsCommand = as
   input: GetDeliverabilityDashboardOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/v2/email/deliverability-dashboard";
   let body: any;
   body = "";

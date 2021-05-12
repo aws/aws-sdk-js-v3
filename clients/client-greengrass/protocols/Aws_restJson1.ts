@@ -1344,7 +1344,9 @@ export const serializeAws_restJson1DisassociateServiceRoleFromAccountCommand = a
   input: DisassociateServiceRoleFromAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/greengrass/servicerole";
   let body: any;
   body = "";
@@ -2022,7 +2024,9 @@ export const serializeAws_restJson1GetServiceRoleForAccountCommand = async (
   input: GetServiceRoleForAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/greengrass/servicerole";
   let body: any;
   body = "";

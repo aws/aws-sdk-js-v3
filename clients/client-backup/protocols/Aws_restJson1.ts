@@ -562,7 +562,9 @@ export const serializeAws_restJson1DescribeGlobalSettingsCommand = async (
   input: DescribeGlobalSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/global-settings";
   let body: any;
   body = "";
@@ -647,7 +649,9 @@ export const serializeAws_restJson1DescribeRegionSettingsCommand = async (
   input: DescribeRegionSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/account-settings";
   let body: any;
   body = "";
@@ -975,7 +979,9 @@ export const serializeAws_restJson1GetSupportedResourceTypesCommand = async (
   input: GetSupportedResourceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/supported-resource-types";
   let body: any;
   body = "";

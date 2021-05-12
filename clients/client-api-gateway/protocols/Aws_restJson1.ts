@@ -1766,7 +1766,9 @@ export const serializeAws_restJson1GetAccountCommand = async (
   input: GetAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/account";
   let body: any;
   body = "";

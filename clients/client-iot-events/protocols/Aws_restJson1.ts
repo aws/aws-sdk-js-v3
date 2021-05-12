@@ -324,7 +324,9 @@ export const serializeAws_restJson1DescribeLoggingOptionsCommand = async (
   input: DescribeLoggingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/logging";
   let body: any;
   body = "";

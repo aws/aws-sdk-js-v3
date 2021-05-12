@@ -1306,7 +1306,9 @@ export const serializeAws_restJson1ClearDefaultAuthorizerCommand = async (
   input: ClearDefaultAuthorizerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/default-authorizer";
   let body: any;
   body = "";
@@ -2952,7 +2954,9 @@ export const serializeAws_restJson1DeleteRegistrationCodeCommand = async (
   input: DeleteRegistrationCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/registrationcode";
   let body: any;
   body = "";
@@ -3299,7 +3303,9 @@ export const serializeAws_restJson1DescribeAccountAuditConfigurationCommand = as
   input: DescribeAccountAuditConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/audit/configuration";
   let body: any;
   body = "";
@@ -3571,7 +3577,9 @@ export const serializeAws_restJson1DescribeDefaultAuthorizerCommand = async (
   input: DescribeDefaultAuthorizerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/default-authorizer";
   let body: any;
   body = "";
@@ -3698,7 +3706,9 @@ export const serializeAws_restJson1DescribeEventConfigurationsCommand = async (
   input: DescribeEventConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/event-configurations";
   let body: any;
   body = "";
@@ -4396,7 +4406,9 @@ export const serializeAws_restJson1GetIndexingConfigurationCommand = async (
   input: GetIndexingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/indexing/config";
   let body: any;
   body = "";
@@ -4444,7 +4456,9 @@ export const serializeAws_restJson1GetLoggingOptionsCommand = async (
   input: GetLoggingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/loggingOptions";
   let body: any;
   body = "";
@@ -4587,7 +4601,9 @@ export const serializeAws_restJson1GetRegistrationCodeCommand = async (
   input: GetRegistrationCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/registrationcode";
   let body: any;
   body = "";
@@ -4697,7 +4713,9 @@ export const serializeAws_restJson1GetV2LoggingOptionsCommand = async (
   input: GetV2LoggingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/v2LoggingOptions";
   let body: any;
   body = "";

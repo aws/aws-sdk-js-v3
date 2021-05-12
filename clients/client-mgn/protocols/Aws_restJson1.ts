@@ -506,7 +506,9 @@ export const serializeAws_restJson1InitializeServiceCommand = async (
   input: InitializeServiceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/InitializeService";
   let body: any;
   body = "";

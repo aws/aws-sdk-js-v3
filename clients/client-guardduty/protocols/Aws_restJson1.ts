@@ -1124,7 +1124,9 @@ export const serializeAws_restJson1GetInvitationsCountCommand = async (
   input: GetInvitationsCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath = "/invitation/count";
   let body: any;
   body = "";

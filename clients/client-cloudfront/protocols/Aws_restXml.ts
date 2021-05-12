@@ -497,6 +497,9 @@ export const serializeAws_restXmlCreateCachePolicyCommand = async (
   };
   let resolvedPath = "/2020-05-31/cache-policy";
   let body: any;
+  if (input.CachePolicyConfig !== undefined) {
+    body = serializeAws_restXmlCachePolicyConfig(input.CachePolicyConfig, context);
+  }
   let contents: any;
   if (input.CachePolicyConfig !== undefined) {
     contents = serializeAws_restXmlCachePolicyConfig(input.CachePolicyConfig, context);
@@ -525,6 +528,12 @@ export const serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand = a
   };
   let resolvedPath = "/2020-05-31/origin-access-identity/cloudfront";
   let body: any;
+  if (input.CloudFrontOriginAccessIdentityConfig !== undefined) {
+    body = serializeAws_restXmlCloudFrontOriginAccessIdentityConfig(
+      input.CloudFrontOriginAccessIdentityConfig,
+      context
+    );
+  }
   let contents: any;
   if (input.CloudFrontOriginAccessIdentityConfig !== undefined) {
     contents = serializeAws_restXmlCloudFrontOriginAccessIdentityConfig(
@@ -556,6 +565,9 @@ export const serializeAws_restXmlCreateDistributionCommand = async (
   };
   let resolvedPath = "/2020-05-31/distribution";
   let body: any;
+  if (input.DistributionConfig !== undefined) {
+    body = serializeAws_restXmlDistributionConfig(input.DistributionConfig, context);
+  }
   let contents: any;
   if (input.DistributionConfig !== undefined) {
     contents = serializeAws_restXmlDistributionConfig(input.DistributionConfig, context);
@@ -587,6 +599,9 @@ export const serializeAws_restXmlCreateDistributionWithTagsCommand = async (
     WithTags: "",
   };
   let body: any;
+  if (input.DistributionConfigWithTags !== undefined) {
+    body = serializeAws_restXmlDistributionConfigWithTags(input.DistributionConfigWithTags, context);
+  }
   let contents: any;
   if (input.DistributionConfigWithTags !== undefined) {
     contents = serializeAws_restXmlDistributionConfigWithTags(input.DistributionConfigWithTags, context);
@@ -616,6 +631,9 @@ export const serializeAws_restXmlCreateFieldLevelEncryptionConfigCommand = async
   };
   let resolvedPath = "/2020-05-31/field-level-encryption";
   let body: any;
+  if (input.FieldLevelEncryptionConfig !== undefined) {
+    body = serializeAws_restXmlFieldLevelEncryptionConfig(input.FieldLevelEncryptionConfig, context);
+  }
   let contents: any;
   if (input.FieldLevelEncryptionConfig !== undefined) {
     contents = serializeAws_restXmlFieldLevelEncryptionConfig(input.FieldLevelEncryptionConfig, context);
@@ -644,6 +662,9 @@ export const serializeAws_restXmlCreateFieldLevelEncryptionProfileCommand = asyn
   };
   let resolvedPath = "/2020-05-31/field-level-encryption-profile";
   let body: any;
+  if (input.FieldLevelEncryptionProfileConfig !== undefined) {
+    body = serializeAws_restXmlFieldLevelEncryptionProfileConfig(input.FieldLevelEncryptionProfileConfig, context);
+  }
   let contents: any;
   if (input.FieldLevelEncryptionProfileConfig !== undefined) {
     contents = serializeAws_restXmlFieldLevelEncryptionProfileConfig(input.FieldLevelEncryptionProfileConfig, context);
@@ -720,6 +741,9 @@ export const serializeAws_restXmlCreateInvalidationCommand = async (
     throw new Error("No value provided for input HTTP label: DistributionId.");
   }
   let body: any;
+  if (input.InvalidationBatch !== undefined) {
+    body = serializeAws_restXmlInvalidationBatch(input.InvalidationBatch, context);
+  }
   let contents: any;
   if (input.InvalidationBatch !== undefined) {
     contents = serializeAws_restXmlInvalidationBatch(input.InvalidationBatch, context);
@@ -748,6 +772,9 @@ export const serializeAws_restXmlCreateKeyGroupCommand = async (
   };
   let resolvedPath = "/2020-05-31/key-group";
   let body: any;
+  if (input.KeyGroupConfig !== undefined) {
+    body = serializeAws_restXmlKeyGroupConfig(input.KeyGroupConfig, context);
+  }
   let contents: any;
   if (input.KeyGroupConfig !== undefined) {
     contents = serializeAws_restXmlKeyGroupConfig(input.KeyGroupConfig, context);
@@ -785,6 +812,9 @@ export const serializeAws_restXmlCreateMonitoringSubscriptionCommand = async (
     throw new Error("No value provided for input HTTP label: DistributionId.");
   }
   let body: any;
+  if (input.MonitoringSubscription !== undefined) {
+    body = serializeAws_restXmlMonitoringSubscription(input.MonitoringSubscription, context);
+  }
   let contents: any;
   if (input.MonitoringSubscription !== undefined) {
     contents = serializeAws_restXmlMonitoringSubscription(input.MonitoringSubscription, context);
@@ -813,6 +843,9 @@ export const serializeAws_restXmlCreateOriginRequestPolicyCommand = async (
   };
   let resolvedPath = "/2020-05-31/origin-request-policy";
   let body: any;
+  if (input.OriginRequestPolicyConfig !== undefined) {
+    body = serializeAws_restXmlOriginRequestPolicyConfig(input.OriginRequestPolicyConfig, context);
+  }
   let contents: any;
   if (input.OriginRequestPolicyConfig !== undefined) {
     contents = serializeAws_restXmlOriginRequestPolicyConfig(input.OriginRequestPolicyConfig, context);
@@ -841,6 +874,9 @@ export const serializeAws_restXmlCreatePublicKeyCommand = async (
   };
   let resolvedPath = "/2020-05-31/public-key";
   let body: any;
+  if (input.PublicKeyConfig !== undefined) {
+    body = serializeAws_restXmlPublicKeyConfig(input.PublicKeyConfig, context);
+  }
   let contents: any;
   if (input.PublicKeyConfig !== undefined) {
     contents = serializeAws_restXmlPublicKeyConfig(input.PublicKeyConfig, context);
@@ -918,6 +954,9 @@ export const serializeAws_restXmlCreateStreamingDistributionCommand = async (
   };
   let resolvedPath = "/2020-05-31/streaming-distribution";
   let body: any;
+  if (input.StreamingDistributionConfig !== undefined) {
+    body = serializeAws_restXmlStreamingDistributionConfig(input.StreamingDistributionConfig, context);
+  }
   let contents: any;
   if (input.StreamingDistributionConfig !== undefined) {
     contents = serializeAws_restXmlStreamingDistributionConfig(input.StreamingDistributionConfig, context);
@@ -949,6 +988,9 @@ export const serializeAws_restXmlCreateStreamingDistributionWithTagsCommand = as
     WithTags: "",
   };
   let body: any;
+  if (input.StreamingDistributionConfigWithTags !== undefined) {
+    body = serializeAws_restXmlStreamingDistributionConfigWithTags(input.StreamingDistributionConfigWithTags, context);
+  }
   let contents: any;
   if (input.StreamingDistributionConfigWithTags !== undefined) {
     contents = serializeAws_restXmlStreamingDistributionConfigWithTags(
@@ -2542,6 +2584,9 @@ export const serializeAws_restXmlTagResourceCommand = async (
     ...(input.Resource !== undefined && { Resource: input.Resource }),
   };
   let body: any;
+  if (input.Tags !== undefined) {
+    body = serializeAws_restXmlTags(input.Tags, context);
+  }
   let contents: any;
   if (input.Tags !== undefined) {
     contents = serializeAws_restXmlTags(input.Tags, context);
@@ -2620,6 +2665,9 @@ export const serializeAws_restXmlUntagResourceCommand = async (
     ...(input.Resource !== undefined && { Resource: input.Resource }),
   };
   let body: any;
+  if (input.TagKeys !== undefined) {
+    body = serializeAws_restXmlTagKeys(input.TagKeys, context);
+  }
   let contents: any;
   if (input.TagKeys !== undefined) {
     contents = serializeAws_restXmlTagKeys(input.TagKeys, context);
@@ -2659,6 +2707,9 @@ export const serializeAws_restXmlUpdateCachePolicyCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  if (input.CachePolicyConfig !== undefined) {
+    body = serializeAws_restXmlCachePolicyConfig(input.CachePolicyConfig, context);
+  }
   let contents: any;
   if (input.CachePolicyConfig !== undefined) {
     contents = serializeAws_restXmlCachePolicyConfig(input.CachePolicyConfig, context);
@@ -2697,6 +2748,12 @@ export const serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand = a
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  if (input.CloudFrontOriginAccessIdentityConfig !== undefined) {
+    body = serializeAws_restXmlCloudFrontOriginAccessIdentityConfig(
+      input.CloudFrontOriginAccessIdentityConfig,
+      context
+    );
+  }
   let contents: any;
   if (input.CloudFrontOriginAccessIdentityConfig !== undefined) {
     contents = serializeAws_restXmlCloudFrontOriginAccessIdentityConfig(
@@ -2738,6 +2795,9 @@ export const serializeAws_restXmlUpdateDistributionCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  if (input.DistributionConfig !== undefined) {
+    body = serializeAws_restXmlDistributionConfig(input.DistributionConfig, context);
+  }
   let contents: any;
   if (input.DistributionConfig !== undefined) {
     contents = serializeAws_restXmlDistributionConfig(input.DistributionConfig, context);
@@ -2776,6 +2836,9 @@ export const serializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand = async
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  if (input.FieldLevelEncryptionConfig !== undefined) {
+    body = serializeAws_restXmlFieldLevelEncryptionConfig(input.FieldLevelEncryptionConfig, context);
+  }
   let contents: any;
   if (input.FieldLevelEncryptionConfig !== undefined) {
     contents = serializeAws_restXmlFieldLevelEncryptionConfig(input.FieldLevelEncryptionConfig, context);
@@ -2814,6 +2877,9 @@ export const serializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand = asyn
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  if (input.FieldLevelEncryptionProfileConfig !== undefined) {
+    body = serializeAws_restXmlFieldLevelEncryptionProfileConfig(input.FieldLevelEncryptionProfileConfig, context);
+  }
   let contents: any;
   if (input.FieldLevelEncryptionProfileConfig !== undefined) {
     contents = serializeAws_restXmlFieldLevelEncryptionProfileConfig(input.FieldLevelEncryptionProfileConfig, context);
@@ -2897,6 +2963,9 @@ export const serializeAws_restXmlUpdateKeyGroupCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  if (input.KeyGroupConfig !== undefined) {
+    body = serializeAws_restXmlKeyGroupConfig(input.KeyGroupConfig, context);
+  }
   let contents: any;
   if (input.KeyGroupConfig !== undefined) {
     contents = serializeAws_restXmlKeyGroupConfig(input.KeyGroupConfig, context);
@@ -2935,6 +3004,9 @@ export const serializeAws_restXmlUpdateOriginRequestPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  if (input.OriginRequestPolicyConfig !== undefined) {
+    body = serializeAws_restXmlOriginRequestPolicyConfig(input.OriginRequestPolicyConfig, context);
+  }
   let contents: any;
   if (input.OriginRequestPolicyConfig !== undefined) {
     contents = serializeAws_restXmlOriginRequestPolicyConfig(input.OriginRequestPolicyConfig, context);
@@ -2973,6 +3045,9 @@ export const serializeAws_restXmlUpdatePublicKeyCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  if (input.PublicKeyConfig !== undefined) {
+    body = serializeAws_restXmlPublicKeyConfig(input.PublicKeyConfig, context);
+  }
   let contents: any;
   if (input.PublicKeyConfig !== undefined) {
     contents = serializeAws_restXmlPublicKeyConfig(input.PublicKeyConfig, context);
@@ -3064,6 +3139,9 @@ export const serializeAws_restXmlUpdateStreamingDistributionCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
+  if (input.StreamingDistributionConfig !== undefined) {
+    body = serializeAws_restXmlStreamingDistributionConfig(input.StreamingDistributionConfig, context);
+  }
   let contents: any;
   if (input.StreamingDistributionConfig !== undefined) {
     contents = serializeAws_restXmlStreamingDistributionConfig(input.StreamingDistributionConfig, context);
