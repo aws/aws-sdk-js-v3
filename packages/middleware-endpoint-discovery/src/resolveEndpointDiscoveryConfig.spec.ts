@@ -1,10 +1,10 @@
 import { EndpointCache } from "@aws-sdk/endpoint-cache";
 
-import { resolveEndpointDiscoveryClientConfig } from "./resolveEndpointDiscoveryClientConfig";
+import { resolveEndpointDiscoveryConfig } from "./resolveEndpointDiscoveryConfig";
 
 jest.mock("@aws-sdk/endpoint-cache");
 
-describe(resolveEndpointDiscoveryClientConfig.name, () => {
+describe(resolveEndpointDiscoveryConfig.name, () => {
   const isCustomEndpoint = false;
   const credentials = jest.fn();
   const endpointDiscoveryEnabledProvider = jest.fn().mockResolvedValue(undefined);
@@ -16,7 +16,7 @@ describe(resolveEndpointDiscoveryClientConfig.name, () => {
   describe("endpointCache", () => {
     it("creates cache of size endpointCacheSize if passed", () => {
       const endpointCacheSize = 100;
-      resolveEndpointDiscoveryClientConfig({
+      resolveEndpointDiscoveryConfig({
         isCustomEndpoint,
         credentials,
         endpointCacheSize,
@@ -26,7 +26,7 @@ describe(resolveEndpointDiscoveryClientConfig.name, () => {
     });
 
     it("creates cache of size 1000 if endpointCacheSize not passed", () => {
-      resolveEndpointDiscoveryClientConfig({
+      resolveEndpointDiscoveryConfig({
         isCustomEndpoint,
         credentials,
         endpointDiscoveryEnabledProvider,
@@ -37,7 +37,7 @@ describe(resolveEndpointDiscoveryClientConfig.name, () => {
 
   describe("endpointDiscoveryEnabled", () => {
     it.each<boolean>([false, true])(`sets to value passed in the config: %s`, (endpointDiscoveryEnabled) => {
-      const resolvedConfig = resolveEndpointDiscoveryClientConfig({
+      const resolvedConfig = resolveEndpointDiscoveryConfig({
         isCustomEndpoint,
         credentials,
         endpointDiscoveryEnabled,
@@ -49,7 +49,7 @@ describe(resolveEndpointDiscoveryClientConfig.name, () => {
     });
 
     it(`sets to endpointDiscoveryEnabledProvider if value is not passed`, () => {
-      const resolvedConfig = resolveEndpointDiscoveryClientConfig({
+      const resolvedConfig = resolveEndpointDiscoveryConfig({
         isCustomEndpoint,
         credentials,
         endpointDiscoveryEnabledProvider,
