@@ -22,9 +22,9 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import {
-  EndpointDiscoveryClientInputConfig,
-  EndpointDiscoveryClientResolvedConfig,
-  resolveEndpointDiscoveryClientConfig,
+  EndpointDiscoveryInputConfig,
+  EndpointDiscoveryResolvedConfig,
+  resolveEndpointDiscoveryConfig,
 } from "@aws-sdk/middleware-endpoint-discovery";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
@@ -171,7 +171,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 type TimestreamQueryClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
-  EndpointDiscoveryClientInputConfig &
+  EndpointDiscoveryInputConfig &
   EndpointsInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
@@ -185,7 +185,7 @@ export interface TimestreamQueryClientConfig extends TimestreamQueryClientConfig
 type TimestreamQueryClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
-  EndpointDiscoveryClientResolvedConfig &
+  EndpointDiscoveryResolvedConfig &
   EndpointsResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
@@ -223,7 +223,7 @@ export class TimestreamQueryClient extends __Client<
     let _config_4 = resolveHostHeaderConfig(_config_3);
     let _config_5 = resolveAwsAuthConfig(_config_4);
     let _config_6 = resolveUserAgentConfig(_config_5);
-    let _config_7 = resolveEndpointDiscoveryClientConfig(_config_6);
+    let _config_7 = resolveEndpointDiscoveryConfig(_config_6);
     super(_config_7);
     _config_7.client = this;
     _config_7.endpointDiscoveryCommandCtor = DescribeEndpointsCommand;
