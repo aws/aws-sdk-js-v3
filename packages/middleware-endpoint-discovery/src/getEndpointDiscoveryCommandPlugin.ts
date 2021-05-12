@@ -1,7 +1,7 @@
 import { FinalizeRequestHandlerOptions, Pluggable } from "@aws-sdk/types";
 
 import { endpointDiscoveryMiddleware } from "./endpointDiscoveryMiddleware";
-import { EndpointDiscoveryClientResolvedConfig } from "./resolveEndpointDiscoveryClientConfig";
+import { EndpointDiscoveryResolvedConfig } from "./resolveEndpointDiscoveryConfig";
 
 export const endpointDiscoveryMiddlewareOptions: FinalizeRequestHandlerOptions = {
   name: "endpointDiscoveryMiddleware",
@@ -16,7 +16,7 @@ export type EndpointDiscoveryMiddlewareConfig = {
 };
 
 export const getEndpointDiscoveryCommandPlugin = (
-  pluginConfig: EndpointDiscoveryClientResolvedConfig,
+  pluginConfig: EndpointDiscoveryResolvedConfig,
   middlewareConfig: EndpointDiscoveryMiddlewareConfig
 ): Pluggable<any, any> => ({
   applyToStack: (commandStack) => {

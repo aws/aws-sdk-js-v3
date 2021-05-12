@@ -2,7 +2,7 @@ import { Command } from "@aws-sdk/types";
 
 import { getCacheKey } from "./getCacheKey";
 import { EndpointDiscoveryMiddlewareConfig } from "./getEndpointDiscoveryCommandPlugin";
-import { EndpointDiscoveryClientResolvedConfig } from "./resolveEndpointDiscoveryClientConfig";
+import { EndpointDiscoveryResolvedConfig } from "./resolveEndpointDiscoveryConfig";
 
 export type updateDiscoveredEndpointInCacheOptions = EndpointDiscoveryMiddlewareConfig & {
   commandName: string;
@@ -12,7 +12,7 @@ export type updateDiscoveredEndpointInCacheOptions = EndpointDiscoveryMiddleware
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const updateDiscoveredEndpointInCache = async (
-  config: EndpointDiscoveryClientResolvedConfig,
+  config: EndpointDiscoveryResolvedConfig,
   options: updateDiscoveredEndpointInCacheOptions
 ) => {
   const { client, endpointCache } = config;

@@ -1,7 +1,7 @@
 import { EndpointCache } from "@aws-sdk/endpoint-cache";
 import { Client, Command, Credentials, Provider } from "@aws-sdk/types";
 
-export interface EndpointDiscoveryClientInputConfig {}
+export interface EndpointDiscoveryInputConfig {}
 
 interface PreviouslyResolved {
   isCustomEndpoint: boolean;
@@ -22,7 +22,7 @@ interface PreviouslyResolved {
   endpointDiscoveryEnabledProvider: Provider<boolean | undefined>;
 }
 
-export interface EndpointDiscoveryClientResolvedConfig {
+export interface EndpointDiscoveryResolvedConfig {
   isCustomEndpoint: boolean;
   credentials: Provider<Credentials>;
   client?: Client<any, any, any>;
@@ -32,9 +32,9 @@ export interface EndpointDiscoveryClientResolvedConfig {
   isClientEndpointDiscoveryEnabled: boolean;
 }
 
-export const resolveEndpointDiscoveryClientConfig = <T>(
-  input: T & PreviouslyResolved & EndpointDiscoveryClientInputConfig
-): T & EndpointDiscoveryClientResolvedConfig => ({
+export const resolveEndpointDiscoveryConfig = <T>(
+  input: T & PreviouslyResolved & EndpointDiscoveryInputConfig
+): T & EndpointDiscoveryResolvedConfig => ({
   ...input,
   endpointCache: new EndpointCache(input.endpointCacheSize ?? 1000),
   endpointDiscoveryEnabled:
