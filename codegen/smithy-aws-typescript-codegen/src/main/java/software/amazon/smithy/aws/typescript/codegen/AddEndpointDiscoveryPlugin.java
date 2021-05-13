@@ -55,8 +55,8 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
             // Add import for endpoint discovery command here, as getClientPlugins doesn't have access to writer.
             addEndpointDiscoveryCommandImport(model, symbolProvider, service, writer);
             writer.addImport("Provider", "__Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-            writer.writeDocs("The provider which populates default for endpointDisvoveryEnabled configuration, if it's\n"
-                + "not passed during client creation.\n@internal")
+            writer.writeDocs("The provider which populates default for endpointDiscoveryEnabled configuration,"
+                + " if it's\nnot passed during client creation.\n@internal")
                 .write("endpointDiscoveryEnabledProvider?: __Provider<boolean | undefined>;\n");
         }
     }
@@ -67,6 +67,8 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
                                 "EndpointDiscovery", RuntimeClientPlugin.Convention.HAS_CONFIG)
+                        // ToDo: The Endpoint Discovery Command Name needs to be read from ClientEndpointDiscoveryTrait.
+                        .additionalResolveFunctionParameters("DescribeEndpointsCommand")
                         .servicePredicate((m, s) -> hasClientEndpointDiscovery(s))
                         .build()
         );
