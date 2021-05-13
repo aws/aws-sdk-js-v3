@@ -1,3 +1,3 @@
 export * from "./resolveEndpointDiscoveryConfig";
-export * from "./getEndpointDiscoveryCommandPlugin";
+export * from "./getEndpointDiscoveryPlugin";
 export * from "./configurations";
