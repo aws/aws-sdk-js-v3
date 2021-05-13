@@ -30,6 +30,7 @@ export const endpointDiscoveryMiddleware = (
   const { isDiscoveredEndpointRequired, identifiers } = middlewareConfig;
   const { clientName, commandName } = context;
   const isEndpointDiscoveryEnabled = await config.endpointDiscoveryEnabled();
+  const cacheKey = await getCacheKey(commandName, config, { identifiers });
 
   if (isDiscoveredEndpointRequired) {
     // throw error if endpoint discovery is required, and it's explicitly disabled.
@@ -44,6 +45,7 @@ export const endpointDiscoveryMiddleware = (
     await updateDiscoveredEndpointInCache(config, {
       ...middlewareConfig,
       commandName,
+      cacheKey,
       endpointDiscoveryCommandCtor,
     });
   } else if (isEndpointDiscoveryEnabled) {
@@ -53,12 +55,12 @@ export const endpointDiscoveryMiddleware = (
     updateDiscoveredEndpointInCache(config, {
       ...middlewareConfig,
       commandName,
+      cacheKey,
       endpointDiscoveryCommandCtor,
     });
   }
 
   const { request } = args;
-  const cacheKey = await getCacheKey(commandName, config, { identifiers });
   if (cacheKey && HttpRequest.isInstance(request)) {
     const endpoint = config.endpointCache.getEndpoint(cacheKey);
     if (endpoint) {

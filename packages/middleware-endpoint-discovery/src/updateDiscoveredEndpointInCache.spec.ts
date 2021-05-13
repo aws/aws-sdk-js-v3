@@ -1,7 +1,4 @@
-import { getCacheKey } from "./getCacheKey";
 import { updateDiscoveredEndpointInCache } from "./updateDiscoveredEndpointInCache";
-
-jest.mock("./getCacheKey");
 
 describe(updateDiscoveredEndpointInCache.name, () => {
   const cacheKey = "cacheKey";
@@ -20,6 +17,7 @@ describe(updateDiscoveredEndpointInCache.name, () => {
   };
 
   const options = {
+    cacheKey,
     commandName: "ExampleCommand",
     endpointDiscoveryCommandCtor: jest.fn().mockReturnValue({ resolveMiddleware: mockResolveMiddleware }),
     isDiscoveredEndpointRequired: false,
@@ -27,7 +25,6 @@ describe(updateDiscoveredEndpointInCache.name, () => {
   };
 
   beforeEach(() => {
-    (getCacheKey as jest.Mock).mockResolvedValue(cacheKey);
     mockGet.mockReturnValue(mockEndpoints);
     jest.useFakeTimers();
   });
