@@ -46,19 +46,17 @@ export const endpointDiscoveryMiddleware = (
     await updateDiscoveredEndpointInCache(config, {
       ...middlewareConfig,
       commandName,
-      endpointDiscoveryCommandCtor: endpointDiscoveryCommandCtor!,
+      endpointDiscoveryCommandCtor,
     });
-  } else {
+  } else if (isEndpointDiscoveryEnabled) {
     // Discover endpoints only if endpoint discovery is explicitly enabled.
-    if (isEndpointDiscoveryEnabled) {
-      // Do not call await await on Endpoint Discovery API utility so that function
-      // does not block, the command will use discovered endpoint, if available.
-      updateDiscoveredEndpointInCache(config, {
-        ...middlewareConfig,
-        commandName,
-        endpointDiscoveryCommandCtor: endpointDiscoveryCommandCtor!,
-      });
-    }
+    // Do not call await await on Endpoint Discovery API utility so that function
+    // does not block, the command will use discovered endpoint, if available.
+    updateDiscoveredEndpointInCache(config, {
+      ...middlewareConfig,
+      commandName,
+      endpointDiscoveryCommandCtor,
+    });
   }
 
   const { request } = args;
