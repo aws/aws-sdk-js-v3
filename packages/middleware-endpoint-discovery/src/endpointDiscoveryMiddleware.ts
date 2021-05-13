@@ -1,8 +1,8 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
-  FinalizeHandler,
-  FinalizeHandlerArguments,
-  FinalizeHandlerOutput,
+  BuildHandler,
+  BuildHandlerArguments,
+  BuildHandlerOutput,
   HandlerExecutionContext,
   MetadataBearer,
 } from "@aws-sdk/types";
@@ -16,11 +16,9 @@ export const endpointDiscoveryMiddleware = (
   config: EndpointDiscoveryResolvedConfig & PreviouslyResolved,
   middlewareConfig: EndpointDiscoveryMiddlewareConfig
 ) => <Output extends MetadataBearer = MetadataBearer>(
-  next: FinalizeHandler<any, Output>,
+  next: BuildHandler<any, Output>,
   context: HandlerExecutionContext
-): FinalizeHandler<any, Output> => async (
-  args: FinalizeHandlerArguments<any>
-): Promise<FinalizeHandlerOutput<Output>> => {
+): BuildHandler<any, Output> => async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
   if (config.isCustomEndpoint) {
     if (config.isClientEndpointDiscoveryEnabled) {
       throw new Error(`Custom endpoint is supplied; endpointDiscoveryEnabled must not be true.`);
