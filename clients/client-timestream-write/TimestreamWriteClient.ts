@@ -217,7 +217,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The provider which populates default for endpointDisvoveryEnabled configuration, if it's
+   * The provider which populates default for endpointDiscoveryEnabled configuration, if it's
    * not passed during client creation.
    * @internal
    */
@@ -277,7 +277,7 @@ export class TimestreamWriteClient extends __Client<
     let _config_4 = resolveHostHeaderConfig(_config_3);
     let _config_5 = resolveAwsAuthConfig(_config_4);
     let _config_6 = resolveUserAgentConfig(_config_5);
-    let _config_7 = resolveEndpointDiscoveryConfig(_config_6);
+    let _config_7 = resolveEndpointDiscoveryConfig(_config_6, DescribeEndpointsCommand);
     super(_config_7);
     this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
