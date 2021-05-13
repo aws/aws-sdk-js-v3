@@ -1,11 +1,11 @@
-import { FinalizeRequestHandlerOptions, HttpHandlerOptions, MiddlewareStack, Pluggable } from "@aws-sdk/types";
+import { BuildHandlerOptions, HttpHandlerOptions, MiddlewareStack, Pluggable } from "@aws-sdk/types";
 
 import { endpointDiscoveryMiddleware } from "./endpointDiscoveryMiddleware";
 import { EndpointDiscoveryResolvedConfig, PreviouslyResolved } from "./resolveEndpointDiscoveryConfig";
 
-export const endpointDiscoveryMiddlewareOptions: FinalizeRequestHandlerOptions = {
+export const endpointDiscoveryMiddlewareOptions: BuildHandlerOptions = {
   name: "endpointDiscoveryMiddleware",
-  step: "finalizeRequest",
+  step: "build",
   tags: ["ENDPOINT_DISCOVERY"],
   override: true,
 };
