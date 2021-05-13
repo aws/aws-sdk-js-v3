@@ -211,6 +211,13 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
+   * The provider which populates default for endpointDisvoveryEnabled configuration, if it's
+   * not passed during client creation.
+   * @internal
+   */
+  endpointDiscoveryEnabledProvider?: __Provider<boolean | undefined>;
 }
 
 type TimestreamWriteClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &

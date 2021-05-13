@@ -4,6 +4,7 @@ import { decorateDefaultCredentialProvider } from "@aws-sdk/client-sts";
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@aws-sdk/config-resolver";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { Hash } from "@aws-sdk/hash-node";
+import { NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS } from "@aws-sdk/middleware-endpoint-discovery";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS } from "@aws-sdk/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
 import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
@@ -28,6 +29,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
     serviceId: ClientSharedValues.serviceId,
     clientVersion: packageInfo.version,
   }),
+  endpointDiscoveryEnabledProvider: loadNodeConfig(NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS),
   maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
   region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
   requestHandler: new NodeHttpHandler(),
