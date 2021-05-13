@@ -1,8 +1,8 @@
-import { getCacheKey } from "./getCacheKey";
 import { EndpointDiscoveryMiddlewareConfig } from "./getEndpointDiscoveryPlugin";
 import { EndpointDiscoveryResolvedConfig, PreviouslyResolved } from "./resolveEndpointDiscoveryConfig";
 
 export interface UpdateDiscoveredEndpointInCacheOptions extends EndpointDiscoveryMiddlewareConfig {
+  cacheKey: string;
   commandName: string;
   endpointDiscoveryCommandCtor: new (comandConfig: any) => any;
 }
@@ -14,8 +14,7 @@ export const updateDiscoveredEndpointInCache = async (
   options: UpdateDiscoveredEndpointInCacheOptions
 ) => {
   const { endpointCache } = config;
-  const { commandName, identifiers } = options;
-  const cacheKey = await getCacheKey(commandName, config, { identifiers });
+  const { cacheKey, commandName, identifiers } = options;
 
   let endpoints = endpointCache.get(cacheKey);
 
