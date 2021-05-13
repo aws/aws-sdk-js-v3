@@ -9,11 +9,11 @@ import {
 
 import { getCacheKey } from "./getCacheKey";
 import { EndpointDiscoveryMiddlewareConfig } from "./getEndpointDiscoveryPlugin";
-import { EndpointDiscoveryResolvedConfig } from "./resolveEndpointDiscoveryConfig";
+import { EndpointDiscoveryResolvedConfig, PreviouslyResolved } from "./resolveEndpointDiscoveryConfig";
 import { updateDiscoveredEndpointInCache } from "./updateDiscoveredEndpointInCache";
 
 export const endpointDiscoveryMiddleware = (
-  config: EndpointDiscoveryResolvedConfig,
+  config: EndpointDiscoveryResolvedConfig & PreviouslyResolved,
   middlewareConfig: EndpointDiscoveryMiddlewareConfig
 ) => <Output extends MetadataBearer = MetadataBearer>(
   next: FinalizeHandler<any, Output>,
