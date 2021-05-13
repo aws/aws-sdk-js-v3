@@ -110,6 +110,11 @@ import {
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
+  EndpointDiscoveryInputConfig,
+  EndpointDiscoveryResolvedConfig,
+  resolveEndpointDiscoveryConfig,
+} from "@aws-sdk/middleware-endpoint-discovery";
+import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
@@ -357,7 +362,8 @@ type DynamoDBClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptio
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  EndpointDiscoveryInputConfig;
 /**
  * The configuration interface of DynamoDBClient class constructor that set the region, credentials and other options.
  */
@@ -370,7 +376,8 @@ type DynamoDBClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  EndpointDiscoveryResolvedConfig;
 /**
  * The resolved configuration interface of DynamoDBClient class. This is resolved and normalized from the {@link DynamoDBClientConfig | constructor configuration interface}.
  */
@@ -419,8 +426,9 @@ export class DynamoDBClient extends __Client<
     let _config_4 = resolveHostHeaderConfig(_config_3);
     let _config_5 = resolveAwsAuthConfig(_config_4);
     let _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    let _config_7 = resolveEndpointDiscoveryConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
