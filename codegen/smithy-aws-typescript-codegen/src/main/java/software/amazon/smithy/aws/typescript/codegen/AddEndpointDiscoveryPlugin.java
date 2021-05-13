@@ -21,9 +21,12 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 import software.amazon.smithy.aws.traits.clientendpointdiscovery.ClientEndpointDiscoveryTrait;
+import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -49,6 +52,8 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
     ) {
         ServiceShape service = settings.getService(model);
         if (hasClientEndpointDiscovery(service)) {
+            // Add import for endpoint discovery command here, as getClientPlugins doesn't have access to writer.
+            addEndpointDiscoveryCommandImport(model, symbolProvider, service, writer);
             writer.addImport("Provider", "__Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
             writer.writeDocs("The provider which populates default for endpointDisvoveryEnabled configuration, if it's\n"
                 + "not passed during client creation.\n@internal")
@@ -99,6 +104,22 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
             default:
                 return Collections.emptyMap();
         }
+    }
+
+    private void addEndpointDiscoveryCommandImport(
+            Model model,
+            SymbolProvider symbolProvider,
+            ServiceShape service,
+            TypeScriptWriter writer
+    ) {
+        if (!hasClientEndpointDiscovery(service)) {
+            throw new CodegenException(
+                "EndpointDiscovery command import called for service without endpoint discovery"
+            );
+        }
+        ShapeId operationShapeId = service.getTrait(ClientEndpointDiscoveryTrait.class).orElse(null).getOperation();
+        OperationShape operation = model.expectShape(operationShapeId, OperationShape.class);
+        writer.addUseImports(symbolProvider.toSymbol(operation));
     }
 
     private static boolean hasClientEndpointDiscovery(ServiceShape service) {
