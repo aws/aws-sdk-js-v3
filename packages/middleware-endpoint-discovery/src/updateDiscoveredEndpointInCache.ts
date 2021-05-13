@@ -1,6 +1,6 @@
 import { getCacheKey } from "./getCacheKey";
 import { EndpointDiscoveryMiddlewareConfig } from "./getEndpointDiscoveryPlugin";
-import { EndpointDiscoveryResolvedConfig } from "./resolveEndpointDiscoveryConfig";
+import { EndpointDiscoveryResolvedConfig, PreviouslyResolved } from "./resolveEndpointDiscoveryConfig";
 
 export interface UpdateDiscoveredEndpointInCacheOptions extends EndpointDiscoveryMiddlewareConfig {
   commandName: string;
@@ -10,7 +10,7 @@ export interface UpdateDiscoveredEndpointInCacheOptions extends EndpointDiscover
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const updateDiscoveredEndpointInCache = async (
-  config: EndpointDiscoveryResolvedConfig,
+  config: EndpointDiscoveryResolvedConfig & PreviouslyResolved,
   options: UpdateDiscoveredEndpointInCacheOptions
 ) => {
   const { endpointCache } = config;

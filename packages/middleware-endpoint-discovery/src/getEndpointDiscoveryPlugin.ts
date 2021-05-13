@@ -1,7 +1,7 @@
 import { FinalizeRequestHandlerOptions, HttpHandlerOptions, MiddlewareStack, Pluggable } from "@aws-sdk/types";
 
 import { endpointDiscoveryMiddleware } from "./endpointDiscoveryMiddleware";
-import { EndpointDiscoveryResolvedConfig } from "./resolveEndpointDiscoveryConfig";
+import { EndpointDiscoveryResolvedConfig, PreviouslyResolved } from "./resolveEndpointDiscoveryConfig";
 
 export const endpointDiscoveryMiddlewareOptions: FinalizeRequestHandlerOptions = {
   name: "endpointDiscoveryMiddleware",
@@ -18,7 +18,7 @@ export interface EndpointDiscoveryMiddlewareConfig {
 }
 
 export const getEndpointDiscoveryPlugin = (
-  pluginConfig: EndpointDiscoveryResolvedConfig,
+  pluginConfig: EndpointDiscoveryResolvedConfig & PreviouslyResolved,
   middlewareConfig: EndpointDiscoveryMiddlewareConfig
 ): Pluggable<any, any> => ({
   applyToStack: (commandStack) => {
@@ -27,7 +27,7 @@ export const getEndpointDiscoveryPlugin = (
 });
 
 export const getEndpointDiscoveryRequiredPlugin = (
-  pluginConfig: EndpointDiscoveryResolvedConfig,
+  pluginConfig: EndpointDiscoveryResolvedConfig & PreviouslyResolved,
   middlewareConfig: Omit<EndpointDiscoveryMiddlewareConfig, "isDiscoveredEndpointRequired">
 ): Pluggable<any, any> => ({
   applyToStack: (commandStack) => {
@@ -39,7 +39,7 @@ export const getEndpointDiscoveryRequiredPlugin = (
 });
 
 export const getEndpointDiscoveryOptionalPlugin = (
-  pluginConfig: EndpointDiscoveryResolvedConfig,
+  pluginConfig: EndpointDiscoveryResolvedConfig & PreviouslyResolved,
   middlewareConfig: Omit<EndpointDiscoveryMiddlewareConfig, "isDiscoveredEndpointRequired">
 ): Pluggable<any, any> => ({
   applyToStack: (commandStack) => {
