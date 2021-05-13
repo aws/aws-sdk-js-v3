@@ -48,7 +48,7 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
         TypeScriptWriter writer
     ) {
         ServiceShape service = settings.getService(model);
-        if (hasClientEndpointDiscovery(model, service)) {
+        if (hasClientEndpointDiscovery(service)) {
             writer.addImport("Provider", "__Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
             writer.writeDocs("The provider which populates default for endpointDisvoveryEnabled configuration, if it's\n"
                 + "not passed during client creation.\n@internal")
@@ -62,7 +62,7 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
                                 "EndpointDiscovery", RuntimeClientPlugin.Convention.HAS_CONFIG)
-                        .servicePredicate(AddEndpointDiscoveryPlugin::hasClientEndpointDiscovery)
+                        .servicePredicate((m, s) -> hasClientEndpointDiscovery(s))
                         .build()
         );
     }
@@ -75,7 +75,7 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
         LanguageTarget target
     ) {
         ServiceShape service = settings.getService(model);
-        if (!hasClientEndpointDiscovery(model, service)) {
+        if (!hasClientEndpointDiscovery(service)) {
             return Collections.emptyMap();
         }
         switch (target) {
@@ -101,10 +101,7 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
         }
     }
 
-    private static boolean hasClientEndpointDiscovery(
-            Model model,
-            ServiceShape service
-    ) {
+    private static boolean hasClientEndpointDiscovery(ServiceShape service) {
         if(service.getTrait(ClientEndpointDiscoveryTrait.class).isPresent()) {
             return true;
         }
