@@ -78,13 +78,13 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
                                 "EndpointDiscoveryRequired", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
-                        .additionalResolveFunctionParameters(new String[]{"clientStack", "options"})
+                        .additionalPluginFunctionParameters(new String[]{"clientStack", "options"})
                         .operationPredicate((m, s, o) -> isClientDiscoveredEndpointRequired(s, o))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
                                 "EndpointDiscoveryOptional", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
-                        .additionalResolveFunctionParameters(new String[]{"clientStack", "options"})
+                        .additionalPluginFunctionParameters(new String[]{"clientStack", "options"})
                         .operationPredicate((m, s, o) -> isClientDiscoveredEndpointOptional(s, o))
                         .build()
                 
