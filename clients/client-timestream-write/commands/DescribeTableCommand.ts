@@ -4,6 +4,7 @@ import {
   deserializeAws_json1_0DescribeTableCommand,
   serializeAws_json1_0DescribeTableCommand,
 } from "../protocols/Aws_json1_0";
+import { getEndpointDiscoveryRequiredPlugin } from "@aws-sdk/middleware-endpoint-discovery";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -63,6 +64,7 @@ export class DescribeTableCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DescribeTableCommandInput, DescribeTableCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEndpointDiscoveryRequiredPlugin(configuration, { clientStack, options }));
 
     const stack = clientStack.concat(this.middlewareStack);
 
