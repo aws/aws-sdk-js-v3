@@ -10,12 +10,12 @@ export const endpointDiscoveryMiddlewareOptions: FinalizeRequestHandlerOptions =
   override: true,
 };
 
-export type EndpointDiscoveryMiddlewareConfig = {
+export interface EndpointDiscoveryMiddlewareConfig {
   isDiscoveredEndpointRequired: boolean;
   clientStack: MiddlewareStack<any, any>;
   options?: HttpHandlerOptions;
   identifiers?: { [key: string]: string };
-};
+}
 
 export const getEndpointDiscoveryPlugin = (
   pluginConfig: EndpointDiscoveryResolvedConfig,

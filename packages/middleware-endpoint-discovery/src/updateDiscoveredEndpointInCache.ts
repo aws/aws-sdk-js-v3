@@ -2,16 +2,16 @@ import { getCacheKey } from "./getCacheKey";
 import { EndpointDiscoveryMiddlewareConfig } from "./getEndpointDiscoveryPlugin";
 import { EndpointDiscoveryResolvedConfig } from "./resolveEndpointDiscoveryConfig";
 
-export type updateDiscoveredEndpointInCacheOptions = EndpointDiscoveryMiddlewareConfig & {
+export interface UpdateDiscoveredEndpointInCacheOptions extends EndpointDiscoveryMiddlewareConfig {
   commandName: string;
   endpointDiscoveryCommandCtor: new (comandConfig: any) => any;
-};
+}
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const updateDiscoveredEndpointInCache = async (
   config: EndpointDiscoveryResolvedConfig,
-  options: updateDiscoveredEndpointInCacheOptions
+  options: UpdateDiscoveredEndpointInCacheOptions
 ) => {
   const { endpointCache } = config;
   const { commandName, identifiers } = options;
