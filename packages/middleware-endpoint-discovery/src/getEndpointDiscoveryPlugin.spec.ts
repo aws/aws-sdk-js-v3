@@ -1,12 +1,9 @@
 import { endpointDiscoveryMiddleware } from "./endpointDiscoveryMiddleware";
-import {
-  endpointDiscoveryMiddlewareOptions,
-  getEndpointDiscoveryCommandPlugin,
-} from "./getEndpointDiscoveryCommandPlugin";
+import { endpointDiscoveryMiddlewareOptions, getEndpointDiscoveryPlugin } from "./getEndpointDiscoveryPlugin";
 
 jest.mock("./endpointDiscoveryMiddleware");
 
-describe(getEndpointDiscoveryCommandPlugin.name, () => {
+describe(getEndpointDiscoveryPlugin.name, () => {
   const pluginConfig = {
     isCustomEndpoint: false,
     endpointCache: jest.fn(),
@@ -22,7 +19,7 @@ describe(getEndpointDiscoveryCommandPlugin.name, () => {
     (endpointDiscoveryMiddleware as jest.Mock).mockReturnValueOnce(middlewareReturn);
 
     // @ts-ignore
-    const plugin = getEndpointDiscoveryCommandPlugin(pluginConfig, middlewareConfig);
+    const plugin = getEndpointDiscoveryPlugin(pluginConfig, middlewareConfig);
     const commandStack = { add: jest.fn() };
 
     // @ts-ignore

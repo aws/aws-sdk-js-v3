@@ -1,7 +1,7 @@
 import { Command } from "@aws-sdk/types";
 
 import { getCacheKey } from "./getCacheKey";
-import { EndpointDiscoveryMiddlewareConfig } from "./getEndpointDiscoveryCommandPlugin";
+import { EndpointDiscoveryMiddlewareConfig } from "./getEndpointDiscoveryPlugin";
 import { EndpointDiscoveryResolvedConfig } from "./resolveEndpointDiscoveryConfig";
 
 export type updateDiscoveredEndpointInCacheOptions = EndpointDiscoveryMiddlewareConfig & {
