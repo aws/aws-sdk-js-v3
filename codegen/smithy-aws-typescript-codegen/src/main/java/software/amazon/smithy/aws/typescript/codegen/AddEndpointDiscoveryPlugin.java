@@ -19,7 +19,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
-
 import software.amazon.smithy.aws.traits.clientendpointdiscovery.ClientDiscoveredEndpointTrait;
 import software.amazon.smithy.aws.traits.clientendpointdiscovery.ClientEndpointDiscoveryTrait;
 import software.amazon.smithy.codegen.core.CodegenException;
@@ -34,7 +33,6 @@ import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
-import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention;
 import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
@@ -44,7 +42,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
-    
+
     @Override
     public void addConfigInterfaceFields(
         TypeScriptSettings settings,
@@ -87,7 +85,6 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                         .additionalPluginFunctionParameters(new String[]{"clientStack", "options"})
                         .operationPredicate((m, s, o) -> isClientDiscoveredEndpointOptional(s, o))
                         .build()
-                
         );
     }
 
@@ -142,7 +139,7 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
     }
 
     private static boolean hasClientEndpointDiscovery(ServiceShape service) {
-        if(service.hasTrait(ClientEndpointDiscoveryTrait.class)) {
+        if (service.hasTrait(ClientEndpointDiscoveryTrait.class)) {
             return true;
         }
         return false;
