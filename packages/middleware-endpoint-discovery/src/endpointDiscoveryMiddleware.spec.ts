@@ -20,6 +20,7 @@ describe(endpointDiscoveryMiddleware.name, () => {
       getEndpoint,
     } as unknown) as EndpointCache,
     endpointDiscoveryEnabled: jest.fn().mockResolvedValue(undefined),
+    endpointDiscoveryEnabledProvider: jest.fn(),
     endpointDiscoveryCommandCtor: jest.fn(),
     isCustomEndpoint: false,
     isClientEndpointDiscoveryEnabled: false,
