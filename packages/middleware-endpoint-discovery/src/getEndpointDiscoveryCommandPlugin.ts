@@ -1,4 +1,4 @@
-import { FinalizeRequestHandlerOptions, Pluggable } from "@aws-sdk/types";
+import { FinalizeRequestHandlerOptions, HttpHandlerOptions, MiddlewareStack, Pluggable } from "@aws-sdk/types";
 
 import { endpointDiscoveryMiddleware } from "./endpointDiscoveryMiddleware";
 import { EndpointDiscoveryResolvedConfig } from "./resolveEndpointDiscoveryConfig";
@@ -12,6 +12,8 @@ export const endpointDiscoveryMiddlewareOptions: FinalizeRequestHandlerOptions =
 
 export type EndpointDiscoveryMiddlewareConfig = {
   isDiscoveredEndpointRequired: boolean;
+  clientStack: MiddlewareStack<any, any>;
+  options?: HttpHandlerOptions;
   identifiers?: { [key: string]: string };
 };
 

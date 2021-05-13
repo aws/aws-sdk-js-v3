@@ -223,10 +223,8 @@ export class TimestreamQueryClient extends __Client<
     let _config_4 = resolveHostHeaderConfig(_config_3);
     let _config_5 = resolveAwsAuthConfig(_config_4);
     let _config_6 = resolveUserAgentConfig(_config_5);
-    let _config_7 = resolveEndpointDiscoveryConfig(_config_6);
+    let _config_7 = resolveEndpointDiscoveryConfig(_config_6, DescribeEndpointsCommand);
     super(_config_7);
-    _config_7.client = this;
-    _config_7.endpointDiscoveryCommandCtor = DescribeEndpointsCommand;
     this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));

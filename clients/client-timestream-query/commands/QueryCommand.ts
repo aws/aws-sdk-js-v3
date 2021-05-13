@@ -55,10 +55,13 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     configuration: TimestreamQueryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<QueryCommandInput, QueryCommandOutput> {
+    const isDiscoveredEndpointRequired = true;
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
       getEndpointDiscoveryCommandPlugin(configuration, {
-        isDiscoveredEndpointRequired: true,
+        isDiscoveredEndpointRequired,
+        clientStack,
+        options,
       })
     );
 

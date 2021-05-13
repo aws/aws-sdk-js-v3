@@ -15,7 +15,7 @@ export const updateDiscoveredEndpointInCache = async (
   config: EndpointDiscoveryResolvedConfig,
   options: updateDiscoveredEndpointInCacheOptions
 ) => {
-  const { client, endpointCache } = config;
+  const { endpointCache } = config;
   const { commandName, identifiers } = options;
   const cacheKey = await getCacheKey(commandName, config, { identifiers });
 
@@ -41,8 +41,9 @@ export const updateDiscoveredEndpointInCache = async (
         Operation: commandName.substr(0, commandName.length - 7), // strip "Command"
         Identifiers: identifiers,
       });
-      const { Endpoints } = await client?.send(command);
-      endpointCache.set(cacheKey, Endpoints);
+      const handler = command.resolveMiddleware(options.clientStack, config, options.options);
+      const result = await handler(command);
+      endpointCache.set(cacheKey, result.output.Endpoints);
     } catch (error) {
       if (error.name === "InvalidEndpointException" || error.$metadata?.httpStatusCode === 421) {
         // Endpoint is invalid, delete the cache entry.
