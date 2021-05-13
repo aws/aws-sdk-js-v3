@@ -19,7 +19,11 @@ import {
   DescribeContributorInsightsCommandInput,
   DescribeContributorInsightsCommandOutput,
 } from "./commands/DescribeContributorInsightsCommand";
-import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "./commands/DescribeEndpointsCommand";
+import {
+  DescribeEndpointsCommand,
+  DescribeEndpointsCommandInput,
+  DescribeEndpointsCommandOutput,
+} from "./commands/DescribeEndpointsCommand";
 import { DescribeExportCommandInput, DescribeExportCommandOutput } from "./commands/DescribeExportCommand";
 import {
   DescribeGlobalTableCommandInput,

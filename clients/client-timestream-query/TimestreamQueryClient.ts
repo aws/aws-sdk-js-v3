@@ -1,5 +1,9 @@
 import { CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
-import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "./commands/DescribeEndpointsCommand";
+import {
+  DescribeEndpointsCommand,
+  DescribeEndpointsCommandInput,
+  DescribeEndpointsCommandOutput,
+} from "./commands/DescribeEndpointsCommand";
 import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
