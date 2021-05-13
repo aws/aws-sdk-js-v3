@@ -67,7 +67,8 @@ public enum AwsDependency implements SymbolDependencyContainer {
     MIDDLEWARE_LOGGER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-logger", "3.13.1"),
     MIDDLEWARE_USER_AGENT("dependencies", "@aws-sdk/middleware-user-agent", "3.14.0"),
     AWS_SDK_UTIL_USER_AGENT_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-browser", "3.13.1"),
-    AWS_SDK_UTIL_USER_AGENT_NODE(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-node", "3.13.1");
+    AWS_SDK_UTIL_USER_AGENT_NODE(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-node", "3.13.1"),
+    MIDDLEWARE_ENDPOINT_DISCOVERY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-endpoint-discovery", "3.0.0");
 
     public final String packageName;
     public final String version;
