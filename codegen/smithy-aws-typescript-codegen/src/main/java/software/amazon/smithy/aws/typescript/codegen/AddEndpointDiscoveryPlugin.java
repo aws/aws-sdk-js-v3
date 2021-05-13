@@ -17,6 +17,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.List;
 
+import software.amazon.smithy.aws.traits.clientendpointdiscovery.ClientEndpointDiscoveryTrait;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
@@ -45,6 +46,9 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
             Model model,
             ServiceShape service
     ) {
-        return true;
+        if(service.getTrait(ClientEndpointDiscoveryTrait.class).isPresent()) {
+            return true;
+        }
+        return false;
     }
 }
