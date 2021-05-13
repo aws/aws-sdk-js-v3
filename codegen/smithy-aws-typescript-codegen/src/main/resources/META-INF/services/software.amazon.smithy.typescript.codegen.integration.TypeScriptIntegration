@@ -18,3 +18,4 @@ software.amazon.smithy.aws.typescript.codegen.AddOmitRetryHeadersDependency
 software.amazon.smithy.aws.typescript.codegen.StripNewEnumNames
 software.amazon.smithy.aws.typescript.codegen.AddCrossRegionCopyingPlugin
 software.amazon.smithy.aws.typescript.codegen.AddDocumentClientPlugin
+software.amazon.smithy.aws.typescript.codegen.AddEndpointDiscoveryPlugin
