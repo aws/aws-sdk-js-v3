@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import software.amazon.smithy.aws.traits.clientendpointdiscovery.ClientDiscoveredEndpointTrait;
 import software.amazon.smithy.aws.traits.clientendpointdiscovery.ClientEndpointDiscoveryTrait;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.codegen.core.SymbolProvider;
@@ -33,6 +34,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention;
 import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
@@ -70,7 +72,22 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                         // ToDo: The Endpoint Discovery Command Name needs to be read from ClientEndpointDiscoveryTrait.
                         .additionalResolveFunctionParameters("DescribeEndpointsCommand")
                         .servicePredicate((m, s) -> hasClientEndpointDiscovery(s))
+                        .build(),
+                // ToDo: The value ClientDiscoveredEndpointTrait.isRequired() needs to be passed to Plugin instead
+                // of creating two functions Required and Optional. The map of identifiers also needs to be passed.
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
+                                "EndpointDiscoveryRequired", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
+                        .additionalResolveFunctionParameters(new String[]{"clientStack", "options"})
+                        .operationPredicate((m, s, o) -> isClientDiscoveredEndpointRequired(s, o))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
+                                "EndpointDiscoveryOptional", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
+                        .additionalResolveFunctionParameters(new String[]{"clientStack", "options"})
+                        .operationPredicate((m, s, o) -> isClientDiscoveredEndpointOptional(s, o))
                         .build()
+                
         );
     }
 
@@ -125,8 +142,22 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
     }
 
     private static boolean hasClientEndpointDiscovery(ServiceShape service) {
-        if(service.getTrait(ClientEndpointDiscoveryTrait.class).isPresent()) {
+        if(service.hasTrait(ClientEndpointDiscoveryTrait.class)) {
             return true;
+        }
+        return false;
+    }
+
+    private static boolean isClientDiscoveredEndpointRequired(ServiceShape service, OperationShape operation) {
+        if (hasClientEndpointDiscovery(service) && operation.hasTrait(ClientDiscoveredEndpointTrait.class)) {
+            return operation.getTrait(ClientDiscoveredEndpointTrait.class).orElse(null).isRequired();
+        }
+        return false;
+    }
+
+    private static boolean isClientDiscoveredEndpointOptional(ServiceShape service, OperationShape operation) {
+        if (!hasClientEndpointDiscovery(service) && operation.hasTrait(ClientDiscoveredEndpointTrait.class)) {
+            return !operation.getTrait(ClientDiscoveredEndpointTrait.class).orElse(null).isRequired();
         }
         return false;
     }
