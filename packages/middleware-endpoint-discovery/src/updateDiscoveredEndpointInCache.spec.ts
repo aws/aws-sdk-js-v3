@@ -8,22 +8,20 @@ describe(updateDiscoveredEndpointInCache.name, () => {
   const mockGet = jest.fn();
   const mockSet = jest.fn();
   const mockDelete = jest.fn();
-  const mockSend = jest.fn();
 
-  const mockEndpoints = [{ Address: "mockAddress", CachePeriodInMinutes: 1 }];
+  const mockHandler = jest.fn();
+  const mockResolveMiddleware = jest.fn().mockReturnValue(mockHandler);
+
+  const mockEndpoints = [{ Address: "mockAddress", CachePeriodInMinutes: 2 }];
   const placeholderEndpoints = [{ Address: "", CachePeriodInMinutes: 1 }];
 
   const config = {
-    client: {
-      send: mockSend,
-      config: {},
-    },
     endpointCache: { get: mockGet, set: mockSet, delete: mockDelete },
   };
 
   const options = {
     commandName: "ExampleCommand",
-    endpointDiscoveryCommandCtor: jest.fn(),
+    endpointDiscoveryCommandCtor: jest.fn().mockReturnValue({ resolveMiddleware: mockResolveMiddleware }),
     isDiscoveredEndpointRequired: false,
     identifiers: { key: "value" },
   };
@@ -84,11 +82,11 @@ describe(updateDiscoveredEndpointInCache.name, () => {
         Operation: options.commandName.substr(0, options.commandName.length - 7),
         Identifiers: options.identifiers,
       });
-      expect(mockSend).toHaveBeenCalledTimes(1);
+      expect(mockHandler).toHaveBeenCalledTimes(1);
     };
 
     it("on successful call: updates cache", async () => {
-      mockSend.mockResolvedValueOnce({ Endpoints: mockEndpoints });
+      mockHandler.mockResolvedValueOnce({ output: { Endpoints: mockEndpoints } });
 
       // @ts-ignore
       await updateDiscoveredEndpointInCache(config, options);
@@ -103,7 +101,7 @@ describe(updateDiscoveredEndpointInCache.name, () => {
     describe("on error", () => {
       it(`throws if isDiscoveredEndpointRequired=true`, async () => {
         const error = new Error("rejected");
-        mockSend.mockRejectedValueOnce(error);
+        mockHandler.mockRejectedValueOnce(error);
 
         try {
           // @ts-ignore
@@ -128,7 +126,7 @@ describe(updateDiscoveredEndpointInCache.name, () => {
 
       it(`sets placeholder enpoint if isDiscoveredEndpointRequired=false`, async () => {
         const error = new Error("rejected");
-        mockSend.mockRejectedValueOnce(error);
+        mockHandler.mockRejectedValueOnce(error);
 
         // @ts-ignore
         await updateDiscoveredEndpointInCache(config, options);
@@ -150,7 +148,7 @@ describe(updateDiscoveredEndpointInCache.name, () => {
 
         it(`InvalidEndpointException`, async () => {
           const error = Object.assign(new Error("Invalid endpoint!"), { name: "InvalidEndpointException" });
-          mockSend.mockRejectedValueOnce(error);
+          mockHandler.mockRejectedValueOnce(error);
 
           // @ts-ignore
           await updateDiscoveredEndpointInCache(config, options);
@@ -160,7 +158,7 @@ describe(updateDiscoveredEndpointInCache.name, () => {
 
         it(`Status code: 421`, async () => {
           const error = Object.assign(new Error("Invalid endpoint!"), { $metadata: { httpStatusCode: 421 } });
-          mockSend.mockRejectedValueOnce(error);
+          mockHandler.mockRejectedValueOnce(error);
 
           // @ts-ignore
           await updateDiscoveredEndpointInCache(config, options);

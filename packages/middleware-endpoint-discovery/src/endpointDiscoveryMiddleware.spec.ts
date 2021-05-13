@@ -1,6 +1,6 @@
 import { EndpointCache } from "@aws-sdk/endpoint-cache";
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { FinalizeHandlerArguments } from "@aws-sdk/types";
+import { FinalizeHandlerArguments, MiddlewareStack } from "@aws-sdk/types";
 
 import { endpointDiscoveryMiddleware } from "./endpointDiscoveryMiddleware";
 import { getCacheKey } from "./getCacheKey";
@@ -20,12 +20,14 @@ describe(endpointDiscoveryMiddleware.name, () => {
       getEndpoint,
     } as unknown) as EndpointCache,
     endpointDiscoveryEnabled: jest.fn().mockResolvedValue(undefined),
+    endpointDiscoveryCommandCtor: jest.fn(),
     isCustomEndpoint: false,
     isClientEndpointDiscoveryEnabled: false,
   };
 
   const mockMiddlewareConfig = {
     isDiscoveredEndpointRequired: false,
+    clientStack: {} as MiddlewareStack<any, any>,
   };
 
   const mockNext = jest.fn();
