@@ -1,12 +1,10 @@
-import { Command } from "@aws-sdk/types";
-
 import { getCacheKey } from "./getCacheKey";
 import { EndpointDiscoveryMiddlewareConfig } from "./getEndpointDiscoveryPlugin";
 import { EndpointDiscoveryResolvedConfig } from "./resolveEndpointDiscoveryConfig";
 
 export type updateDiscoveredEndpointInCacheOptions = EndpointDiscoveryMiddlewareConfig & {
   commandName: string;
-  endpointDiscoveryCommandCtor: new (comandConfig: any) => Command<any, any, any, any, any>;
+  endpointDiscoveryCommandCtor: new (comandConfig: any) => any;
 };
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
