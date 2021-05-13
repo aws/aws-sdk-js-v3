@@ -48,7 +48,7 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
         return ListUtils.of(
                 RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "Region", HAS_CONFIG)
-                        .servicePredicate((m, s) -> isSigV4Service(s))
+                        .servicePredicate((m, s) -> isAwsService(s) || isSigV4Service(s))
                         .build(),
                 // Only one of Endpoints or CustomEndpoints should be used
                 RuntimeClientPlugin.builder()
