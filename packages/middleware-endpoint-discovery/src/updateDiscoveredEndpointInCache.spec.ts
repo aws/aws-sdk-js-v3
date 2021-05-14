@@ -26,12 +26,10 @@ describe(updateDiscoveredEndpointInCache.name, () => {
 
   beforeEach(() => {
     mockGet.mockReturnValue(mockEndpoints);
-    jest.useFakeTimers();
   });
 
   afterEach(() => {
     jest.clearAllMocks();
-    jest.useRealTimers();
   });
 
   it(`returns if endpoints are present in cacheKey`, async () => {
@@ -40,31 +38,6 @@ describe(updateDiscoveredEndpointInCache.name, () => {
     expect(mockGet).toHaveBeenCalledWith(cacheKey);
     expect(mockSet).not.toHaveBeenCalled();
     expect(mockDelete).not.toHaveBeenCalled();
-  });
-
-  it.each([1, 2, 3])(`waits for one minute %d times if endpoints in cache are placeholder endpoints`, async (num) => {
-    expect.assertions(num + 4);
-    for (let i = 0; i < num; i++) {
-      mockGet.mockReturnValueOnce(placeholderEndpoints);
-    }
-    mockGet.mockReturnValueOnce(mockEndpoints);
-
-    // @ts-ignore
-    updateDiscoveredEndpointInCache(config, options).then(() => {
-      expect(mockGet).toHaveBeenCalledTimes(num + 1);
-      expect(mockSet).not.toHaveBeenCalled();
-      expect(mockDelete).not.toHaveBeenCalled();
-
-      expect(setTimeout).toHaveBeenCalledTimes(num);
-      for (let i = 0; i < num; i++) {
-        expect(setTimeout).toHaveBeenNthCalledWith(i + 1, expect.any(Function), 1000);
-      }
-    });
-
-    for (let i = 0; i <= num * 3; i++) {
-      jest.advanceTimersByTime(1000);
-      await Promise.resolve(); // allow any pending jobs in the PromiseJobs queue to run
-    }
   });
 
   describe("calls endpointDiscoveryCommandCtor", () => {
@@ -89,6 +62,37 @@ describe(updateDiscoveredEndpointInCache.name, () => {
       await updateDiscoveredEndpointInCache(config, options);
 
       verifyCallsOnCacheUndefined();
+      expect(mockDelete).not.toHaveBeenCalled();
+      expect(mockSet).toHaveBeenCalledTimes(2);
+      expect(mockSet).toHaveBeenNthCalledWith(1, cacheKey, placeholderEndpoints);
+      expect(mockSet).toHaveBeenNthCalledWith(2, cacheKey, mockEndpoints);
+    });
+
+    it("calls endpointDiscoveryCommandCtor command just once in case of parallel calls", async () => {
+      mockHandler.mockResolvedValueOnce({ output: { Endpoints: mockEndpoints } });
+      // First call returns undefined, while other ones return placeholder endpoints a call is in progress
+      mockGet
+        .mockReturnValueOnce(undefined)
+        .mockReturnValueOnce(placeholderEndpoints)
+        .mockReturnValueOnce(placeholderEndpoints);
+
+      await Promise.all([
+        // @ts-ignore
+        updateDiscoveredEndpointInCache(config, options),
+        // @ts-ignore
+        updateDiscoveredEndpointInCache(config, options),
+        // @ts-ignore
+        updateDiscoveredEndpointInCache(config, options),
+      ]);
+
+      expect(mockGet).toHaveBeenCalledTimes(3);
+
+      expect(options.endpointDiscoveryCommandCtor).toHaveBeenCalledWith({
+        Operation: options.commandName.substr(0, options.commandName.length - 7),
+        Identifiers: options.identifiers,
+      });
+      expect(mockHandler).toHaveBeenCalledTimes(1);
+
       expect(mockDelete).not.toHaveBeenCalled();
       expect(mockSet).toHaveBeenCalledTimes(2);
       expect(mockSet).toHaveBeenNthCalledWith(1, cacheKey, placeholderEndpoints);
