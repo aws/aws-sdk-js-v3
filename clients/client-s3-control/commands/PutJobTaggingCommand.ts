@@ -28,7 +28,7 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  *          the existing tag set, you can either replace the existing tag set entirely, or make changes
  *          within the existing tag set by retrieving the existing tag set using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html">GetJobTagging</a>, modify that tag set, and use this action to replace the
  *          tag set with the one you modified. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling access and
- *             labeling jobs using tags</a> in the <i>Amazon Simple Storage Service User Guide</i>. </p>
+ *             labeling jobs using tags</a> in the <i>Amazon S3 User Guide</i>. </p>
  *          <p></p>
  *          <note>
  *             <ul>

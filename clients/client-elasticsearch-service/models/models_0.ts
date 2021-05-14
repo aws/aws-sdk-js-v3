@@ -1173,6 +1173,25 @@ export namespace EBSOptions {
   });
 }
 
+/**
+ * <p>Specifies settings for cold storage.</p>
+ */
+export interface ColdStorageOptions {
+  /**
+   * <p>True to enable cold storage for an Elasticsearch domain.</p>
+   */
+  Enabled: boolean | undefined;
+}
+
+export namespace ColdStorageOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ColdStorageOptions): any => ({
+    ...obj,
+  });
+}
+
 export type ESPartitionInstanceType =
   | "c4.2xlarge.elasticsearch"
   | "c4.4xlarge.elasticsearch"
@@ -1307,6 +1326,11 @@ export interface ElasticsearchClusterConfig {
    * <p>The number of warm nodes in the cluster.</p>
    */
   WarmCount?: number;
+
+  /**
+   * <p>Specifies the <code>ColdStorageOptions</code> configuration for an Elasticsearch domain.</p>
+   */
+  ColdStorageOptions?: ColdStorageOptions;
 }
 
 export namespace ElasticsearchClusterConfig {

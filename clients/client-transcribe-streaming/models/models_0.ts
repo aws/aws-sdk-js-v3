@@ -42,15 +42,22 @@ export interface Item {
   VocabularyFilterMatch?: boolean;
 
   /**
-   * <p>If speaker identification is enabled, shows the speakers identified in the real-time stream.</p>
+   * <p>If speaker identification is enabled, shows the speakers identified in the real-time
+   *       stream.</p>
    */
   Speaker?: string;
 
   /**
-   * <p>A value between 0 and 1 for an item that is a confidence score that Amazon Transcribe assigns to
-   *       each word or phrase that it transcribes.</p>
+   * <p>A value between 0 and 1 for an item that is a confidence score that Amazon Transcribe assigns to each
+   *       word or phrase that it transcribes.</p>
    */
   Confidence?: number;
+
+  /**
+   * <p>If partial result stabilization has been enabled, indicates whether the word or phrase in
+   *       the item is stable. If <code>Stable</code> is <code>true</code>, the result is stable.</p>
+   */
+  Stable?: boolean;
 }
 
 export namespace Item {
@@ -88,11 +95,13 @@ export namespace Alternative {
 
 /**
  * <p>Provides a wrapper for the audio chunks that you are sending.</p>
- *          <p>For information on audio encoding in Amazon Transcribe, see <a>input</a>. For information on audio encoding formats in Amazon Transcribe Medical, see <a>input-med</a>.</p>
+ *          <p>For information on audio encoding in Amazon Transcribe, see <a>input</a>. For information
+ *       on audio encoding formats in Amazon Transcribe Medical, see <a>input-med</a>.</p>
  */
 export interface AudioEvent {
   /**
-   * <p>An audio blob that contains the next part of the audio that you want to transcribe. The maximum audio chunk size is 32 KB.</p>
+   * <p>An audio blob that contains the next part of the audio that you want to transcribe. The
+   *       maximum audio chunk size is 32 KB.</p>
    */
   AudioChunk?: Uint8Array;
 }
@@ -115,8 +124,10 @@ export namespace AudioStream {
   /**
    * <p>A blob of audio from your application. You audio stream consists of one or more audio
    *       events.</p>
-   *          <p>For information on audio encoding formats in Amazon Transcribe, see <a>input</a>. For information on audio encoding formats in Amazon Transcribe Medical, see <a>input-med</a>.</p>
-   *          <p>For more information on stream encoding in Amazon Transcribe, see <a>event-stream</a>. For information on stream encoding in Amazon Transcribe Medical, see <a>event-stream-med</a>.</p>
+   *          <p>For information on audio encoding formats in Amazon Transcribe, see <a>input</a>. For
+   *       information on audio encoding formats in Amazon Transcribe Medical, see <a>input-med</a>.</p>
+   *          <p>For more information on stream encoding in Amazon Transcribe, see <a>event-stream</a>. For
+   *       information on stream encoding in Amazon Transcribe Medical, see <a>event-stream-med</a>.</p>
    */
   export interface AudioEventMember {
     AudioEvent: AudioEvent;
@@ -148,10 +159,10 @@ export namespace AudioStream {
 }
 
 /**
- * <p>One or more arguments to the <code>StartStreamTranscription</code> or <code>StartMedicalStreamTranscription</code> operation was invalid.
- *       For example, <code>MediaEncoding</code> was not set to a valid encoding, or
- *         <code>LanguageCode</code> was not set to a valid code. Check the parameters and try your
- *       request again.</p>
+ * <p>One or more arguments to the <code>StartStreamTranscription</code> or
+ *         <code>StartMedicalStreamTranscription</code> operation was invalid. For example,
+ *         <code>MediaEncoding</code> was not set to a valid encoding, or <code>LanguageCode</code> was
+ *       not set to a valid code. Check the parameters and try your request again.</p>
  */
 export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
@@ -188,8 +199,8 @@ export namespace ConflictException {
 }
 
 /**
- * <p>A problem occurred while processing the audio. Amazon Transcribe or Amazon Transcribe Medical terminated processing. Try your
- *       request again.</p>
+ * <p>A problem occurred while processing the audio. Amazon Transcribe or Amazon Transcribe Medical terminated processing. Try
+ *       your request again.</p>
  */
 export interface InternalFailureException extends __SmithyException, $MetadataBearer {
   name: "InternalFailureException";
@@ -524,10 +535,10 @@ export namespace MedicalTranscriptResultStream {
   }
 
   /**
-   * <p>One or more arguments to the <code>StartStreamTranscription</code> or <code>StartMedicalStreamTranscription</code> operation was invalid.
-   *       For example, <code>MediaEncoding</code> was not set to a valid encoding, or
-   *         <code>LanguageCode</code> was not set to a valid code. Check the parameters and try your
-   *       request again.</p>
+   * <p>One or more arguments to the <code>StartStreamTranscription</code> or
+   *         <code>StartMedicalStreamTranscription</code> operation was invalid. For example,
+   *         <code>MediaEncoding</code> was not set to a valid encoding, or <code>LanguageCode</code> was
+   *       not set to a valid code. Check the parameters and try your request again.</p>
    */
   export interface BadRequestExceptionMember {
     TranscriptEvent?: never;
@@ -556,8 +567,8 @@ export namespace MedicalTranscriptResultStream {
   }
 
   /**
-   * <p>A problem occurred while processing the audio. Amazon Transcribe or Amazon Transcribe Medical terminated processing. Try your
-   *       request again.</p>
+   * <p>A problem occurred while processing the audio. Amazon Transcribe or Amazon Transcribe Medical terminated processing. Try
+   *       your request again.</p>
    */
   export interface InternalFailureExceptionMember {
     TranscriptEvent?: never;
@@ -650,6 +661,12 @@ export namespace MedicalTranscriptResultStream {
   };
 }
 
+export enum PartialResultsStability {
+  HIGH = "high",
+  LOW = "low",
+  MEDIUM = "medium",
+}
+
 /**
  * <p>The result of transcribing a portion of the input audio stream. </p>
  */
@@ -687,8 +704,10 @@ export interface Result {
   Alternatives?: Alternative[];
 
   /**
-   * <p>When channel identification is enabled, Amazon Transcribe transcribes the speech from each audio channel separately.</p>
-   *          <p>You can use <code>ChannelId</code> to retrieve the transcription results for a single channel in your audio stream.</p>
+   * <p>When channel identification is enabled, Amazon Transcribe transcribes the speech from each audio
+   *       channel separately.</p>
+   *          <p>You can use <code>ChannelId</code> to retrieve the transcription results for a single
+   *       channel in your audio stream.</p>
    */
   ChannelId?: string;
 }
@@ -945,9 +964,13 @@ export interface StartStreamTranscriptionRequest {
   ShowSpeakerLabel?: boolean;
 
   /**
-   * <p>When <code>true</code>, instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription.</p>
-   *          <p>Amazon Transcribe also produces a transcription of each item. An item includes the start time, end time, and any alternative transcriptions.</p>
-   *          <p>You can't set both <code>ShowSpeakerLabel</code> and <code>EnableChannelIdentification</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
+   * <p>When <code>true</code>, instructs Amazon Transcribe to process each audio channel separately and then
+   *       merge the transcription output of each channel into a single transcription.</p>
+   *          <p>Amazon Transcribe also produces a transcription of each item. An item includes the start time, end
+   *       time, and any alternative transcriptions.</p>
+   *          <p>You can't set both <code>ShowSpeakerLabel</code> and
+   *         <code>EnableChannelIdentification</code> in the same request. If you set both, your request
+   *       returns a <code>BadRequestException</code>.</p>
    */
   EnableChannelIdentification?: boolean;
 
@@ -955,6 +978,21 @@ export interface StartStreamTranscriptionRequest {
    * <p>The number of channels that are in your audio stream.</p>
    */
   NumberOfChannels?: number;
+
+  /**
+   * <p>When <code>true</code>, instructs Amazon Transcribe to present transcription results that have the
+   *       partial results stabilized. Normally, any word or phrase from one partial result can change in
+   *       a subsequent partial result. With partial results stabilization enabled, only the last few
+   *       words of one partial result can change in another partial result.</p>
+   */
+  EnablePartialResultsStabilization?: boolean;
+
+  /**
+   * <p>You can use this field to set the stability level of the transcription results. A higher
+   *       stability level means that the transcription results are less likely to change. Higher
+   *       stability levels can come with lower overall transcription accuracy.</p>
+   */
+  PartialResultsStability?: PartialResultsStability | string;
 }
 
 export namespace StartStreamTranscriptionRequest {
@@ -1221,6 +1259,17 @@ export interface StartStreamTranscriptionResponse {
    * <p>The number of channels identified in the stream.</p>
    */
   NumberOfChannels?: number;
+
+  /**
+   * <p>Shows whether partial results stabilization has been enabled in the stream.</p>
+   */
+  EnablePartialResultsStabilization?: boolean;
+
+  /**
+   * <p>If partial results stabilization has been enabled in the stream, shows the stability
+   *       level.</p>
+   */
+  PartialResultsStability?: PartialResultsStability | string;
 }
 
 export namespace StartStreamTranscriptionResponse {

@@ -210,7 +210,7 @@ export class Transcribe extends TranscribeClient {
 
   /**
    * <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles
-   *             transcription of an audio file. </p>
+   *             transcription of an audio file.</p>
    */
   public createVocabulary(
     args: CreateVocabularyCommandInput,
@@ -902,7 +902,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Starts an asynchronous job to transcribe speech to text. </p>
+   * <p>Starts an asynchronous job to transcribe speech to text.</p>
    */
   public startTranscriptionJob(
     args: StartTranscriptionJobCommandInput,

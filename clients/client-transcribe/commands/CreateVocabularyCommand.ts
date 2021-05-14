@@ -22,7 +22,7 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
 
 /**
  * <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles
- *             transcription of an audio file. </p>
+ *             transcription of an audio file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -21,7 +21,7 @@ export interface StartTranscriptionJobCommandInput extends StartTranscriptionJob
 export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an asynchronous job to transcribe speech to text. </p>
+ * <p>Starts an asynchronous job to transcribe speech to text.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -2973,6 +2973,8 @@ const serializeAws_json1_1StartMedicalTranscriptionJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ContentIdentificationType !== undefined &&
+      input.ContentIdentificationType !== null && { ContentIdentificationType: input.ContentIdentificationType }),
     ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
     ...(input.Media !== undefined &&
       input.Media !== null && { Media: serializeAws_json1_1Media(input.Media, context) }),
@@ -3455,6 +3457,10 @@ const deserializeAws_json1_1MedicalTranscriptionJob = (
       output.CompletionTime !== undefined && output.CompletionTime !== null
         ? new Date(Math.round(output.CompletionTime * 1000))
         : undefined,
+    ContentIdentificationType:
+      output.ContentIdentificationType !== undefined && output.ContentIdentificationType !== null
+        ? output.ContentIdentificationType
+        : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -3518,6 +3524,10 @@ const deserializeAws_json1_1MedicalTranscriptionJobSummary = (
     CompletionTime:
       output.CompletionTime !== undefined && output.CompletionTime !== null
         ? new Date(Math.round(output.CompletionTime * 1000))
+        : undefined,
+    ContentIdentificationType:
+      output.ContentIdentificationType !== undefined && output.ContentIdentificationType !== null
+        ? output.ContentIdentificationType
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null

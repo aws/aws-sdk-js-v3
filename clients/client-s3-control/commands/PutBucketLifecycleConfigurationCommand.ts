@@ -24,7 +24,7 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
 /**
  * <note>
  *             <p>This action puts a lifecycle configuration to an Amazon S3 on Outposts bucket. To put a lifecycle configuration to an S3 bucket,
- *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a> in the <i>Amazon Simple Storage Service API</i>.
+ *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a> in the <i>Amazon S3 API Reference</i>.
  *       </p>
  *          </note>
  *          <p>Creates a new lifecycle configuration for the S3 on Outposts bucket or replaces an existing

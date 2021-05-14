@@ -24,7 +24,7 @@ export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsRes
 /**
  * <p>Returns a list of all Outposts buckets in an Outpost that are owned by the authenticated
  *          sender of the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
- *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *             <i>Amazon S3 User Guide</i>.</p>
  *          <p>For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
  *          endpoint hostname prefix and <code>x-amz-outpost-id</code> in your request, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListRegionalBuckets.html#API_control_ListRegionalBuckets_Examples">Examples</a> section.</p>
  * @example

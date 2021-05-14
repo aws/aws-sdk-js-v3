@@ -25,7 +25,7 @@ export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, _
  * <p>Removes the entire tag set from the specified S3 Batch Operations job. To use this operation,
  *          you must have permission to perform the <code>s3:DeleteJobTagging</code> action. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling access and labeling jobs using tags</a> in the
- *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *             <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>
  *          <p>Related actions include:</p>
  *          <ul>

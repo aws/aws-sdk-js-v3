@@ -24,14 +24,14 @@ export interface CreateAccessPointCommandOutput extends CreateAccessPointResult,
 /**
  * <p>Creates an access point and associates it with the specified bucket. For more information, see
  *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing Data Access with Amazon S3 Access
- *             Points</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *             Points</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>
  *          <note>
- *             <p>S3 on Outposts only supports VPC-style Access Points.
+ *             <p>S3 on Outposts only supports VPC-style access points.
  *          </p>
  *             <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">
- *          Accessing Amazon S3 on Outposts using virtual private cloud (VPC) only Access Points</a> in
- *          the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *          Accessing Amazon S3 on Outposts using virtual private cloud (VPC) only access points</a> in
+ *          the <i>Amazon S3 User Guide</i>.</p>
  *          </note>
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html#API_control_CreateAccessPoint_Examples">Examples</a> section.</p>
  *          <p></p>

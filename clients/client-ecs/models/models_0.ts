@@ -706,7 +706,7 @@ export namespace ClusterSetting {
 export interface CreateClusterRequest {
   /**
    * <p>The name of your cluster. If you do not specify a name for your cluster, you create a
-   * 			cluster named <code>default</code>. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. </p>
+   * 			cluster named <code>default</code>. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. </p>
    */
   clusterName?: string;
 
@@ -1547,7 +1547,7 @@ export interface CreateServiceRequest {
   cluster?: string;
 
   /**
-   * <p>The name of your service. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. Service names must be unique within
+   * <p>The name of your service. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. Service names must be unique within
    * 			a cluster, but you can have similarly named services in multiple clusters within a
    * 			Region or across multiple Regions.</p>
    */
@@ -2272,7 +2272,7 @@ export interface Service {
   serviceArn?: string;
 
   /**
-   * <p>The name of your service. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. Service names must be unique within
+   * <p>The name of your service. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. Service names must be unique within
    * 			a cluster, but you can have similarly named services in multiple clusters within a
    * 			Region or across multiple Regions.</p>
    */
@@ -4550,7 +4550,7 @@ export interface ContainerDefinition {
    * <p>The name of a container. If you are linking multiple containers together in a task
    * 			definition, the <code>name</code> of one container can be entered in the
    * 				<code>links</code> of another container to connect the containers.
-   * 			Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. This parameter maps to <code>name</code> in the
+   * 			Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to <code>name</code> in the
    * 			<a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
    * 				<code>--name</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
    * 			run</a>. </p>
@@ -4706,7 +4706,7 @@ export interface ContainerDefinition {
    * 			without the need for port mappings. This parameter is only supported if the network mode
    * 			of a task definition is <code>bridge</code>. The <code>name:internalName</code>
    * 			construct is analogous to <code>name:alias</code> in Docker links.
-   * 			Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. For more information about linking Docker containers, go to
+   * 			Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. For more information about linking Docker containers, go to
    * 				<a href="https://docs.docker.com/network/links/">Legacy container links</a>
    * 			in the Docker documentation. This parameter maps to <code>Links</code> in the
    * 			<a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
@@ -5669,7 +5669,7 @@ export namespace HostVolumeProperties {
  */
 export interface Volume {
   /**
-   * <p>The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. This name is referenced in the
+   * <p>The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This name is referenced in the
    * 				<code>sourceVolume</code> parameter of container definition
    * 			<code>mountPoints</code>.</p>
    */
@@ -7374,7 +7374,9 @@ export interface ExecuteCommandResponse {
   containerName?: string;
 
   /**
-   * <p>Whether or not the execute command session is running in interactive mode.</p>
+   * <p>Whether or not the execute command session is running in interactive mode. Amazon ECS only
+   * 			supports initiating interactive sessions, so you must specify <code>true</code> for this
+   * 			value.</p>
    */
   interactive?: boolean;
 
@@ -8559,7 +8561,7 @@ export interface RegisterTaskDefinitionRequest {
   /**
    * <p>You must specify a <code>family</code> for a task definition, which allows you to
    * 			track multiple versions of the same task definition. The <code>family</code> is used as
-   * 			a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.</p>
+   * 			a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.</p>
    */
   family: string | undefined;
 

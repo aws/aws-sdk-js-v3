@@ -25,10 +25,10 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyResult, __M
  * <note>
  *             <p>This action gets a bucket policy for an Amazon S3 on Outposts bucket. To get a policy for an S3
  *             bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html">GetBucketPolicy</a> in the
- *                <i>Amazon Simple Storage Service API</i>. </p>
+ *                <i>Amazon S3 API Reference</i>. </p>
  *          </note>
  *          <p>Returns the policy of a specified Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
- *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *             <i>Amazon S3 User Guide</i>.</p>
  *          <p>If you are using an identity other than the root user of the AWS account that owns the bucket, the calling identity
  *       must have the <code>GetBucketPolicy</code> permissions on the specified bucket and belong to the bucket owner's account in order to use this action.</p>
  *

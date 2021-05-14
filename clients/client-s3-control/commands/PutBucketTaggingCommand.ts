@@ -24,10 +24,10 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
 /**
  * <note>
  *             <p>This action puts tags on an Amazon S3 on Outposts bucket. To put tags on an S3 bucket, see
- *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html">PutBucketTagging</a> in the <i>Amazon Simple Storage Service API</i>. </p>
+ *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html">PutBucketTagging</a> in the <i>Amazon S3 API Reference</i>. </p>
  *          </note>
  *          <p>Sets the tags for an S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
- *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *             <i>Amazon S3 User Guide</i>.</p>
  *          <p>Use tags to organize your AWS bill to reflect your own cost structure. To do this, sign up to get your
  *          AWS account bill with tag key values included. Then, to see the cost of combined resources, organize your
  *          billing information according to resources with the same tag key values. For example, you can tag several
