@@ -116,6 +116,12 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
     ...(isSerializableHeaderValue(input.NumberOfChannels) && {
       "x-amzn-transcribe-number-of-channels": input.NumberOfChannels!.toString(),
     }),
+    ...(isSerializableHeaderValue(input.EnablePartialResultsStabilization) && {
+      "x-amzn-transcribe-enable-partial-results-stabilization": input.EnablePartialResultsStabilization!.toString(),
+    }),
+    ...(isSerializableHeaderValue(input.PartialResultsStability) && {
+      "x-amzn-transcribe-partial-results-stability": input.PartialResultsStability!,
+    }),
   };
   let resolvedPath = "/stream-transcription";
   let body: any;
@@ -293,10 +299,12 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   const contents: StartStreamTranscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     EnableChannelIdentification: undefined,
+    EnablePartialResultsStabilization: undefined,
     LanguageCode: undefined,
     MediaEncoding: undefined,
     MediaSampleRateHertz: undefined,
     NumberOfChannels: undefined,
+    PartialResultsStability: undefined,
     RequestId: undefined,
     SessionId: undefined,
     ShowSpeakerLabel: undefined,
@@ -337,6 +345,13 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   }
   if (output.headers["x-amzn-transcribe-number-of-channels"] !== undefined) {
     contents.NumberOfChannels = parseInt(output.headers["x-amzn-transcribe-number-of-channels"], 10);
+  }
+  if (output.headers["x-amzn-transcribe-enable-partial-results-stabilization"] !== undefined) {
+    contents.EnablePartialResultsStabilization =
+      output.headers["x-amzn-transcribe-enable-partial-results-stabilization"] === "true";
+  }
+  if (output.headers["x-amzn-transcribe-partial-results-stability"] !== undefined) {
+    contents.PartialResultsStability = output.headers["x-amzn-transcribe-partial-results-stability"];
   }
   const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
     const eventName = Object.keys(event)[0];
@@ -760,6 +775,7 @@ const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Ite
     Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
     EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
     Speaker: output.Speaker !== undefined && output.Speaker !== null ? output.Speaker : undefined,
+    Stable: output.Stable !== undefined && output.Stable !== null ? output.Stable : undefined,
     StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
     VocabularyFilterMatch:

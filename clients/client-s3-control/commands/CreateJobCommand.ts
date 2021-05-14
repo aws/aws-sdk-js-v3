@@ -22,7 +22,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  * <p>You can use S3 Batch Operations to perform large-scale batch actions on Amazon S3 objects. Batch Operations can run a
  *          single action on lists of Amazon S3 objects that you specify. For more information,
  *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the
- *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *             <i>Amazon S3 User Guide</i>.</p>
  *          <p>This action creates a S3 Batch Operations job.</p>
  *          <p></p>
  *          <p>Related actions include:</p>

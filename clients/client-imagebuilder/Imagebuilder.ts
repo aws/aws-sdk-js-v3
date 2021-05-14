@@ -366,7 +366,8 @@ export class Imagebuilder extends ImagebuilderClient {
 
   /**
    * <p> Creates a new image. This request will create a new image along with all of the
-   *       configured output resources defined in the distribution configuration.</p>
+   *       configured output resources defined in the distribution configuration. You must specify
+   *       exactly one recipe for your image, using either a ContainerRecipeArn or an ImageRecipeArn.</p>
    */
   public createImage(args: CreateImageCommandInput, options?: __HttpHandlerOptions): Promise<CreateImageCommandOutput>;
   public createImage(args: CreateImageCommandInput, cb: (err: any, data?: CreateImageCommandOutput) => void): void;
@@ -1719,8 +1720,13 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Updates a new image pipeline. Image pipelines enable you to automate the creation and
+   * <p> Updates an image pipeline. Image pipelines enable you to automate the creation and
    *       distribution of images.</p>
+   *   	      <note>
+   *             <p>UpdateImagePipeline does not support selective updates for the pipeline.
+   *   		You must specify all of the required properties in the update request, not just
+   *   		the properties that have changed.</p>
+   *          </note>
    */
   public updateImagePipeline(
     args: UpdateImagePipelineCommandInput,

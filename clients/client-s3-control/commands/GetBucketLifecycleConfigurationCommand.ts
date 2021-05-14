@@ -26,13 +26,13 @@ export interface GetBucketLifecycleConfigurationCommandOutput
 /**
  * <note>
  *             <p>This action gets an Amazon S3 on Outposts bucket's lifecycle configuration. To get an
- *          S3 bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a> in the <i>Amazon Simple Storage Service API</i>.
+ *          S3 bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a> in the <i>Amazon S3 API Reference</i>.
  *       </p>
  *          </note>
  *          <p>Returns the lifecycle configuration information set on the Outposts bucket. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> and for
  *          information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html"> Object Lifecycle Management</a> in
- *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *             <i>Amazon S3 User Guide</i>.</p>
  *
  *          <p>To use this action, you must have permission to perform the <code>s3-outposts:GetLifecycleConfiguration</code> action.
  *          The Outposts bucket owner has this permission, by default. The bucket owner can grant this permission to others. For more

@@ -23,7 +23,7 @@ export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult,
 
 /**
  * <p>Updates an existing S3 Batch Operations job's priority. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the
- *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *             <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>
  *          <p>Related actions include:</p>
  *          <ul>

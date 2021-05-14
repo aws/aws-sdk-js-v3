@@ -66,6 +66,9 @@ export interface AccessPoint {
 
   /**
    * <p>The virtual private cloud (VPC) configuration for this access point, if one exists.</p>
+   *          <note>
+   *             <p>This element is empty if this access point is an Amazon S3 on Outposts access point that is used by other AWS services.</p>
+   *          </note>
    */
   VpcConfiguration?: VpcConfiguration;
 
@@ -258,8 +261,7 @@ export namespace AwsLambdaTransformation {
 /**
  * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3 account.
  *          You can enable the configuration options in any combination. For more information about
- *          when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon Simple Storage Service Developer
- *          Guide</i>.</p>
+ *          when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>This is not supported for Amazon S3 on Outposts.</p>
  */
 export interface PublicAccessBlockConfiguration {
@@ -1341,7 +1343,7 @@ export namespace S3ObjectLockLegalHold {
  *          S3 Batch Operations job passes every object to the underlying
  *             <code>PutObjectLegalHold</code> API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-legal-hold.html">Using
  *             S3 Object Lock legal hold with S3 Batch Operations</a> in the
- *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *             <i>Amazon S3 User Guide</i>.</p>
  */
 export interface S3SetObjectLegalHoldOperation {
   /**
@@ -1369,7 +1371,7 @@ export enum S3ObjectLockRetentionMode {
  *          S3 Batch Operations job. If you don't provide <code>Mode</code> and <code>RetainUntilDate</code>
  *          data types in your operation, you will remove the retention from your objects. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-retention-date.html">Using S3 Object Lock retention
- *             with S3 Batch Operations</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *             with S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
  */
 export interface S3Retention {
   /**
@@ -1397,7 +1399,7 @@ export namespace S3Retention {
  *          S3 Batch Operations job. Batch Operations passes every object to the underlying
  *             <code>PutObjectRetention</code> API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-retention-date.html">Using
  *             S3 Object Lock retention with S3 Batch Operations</a> in the
- *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *             <i>Amazon S3 User Guide</i>.</p>
  */
 export interface S3SetObjectRetentionOperation {
   /**
@@ -1409,7 +1411,7 @@ export interface S3SetObjectRetentionOperation {
   /**
    * <p>Contains the Object Lock retention mode to be applied to all objects in the Batch Operations
    *          job. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-retention-date.html">Using S3 Object Lock retention
-   *             with S3 Batch Operations</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   *             with S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Retention: S3Retention | undefined;
 }
@@ -1446,7 +1448,7 @@ export namespace S3SetObjectTaggingOperation {
 /**
  * <p>The operation that you want this job to perform on every object listed in the manifest.
  *          For more information about the available operations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-operations.html">Operations</a> in the
- *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *             <i>Amazon S3 User Guide</i>.</p>
  */
 export interface JobOperation {
   /**
@@ -1484,7 +1486,7 @@ export interface JobOperation {
    *          S3 Batch Operations job passes every object to the underlying
    *             <code>PutObjectLegalHold</code> API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-legal-hold.html">Using
    *             S3 Object Lock legal hold with S3 Batch Operations</a> in the
-   *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+   *             <i>Amazon S3 User Guide</i>.</p>
    */
   S3PutObjectLegalHold?: S3SetObjectLegalHoldOperation;
 
@@ -1493,7 +1495,7 @@ export interface JobOperation {
    *          S3 Batch Operations job. Batch Operations passes every object to the underlying
    *             <code>PutObjectRetention</code> API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-retention-date.html">Using
    *             S3 Object Lock retention with S3 Batch Operations</a> in the
-   *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+   *             <i>Amazon S3 User Guide</i>.</p>
    */
   S3PutObjectRetention?: S3SetObjectRetentionOperation;
 }
@@ -1571,7 +1573,7 @@ export interface CreateJobRequest {
   /**
    * <p>The action that you want this job to perform on every object listed in the manifest.
    *          For more information about the available actions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-actions.html">Operations</a> in the
-   *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+   *             <i>Amazon S3 User Guide</i>.</p>
    */
   Operation: JobOperation | undefined;
 
@@ -2248,14 +2250,16 @@ export interface GetAccessPointResult {
 
   /**
    * <p>Contains the virtual private cloud (VPC) configuration for the specified access point.</p>
+   *          <note>
+   *             <p>This element is empty if this access point is an Amazon S3 on Outposts access point that is used by other AWS services.</p>
+   *          </note>
    */
   VpcConfiguration?: VpcConfiguration;
 
   /**
    * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3 account.
    *          You can enable the configuration options in any combination. For more information about
-   *          when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon Simple Storage Service Developer
-   *          Guide</i>.</p>
+   *          when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>This is not supported for Amazon S3 on Outposts.</p>
    */
   PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
@@ -2460,7 +2464,7 @@ export namespace GetAccessPointPolicyStatusRequest {
 /**
  * <p>Indicates whether this access point policy is public. For more information about how Amazon S3 evaluates policies to determine whether they are public, see
  *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the
- * 	 <i>Amazon Simple Storage Service User Guide</i>.
+ * 	 <i>Amazon S3 User Guide</i>.
  *       </p>
  */
 export interface PolicyStatus {
@@ -2520,7 +2524,7 @@ export interface GetAccessPointPolicyStatusForObjectLambdaResult {
   /**
    * <p>Indicates whether this access point policy is public. For more information about how Amazon S3 evaluates policies to determine whether they are public, see
    *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the
-   * 	 <i>Amazon Simple Storage Service User Guide</i>.
+   * 	 <i>Amazon S3 User Guide</i>.
    *       </p>
    */
   PolicyStatus?: PolicyStatus;
@@ -2704,8 +2708,7 @@ export interface NoncurrentVersionExpiration {
   /**
    * <p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the
    *          associated action. For information about the noncurrent days calculations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations">How
-   *             Amazon S3 Calculates When an Object Became Noncurrent</a> in the <i>Amazon
-   *                Simple Storage Service Developer Guide</i>.</p>
+   *             Amazon S3 Calculates When an Object Became Noncurrent</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   NoncurrentDays?: number;
 }
@@ -2729,7 +2732,7 @@ export interface NoncurrentVersionTransition {
    * <p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.
    *          For information about the noncurrent days calculations, see
    *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations">
-   *             How Amazon S3 Calculates How Long an Object Has Been Noncurrent</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *             How Amazon S3 Calculates How Long an Object Has Been Noncurrent</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   NoncurrentDays?: number;
 
@@ -2754,7 +2757,7 @@ export type ExpirationStatus = "Disabled" | "Enabled";
  * <p>Specifies when an object transitions to a specified storage class. For more information
  *          about Amazon S3 Lifecycle configuration rules, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html">
  *             Transitioning objects using Amazon S3 Lifecycle</a> in the
- *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *             <i>Amazon S3 User Guide</i>.</p>
  */
 export interface Transition {
   /**
@@ -2841,7 +2844,7 @@ export interface LifecycleRule {
    * <p>Specifies the days since the initiation of an incomplete multipart upload that Amazon S3
    *          waits before permanently removing all parts of the upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">
    *             Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy</a> in the
-   *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *             <i>Amazon S3 User Guide</i>.</p>
    */
   AbortIncompleteMultipartUpload?: AbortIncompleteMultipartUpload;
 }
@@ -3916,7 +3919,7 @@ export interface PutAccessPointPolicyRequest {
   Name: string | undefined;
 
   /**
-   * <p>The policy that you want to apply to the specified access point. For more information about access point policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing data access with Amazon S3 Access Points</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+   * <p>The policy that you want to apply to the specified access point. For more information about access point policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing data access with Amazon S3 access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Policy: string | undefined;
 }

@@ -24,11 +24,11 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
 /**
  * <note>
  *             <p>This action puts a bucket policy to an Amazon S3 on Outposts bucket. To put a policy on an S3 bucket,
- *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html">PutBucketPolicy</a> in the <i>Amazon Simple Storage Service API</i>.
+ *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html">PutBucketPolicy</a> in the <i>Amazon S3 API Reference</i>.
  *       </p>
  *          </note>
  *          <p>Applies an Amazon S3 bucket policy to an Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
- *             <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *             <i>Amazon S3 User Guide</i>.</p>
  *          <p>If you are using an identity other than the root user of the AWS account that owns the
  *          Outposts bucket, the calling identity must have the <code>PutBucketPolicy</code>
  *          permissions on the specified Outposts bucket and belong to the bucket owner's account in

@@ -387,7 +387,8 @@ export interface CreateVocabularyRequest {
   VocabularyName: string | undefined;
 
   /**
-   * <p>The language code of the vocabulary entries.</p>
+   * <p>The language code of the vocabulary entries. For a list of languages and their
+   *             corresponding language codes, see <a>what-is-transcribe</a>.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
 
@@ -404,7 +405,8 @@ export interface CreateVocabularyRequest {
    *
    *
    *         <p>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p>
-   *         <p>For more information about custom vocabularies, see <a href="http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary">Custom Vocabularies</a>.</p>
+   *         <p>For more information about custom vocabularies, see <a href="http://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary">Custom
+   *                 Vocabularies</a>.</p>
    */
   VocabularyFileUri?: string;
 }
@@ -756,6 +758,10 @@ export namespace GetMedicalTranscriptionJobRequest {
   });
 }
 
+export enum MedicalContentIdentificationType {
+  PHI = "PHI",
+}
+
 /**
  * <p>Describes the input media file in a transcription request.</p>
  */
@@ -1017,6 +1023,13 @@ export interface MedicalTranscriptionJob {
   Settings?: MedicalTranscriptionSetting;
 
   /**
+   * <p>Shows the type of content that you've configured Amazon Transcribe Medical to identify in a transcription
+   *             job. If the value is <code>PHI</code>, you've configured the job to identify personal
+   *             health information (PHI) in the transcription output.</p>
+   */
+  ContentIdentificationType?: MedicalContentIdentificationType | string;
+
+  /**
    * <p>The medical specialty of any clinicians providing a dictation or having a
    *             conversation. <code>PRIMARYCARE</code> is the only available setting for this object.
    *             This specialty enables you to generate transcriptions for the following medical
@@ -1272,8 +1285,8 @@ export interface Settings {
    *             with three asterisks ("***") as placeholder text. Set to <code>remove</code> to remove
    *             filtered text from the transcript without using placeholder text. Set to
    *                 <code>tag</code> to mark the word in the transcription output that matches the
-   *             vocabulary filter. When you set the filter method to <code>tag</code>, the words matching
-   *             your vocabulary filter are not masked or removed.</p>
+   *             vocabulary filter. When you set the filter method to <code>tag</code>, the words
+   *             matching your vocabulary filter are not masked or removed.</p>
    */
   VocabularyFilterMethod?: VocabularyFilterMethod | string;
 }
@@ -1752,6 +1765,13 @@ export interface MedicalTranscriptionJobSummary {
    *             valid value.</p>
    */
   Specialty?: Specialty | string;
+
+  /**
+   * <p>Shows the type of information you've configured Amazon Transcribe Medical to identify in a transcription
+   *             job. If the value is <code>PHI</code>, you've configured the transcription job to identify
+   *             personal health information (PHI).</p>
+   */
+  ContentIdentificationType?: MedicalContentIdentificationType | string;
 
   /**
    * <p>The speech of the clinician in the input audio.</p>
@@ -2276,7 +2296,8 @@ export interface StartMedicalTranscriptionJobRequest {
    *             "my-other-job-name.json" as the output key, the object key is changed to
    *             "my-other-job-name.json". You can use an output key to change both the prefix and the
    *             file name, for example "folder/my-other-job-name.json".</p>
-   *         <p>If you specify an output key, you must also specify an S3 bucket in the <code>OutputBucketName</code> parameter.</p>
+   *         <p>If you specify an output key, you must also specify an S3 bucket in the
+   *                 <code>OutputBucketName</code> parameter.</p>
    */
   OutputKey?: string;
 
@@ -2317,6 +2338,13 @@ export interface StartMedicalTranscriptionJobRequest {
    * <p>Optional settings for the medical transcription job.</p>
    */
   Settings?: MedicalTranscriptionSetting;
+
+  /**
+   * <p>You can configure Amazon Transcribe Medical to label content in the transcription output. If you specify
+   *                 <code>PHI</code>, Amazon Transcribe Medical labels the personal health information (PHI) that it identifies in the transcription
+   *             output.</p>
+   */
+  ContentIdentificationType?: MedicalContentIdentificationType | string;
 
   /**
    * <p>The medical specialty of any clinician speaking in the input media.</p>
@@ -2368,6 +2396,8 @@ export interface StartTranscriptionJobRequest {
 
   /**
    * <p>The language code for the language used in the input media file.</p>
+   *         <p>To transcribe speech in Modern Standard Arabic (ar-SA), your audio or video file must
+   *             be encoded at a sample rate of 16000 Hz or higher.</p>
    */
   LanguageCode?: LanguageCode | string;
 
@@ -2412,7 +2442,8 @@ export interface StartTranscriptionJobRequest {
   OutputBucketName?: string;
 
   /**
-   * <p>You can specify a location in an Amazon S3 bucket to store the output of your transcription job.</p>
+   * <p>You can specify a location in an Amazon S3 bucket to store the output of your transcription
+   *             job.</p>
    *         <p>If you don't specify an output key, Amazon Transcribe stores the output of your transcription job
    *             in the Amazon S3 bucket you specified. By default, the object key is
    *             "your-transcription-job-name.json".</p>
@@ -2423,7 +2454,8 @@ export interface StartTranscriptionJobRequest {
    *             "my-other-job-name.json" as the output key, the object key is changed to
    *             "my-other-job-name.json". You can use an output key to change both the prefix and the
    *             file name, for example "folder/my-other-job-name.json".</p>
-   *         <p>If you specify an output key, you must also specify an S3 bucket in the <code>OutputBucketName</code> parameter.</p>
+   *         <p>If you specify an output key, you must also specify an S3 bucket in the
+   *                 <code>OutputBucketName</code> parameter.</p>
    */
   OutputKey?: string;
 
@@ -2615,7 +2647,8 @@ export interface UpdateVocabularyRequest {
   VocabularyName: string | undefined;
 
   /**
-   * <p>The language code of the vocabulary entries.</p>
+   * <p>The language code of the vocabulary entries. For a list of languages and their
+   *             corresponding language codes, see <a>what-is-transcribe</a>.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
 

@@ -23,7 +23,7 @@ export interface PutAccessPointPolicyForObjectLambdaCommandOutput extends __Meta
 
 /**
  * <p>Creates or replaces resource policy for an Object Lambda Access Point. For an example policy, see
- *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-create.html#olap-create-cli">Creating Object Lambda Access Points</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-create.html#olap-create-cli">Creating Object Lambda Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>The following actions are related to <code>PutAccessPointPolicyForObjectLambda</code>:</p>
  *          <ul>
  *             <li>

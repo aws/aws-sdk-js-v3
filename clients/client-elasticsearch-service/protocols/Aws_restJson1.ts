@@ -141,6 +141,7 @@ import {
   BaseException,
   CognitoOptions,
   CognitoOptionsStatus,
+  ColdStorageOptions,
   CompatibleVersionsMap,
   ConflictException,
   DescribePackagesFilter,
@@ -5160,6 +5161,12 @@ const serializeAws_restJson1CognitoOptions = (input: CognitoOptions, context: __
   };
 };
 
+const serializeAws_restJson1ColdStorageOptions = (input: ColdStorageOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+  };
+};
+
 const serializeAws_restJson1DescribePackagesFilter = (input: DescribePackagesFilter, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
@@ -5249,6 +5256,10 @@ const serializeAws_restJson1ElasticsearchClusterConfig = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ColdStorageOptions !== undefined &&
+      input.ColdStorageOptions !== null && {
+        ColdStorageOptions: serializeAws_restJson1ColdStorageOptions(input.ColdStorageOptions, context),
+      }),
     ...(input.DedicatedMasterCount !== undefined &&
       input.DedicatedMasterCount !== null && { DedicatedMasterCount: input.DedicatedMasterCount }),
     ...(input.DedicatedMasterEnabled !== undefined &&
@@ -5665,6 +5676,12 @@ const deserializeAws_restJson1CognitoOptionsStatus = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_restJson1ColdStorageOptions = (output: any, context: __SerdeContext): ColdStorageOptions => {
+  return {
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1CompatibleElasticsearchVersionsList = (
   output: any,
   context: __SerdeContext
@@ -5824,6 +5841,10 @@ const deserializeAws_restJson1ElasticsearchClusterConfig = (
   context: __SerdeContext
 ): ElasticsearchClusterConfig => {
   return {
+    ColdStorageOptions:
+      output.ColdStorageOptions !== undefined && output.ColdStorageOptions !== null
+        ? deserializeAws_restJson1ColdStorageOptions(output.ColdStorageOptions, context)
+        : undefined,
     DedicatedMasterCount:
       output.DedicatedMasterCount !== undefined && output.DedicatedMasterCount !== null
         ? output.DedicatedMasterCount
