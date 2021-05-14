@@ -53,6 +53,7 @@ import { XmlUnionsCommand } from "../../commands/XmlUnionsCommand";
 import { ComplexError, InvalidGreeting } from "../../models/models_0";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { Encoder as __Encoder } from "@aws-sdk/types";
+import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
 import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
@@ -5882,21 +5883,12 @@ const compareEquivalentUnknownTypeBodies = (
  * discrepancies between the components.
  */
 const compareEquivalentXmlBodies = (expectedBody: string, generatedBody: string): Object => {
-  const decodeEscapedXml = (str: string) => {
-    return str
-      .replace(/&amp;/g, "&")
-      .replace(/&apos;/g, "'")
-      .replace(/&quot;/g, '"')
-      .replace(/&gt;/g, ">")
-      .replace(/&lt;/g, "<");
-  };
-
   const parseConfig = {
     attributeNamePrefix: "",
     ignoreAttributes: false,
     parseNodeValue: false,
     trimValues: false,
-    tagValueProcessor: (val: any, tagName: any) => (val.trim() === "" ? "" : decodeEscapedXml(val)),
+    tagValueProcessor: (val: any, tagName: any) => (val.trim() === "" ? "" : decodeHTML(val)),
   };
 
   const parseXmlBody = (body: string) => {

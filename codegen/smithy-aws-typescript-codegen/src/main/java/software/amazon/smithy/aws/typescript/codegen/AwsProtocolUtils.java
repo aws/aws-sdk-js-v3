@@ -36,7 +36,6 @@ import software.amazon.smithy.model.traits.XmlNamespaceTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpProtocolGeneratorUtils;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
-import software.amazon.smithy.utils.IoUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -120,21 +119,19 @@ final class AwsProtocolUtils {
     static void generateXmlParseBody(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
 
-        // Include function that decodes XML escape characters.
-        writer.write(IoUtils.readUtf8Resource(AwsProtocolUtils.class, "decodeEscapedXML.ts"));
-
         // Include an XML body parser used to deserialize documents from HTTP responses.
         writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
         writer.addImport("getValueFromTextNode", "__getValueFromTextNode", "@aws-sdk/smithy-client");
         writer.addDependency(AwsDependency.XML_PARSER);
+        writer.addDependency(AwsDependency.HTML_ENTITIES);
         writer.addImport("parse", "xmlParse", "fast-xml-parser");
+        writer.addImport("decodeHTML", "decodeHTML", "entities");
         writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): "
                 + "any => collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
                     writer.openBlock("if (encoded.length) {", "}", () -> {
                         writer.write("const parsedObj = xmlParse(encoded, { attributeNamePrefix: '', "
                                 + "ignoreAttributes: false, parseNodeValue: false, trimValues: false, "
-                                + "tagValueProcessor: (val, tagName) => val.trim() === '' ? "
-                                + "'': decodeEscapedXML(val) });");
+                                + "tagValueProcessor: (val, tagName) => val.trim() === '' ? '': decodeHTML(val) });");
                         writer.write("const textNodeName = '#text';");
                         writer.write("const key = Object.keys(parsedObj)[0];");
                         writer.write("const parsedObjToReturn = parsedObj[key];");
