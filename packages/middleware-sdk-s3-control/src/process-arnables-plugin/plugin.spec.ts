@@ -187,7 +187,7 @@ describe("getProcessArnablesMiddleware", () => {
           },
         });
       } catch (e) {
-        expect(e.message).toContain("FIPS region is not supported with Outpost, got fips-us-gov-east-1");
+        expect(e.message).toContain("FIPS region is not supported");
       }
     });
 
@@ -210,7 +210,7 @@ describe("getProcessArnablesMiddleware", () => {
           },
         });
       } catch (e) {
-        expect(e.message).toContain("does not support FIPS region");
+        expect(e.message).toContain("FIPS region is not supported");
       }
     });
 
@@ -432,7 +432,7 @@ describe("getProcessArnablesMiddleware", () => {
           },
         });
       } catch (e) {
-        expect(e.message).toContain("FIPS region is not supported with Outpost, got fips-us-gov-east-1");
+        expect(e.message).toContain("FIPS region is not supported");
       }
     });
 
@@ -455,7 +455,7 @@ describe("getProcessArnablesMiddleware", () => {
           },
         });
       } catch (e) {
-        expect(e.message).toContain("does not support FIPS region");
+        expect(e.message).toContain("FIPS region is not supported");
       }
     });
 
