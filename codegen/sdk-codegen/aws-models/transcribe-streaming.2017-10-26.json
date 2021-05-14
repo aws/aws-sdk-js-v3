@@ -64,13 +64,13 @@
         "AudioChunk": {
           "target": "com.amazonaws.transcribestreaming#AudioChunk",
           "traits": {
-            "smithy.api#documentation": "<p>An audio blob that contains the next part of the audio that you want to transcribe. The maximum audio chunk size is 32 KB.</p>",
+            "smithy.api#documentation": "<p>An audio blob that contains the next part of the audio that you want to transcribe. The\n      maximum audio chunk size is 32 KB.</p>",
             "smithy.api#eventPayload": {}
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Provides a wrapper for the audio chunks that you are sending.</p>\n         <p>For information on audio encoding in Amazon Transcribe, see <a>input</a>. For information on audio encoding formats in Amazon Transcribe Medical, see <a>input-med</a>.</p>"
+        "smithy.api#documentation": "<p>Provides a wrapper for the audio chunks that you are sending.</p>\n         <p>For information on audio encoding in Amazon Transcribe, see <a>input</a>. For information\n      on audio encoding formats in Amazon Transcribe Medical, see <a>input-med</a>.</p>"
       }
     },
     "com.amazonaws.transcribestreaming#AudioStream": {
@@ -79,7 +79,7 @@
         "AudioEvent": {
           "target": "com.amazonaws.transcribestreaming#AudioEvent",
           "traits": {
-            "smithy.api#documentation": "<p>A blob of audio from your application. You audio stream consists of one or more audio\n      events.</p>\n         <p>For information on audio encoding formats in Amazon Transcribe, see <a>input</a>. For information on audio encoding formats in Amazon Transcribe Medical, see <a>input-med</a>.</p>\n         <p>For more information on stream encoding in Amazon Transcribe, see <a>event-stream</a>. For information on stream encoding in Amazon Transcribe Medical, see <a>event-stream-med</a>.</p>"
+            "smithy.api#documentation": "<p>A blob of audio from your application. You audio stream consists of one or more audio\n      events.</p>\n         <p>For information on audio encoding formats in Amazon Transcribe, see <a>input</a>. For\n      information on audio encoding formats in Amazon Transcribe Medical, see <a>input-med</a>.</p>\n         <p>For more information on stream encoding in Amazon Transcribe, see <a>event-stream</a>. For\n      information on stream encoding in Amazon Transcribe Medical, see <a>event-stream-med</a>.</p>"
           }
         }
       },
@@ -96,7 +96,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>One or more arguments to the <code>StartStreamTranscription</code> or <code>StartMedicalStreamTranscription</code> operation was invalid.\n      For example, <code>MediaEncoding</code> was not set to a valid encoding, or\n        <code>LanguageCode</code> was not set to a valid code. Check the parameters and try your\n      request again.</p>",
+        "smithy.api#documentation": "<p>One or more arguments to the <code>StartStreamTranscription</code> or\n        <code>StartMedicalStreamTranscription</code> operation was invalid. For example,\n        <code>MediaEncoding</code> was not set to a valid encoding, or <code>LanguageCode</code> was\n      not set to a valid code. Check the parameters and try your request again.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -134,7 +134,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A problem occurred while processing the audio. Amazon Transcribe or Amazon Transcribe Medical terminated processing. Try your\n      request again.</p>",
+        "smithy.api#documentation": "<p>A problem occurred while processing the audio. Amazon Transcribe or Amazon Transcribe Medical terminated processing. Try\n      your request again.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
       }
@@ -175,13 +175,19 @@
         "Speaker": {
           "target": "com.amazonaws.transcribestreaming#String",
           "traits": {
-            "smithy.api#documentation": "<p>If speaker identification is enabled, shows the speakers identified in the real-time stream.</p>"
+            "smithy.api#documentation": "<p>If speaker identification is enabled, shows the speakers identified in the real-time\n      stream.</p>"
           }
         },
         "Confidence": {
           "target": "com.amazonaws.transcribestreaming#Confidence",
           "traits": {
-            "smithy.api#documentation": "<p>A value between 0 and 1 for an item that is a confidence score that Amazon Transcribe assigns to\n      each word or phrase that it transcribes.</p>"
+            "smithy.api#documentation": "<p>A value between 0 and 1 for an item that is a confidence score that Amazon Transcribe assigns to each\n      word or phrase that it transcribes.</p>"
+          }
+        },
+        "Stable": {
+          "target": "com.amazonaws.transcribestreaming#Stable",
+          "traits": {
+            "smithy.api#documentation": "<p>If partial result stabilization has been enabled, indicates whether the word or phrase in\n      the item is stable. If <code>Stable</code> is <code>true</code>, the result is stable.</p>"
           }
         }
       },
@@ -561,6 +567,25 @@
         }
       }
     },
+    "com.amazonaws.transcribestreaming#PartialResultsStability": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "high",
+            "name": "HIGH"
+          },
+          {
+            "value": "medium",
+            "name": "MEDIUM"
+          },
+          {
+            "value": "low",
+            "name": "LOW"
+          }
+        ]
+      }
+    },
     "com.amazonaws.transcribestreaming#RequestId": {
       "type": "string"
     },
@@ -600,7 +625,7 @@
         "ChannelId": {
           "target": "com.amazonaws.transcribestreaming#String",
           "traits": {
-            "smithy.api#documentation": "<p>When channel identification is enabled, Amazon Transcribe transcribes the speech from each audio channel separately.</p>\n         <p>You can use <code>ChannelId</code> to retrieve the transcription results for a single channel in your audio stream.</p>"
+            "smithy.api#documentation": "<p>When channel identification is enabled, Amazon Transcribe transcribes the speech from each audio\n      channel separately.</p>\n         <p>You can use <code>ChannelId</code> to retrieve the transcription results for a single\n      channel in your audio stream.</p>"
           }
         }
       },
@@ -666,6 +691,12 @@
             "name": "UROLOGY"
           }
         ]
+      }
+    },
+    "com.amazonaws.transcribestreaming#Stable": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#box": {}
       }
     },
     "com.amazonaws.transcribestreaming#StartMedicalStreamTranscription": {
@@ -999,7 +1030,7 @@
         "EnableChannelIdentification": {
           "target": "com.amazonaws.transcribestreaming#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>When <code>true</code>, instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription.</p>\n         <p>Amazon Transcribe also produces a transcription of each item. An item includes the start time, end time, and any alternative transcriptions.</p>\n         <p>You can't set both <code>ShowSpeakerLabel</code> and <code>EnableChannelIdentification</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>",
+            "smithy.api#documentation": "<p>When <code>true</code>, instructs Amazon Transcribe to process each audio channel separately and then\n      merge the transcription output of each channel into a single transcription.</p>\n         <p>Amazon Transcribe also produces a transcription of each item. An item includes the start time, end\n      time, and any alternative transcriptions.</p>\n         <p>You can't set both <code>ShowSpeakerLabel</code> and\n        <code>EnableChannelIdentification</code> in the same request. If you set both, your request\n      returns a <code>BadRequestException</code>.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-enable-channel-identification"
           }
         },
@@ -1008,6 +1039,20 @@
           "traits": {
             "smithy.api#documentation": "<p>The number of channels that are in your audio stream.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-number-of-channels"
+          }
+        },
+        "EnablePartialResultsStabilization": {
+          "target": "com.amazonaws.transcribestreaming#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>When <code>true</code>, instructs Amazon Transcribe to present transcription results that have the\n      partial results stabilized. Normally, any word or phrase from one partial result can change in\n      a subsequent partial result. With partial results stabilization enabled, only the last few\n      words of one partial result can change in another partial result.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-enable-partial-results-stabilization"
+          }
+        },
+        "PartialResultsStability": {
+          "target": "com.amazonaws.transcribestreaming#PartialResultsStability",
+          "traits": {
+            "smithy.api#documentation": "<p>You can use this field to set the stability level of the transcription results. A higher\n      stability level means that the transcription results are less likely to change. Higher\n      stability levels can come with lower overall transcription accuracy.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-partial-results-stability"
           }
         }
       }
@@ -1097,6 +1142,20 @@
           "traits": {
             "smithy.api#documentation": "<p>The number of channels identified in the stream.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-number-of-channels"
+          }
+        },
+        "EnablePartialResultsStabilization": {
+          "target": "com.amazonaws.transcribestreaming#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Shows whether partial results stabilization has been enabled in the stream.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-enable-partial-results-stabilization"
+          }
+        },
+        "PartialResultsStability": {
+          "target": "com.amazonaws.transcribestreaming#PartialResultsStability",
+          "traits": {
+            "smithy.api#documentation": "<p>If partial results stabilization has been enabled in the stream, shows the stability\n      level.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-partial-results-stability"
           }
         }
       }
