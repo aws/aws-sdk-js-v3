@@ -11,6 +11,10 @@ interface PreviouslyResolved {
   sha256: HashConstructor;
 }
 export interface StsAuthResolvedConfig extends AwsAuthResolvedConfig {
+  /**
+   * Reference to STSClient class constructor.
+   * @internal
+   */
   stsClientCtor: new (clientConfig: any) => Client<any, any, any>;
 }
 

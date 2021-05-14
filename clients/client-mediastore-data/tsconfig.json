@@ -17,12 +17,13 @@
     "types": ["mocha"]
   },
   "typedocOptions": {
-    "exclude": ["**/node_modules/**", "**/*.spec.ts", "./protocols/*.ts", "./e2e/*.ts", "./endpoints.ts"],
+    "exclude": ["**/node_modules/**", "**/*.spec.ts", "**/protocols/*.ts", "**/e2e/*.ts", "**/endpoints.ts"],
     "excludeNotExported": true,
     "excludePrivate": true,
     "hideGenerator": true,
     "ignoreCompilerErrors": true,
     "includeDeclarations": true,
+    "stripInternal": true,
     "readme": "./README.md",
     "mode": "file",
     "out": "./docs",

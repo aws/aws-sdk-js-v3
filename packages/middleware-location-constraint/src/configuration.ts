@@ -7,6 +7,9 @@ interface PreviouslyResolved {
 }
 
 export interface LocationConstraintResolvedConfig {
+  /**
+   * Resolved value for input config {@link RegionInputConfig.region}
+   */
   region: Provider<string>;
 }
 export function resolveLocationConstraintConfig<T>(

@@ -52,7 +52,8 @@ public class AddMd5HashDependency implements TypeScriptIntegration {
 
         writer.addImport("HashConstructor", "__HashConstructor", "@aws-sdk/types");
         writer.writeDocs("A constructor for a class implementing the @aws-sdk/types.Hash interface \n"
-                + "that computes MD5 hashes");
+                + "that computes MD5 hashes.\n"
+                + "@internal");
         writer.write("md5?: __HashConstructor;\n");
     }
 

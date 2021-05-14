@@ -31,13 +31,39 @@ interface PreviouslyResolved {
 }
 
 export interface BucketEndpointResolvedConfig {
+  /**
+   * Whether the endpoint is specified by caller.
+   * @internal
+   */
   isCustomEndpoint: boolean;
+  /**
+   * Resolved value for input config {@link BucketEndpointInputConfig.bucketEndpoint}
+   */
   bucketEndpoint: boolean;
+  /**
+   * Resolved value for input config {@link BucketEndpointInputConfig.forcePathStyle}
+   */
   forcePathStyle: boolean;
+  /**
+   * Resolved value for input config {@link BucketEndpointInputConfig.useAccelerateEndpoint}
+   */
   useAccelerateEndpoint: boolean;
+  /**
+   * Resolved value for input config {@link BucketEndpointInputConfig.useDualstackEndpoint}
+   */
   useDualstackEndpoint: boolean;
+  /**
+   * Resolved value for input config {@link BucketEndpointInputConfig.useArnRegion}
+   */
   useArnRegion: Provider<boolean>;
+  /**
+   * Resolved value for input config {@link RegionInputConfig.region}
+   */
   region: Provider<string>;
+  /**
+   * Fetch related hostname, signing name or signing region with given region.
+   * @internal
+   */
   regionInfoProvider: RegionInfoProvider;
 }
 

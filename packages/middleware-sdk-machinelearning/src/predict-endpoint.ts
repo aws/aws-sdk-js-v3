@@ -7,11 +7,10 @@ import {
   BuildMiddleware,
   MetadataBearer,
   Pluggable,
+  UrlParser,
 } from "@aws-sdk/types";
 
-import { ResolvedPredictEndpointMiddlewareConfig } from "./configurations";
-
-export function predictEndpointMiddleware(options: ResolvedPredictEndpointMiddlewareConfig): BuildMiddleware<any, any> {
+export function predictEndpointMiddleware(options: { urlParser: UrlParser }): BuildMiddleware<any, any> {
   return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
@@ -44,7 +43,7 @@ export const predictEndpointMiddlewareOptions: BuildHandlerOptions = {
   override: true,
 };
 
-export const getPredictEndpointPlugin = (config: ResolvedPredictEndpointMiddlewareConfig): Pluggable<any, any> => ({
+export const getPredictEndpointPlugin = (config: { urlParser: UrlParser }): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(predictEndpointMiddleware(config), predictEndpointMiddlewareOptions);
   },

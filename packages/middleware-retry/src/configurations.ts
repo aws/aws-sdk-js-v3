@@ -41,7 +41,13 @@ export interface RetryInputConfig {
 
 interface PreviouslyResolved {}
 export interface RetryResolvedConfig {
+  /**
+   * Resolved value for input config {@link RetryInputConfig.maxAttempts}
+   */
   maxAttempts: Provider<number>;
+  /**
+   * Resolved value for input config {@link RetryInputConfig.retryStrategy}
+   */
   retryStrategy: RetryStrategy;
 }
 
