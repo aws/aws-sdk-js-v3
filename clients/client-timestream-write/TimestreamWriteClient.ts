@@ -3,7 +3,11 @@ import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/Cr
 import { DeleteDatabaseCommandInput, DeleteDatabaseCommandOutput } from "./commands/DeleteDatabaseCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import { DescribeDatabaseCommandInput, DescribeDatabaseCommandOutput } from "./commands/DescribeDatabaseCommand";
-import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "./commands/DescribeEndpointsCommand";
+import {
+  DescribeEndpointsCommand,
+  DescribeEndpointsCommandInput,
+  DescribeEndpointsCommandOutput,
+} from "./commands/DescribeEndpointsCommand";
 import { DescribeTableCommandInput, DescribeTableCommandOutput } from "./commands/DescribeTableCommand";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
@@ -26,6 +30,11 @@ import {
   resolveRegionConfig,
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import {
+  EndpointDiscoveryInputConfig,
+  EndpointDiscoveryResolvedConfig,
+  resolveEndpointDiscoveryConfig,
+} from "@aws-sdk/middleware-endpoint-discovery";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
@@ -206,6 +215,13 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
+   * The provider which populates default for endpointDiscoveryEnabled configuration, if it's
+   * not passed during client creation.
+   * @internal
+   */
+  endpointDiscoveryEnabledProvider?: __Provider<boolean | undefined>;
 }
 
 type TimestreamWriteClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
@@ -215,7 +231,8 @@ type TimestreamWriteClientConfigType = Partial<__SmithyConfiguration<__HttpHandl
   RetryInputConfig &
   HostHeaderInputConfig &
   AwsAuthInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  EndpointDiscoveryInputConfig;
 /**
  * The configuration interface of TimestreamWriteClient class constructor that set the region, credentials and other options.
  */
@@ -228,7 +245,8 @@ type TimestreamWriteClientResolvedConfigType = __SmithyResolvedConfiguration<__H
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  EndpointDiscoveryResolvedConfig;
 /**
  * The resolved configuration interface of TimestreamWriteClient class. This is resolved and normalized from the {@link TimestreamWriteClientConfig | constructor configuration interface}.
  */
@@ -259,8 +277,9 @@ export class TimestreamWriteClient extends __Client<
     let _config_4 = resolveHostHeaderConfig(_config_3);
     let _config_5 = resolveAwsAuthConfig(_config_4);
     let _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    let _config_7 = resolveEndpointDiscoveryConfig(_config_6, DescribeEndpointsCommand);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
