@@ -13,6 +13,7 @@ const AWS_REGIONS = new Set([
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
+  "ap-northeast-3",
   "ap-south-1",
   "ap-southeast-1",
   "ap-southeast-2",
@@ -45,9 +46,21 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "ap-northeast-2":
+      regionInfo = {
+        hostname: "groundstation.ap-northeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "ap-southeast-2":
       regionInfo = {
         hostname: "groundstation.ap-southeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-central-1":
+      regionInfo = {
+        hostname: "groundstation.eu-central-1.amazonaws.com",
         partition: "aws",
       };
       break;
@@ -61,6 +74,13 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       regionInfo = {
         hostname: "groundstation.eu-west-1.amazonaws.com",
         partition: "aws",
+      };
+      break;
+    case "fips-us-east-1":
+      regionInfo = {
+        hostname: "groundstation-fips.us-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-1",
       };
       break;
     case "fips-us-east-2":
@@ -80,6 +100,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "me-south-1":
       regionInfo = {
         hostname: "groundstation.me-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-east-1":
+      regionInfo = {
+        hostname: "groundstation.us-east-1.amazonaws.com",
         partition: "aws",
       };
       break;

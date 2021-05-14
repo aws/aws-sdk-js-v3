@@ -13,6 +13,7 @@ const AWS_REGIONS = new Set([
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
+  "ap-northeast-3",
   "ap-south-1",
   "ap-southeast-1",
   "ap-southeast-2",
@@ -39,6 +40,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "af-south-1":
+      regionInfo = {
+        hostname: "batch.af-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "ap-east-1":
       regionInfo = {
         hostname: "batch.ap-east-1.amazonaws.com",
@@ -54,6 +61,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "ap-northeast-2":
       regionInfo = {
         hostname: "batch.ap-northeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-northeast-3":
+      regionInfo = {
+        hostname: "batch.ap-northeast-3.amazonaws.com",
         partition: "aws",
       };
       break;

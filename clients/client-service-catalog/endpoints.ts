@@ -13,6 +13,7 @@ const AWS_REGIONS = new Set([
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
+  "ap-northeast-3",
   "ap-south-1",
   "ap-southeast-1",
   "ap-southeast-2",
@@ -63,6 +64,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "ap-northeast-3":
+      regionInfo = {
+        hostname: "servicecatalog.ap-northeast-3.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "ap-south-1":
       regionInfo = {
         hostname: "servicecatalog.ap-south-1.amazonaws.com",
@@ -85,6 +92,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       regionInfo = {
         hostname: "servicecatalog.ca-central-1.amazonaws.com",
         partition: "aws",
+      };
+      break;
+    case "cn-north-1":
+      regionInfo = {
+        hostname: "servicecatalog.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
+      };
+      break;
+    case "cn-northwest-1":
+      regionInfo = {
+        hostname: "servicecatalog.cn-northwest-1.amazonaws.com.cn",
+        partition: "aws-cn",
       };
       break;
     case "eu-central-1":

@@ -13,6 +13,7 @@ const AWS_REGIONS = new Set([
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
+  "ap-northeast-3",
   "ap-south-1",
   "ap-southeast-1",
   "ap-southeast-2",
@@ -60,6 +61,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "ap-northeast-2":
       regionInfo = {
         hostname: "ram.ap-northeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-northeast-3":
+      regionInfo = {
+        hostname: "ram.ap-northeast-3.amazonaws.com",
         partition: "aws",
       };
       break;
@@ -135,6 +142,41 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "fips-ca-central-1":
+      regionInfo = {
+        hostname: "ram-fips.ca-central-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ca-central-1",
+      };
+      break;
+    case "fips-us-east-1":
+      regionInfo = {
+        hostname: "ram-fips.us-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-1",
+      };
+      break;
+    case "fips-us-east-2":
+      regionInfo = {
+        hostname: "ram-fips.us-east-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-2",
+      };
+      break;
+    case "fips-us-west-1":
+      regionInfo = {
+        hostname: "ram-fips.us-west-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-1",
+      };
+      break;
+    case "fips-us-west-2":
+      regionInfo = {
+        hostname: "ram-fips.us-west-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-2",
+      };
+      break;
     case "me-south-1":
       regionInfo = {
         hostname: "ram.me-south-1.amazonaws.com",
@@ -163,12 +205,14 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       regionInfo = {
         hostname: "ram.us-gov-east-1.amazonaws.com",
         partition: "aws-us-gov",
+        signingRegion: "us-gov-east-1",
       };
       break;
     case "us-gov-west-1":
       regionInfo = {
         hostname: "ram.us-gov-west-1.amazonaws.com",
         partition: "aws-us-gov",
+        signingRegion: "us-gov-west-1",
       };
       break;
     case "us-west-1":

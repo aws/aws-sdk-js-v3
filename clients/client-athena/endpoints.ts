@@ -13,6 +13,7 @@ const AWS_REGIONS = new Set([
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
+  "ap-northeast-3",
   "ap-south-1",
   "ap-southeast-1",
   "ap-southeast-2",
@@ -135,6 +136,20 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "fips-us-east-1":
+      regionInfo = {
+        hostname: "athena-fips.us-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-1",
+      };
+      break;
+    case "fips-us-east-2":
+      regionInfo = {
+        hostname: "athena-fips.us-east-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-2",
+      };
+      break;
     case "fips-us-gov-east-1":
       regionInfo = {
         hostname: "athena-fips.us-gov-east-1.amazonaws.com",
@@ -147,6 +162,20 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         hostname: "athena-fips.us-gov-west-1.amazonaws.com",
         partition: "aws-us-gov",
         signingRegion: "us-gov-west-1",
+      };
+      break;
+    case "fips-us-west-1":
+      regionInfo = {
+        hostname: "athena-fips.us-west-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-1",
+      };
+      break;
+    case "fips-us-west-2":
+      regionInfo = {
+        hostname: "athena-fips.us-west-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-2",
       };
       break;
     case "me-south-1":

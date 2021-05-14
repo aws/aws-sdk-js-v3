@@ -13,6 +13,7 @@ const AWS_REGIONS = new Set([
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
+  "ap-northeast-3",
   "ap-south-1",
   "ap-southeast-1",
   "ap-southeast-2",
@@ -88,11 +89,39 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         signingService: "lex",
       };
       break;
+    case "us-east-1-fips":
+      regionInfo = {
+        hostname: "models-fips.lex.us-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-1",
+      };
+      break;
+    case "us-gov-west-1":
+      regionInfo = {
+        hostname: "models.lex.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingService: "lex",
+      };
+      break;
+    case "us-gov-west-1-fips":
+      regionInfo = {
+        hostname: "models-fips.lex.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-west-1",
+      };
+      break;
     case "us-west-2":
       regionInfo = {
         hostname: "models.lex.us-west-2.amazonaws.com",
         partition: "aws",
         signingService: "lex",
+      };
+      break;
+    case "us-west-2-fips":
+      regionInfo = {
+        hostname: "models-fips.lex.us-west-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-2",
       };
       break;
     // Next, try to match partition endpoints.
@@ -126,6 +155,7 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         regionInfo = {
           hostname: AWS_US_GOV_TEMPLATE.replace("{region}", region),
           partition: "aws-us-gov",
+          signingService: "lex",
         };
       }
       // Finally, assume it's an AWS partition endpoint.

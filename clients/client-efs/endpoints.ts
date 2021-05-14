@@ -13,6 +13,7 @@ const AWS_REGIONS = new Set([
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
+  "ap-northeast-3",
   "ap-south-1",
   "ap-southeast-1",
   "ap-southeast-2",
@@ -60,6 +61,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "ap-northeast-2":
       regionInfo = {
         hostname: "elasticfilesystem.ap-northeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-northeast-3":
+      regionInfo = {
+        hostname: "elasticfilesystem.ap-northeast-3.amazonaws.com",
         partition: "aws",
       };
       break;
@@ -161,6 +168,13 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         hostname: "elasticfilesystem-fips.ap-northeast-2.amazonaws.com",
         partition: "aws",
         signingRegion: "ap-northeast-2",
+      };
+      break;
+    case "fips-ap-northeast-3":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.ap-northeast-3.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ap-northeast-3",
       };
       break;
     case "fips-ap-south-1":
@@ -289,6 +303,13 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         signingRegion: "us-gov-west-1",
       };
       break;
+    case "fips-us-iso-east-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.us-iso-east-1.c2s.ic.gov",
+        partition: "aws-iso",
+        signingRegion: "us-iso-east-1",
+      };
+      break;
     case "fips-us-west-1":
       regionInfo = {
         hostname: "elasticfilesystem-fips.us-west-1.amazonaws.com",
@@ -337,6 +358,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       regionInfo = {
         hostname: "elasticfilesystem.us-gov-west-1.amazonaws.com",
         partition: "aws-us-gov",
+      };
+      break;
+    case "us-iso-east-1":
+      regionInfo = {
+        hostname: "elasticfilesystem.us-iso-east-1.c2s.ic.gov",
+        partition: "aws-iso",
       };
       break;
     case "us-west-1":

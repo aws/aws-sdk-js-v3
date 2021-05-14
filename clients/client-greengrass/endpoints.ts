@@ -13,6 +13,7 @@ const AWS_REGIONS = new Set([
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
+  "ap-northeast-3",
   "ap-south-1",
   "ap-southeast-1",
   "ap-southeast-2",
@@ -130,6 +131,7 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       regionInfo = {
         hostname: "greengrass.us-gov-east-1.amazonaws.com",
         partition: "aws-us-gov",
+        signingRegion: "us-gov-east-1",
       };
       break;
     case "us-gov-west-1":

@@ -13,6 +13,7 @@ const AWS_REGIONS = new Set([
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
+  "ap-northeast-3",
   "ap-south-1",
   "ap-southeast-1",
   "ap-southeast-2",
@@ -39,6 +40,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "af-south-1":
+      regionInfo = {
+        hostname: "fsx.af-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "ap-east-1":
       regionInfo = {
         hostname: "fsx.ap-east-1.amazonaws.com",
@@ -105,6 +112,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "eu-south-1":
+      regionInfo = {
+        hostname: "fsx.eu-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "eu-west-1":
       regionInfo = {
         hostname: "fsx.eu-west-1.amazonaws.com",
@@ -120,6 +133,61 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "eu-west-3":
       regionInfo = {
         hostname: "fsx.eu-west-3.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "fips-prod-ca-central-1":
+      regionInfo = {
+        hostname: "fsx-fips.ca-central-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ca-central-1",
+      };
+      break;
+    case "fips-prod-us-east-1":
+      regionInfo = {
+        hostname: "fsx-fips.us-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-1",
+      };
+      break;
+    case "fips-prod-us-east-2":
+      regionInfo = {
+        hostname: "fsx-fips.us-east-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-2",
+      };
+      break;
+    case "fips-prod-us-gov-east-1":
+      regionInfo = {
+        hostname: "fsx-fips.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-east-1",
+      };
+      break;
+    case "fips-prod-us-gov-west-1":
+      regionInfo = {
+        hostname: "fsx-fips.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-west-1",
+      };
+      break;
+    case "fips-prod-us-west-1":
+      regionInfo = {
+        hostname: "fsx-fips.us-west-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-1",
+      };
+      break;
+    case "fips-prod-us-west-2":
+      regionInfo = {
+        hostname: "fsx-fips.us-west-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-2",
+      };
+      break;
+    case "me-south-1":
+      regionInfo = {
+        hostname: "fsx.me-south-1.amazonaws.com",
         partition: "aws",
       };
       break;
@@ -139,6 +207,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       regionInfo = {
         hostname: "fsx.us-east-2.amazonaws.com",
         partition: "aws",
+      };
+      break;
+    case "us-gov-east-1":
+      regionInfo = {
+        hostname: "fsx.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
+      };
+      break;
+    case "us-gov-west-1":
+      regionInfo = {
+        hostname: "fsx.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
       };
       break;
     case "us-west-1":
