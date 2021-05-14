@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.16.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.15.0...v3.16.0) (2021-05-14)
+
+
+### Features
+
+* **clients:** enable Endpoint Discovery ([#2395](https://github.com/aws/aws-sdk-js-v3/issues/2395)) ([019c099](https://github.com/aws/aws-sdk-js-v3/commit/019c099c3238cd83e863c006ea51baa2535af77d))
+
+
+
+
+
 # [3.15.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.14.0...v3.15.0) (2021-05-10)
 
 

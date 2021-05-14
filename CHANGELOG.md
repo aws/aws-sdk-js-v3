@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.16.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.15.0...v3.16.0) (2021-05-14)
+
+
+### Bug Fixes
+
+* **client-finspace:** update internal dependency versions ([#2382](https://github.com/aws/aws-sdk-js-v3/issues/2382)) ([3cf3b32](https://github.com/aws/aws-sdk-js-v3/commit/3cf3b3237b18d0415fe6e852a14682decbaa9694))
+* **clients:** call decode from HTML entities in XML parser ([#2381](https://github.com/aws/aws-sdk-js-v3/issues/2381)) ([fd6b7eb](https://github.com/aws/aws-sdk-js-v3/commit/fd6b7ebd7d3fc4a2ceb3b016404de73413e1fb2f))
+
+
+### Features
+
+* **clients:** enable Endpoint Discovery ([#2395](https://github.com/aws/aws-sdk-js-v3/issues/2395)) ([019c099](https://github.com/aws/aws-sdk-js-v3/commit/019c099c3238cd83e863c006ea51baa2535af77d))
+* **clients:** update clients as of 05/10/2021 ([#2373](https://github.com/aws/aws-sdk-js-v3/issues/2373)) ([ed302dc](https://github.com/aws/aws-sdk-js-v3/commit/ed302dc3138c0730dba3b660be77b962a2d37607))
+* **clients:** update clients as of 05/14/2021 ([#2396](https://github.com/aws/aws-sdk-js-v3/issues/2396)) ([187c42a](https://github.com/aws/aws-sdk-js-v3/commit/187c42ae0f64ac17700eb02746b787b9fc52fc8e))
+* **endpoint-cache:** add EndpointCache for Endpoint Discovery ([#2355](https://github.com/aws/aws-sdk-js-v3/issues/2355)) ([f164177](https://github.com/aws/aws-sdk-js-v3/commit/f164177bf3cc1bb7986d38e9a4ded1e6723779c9))
+* **middleware-bucket-endpoint:** arn supports fips & handles global regions ([#2392](https://github.com/aws/aws-sdk-js-v3/issues/2392)) ([7b32494](https://github.com/aws/aws-sdk-js-v3/commit/7b32494c808393a9c6d8273d82c8abe3c00f3fe1))
+* **middleware-endpoint-discovery:** add middleware for Endpoint Discovery ([#2369](https://github.com/aws/aws-sdk-js-v3/issues/2369)) ([7f297dc](https://github.com/aws/aws-sdk-js-v3/commit/7f297dc651651687de1b4841380914f86238637f))
+
+
+
+
+
 # [3.15.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.14.0...v3.15.0) (2021-05-10)
 
 

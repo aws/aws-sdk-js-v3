@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-retry",
-  "version": "3.15.0",
+  "version": "3.16.0",
   "scripts": {
     "prepublishOnly": "yarn build && downlevel-dts dist/types dist/types/ts3.4",
     "build:cjs": "tsc -p tsconfig.cjs.json",
