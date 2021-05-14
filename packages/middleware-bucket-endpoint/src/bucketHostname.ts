@@ -3,19 +3,21 @@ import {
   BucketHostnameParams,
   DOT_PATTERN,
   getArnResources,
+  getPseudoRegion,
   getSuffix,
   getSuffixForArnEndpoint,
   isBucketNameOptions,
   isDnsCompatibleBucketName,
+  isFipsRegion,
   validateAccountId,
   validateArnEndpointOptions,
-  validateClientRegion,
   validateDNSHostLabel,
   validateNoDualstack,
   validateNoFIPS,
   validateOutpostService,
   validatePartition,
   validateRegion,
+  validateRegionalClient,
   validateS3Service,
   validateService,
 } from "./bucketHostnameUtils";
@@ -43,11 +45,8 @@ export const bucketHostname = (options: BucketHostnameParams | ArnHostnameParams
 };
 
 const getEndpointFromArn = (options: ArnHostnameParams & { isCustomEndpoint: boolean }): BucketHostname => {
-  const { isCustomEndpoint, baseHostname } = options;
-  const [clientRegion, hostnameSuffix] = isCustomEndpoint
-    ? [options.clientRegion, baseHostname]
-    : // Infer client region and hostname suffix from hostname from endpoints.json, like `s3.us-west-2.amazonaws.com`
-      getSuffixForArnEndpoint(baseHostname);
+  const { isCustomEndpoint, baseHostname, clientRegion } = options;
+  const hostnameSuffix = isCustomEndpoint ? baseHostname : getSuffixForArnEndpoint(baseHostname)[1];
 
   const {
     pathStyleEndpoint,
@@ -67,7 +66,7 @@ const getEndpointFromArn = (options: ArnHostnameParams & { isCustomEndpoint: boo
   validateService(service);
   validatePartition(partition, { clientPartition });
   validateAccountId(accountId);
-  validateClientRegion(clientRegion);
+  validateRegionalClient(clientRegion);
   const { accesspointName, outpostId } = getArnResources(resource);
   const DNSHostLabel = `${accesspointName}-${accountId}`;
   validateDNSHostLabel(DNSHostLabel, { tlsCompatible });
@@ -79,7 +78,9 @@ const getEndpointFromArn = (options: ArnHostnameParams & { isCustomEndpoint: boo
     validateNoDualstack(dualstackEndpoint);
     return {
       bucketEndpoint: true,
-      hostname: `${DNSHostLabel}.${service}.${endpointRegion}.${hostnameSuffix}`,
+      hostname: `${DNSHostLabel}.${service}${isFipsRegion(clientRegion) ? "-fips" : ""}.${getPseudoRegion(
+        endpointRegion
+      )}.${hostnameSuffix}`,
       signingRegion,
       signingService: service,
     };
@@ -105,7 +106,11 @@ const getEndpointFromArn = (options: ArnHostnameParams & { isCustomEndpoint: boo
   return {
     bucketEndpoint: true,
     hostname: `${hostnamePrefix}${
-      isCustomEndpoint ? "" : `.s3-accesspoint${dualstackEndpoint ? ".dualstack" : ""}.${endpointRegion}`
+      isCustomEndpoint
+        ? ""
+        : `.s3-accesspoint${isFipsRegion(clientRegion) ? "-fips" : ""}${
+            dualstackEndpoint ? ".dualstack" : ""
+          }.${getPseudoRegion(endpointRegion)}`
     }.${hostnameSuffix}`,
     signingRegion,
   };
