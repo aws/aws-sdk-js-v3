@@ -21,5 +21,5 @@ dependencies {
     api("software.amazon.smithy:smithy-aws-traits:[1.7.0, 1.8.0[")
     api("software.amazon.smithy:smithy-waiters:[1.7.0, 1.8.0[")
     api("software.amazon.smithy:smithy-aws-iam-traits:[1.7.0, 1.8.0[")
-    api("software.amazon.smithy:smithy-typescript-codegen:0.3.0")
+    api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.3.0")
 }
