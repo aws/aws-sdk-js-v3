@@ -3,10 +3,12 @@ import {
   BucketHostnameParams,
   DOT_PATTERN,
   getArnResources,
+  getPseudoRegion,
   getSuffix,
   getSuffixForArnEndpoint,
   isBucketNameOptions,
   isDnsCompatibleBucketName,
+  isFipsRegion,
   validateAccountId,
   validateArnEndpointOptions,
   validateDNSHostLabel,
@@ -15,6 +17,7 @@ import {
   validateOutpostService,
   validatePartition,
   validateRegion,
+  validateRegionalClient,
   validateS3Service,
   validateService,
 } from "./bucketHostnameUtils";
@@ -42,11 +45,8 @@ export const bucketHostname = (options: BucketHostnameParams | ArnHostnameParams
 };
 
 const getEndpointFromArn = (options: ArnHostnameParams & { isCustomEndpoint: boolean }): BucketHostname => {
-  const { isCustomEndpoint, baseHostname } = options;
-  const [clientRegion, hostnameSuffix] = isCustomEndpoint
-    ? [options.clientRegion, baseHostname]
-    : // Infer client region and hostname suffix from hostname from endpoints.json, like `s3.us-west-2.amazonaws.com`
-      getSuffixForArnEndpoint(baseHostname);
+  const { isCustomEndpoint, baseHostname, clientRegion } = options;
+  const hostnameSuffix = isCustomEndpoint ? baseHostname : getSuffixForArnEndpoint(baseHostname)[1];
 
   const {
     pathStyleEndpoint,
@@ -66,7 +66,7 @@ const getEndpointFromArn = (options: ArnHostnameParams & { isCustomEndpoint: boo
   validateService(service);
   validatePartition(partition, { clientPartition });
   validateAccountId(accountId);
-  validateRegion(region, { useArnRegion, clientRegion, clientSigningRegion });
+  validateRegionalClient(clientRegion);
   const { accesspointName, outpostId } = getArnResources(resource);
   const DNSHostLabel = `${accesspointName}-${accountId}`;
   validateDNSHostLabel(DNSHostLabel, { tlsCompatible });
@@ -74,15 +74,19 @@ const getEndpointFromArn = (options: ArnHostnameParams & { isCustomEndpoint: boo
   const endpointRegion = useArnRegion ? region : clientRegion;
   const signingRegion = useArnRegion ? region : clientSigningRegion;
   if (service === "s3-object-lambda") {
+    validateRegion(region, { useArnRegion, clientRegion, clientSigningRegion, allowFipsRegion: true });
     validateNoDualstack(dualstackEndpoint);
     return {
       bucketEndpoint: true,
-      hostname: `${DNSHostLabel}.${service}.${endpointRegion}.${hostnameSuffix}`,
+      hostname: `${DNSHostLabel}.${service}${isFipsRegion(clientRegion) ? "-fips" : ""}.${getPseudoRegion(
+        endpointRegion
+      )}.${hostnameSuffix}`,
       signingRegion,
       signingService: service,
     };
   } else if (outpostId) {
     // if this is an Outpost ARN
+    validateRegion(region, { useArnRegion, clientRegion, clientSigningRegion });
     validateOutpostService(service);
     validateDNSHostLabel(outpostId, { tlsCompatible });
     validateNoDualstack(dualstackEndpoint);
@@ -96,12 +100,17 @@ const getEndpointFromArn = (options: ArnHostnameParams & { isCustomEndpoint: boo
     };
   }
   // construct endpoint from Accesspoint ARN
+  validateRegion(region, { useArnRegion, clientRegion, clientSigningRegion, allowFipsRegion: true });
   validateS3Service(service);
   const hostnamePrefix = `${DNSHostLabel}`;
   return {
     bucketEndpoint: true,
     hostname: `${hostnamePrefix}${
-      isCustomEndpoint ? "" : `.s3-accesspoint${dualstackEndpoint ? ".dualstack" : ""}.${endpointRegion}`
+      isCustomEndpoint
+        ? ""
+        : `.s3-accesspoint${isFipsRegion(clientRegion) ? "-fips" : ""}${
+            dualstackEndpoint ? ".dualstack" : ""
+          }.${getPseudoRegion(endpointRegion)}`
     }.${hostnameSuffix}`,
     signingRegion,
   };

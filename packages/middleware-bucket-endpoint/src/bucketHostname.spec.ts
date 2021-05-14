@@ -234,35 +234,28 @@ describe("bucketHostname", () => {
       });
     });
 
-    describe("allows different client region with same signing scope", () => {
-      ["s3-external-1", "s3"].forEach((clientRegion) => {
-        const baseHostname = `${clientRegion}.amazonaws.com`;
-        it(`should use client region from base hostname ${baseHostname}`, () => {
-          const { bucketEndpoint, hostname } = bucketHostname({
-            bucketName: parseArn("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint"),
-            baseHostname,
-            isCustomEndpoint: false,
-            clientRegion: region,
-            clientSigningRegion: "us-east-1",
-          });
-          expect(bucketEndpoint).toBe(true);
-          expect(hostname).toBe(`myendpoint-123456789012.s3-accesspoint.${clientRegion}.amazonaws.com`);
-        });
-      });
-
-      ["s3-external-1", "s3"].forEach((clientRegion) => {
-        const baseHostname = `${clientRegion}.amazonaws.com`;
-        it(`should use ARN region with base hostname ${baseHostname}`, () => {
-          const { bucketEndpoint, hostname } = bucketHostname({
-            bucketName: parseArn("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint"),
-            baseHostname,
-            isCustomEndpoint: false,
-            clientRegion: region,
-            clientSigningRegion: "us-east-1",
-            useArnRegion: true,
-          });
-          expect(bucketEndpoint).toBe(true);
-          expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint.us-east-1.amazonaws.com");
+    describe("validate client region", () => {
+      [
+        { baseHostname: "s3.amazonaws.com", region: "aws-global", signingRegion: "us-east-1" },
+        {
+          baseHostname: "s3-external-1.amazonaws.com",
+          region: "s3-external-1",
+          signingRegion: "us-east-1",
+        },
+      ].forEach(({ baseHostname, region, signingRegion }) => {
+        it(`should throw if supplied with global region ${region}`, () => {
+          try {
+            bucketHostname({
+              bucketName: parseArn("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint"),
+              baseHostname,
+              isCustomEndpoint: false,
+              clientRegion: region,
+              clientSigningRegion: signingRegion,
+            });
+            fail("function should have thrown");
+          } catch (e) {
+            expect(e).toBeDefined();
+          }
         });
       });
     });
@@ -333,43 +326,75 @@ describe("bucketHostname", () => {
 
     describe("allows fips client region", () => {
       const bucketArn = parseArn("arn:aws-us-gov:s3:us-gov-east-1:123456789012:accesspoint:myendpoint");
+      const clientRegion = "fips-us-gov-east-1";
+      const clientPartition = "aws-us-gov";
       it("should use client region", () => {
         const { bucketEndpoint, hostname } = bucketHostname({
           bucketName: bucketArn,
-          baseHostname: "s3.fips-us-gov-east-1.amazonaws.com",
+          baseHostname: `s3.${clientRegion}.amazonaws.com`,
           isCustomEndpoint: false,
-          clientRegion: "us-gov-east-1",
-          clientPartition: "aws-us-gov",
+          clientRegion,
+          clientPartition,
         });
         expect(bucketEndpoint).toBe(true);
-        expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint.fips-us-gov-east-1.amazonaws.com");
+        expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint-fips.us-gov-east-1.amazonaws.com");
       });
 
       it("should use ARN region", () => {
         const { bucketEndpoint, hostname } = bucketHostname({
           bucketName: bucketArn,
-          baseHostname: "s3.fips-us-gov-east-1.amazonaws.com",
+          baseHostname: `s3.${clientRegion}.amazonaws.com`,
           isCustomEndpoint: false,
-          clientRegion: "us-gov-east-1",
-          clientPartition: "aws-us-gov",
+          clientRegion,
+          clientPartition,
           useArnRegion: true,
         });
         expect(bucketEndpoint).toBe(true);
-        expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint.us-gov-east-1.amazonaws.com");
+        expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint-fips.us-gov-east-1.amazonaws.com");
       });
 
       it("should allow dualstack", () => {
         const { bucketEndpoint, hostname } = bucketHostname({
           bucketName: bucketArn,
-          baseHostname: "s3.fips-us-gov-east-1.amazonaws.com",
+          baseHostname: `s3.${clientRegion}.amazonaws.com`,
           isCustomEndpoint: false,
-          clientRegion: "us-gov-east-1",
-          clientPartition: "aws-us-gov",
+          clientRegion,
+          clientPartition,
           useArnRegion: true,
           dualstackEndpoint: true,
         });
         expect(bucketEndpoint).toBe(true);
-        expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint.dualstack.us-gov-east-1.amazonaws.com");
+        expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint-fips.dualstack.us-gov-east-1.amazonaws.com");
+      });
+    });
+
+    describe("validates FIPS client region matching ARN region", () => {
+      const bucketArn = parseArn("arn:aws-us-gov:s3:us-gov-west-1:123456789012:accesspoint:myendpoint");
+      const clientRegion = "fips-us-gov-east-1";
+      const clientPartition = "aws-us-gov";
+      it("should throw client region doesn't match arn region", () => {
+        expect(() =>
+          bucketHostname({
+            bucketName: bucketArn,
+            baseHostname: `s3.${clientRegion}.amazonaws.com`,
+            isCustomEndpoint: false,
+            clientRegion,
+            clientPartition,
+          })
+        ).toThrowError();
+      });
+
+      it("should throw client region doesn't match arn region and uses ARN region", () => {
+        expect(() =>
+          bucketHostname({
+            bucketName: bucketArn,
+            baseHostname: `s3.${clientRegion}.amazonaws.com`,
+            isCustomEndpoint: false,
+            clientRegion,
+            clientPartition,
+            useArnRegion: true,
+          })
+        ).toThrowError();
       });
     });
 
@@ -554,33 +579,35 @@ describe("bucketHostname", () => {
       }).toThrow(`Partition in ARN is incompatible, got "aws-cn" but expected "aws"`);
     });
 
-    describe("not supports fips region", () => {
-      it("should throw if client region is fips", () => {
+    describe("fips region", () => {
+      it("should throw if client is using fips region", () => {
+        const clientRegion = "fips-us-gov-east-1";
+        const clientPartition = "aws-us-gov";
         expect.assertions(2);
         expect(() => {
           bucketHostname({
             bucketName: parseArn(
               "arn:aws-us-gov:s3-outposts:us-gov-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
             ),
-            baseHostname: "s3.fips-us-gov-east-1.amazonaws.com",
+            baseHostname: `s3.${clientRegion}.amazonaws.com`,
             isCustomEndpoint: false,
-            clientRegion: "us-gov-east-1",
-            clientPartition: "aws-us-gov",
+            clientRegion,
+            clientPartition,
           });
-        }).toThrow("FIPS region is not supported with Outpost, got fips-us-gov-east-1");
+        }).toThrow("FIPS region is not supported");
 
         expect(() => {
           bucketHostname({
             bucketName: parseArn(
               "arn:aws-us-gov:s3-outposts:fips-us-gov-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
             ),
-            baseHostname: "s3.fips-us-gov-east-1.amazonaws.com",
+            baseHostname: `s3.${clientRegion}.amazonaws.com`,
             isCustomEndpoint: false,
-            clientRegion: "us-gov-east-1",
-            clientPartition: "aws-us-gov",
+            clientRegion,
+            clientPartition,
             useArnRegion: true,
           });
-        }).toThrow("Endpoint does not support FIPS region");
+        }).toThrow("FIPS region is not supported");
       });
 
       it("should allow if region is not fips", () => {
@@ -778,7 +805,13 @@ describe("bucketHostname", () => {
 
     describe("object lambda general test cases", () => {
       it("should match expectations in valid configurations", () => {
-        const validLambdaExpectations: [string, string, boolean, string][] = [
+        const validLambdaExpectations: [
+          arn: string,
+          clientRegion: string,
+          useArnRegion: boolean,
+          expectedEndpoint: string,
+          clientPartition?: string
+        ][] = [
           [
             "arn:aws:s3-object-lambda:us-west-2:1123456789012:accesspoint/mybanner",
             "us-west-2",
@@ -798,37 +831,42 @@ describe("bucketHostname", () => {
             "mybanner-3123456789012.s3-object-lambda.us-east-1.amazonaws.com",
           ],
           [
-            "arn:aws:s3-object-lambda:us-east-1:4123456789012:accesspoint/mybanner",
-            "s3-external-1",
-            true,
-            "mybanner-4123456789012.s3-object-lambda.us-east-1.amazonaws.com",
+            "arn:aws-us-gov:s3-object-lambda:us-gov-east-1:123456789012:accesspoint/mybanner",
+            "fips-us-gov-east-1",
+            false,
+            "mybanner-123456789012.s3-object-lambda-fips.us-gov-east-1.amazonaws.com",
+            "aws-us-gov",
           ],
           [
-            "arn:aws:s3-object-lambda:us-east-1:5123456789012:accesspoint/mybanner",
-            "aws-global",
+            "arn:aws-us-gov:s3-object-lambda:us-gov-east-1:123456789012:accesspoint/mybanner",
+            "fips-us-gov-east-1",
             true,
-            "mybanner-5123456789012.s3-object-lambda.us-east-1.amazonaws.com",
+            "mybanner-123456789012.s3-object-lambda-fips.us-gov-east-1.amazonaws.com",
+            "aws-us-gov",
           ],
         ];
-        validLambdaExpectations.forEach((lambdaArn) => {
-          const arn = lambdaArn[0];
-          const region = lambdaArn[1];
-          const useArnRegion = lambdaArn[2];
-          const exoectedEndpoint = lambdaArn[3];
+        validLambdaExpectations.forEach(([arn, clientRegion, useArnRegion, expectedEndpoint, clientPartition]) => {
           const { bucketEndpoint, hostname } = bucketHostname({
             bucketName: parseArn(arn),
             baseHostname: `s3.${region}.amazonaws.com`,
             isCustomEndpoint: false,
-            clientRegion: region,
-            useArnRegion: useArnRegion,
+            clientRegion,
+            useArnRegion,
+            clientPartition,
           });
           expect(bucketEndpoint).toBe(true);
-          expect(hostname).toBe(exoectedEndpoint);
+          expect(hostname).toBe(expectedEndpoint);
         });
       });
 
       it("should match not work with invalid configurations", () => {
-        const invalidLambdaConfigurations: [string, string, boolean, string][] = [
+        const invalidLambdaConfigurations: [
+          arn: string,
+          clientRegion: string,
+          useArnRegion: boolean,
+          expectedError: string,
+          clientPartition?: string
+        ][] = [
           [
             "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner",
             "us-west-2",
@@ -895,22 +933,46 @@ describe("bucketHostname", () => {
             false,
             "Invalid ARN, Access Point ARN contains sub resources",
           ],
+          [
+            "arn:aws:s3-object-lambda:us-east-1:4123456789012:accesspoint/mybanner",
+            "s3-external-1",
+            false,
+            "Client region s3-external-1 is not regional",
+          ],
+          [
+            "arn:aws:s3-object-lambda:us-east-1:5123456789012:accesspoint/mybanner",
+            "aws-global",
+            false,
+            "Client region aws-global is not regional",
+          ],
+          [
+            "arn:aws-us-gov:s3-object-lambda:us-gov-west-1:123456789012:accesspoint/mybanner",
+            "fips-us-gov-east-1",
+            false,
+            "Client FIPS region fips-us-gov-east-1 doesn't match region us-gov-west-1 in ARN",
+            "aws-us-gov",
+          ],
+          [
+            "arn:aws-us-gov:s3-object-lambda:us-gov-west-1:123456789012:accesspoint/mybanner",
+            "fips-us-gov-east-1",
+            true,
+            "Client FIPS region fips-us-gov-east-1 doesn't match region us-gov-west-1 in ARN",
+            "aws-us-gov",
+          ],
         ];
 
-        invalidLambdaConfigurations.forEach((lambdaArn) => {
-          const arn = lambdaArn[0];
-          const region = lambdaArn[1];
-          const useArnRegion = lambdaArn[2];
+        invalidLambdaConfigurations.forEach(([arn, clientRegion, useArnRegion, expectedError, clientPartition]) => {
           try {
             bucketHostname({
               bucketName: parseArn(arn),
-              baseHostname: "s3.us-west-2.amazonaws.com",
+              baseHostname: `s3.${region}.amazonaws.com`,
               isCustomEndpoint: false,
-              clientRegion: region,
-              useArnRegion: useArnRegion,
+              useArnRegion,
+              clientRegion,
+              clientPartition,
             });
             // should never get here
-            expect.assertions(1);
+            fail();
           } catch (e) {
             // should throw since these are error cases
             expect(1).toEqual(1);
