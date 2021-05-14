@@ -34,6 +34,7 @@ export interface EndpointDiscoveryResolvedConfig {
 
   /**
    * The constructor of the Command used for discovering endpoints.
+   * @internal
    */
   endpointDiscoveryCommandCtor: new (comandConfig: any) => any;
 
@@ -45,6 +46,7 @@ export interface EndpointDiscoveryResolvedConfig {
   /**
    * Stores whether endpoint discovery configuration is set locally by passing
    * {@link EndpointDiscoveryInputConfig.endpointDiscoveryEnabled} during client creation.
+   * @internal
    */
   isClientEndpointDiscoveryEnabled: boolean;
 }
