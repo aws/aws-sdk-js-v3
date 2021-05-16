@@ -1,9 +1,9 @@
-import { LRUCache } from "mnemonist";
+import LRUCache from "mnemonist/lru-cache";
 
 import { Endpoint } from "./Endpoint";
 import { EndpointCache } from "./EndpointCache";
 
-jest.mock("mnemonist");
+jest.mock("mnemonist/lru-cache");
 
 describe(EndpointCache.name, () => {
   let endpointCache;

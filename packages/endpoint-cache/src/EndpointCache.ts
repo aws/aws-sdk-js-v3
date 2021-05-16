@@ -1,4 +1,4 @@
-import { LRUCache } from "mnemonist";
+import LRUCache from "mnemonist/lru-cache";
 
 import { Endpoint } from "./Endpoint";
 
