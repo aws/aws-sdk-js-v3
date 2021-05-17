@@ -13,6 +13,7 @@ const AWS_REGIONS = new Set([
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
+  "ap-northeast-3",
   "ap-south-1",
   "ap-southeast-1",
   "ap-southeast-2",
@@ -60,6 +61,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "ap-northeast-2":
       regionInfo = {
         hostname: "es.ap-northeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-northeast-3":
+      regionInfo = {
+        hostname: "es.ap-northeast-3.amazonaws.com",
         partition: "aws",
       };
       break;

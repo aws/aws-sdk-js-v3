@@ -13,6 +13,7 @@ const AWS_REGIONS = new Set([
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
+  "ap-northeast-3",
   "ap-south-1",
   "ap-southeast-1",
   "ap-southeast-2",
@@ -60,6 +61,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "ap-northeast-2":
       regionInfo = {
         hostname: "secretsmanager.ap-northeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-northeast-3":
+      regionInfo = {
+        hostname: "secretsmanager.ap-northeast-3.amazonaws.com",
         partition: "aws",
       };
       break;
@@ -197,6 +204,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         hostname: "secretsmanager-fips.us-gov-west-1.amazonaws.com",
         partition: "aws-us-gov",
         signingRegion: "us-gov-west-1",
+      };
+      break;
+    case "us-iso-east-1":
+      regionInfo = {
+        hostname: "secretsmanager.us-iso-east-1.c2s.ic.gov",
+        partition: "aws-iso",
       };
       break;
     case "us-west-1":

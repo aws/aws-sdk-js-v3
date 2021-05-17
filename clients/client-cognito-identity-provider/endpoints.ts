@@ -13,6 +13,7 @@ const AWS_REGIONS = new Set([
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
+  "ap-northeast-3",
   "ap-south-1",
   "ap-southeast-1",
   "ap-southeast-2",
@@ -124,6 +125,13 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         hostname: "cognito-idp-fips.us-gov-west-1.amazonaws.com",
         partition: "aws-us-gov",
         signingRegion: "us-gov-west-1",
+      };
+      break;
+    case "fips-us-west-1":
+      regionInfo = {
+        hostname: "cognito-idp-fips.us-west-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-1",
       };
       break;
     case "fips-us-west-2":

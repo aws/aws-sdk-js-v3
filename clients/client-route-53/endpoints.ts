@@ -13,6 +13,7 @@ const AWS_REGIONS = new Set([
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
+  "ap-northeast-3",
   "ap-south-1",
   "ap-southeast-1",
   "ap-southeast-2",
@@ -51,6 +52,13 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         hostname: "route53.amazonaws.com",
         partition: "aws",
         signingRegion: "us-east-1",
+      };
+      break;
+    case "aws-iso-b-global":
+      regionInfo = {
+        hostname: "route53.sc2s.sgov.gov",
+        partition: "aws-iso-b",
+        signingRegion: "us-isob-east-1",
       };
       break;
     case "aws-iso-global":
@@ -93,10 +101,7 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         return defaultRegionInfoProvider("aws-iso-global");
       }
       if (AWS_ISO_B_REGIONS.has(region)) {
-        regionInfo = {
-          hostname: AWS_ISO_B_TEMPLATE.replace("{region}", region),
-          partition: "aws-iso-b",
-        };
+        return defaultRegionInfoProvider("aws-iso-b-global");
       }
       if (AWS_US_GOV_REGIONS.has(region)) {
         return defaultRegionInfoProvider("aws-us-gov-global");

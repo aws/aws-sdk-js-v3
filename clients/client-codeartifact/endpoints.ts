@@ -13,6 +13,7 @@ const AWS_REGIONS = new Set([
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
+  "ap-northeast-3",
   "ap-south-1",
   "ap-southeast-1",
   "ap-southeast-2",
@@ -75,9 +76,27 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "eu-south-1":
+      regionInfo = {
+        hostname: "codeartifact.eu-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "eu-west-1":
       regionInfo = {
         hostname: "codeartifact.eu-west-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-2":
+      regionInfo = {
+        hostname: "codeartifact.eu-west-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-3":
+      regionInfo = {
+        hostname: "codeartifact.eu-west-3.amazonaws.com",
         partition: "aws",
       };
       break;
