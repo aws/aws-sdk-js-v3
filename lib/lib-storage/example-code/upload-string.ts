@@ -9,14 +9,14 @@ const Body =
 
 (async () => {
   const target = { Bucket, Key, Body };
-  const paralellUploads3 = new Upload({
+  const parallelUploads3 = new Upload({
     client: new S3({}),
     params: target,
   });
 
-  paralellUploads3.on("httpUploadProgress", (progress) => {
+  parallelUploads3.on("httpUploadProgress", (progress) => {
     console.log(progress);
   });
 
-  await paralellUploads3.done();
+  await parallelUploads3.done();
 })();
