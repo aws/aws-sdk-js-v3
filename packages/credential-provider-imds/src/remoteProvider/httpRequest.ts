@@ -14,7 +14,7 @@ export function httpRequest(options: RequestOptions): Promise<Buffer> {
     });
 
     req.on("timeout", () => {
-      reject(new Error("TimeoutError"));
+      reject(new ProviderError("TimeoutError from instance metadata service"));
     });
 
     req.on("response", (res: IncomingMessage) => {

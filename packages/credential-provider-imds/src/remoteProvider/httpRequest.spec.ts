@@ -88,7 +88,9 @@ describe("httpRequest", () => {
       .delay(timeout * 2)
       .reply(200, "expectedResponse");
 
-    await expect(httpRequest({ host, path, port, timeout })).rejects.toStrictEqual(new Error("TimeoutError"));
+    await expect(httpRequest({ host, path, port, timeout })).rejects.toStrictEqual(
+      new ProviderError("TimeoutError from instance metadata service")
+    );
 
     scope.done();
   });
