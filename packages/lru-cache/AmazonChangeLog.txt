@@ -1,0 +1,5 @@
+The Open Source MIT licensed project is at: https://github.com/Yomguithereal/mnemonist
+
+High level modifications:
+- The source code is written in TypeScript.
+- An option is added to delete a cache key.
