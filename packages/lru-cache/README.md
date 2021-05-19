@@ -9,8 +9,6 @@
 
 You probably shouldn't, at least directly.
 
-## LRUCache
-
 This is a fork of LRUCache in [mnemonist](https://github.com/Yomguithereal/mnemonist) with high level modifications:
 
 - The source code is written in TypeScript.
