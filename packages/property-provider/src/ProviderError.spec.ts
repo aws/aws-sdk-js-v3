@@ -1,6 +1,10 @@
 import { ProviderError } from "./ProviderError";
 
 describe("ProviderError", () => {
+  it("should be named as CredentialsError", () => {
+    expect(new ProviderError("PANIC").name).toBe("CredentialsError");
+  });
+
   it("should direct the chain to proceed to the next link by default", () => {
     expect(new ProviderError("PANIC").tryNextLink).toBe(true);
   });

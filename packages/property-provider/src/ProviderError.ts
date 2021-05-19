@@ -8,6 +8,7 @@
  * ensures the chain will stop if an entirely unexpected error is encountered.
  */
 export class ProviderError extends Error {
+  readonly name = "CredentialsError";
   constructor(message: string, public readonly tryNextLink: boolean = true) {
     super(message);
   }

@@ -243,9 +243,12 @@ describe("defaultProvider", () => {
 
     process.env[ENV_IMDS_DISABLED] = "1";
 
-    await expect(defaultProvider()()).rejects.toMatchObject(
-      new ProviderError("EC2 Instance Metadata Service access disabled")
-    );
+    expect.assertions(2);
+    try {
+      await defaultProvider()();
+    } catch (e) {
+      expect(e).toMatchObject({ message: "Could not load credentials from any providers", name: "CredentialsError" });
+    }
   });
 
   it("should continue on to the ECS IMDS provider if no env or ini credentials have been found and an ECS environment variable has been set", async () => {
@@ -272,6 +275,23 @@ describe("defaultProvider", () => {
     expect((fromProcess() as any).mock.calls.length).toBe(1);
     expect((fromContainerMetadata() as any).mock.calls.length).toBe(1);
     expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
+  });
+
+  it("should throw no credentials error if none of the credential providers can load", async () => {
+    (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
+    (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("Nope!")));
+    (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromTokenFile() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("Nor here!")));
+    (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+    (fromContainerMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("BOOM")));
+    process.env[ENV_CMDS_RELATIVE_URI] = "/credentials";
+    expect.assertions(1);
+    try {
+      await defaultProvider()();
+    } catch (e) {
+      expect(e).toMatchObject({ message: "Could not load credentials from any providers", name: "CredentialsError" });
+    }
   });
 
   it("should read config files only once for all providers", async () => {

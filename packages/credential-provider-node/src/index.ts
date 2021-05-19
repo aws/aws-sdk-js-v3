@@ -61,6 +61,9 @@ export const defaultProvider = (
     fromProcess(options),
     fromTokenFile(options),
     remoteProvider(options),
+    async () => {
+      throw new ProviderError("Could not load credentials from any providers", false);
+    },
   ];
   if (!options.profile) providers.unshift(fromEnv());
   const providerChain = chain(...providers);
