@@ -1,6 +1,17 @@
 import { LRUCache } from "./LRUCache";
+import { getPointerArrayConstructor } from "./utils/getPointerArrayConstructor";
+
+jest.mock("./utils/getPointerArrayConstructor");
 
 describe(LRUCache.name, () => {
+  beforeEach(() => {
+    (getPointerArrayConstructor as jest.Mock).mockReturnValue(Array);
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   describe("should throw if given an invalid capacity", () => {
     [undefined, {}, -1, true, 1.01, Infinity].forEach((capacity) => {
       it(`invalid capacity: ${capacity}`, () => {
