@@ -110,14 +110,13 @@ might not have the same name either.
     - **v2**: The Agent object to perform HTTP requests with. Used for connection pooling.
     - **v3**: You can configure `httpAgent` or `httpsAgent` as shown in the examples above.
 
-  - `connectionTimeout`
+  - `connectTimeout`
     - **v2**: Sets the socket to timeout after failing to establish a connection with the server after connectTimeout
       milliseconds.
     - **v3**: `connectionTimeout` is available [in `NodeHttpHandler` options](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/classes/_aws_sdk_node_http_handler.nodehttphandler-1.html).
   - `timeout`
     - **v2**: The number of milliseconds a request can take before automatically being terminated.
-    - **v3**: Hard request timeout is not available in `NodeHttpHandler`, but available as `requestTimeout` [in
-      `FetchHttphandler` in browsers](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/classes/_aws_sdk_fetch_http_handler.fetchhttphandler-1.html)
+    - **v3**: `socketTimeout` is available [in `NodeHttpHandler` options](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/classes/_aws_sdk_node_http_handler.nodehttphandler-1.html).
   - `xhrAsync`
     - **v2**: Whether the SDK will send asynchronous HTTP requests.
     - **v3**: **Deprecated**. Requests are _always_ asynchronous.
@@ -179,6 +178,71 @@ might not have the same name either.
   - **v2**: Whether to use the Accelerate endpoint with the S3 service.
   - **v3**: No change.
 
+## Credential Providers
+
+In v2, the SDK provides a list of credential providers to choose from, as well as a credentials provider chain,
+available by default on Node.js, that tries to load the AWS credentials from all the most common providers. V3 simplifies
+the credential provider's interface, making it easier to use and write custom credential providers. On top of a new
+credentials provider chain, V3 all provides a list of credential providers aiming to provide equivalent to v2.
+
+Here is all the credential providers in v2 and their equivalents in v3.
+
+### Default Credential Provider
+
+Default credential provider is how SDK resolve the AWS credential if you DO NOT provide one explicitly.
+
+- **v2**: [CredentialProviderChain](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CredentialProviderChain.html)
+  in Node.js resolves credential from sources as following order:
+
+  - [environmental variable](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-environment.html)
+  - [shared credentials file](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-shared.html)
+  - [ECS container credentials](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/RemoteCredentials.html)
+  - [spawning external process](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sourcing-external.html)
+  - [OIDC token from specified file](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/TokenFileWebIdentityCredentials.html)
+  - [EC2 instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)
+
+  If one of the credential providers above fails to resolve the AWS credential, the chain falls back to next provider
+  until a valid credential is resolved, or throw error when all of them fail.
+
+  In Browsers and ReactNative, the chain is empty, meaning you always need supply credentials explicitly.
+
+- **v3**: [defaultProvider](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_node.html#defaultprovider)
+  The credential sources and fallback order _does not_ change in v3. It also supports [AWS Single Sign-On credentials](https://aws.amazon.com/single-sign-on/).
+
+### Temporary Credentials
+
+- **v2**: [ChainableTemporaryCredentials](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ChainableTemporaryCredentials.html)
+  Represents temporary credentials retrieved from `AWS.STS`. Without any extra parameters, credentials will be
+  fetched from the `AWS.STS.getSessionToken()` operation. If an IAM role is provided, the `AWS.STS.assumeRole()` operation
+  will be used to fetch credentials for the role instead.
+  `AWS.ChainableTemporaryCredentials` differs from `AWS.TemporaryCredentials` in the way masterCredentials and refreshes
+  are handled. `AWS.ChainableTemporaryCredentials` refreshes expired credentials using the masterCredentials passed by
+  the user to support chaining of STS credentials. However, `AWS.TemporaryCredentials` recursively collapses the
+  masterCredentials during instantiation, precluding the ability to refresh credentials which require intermediate, temporary credentials.
+- **v3**: Partially supported. You can retrieve the temporary credential from STS with the
+  [role assumer function based on `sts:AssumeRole`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/globals.html#getdefaultroleassumer).
+  Here's an example:
+
+  ```javascript
+  import { FooClient } from "@aws-sdk/client-foo";
+  import { getDefaultRoleAssumer } from "@aws-sdk/client-sts"; // ES6 import
+  // const { FooClient } = require("@aws-sdk/client-foo");
+  // const { getDefaultRoleAssumer } = require("@aws-sdk/client-sts"); // CommonJS import
+
+  /* role assumer function that calls sts:AssumeRole API */
+  const roleAssumer = getDefaultRoleAssumer();
+  const sourceCredential = {
+    /* Source credential or credential provider */
+  };
+  const client = new FooClient({
+    credentials: () =>
+      roleAssumer(sourceCredential, {
+        RoleArn,
+        RoleSessionName,
+      }),
+  });
+  ```
+
 ## S3 Multipart Upload
 
 In v2, the S3 client contains an [`upload()`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#upload-property)
@@ -231,3 +295,27 @@ await ddbDocClient.send(
 ```
 
 More examples and configurations are available in the [package README](https://github.com/aws/aws-sdk-js-v3/blob/main/lib/lib-dynamodb/README.md).
+
+## Waiters
+
+In v2, all waiters are bound to the service client class, you need to specify in waiter's input which designed state the
+client will be waiting for. For example, you need to [call `waitFor("bucketExists")`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#bucketExists-waiter)
+to wait for a newly created bucket to be ready.
+
+In v3, you don't need to import waiters if your application doesn't need one. Moreover, you can import only the waiter
+you need to wait for the particular desired state you want. Thus, you can reduce your bundle size and improve
+performance. Here's the example of waiting for bucket to be ready after creation:
+
+```javascript
+import { S3Client, CreateBucketCommand, waitUntilBucketExists } from "@aws-sdk/client-s3"; // ES6 import
+// const { S3Client, CreateBucketCommand, waitUntilBucketExists } = require("@aws-sdk/client-s3"); // CommonJS import
+
+const Bucket = "BUCKET_NAME";
+const client = new S3Client({ region: "REGION" });
+const command = new CreateBucketCommand({ Bucket });
+
+await client.send(command);
+await waitUntilBucketExists({ client, maxWaitTime: 60 }, { Bucket });
+```
+
+You can find everything of how to configure the waiters in the [blog post of waiters in v3 SDK](https://aws.amazon.com/blogs/developer/waiters-in-modular-aws-sdk-for-javascript/).
