@@ -211,7 +211,7 @@ Default credential provider is how SDK resolve the AWS credential if you DO NOT 
 
 ### Temporary Credentials
 
-- **v2**: [ChainableTemporaryCredentials](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ChainableTemporaryCredentials.html)
+- **v2**: [`ChainableTemporaryCredentials`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ChainableTemporaryCredentials.html)
   Represents temporary credentials retrieved from `AWS.STS`. Without any extra parameters, credentials will be
   fetched from the `AWS.STS.getSessionToken()` operation. If an IAM role is provided, the `AWS.STS.assumeRole()` operation
   will be used to fetch credentials for the role instead.
@@ -242,6 +242,25 @@ Default credential provider is how SDK resolve the AWS credential if you DO NOT 
       }),
   });
   ```
+
+### Cognito Identity Credentials
+
+Load credentials from Cognito Identity service, normally used in browsers.
+
+- **v2**: [`CognitoIdentityCredentials`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CognitoIdentityCredentials.html)
+  Represents credentials retrieved from STS Web Identity Federation using the Amazon Cognito Identity service.
+- **v3**: [`Cognito Identity Credential Provider`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_cognito_identity.html#fromcognitoidentity-1)
+  The [`@aws/credential-provider-cognito-identity` package](https://www.npmjs.com/package/@aws-sdk/credential-provider-cognito-identity)
+  provides two credential provider functions, one of which [`fromCognitoIdentity`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_cognito_identity.html#fromcognitoidentity-1)
+  takes an identity ID and calls `cognitoIdentity:GetCredentialsForIdentity`, while the other
+  [`fromCognitoIdentityPool`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_cognito_identity.html#fromcognitoidentitypool-1)
+  takes an identity pool ID, calls `cognitoIdentity:GetId` on the first invocation, and then calls`fromCognitoIdentity`.
+  Subsequent invocations of the latter do not re-invoke GetId
+
+  The provider implements the "Simplified Flow" described in the [Cognito developer guide](https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html).
+  The "Classic Flow" which involves calling `cognito:GetOpenIdToken` and then calling `sts:AssumeRoleWithWebIdentity` is
+  NOT supported. Please open a [feature request](https://github.com/aws/aws-sdk-js-v3/issues/new?assignees=&labels=feature-request&template=---feature-request.md&title=)
+  to us if you need it.
 
 ## S3 Multipart Upload
 
