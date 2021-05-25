@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-ssm-incidents",
   "description": "AWS SDK for JavaScript Ssm Incidents Client for Node.js, Browser and React Native",
-  "version": "1.0.0-rc.1",
+  "version": "3.0.0",
   "scripts": {
     "clean": "yarn remove-definitions && yarn remove-dist && yarn remove-documentation",
     "build-documentation": "yarn remove-documentation && typedoc ./",
