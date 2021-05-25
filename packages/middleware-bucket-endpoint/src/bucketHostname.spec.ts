@@ -15,7 +15,6 @@ describe("bucketHostname", () => {
             bucketName: "foo",
             baseHostname,
             isCustomEndpoint,
-            clientRegion: region,
           });
 
           expect(bucketEndpoint).toBe(true);
@@ -27,7 +26,6 @@ describe("bucketHostname", () => {
             bucketName: "foo",
             baseHostname,
             isCustomEndpoint,
-            clientRegion: region,
             pathStyleEndpoint: true,
           });
 
@@ -40,7 +38,6 @@ describe("bucketHostname", () => {
             bucketName: "foo.bar",
             baseHostname,
             isCustomEndpoint,
-            clientRegion: region,
           });
 
           expect(bucketEndpoint).toBe(false);
@@ -52,7 +49,6 @@ describe("bucketHostname", () => {
             bucketName: "foo.bar",
             baseHostname,
             isCustomEndpoint,
-            clientRegion: region,
             tlsCompatible: false,
           });
 
@@ -82,7 +78,6 @@ describe("bucketHostname", () => {
               bucketName: nonDnsCompliantBucketName,
               baseHostname,
               isCustomEndpoint,
-              clientRegion: region,
             });
 
             expect(bucketEndpoint).toBe(false);
@@ -425,10 +420,6 @@ describe("bucketHostname", () => {
             message: "ARN resource should begin with 'accesspoint:' or 'outpost:'",
           },
           {
-            bucketArn: "arn:aws:s3::123456789012:accesspoint:myendpoint",
-            message: "ARN region is empty",
-          },
-          {
             bucketArn: "arn:aws:s3:us-west-2::accesspoint:myendpoint",
             message: "Access point ARN accountID does not match regex '[0-9]{12}'",
           },
@@ -478,6 +469,106 @@ describe("bucketHostname", () => {
           useArnRegion: true,
         }).signingRegion
       ).toBe("us-west-2");
+    });
+  });
+
+  describe("from Multi-region Access Point(MRAP) ARN", () => {
+    ["us-east-1", "us-west-2", "aws-global"].forEach((region) => {
+      it(`should populate endpoint from MRAP ARN in region "${region}"`, () => {
+        const { bucketEndpoint, hostname, signingRegion } = bucketHostname({
+          bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap"),
+          baseHostname: `s3.${region}.amazonaws.com`,
+          disableMultiregionAccessPoints: false,
+        });
+        expect(bucketEndpoint).toBe(true);
+        expect(hostname).toBe("mfzwi23gnjvgw.mrap.accesspoint.s3-global.amazonaws.com");
+        expect(signingRegion).toBe("*");
+      });
+    });
+
+    it('should populate endpoint from MRAP ARN in region "cn-north-2"', () => {
+      const { bucketEndpoint, hostname, signingRegion } = bucketHostname({
+        bucketName: parseArn("arn:aws-cn:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap"),
+        clientPartition: "aws-cn",
+        baseHostname: `s3.${region}.amazonaws.com.cn`,
+        disableMultiregionAccessPoints: false,
+      });
+      expect(bucketEndpoint).toBe(true);
+      expect(hostname).toBe("mfzwi23gnjvgw.mrap.accesspoint.s3-global.amazonaws.com.cn");
+      expect(signingRegion).toBe("*");
+    });
+
+    it("should throw if MRAP ARN is supplied but disabled through options", () => {
+      expect(() =>
+        bucketHostname({
+          bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap"),
+          baseHostname: `s3.us-west-2.amazonaws.com`,
+          disableMultiregionAccessPoints: true,
+        })
+      ).toThrow("SDK is attempting to use a MRAP ARN. Please enable to feature.");
+    });
+
+    it("should throw if dualstack option is set", () => {
+      expect(() =>
+        bucketHostname({
+          bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap"),
+          baseHostname: `s3.us-west-2.amazonaws.com`,
+          dualstackEndpoint: true,
+        })
+      ).toThrow("Dualstack endpoint is not supported with Outpost or Multi-region Access Point ARN.");
+    });
+
+    it("should throw if accelerate endpoint option is set", () => {
+      expect(() =>
+        bucketHostname({
+          bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap"),
+          baseHostname: `s3.us-west-2.amazonaws.com`,
+          accelerateEndpoint: true,
+        })
+      ).toThrow("Accelerate endpoint is not supported when bucket is an ARN");
+    });
+
+    it("should throw if region is empty and disableMultiregionAccessPoints option is set", () => {
+      expect(() =>
+        bucketHostname({
+          bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:myendpoint"),
+          baseHostname: `s3.us-west-2.amazonaws.com`,
+          disableMultiregionAccessPoints: true,
+        })
+      ).toThrow("");
+    });
+
+    it('should populate endpoint from MRAP ARN with access point name "myendpoint"', () => {
+      const { bucketEndpoint, hostname } = bucketHostname({
+        bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:myendpoint"),
+        baseHostname: `s3.us-west-2.amazonaws.com`,
+        disableMultiregionAccessPoints: false,
+      });
+      expect(bucketEndpoint).toBe(true);
+      expect(hostname).toBe("myendpoint.accesspoint.s3-global.amazonaws.com");
+    });
+
+    it('should populate endpoint from MRAP ARN with access point name "my.bucket"', () => {
+      const { bucketEndpoint, hostname } = bucketHostname({
+        bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:my.bucket"),
+        baseHostname: `s3.us-west-2.amazonaws.com`,
+        disableMultiregionAccessPoints: false,
+      });
+      expect(bucketEndpoint).toBe(true);
+      expect(hostname).toBe("my.bucket.accesspoint.s3-global.amazonaws.com");
+    });
+
+    it("should populate endpoint from MRAP ARN with custom endpoint", () => {
+      const { bucketEndpoint, hostname, signingRegion } = bucketHostname({
+        bucketName: parseArn("arn:aws:s3::123456789012:accesspoint:mfzwi23gnjvgw.mrap"),
+        baseHostname: "vpce-123-abc.vpce.s3-global.amazonaws.com",
+        isCustomEndpoint: true,
+        clientRegion: "us-west-2",
+        disableMultiregionAccessPoints: false,
+      });
+      expect(bucketEndpoint).toBe(true);
+      expect(hostname).toBe("mfzwi23gnjvgw.mrap.vpce-123-abc.vpce.s3-global.amazonaws.com");
+      expect(signingRegion).toBe("*");
     });
   });
 

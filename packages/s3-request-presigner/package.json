@@ -17,6 +17,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/middleware-sdk-s3": "3.25.0",
     "@aws-sdk/protocol-http": "3.25.0",
     "@aws-sdk/signature-v4": "3.25.0",
     "@aws-sdk/smithy-client": "3.28.0",
