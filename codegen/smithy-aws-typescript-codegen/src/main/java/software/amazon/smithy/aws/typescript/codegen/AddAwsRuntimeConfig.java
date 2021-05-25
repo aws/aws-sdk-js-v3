@@ -95,13 +95,10 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                     .write("serviceId?: string;\n");
         }
         if (isSigV4Service(settings, model)) {
-            if (isAwsService(settings, model)) {
-                writer.writeDocs("The AWS region to which this client will send requests")
-                        .write("region?: string | __Provider<string>;\n");
-            } else {
-                writer.writeDocs("The AWS region to use as signing region for AWS Auth")
-                        .write("region?: string | __Provider<string>;\n");
-            }
+            writer.writeDocs(isAwsService(settings, model)
+                                ? "The AWS region to which this client will send requests"
+                                : "The AWS region to use as signing region for AWS Auth")
+                    .write("region?: string | __Provider<string>;\n");
         }
         writer.writeDocs("Value for how many times a request will be made at most in case of retry.")
                 .write("maxAttempts?: number | __Provider<number>;\n");
