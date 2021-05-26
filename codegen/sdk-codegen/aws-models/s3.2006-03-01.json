@@ -1246,7 +1246,7 @@
           }
         },
         "MultipartUpload": {
-          "target": "com.amazonaws.s3#CompletedMultipartUpload",
+          "target": "com.amazonaws.s3#CompleteMultipartUpload",
           "traits": {
             "smithy.api#documentation": "<p>The container for the multipart upload request information.</p>",
             "smithy.api#httpPayload": {},
@@ -1276,7 +1276,7 @@
         }
       }
     },
-    "com.amazonaws.s3#CompletedMultipartUpload": {
+    "com.amazonaws.s3#CompleteMultipartUpload": {
       "type": "structure",
       "members": {
         "Parts": {

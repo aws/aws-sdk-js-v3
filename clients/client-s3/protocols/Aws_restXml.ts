@@ -261,7 +261,7 @@ import {
   CORSConfiguration,
   CORSRule,
   CommonPrefix,
-  CompletedMultipartUpload,
+  CompleteMultipartUpload,
   CompletedPart,
   Condition,
   CopyObjectResult,
@@ -503,11 +503,11 @@ export const serializeAws_restXmlCompleteMultipartUploadCommand = async (
   };
   let body: any;
   if (input.MultipartUpload !== undefined) {
-    body = serializeAws_restXmlCompletedMultipartUpload(input.MultipartUpload, context);
+    body = serializeAws_restXmlCompleteMultipartUpload(input.MultipartUpload, context);
   }
   let contents: any;
   if (input.MultipartUpload !== undefined) {
-    contents = serializeAws_restXmlCompletedMultipartUpload(input.MultipartUpload, context);
+    contents = serializeAws_restXmlCompleteMultipartUpload(input.MultipartUpload, context);
     body = '<?xml version="1.0" encoding="UTF-8"?>';
     contents.addAttribute("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
     body += contents.toString();
@@ -10506,11 +10506,11 @@ const serializeAws_restXmlBucketLoggingStatus = (input: BucketLoggingStatus, con
   return bodyNode;
 };
 
-const serializeAws_restXmlCompletedMultipartUpload = (
-  input: CompletedMultipartUpload,
+const serializeAws_restXmlCompleteMultipartUpload = (
+  input: CompleteMultipartUpload,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("CompletedMultipartUpload");
+  const bodyNode = new __XmlNode("CompleteMultipartUpload");
   if (input.Parts !== undefined && input.Parts !== null) {
     const nodes = serializeAws_restXmlCompletedPartList(input.Parts, context);
     nodes.map((node: any) => {
