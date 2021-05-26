@@ -4,9 +4,10 @@ import { v4 } from "uuid";
 
 import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS, THROTTLING_RETRY_DELAY_BASE } from "./constants";
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
-import { DEFAULT_MAX_ATTEMPTS, RetryQuota, StandardRetryStrategy } from "./defaultStrategy";
+import { DEFAULT_MAX_ATTEMPTS, StandardRetryStrategy } from "./defaultStrategy";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
+import { RetryQuota } from "./types";
 
 jest.mock("@aws-sdk/service-error-classification");
 jest.mock("./delayDecider");

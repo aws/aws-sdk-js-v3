@@ -4,3 +4,4 @@ export * from "./defaultStrategy";
 export * from "./configurations";
 export * from "./delayDecider";
 export * from "./retryDecider";
+export * from "./types";
