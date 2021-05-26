@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.17.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.16.0...v3.17.0) (2021-05-26)
+
+
+### Bug Fixes
+
+* **endpoint-cache:** reduce bundle size ([#2400](https://github.com/aws/aws-sdk-js-v3/issues/2400)) ([b157173](https://github.com/aws/aws-sdk-js-v3/commit/b1571731eef59271e1efb14d11a05854ad867ab9))
+
+
+### Features
+
+* **client-ssm-incidents:** rename client-commander package to client-ssm-incidents ([#2431](https://github.com/aws/aws-sdk-js-v3/issues/2431)) ([e4f6fea](https://github.com/aws/aws-sdk-js-v3/commit/e4f6fea374f1e571db6991894b2a918e4d421c38))
+* **clients:** update endpoint resolution as of 05/12/2021 ([#2398](https://github.com/aws/aws-sdk-js-v3/issues/2398)) ([17afcbb](https://github.com/aws/aws-sdk-js-v3/commit/17afcbb65bb26f091ba258717716272d5dc4e2c7))
+
+
+
+
+
 # [3.16.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.15.0...v3.16.0) (2021-05-14)
 
 

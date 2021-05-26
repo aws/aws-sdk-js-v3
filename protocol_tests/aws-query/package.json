@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-query",
   "description": "@aws-sdk/aws-query client",
-  "version": "3.16.0",
+  "version": "3.17.0",
   "scripts": {
     "clean": "yarn remove-definitions && yarn remove-dist && yarn remove-documentation",
     "build-documentation": "yarn remove-documentation && typedoc ./",
