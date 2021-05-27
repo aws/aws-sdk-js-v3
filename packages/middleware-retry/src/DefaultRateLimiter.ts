@@ -103,15 +103,17 @@ export class DefaultRateLimiter implements RateLimiter {
   }
 
   private calculateTimeWindow() {
-    this.timeWindow = Math.pow((this.lastMaxRate * (1 - this.beta)) / this.scaleConstant, 1 / 3);
+    this.timeWindow = this.getPrecise(Math.pow((this.lastMaxRate * (1 - this.beta)) / this.scaleConstant, 1 / 3));
   }
 
   private cubicThrottle(rateToUse: number) {
-    return rateToUse * this.beta;
+    return this.getPrecise(rateToUse * this.beta);
   }
 
   private cubicSuccess(timestamp: number) {
-    return this.scaleConstant * Math.pow(timestamp - this.lastThrottleTime - this.timeWindow, 3) + this.lastMaxRate;
+    return this.getPrecise(
+      this.scaleConstant * Math.pow(timestamp - this.lastThrottleTime - this.timeWindow, 3) + this.lastMaxRate
+    );
   }
 
   private enableTokenBucket() {
@@ -136,9 +138,13 @@ export class DefaultRateLimiter implements RateLimiter {
 
     if (timeBucket > this.lastTxRateBucket) {
       const currentRate = this.requestCount / (timeBucket - this.lastTxRateBucket);
-      this.measuredTxRate = currentRate * this.smooth + this.measuredTxRate * (1 - this.smooth);
+      this.measuredTxRate = this.getPrecise(currentRate * this.smooth + this.measuredTxRate * (1 - this.smooth));
       this.requestCount = 0;
       this.lastTxRateBucket = timeBucket;
     }
+  }
+
+  private getPrecise(num: number) {
+    return parseFloat(num.toFixed(12));
   }
 }
