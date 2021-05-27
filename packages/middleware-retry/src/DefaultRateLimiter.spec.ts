@@ -13,6 +13,33 @@ describe(DefaultRateLimiter.name, () => {
     jest.clearAllMocks();
   });
 
+  describe("getSendToken", () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
+    afterEach(() => {
+      jest.useRealTimers();
+    });
+
+    it.each([
+      [0.5, 892.8571428571428],
+      [1, 1785.7142857142856],
+      [2, 2000],
+    ])("timestamp: %d, delay: %d", async (timestamp, delay) => {
+      jest.spyOn(Date, "now").mockImplementation(() => 0);
+      const rateLimiter = new DefaultRateLimiter();
+
+      (isThrottlingError as jest.Mock).mockReturnValueOnce(true);
+      jest.spyOn(Date, "now").mockImplementation(() => timestamp * 1000);
+      rateLimiter.updateClientSendingRate({});
+
+      rateLimiter.getSendToken();
+      jest.runAllTimers();
+      expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), delay);
+    });
+  });
+
   describe("cubicSuccess", () => {
     it.each([
       [5, 7],
