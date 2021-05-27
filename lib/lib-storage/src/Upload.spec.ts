@@ -14,7 +14,7 @@ const putObjectTaggingMock = jest.fn().mockResolvedValue({
 });
 
 jest.mock("@aws-sdk/client-s3", () => ({
-  ...jest.requireActual("@aws-sdk/client-s3"),
+  ...(jest.requireActual("@aws-sdk/client-s3") as {}),
   S3: jest.fn().mockReturnValue({
     send: sendMock,
   }),
