@@ -27,7 +27,7 @@
   "devDependencies": {
     "@aws-sdk/abort-controller": "3.15.0",
     "@types/jest": "^26.0.4",
-    "typescript": "~4.2.4"
+    "typescript": "~4.3.2"
   },
   "typesVersions": {
     "<4.0": {
