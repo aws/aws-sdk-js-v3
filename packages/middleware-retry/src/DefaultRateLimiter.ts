@@ -145,6 +145,6 @@ export class DefaultRateLimiter implements RateLimiter {
   }
 
   private getPrecise(num: number) {
-    return parseFloat(num.toFixed(12));
+    return parseFloat(num.toFixed(8));
   }
 }

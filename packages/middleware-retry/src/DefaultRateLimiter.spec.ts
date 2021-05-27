@@ -13,6 +13,29 @@ describe(DefaultRateLimiter.name, () => {
     jest.clearAllMocks();
   });
 
+  describe("cubicSuccess", () => {
+    it.each([
+      [5, 7],
+      [6, 9.64893601],
+      [7, 10.00003085],
+      [8, 10.45328452],
+      [9, 13.40869703],
+      [10, 21.26626836],
+      [11, 36.42599853],
+    ])("timestamp: %d, calculatedRate: %d", (timestamp, calculatedRate) => {
+      jest.spyOn(Date, "now").mockImplementation(() => 0);
+      const rateLimiter = new DefaultRateLimiter();
+      rateLimiter["lastMaxRate"] = 10;
+      rateLimiter["lastThrottleTime"] = 5;
+
+      jest.spyOn(Date, "now").mockImplementation(() => timestamp * 1000);
+
+      const cubicSuccessSpy = jest.spyOn(DefaultRateLimiter.prototype as any, "cubicSuccess");
+      rateLimiter.updateClientSendingRate({});
+      expect(cubicSuccessSpy).toHaveLastReturnedWith(calculatedRate);
+    });
+  });
+
   it("updateClientSendingRate", () => {
     jest.spyOn(Date, "now").mockImplementation(() => 0);
     const rateLimiter = new DefaultRateLimiter();
