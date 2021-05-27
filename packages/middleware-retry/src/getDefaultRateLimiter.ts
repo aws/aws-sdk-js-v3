@@ -1,5 +1,8 @@
+import { isThrottlingError } from "@aws-sdk/service-error-classification";
+
 import { RateLimiter } from "./types";
 
+const SMOOTH = 0.8;
 const currentTimeInSeconds = () => Date.now() / 1000;
 
 export const getDefaultRateLimiter = (): RateLimiter => {
@@ -8,11 +11,11 @@ export const getDefaultRateLimiter = (): RateLimiter => {
   let currentCapacity = 0;
   let lastTimestamp = undefined;
   const enabled = false;
-  const measuredTxRate = 0;
-  const last_tx_rate_bucket = Math.floor(currentTimeInSeconds());
-  const requestCount = 0;
-  const lastMaxRate = 0;
-  const lastThrottleTime = currentTimeInSeconds();
+  let measuredTxRate = 0;
+  let lastTxRateBucket = Math.floor(currentTimeInSeconds());
+  let requestCount = 0;
+  let lastMaxRate = 0;
+  let lastThrottleTime = currentTimeInSeconds();
 
   const tokenBucketRefill = () => {
     const timestamp = currentTimeInSeconds();
@@ -42,9 +45,45 @@ export const getDefaultRateLimiter = (): RateLimiter => {
 
   const getSendToken = async () => tokenBucketAcquire(1);
 
+  const updateMeasuredRate = () => {
+    const t = currentTimeInSeconds();
+    const timeBucket = Math.floor(t * 2) / 2;
+    requestCount++;
+
+    if (timeBucket > lastTxRateBucket) {
+      const currentRate = requestCount / (timeBucket - lastTxRateBucket);
+      measuredTxRate = currentRate * SMOOTH + measuredTxRate * (1 - SMOOTH);
+      requestCount = 0;
+      lastTxRateBucket = timeBucket;
+    }
+  };
+
+  const calculateTimeWindow = () => {};
+
   const updateClientSendingRate = (response: any) => {
-    // Code to updaye client sending rate.
-    // Updates fillRate and maxCapacity.
+    let rateToUse;
+    let calculatedRate;
+    updateMeasuredRate();
+
+    if (isThrottlingError(response)) {
+      if (!enabled) {
+        rateToUse = measuredTxRate;
+      } else {
+        rateToUse = Math.min(measuredTxRate, fillRate);
+      }
+
+      lastMaxRate = rateToUse;
+      calculateTimeWindow();
+      lastThrottleTime = currentTimeInSeconds();
+      calculatedRate = cubicThrottle(rateToUse);
+      tokenBucketEnable();
+    } else {
+      calculateTimeWindow();
+      calculatedRate = cubicSuccess(currentTimeInSeconds());
+    }
+
+    const newRate = Math.min(calculatedRate, 2 * measuredTxRate);
+    tokenBucketUpdateRate(newRate);
   };
 
   return Object.freeze({
