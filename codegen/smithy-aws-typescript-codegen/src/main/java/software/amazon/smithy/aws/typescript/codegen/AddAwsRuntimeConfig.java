@@ -104,7 +104,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         writer.writeDocs("Value for how many times a request will be made at most in case of retry.")
                 .write("maxAttempts?: number | __Provider<number>;\n");
         writer.writeDocs("Specifies provider for retry algorithm to use.\n@internal")
-                .write("retryModeProvider: __Provider<string>;\n");
+                .write("retryModeProvider?: __Provider<string>;\n");
         writer.writeDocs("Optional logger for logging debug/info/warn/error.")
                 .write("logger?: __Logger;\n");
     }
