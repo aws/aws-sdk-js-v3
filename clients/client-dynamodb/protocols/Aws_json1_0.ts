@@ -5602,10 +5602,11 @@ const serializeAws_json1_0AutoScalingPolicyUpdate = (input: AutoScalingPolicyUpd
     ...(input.PolicyName !== undefined && input.PolicyName !== null && { PolicyName: input.PolicyName }),
     ...(input.TargetTrackingScalingPolicyConfiguration !== undefined &&
       input.TargetTrackingScalingPolicyConfiguration !== null && {
-        TargetTrackingScalingPolicyConfiguration: serializeAws_json1_0AutoScalingTargetTrackingScalingPolicyConfigurationUpdate(
-          input.TargetTrackingScalingPolicyConfiguration,
-          context
-        ),
+        TargetTrackingScalingPolicyConfiguration:
+          serializeAws_json1_0AutoScalingTargetTrackingScalingPolicyConfigurationUpdate(
+            input.TargetTrackingScalingPolicyConfiguration,
+            context
+          ),
       }),
   };
 };
@@ -7367,10 +7368,11 @@ const serializeAws_json1_0UpdateGlobalTableSettingsInput = (
       input.GlobalTableBillingMode !== null && { GlobalTableBillingMode: input.GlobalTableBillingMode }),
     ...(input.GlobalTableGlobalSecondaryIndexSettingsUpdate !== undefined &&
       input.GlobalTableGlobalSecondaryIndexSettingsUpdate !== null && {
-        GlobalTableGlobalSecondaryIndexSettingsUpdate: serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdateList(
-          input.GlobalTableGlobalSecondaryIndexSettingsUpdate,
-          context
-        ),
+        GlobalTableGlobalSecondaryIndexSettingsUpdate:
+          serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdateList(
+            input.GlobalTableGlobalSecondaryIndexSettingsUpdate,
+            context
+          ),
       }),
     ...(input.GlobalTableName !== undefined &&
       input.GlobalTableName !== null && { GlobalTableName: input.GlobalTableName }),

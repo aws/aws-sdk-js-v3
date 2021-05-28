@@ -12,7 +12,7 @@ describe("getLoggerPlugin", () => {
   });
 
   it("adds loggerMiddleware", () => {
-    getLoggerPlugin({}).applyToStack((mockClientStack as unknown) as MiddlewareStack<any, any>);
+    getLoggerPlugin({}).applyToStack(mockClientStack as unknown as MiddlewareStack<any, any>);
     expect(mockClientStack.add).toHaveBeenCalledTimes(1);
     expect(mockClientStack.add.mock.calls[0][1]).toEqual(loggerMiddlewareOptions);
   });
@@ -76,7 +76,7 @@ describe("loggerMiddleware", () => {
     it("success case with clientName, commandName, input, metadata", async () => {
       mockNext.mockResolvedValueOnce(mockResponse);
 
-      const logger = ({ info: jest.fn() } as unknown) as Logger;
+      const logger = { info: jest.fn() } as unknown as Logger;
       const clientName = "mockClientName";
       const commandName = "mockCommandName";
 
@@ -126,7 +126,7 @@ describe("loggerMiddleware", () => {
         },
       };
       mockNext.mockResolvedValueOnce(customResponse);
-      const logger = ({ info: jest.fn() } as unknown) as Logger;
+      const logger = { info: jest.fn() } as unknown as Logger;
       const inputFilterSensitiveLog = jest.fn().mockImplementationOnce((input) => input);
       const outputFilterSensitiveLog = jest.fn().mockImplementationOnce((output) => output);
 

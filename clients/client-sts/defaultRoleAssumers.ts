@@ -30,11 +30,11 @@ export const getDefaultRoleAssumerWithWebIdentity = (
  *
  * @internal
  */
-export const decorateDefaultCredentialProvider = (provider: DefaultCredentialProvider): DefaultCredentialProvider => (
-  input: any
-) =>
-  provider({
-    roleAssumer: getDefaultRoleAssumer(input),
-    roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(input),
-    ...input,
-  });
+export const decorateDefaultCredentialProvider =
+  (provider: DefaultCredentialProvider): DefaultCredentialProvider =>
+  (input: any) =>
+    provider({
+      roleAssumer: getDefaultRoleAssumer(input),
+      roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(input),
+      ...input,
+    });

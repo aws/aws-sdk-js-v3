@@ -37,10 +37,12 @@ export interface FromSSOInit extends SourceProfileInit {
  * Creates a credential provider that will read from a credential_process specified
  * in ini files.
  */
-export const fromSSO = (init: FromSSOInit = {}): CredentialProvider => async () => {
-  const profiles = await parseKnownFiles(init);
-  return resolveSSOCredentials(getMasterProfileName(init), profiles, init);
-};
+export const fromSSO =
+  (init: FromSSOInit = {}): CredentialProvider =>
+  async () => {
+    const profiles = await parseKnownFiles(init);
+    return resolveSSOCredentials(getMasterProfileName(init), profiles, init);
+  };
 
 const resolveSSOCredentials = async (
   profileName: string,

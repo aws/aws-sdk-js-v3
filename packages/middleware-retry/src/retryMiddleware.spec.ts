@@ -17,7 +17,7 @@ describe("getRetryPlugin", () => {
         getRetryPlugin({
           maxAttempts: () => Promise.resolve(maxAttempts),
           retryStrategy: {} as RetryStrategy,
-        }).applyToStack((mockClientStack as unknown) as MiddlewareStack<any, any>);
+        }).applyToStack(mockClientStack as unknown as MiddlewareStack<any, any>);
         expect(mockClientStack.add).toHaveBeenCalledTimes(1);
         expect(mockClientStack.add.mock.calls[0][1]).toEqual(retryMiddlewareOptions);
       });

@@ -162,7 +162,7 @@ export class SdkClientTocPlugin extends RendererComponent {
   }
 
   private loadClientDir(model: Reflection) {
-    let projectModel = (model as any) as ProjectReflection;
+    let projectModel = model as any as ProjectReflection;
     while (projectModel.constructor.name !== "ProjectReflection" && !projectModel.kindOf(ReflectionKind.SomeModule)) {
       projectModel = projectModel.parent as ProjectReflection;
     }

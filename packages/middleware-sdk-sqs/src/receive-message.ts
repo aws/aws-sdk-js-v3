@@ -22,30 +22,27 @@ interface Message {
 }
 
 export function receiveMessageMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
-  return <Output extends MetadataBearer>(
-    next: InitializeHandler<any, Output>
-  ): InitializeHandler<any, Output> => async (
-    args: InitializeHandlerArguments<any>
-  ): Promise<InitializeHandlerOutput<Output>> => {
-    const resp = await next({ ...args });
-    const output = (resp.output as unknown) as ReceiveMessageResult;
-    const messageIds = [];
-    if (output.Messages !== undefined) {
-      for (const message of output.Messages) {
-        const md5 = message.MD5OfBody;
-        const hash = new options.md5();
-        hash.update(message.Body || "");
-        if (md5 !== toHex(await hash.digest())) {
-          messageIds.push(message.MessageId);
+  return <Output extends MetadataBearer>(next: InitializeHandler<any, Output>): InitializeHandler<any, Output> =>
+    async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
+      const resp = await next({ ...args });
+      const output = resp.output as unknown as ReceiveMessageResult;
+      const messageIds = [];
+      if (output.Messages !== undefined) {
+        for (const message of output.Messages) {
+          const md5 = message.MD5OfBody;
+          const hash = new options.md5();
+          hash.update(message.Body || "");
+          if (md5 !== toHex(await hash.digest())) {
+            messageIds.push(message.MessageId);
+          }
         }
       }
-    }
-    if (messageIds.length > 0) {
-      throw new Error("Invalid MD5 checksum on messages: " + messageIds.join(", "));
-    }
+      if (messageIds.length > 0) {
+        throw new Error("Invalid MD5 checksum on messages: " + messageIds.join(", "));
+      }
 
-    return resp;
-  };
+      return resp;
+    };
 }
 
 export const receiveMessageMiddlewareOptions: InitializeHandlerOptions = {

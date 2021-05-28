@@ -18,20 +18,19 @@ type PreviouslyResolved = {
 /**
  * @internal
  */
-export const useRegionalEndpointMiddleware = (config: PreviouslyResolved): BuildMiddleware<any, any> => <
-  Output extends MetadataBearer
->(
-  next: BuildHandler<any, Output>
-): BuildHandler<any, Output> => async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
-  const { request } = args;
-  if (!HttpRequest.isInstance(request) || config.isCustomEndpoint) return next({ ...args });
-  if (request.hostname === "s3.amazonaws.com") {
-    request.hostname = "s3.us-east-1.amazonaws.com";
-  } else if ("aws-global" === (await config.region())) {
-    request.hostname = "s3.amazonaws.com";
-  }
-  return next({ ...args });
-};
+export const useRegionalEndpointMiddleware =
+  (config: PreviouslyResolved): BuildMiddleware<any, any> =>
+  <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> =>
+  async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
+    const { request } = args;
+    if (!HttpRequest.isInstance(request) || config.isCustomEndpoint) return next({ ...args });
+    if (request.hostname === "s3.amazonaws.com") {
+      request.hostname = "s3.us-east-1.amazonaws.com";
+    } else if ("aws-global" === (await config.region())) {
+      request.hostname = "s3.amazonaws.com";
+    }
+    return next({ ...args });
+  };
 
 /**
  * @internal

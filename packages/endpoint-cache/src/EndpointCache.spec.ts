@@ -32,7 +32,7 @@ describe(EndpointCache.name, () => {
     Math.max(...endpoints.map((endpoint) => endpoint.CachePeriodInMinutes));
 
   beforeEach(() => {
-    ((LRUCache as unknown) as jest.Mock).mockReturnValueOnce({
+    (LRUCache as unknown as jest.Mock).mockReturnValueOnce({
       set,
       get,
       peek,

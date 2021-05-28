@@ -11,16 +11,17 @@ import {
 
 import { RetryResolvedConfig } from "./configurations";
 
-export const retryMiddleware = (options: RetryResolvedConfig) => <Output extends MetadataBearer = MetadataBearer>(
-  next: FinalizeHandler<any, Output>,
-  context: HandlerExecutionContext
-): FinalizeHandler<any, Output> => async (
-  args: FinalizeHandlerArguments<any>
-): Promise<FinalizeHandlerOutput<Output>> => {
-  if (options?.retryStrategy?.mode)
-    context.userAgent = [...(context.userAgent || []), ["cfg/retry-mode", options.retryStrategy.mode]];
-  return options.retryStrategy.retry(next, args);
-};
+export const retryMiddleware =
+  (options: RetryResolvedConfig) =>
+  <Output extends MetadataBearer = MetadataBearer>(
+    next: FinalizeHandler<any, Output>,
+    context: HandlerExecutionContext
+  ): FinalizeHandler<any, Output> =>
+  async (args: FinalizeHandlerArguments<any>): Promise<FinalizeHandlerOutput<Output>> => {
+    if (options?.retryStrategy?.mode)
+      context.userAgent = [...(context.userAgent || []), ["cfg/retry-mode", options.retryStrategy.mode]];
+    return options.retryStrategy.retry(next, args);
+  };
 
 export const retryMiddlewareOptions: FinalizeRequestHandlerOptions & AbsoluteLocation = {
   name: "retryMiddleware",

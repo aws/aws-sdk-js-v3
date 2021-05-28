@@ -114,11 +114,11 @@ export type DefaultCredentialProvider = (input: any) => Provider<Credentials>;
  *
  * @internal
  */
-export const decorateDefaultCredentialProvider = (provider: DefaultCredentialProvider): DefaultCredentialProvider => (
-  input: STSClientResolvedConfig
-) =>
-  provider({
-    roleAssumer: getDefaultRoleAssumer(input, input.stsClientCtor),
-    roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(input, input.stsClientCtor),
-    ...input,
-  });
+export const decorateDefaultCredentialProvider =
+  (provider: DefaultCredentialProvider): DefaultCredentialProvider =>
+  (input: STSClientResolvedConfig) =>
+    provider({
+      roleAssumer: getDefaultRoleAssumer(input, input.stsClientCtor),
+      roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(input, input.stsClientCtor),
+      ...input,
+    });

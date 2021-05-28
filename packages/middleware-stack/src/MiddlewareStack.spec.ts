@@ -13,14 +13,15 @@ type input = Array<string>;
 type output = object;
 
 //return tagged union to make compiler happy
-const getConcatMiddleware = (message: string) => (
-  next: FinalizeHandler<input, output>
-): InitializeHandler<input, output> => (args: any) =>
-  next({
-    ...args,
-    input: args.input.concat(message),
-    request: undefined as any,
-  });
+const getConcatMiddleware =
+  (message: string) =>
+  (next: FinalizeHandler<input, output>): InitializeHandler<input, output> =>
+  (args: any) =>
+    next({
+      ...args,
+      input: args.input.concat(message),
+      request: undefined as any,
+    });
 
 describe("MiddlewareStack", () => {
   describe("add", () => {

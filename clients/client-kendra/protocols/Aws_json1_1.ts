@@ -4662,10 +4662,11 @@ const serializeAws_json1_1SalesforceKnowledgeArticleConfiguration = (
   return {
     ...(input.CustomKnowledgeArticleTypeConfigurations !== undefined &&
       input.CustomKnowledgeArticleTypeConfigurations !== null && {
-        CustomKnowledgeArticleTypeConfigurations: serializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfigurationList(
-          input.CustomKnowledgeArticleTypeConfigurations,
-          context
-        ),
+        CustomKnowledgeArticleTypeConfigurations:
+          serializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfigurationList(
+            input.CustomKnowledgeArticleTypeConfigurations,
+            context
+          ),
       }),
     ...(input.IncludedStates !== undefined &&
       input.IncludedStates !== null && {
@@ -4673,10 +4674,11 @@ const serializeAws_json1_1SalesforceKnowledgeArticleConfiguration = (
       }),
     ...(input.StandardKnowledgeArticleTypeConfiguration !== undefined &&
       input.StandardKnowledgeArticleTypeConfiguration !== null && {
-        StandardKnowledgeArticleTypeConfiguration: serializeAws_json1_1SalesforceStandardKnowledgeArticleTypeConfiguration(
-          input.StandardKnowledgeArticleTypeConfiguration,
-          context
-        ),
+        StandardKnowledgeArticleTypeConfiguration:
+          serializeAws_json1_1SalesforceStandardKnowledgeArticleTypeConfiguration(
+            input.StandardKnowledgeArticleTypeConfiguration,
+            context
+          ),
       }),
   };
 };

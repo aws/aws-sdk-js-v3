@@ -51818,10 +51818,11 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResult = (
     output["successfullyDeletedLaunchTemplateVersionSet"] !== undefined &&
     output["successfullyDeletedLaunchTemplateVersionSet"]["item"] !== undefined
   ) {
-    contents.SuccessfullyDeletedLaunchTemplateVersions = deserializeAws_ec2DeleteLaunchTemplateVersionsResponseSuccessSet(
-      __getArrayIfSingleItem(output["successfullyDeletedLaunchTemplateVersionSet"]["item"]),
-      context
-    );
+    contents.SuccessfullyDeletedLaunchTemplateVersions =
+      deserializeAws_ec2DeleteLaunchTemplateVersionsResponseSuccessSet(
+        __getArrayIfSingleItem(output["successfullyDeletedLaunchTemplateVersionSet"]["item"]),
+        context
+      );
   }
   if (output.unsuccessfullyDeletedLaunchTemplateVersionSet === "") {
     contents.UnsuccessfullyDeletedLaunchTemplateVersions = [];
@@ -51830,10 +51831,11 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResult = (
     output["unsuccessfullyDeletedLaunchTemplateVersionSet"] !== undefined &&
     output["unsuccessfullyDeletedLaunchTemplateVersionSet"]["item"] !== undefined
   ) {
-    contents.UnsuccessfullyDeletedLaunchTemplateVersions = deserializeAws_ec2DeleteLaunchTemplateVersionsResponseErrorSet(
-      __getArrayIfSingleItem(output["unsuccessfullyDeletedLaunchTemplateVersionSet"]["item"]),
-      context
-    );
+    contents.UnsuccessfullyDeletedLaunchTemplateVersions =
+      deserializeAws_ec2DeleteLaunchTemplateVersionsResponseErrorSet(
+        __getArrayIfSingleItem(output["unsuccessfullyDeletedLaunchTemplateVersionSet"]["item"]),
+        context
+      );
   }
   return contents;
 };
@@ -53540,10 +53542,11 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssoc
     output["localGatewayRouteTableVirtualInterfaceGroupAssociationSet"] !== undefined &&
     output["localGatewayRouteTableVirtualInterfaceGroupAssociationSet"]["item"] !== undefined
   ) {
-    contents.LocalGatewayRouteTableVirtualInterfaceGroupAssociations = deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet(
-      __getArrayIfSingleItem(output["localGatewayRouteTableVirtualInterfaceGroupAssociationSet"]["item"]),
-      context
-    );
+    contents.LocalGatewayRouteTableVirtualInterfaceGroupAssociations =
+      deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet(
+        __getArrayIfSingleItem(output["localGatewayRouteTableVirtualInterfaceGroupAssociationSet"]["item"]),
+        context
+      );
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken = output["nextToken"];
@@ -65805,10 +65808,11 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
     contents.CpuOptions = deserializeAws_ec2LaunchTemplateCpuOptions(output["cpuOptions"], context);
   }
   if (output["capacityReservationSpecification"] !== undefined) {
-    contents.CapacityReservationSpecification = deserializeAws_ec2LaunchTemplateCapacityReservationSpecificationResponse(
-      output["capacityReservationSpecification"],
-      context
-    );
+    contents.CapacityReservationSpecification =
+      deserializeAws_ec2LaunchTemplateCapacityReservationSpecificationResponse(
+        output["capacityReservationSpecification"],
+        context
+      );
   }
   if (output.licenseSet === "") {
     contents.LicenseSpecifications = [];

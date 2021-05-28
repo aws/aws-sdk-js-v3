@@ -4350,10 +4350,11 @@ export const deserializeAws_restJson1GetBucketStatisticsCommand = async (
     data.bucketCountByObjectEncryptionRequirement !== undefined &&
     data.bucketCountByObjectEncryptionRequirement !== null
   ) {
-    contents.bucketCountByObjectEncryptionRequirement = deserializeAws_restJson1BucketCountPolicyAllowsUnencryptedObjectUploads(
-      data.bucketCountByObjectEncryptionRequirement,
-      context
-    );
+    contents.bucketCountByObjectEncryptionRequirement =
+      deserializeAws_restJson1BucketCountPolicyAllowsUnencryptedObjectUploads(
+        data.bucketCountByObjectEncryptionRequirement,
+        context
+      );
   }
   if (data.bucketCountBySharedAccessType !== undefined && data.bucketCountBySharedAccessType !== null) {
     contents.bucketCountBySharedAccessType = deserializeAws_restJson1BucketCountBySharedAccessType(

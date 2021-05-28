@@ -18,47 +18,44 @@ interface PreviouslyResolved {
 }
 
 export function ssecMiddleware(options: PreviouslyResolved): InitializeMiddleware<any, any> {
-  return <Output extends MetadataBearer>(
-    next: InitializeHandler<any, Output>
-  ): InitializeHandler<any, Output> => async (
-    args: InitializeHandlerArguments<any>
-  ): Promise<InitializeHandlerOutput<Output>> => {
-    let input = { ...args.input };
-    const properties = [
-      {
-        target: "SSECustomerKey",
-        hash: "SSECustomerKeyMD5",
-      },
-      {
-        target: "CopySourceSSECustomerKey",
-        hash: "CopySourceSSECustomerKeyMD5",
-      },
-    ];
+  return <Output extends MetadataBearer>(next: InitializeHandler<any, Output>): InitializeHandler<any, Output> =>
+    async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
+      let input = { ...args.input };
+      const properties = [
+        {
+          target: "SSECustomerKey",
+          hash: "SSECustomerKeyMD5",
+        },
+        {
+          target: "CopySourceSSECustomerKey",
+          hash: "CopySourceSSECustomerKeyMD5",
+        },
+      ];
 
-    for (const prop of properties) {
-      const value: SourceData | undefined = (input as any)[prop.target];
-      if (value) {
-        const valueView = ArrayBuffer.isView(value)
-          ? new Uint8Array(value.buffer, value.byteOffset, value.byteLength)
-          : typeof value === "string"
-          ? options.utf8Decoder(value)
-          : new Uint8Array(value);
-        const encoded = options.base64Encoder(valueView);
-        const hash = new options.md5();
-        hash.update(valueView);
-        input = {
-          ...(input as any),
-          [prop.target]: encoded,
-          [prop.hash]: options.base64Encoder(await hash.digest()),
-        };
+      for (const prop of properties) {
+        const value: SourceData | undefined = (input as any)[prop.target];
+        if (value) {
+          const valueView = ArrayBuffer.isView(value)
+            ? new Uint8Array(value.buffer, value.byteOffset, value.byteLength)
+            : typeof value === "string"
+            ? options.utf8Decoder(value)
+            : new Uint8Array(value);
+          const encoded = options.base64Encoder(valueView);
+          const hash = new options.md5();
+          hash.update(valueView);
+          input = {
+            ...(input as any),
+            [prop.target]: encoded,
+            [prop.hash]: options.base64Encoder(await hash.digest()),
+          };
+        }
       }
-    }
 
-    return next({
-      ...args,
-      input,
-    });
-  };
+      return next({
+        ...args,
+        input,
+      });
+    };
 }
 
 export const ssecMiddlewareOptions: InitializeHandlerOptions = {

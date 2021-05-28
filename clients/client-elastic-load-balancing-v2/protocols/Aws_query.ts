@@ -5816,10 +5816,11 @@ const deserializeAws_queryAuthenticateCognitoActionConfig = (
     output["AuthenticationRequestExtraParams"] !== undefined &&
     output["AuthenticationRequestExtraParams"]["entry"] !== undefined
   ) {
-    contents.AuthenticationRequestExtraParams = deserializeAws_queryAuthenticateCognitoActionAuthenticationRequestExtraParams(
-      __getArrayIfSingleItem(output["AuthenticationRequestExtraParams"]["entry"]),
-      context
-    );
+    contents.AuthenticationRequestExtraParams =
+      deserializeAws_queryAuthenticateCognitoActionAuthenticationRequestExtraParams(
+        __getArrayIfSingleItem(output["AuthenticationRequestExtraParams"]["entry"]),
+        context
+      );
   }
   if (output["OnUnauthenticatedRequest"] !== undefined) {
     contents.OnUnauthenticatedRequest = output["OnUnauthenticatedRequest"];
@@ -5894,10 +5895,11 @@ const deserializeAws_queryAuthenticateOidcActionConfig = (
     output["AuthenticationRequestExtraParams"] !== undefined &&
     output["AuthenticationRequestExtraParams"]["entry"] !== undefined
   ) {
-    contents.AuthenticationRequestExtraParams = deserializeAws_queryAuthenticateOidcActionAuthenticationRequestExtraParams(
-      __getArrayIfSingleItem(output["AuthenticationRequestExtraParams"]["entry"]),
-      context
-    );
+    contents.AuthenticationRequestExtraParams =
+      deserializeAws_queryAuthenticateOidcActionAuthenticationRequestExtraParams(
+        __getArrayIfSingleItem(output["AuthenticationRequestExtraParams"]["entry"]),
+        context
+      );
   }
   if (output["OnUnauthenticatedRequest"] !== undefined) {
     contents.OnUnauthenticatedRequest = output["OnUnauthenticatedRequest"];

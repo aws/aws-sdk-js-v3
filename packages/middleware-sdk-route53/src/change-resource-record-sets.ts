@@ -25,42 +25,39 @@ export interface ChangeBatchBearer {
 }
 
 export function changeResourceRecordSetsMiddleware(): InitializeMiddleware<any, any> {
-  return <Output extends MetadataBearer>(
-    next: InitializeHandler<any, Output>
-  ): InitializeHandler<any, Output> => async (
-    args: InitializeHandlerArguments<any>
-  ): Promise<InitializeHandlerOutput<Output>> => {
-    const { ChangeBatch } = args.input;
-    const Changes: Array<Change> = [];
-    for (const change of ChangeBatch.Changes) {
-      const { AliasTarget } = change.ResourceRecordSet;
-      if (AliasTarget) {
-        Changes.push({
-          ...change,
-          ResourceRecordSet: {
-            ...change.ResourceRecordSet,
-            AliasTarget: {
-              ...AliasTarget,
-              HostedZoneId: AliasTarget.HostedZoneId.replace(IDENTIFIER_PREFIX_PATTERN, ""),
+  return <Output extends MetadataBearer>(next: InitializeHandler<any, Output>): InitializeHandler<any, Output> =>
+    async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
+      const { ChangeBatch } = args.input;
+      const Changes: Array<Change> = [];
+      for (const change of ChangeBatch.Changes) {
+        const { AliasTarget } = change.ResourceRecordSet;
+        if (AliasTarget) {
+          Changes.push({
+            ...change,
+            ResourceRecordSet: {
+              ...change.ResourceRecordSet,
+              AliasTarget: {
+                ...AliasTarget,
+                HostedZoneId: AliasTarget.HostedZoneId.replace(IDENTIFIER_PREFIX_PATTERN, ""),
+              },
             },
-          },
-        });
-      } else {
-        Changes.push(change);
+          });
+        } else {
+          Changes.push(change);
+        }
       }
-    }
 
-    return next({
-      ...args,
-      input: {
-        ...(args.input as any),
-        ChangeBatch: {
-          ...ChangeBatch,
-          Changes,
+      return next({
+        ...args,
+        input: {
+          ...(args.input as any),
+          ChangeBatch: {
+            ...ChangeBatch,
+            Changes,
+          },
         },
-      },
-    });
-  };
+      });
+    };
 }
 
 export const changeResourceRecordSetsMiddlewareOptions: InitializeHandlerOptions = {

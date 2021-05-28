@@ -11,16 +11,18 @@ describe("EventSigningStream", () => {
   });
   it("should sign a eventstream payload properly", (done) => {
     const marshaller = new EventStreamMarshaller(toUtf8, fromUtf8);
-    const inputChunks: Array<Uint8Array> = ([
-      {
-        headers: {},
-        body: fromUtf8("foo"),
-      },
-      {
-        headers: {},
-        body: fromUtf8("bar"),
-      },
-    ] as Array<Message>).map((event) => marshaller.marshall(event));
+    const inputChunks: Array<Uint8Array> = (
+      [
+        {
+          headers: {},
+          body: fromUtf8("foo"),
+        },
+        {
+          headers: {},
+          body: fromUtf8("bar"),
+        },
+      ] as Array<Message>
+    ).map((event) => marshaller.marshall(event));
     const expected: Array<MessageHeaders> = [
       {
         ":date": { type: "timestamp", value: new Date(1546045446000) },
