@@ -72,7 +72,10 @@ export class StandardRetryStrategy implements RetryStrategy {
         if (HttpRequest.isInstance(request)) {
           request.headers[REQUEST_HEADER] = `attempt=${attempts + 1}; max=${maxAttempts}`;
         }
+
+        await this.beforeRequest();
         const { response, output } = await next(args);
+        this.afterRequest();
 
         this.retryQuota.releaseRetryTokens(retryTokenAmount);
         output.$metadata.attempts = attempts + 1;
@@ -103,6 +106,14 @@ export class StandardRetryStrategy implements RetryStrategy {
         throw err;
       }
     }
+  }
+
+  protected async beforeRequest() {
+    // No-op for standard mode
+  }
+
+  protected afterRequest() {
+    // No-op for standard mode
   }
 }
 
