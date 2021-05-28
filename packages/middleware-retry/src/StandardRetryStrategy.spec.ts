@@ -5,9 +5,9 @@ import { v4 } from "uuid";
 import { DEFAULT_MAX_ATTEMPTS } from "./configurations";
 import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS, THROTTLING_RETRY_DELAY_BASE } from "./constants";
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
-import { StandardRetryStrategy } from "./defaultStrategy";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
+import { StandardRetryStrategy } from "./StandardRetryStrategy";
 import { RetryQuota } from "./types";
 
 jest.mock("@aws-sdk/service-error-classification");
