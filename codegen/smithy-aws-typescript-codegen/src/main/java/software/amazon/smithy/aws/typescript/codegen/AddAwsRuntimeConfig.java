@@ -50,6 +50,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  *     <li>region: The AWS region to which this client will send requests</li>
  *     <li>maxAttempts: Provides value for how many times a request will be
  *     made at most in case of retry.</li>
+ *     <li>retryModeProvider: Specifies provider for retry algorithm to use.</li>
  *     <li>logger: Optional logger for logging debug/info/warn/error.</li>
  * </ul>
  *
@@ -61,6 +62,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  *      environment variables and the AWS config file.</li>
  *     <li>maxAttempts: Uses the default maxAttempts provider that checks things
  *     like environment variables and the AWS config file.</li>
+ *     <li>retryModeProvider: Specifies provider for retry algorithm to use.</li>
  *     <li>logger: Sets to empty as logger is passed in client configuration</li>
  * </ul>
  *
@@ -72,6 +74,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  *     be explicitly provided in the browser (environment variables and
  *     the shared config can't be resolved from the browser).</li>
  *     <li>maxAttempts: Returns default value of 3.</li>
+ *     <li>retryModeProvider: Provider which returns DEFAULT_RETRY_MODE.</li>
  *     <li>logger: Sets to empty as logger is passed in client configuration</li>
  * </ul>
  */
@@ -100,6 +103,8 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         }
         writer.writeDocs("Value for how many times a request will be made at most in case of retry.")
                 .write("maxAttempts?: number | __Provider<number>;\n");
+        writer.writeDocs("Specifies provider for retry algorithm to use.\n@internal")
+                .write("retryModeProvider: __Provider<string>;\n");
         writer.writeDocs("Optional logger for logging debug/info/warn/error.")
                 .write("logger?: __Logger;\n");
     }
@@ -160,6 +165,12 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                             TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
                     writer.write("maxAttempts: DEFAULT_MAX_ATTEMPTS,");
                 });
+                defaultConfigs.put("retryModeProvider", writer -> {
+                    writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
+                    writer.addImport("DEFAULT_RETRY_MODE", "DEFAULT_RETRY_MODE",
+                            TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
+                    writer.write("retryModeProvider: () => Promise.resolve(DEFAULT_RETRY_MODE),");
+                });
                 return defaultConfigs;
             case NODE:
                 if (isSigV4Service) {
@@ -184,6 +195,15 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                     writer.addImport("NODE_MAX_ATTEMPT_CONFIG_OPTIONS", "NODE_MAX_ATTEMPT_CONFIG_OPTIONS",
                         TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
                     writer.write("maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),");
+                });
+                defaultConfigs.put("retryModeProvider", writer -> {
+                    writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
+                    writer.addImport("loadConfig", "loadNodeConfig",
+                            AwsDependency.NODE_CONFIG_PROVIDER.packageName);
+                    writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
+                    writer.addImport("NODE_RETRY_MODE_CONFIG_OPTIONS", "NODE_RETRY_MODE_CONFIG_OPTIONS",
+                            TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
+                    writer.write("retryModeProvider: loadNodeConfig(NODE_RETRY_MODE_CONFIG_OPTIONS),");
                 });
                 return defaultConfigs;
             default:
