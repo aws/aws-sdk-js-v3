@@ -3482,10 +3482,11 @@ const serializeAws_json1_0Decision = (input: Decision, context: __SerdeContext):
       }),
     ...(input.continueAsNewWorkflowExecutionDecisionAttributes !== undefined &&
       input.continueAsNewWorkflowExecutionDecisionAttributes !== null && {
-        continueAsNewWorkflowExecutionDecisionAttributes: serializeAws_json1_0ContinueAsNewWorkflowExecutionDecisionAttributes(
-          input.continueAsNewWorkflowExecutionDecisionAttributes,
-          context
-        ),
+        continueAsNewWorkflowExecutionDecisionAttributes:
+          serializeAws_json1_0ContinueAsNewWorkflowExecutionDecisionAttributes(
+            input.continueAsNewWorkflowExecutionDecisionAttributes,
+            context
+          ),
       }),
     ...(input.decisionType !== undefined && input.decisionType !== null && { decisionType: input.decisionType }),
     ...(input.failWorkflowExecutionDecisionAttributes !== undefined &&
@@ -3511,10 +3512,11 @@ const serializeAws_json1_0Decision = (input: Decision, context: __SerdeContext):
       }),
     ...(input.requestCancelExternalWorkflowExecutionDecisionAttributes !== undefined &&
       input.requestCancelExternalWorkflowExecutionDecisionAttributes !== null && {
-        requestCancelExternalWorkflowExecutionDecisionAttributes: serializeAws_json1_0RequestCancelExternalWorkflowExecutionDecisionAttributes(
-          input.requestCancelExternalWorkflowExecutionDecisionAttributes,
-          context
-        ),
+        requestCancelExternalWorkflowExecutionDecisionAttributes:
+          serializeAws_json1_0RequestCancelExternalWorkflowExecutionDecisionAttributes(
+            input.requestCancelExternalWorkflowExecutionDecisionAttributes,
+            context
+          ),
       }),
     ...(input.scheduleActivityTaskDecisionAttributes !== undefined &&
       input.scheduleActivityTaskDecisionAttributes !== null && {
@@ -3532,17 +3534,19 @@ const serializeAws_json1_0Decision = (input: Decision, context: __SerdeContext):
       }),
     ...(input.signalExternalWorkflowExecutionDecisionAttributes !== undefined &&
       input.signalExternalWorkflowExecutionDecisionAttributes !== null && {
-        signalExternalWorkflowExecutionDecisionAttributes: serializeAws_json1_0SignalExternalWorkflowExecutionDecisionAttributes(
-          input.signalExternalWorkflowExecutionDecisionAttributes,
-          context
-        ),
+        signalExternalWorkflowExecutionDecisionAttributes:
+          serializeAws_json1_0SignalExternalWorkflowExecutionDecisionAttributes(
+            input.signalExternalWorkflowExecutionDecisionAttributes,
+            context
+          ),
       }),
     ...(input.startChildWorkflowExecutionDecisionAttributes !== undefined &&
       input.startChildWorkflowExecutionDecisionAttributes !== null && {
-        startChildWorkflowExecutionDecisionAttributes: serializeAws_json1_0StartChildWorkflowExecutionDecisionAttributes(
-          input.startChildWorkflowExecutionDecisionAttributes,
-          context
-        ),
+        startChildWorkflowExecutionDecisionAttributes:
+          serializeAws_json1_0StartChildWorkflowExecutionDecisionAttributes(
+            input.startChildWorkflowExecutionDecisionAttributes,
+            context
+          ),
       }),
     ...(input.startTimerDecisionAttributes !== undefined &&
       input.startTimerDecisionAttributes !== null && {

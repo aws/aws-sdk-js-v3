@@ -19,26 +19,23 @@ import { LocationConstraintResolvedConfig } from "./configuration";
 export function locationConstraintMiddleware(
   options: LocationConstraintResolvedConfig
 ): InitializeMiddleware<any, any> {
-  return <Output extends MetadataBearer>(
-    next: InitializeHandler<any, Output>
-  ): InitializeHandler<any, Output> => async (
-    args: InitializeHandlerArguments<any>
-  ): Promise<InitializeHandlerOutput<Output>> => {
-    const { CreateBucketConfiguration } = args.input;
-    //After region config resolution, region is a Provider<string>
-    const region = await options.region();
-    if (!CreateBucketConfiguration || !CreateBucketConfiguration.LocationConstraint) {
-      args = {
-        ...args,
-        input: {
-          ...args.input,
-          CreateBucketConfiguration: region === "us-east-1" ? undefined : { LocationConstraint: region },
-        },
-      };
-    }
+  return <Output extends MetadataBearer>(next: InitializeHandler<any, Output>): InitializeHandler<any, Output> =>
+    async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
+      const { CreateBucketConfiguration } = args.input;
+      //After region config resolution, region is a Provider<string>
+      const region = await options.region();
+      if (!CreateBucketConfiguration || !CreateBucketConfiguration.LocationConstraint) {
+        args = {
+          ...args,
+          input: {
+            ...args.input,
+            CreateBucketConfiguration: region === "us-east-1" ? undefined : { LocationConstraint: region },
+          },
+        };
+      }
 
-    return next(args);
-  };
+      return next(args);
+    };
 }
 
 export const locationConstraintMiddlewareOptions: InitializeHandlerOptions = {

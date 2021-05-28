@@ -85,7 +85,7 @@ describe("defaultStrategy", () => {
     (defaultDelayDecider as jest.Mock).mockReturnValue(0);
     (defaultRetryDecider as jest.Mock).mockReturnValue(true);
     (getDefaultRetryQuota as jest.Mock).mockReturnValue(mockDefaultRetryQuota);
-    ((HttpRequest as unknown) as jest.Mock).mockReturnValue({
+    (HttpRequest as unknown as jest.Mock).mockReturnValue({
       isInstance: jest.fn().mockReturnValue(false),
     });
     (v4 as jest.Mock).mockReturnValue("42");
@@ -229,8 +229,8 @@ describe("defaultStrategy", () => {
 
       expect(defaultDelayDecider as jest.Mock).toHaveBeenCalledTimes(maxAttempts - 1);
       expect(setTimeout).toHaveBeenCalledTimes(maxAttempts - 1);
-      expect(((setTimeout as unknown) as jest.Mock).mock.calls[0][1]).toBe(FIRST_DELAY);
-      expect(((setTimeout as unknown) as jest.Mock).mock.calls[1][1]).toBe(SECOND_DELAY);
+      expect((setTimeout as unknown as jest.Mock).mock.calls[0][1]).toBe(FIRST_DELAY);
+      expect((setTimeout as unknown as jest.Mock).mock.calls[1][1]).toBe(SECOND_DELAY);
     });
   });
 
@@ -400,7 +400,7 @@ describe("defaultStrategy", () => {
 
     it("uses a unique header for every SDK operation invocation", async () => {
       const { isInstance } = HttpRequest;
-      ((isInstance as unknown) as jest.Mock).mockReturnValue(true);
+      (isInstance as unknown as jest.Mock).mockReturnValue(true);
 
       const uuidForInvocationOne = "uuid-invocation-1";
       const uuidForInvocationTwo = "uuid-invocation-2";
@@ -419,12 +419,12 @@ describe("defaultStrategy", () => {
       expect(next.mock.calls[0][0].request.headers["amz-sdk-invocation-id"]).toBe(uuidForInvocationOne);
       expect(next.mock.calls[1][0].request.headers["amz-sdk-invocation-id"]).toBe(uuidForInvocationTwo);
 
-      ((isInstance as unknown) as jest.Mock).mockReturnValue(false);
+      (isInstance as unknown as jest.Mock).mockReturnValue(false);
     });
 
     it("uses same value for additional HTTP requests associated with an SDK operation", async () => {
       const { isInstance } = HttpRequest;
-      ((isInstance as unknown) as jest.Mock).mockReturnValueOnce(true);
+      (isInstance as unknown as jest.Mock).mockReturnValueOnce(true);
 
       const uuidForInvocation = "uuid-invocation-1";
       (v4 as jest.Mock).mockReturnValueOnce(uuidForInvocation);
@@ -435,7 +435,7 @@ describe("defaultStrategy", () => {
       expect(next.mock.calls[0][0].request.headers["amz-sdk-invocation-id"]).toBe(uuidForInvocation);
       expect(next.mock.calls[1][0].request.headers["amz-sdk-invocation-id"]).toBe(uuidForInvocation);
 
-      ((isInstance as unknown) as jest.Mock).mockReturnValue(false);
+      (isInstance as unknown as jest.Mock).mockReturnValue(false);
     });
   });
 
@@ -466,7 +466,7 @@ describe("defaultStrategy", () => {
 
     it("adds header for each attempt", async () => {
       const { isInstance } = HttpRequest;
-      ((isInstance as unknown) as jest.Mock).mockReturnValue(true);
+      (isInstance as unknown as jest.Mock).mockReturnValue(true);
 
       const mockError = new Error("mockError");
       next = jest.fn((args) => {
@@ -486,14 +486,14 @@ describe("defaultStrategy", () => {
       }
 
       expect(next).toHaveBeenCalledTimes(maxAttempts);
-      ((isInstance as unknown) as jest.Mock).mockReturnValue(false);
+      (isInstance as unknown as jest.Mock).mockReturnValue(false);
     });
   });
 
   describe("defaults maxAttempts to DEFAULT_MAX_ATTEMPTS", () => {
     it("when maxAttemptsProvider throws error", async () => {
       const { isInstance } = HttpRequest;
-      ((isInstance as unknown) as jest.Mock).mockReturnValue(true);
+      (isInstance as unknown as jest.Mock).mockReturnValue(true);
 
       next = jest.fn((args) => {
         expect(args.request.headers["amz-sdk-request"]).toBe(`attempt=1; max=${DEFAULT_MAX_ATTEMPTS}`);
@@ -507,7 +507,7 @@ describe("defaultStrategy", () => {
       await retryStrategy.retry(next, { request: { headers: {} } } as any);
 
       expect(next).toHaveBeenCalledTimes(1);
-      ((isInstance as unknown) as jest.Mock).mockReturnValue(false);
+      (isInstance as unknown as jest.Mock).mockReturnValue(false);
     });
   });
 });

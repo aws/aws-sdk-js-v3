@@ -15,31 +15,30 @@ export const getSignedUrl = async <
   options: RequestPresigningArguments = {}
 ): Promise<string> => {
   const s3Presigner = new S3RequestPresigner({ ...client.config });
-  const presignInterceptMiddleware: BuildMiddleware<InputTypesUnion, MetadataBearer> = (next, context) => async (
-    args
-  ) => {
-    const { request } = args;
-    if (!HttpRequest.isInstance(request)) {
-      throw new Error("Request to be presigned is not an valid HTTP request.");
-    }
-    // Retry information headers are not meaningful in presigned URLs
-    delete request.headers["amz-sdk-invocation-id"];
-    delete request.headers["amz-sdk-request"];
+  const presignInterceptMiddleware: BuildMiddleware<InputTypesUnion, MetadataBearer> =
+    (next, context) => async (args) => {
+      const { request } = args;
+      if (!HttpRequest.isInstance(request)) {
+        throw new Error("Request to be presigned is not an valid HTTP request.");
+      }
+      // Retry information headers are not meaningful in presigned URLs
+      delete request.headers["amz-sdk-invocation-id"];
+      delete request.headers["amz-sdk-request"];
 
-    const presigned = await s3Presigner.presign(request, {
-      ...options,
-      signingRegion: options.signingRegion ?? context["signing_region"],
-      signingService: options.signingService ?? context["signing_service"],
-    });
-    return {
-      // Intercept the middleware stack by returning fake response
-      response: {},
-      output: {
-        $metadata: { httpStatusCode: 200 },
-        presigned,
-      },
-    } as any;
-  };
+      const presigned = await s3Presigner.presign(request, {
+        ...options,
+        signingRegion: options.signingRegion ?? context["signing_region"],
+        signingService: options.signingService ?? context["signing_service"],
+      });
+      return {
+        // Intercept the middleware stack by returning fake response
+        response: {},
+        output: {
+          $metadata: { httpStatusCode: 200 },
+          presigned,
+        },
+      } as any;
+    };
   const middlewareName = "presignInterceptMiddleware";
   client.middlewareStack.addRelativeTo(presignInterceptMiddleware, {
     name: middlewareName,

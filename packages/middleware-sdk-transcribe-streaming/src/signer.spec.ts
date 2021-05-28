@@ -54,7 +54,7 @@ describe("signer", () => {
       const { isInstance } = HttpRequest;
 
       beforeEach(() => {
-        ((isInstance as unknown) as jest.Mock).mockReturnValueOnce(true);
+        (isInstance as unknown as jest.Mock).mockReturnValueOnce(true);
       });
 
       const expectSignArgs = (result: any) => {
@@ -93,7 +93,7 @@ describe("signer", () => {
       const { isInstance } = HttpRequest;
 
       beforeEach(() => {
-        ((isInstance as unknown) as jest.Mock).mockReturnValueOnce(false);
+        (isInstance as unknown as jest.Mock).mockReturnValueOnce(false);
       });
 
       const expectSignArgs = (result: any, options?: RequestSigningArguments) => {

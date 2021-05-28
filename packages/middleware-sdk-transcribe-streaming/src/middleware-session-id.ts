@@ -19,26 +19,25 @@ type WithSession = {
  * the result stream. So it copies the parameters from input to the same
  * parameters in the output.
  */
-export const injectSessionIdMiddleware = (config: {
-  requestHandler: RequestHandler<any, any>;
-}): InitializeMiddleware<any, any> => (next: InitializeHandler<WithSession, WithSession>) => async (
-  args: InitializeHandlerArguments<WithSession>
-) => {
-  if (args.input.SessionId === undefined && isWebSocket(config)) {
-    args.input.SessionId = v4();
-  }
-  const requestParams = {
-    ...args.input,
-  };
-  const response = await next(args);
-  const output = response.output;
-  for (const key of Object.keys(output)) {
-    if (output[key] === undefined && requestParams[key]) {
-      output[key] = requestParams[key];
+export const injectSessionIdMiddleware =
+  (config: { requestHandler: RequestHandler<any, any> }): InitializeMiddleware<any, any> =>
+  (next: InitializeHandler<WithSession, WithSession>) =>
+  async (args: InitializeHandlerArguments<WithSession>) => {
+    if (args.input.SessionId === undefined && isWebSocket(config)) {
+      args.input.SessionId = v4();
     }
-  }
-  return response;
-};
+    const requestParams = {
+      ...args.input,
+    };
+    const response = await next(args);
+    const output = response.output;
+    for (const key of Object.keys(output)) {
+      if (output[key] === undefined && requestParams[key]) {
+        output[key] = requestParams[key];
+      }
+    }
+    return response;
+  };
 
 const isWebSocket = (config: { requestHandler: RequestHandler<any, any> }) =>
   config.requestHandler.metadata?.handlerProtocol === "websocket";

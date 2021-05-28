@@ -6088,17 +6088,19 @@ const serializeAws_restJson1SpekeKeyProviderCmaf = (input: SpekeKeyProviderCmaf,
       input.CertificateArn !== null && { certificateArn: input.CertificateArn }),
     ...(input.DashSignaledSystemIds !== undefined &&
       input.DashSignaledSystemIds !== null && {
-        dashSignaledSystemIds: serializeAws_restJson1__listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12(
-          input.DashSignaledSystemIds,
-          context
-        ),
+        dashSignaledSystemIds:
+          serializeAws_restJson1__listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12(
+            input.DashSignaledSystemIds,
+            context
+          ),
       }),
     ...(input.HlsSignaledSystemIds !== undefined &&
       input.HlsSignaledSystemIds !== null && {
-        hlsSignaledSystemIds: serializeAws_restJson1__listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12(
-          input.HlsSignaledSystemIds,
-          context
-        ),
+        hlsSignaledSystemIds:
+          serializeAws_restJson1__listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12(
+            input.HlsSignaledSystemIds,
+            context
+          ),
       }),
     ...(input.ResourceId !== undefined && input.ResourceId !== null && { resourceId: input.ResourceId }),
     ...(input.Url !== undefined && input.Url !== null && { url: input.Url }),

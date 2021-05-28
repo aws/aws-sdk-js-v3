@@ -14,21 +14,20 @@ interface PreviouslyResolved {
 }
 
 export function addExpectContinueMiddleware(options: PreviouslyResolved): BuildMiddleware<any, any> {
-  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
-    args: BuildHandlerArguments<any>
-  ): Promise<BuildHandlerOutput<Output>> => {
-    const { request } = args;
-    if (HttpRequest.isInstance(request) && request.body && options.runtime === "node") {
-      request.headers = {
-        ...request.headers,
-        Expect: "100-continue",
-      };
-    }
-    return next({
-      ...args,
-      request,
-    });
-  };
+  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> =>
+    async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
+      const { request } = args;
+      if (HttpRequest.isInstance(request) && request.body && options.runtime === "node") {
+        request.headers = {
+          ...request.headers,
+          Expect: "100-continue",
+        };
+      }
+      return next({
+        ...args,
+        request,
+      });
+    };
 }
 
 export const addExpectContinueMiddlewareOptions: BuildHandlerOptions = {

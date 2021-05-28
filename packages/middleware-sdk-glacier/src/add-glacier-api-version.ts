@@ -11,19 +11,18 @@ import {
 import { PreviouslyResolved } from "./configurations";
 
 export function addGlacierApiVersionMiddleware(options: PreviouslyResolved): BuildMiddleware<any, any> {
-  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
-    args: BuildHandlerArguments<any>
-  ): Promise<BuildHandlerOutput<Output>> => {
-    const request = args.request;
-    if (HttpRequest.isInstance(request)) {
-      request.headers["x-amz-glacier-version"] = options.apiVersion;
-    }
+  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> =>
+    async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
+      const request = args.request;
+      if (HttpRequest.isInstance(request)) {
+        request.headers["x-amz-glacier-version"] = options.apiVersion;
+      }
 
-    return next({
-      ...args,
-      request,
-    });
-  };
+      return next({
+        ...args,
+        request,
+      });
+    };
 }
 
 export const addGlacierApiVersionMiddlewareOptions: BuildHandlerOptions = {

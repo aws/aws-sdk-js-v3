@@ -127,32 +127,35 @@ export interface FromWebTokenInit extends Omit<LowerCaseKey<AssumeRoleWithWebIde
   roleAssumerWithWebIdentity?: (params: AssumeRoleWithWebIdentityParams) => Promise<Credentials>;
 }
 
-export const fromWebToken = (init: FromWebTokenInit): CredentialProvider => () => {
-  const {
-    roleArn,
-    roleSessionName,
-    webIdentityToken,
-    providerId,
-    policyArns,
-    policy,
-    durationSeconds,
-    roleAssumerWithWebIdentity,
-  } = init;
+export const fromWebToken =
+  (init: FromWebTokenInit): CredentialProvider =>
+  () => {
+    const {
+      roleArn,
+      roleSessionName,
+      webIdentityToken,
+      providerId,
+      policyArns,
+      policy,
+      durationSeconds,
+      roleAssumerWithWebIdentity,
+    } = init;
 
-  if (!roleAssumerWithWebIdentity) {
-    throw new ProviderError(
-      `Role Arn '${roleArn}' needs to be assumed with web identity,` + ` but no role assumption callback was provided.`,
-      false
-    );
-  }
+    if (!roleAssumerWithWebIdentity) {
+      throw new ProviderError(
+        `Role Arn '${roleArn}' needs to be assumed with web identity,` +
+          ` but no role assumption callback was provided.`,
+        false
+      );
+    }
 
-  return roleAssumerWithWebIdentity({
-    RoleArn: roleArn,
-    RoleSessionName: roleSessionName ?? `aws-sdk-js-session-${Date.now()}`,
-    WebIdentityToken: webIdentityToken,
-    ProviderId: providerId,
-    PolicyArns: policyArns,
-    Policy: policy,
-    DurationSeconds: durationSeconds,
-  });
-};
+    return roleAssumerWithWebIdentity({
+      RoleArn: roleArn,
+      RoleSessionName: roleSessionName ?? `aws-sdk-js-session-${Date.now()}`,
+      WebIdentityToken: webIdentityToken,
+      ProviderId: providerId,
+      PolicyArns: policyArns,
+      Policy: policy,
+      DurationSeconds: durationSeconds,
+    });
+  };

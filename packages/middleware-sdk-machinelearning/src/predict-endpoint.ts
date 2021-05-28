@@ -11,29 +11,28 @@ import {
 } from "@aws-sdk/types";
 
 export function predictEndpointMiddleware(options: { urlParser: UrlParser }): BuildMiddleware<any, any> {
-  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
-    args: BuildHandlerArguments<any>
-  ): Promise<BuildHandlerOutput<Output>> => {
-    const { input } = args;
-    let { request } = args;
-    if (HttpRequest.isInstance(request)) {
-      if (input.PredictEndpoint) {
-        const endpoint = options.urlParser(input.PredictEndpoint);
-        request = {
-          ...request,
-          hostname: endpoint.hostname,
-          path: endpoint.path,
-          port: endpoint.port,
-          protocol: endpoint.protocol,
-          query: endpoint.query,
-        };
+  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> =>
+    async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
+      const { input } = args;
+      let { request } = args;
+      if (HttpRequest.isInstance(request)) {
+        if (input.PredictEndpoint) {
+          const endpoint = options.urlParser(input.PredictEndpoint);
+          request = {
+            ...request,
+            hostname: endpoint.hostname,
+            path: endpoint.path,
+            port: endpoint.port,
+            protocol: endpoint.protocol,
+            query: endpoint.query,
+          };
+        }
       }
-    }
-    return next({
-      ...args,
-      request,
-    });
-  };
+      return next({
+        ...args,
+        request,
+      });
+    };
 }
 
 export const predictEndpointMiddlewareOptions: BuildHandlerOptions = {

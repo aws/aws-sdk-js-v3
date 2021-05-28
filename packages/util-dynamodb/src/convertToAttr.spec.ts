@@ -153,44 +153,46 @@ describe("convertToAttr", () => {
     const uint8Arr = new Uint32Array(arr);
     const biguintArr = new BigUint64Array(arr.map(BigInt));
 
-    ([
-      {
-        input: [null, false],
-        output: [{ NULL: true }, { BOOL: false }],
-      },
-      {
-        input: [1.01, BigInt(9007199254740996), "one"],
-        output: [{ N: "1.01" }, { N: "9007199254740996" }, { S: "one" }],
-      },
-      {
-        input: [uint8Arr, biguintArr],
-        output: [{ B: uint8Arr }, { B: biguintArr }],
-      },
-      {
-        input: [
-          { nullKey: null, boolKey: false },
-          { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
-        ],
-        output: [
-          { M: { nullKey: { NULL: true }, boolKey: { BOOL: false } } },
-          { M: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } } },
-        ],
-      },
-      {
-        input: [
-          new Set([1, 2, 3]),
-          new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
-          new Set([uint8Arr, biguintArr]),
-          new Set(["one", "two", "three"]),
-        ],
-        output: [
-          { NS: ["1", "2", "3"] },
-          { NS: ["9007199254740996", "-9007199254740996"] },
-          { BS: [uint8Arr, biguintArr] },
-          { SS: ["one", "two", "three"] },
-        ],
-      },
-    ] as { input: NativeAttributeValue[]; output: AttributeValue[] }[]).forEach(({ input, output }) => {
+    (
+      [
+        {
+          input: [null, false],
+          output: [{ NULL: true }, { BOOL: false }],
+        },
+        {
+          input: [1.01, BigInt(9007199254740996), "one"],
+          output: [{ N: "1.01" }, { N: "9007199254740996" }, { S: "one" }],
+        },
+        {
+          input: [uint8Arr, biguintArr],
+          output: [{ B: uint8Arr }, { B: biguintArr }],
+        },
+        {
+          input: [
+            { nullKey: null, boolKey: false },
+            { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
+          ],
+          output: [
+            { M: { nullKey: { NULL: true }, boolKey: { BOOL: false } } },
+            { M: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } } },
+          ],
+        },
+        {
+          input: [
+            new Set([1, 2, 3]),
+            new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
+            new Set([uint8Arr, biguintArr]),
+            new Set(["one", "two", "three"]),
+          ],
+          output: [
+            { NS: ["1", "2", "3"] },
+            { NS: ["9007199254740996", "-9007199254740996"] },
+            { BS: [uint8Arr, biguintArr] },
+            { SS: ["one", "two", "three"] },
+          ],
+        },
+      ] as { input: NativeAttributeValue[]; output: AttributeValue[] }[]
+    ).forEach(({ input, output }) => {
       it(`testing list: ${input}`, () => {
         expect(convertToAttr(input)).toEqual({ L: output });
       });
@@ -306,58 +308,58 @@ describe("convertToAttr", () => {
     const uint8Arr = new Uint32Array(arr);
     const biguintArr = new BigUint64Array(arr.map(BigInt));
 
-    ([
-      {
-        input: { nullKey: null, boolKey: false },
-        output: { nullKey: { NULL: true }, boolKey: { BOOL: false } },
-      },
-      {
-        input: { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
-        output: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } },
-      },
-      {
-        input: { uint8ArrKey: uint8Arr, biguintArrKey: biguintArr },
-        output: { uint8ArrKey: { B: uint8Arr }, biguintArrKey: { B: biguintArr } },
-      },
-      {
-        input: {
-          list1: [null, false],
-          list2: ["one", 1.01, BigInt(9007199254740996)],
+    (
+      [
+        {
+          input: { nullKey: null, boolKey: false },
+          output: { nullKey: { NULL: true }, boolKey: { BOOL: false } },
         },
-        output: {
-          list1: { L: [{ NULL: true }, { BOOL: false }] },
-          list2: { L: [{ S: "one" }, { N: "1.01" }, { N: "9007199254740996" }] },
+        {
+          input: { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
+          output: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } },
         },
-      },
-      {
-        input: {
-          numberSet: new Set([1, 2, 3]),
-          bigintSet: new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
-          binarySet: new Set([uint8Arr, biguintArr]),
-          stringSet: new Set(["one", "two", "three"]),
+        {
+          input: { uint8ArrKey: uint8Arr, biguintArrKey: biguintArr },
+          output: { uint8ArrKey: { B: uint8Arr }, biguintArrKey: { B: biguintArr } },
         },
-        output: {
-          numberSet: { NS: ["1", "2", "3"] },
-          bigintSet: { NS: ["9007199254740996", "-9007199254740996"] },
-          binarySet: { BS: [uint8Arr, biguintArr] },
-          stringSet: { SS: ["one", "two", "three"] },
+        {
+          input: {
+            list1: [null, false],
+            list2: ["one", 1.01, BigInt(9007199254740996)],
+          },
+          output: {
+            list1: { L: [{ NULL: true }, { BOOL: false }] },
+            list2: { L: [{ S: "one" }, { N: "1.01" }, { N: "9007199254740996" }] },
+          },
         },
-      },
-    ] as { input: { [key: string]: NativeAttributeValue }; output: { [key: string]: AttributeValue } }[]).forEach(
-      ({ input, output }) => {
-        [true, false].forEach((useObjectCreate) => {
-          const inputObject = useObjectCreate ? Object.create(input) : input;
-          it(`testing object: ${inputObject}${useObjectCreate && " with Object.create()"}`, () => {
-            expect(convertToAttr(inputObject)).toEqual({ M: output });
-          });
+        {
+          input: {
+            numberSet: new Set([1, 2, 3]),
+            bigintSet: new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
+            binarySet: new Set([uint8Arr, biguintArr]),
+            stringSet: new Set(["one", "two", "three"]),
+          },
+          output: {
+            numberSet: { NS: ["1", "2", "3"] },
+            bigintSet: { NS: ["9007199254740996", "-9007199254740996"] },
+            binarySet: { BS: [uint8Arr, biguintArr] },
+            stringSet: { SS: ["one", "two", "three"] },
+          },
+        },
+      ] as { input: { [key: string]: NativeAttributeValue }; output: { [key: string]: AttributeValue } }[]
+    ).forEach(({ input, output }) => {
+      [true, false].forEach((useObjectCreate) => {
+        const inputObject = useObjectCreate ? Object.create(input) : input;
+        it(`testing object: ${inputObject}${useObjectCreate && " with Object.create()"}`, () => {
+          expect(convertToAttr(inputObject)).toEqual({ M: output });
         });
+      });
 
-        const inputMap = new Map(Object.entries(input));
-        it(`testing map: ${inputMap}`, () => {
-          expect(convertToAttr(inputMap)).toEqual({ M: output });
-        });
-      }
-    );
+      const inputMap = new Map(Object.entries(input));
+      it(`testing map: ${inputMap}`, () => {
+        expect(convertToAttr(inputMap)).toEqual({ M: output });
+      });
+    });
 
     describe(`with options.convertEmptyValues=true`, () => {
       const input = { stringKey: "", binaryKey: new Uint8Array(), setKey: new Set([]) };

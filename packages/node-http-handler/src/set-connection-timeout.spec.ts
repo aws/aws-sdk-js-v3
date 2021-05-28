@@ -71,7 +71,7 @@ describe("setConnectionTimeout", () => {
 
     it("clears timeout if socket gets connected", () => {
       const mockTimeoutId = 42;
-      ((setTimeout as unknown) as jest.Mock).mockReturnValueOnce(mockTimeoutId);
+      (setTimeout as unknown as jest.Mock).mockReturnValueOnce(mockTimeoutId);
       clientRequest.on.mock.calls[0][1](mockSocket);
 
       expect(clientRequest.destroy).not.toHaveBeenCalled();

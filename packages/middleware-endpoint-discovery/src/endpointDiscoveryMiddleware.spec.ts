@@ -16,9 +16,9 @@ describe(endpointDiscoveryMiddleware.name, () => {
   const getEndpoint = jest.fn().mockReturnValue(endpoint);
   const mockConfig = {
     credentials: jest.fn(),
-    endpointCache: ({
+    endpointCache: {
       getEndpoint,
-    } as unknown) as EndpointCache,
+    } as unknown as EndpointCache,
     endpointDiscoveryEnabled: jest.fn().mockResolvedValue(undefined),
     endpointDiscoveryEnabledProvider: jest.fn(),
     endpointDiscoveryCommandCtor: jest.fn(),
@@ -42,7 +42,7 @@ describe(endpointDiscoveryMiddleware.name, () => {
     (getCacheKey as jest.Mock).mockResolvedValue(cacheKey);
     (updateDiscoveredEndpointInCache as jest.Mock).mockResolvedValue(undefined);
     const { isInstance } = HttpRequest;
-    ((isInstance as unknown) as jest.Mock).mockReturnValue(true);
+    (isInstance as unknown as jest.Mock).mockReturnValue(true);
   });
 
   afterEach(() => {
