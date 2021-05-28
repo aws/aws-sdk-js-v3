@@ -5,9 +5,9 @@ import {
   NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
   resolveRetryConfig,
 } from "./configurations";
-import { StandardRetryStrategy } from "./defaultStrategy";
+import { StandardRetryStrategy } from "./StandardRetryStrategy";
 
-jest.mock("./defaultStrategy");
+jest.mock("./StandardRetryStrategy");
 
 describe("resolveRetryConfig", () => {
   afterEach(() => {
