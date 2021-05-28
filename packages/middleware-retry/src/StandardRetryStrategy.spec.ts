@@ -2,7 +2,7 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
 import { v4 } from "uuid";
 
-import { DEFAULT_MAX_ATTEMPTS } from "./configurations";
+import { DEFAULT_MAX_ATTEMPTS, RETRY_MODES } from "./configurations";
 import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS, THROTTLING_RETRY_DELAY_BASE } from "./constants";
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { defaultDelayDecider } from "./delayDecider";
@@ -100,6 +100,11 @@ describe("defaultStrategy", () => {
       const retryStrategy = new StandardRetryStrategy(() => Promise.resolve(maxAttempts));
       expect(retryStrategy["maxAttemptsProvider"]()).resolves.toBe(maxAttempts);
     });
+  });
+
+  it(`sets mode=${RETRY_MODES.standard}`, () => {
+    const retryStrategy = new StandardRetryStrategy(() => Promise.resolve(maxAttempts));
+    expect(retryStrategy.mode).toStrictEqual(RETRY_MODES.standard);
   });
 
   it("handles non-standard errors", () => {
