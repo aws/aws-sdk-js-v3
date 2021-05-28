@@ -1,10 +1,11 @@
 import {
   CONFIG_MAX_ATTEMPTS,
+  DEFAULT_MAX_ATTEMPTS,
   ENV_MAX_ATTEMPTS,
   NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
   resolveRetryConfig,
 } from "./configurations";
-import { DEFAULT_MAX_ATTEMPTS, StandardRetryStrategy } from "./defaultStrategy";
+import { StandardRetryStrategy } from "./defaultStrategy";
 
 jest.mock("./defaultStrategy");
 
