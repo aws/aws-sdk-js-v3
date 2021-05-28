@@ -1,7 +1,8 @@
 import { LoadedConfigSelectors } from "@aws-sdk/node-config-provider";
 import { Provider, RetryStrategy } from "@aws-sdk/types";
 
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE, StandardRetryStrategy } from "./defaultStrategy";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "./constants";
+import { StandardRetryStrategy } from "./defaultStrategy";
 
 export const ENV_MAX_ATTEMPTS = "AWS_MAX_ATTEMPTS";
 export const CONFIG_MAX_ATTEMPTS = "max_attempts";
