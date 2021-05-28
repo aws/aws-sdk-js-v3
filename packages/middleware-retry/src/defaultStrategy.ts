@@ -4,6 +4,7 @@ import { SdkError } from "@aws-sdk/smithy-client";
 import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "@aws-sdk/types";
 import { v4 } from "uuid";
 
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "./configurations";
 import {
   DEFAULT_RETRY_DELAY_BASE,
   INITIAL_RETRY_TOKENS,
@@ -15,17 +16,6 @@ import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
 import { DelayDecider, RetryDecider, RetryQuota } from "./types";
-
-/**
- * The default value for how many HTTP requests an SDK should make for a
- * single SDK operation invocation before giving up
- */
-export const DEFAULT_MAX_ATTEMPTS = 3;
-
-/**
- * The default retry algorithm to use.
- */
-export const DEFAULT_RETRY_MODE = "standard";
 
 /**
  * Strategy options to be passed to StandardRetryStrategy
