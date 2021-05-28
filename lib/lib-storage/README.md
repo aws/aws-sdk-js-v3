@@ -13,7 +13,7 @@ Upload allows for easy and efficient uploading of buffers, blobs, or streams, us
 
   const target = { Bucket, Key, Body };
   try {
-    const paralellUploads3 = new Upload({
+    const parallelUploads3 = new Upload({
       client: new S3({}) || new S3Client({}),
       tags: [...], // optional tags
       queueSize: 4, // optional concurrency configuration
@@ -22,11 +22,11 @@ Upload allows for easy and efficient uploading of buffers, blobs, or streams, us
       params: target,
     });
 
-    paralellUploads3.on("httpUploadProgress", (progress) => {
+    parallelUploads3.on("httpUploadProgress", (progress) => {
       console.log(progress);
     });
 
-    await paralellUploads3.done();
+    await parallelUploads3.done();
   } catch (e) {
     console.log(e);
   }
