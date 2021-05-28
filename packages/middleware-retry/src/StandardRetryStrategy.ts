@@ -4,7 +4,7 @@ import { SdkError } from "@aws-sdk/smithy-client";
 import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "@aws-sdk/types";
 import { v4 } from "uuid";
 
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "./configurations";
+import { DEFAULT_MAX_ATTEMPTS, RETRY_MODES } from "./configurations";
 import {
   DEFAULT_RETRY_DELAY_BASE,
   INITIAL_RETRY_TOKENS,
@@ -30,7 +30,7 @@ export class StandardRetryStrategy implements RetryStrategy {
   private retryDecider: RetryDecider;
   private delayDecider: DelayDecider;
   private retryQuota: RetryQuota;
-  public readonly mode = DEFAULT_RETRY_MODE;
+  public mode: string = RETRY_MODES.standard;
 
   constructor(private readonly maxAttemptsProvider: Provider<number>, options?: StandardRetryStrategyOptions) {
     this.retryDecider = options?.retryDecider ?? defaultRetryDecider;
@@ -75,7 +75,7 @@ export class StandardRetryStrategy implements RetryStrategy {
 
         await this.beforeRequest();
         const { response, output } = await next(args);
-        this.afterRequest();
+        this.afterRequest(response);
 
         this.retryQuota.releaseRetryTokens(retryTokenAmount);
         output.$metadata.attempts = attempts + 1;
@@ -112,7 +112,7 @@ export class StandardRetryStrategy implements RetryStrategy {
     // No-op for standard mode
   }
 
-  protected afterRequest() {
+  protected afterRequest(response: any) {
     // No-op for standard mode
   }
 }
