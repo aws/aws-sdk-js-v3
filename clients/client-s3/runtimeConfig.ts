@@ -7,7 +7,7 @@ import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-node";
 import { Hash } from "@aws-sdk/hash-node";
 import { fileStreamHasher as streamHasher } from "@aws-sdk/hash-stream-node";
 import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
-import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS } from "@aws-sdk/middleware-retry";
+import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@aws-sdk/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
 import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
 import { HashConstructor as __HashConstructor } from "@aws-sdk/types";
@@ -37,6 +37,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   md5: Hash.bind(null, "md5"),
   region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
   requestHandler: new NodeHttpHandler(),
+  retryModeProvider: loadNodeConfig(NODE_RETRY_MODE_CONFIG_OPTIONS),
   sha256: Hash.bind(null, "sha256"),
   streamCollector,
   streamHasher,

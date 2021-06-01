@@ -266,6 +266,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   maxAttempts?: number | __Provider<number>;
 
   /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
+
+  /**
    * Optional logger for logging debug/info/warn/error.
    */
   logger?: __Logger;
