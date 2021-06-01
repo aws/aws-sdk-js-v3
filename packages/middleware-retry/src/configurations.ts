@@ -72,7 +72,7 @@ export const resolveRetryConfig = <T>(input: T & PreviouslyResolved & RetryInput
         return input.retryStrategy;
       }
       const retryMode = input.retryMode || (await input.retryModeProvider());
-      if (retryMode === RETRY_MODES.adaptive) {
+      if (retryMode === RETRY_MODES.ADAPTIVE) {
         return new AdaptiveRetryStrategy(maxAttempts);
       }
       return new StandardRetryStrategy(maxAttempts);
