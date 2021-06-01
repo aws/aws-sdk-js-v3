@@ -1,6 +1,6 @@
 import { Provider } from "@aws-sdk/types";
 
-import { RETRY_MODES } from "./configurations";
+import { RETRY_MODES } from "./config";
 import { DefaultRateLimiter } from "./DefaultRateLimiter";
 import { StandardRetryStrategy, StandardRetryStrategyOptions } from "./StandardRetryStrategy";
 import { RateLimiter } from "./types";

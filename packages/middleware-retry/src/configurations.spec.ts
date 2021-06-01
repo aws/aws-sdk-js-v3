@@ -1,6 +1,6 @@
+import { DEFAULT_MAX_ATTEMPTS } from "./config";
 import {
   CONFIG_MAX_ATTEMPTS,
-  DEFAULT_MAX_ATTEMPTS,
   ENV_MAX_ATTEMPTS,
   NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
   resolveRetryConfig,

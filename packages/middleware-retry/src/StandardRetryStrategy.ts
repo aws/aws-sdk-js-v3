@@ -4,7 +4,7 @@ import { SdkError } from "@aws-sdk/smithy-client";
 import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "@aws-sdk/types";
 import { v4 } from "uuid";
 
-import { DEFAULT_MAX_ATTEMPTS, RETRY_MODES } from "./configurations";
+import { DEFAULT_MAX_ATTEMPTS, RETRY_MODES } from "./config";
 import {
   DEFAULT_RETRY_DELAY_BASE,
   INITIAL_RETRY_TOKENS,

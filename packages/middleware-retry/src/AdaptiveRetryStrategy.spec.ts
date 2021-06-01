@@ -1,5 +1,5 @@
 import { AdaptiveRetryStrategy } from "./AdaptiveRetryStrategy";
-import { RETRY_MODES } from "./configurations";
+import { RETRY_MODES } from "./config";
 import { DefaultRateLimiter } from "./DefaultRateLimiter";
 import { StandardRetryStrategy } from "./StandardRetryStrategy";
 import { RateLimiter, RetryQuota } from "./types";
