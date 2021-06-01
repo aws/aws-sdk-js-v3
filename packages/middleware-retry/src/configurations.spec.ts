@@ -1,3 +1,4 @@
+import { AdaptiveRetryStrategy } from "./AdaptiveRetryStrategy";
 import { DEFAULT_MAX_ATTEMPTS } from "./config";
 import {
   CONFIG_MAX_ATTEMPTS,
@@ -7,6 +8,7 @@ import {
 } from "./configurations";
 import { StandardRetryStrategy } from "./StandardRetryStrategy";
 
+jest.mock("./AdaptiveRetryStrategy");
 jest.mock("./StandardRetryStrategy");
 
 describe(resolveRetryConfig.name, () => {
@@ -46,7 +48,64 @@ describe(resolveRetryConfig.name, () => {
                 const { retryStrategy } = resolveRetryConfig({ maxAttempts, retryMode, retryModeProvider });
                 await retryStrategy();
                 expect(StandardRetryStrategy as jest.Mock).toHaveBeenCalledTimes(1);
+                expect(AdaptiveRetryStrategy as jest.Mock).not.toHaveBeenCalled();
                 const output = await (StandardRetryStrategy as jest.Mock).mock.calls[0][0]();
+                expect(output).toStrictEqual(maxAttempts);
+              });
+            }
+          });
+        });
+
+        describe("when retryModeProvider returns 'standard'", () => {
+          describe("passes maxAttempts if present", () => {
+            beforeEach(() => {
+              retryModeProvider.mockResolvedValueOnce("standard");
+            });
+            for (const maxAttempts of [1, 2, 3]) {
+              it(`when maxAttempts=${maxAttempts}`, async () => {
+                const { retryStrategy } = resolveRetryConfig({ maxAttempts, retryModeProvider });
+                await retryStrategy();
+                expect(retryModeProvider).toHaveBeenCalledTimes(1);
+                expect(StandardRetryStrategy as jest.Mock).toHaveBeenCalledTimes(1);
+                expect(AdaptiveRetryStrategy as jest.Mock).not.toHaveBeenCalled();
+                const output = await (StandardRetryStrategy as jest.Mock).mock.calls[0][0]();
+                expect(output).toStrictEqual(maxAttempts);
+              });
+            }
+          });
+        });
+      });
+
+      describe("AdaptiveRetryStrategy", () => {
+        describe("when retryMode=adaptive", () => {
+          describe("passes maxAttempts if present", () => {
+            const retryMode = "adaptive";
+            for (const maxAttempts of [1, 2, 3]) {
+              it(`when maxAttempts=${maxAttempts}`, async () => {
+                const { retryStrategy } = resolveRetryConfig({ maxAttempts, retryMode, retryModeProvider });
+                await retryStrategy();
+                expect(StandardRetryStrategy as jest.Mock).not.toHaveBeenCalled();
+                expect(AdaptiveRetryStrategy as jest.Mock).toHaveBeenCalledTimes(1);
+                const output = await (AdaptiveRetryStrategy as jest.Mock).mock.calls[0][0]();
+                expect(output).toStrictEqual(maxAttempts);
+              });
+            }
+          });
+        });
+
+        describe("when retryModeProvider returns 'adaptive'", () => {
+          describe("passes maxAttempts if present", () => {
+            beforeEach(() => {
+              retryModeProvider.mockResolvedValueOnce("adaptive");
+            });
+            for (const maxAttempts of [1, 2, 3]) {
+              it(`when maxAttempts=${maxAttempts}`, async () => {
+                const { retryStrategy } = resolveRetryConfig({ maxAttempts, retryModeProvider });
+                await retryStrategy();
+                expect(retryModeProvider).toHaveBeenCalledTimes(1);
+                expect(StandardRetryStrategy as jest.Mock).not.toHaveBeenCalled();
+                expect(AdaptiveRetryStrategy as jest.Mock).toHaveBeenCalledTimes(1);
+                const output = await (AdaptiveRetryStrategy as jest.Mock).mock.calls[0][0]();
                 expect(output).toStrictEqual(maxAttempts);
               });
             }
