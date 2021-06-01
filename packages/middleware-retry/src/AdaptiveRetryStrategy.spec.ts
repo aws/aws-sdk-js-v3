@@ -42,9 +42,9 @@ describe(AdaptiveRetryStrategy.name, () => {
       });
     });
 
-    it(`sets mode=${RETRY_MODES.adaptive}`, () => {
+    it(`sets mode=${RETRY_MODES.ADAPTIVE}`, () => {
       const retryStrategy = new AdaptiveRetryStrategy(maxAttemptsProvider);
-      expect(retryStrategy.mode).toStrictEqual(RETRY_MODES.adaptive);
+      expect(retryStrategy.mode).toStrictEqual(RETRY_MODES.ADAPTIVE);
     });
 
     describe("rateLimiter init", () => {

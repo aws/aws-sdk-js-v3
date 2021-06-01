@@ -19,7 +19,7 @@ export class AdaptiveRetryStrategy extends StandardRetryStrategy {
     const { rateLimiter, ...superOptions } = options ?? {};
     super(maxAttemptsProvider, superOptions);
     this.rateLimiter = rateLimiter ?? new DefaultRateLimiter();
-    this.mode = RETRY_MODES.adaptive;
+    this.mode = RETRY_MODES.ADAPTIVE;
   }
 
   async retry<Input extends object, Ouput extends MetadataBearer>(

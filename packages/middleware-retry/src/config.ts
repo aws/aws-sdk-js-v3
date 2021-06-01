@@ -1,6 +1,6 @@
 export enum RETRY_MODES {
-  standard = "standard",
-  adaptive = "adaptive",
+  STANDARD = "standard",
+  ADAPTIVE = "adaptive",
 }
 
 /**
@@ -12,4 +12,4 @@ export const DEFAULT_MAX_ATTEMPTS = 3;
 /**
  * The default retry algorithm to use.
  */
-export const DEFAULT_RETRY_MODE = RETRY_MODES.standard;
+export const DEFAULT_RETRY_MODE = RETRY_MODES.STANDARD;
