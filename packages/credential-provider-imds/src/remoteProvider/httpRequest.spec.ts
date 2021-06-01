@@ -40,7 +40,7 @@ describe("httpRequest", () => {
 
       const response = await httpRequest({ host, path, port });
       expect(response.toString()).toStrictEqual(expectedResponse);
-      expect(requestSpy.mock.results[0].value).toHaveProperty("destroyed", true);
+      expect(requestSpy.mock.results[0].value.socket).toHaveProperty("destroyed", true);
 
       scope.done();
     });
@@ -52,7 +52,7 @@ describe("httpRequest", () => {
 
       const response = await httpRequest({ host, path, port, method });
       expect(response.toString()).toStrictEqual(expectedResponse);
-      expect(requestSpy.mock.results[0].value).toHaveProperty("destroyed", true);
+      expect(requestSpy.mock.results[0].value.socket).toHaveProperty("destroyed", true);
 
       scope.done();
     });
@@ -66,7 +66,7 @@ describe("httpRequest", () => {
         await expect(httpRequest({ host, path, port })).rejects.toStrictEqual(
           Object.assign(new ProviderError("Error response received from instance metadata service"), { statusCode })
         );
-        expect(requestSpy.mock.results[0].value).toHaveProperty("destroyed", true);
+        expect(requestSpy.mock.results[0].value.socket).toHaveProperty("destroyed", true);
 
         scope.done();
       });
@@ -78,7 +78,7 @@ describe("httpRequest", () => {
       await expect(httpRequest({ host, path, port })).rejects.toStrictEqual(
         new ProviderError("Unable to connect to instance metadata service")
       );
-      expect(requestSpy.mock.results[0].value).toHaveProperty("destroyed", true);
+      expect(requestSpy.mock.results[0].value.socket).toHaveProperty("destroyed", true);
 
       scope.done();
     });
@@ -100,7 +100,7 @@ describe("httpRequest", () => {
       .reply(200, "expectedResponse");
 
     await expect(httpRequest({ host, path, port, timeout })).rejects.toStrictEqual(new Error("TimeoutError"));
-    expect(requestSpy.mock.results[0].value).toHaveProperty("destroyed", true);
+    expect(requestSpy.mock.results[0].value.socket).toHaveProperty("destroyed", true);
 
     scope.done();
   });
