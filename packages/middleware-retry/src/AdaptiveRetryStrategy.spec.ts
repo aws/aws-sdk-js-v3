@@ -68,18 +68,29 @@ describe(AdaptiveRetryStrategy.name, () => {
     });
   });
 
-  describe("beforeRequest", () => {
-    it("calls rateLimiter.getSendToken", async () => {
+  describe("retry", () => {
+    const mockedSuperRetry = jest.spyOn(StandardRetryStrategy.prototype, "retry");
+
+    beforeEach(async () => {
+      const next = jest.fn();
       const retryStrategy = new AdaptiveRetryStrategy(maxAttemptsProvider);
-      await retryStrategy["beforeRequest"]();
+      await retryStrategy.retry(next, { request: { headers: {} } } as any);
+      expect(mockedSuperRetry).toHaveBeenCalledTimes(1);
+    });
+
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+
+    it("calls rateLimiter.getSendToken in beforeRequest", async () => {
+      expect(mockDefaultRateLimiter.getSendToken).toHaveBeenCalledTimes(0);
+      await mockedSuperRetry.mock.calls[0][2].beforeRequest();
       expect(mockDefaultRateLimiter.getSendToken).toHaveBeenCalledTimes(1);
     });
-  });
 
-  describe("afterRequest", () => {
-    it("calls rateLimiter.updateClientSendingRate", async () => {
-      const retryStrategy = new AdaptiveRetryStrategy(maxAttemptsProvider);
-      retryStrategy["afterRequest"]({});
+    it("calls rateLimiter.updateClientSendingRate in afterRequest", async () => {
+      expect(mockDefaultRateLimiter.updateClientSendingRate).toHaveBeenCalledTimes(0);
+      await mockedSuperRetry.mock.calls[0][2].afterRequest();
       expect(mockDefaultRateLimiter.updateClientSendingRate).toHaveBeenCalledTimes(1);
     });
   });

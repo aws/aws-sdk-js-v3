@@ -27,16 +27,12 @@ export class AdaptiveRetryStrategy extends StandardRetryStrategy {
     args: FinalizeHandlerArguments<Input>
   ) {
     return super.retry(next, args, {
-      beforeRequest: this.beforeRequest,
-      afterRequest: this.afterRequest,
+      beforeRequest: async () => {
+        return this.rateLimiter.getSendToken();
+      },
+      afterRequest: (response: any) => {
+        this.rateLimiter.updateClientSendingRate(response);
+      },
     });
-  }
-
-  private async beforeRequest() {
-    await this.rateLimiter.getSendToken();
-  }
-
-  private afterRequest(response: any) {
-    this.rateLimiter.updateClientSendingRate(response);
   }
 }
