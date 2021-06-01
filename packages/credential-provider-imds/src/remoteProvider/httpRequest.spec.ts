@@ -1,10 +1,8 @@
 import { ProviderError } from "@aws-sdk/property-provider";
-import http from "http";
+import http, { createServer } from "http";
 import nock from "nock";
 
 import { httpRequest } from "./httpRequest";
-
-const { createServer } = http;
 
 describe("httpRequest", () => {
   const requestSpy = jest.spyOn(http, "request");
