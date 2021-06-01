@@ -54,7 +54,11 @@ export class StandardRetryStrategy implements RetryStrategy {
 
   async retry<Input extends object, Ouput extends MetadataBearer>(
     next: FinalizeHandler<Input, Ouput>,
-    args: FinalizeHandlerArguments<Input>
+    args: FinalizeHandlerArguments<Input>,
+    options?: {
+      beforeRequest: Function;
+      afterRequest: Function;
+    }
   ) {
     let retryTokenAmount;
     let attempts = 0;
@@ -73,9 +77,13 @@ export class StandardRetryStrategy implements RetryStrategy {
           request.headers[REQUEST_HEADER] = `attempt=${attempts + 1}; max=${maxAttempts}`;
         }
 
-        await this.beforeRequest();
+        if (options?.beforeRequest) {
+          await options.beforeRequest();
+        }
         const { response, output } = await next(args);
-        this.afterRequest(response);
+        if (options?.afterRequest) {
+          options.afterRequest(response);
+        }
 
         this.retryQuota.releaseRetryTokens(retryTokenAmount);
         output.$metadata.attempts = attempts + 1;
@@ -106,14 +114,6 @@ export class StandardRetryStrategy implements RetryStrategy {
         throw err;
       }
     }
-  }
-
-  protected async beforeRequest() {
-    // No-op for standard mode
-  }
-
-  protected afterRequest(response: any) {
-    // No-op for standard mode
   }
 }
 

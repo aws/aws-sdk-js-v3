@@ -1,4 +1,4 @@
-import { Provider } from "@aws-sdk/types";
+import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider } from "@aws-sdk/types";
 
 import { RETRY_MODES } from "./config";
 import { DefaultRateLimiter } from "./DefaultRateLimiter";
@@ -22,13 +22,21 @@ export class AdaptiveRetryStrategy extends StandardRetryStrategy {
     this.mode = RETRY_MODES.adaptive;
   }
 
-  protected async beforeRequest() {
-    await super.beforeRequest();
+  async retry<Input extends object, Ouput extends MetadataBearer>(
+    next: FinalizeHandler<Input, Ouput>,
+    args: FinalizeHandlerArguments<Input>
+  ) {
+    return super.retry(next, args, {
+      beforeRequest: this.beforeRequest,
+      afterRequest: this.afterRequest,
+    });
+  }
+
+  private async beforeRequest() {
     await this.rateLimiter.getSendToken();
   }
 
-  protected afterRequest(response: any) {
-    super.afterRequest(response);
+  private afterRequest(response: any) {
     this.rateLimiter.updateClientSendingRate(response);
   }
 }
