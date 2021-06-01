@@ -1,21 +1,11 @@
 import { LoadedConfigSelectors } from "@aws-sdk/node-config-provider";
 import { Provider, RetryStrategy } from "@aws-sdk/types";
 
-import { StandardRetryStrategy } from "./defaultStrategy";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "./config";
+import { StandardRetryStrategy } from "./StandardRetryStrategy";
 
 export const ENV_MAX_ATTEMPTS = "AWS_MAX_ATTEMPTS";
 export const CONFIG_MAX_ATTEMPTS = "max_attempts";
-
-/**
- * The default value for how many HTTP requests an SDK should make for a
- * single SDK operation invocation before giving up
- */
-export const DEFAULT_MAX_ATTEMPTS = 3;
-
-/**
- * The default retry algorithm to use.
- */
-export const DEFAULT_RETRY_MODE = "standard";
 
 export const NODE_MAX_ATTEMPT_CONFIG_OPTIONS: LoadedConfigSelectors<number> = {
   environmentVariableSelector: (env) => {

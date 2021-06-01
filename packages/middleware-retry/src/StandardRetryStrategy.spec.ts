@@ -2,12 +2,12 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
 import { v4 } from "uuid";
 
-import { DEFAULT_MAX_ATTEMPTS } from "./configurations";
+import { DEFAULT_MAX_ATTEMPTS, RETRY_MODES } from "./config";
 import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS, THROTTLING_RETRY_DELAY_BASE } from "./constants";
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
-import { StandardRetryStrategy } from "./defaultStrategy";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
+import { StandardRetryStrategy } from "./StandardRetryStrategy";
 import { RetryQuota } from "./types";
 
 jest.mock("@aws-sdk/service-error-classification");
@@ -100,6 +100,11 @@ describe("defaultStrategy", () => {
       const retryStrategy = new StandardRetryStrategy(() => Promise.resolve(maxAttempts));
       expect(retryStrategy["maxAttemptsProvider"]()).resolves.toBe(maxAttempts);
     });
+  });
+
+  it(`sets mode=${RETRY_MODES.STANDARD}`, () => {
+    const retryStrategy = new StandardRetryStrategy(() => Promise.resolve(maxAttempts));
+    expect(retryStrategy.mode).toStrictEqual(RETRY_MODES.STANDARD);
   });
 
   it("handles non-standard errors", () => {
