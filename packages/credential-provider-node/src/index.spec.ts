@@ -243,7 +243,7 @@ describe("defaultProvider", () => {
 
     process.env[ENV_IMDS_DISABLED] = "1";
 
-    expect.assertions(2);
+    expect.assertions(1);
     try {
       await defaultProvider()();
     } catch (e) {
