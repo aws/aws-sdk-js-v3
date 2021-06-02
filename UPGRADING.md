@@ -110,14 +110,13 @@ might not have the same name either.
     - **v2**: The Agent object to perform HTTP requests with. Used for connection pooling.
     - **v3**: You can configure `httpAgent` or `httpsAgent` as shown in the examples above.
 
-  - `connectionTimeout`
+  - `connectTimeout`
     - **v2**: Sets the socket to timeout after failing to establish a connection with the server after connectTimeout
       milliseconds.
     - **v3**: `connectionTimeout` is available [in `NodeHttpHandler` options](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/classes/_aws_sdk_node_http_handler.nodehttphandler-1.html).
   - `timeout`
     - **v2**: The number of milliseconds a request can take before automatically being terminated.
-    - **v3**: Hard request timeout is not available in `NodeHttpHandler`, but available as `requestTimeout` [in
-      `FetchHttphandler` in browsers](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/classes/_aws_sdk_fetch_http_handler.fetchhttphandler-1.html)
+    - **v3**: `socketTimeout` is available [in `NodeHttpHandler` options](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/classes/_aws_sdk_node_http_handler.nodehttphandler-1.html).
   - `xhrAsync`
     - **v2**: Whether the SDK will send asynchronous HTTP requests.
     - **v3**: **Deprecated**. Requests are _always_ asynchronous.
@@ -179,6 +178,277 @@ might not have the same name either.
   - **v2**: Whether to use the Accelerate endpoint with the S3 service.
   - **v3**: No change.
 
+## Credential Providers
+
+In v2, the SDK provides a list of credential providers to choose from, as well as a credentials provider chain,
+available by default on Node.js, that tries to load the AWS credentials from all the most common providers. V3 simplifies
+the credential provider's interface, making it easier to use and write custom credential providers. On top of a new
+credentials provider chain, V3 all provides a list of credential providers aiming to provide equivalent to v2.
+
+Here is all the credential providers in v2 and their equivalents in v3.
+
+### Default Credential Provider
+
+Default credential provider is how SDK resolve the AWS credential if you DO NOT provide one explicitly.
+
+- **v2**: [CredentialProviderChain](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CredentialProviderChain.html)
+  in Node.js resolves credential from sources as following order:
+
+  - [environmental variable](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-environment.html)
+  - [shared credentials file](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-shared.html)
+  - [ECS container credentials](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/RemoteCredentials.html)
+  - [spawning external process](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sourcing-external.html)
+  - [OIDC token from specified file](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/TokenFileWebIdentityCredentials.html)
+  - [EC2 instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)
+
+  If one of the credential providers above fails to resolve the AWS credential, the chain falls back to next provider
+  until a valid credential is resolved, or throw error when all of them fail.
+
+  In Browsers and ReactNative, the chain is empty, meaning you always need supply credentials explicitly.
+
+- **v3**: [defaultProvider](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_node.html#defaultprovider)
+  The credential sources and fallback order _does not_ change in v3. It also supports [AWS Single Sign-On credentials](https://aws.amazon.com/single-sign-on/).
+
+### Temporary Credentials
+
+- **v2**: [`ChainableTemporaryCredentials`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ChainableTemporaryCredentials.html)
+  Represents temporary credentials retrieved from `AWS.STS`. Without any extra parameters, credentials will be
+  fetched from the `AWS.STS.getSessionToken()` operation. If an IAM role is provided, the `AWS.STS.assumeRole()` operation
+  will be used to fetch credentials for the role instead.
+  `AWS.ChainableTemporaryCredentials` differs from `AWS.TemporaryCredentials` in the way masterCredentials and refreshes
+  are handled. `AWS.ChainableTemporaryCredentials` refreshes expired credentials using the masterCredentials passed by
+  the user to support chaining of STS credentials. However, `AWS.TemporaryCredentials` recursively collapses the
+  masterCredentials during instantiation, precluding the ability to refresh credentials which require intermediate, temporary credentials.
+
+  The original [`TemporaryCredentials`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/TemporaryCredentials.html)
+  has been **deprecated** in favor of `ChainableTemporaryCredentials` in v2 and ``
+
+- **v3**: Partially supported. You can retrieve the temporary credential from STS with the
+  [role assumer function based on `sts:AssumeRole`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/globals.html#getdefaultroleassumer). The difference to v2 is that `sts:getSessionToken` is not called
+  if no `RoleArn` is supplied. Please open a [feature request](https://github.com/aws/aws-sdk-js-v3/issues/new?assignees=&labels=feature-request&template=---feature-request.md&title=)
+  if you need it.
+  Here's an example:
+
+  ```javascript
+  import { FooClient } from "@aws-sdk/client-foo";
+  import { getDefaultRoleAssumer } from "@aws-sdk/client-sts"; // ES6 import
+  // const { FooClient } = require("@aws-sdk/client-foo");
+  // const { getDefaultRoleAssumer } = require("@aws-sdk/client-sts"); // CommonJS import
+
+  /* role assumer function that calls sts:AssumeRole API */
+  const roleAssumer = getDefaultRoleAssumer();
+  const sourceCredential = {
+    /* A credential can be a credential object or an async function that returns a credential object */
+  };
+  /* A credential can be a credential object or an async function that returns a credential object */
+  const derivativeCredentials = () =>
+    roleAssumer(sourceCredentials, {
+      RoleArn,
+      RoleSessionName,
+    });
+  const client = new FooClient({
+    credentials: derivativeCredentials,
+  });
+  ```
+
+### Cognito Identity Credentials
+
+Load credentials from Cognito Identity service, normally used in browsers.
+
+- **v2**: [`CognitoIdentityCredentials`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CognitoIdentityCredentials.html)
+  Represents credentials retrieved from STS Web Identity Federation using the Amazon Cognito Identity service.
+- **v3**: [`Cognito Identity Credential Provider`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_cognito_identity.html#fromcognitoidentity-1)
+  The [`@aws/credential-provider-cognito-identity` package](https://www.npmjs.com/package/@aws-sdk/credential-provider-cognito-identity)
+  provides two credential provider functions, one of which [`fromCognitoIdentity`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_cognito_identity.html#fromcognitoidentity-1)
+  takes an identity ID and calls `cognitoIdentity:GetCredentialsForIdentity`, while the other
+  [`fromCognitoIdentityPool`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_cognito_identity.html#fromcognitoidentitypool-1)
+  takes an identity pool ID, calls `cognitoIdentity:GetId` on the first invocation, and then calls`fromCognitoIdentity`.
+  Subsequent invocations of the latter do not re-invoke GetId
+
+  The provider implements the "Simplified Flow" described in the [Cognito developer guide](https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html).
+  The "Classic Flow" which involves calling `cognito:GetOpenIdToken` and then calling `sts:AssumeRoleWithWebIdentity` is
+  NOT supported. Please open a [feature request](https://github.com/aws/aws-sdk-js-v3/issues/new?assignees=&labels=feature-request&template=---feature-request.md&title=)
+  to us if you need it.
+
+  ```javascript
+  // fromCognitoIdentityPool example
+  import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
+  import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity"; // ES6 import
+  // const { fromCognitoIdentityPool } = require("@aws-sdk/credential-provider-cognito-identity");
+  // const { CognitoIdentityClient } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+
+  const client = new FooClient({
+    region: "us-east-1",
+    credentials: fromCognitoIdentityPool({
+      client: new CognitoIdentityClient({
+        // specify Cognito Identity client config here
+        region: "us-east-1",
+      }),
+      identityPoolId: "us-east-1:1699ebc0-7900-4099-b910-2df94f52a030",
+      customRoleArn: "arn:aws:iam::1234567890:role/MYAPP-CognitoIdentity", // Optional
+      logins: {
+        // Optional
+        "graph.facebook.com": "FBTOKEN",
+        "www.amazon.com": "AMAZONTOKEN",
+        "api.twitter.com": "TWITTERTOKEN",
+      },
+    }),
+  });
+  ```
+
+  ```javascript
+  // fromCognitoIdentity example
+  import { fromCognitoIdentity } from "@aws-sdk/credential-provider-cognito-identity";
+  import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity"; // ES6 import
+  // const { fromCognitoIdentity } = require("@aws-sdk/credential-provider-cognito-identity");
+  // const { CognitoIdentityClient } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
+
+  const client = new FooClient({
+    region: "us-east-1",
+    credentials: fromCognitoIdentity({
+      client: new CognitoIdentityClient({ region: "us-east-1" }),
+      identityId: "us-east-1:128d0a74-c82f-4553-916d-90053e4a8b0f",
+      customRoleArn: "arn:aws:iam::1234567890:role/MYAPP-CognitoIdentity", // Optional
+      logins: {
+        // Optional
+        "graph.facebook.com": "FBTOKEN",
+        "www.amazon.com": "AMAZONTOKEN",
+        "api.twitter.com": "TWITTERTOKEN",
+      },
+    }),
+  });
+  ```
+
+### EC2 Metadata(IMDS) Credential
+
+Represents credentials received from the metadata service on an EC2 instance.
+
+- **v2**: [`EC2MetadataCredentials`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CognitoIdentityCredentials.html)
+- **v3**: [`fromInstanceMetadata`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_imds.html#frominstancemetadata-1): Creates a credential provider that will source credentials from the EC2 Instance Metadata Service.
+
+  ```javascript
+  import { fromInstanceMetadata } from "@aws-sdk/credential-provider-imds"; // ES6 import
+  // const { fromInstanceMetadata } = require("@aws-sdk/credential-provider-imds"); // CommonJS import
+
+  const client = new FooClient({
+    credentials: fromInstanceMetadata({
+      maxRetries: 3, // Optional
+      timeout: 0, // Optional
+    }),
+  });
+  ```
+
+### ECS Credentials
+
+Represents credentials received from specified URL. This provider will request temporary credentials from
+URI specified by the `AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` or the `AWS_CONTAINER_CREDENTIALS_FULL_URI` environment
+variable.
+
+- **v2**: `ECSCredentials` or [`RemoteCredentials`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/RemoteCredentials.html).
+- **v3**: [`fromContainerMetadata`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_imds.html#fromcontainermetadata-1) creates a credential provider that will source credentials from the ECS Container Metadata Service.
+
+  ```javascript
+  import { fromContainerMetadata } from "@aws-sdk/credential-provider-imds"; // ES6 import
+  // const { fromContainerMetadata } = require("@aws-sdk/credential-provider-imds"); // CommonJS import
+
+  const client = new FooClient({
+    credentials: fromContainerMetadata({
+      maxRetries: 3, // Optional
+      timeout: 0, // Optional
+    }),
+  });
+  ```
+
+### File System Credentials
+
+- **v2**: [`FileSystemCredentials`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/FileSystemCredentials.html)  
+  represents credentials from a JSON file on disk.
+- **v3**: **Deprecated**. You can explicitly read the JSON file and supply to the client. Please open a
+  [feature request](https://github.com/aws/aws-sdk-js-v3/issues/new?assignees=&labels=feature-request&template=---feature-request.md&title=)
+  to us if you need it.
+
+### SAML Credential Provider
+
+- **v2**: [`SAMLCredentials`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SAMLCredentials.html) represents
+  credentials retrieved from STS SAML support.
+- **v3**: **Not available**. Please open a [feature request](https://github.com/aws/aws-sdk-js-v3/issues/new?assignees=&labels=feature-request&template=---feature-request.md&title=)
+  to us if you need it.
+
+### Shared Credential File Credentials
+
+Loads credentials from shared credentials file (defaulting to `~/.aws/credentials` or defined by the
+`AWS_SHARED_CREDENTIALS_FILE` environment variable). This file is supported across different AWS SDKs and tools. You can
+refer to the [shared config and credentials files document](https://docs.aws.amazon.com/sdkref/latest/guide/creds-config-files.html)
+for more information.
+
+- **v2**: [`SharedIniFileCredentials`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SharedIniFileCredentials.html)
+- **v3**: [`fromIni`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_ini.html).
+
+  ```javascript
+  import { fromIni } from "@aws-sdk/credential-provider-ini";
+  import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts"; // ES6 import
+  // const { fromIni } from("@aws-sdk/credential-provider-ini");
+  // const { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } = require("@aws-sdk/client-sts"); // CommonJS import
+
+  const client = new FooClient({
+    credentials: fromIni({
+      configFilepath: "~/.aws/config", // Optional
+      filepath: "~/.aws/credentials", // Optional
+      mfaCodeProvider: async (mfaSerial) => {
+        // implement a pop-up asking for MFA code
+        return "some_code";
+      }, // Optional
+      profile: "default", // Optional
+      roleAssumer: getDefaultRoleAssumer(), // Optional. Required if you specify role to assume
+      roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(), // Optional. Required if you specify role to assume using `sts:AssumeRoleWithWebIdentity` API
+    }),
+  });
+  ```
+
+### Web Identity Credentials
+
+Retrieves credentials using OIDC token from a file on disk. It's commonly used in EKS.
+
+- **v2**: [`TokenFileWebIdentityCredentials`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/TokenFileWebIdentityCredentials.html).
+- **v3**: [`fromTokenFile`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_web_identity.html#fromtokenfile-1)
+
+  ```javascript
+  import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
+  import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts"; // ES6 import
+  // const { fromIni } from("@aws-sdk/credential-provider-ini");
+  // const { getDefaultRoleAssumerWithWebIdentity } = require("@aws-sdk/client-sts"); // CommonJS import
+
+  const client = new FooClient({
+    credentials: fromTokenFile({
+      roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(),
+      roleArn: "arn:xxxx" // Optional. Otherwise read from `AWS_ROLE_ARN` environmental variable
+      roleSessionName: "session:a" // Optional. Otherwise read from `AWS_ROLE_SESSION_NAME` environmental variable
+    })
+  });
+  ```
+
+### Web Identity Federation Credentials
+
+Retrieves credentials from STS web identity federation support.
+
+- **v2**: [`WebIdentityCredentials`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/WebIdentityCredentials.html)
+- **v3**: [`fromWebToken`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_web_identity.html#fromwebtoken-1)
+
+  ```javascript
+  import { fromWebToken } from "@aws-sdk/credential-provider-web-identity";
+  import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts"; // ES6 import
+  // const { fromWebToken } from("@aws-sdk/credential-provider-web-identity");
+  // const { getDefaultRoleAssumerWithWebIdentity } = require("@aws-sdk/client-sts"); // CommonJS import
+
+  const client = new FooClient({
+    credentials: fromWebToken({
+      roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(),
+      roleArn: "arn:xxxx" // Otherwise read from `AWS_ROLE_ARN` environmental variable
+      roleSessionName: "session:a" // Otherwise read from `AWS_ROLE_SESSION_NAME` environmental variable
+    })
+  });
+  ```
+
 ## S3 Multipart Upload
 
 In v2, the S3 client contains an [`upload()`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#upload-property)
@@ -231,3 +501,27 @@ await ddbDocClient.send(
 ```
 
 More examples and configurations are available in the [package README](https://github.com/aws/aws-sdk-js-v3/blob/main/lib/lib-dynamodb/README.md).
+
+## Waiters
+
+In v2, all waiters are bound to the service client class, you need to specify in waiter's input which designed state the
+client will be waiting for. For example, you need to [call `waitFor("bucketExists")`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#bucketExists-waiter)
+to wait for a newly created bucket to be ready.
+
+In v3, you don't need to import waiters if your application doesn't need one. Moreover, you can import only the waiter
+you need to wait for the particular desired state you want. Thus, you can reduce your bundle size and improve
+performance. Here's the example of waiting for bucket to be ready after creation:
+
+```javascript
+import { S3Client, CreateBucketCommand, waitUntilBucketExists } from "@aws-sdk/client-s3"; // ES6 import
+// const { S3Client, CreateBucketCommand, waitUntilBucketExists } = require("@aws-sdk/client-s3"); // CommonJS import
+
+const Bucket = "BUCKET_NAME";
+const client = new S3Client({ region: "REGION" });
+const command = new CreateBucketCommand({ Bucket });
+
+await client.send(command);
+await waitUntilBucketExists({ client, maxWaitTime: 60 }, { Bucket });
+```
+
+You can find everything of how to configure the waiters in the [blog post of waiters in v3 SDK](https://aws.amazon.com/blogs/developer/waiters-in-modular-aws-sdk-for-javascript/).
