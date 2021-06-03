@@ -18,9 +18,9 @@ export const retryMiddleware =
     context: HandlerExecutionContext
   ): FinalizeHandler<any, Output> =>
   async (args: FinalizeHandlerArguments<any>): Promise<FinalizeHandlerOutput<Output>> => {
-    if (options?.retryStrategy?.mode)
-      context.userAgent = [...(context.userAgent || []), ["cfg/retry-mode", options.retryStrategy.mode]];
-    return options.retryStrategy.retry(next, args);
+    const retryStrategy = await options.retryStrategy();
+    if (retryStrategy?.mode) context.userAgent = [...(context.userAgent || []), ["cfg/retry-mode", retryStrategy.mode]];
+    return retryStrategy.retry(next, args);
   };
 
 export const retryMiddlewareOptions: FinalizeRequestHandlerOptions & AbsoluteLocation = {

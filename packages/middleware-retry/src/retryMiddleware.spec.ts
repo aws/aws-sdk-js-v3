@@ -2,9 +2,13 @@ import { FinalizeHandlerArguments, HandlerExecutionContext, MiddlewareStack, Ret
 
 import { getRetryPlugin, retryMiddleware, retryMiddlewareOptions } from "./retryMiddleware";
 
-describe("getRetryPlugin", () => {
+describe(getRetryPlugin.name, () => {
   const mockClientStack = {
     add: jest.fn(),
+  };
+  const mockRetryStrategy = {
+    mode: "mock",
+    retry: jest.fn(),
   };
 
   afterEach(() => {
@@ -16,7 +20,7 @@ describe("getRetryPlugin", () => {
       it(`when maxAttempts=${maxAttempts}`, () => {
         getRetryPlugin({
           maxAttempts: () => Promise.resolve(maxAttempts),
-          retryStrategy: {} as RetryStrategy,
+          retryStrategy: jest.fn().mockResolvedValue(mockRetryStrategy),
         }).applyToStack(mockClientStack as unknown as MiddlewareStack<any, any>);
         expect(mockClientStack.add).toHaveBeenCalledTimes(1);
         expect(mockClientStack.add.mock.calls[0][1]).toEqual(retryMiddlewareOptions);
@@ -25,7 +29,11 @@ describe("getRetryPlugin", () => {
   });
 });
 
-describe("retryMiddleware", () => {
+describe(retryMiddleware.name, () => {
+  const mockRetryStrategy = {
+    mode: "mock",
+    retry: jest.fn(),
+  };
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -36,22 +44,17 @@ describe("retryMiddleware", () => {
     const args = {
       request: {},
     };
-    const mockRetryStrategy = {
-      mode: "mock",
-      maxAttempts,
-      retry: jest.fn(),
-    };
     const context: HandlerExecutionContext = {};
 
     await retryMiddleware({
       maxAttempts: () => Promise.resolve(maxAttempts),
-      retryStrategy: mockRetryStrategy,
+      retryStrategy: jest.fn().mockResolvedValue({ ...mockRetryStrategy, maxAttempts }),
     })(
       next,
       context
     )(args as FinalizeHandlerArguments<any>);
     expect(mockRetryStrategy.retry).toHaveBeenCalledTimes(1);
     expect(mockRetryStrategy.retry).toHaveBeenCalledWith(next, args);
-    expect(context.userAgent).toContainEqual(["cfg/retry-mode", "mock"]);
+    expect(context.userAgent).toContainEqual(["cfg/retry-mode", mockRetryStrategy.mode]);
   });
 });
