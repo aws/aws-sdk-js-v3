@@ -36,16 +36,13 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 /**
  * Add client plubins and configs to support injecting user agent.
  */
-// TODO: Looks to add this back for non-AWS service clients, by fixing the dependency on ClientSharedValues.serviceId
 @SmithyInternalApi
 public class AddUserAgentDependency implements TypeScriptIntegration {
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_USER_AGENT.dependency, "UserAgent")
-                        .servicePredicate((m, s) -> isAwsService(s))
-                        .build());
+                        .withConventions(AwsDependency.MIDDLEWARE_USER_AGENT.dependency, "UserAgent").build());
     }
 
     @Override
@@ -55,9 +52,6 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
             SymbolProvider symbolProvider,
             TypeScriptWriter writer
     ) {
-        if (!isAwsService(settings, model)) {
-            return;
-        }
         writer.addImport("Provider", "Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
         writer.addImport("UserAgent", "__UserAgent", TypeScriptDependency.AWS_SDK_TYPES.packageName);
         writer.writeDocs("The provider populating default tracking information to be sent with `user-agent`, "
@@ -72,9 +66,6 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
         SymbolProvider symbolProvider,
         LanguageTarget target
     ) {
-        if (!isAwsService(settings, model)) {
-            return Collections.emptyMap();
-        }
         switch (target) {
             case NODE:
                 return MapUtils.of(
@@ -83,8 +74,7 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
                             writer.addImport("defaultUserAgent", "defaultUserAgent",
                                     AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE.packageName);
                             writer.addDefaultImport("packageInfo", "./package.json");
-                            writer.write("defaultUserAgentProvider: defaultUserAgent({serviceId: "
-                                    + "ClientSharedValues.serviceId, clientVersion: packageInfo.version}),");
+                            writeDefaultUserAgentProvider(writer, settings, model);
                         }
                 );
             case BROWSER:
@@ -94,12 +84,18 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
                             writer.addImport("defaultUserAgent", "defaultUserAgent",
                                     AwsDependency.AWS_SDK_UTIL_USER_AGENT_BROWSER.packageName);
                             writer.addDefaultImport("packageInfo", "./package.json");
-                            writer.write("defaultUserAgentProvider: defaultUserAgent({serviceId: "
-                                    + "ClientSharedValues.serviceId, clientVersion: packageInfo.version}),");
+                            writeDefaultUserAgentProvider(writer, settings, model);
                         }
                 );
             default:
                 return Collections.emptyMap();
         }
+    }
+
+    private void writeDefaultUserAgentProvider(TypeScriptWriter writer, TypeScriptSettings settings, Model model) {
+        writer.write("defaultUserAgentProvider: defaultUserAgent({"
+                // serviceId is optional in defaultUserAgent. serviceId exists only for AWS services
+                + (isAwsService(settings, model) ? "serviceId: ClientSharedValues.serviceId, " : "")
+                + "clientVersion: packageInfo.version}),");
     }
 }
