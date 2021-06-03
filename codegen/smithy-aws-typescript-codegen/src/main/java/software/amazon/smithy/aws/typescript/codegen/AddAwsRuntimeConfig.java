@@ -98,7 +98,9 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                     .write("serviceId?: string;\n");
         }
         if (isSigV4Service(settings, model)) {
-            writer.writeDocs("The AWS region to which this client will send requests or use as signingRegion")
+            writer.writeDocs(isAwsService(settings, model)
+                                ? "The AWS region to which this client will send requests"
+                                : "The AWS region to use as signing region for AWS Auth")
                     .write("region?: string | __Provider<string>;\n");
         }
         writer.writeDocs("Value for how many times a request will be made at most in case of retry.")
@@ -174,7 +176,6 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                 return defaultConfigs;
             case NODE:
                 if (isSigV4Service) {
-                    // TODO: For non-AWS service, figure out how the region should be configured.
                     defaultConfigs.put("region", writer -> {
                         writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
                         writer.addImport("loadConfig", "loadNodeConfig",

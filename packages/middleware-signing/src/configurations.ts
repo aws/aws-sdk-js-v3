@@ -5,6 +5,10 @@ import { Credentials, HashConstructor, Provider, RegionInfo, RegionInfoProvider,
 // 5 minutes buffer time the refresh the credential before it really expires
 const CREDENTIAL_EXPIRE_WINDOW = 300000;
 
+// AwsAuth v/s SigV4Auth
+// AwsAuth: specific to SigV4 auth for AWS services
+// SigV4Auth: SigV4 auth for non-AWS services
+
 export interface AwsAuthInputConfig {
   /**
    * The credentials used to sign requests.
@@ -32,6 +36,29 @@ export interface AwsAuthInputConfig {
    */
   signingRegion?: string;
 }
+
+export interface SigV4AuthInputConfig {
+  /**
+   * The credentials used to sign requests.
+   */
+  credentials?: Credentials | Provider<Credentials>;
+
+  /**
+   * The signer to use when signing requests.
+   */
+  signer?: RequestSigner | Provider<RequestSigner>;
+
+  /**
+   * Whether to escape request path when signing the request.
+   */
+  signingEscapePath?: boolean;
+
+  /**
+   * An offset value in milliseconds to apply to all signing times.
+   */
+  systemClockOffset?: number;
+}
+
 interface PreviouslyResolved {
   credentialDefaultProvider: (input: any) => Provider<Credentials>;
   region: string | Provider<string>;
@@ -40,6 +67,14 @@ interface PreviouslyResolved {
   serviceId: string;
   sha256: HashConstructor;
 }
+
+interface SigV4PreviouslyResolved {
+  credentialDefaultProvider: (input: any) => Provider<Credentials>;
+  region: string | Provider<string>;
+  signingName: string;
+  sha256: HashConstructor;
+}
+
 export interface AwsAuthResolvedConfig {
   /**
    * Resolved value for input config {@link AwsAuthInputConfig.credentials}
@@ -58,6 +93,8 @@ export interface AwsAuthResolvedConfig {
    */
   systemClockOffset: number;
 }
+
+export interface SigV4AuthResolvedConfig extends AwsAuthResolvedConfig {}
 
 export const resolveAwsAuthConfig = <T>(
   input: T & AwsAuthInputConfig & PreviouslyResolved
@@ -92,6 +129,37 @@ export const resolveAwsAuthConfig = <T>(
             uriEscapePath: signingEscapePath,
           });
         });
+  }
+
+  return {
+    ...input,
+    systemClockOffset,
+    signingEscapePath,
+    credentials: normalizedCreds,
+    signer,
+  };
+};
+
+// TODO: reduce code duplication
+export const resolveSigV4AuthConfig = <T>(
+  input: T & SigV4AuthInputConfig & SigV4PreviouslyResolved
+): T & SigV4AuthResolvedConfig => {
+  const normalizedCreds = input.credentials
+    ? normalizeCredentialProvider(input.credentials)
+    : input.credentialDefaultProvider(input as any);
+  const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
+  let signer: Provider<RequestSigner>;
+  if (input.signer) {
+    //if signer is supplied by user, normalize it to a function returning a promise for signer.
+    signer = normalizeProvider(input.signer);
+  } else {
+    signer = normalizeProvider(new SignatureV4({
+      credentials: normalizedCreds,
+      region: input.region,
+      service: input.signingName,
+      sha256,
+      uriEscapePath: signingEscapePath,
+    }));
   }
 
   return {
