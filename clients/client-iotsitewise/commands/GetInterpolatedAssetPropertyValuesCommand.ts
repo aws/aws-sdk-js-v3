@@ -29,7 +29,9 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
  * <p>Get interpolated values for an asset property for a specified time interval, during a
  *       period of time. For example, you can use the this operation to return the interpolated temperature values for a wind turbine every 24 hours
  *       over a duration of 7 days.</p>
- *
+ *          <note>
+ *             <p>This API isn't available in China (Beijing).</p>
+ *          </note>
  *          <p>To identify an asset property, you must specify one of the following:</p>
  *          <ul>
  *             <li>

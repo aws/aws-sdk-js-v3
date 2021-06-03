@@ -27,7 +27,7 @@ export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, _
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
+ *         <ul>
  *             <li>
  *                 <p>
  *                   <code>resource-groups:UpdateGroupQuery</code>

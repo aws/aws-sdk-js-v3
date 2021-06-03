@@ -21,16 +21,36 @@ import {
   CreateBotVersionCommandOutput,
 } from "./commands/CreateBotVersionCommand";
 import {
+  CreateExportCommand,
+  CreateExportCommandInput,
+  CreateExportCommandOutput,
+} from "./commands/CreateExportCommand";
+import {
   CreateIntentCommand,
   CreateIntentCommandInput,
   CreateIntentCommandOutput,
 } from "./commands/CreateIntentCommand";
+import {
+  CreateResourcePolicyCommand,
+  CreateResourcePolicyCommandInput,
+  CreateResourcePolicyCommandOutput,
+} from "./commands/CreateResourcePolicyCommand";
+import {
+  CreateResourcePolicyStatementCommand,
+  CreateResourcePolicyStatementCommandInput,
+  CreateResourcePolicyStatementCommandOutput,
+} from "./commands/CreateResourcePolicyStatementCommand";
 import { CreateSlotCommand, CreateSlotCommandInput, CreateSlotCommandOutput } from "./commands/CreateSlotCommand";
 import {
   CreateSlotTypeCommand,
   CreateSlotTypeCommandInput,
   CreateSlotTypeCommandOutput,
 } from "./commands/CreateSlotTypeCommand";
+import {
+  CreateUploadUrlCommand,
+  CreateUploadUrlCommandInput,
+  CreateUploadUrlCommandOutput,
+} from "./commands/CreateUploadUrlCommand";
 import {
   DeleteBotAliasCommand,
   DeleteBotAliasCommandInput,
@@ -48,10 +68,30 @@ import {
   DeleteBotVersionCommandOutput,
 } from "./commands/DeleteBotVersionCommand";
 import {
+  DeleteExportCommand,
+  DeleteExportCommandInput,
+  DeleteExportCommandOutput,
+} from "./commands/DeleteExportCommand";
+import {
+  DeleteImportCommand,
+  DeleteImportCommandInput,
+  DeleteImportCommandOutput,
+} from "./commands/DeleteImportCommand";
+import {
   DeleteIntentCommand,
   DeleteIntentCommandInput,
   DeleteIntentCommandOutput,
 } from "./commands/DeleteIntentCommand";
+import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
+  DeleteResourcePolicyStatementCommand,
+  DeleteResourcePolicyStatementCommandInput,
+  DeleteResourcePolicyStatementCommandOutput,
+} from "./commands/DeleteResourcePolicyStatementCommand";
 import { DeleteSlotCommand, DeleteSlotCommandInput, DeleteSlotCommandOutput } from "./commands/DeleteSlotCommand";
 import {
   DeleteSlotTypeCommand,
@@ -75,10 +115,25 @@ import {
   DescribeBotVersionCommandOutput,
 } from "./commands/DescribeBotVersionCommand";
 import {
+  DescribeExportCommand,
+  DescribeExportCommandInput,
+  DescribeExportCommandOutput,
+} from "./commands/DescribeExportCommand";
+import {
+  DescribeImportCommand,
+  DescribeImportCommandInput,
+  DescribeImportCommandOutput,
+} from "./commands/DescribeImportCommand";
+import {
   DescribeIntentCommand,
   DescribeIntentCommandInput,
   DescribeIntentCommandOutput,
 } from "./commands/DescribeIntentCommand";
+import {
+  DescribeResourcePolicyCommand,
+  DescribeResourcePolicyCommandInput,
+  DescribeResourcePolicyCommandOutput,
+} from "./commands/DescribeResourcePolicyCommand";
 import {
   DescribeSlotCommand,
   DescribeSlotCommandInput,
@@ -115,6 +170,8 @@ import {
   ListBuiltInSlotTypesCommandInput,
   ListBuiltInSlotTypesCommandOutput,
 } from "./commands/ListBuiltInSlotTypesCommand";
+import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
+import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import { ListIntentsCommand, ListIntentsCommandInput, ListIntentsCommandOutput } from "./commands/ListIntentsCommand";
 import {
   ListSlotTypesCommand,
@@ -127,6 +184,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -145,10 +203,20 @@ import {
   UpdateBotLocaleCommandOutput,
 } from "./commands/UpdateBotLocaleCommand";
 import {
+  UpdateExportCommand,
+  UpdateExportCommandInput,
+  UpdateExportCommandOutput,
+} from "./commands/UpdateExportCommand";
+import {
   UpdateIntentCommand,
   UpdateIntentCommandInput,
   UpdateIntentCommandOutput,
 } from "./commands/UpdateIntentCommand";
+import {
+  UpdateResourcePolicyCommand,
+  UpdateResourcePolicyCommandInput,
+  UpdateResourcePolicyCommandOutput,
+} from "./commands/UpdateResourcePolicyCommand";
 import { UpdateSlotCommand, UpdateSlotCommandInput, UpdateSlotCommandOutput } from "./commands/UpdateSlotCommand";
 import {
   UpdateSlotTypeCommand,
@@ -330,6 +398,44 @@ export class LexModelsV2 extends LexModelsV2Client {
   }
 
   /**
+   * <p>Creates a zip archive containing the contents of a bot or a bot
+   *          locale. The archive contains a directory structure that contains JSON
+   *          files that define the bot.</p>
+   *          <p>You can create an archive that contains the complete definition of a
+   *          bot, or you can specify that the archive contain only the definition of
+   *          a single bot locale.</p>
+   *          <p>For more information about exporting bots, and about the structure
+   *          of the export archive, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/importing-exporting.html"> Importing and
+   *             exporting bots </a>
+   *          </p>
+   */
+  public createExport(
+    args: CreateExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateExportCommandOutput>;
+  public createExport(args: CreateExportCommandInput, cb: (err: any, data?: CreateExportCommandOutput) => void): void;
+  public createExport(
+    args: CreateExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateExportCommandOutput) => void
+  ): void;
+  public createExport(
+    args: CreateExportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateExportCommandOutput) => void),
+    cb?: (err: any, data?: CreateExportCommandOutput) => void
+  ): Promise<CreateExportCommandOutput> | void {
+    const command = new CreateExportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates an intent.</p>
    *          <p>To define the interaction between the user and your bot, you define
    *          one or more intents. For example, for a pizza ordering bot you would
@@ -396,6 +502,75 @@ export class LexModelsV2 extends LexModelsV2Client {
   }
 
   /**
+   * <p>Creates a new resource policy with the specified policy
+   *          statements.</p>
+   */
+  public createResourcePolicy(
+    args: CreateResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateResourcePolicyCommandOutput>;
+  public createResourcePolicy(
+    args: CreateResourcePolicyCommandInput,
+    cb: (err: any, data?: CreateResourcePolicyCommandOutput) => void
+  ): void;
+  public createResourcePolicy(
+    args: CreateResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateResourcePolicyCommandOutput) => void
+  ): void;
+  public createResourcePolicy(
+    args: CreateResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: CreateResourcePolicyCommandOutput) => void
+  ): Promise<CreateResourcePolicyCommandOutput> | void {
+    const command = new CreateResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds a new resource policy statement to a bot or bot alias. If a
+   *          resource policy exists, the statement is added to the current resource
+   *          policy. If a policy doesn't exist, a new policy is created.</p>
+   *          <p>You can create a resource policy statement that allows cross-account
+   *          access.</p>
+   */
+  public createResourcePolicyStatement(
+    args: CreateResourcePolicyStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateResourcePolicyStatementCommandOutput>;
+  public createResourcePolicyStatement(
+    args: CreateResourcePolicyStatementCommandInput,
+    cb: (err: any, data?: CreateResourcePolicyStatementCommandOutput) => void
+  ): void;
+  public createResourcePolicyStatement(
+    args: CreateResourcePolicyStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateResourcePolicyStatementCommandOutput) => void
+  ): void;
+  public createResourcePolicyStatement(
+    args: CreateResourcePolicyStatementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResourcePolicyStatementCommandOutput) => void),
+    cb?: (err: any, data?: CreateResourcePolicyStatementCommandOutput) => void
+  ): Promise<CreateResourcePolicyStatementCommandOutput> | void {
+    const command = new CreateResourcePolicyStatementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a slot in an intent. A slot is a variable needed to fulfill
    *          an intent. For example, an <code>OrderPizza</code> intent might need
    *          slots for size, crust, and number of pizzas. For each slot, you define
@@ -450,6 +625,39 @@ export class LexModelsV2 extends LexModelsV2Client {
     cb?: (err: any, data?: CreateSlotTypeCommandOutput) => void
   ): Promise<CreateSlotTypeCommandOutput> | void {
     const command = new CreateSlotTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a pre-signed S3 write URL that you use to upload the zip
+   *          archive when importing a bot or a bot locale. </p>
+   */
+  public createUploadUrl(
+    args: CreateUploadUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUploadUrlCommandOutput>;
+  public createUploadUrl(
+    args: CreateUploadUrlCommandInput,
+    cb: (err: any, data?: CreateUploadUrlCommandOutput) => void
+  ): void;
+  public createUploadUrl(
+    args: CreateUploadUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUploadUrlCommandOutput) => void
+  ): void;
+  public createUploadUrl(
+    args: CreateUploadUrlCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUploadUrlCommandOutput) => void),
+    cb?: (err: any, data?: CreateUploadUrlCommandOutput) => void
+  ): Promise<CreateUploadUrlCommandOutput> | void {
+    const command = new CreateUploadUrlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -595,6 +803,66 @@ export class LexModelsV2 extends LexModelsV2Client {
   }
 
   /**
+   * <p>Removes a previous export and the associated files stored in an S3
+   *          bucket.</p>
+   */
+  public deleteExport(
+    args: DeleteExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteExportCommandOutput>;
+  public deleteExport(args: DeleteExportCommandInput, cb: (err: any, data?: DeleteExportCommandOutput) => void): void;
+  public deleteExport(
+    args: DeleteExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteExportCommandOutput) => void
+  ): void;
+  public deleteExport(
+    args: DeleteExportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteExportCommandOutput) => void),
+    cb?: (err: any, data?: DeleteExportCommandOutput) => void
+  ): Promise<DeleteExportCommandOutput> | void {
+    const command = new DeleteExportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes a previous import and the associated file stored in an S3
+   *          bucket.</p>
+   */
+  public deleteImport(
+    args: DeleteImportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteImportCommandOutput>;
+  public deleteImport(args: DeleteImportCommandInput, cb: (err: any, data?: DeleteImportCommandOutput) => void): void;
+  public deleteImport(
+    args: DeleteImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteImportCommandOutput) => void
+  ): void;
+  public deleteImport(
+    args: DeleteImportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteImportCommandOutput) => void),
+    cb?: (err: any, data?: DeleteImportCommandOutput) => void
+  ): Promise<DeleteImportCommandOutput> | void {
+    const command = new DeleteImportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Removes the specified intent.</p>
    *          <p>Deleting an intent also deletes the slots associated with the
    *          intent.</p>
@@ -615,6 +883,75 @@ export class LexModelsV2 extends LexModelsV2Client {
     cb?: (err: any, data?: DeleteIntentCommandOutput) => void
   ): Promise<DeleteIntentCommandOutput> | void {
     const command = new DeleteIntentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes an existing policy from a bot or bot alias. If the resource
+   *          doesn't have a policy attached, Amazon Lex returns an exception.</p>
+   */
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): Promise<DeleteResourcePolicyCommandOutput> | void {
+    const command = new DeleteResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a policy statement from a resource policy. If you delete the
+   *          last statement from a policy, the policy is deleted. If you specify a
+   *          statement ID that doesn't exist in the policy, or if the bot or bot
+   *          alias doesn't have a policy attached, Amazon Lex returns an
+   *          exception.</p>
+   */
+  public deleteResourcePolicyStatement(
+    args: DeleteResourcePolicyStatementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyStatementCommandOutput>;
+  public deleteResourcePolicyStatement(
+    args: DeleteResourcePolicyStatementCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyStatementCommandOutput) => void
+  ): void;
+  public deleteResourcePolicyStatement(
+    args: DeleteResourcePolicyStatementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyStatementCommandOutput) => void
+  ): void;
+  public deleteResourcePolicyStatement(
+    args: DeleteResourcePolicyStatementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyStatementCommandOutput) => void),
+    cb?: (err: any, data?: DeleteResourcePolicyStatementCommandOutput) => void
+  ): Promise<DeleteResourcePolicyStatementCommandOutput> | void {
+    const command = new DeleteResourcePolicyStatementCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -810,6 +1147,70 @@ export class LexModelsV2 extends LexModelsV2Client {
   }
 
   /**
+   * <p>Gets information about a specific export.</p>
+   */
+  public describeExport(
+    args: DescribeExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeExportCommandOutput>;
+  public describeExport(
+    args: DescribeExportCommandInput,
+    cb: (err: any, data?: DescribeExportCommandOutput) => void
+  ): void;
+  public describeExport(
+    args: DescribeExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeExportCommandOutput) => void
+  ): void;
+  public describeExport(
+    args: DescribeExportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExportCommandOutput) => void),
+    cb?: (err: any, data?: DescribeExportCommandOutput) => void
+  ): Promise<DescribeExportCommandOutput> | void {
+    const command = new DescribeExportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about a specific import.</p>
+   */
+  public describeImport(
+    args: DescribeImportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeImportCommandOutput>;
+  public describeImport(
+    args: DescribeImportCommandInput,
+    cb: (err: any, data?: DescribeImportCommandOutput) => void
+  ): void;
+  public describeImport(
+    args: DescribeImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeImportCommandOutput) => void
+  ): void;
+  public describeImport(
+    args: DescribeImportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImportCommandOutput) => void),
+    cb?: (err: any, data?: DescribeImportCommandOutput) => void
+  ): Promise<DescribeImportCommandOutput> | void {
+    const command = new DescribeImportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns metadata about an intent.</p>
    */
   public describeIntent(
@@ -831,6 +1232,39 @@ export class LexModelsV2 extends LexModelsV2Client {
     cb?: (err: any, data?: DescribeIntentCommandOutput) => void
   ): Promise<DescribeIntentCommandOutput> | void {
     const command = new DescribeIntentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the resource policy and policy revision for a bot or bot
+   *          alias.</p>
+   */
+  public describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeResourcePolicyCommandOutput>;
+  public describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    cb: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
+  ): void;
+  public describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
+  ): void;
+  public describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
+  ): Promise<DescribeResourcePolicyCommandOutput> | void {
+    const command = new DescribeResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1102,6 +1536,60 @@ export class LexModelsV2 extends LexModelsV2Client {
   }
 
   /**
+   * <p>Lists the exports for a bot or bot locale. Exports are kept in the list for 7
+   *          days.</p>
+   */
+  public listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
+  public listExports(args: ListExportsCommandInput, cb: (err: any, data?: ListExportsCommandOutput) => void): void;
+  public listExports(
+    args: ListExportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExportsCommandOutput) => void
+  ): void;
+  public listExports(
+    args: ListExportsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExportsCommandOutput) => void),
+    cb?: (err: any, data?: ListExportsCommandOutput) => void
+  ): Promise<ListExportsCommandOutput> | void {
+    const command = new ListExportsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the imports for a bot or bot locale. Imports are kept in the list for 7
+   *          days.</p>
+   */
+  public listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
+  public listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
+  public listImports(
+    args: ListImportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportsCommandOutput) => void
+  ): void;
+  public listImports(
+    args: ListImportsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImportsCommandOutput) => void),
+    cb?: (err: any, data?: ListImportsCommandOutput) => void
+  ): Promise<ListImportsCommandOutput> | void {
+    const command = new ListImportsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Get a list of intents that meet the specified criteria.</p>
    */
   public listIntents(args: ListIntentsCommandInput, options?: __HttpHandlerOptions): Promise<ListIntentsCommandOutput>;
@@ -1208,6 +1696,33 @@ export class LexModelsV2 extends LexModelsV2Client {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts importing a bot or bot locale from a zip archive that you
+   *          uploaded to an S3 bucket.</p>
+   */
+  public startImport(args: StartImportCommandInput, options?: __HttpHandlerOptions): Promise<StartImportCommandOutput>;
+  public startImport(args: StartImportCommandInput, cb: (err: any, data?: StartImportCommandOutput) => void): void;
+  public startImport(
+    args: StartImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartImportCommandOutput) => void
+  ): void;
+  public startImport(
+    args: StartImportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartImportCommandOutput) => void),
+    cb?: (err: any, data?: StartImportCommandOutput) => void
+  ): Promise<StartImportCommandOutput> | void {
+    const command = new StartImportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1369,6 +1884,35 @@ export class LexModelsV2 extends LexModelsV2Client {
   }
 
   /**
+   * <p>Updates the password used to encrypt an export zip archive.</p>
+   */
+  public updateExport(
+    args: UpdateExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateExportCommandOutput>;
+  public updateExport(args: UpdateExportCommandInput, cb: (err: any, data?: UpdateExportCommandOutput) => void): void;
+  public updateExport(
+    args: UpdateExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateExportCommandOutput) => void
+  ): void;
+  public updateExport(
+    args: UpdateExportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateExportCommandOutput) => void),
+    cb?: (err: any, data?: UpdateExportCommandOutput) => void
+  ): Promise<UpdateExportCommandOutput> | void {
+    const command = new UpdateExportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the settings for an intent.</p>
    */
   public updateIntent(
@@ -1387,6 +1931,40 @@ export class LexModelsV2 extends LexModelsV2Client {
     cb?: (err: any, data?: UpdateIntentCommandOutput) => void
   ): Promise<UpdateIntentCommandOutput> | void {
     const command = new UpdateIntentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Replaces the existing resource policy for a bot or bot alias with a
+   *          new one. If the policy doesn't exist, Amazon Lex returns an
+   *          exception.</p>
+   */
+  public updateResourcePolicy(
+    args: UpdateResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResourcePolicyCommandOutput>;
+  public updateResourcePolicy(
+    args: UpdateResourcePolicyCommandInput,
+    cb: (err: any, data?: UpdateResourcePolicyCommandOutput) => void
+  ): void;
+  public updateResourcePolicy(
+    args: UpdateResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResourcePolicyCommandOutput) => void
+  ): void;
+  public updateResourcePolicy(
+    args: UpdateResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: UpdateResourcePolicyCommandOutput) => void
+  ): Promise<UpdateResourcePolicyCommandOutput> | void {
+    const command = new UpdateResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -26,11 +26,11 @@ export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
  *                 administration services. Tags are not intended to be used for private or sensitive
  *                 data.</p>
  *         </important>
- *          <p>
+ *         <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
+ *         <ul>
  *             <li>
  *                 <p>
  *                   <code>resource-groups:Tag</code>

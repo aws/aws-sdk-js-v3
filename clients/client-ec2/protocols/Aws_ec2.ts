@@ -31030,11 +31030,11 @@ const serializeAws_ec2AssociateSubnetCidrBlockRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SubnetId !== undefined && input.SubnetId !== null) {
-    entries["SubnetId"] = input.SubnetId;
-  }
   if (input.Ipv6CidrBlock !== undefined && input.Ipv6CidrBlock !== null) {
     entries["Ipv6CidrBlock"] = input.Ipv6CidrBlock;
+  }
+  if (input.SubnetId !== undefined && input.SubnetId !== null) {
+    entries["SubnetId"] = input.SubnetId;
   }
   return entries;
 };
@@ -32063,6 +32063,9 @@ const serializeAws_ec2CreateCapacityReservationRequest = (
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
   }
+  if (input.OutpostArn !== undefined && input.OutpostArn !== null) {
+    entries["OutpostArn"] = input.OutpostArn;
+  }
   return entries;
 };
 
@@ -32922,6 +32925,12 @@ const serializeAws_ec2CreateNetworkInterfaceRequest = (
       entries[loc] = value;
     });
   }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken !== undefined && input.ClientToken !== null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
   return entries;
 };
 
@@ -33239,6 +33248,9 @@ const serializeAws_ec2CreateSubnetRequest = (input: CreateSubnetRequest, context
   if (input.AvailabilityZoneId !== undefined && input.AvailabilityZoneId !== null) {
     entries["AvailabilityZoneId"] = input.AvailabilityZoneId;
   }
+  if (input.CidrBlock !== undefined && input.CidrBlock !== null) {
+    entries["CidrBlock"] = input.CidrBlock;
+  }
   if (input.Ipv6CidrBlock !== undefined && input.Ipv6CidrBlock !== null) {
     entries["Ipv6CidrBlock"] = input.Ipv6CidrBlock;
   }
@@ -33250,9 +33262,6 @@ const serializeAws_ec2CreateSubnetRequest = (input: CreateSubnetRequest, context
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
-  }
-  if (input.CidrBlock !== undefined && input.CidrBlock !== null) {
-    entries["CidrBlock"] = input.CidrBlock;
   }
   return entries;
 };
@@ -49511,6 +49520,7 @@ const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeCont
     InstanceMatchCriteria: undefined,
     CreateDate: undefined,
     Tags: undefined,
+    OutpostArn: undefined,
   };
   if (output["capacityReservationId"] !== undefined) {
     contents.CapacityReservationId = output["capacityReservationId"];
@@ -49571,6 +49581,9 @@ const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeCont
   }
   if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
     contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["outpostArn"] !== undefined) {
+    contents.OutpostArn = output["outpostArn"];
   }
   return contents;
 };
@@ -50985,9 +50998,13 @@ const deserializeAws_ec2CreateNetworkInterfaceResult = (
 ): CreateNetworkInterfaceResult => {
   let contents: any = {
     NetworkInterface: undefined,
+    ClientToken: undefined,
   };
   if (output["networkInterface"] !== undefined) {
     contents.NetworkInterface = deserializeAws_ec2NetworkInterface(output["networkInterface"], context);
+  }
+  if (output["clientToken"] !== undefined) {
+    contents.ClientToken = output["clientToken"];
   }
   return contents;
 };

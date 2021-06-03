@@ -325,6 +325,32 @@ export enum AggregateType {
   SUM = "SUM",
 }
 
+/**
+ * <p>Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal.
+ *   You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see .</p>
+ */
+export interface Alarms {
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IAM role that allows the alarm to perform actions and access AWS resources, including AWS IoT Events.</p>
+   */
+  alarmRoleArn: string | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the AWS Lambda function that manages alarm notifications. For more information, see <a href="https://docs.aws.amazon.com/">Managing alarm notifications</a>
+   *       in the <i>AWS IoT Events Developer Guide</i>.</p>
+   */
+  notificationLambdaArn?: string;
+}
+
+export namespace Alarms {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Alarms): any => ({
+    ...obj,
+  });
+}
+
 export enum PropertyDataType {
   BOOLEAN = "BOOLEAN",
   DOUBLE = "DOUBLE",
@@ -2310,6 +2336,21 @@ export interface CreatePortalRequest {
    *          </p>
    */
   portalAuthMode?: AuthMode | string;
+
+  /**
+   * <p>The email address that sends alarm notifications.</p>
+   *          <important>
+   *             <p>If you use the AWS IoT Events managed AWS Lambda function to manage your emails, you must
+   *         <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">verify the sender email address in Amazon SES</a>.</p>
+   *          </important>
+   */
+  notificationSenderEmail?: string;
+
+  /**
+   * <p>Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal.
+   *   You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see .</p>
+   */
+  alarms?: Alarms;
 }
 
 export namespace CreatePortalRequest {
@@ -3612,6 +3653,16 @@ export interface DescribePortalResponse {
    * <p>The service to use to authenticate users to the portal.</p>
    */
   portalAuthMode?: AuthMode | string;
+
+  /**
+   * <p>The email address that sends alarm notifications.</p>
+   */
+  notificationSenderEmail?: string;
+
+  /**
+   * <p>Contains the configuration information of an alarm created in a AWS IoT SiteWise Monitor portal.</p>
+   */
+  alarms?: Alarms;
 }
 
 export namespace DescribePortalResponse {
@@ -5469,6 +5520,17 @@ export interface UpdatePortalRequest {
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The email address that sends alarm notifications.</p>
+   */
+  notificationSenderEmail?: string;
+
+  /**
+   * <p>Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal.
+   *   You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see .</p>
+   */
+  alarms?: Alarms;
 }
 
 export namespace UpdatePortalRequest {

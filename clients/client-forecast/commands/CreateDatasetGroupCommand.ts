@@ -29,7 +29,7 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  *       operation.</p>
  *          <note>
  *             <p>The <code>Status</code> of a dataset group must be <code>ACTIVE</code> before you can
- *          use the dataset group to create a predictor. To get the status, use the <a>DescribeDatasetGroup</a> operation.</p>
+ *         use the dataset group to create a predictor. To get the status, use the <a>DescribeDatasetGroup</a> operation.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

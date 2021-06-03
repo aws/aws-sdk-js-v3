@@ -40,9 +40,9 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  *             </li>
  *             <li>
  *                 <p>
- *                   <b>Create the lifecycle hook. Specify whether the hook is
+ *                     <b>Create the lifecycle hook. Specify whether the hook is
  *                         used when the instances launch or terminate.</b>
- *                </p>
+ *                 </p>
  *             </li>
  *             <li>
  *                 <p>If you need more time, record the lifecycle action heartbeat to keep the

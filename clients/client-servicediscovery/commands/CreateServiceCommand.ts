@@ -21,7 +21,7 @@ export interface CreateServiceCommandInput extends CreateServiceRequest {}
 export interface CreateServiceCommandOutput extends CreateServiceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a service, which defines the configuration for the following entities:</p>
+ * <p>Creates a service. This action defines the configuration for the following entities:</p>
  *          <ul>
  *             <li>
  *                <p>For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:</p>

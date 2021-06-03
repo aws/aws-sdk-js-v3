@@ -288,8 +288,7 @@ export interface CreatePlatformApplicationInput {
   Platform: string | undefined;
 
   /**
-   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a>
-   *         </p>
+   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a>.</p>
    */
   Attributes: { [key: string]: string } | undefined;
 }
@@ -381,6 +380,94 @@ export namespace CreatePlatformEndpointInput {
   });
 }
 
+export enum LanguageCodeString {
+  de_DE = "de-DE",
+  en_GB = "en-GB",
+  en_US = "en-US",
+  es_419 = "es-419",
+  es_ES = "es-ES",
+  fr_CA = "fr-CA",
+  fr_FR = "fr-FR",
+  it_IT = "it-IT",
+  jp_JP = "ja-JP",
+  kr_KR = "kr-KR",
+  pt_BR = "pt-BR",
+  zh_CN = "zh-CN",
+  zh_TW = "zh-TW",
+}
+
+export interface CreateSMSSandboxPhoneNumberInput {
+  /**
+   * <p>The destination phone number to verify. On verification, Amazon SNS adds this phone number
+   *             to the list of verified phone numbers that you can send SMS messages to.</p>
+   */
+  PhoneNumber: string | undefined;
+
+  /**
+   * <p>The language to use for sending the OTP. The default value is
+   *             <code>en-US</code>.</p>
+   */
+  LanguageCode?: LanguageCodeString | string;
+}
+
+export namespace CreateSMSSandboxPhoneNumberInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateSMSSandboxPhoneNumberInput): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateSMSSandboxPhoneNumberResult {}
+
+export namespace CreateSMSSandboxPhoneNumberResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateSMSSandboxPhoneNumberResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Indicates that the specified phone number opted out of receiving SMS messages from
+ *             your AWS account. You can't send SMS messages to phone numbers that opt out.</p>
+ */
+export interface OptedOutException extends __SmithyException, $MetadataBearer {
+  name: "OptedOutException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace OptedOutException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OptedOutException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Indicates that a request parameter does not comply with the associated
+ *             constraints.</p>
+ */
+export interface UserErrorException extends __SmithyException, $MetadataBearer {
+  name: "UserErrorException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UserErrorException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserErrorException): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Can't perform multiple operations on a tag simultaneously. Perform the operations
  *             sequentially.</p>
@@ -433,7 +520,8 @@ export interface CreateTopicInput {
    *         <p>Constraints: Topic names must be made up of only uppercase and lowercase ASCII
    *             letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters
    *             long.</p>
-   *         <p>For a FIFO (first-in-first-out) topic, the name must end with the <code>.fifo</code> suffix. </p>
+   *         <p>For a FIFO (first-in-first-out) topic, the name must end with the <code>.fifo</code>
+   *             suffix. </p>
    */
   Name: string | undefined;
 
@@ -464,12 +552,13 @@ export interface CreateTopicInput {
    *             </li>
    *          </ul>
    *
-   *         <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p>
+   *         <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side
+   *             encryption</a>:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>KmsMasterKeyId</code> – The ID of an AWS-managed customer master key (CMK)
-   *                     for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
+   *                     <code>KmsMasterKeyId</code> – The ID of an AWS managed customer master
+   *                     key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
    *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API
    *                         Reference</i>. </p>
    *             </li>
@@ -479,14 +568,14 @@ export interface CreateTopicInput {
    *         <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p>
    *         <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO
    *                 topic is created.</p>
    *             </li>
    *             <li>
    *                <p>
    *                     <code>ContentBasedDeduplication</code> –  Enables content-based deduplication for
-   *                     FIFO topics. </p>
+   *                     FIFO topics.</p>
    *
    *                 <ul>
    *                   <li>
@@ -500,7 +589,7 @@ export interface CreateTopicInput {
    *                             Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using
    *                             the body of the message (but not the attributes of the message).</p>
    *                         <p>(Optional) To override the generated value, you can specify a value
-   *                             for the the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code>
+   *                             for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code>
    *                             action.</p>
    *                      </li>
    *                </ul>
@@ -512,7 +601,9 @@ export interface CreateTopicInput {
   /**
    * <p>The list of tags to add to a new topic.</p>
    *         <note>
-   *             <p>To be able to tag a topic on creation, you must have the <code>sns:CreateTopic</code> and <code>sns:TagResource</code> permissions.</p>
+   *             <p>To be able to tag a topic on creation, you must have the
+   *                     <code>sns:CreateTopic</code> and <code>sns:TagResource</code>
+   *                 permissions.</p>
    *         </note>
    */
   Tags?: Tag[];
@@ -566,8 +657,8 @@ export namespace InvalidSecurityException {
 }
 
 /**
- * <p>A tag has been added to a resource with the same ARN as a deleted resource.
- *             Wait a short while and then retry the operation.</p>
+ * <p>A tag has been added to a resource with the same ARN as a deleted resource. Wait a
+ *             short while and then retry the operation.</p>
  */
 export interface StaleTagException extends __SmithyException, $MetadataBearer {
   name: "StaleTagException";
@@ -677,6 +768,52 @@ export namespace DeletePlatformApplicationInput {
   });
 }
 
+export interface DeleteSMSSandboxPhoneNumberInput {
+  /**
+   * <p>The destination phone number to delete.</p>
+   */
+  PhoneNumber: string | undefined;
+}
+
+export namespace DeleteSMSSandboxPhoneNumberInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteSMSSandboxPhoneNumberInput): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSMSSandboxPhoneNumberResult {}
+
+export namespace DeleteSMSSandboxPhoneNumberResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteSMSSandboxPhoneNumberResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Can’t perform the action on the specified resource. Make sure that the resource
+ *             exists.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteTopicInput {
   /**
    * <p>The ARN of the topic you want to delete.</p>
@@ -738,9 +875,9 @@ export interface GetEndpointAttributesResponse {
    *                     for an app and mobile device. This is returned from the notification service
    *                     when an app and mobile device are registered with the notification
    *                     service.</p>
-   *                     <note>
-   *                         <p>The device token for the iOS platform is returned in lowercase.</p>
-   *                     </note>
+   *                 <note>
+   *                     <p>The device token for the iOS platform is returned in lowercase.</p>
+   *                 </note>
    *             </li>
    *          </ul>
    */
@@ -858,6 +995,33 @@ export namespace GetSMSAttributesResponse {
   });
 }
 
+export interface GetSMSSandboxAccountStatusInput {}
+
+export namespace GetSMSSandboxAccountStatusInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSMSSandboxAccountStatusInput): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSMSSandboxAccountStatusResult {
+  /**
+   * <p>Indicates whether the calling account is in the SMS sandbox.</p>
+   */
+  IsInSandbox: boolean | undefined;
+}
+
+export namespace GetSMSSandboxAccountStatusResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSMSSandboxAccountStatusResult): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Input for GetSubscriptionAttributes.</p>
  */
@@ -882,62 +1046,67 @@ export namespace GetSubscriptionAttributesInput {
  */
 export interface GetSubscriptionAttributesResponse {
   /**
-   * <p>A map of the subscription's attributes. Attributes in this map include the following:</p>
-   *          <ul>
+   * <p>A map of the subscription's attributes. Attributes in this map include the
+   *             following:</p>
+   *         <ul>
    *             <li>
-   *                <p>
-   *                   <code>ConfirmationWasAuthenticated</code> – <code>true</code> if the subscription confirmation request
-   *           was authenticated.</p>
+   *                 <p>
+   *                     <code>ConfirmationWasAuthenticated</code> – <code>true</code> if the
+   *                     subscription confirmation request was authenticated.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>DeliveryPolicy</code> – The JSON serialization of the subscription's delivery policy.</p>
+   *                 <p>
+   *                     <code>DeliveryPolicy</code> – The JSON serialization of the
+   *                     subscription's delivery policy.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the effective delivery policy that
-   *           takes into account the topic delivery policy and account system defaults.</p>
+   *                 <p>
+   *                     <code>EffectiveDeliveryPolicy</code> – The JSON serialization of the
+   *                     effective delivery policy that takes into account the topic delivery policy and
+   *                     account system defaults.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>FilterPolicy</code> – The filter policy JSON that is assigned to the subscription. For more
-   *           information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html">Amazon SNS Message
-   *             Filtering</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+   *                 <p>
+   *                     <code>FilterPolicy</code> – The filter policy JSON that is assigned to
+   *                     the subscription. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html">Amazon SNS Message
+   *                         Filtering</a> in the <i>Amazon SNS Developer Guide</i>.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>Owner</code> – The AWS account ID of the subscription's owner.</p>
+   *                 <p>
+   *                     <code>Owner</code> – The AWS account ID of the subscription's
+   *                     owner.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>PendingConfirmation</code> – <code>true</code> if the subscription hasn't been confirmed. To
-   *           confirm a pending subscription, call the <code>ConfirmSubscription</code> action with a confirmation
-   *           token.</p>
+   *                 <p>
+   *                     <code>PendingConfirmation</code> – <code>true</code> if the subscription
+   *                     hasn't been confirmed. To confirm a pending subscription, call the
+   *                         <code>ConfirmSubscription</code> action with a confirmation token.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>RawMessageDelivery</code> – <code>true</code> if raw message delivery is enabled for the
-   *           subscription. Raw messages are free of JSON formatting and can be sent to HTTP/S and Amazon SQS
-   *           endpoints.</p>
+   *                 <p>
+   *                     <code>RawMessageDelivery</code> – <code>true</code> if raw message
+   *                     delivery is enabled for the subscription. Raw messages are free of JSON
+   *                     formatting and can be sent to HTTP/S and Amazon SQS endpoints.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue.
    *     Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable)
    *     or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held
    *     in the dead-letter queue for further analysis or reprocessing.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>SubscriptionArn</code> – The subscription's ARN.</p>
+   *                 <p>
+   *                     <code>SubscriptionArn</code> – The subscription's ARN.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>TopicArn</code> – The topic ARN that the subscription is associated with.</p>
+   *                 <p>
+   *                     <code>TopicArn</code> – The topic ARN that the subscription is associated
+   *                     with.</p>
    *             </li>
    *          </ul>
    *
-   *          <p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p>
+   *         <p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1044,9 +1213,10 @@ export interface GetTopicAttributesResponse {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>KmsMasterKeyId</code> - The ID of an AWS-managed customer master key (CMK)
-   *                     for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key Terms</a>.
-   *                     For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API Reference</i>.</p>
+   *                   <code>KmsMasterKeyId</code> - The ID of an AWS-managed customer master key
+   *                     (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
+   *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API
+   *                         Reference</i>.</p>
    *             </li>
    *          </ul>
    *
@@ -1054,14 +1224,14 @@ export interface GetTopicAttributesResponse {
    *         <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p>
    *         <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO
    *                 topic is created.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                     <code>ContentBasedDeduplication</code> –  Enables content-based deduplication for
-   *                     FIFO topics. </p>
+   *                     FIFO topics.</p>
    *
    *                 <ul>
    *                   <li>
@@ -1075,7 +1245,7 @@ export interface GetTopicAttributesResponse {
    *                             Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using
    *                             the body of the message (but not the attributes of the message).</p>
    *                         <p>(Optional) To override the generated value, you can specify a value
-   *                             for the the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code>
+   *                             for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code>
    *                             action.</p>
    *                      </li>
    *                </ul>
@@ -1164,6 +1334,124 @@ export namespace ListEndpointsByPlatformApplicationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListEndpointsByPlatformApplicationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListOriginationNumbersRequest {
+  /**
+   * <p>Token that the previous <code>ListOriginationNumbers</code> request returns.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of origination numbers to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListOriginationNumbersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListOriginationNumbersRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum NumberCapability {
+  MMS = "MMS",
+  SMS = "SMS",
+  VOICE = "VOICE",
+}
+
+export enum RouteType {
+  Premium = "Premium",
+  Promotional = "Promotional",
+  Transactional = "Transactional",
+}
+
+/**
+ * <p>A list of phone numbers and their metadata.</p>
+ */
+export interface PhoneNumberInformation {
+  /**
+   * <p>The date and time when the phone number was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The phone number.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>The status of the phone number.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The two-character code for the country or region, in ISO 3166-1 alpha-2 format.</p>
+   */
+  Iso2CountryCode?: string;
+
+  /**
+   * <p>The list of supported routes.</p>
+   */
+  RouteType?: RouteType | string;
+
+  /**
+   * <p>The capabilities of each phone number.</p>
+   */
+  NumberCapabilities?: (NumberCapability | string)[];
+}
+
+export namespace PhoneNumberInformation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PhoneNumberInformation): any => ({
+    ...obj,
+  });
+}
+
+export interface ListOriginationNumbersResult {
+  /**
+   * <p>A <code>NextToken</code> string is returned when you call the
+   *                 <code>ListOriginationNumbers</code> operation if additional pages of records are
+   *             available.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of the calling account's verified and pending origination numbers.</p>
+   */
+  PhoneNumbers?: PhoneNumberInformation[];
+}
+
+export namespace ListOriginationNumbersResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListOriginationNumbersResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Indicates that a parameter in the request is invalid.</p>
+ */
+export interface ValidationException extends __SmithyException, $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  Message: string | undefined;
+}
+
+export namespace ValidationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
 }
@@ -1281,6 +1569,88 @@ export namespace ListPlatformApplicationsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListPlatformApplicationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSMSSandboxPhoneNumbersInput {
+  /**
+   * <p>Token that the previous <code>ListSMSSandboxPhoneNumbersInput</code> request
+   *             returns.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of phone numbers to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListSMSSandboxPhoneNumbersInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSMSSandboxPhoneNumbersInput): any => ({
+    ...obj,
+  });
+}
+
+export enum SMSSandboxPhoneNumberVerificationStatus {
+  Pending = "Pending",
+  Verified = "Verified",
+}
+
+/**
+ * <p>A verified or pending destination phone number in the SMS sandbox.</p>
+ *         <p>When you start using Amazon SNS to send SMS messages, your AWS account is in the
+ *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
+ *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
+ *                 account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
+ *                 SMS messages only to verified destination phone numbers. For more information, including how to
+ *                 move out of the sandbox to send messages without restrictions,
+ *                 see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in
+ *                 the <i>Amazon SNS Developer Guide</i>.</p>
+ */
+export interface SMSSandboxPhoneNumber {
+  /**
+   * <p>The destination phone number.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>The destination phone number's verification status.</p>
+   */
+  Status?: SMSSandboxPhoneNumberVerificationStatus | string;
+}
+
+export namespace SMSSandboxPhoneNumber {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SMSSandboxPhoneNumber): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSMSSandboxPhoneNumbersResult {
+  /**
+   * <p>A list of the calling account's pending and verified phone numbers.</p>
+   */
+  PhoneNumbers: SMSSandboxPhoneNumber[] | undefined;
+
+  /**
+   * <p>A <code>NextToken</code> string is returned when you call the
+   *             <code>ListSMSSandboxPhoneNumbersInput</code> operation if additional pages of
+   *             records are available.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSMSSandboxPhoneNumbersResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSMSSandboxPhoneNumbersResult): any => ({
     ...obj,
   });
 }
@@ -1445,24 +1815,6 @@ export namespace ListTagsForResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Can't tag resource. Verify that the topic exists.</p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
 }
@@ -1749,9 +2101,9 @@ export namespace PlatformApplicationDisabledException {
  *         <p>Name, type, and value must not be empty or null. In addition, the message body should
  *             not be empty or null. All parts of the message attribute, including name, type, and
  *             value, are included in the message size restriction, which is currently 256 KB (262,144
- *             bytes). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html">Amazon SNS message
- *                 attributes</a> and <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing to a mobile phone</a>
- *             in the <i>Amazon SNS Developer Guide.</i>
+ *             bytes). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html">Amazon SNS message attributes</a> and
+ *                 <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing
+ *                 to a mobile phone</a> in the <i>Amazon SNS Developer Guide.</i>
  *          </p>
  */
 export interface MessageAttributeValue {
@@ -1913,23 +2265,29 @@ export interface PublishInput {
   MessageAttributes?: { [key: string]: MessageAttributeValue };
 
   /**
-   * <p>This parameter applies only to FIFO (first-in-first-out) topics.
-   *             The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters (a-z, A-Z, 0-9)
-   *             and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
-   *         <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token used for deduplication of sent messages.
-   *             If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, any message sent with the same <code>MessageDeduplicationId</code>
-   *             during the 5-minute deduplication interval is treated as a duplicate. </p>
-   *         <p>If the topic has <code>ContentBasedDeduplication</code> set, the system generates a <code>MessageDeduplicationId</code> based on the contents of the
-   *             message. Your <code>MessageDeduplicationId</code> overrides the generated one.</p>
+   * <p>This parameter applies only to FIFO (first-in-first-out) topics. The
+   *                 <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters
+   *             (a-z, A-Z, 0-9) and punctuation
+   *             <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *         <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token
+   *             used for deduplication of sent messages. If a message with a particular
+   *                 <code>MessageDeduplicationId</code> is sent successfully, any message sent with the
+   *             same <code>MessageDeduplicationId</code> during the 5-minute deduplication interval is
+   *             treated as a duplicate. </p>
+   *         <p>If the topic has <code>ContentBasedDeduplication</code> set, the system generates a
+   *                 <code>MessageDeduplicationId</code> based on the contents of the message. Your
+   *                 <code>MessageDeduplicationId</code> overrides the generated one.</p>
    */
   MessageDeduplicationId?: string;
 
   /**
-   * <p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageGroupId</code> can contain up to
-   *             128 alphanumeric characters (a-z, A-Z, 0-9) and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
-   *         <p>The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a specific message group. Messages that belong to the
-   *             same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order).
-   *             Every message must include a <code>MessageGroupId</code>.</p>
+   * <p>This parameter applies only to FIFO (first-in-first-out) topics. The
+   *                 <code>MessageGroupId</code> can contain up to 128 alphanumeric characters (a-z, A-Z,
+   *             0-9) and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *         <p>The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a
+   *             specific message group. Messages that belong to the same message group are processed in
+   *             a FIFO manner (however, messages in different message groups might be processed out of
+   *             order). Every message must include a <code>MessageGroupId</code>.</p>
    */
   MessageGroupId?: string;
 }
@@ -1955,8 +2313,10 @@ export interface PublishResponse {
 
   /**
    * <p>This response element applies only to FIFO (first-in-first-out) topics. </p>
-   *         <p>The sequence number is a large, non-consecutive number that Amazon SNS assigns to each message.
-   *             The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for each <code>MessageGroupId</code>.</p>
+   *         <p>The sequence number is a large, non-consecutive number that Amazon SNS assigns to each
+   *             message. The length of <code>SequenceNumber</code> is 128 bits.
+   *                 <code>SequenceNumber</code> continues to increase for each
+   *                 <code>MessageGroupId</code>.</p>
    */
   SequenceNumber?: string;
 }
@@ -2251,27 +2611,29 @@ export interface SetSubscriptionAttributesInput {
 
   /**
    * <p>A map of attributes with their corresponding values.</p>
-   *          <p>The following lists the names, descriptions, and values of the special request parameters that this action
-   *       uses:</p>
-   *          <ul>
+   *         <p>The following lists the names, descriptions, and values of the special request
+   *             parameters that this action uses:</p>
+   *         <ul>
    *             <li>
-   *                <p>
-   *                   <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S
-   *           endpoints.</p>
+   *                 <p>
+   *                   <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries
+   *                     failed deliveries to HTTP/S endpoints.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>FilterPolicy</code> – The simple JSON object that lets your subscriber receive only a subset
-   *           of messages, rather than receiving every message published to the topic.</p>
+   *                 <p>
+   *                   <code>FilterPolicy</code> – The simple JSON object that lets your
+   *                     subscriber receive only a subset of messages, rather than receiving every
+   *                     message published to the topic.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>RawMessageDelivery</code> – When set to <code>true</code>, enables raw message delivery to
-   *           Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is
-   *           otherwise created for Amazon SNS metadata.</p>
+   *                 <p>
+   *                   <code>RawMessageDelivery</code> – When set to <code>true</code>,
+   *                     enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the
+   *                     need for the endpoints to process JSON formatting, which is otherwise created
+   *                     for Amazon SNS metadata.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue.
    *     Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable)
    *     or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held
@@ -2280,7 +2642,7 @@ export interface SetSubscriptionAttributesInput {
    *          </ul>
    *
    *
-   *          <p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p>
+   *         <p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2352,8 +2714,8 @@ export interface SetTopicAttributesInput {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>KmsMasterKeyId</code> – The ID of an AWS-managed customer master key (CMK)
-   *                     for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
+   *                     <code>KmsMasterKeyId</code> – The ID of an AWS-managed customer master
+   *                     key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
    *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API
    *                         Reference</i>. </p>
    *             </li>
@@ -2363,9 +2725,9 @@ export interface SetTopicAttributesInput {
    *         <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p>
    *         <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                     <code>ContentBasedDeduplication</code> –  Enables content-based deduplication for
-   *                     FIFO topics. </p>
+   *                     FIFO topics.</p>
    *
    *                 <ul>
    *                   <li>
@@ -2379,7 +2741,7 @@ export interface SetTopicAttributesInput {
    *                             Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using
    *                             the body of the message (but not the attributes of the message).</p>
    *                         <p>(Optional) To override the generated value, you can specify a value
-   *                             for the the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code>
+   *                             for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code>
    *                             action.</p>
    *                      </li>
    *                </ul>
@@ -2416,43 +2778,47 @@ export interface SubscribeInput {
    * <p>The protocol that you want to use. Supported protocols include:</p>
    *         <ul>
    *             <li>
-   *                <p>
-   *                   <code>http</code> – delivery of JSON-encoded message via HTTP POST</p>
+   *                 <p>
+   *                   <code>http</code> – delivery of JSON-encoded message via HTTP
+   *                     POST</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>https</code> – delivery of JSON-encoded message via HTTPS POST</p>
+   *                 <p>
+   *                   <code>https</code> – delivery of JSON-encoded message via HTTPS
+   *                     POST</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>email</code> – delivery of message via SMTP</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>email-json</code> – delivery of JSON-encoded message via SMTP</p>
+   *                 <p>
+   *                   <code>email-json</code> – delivery of JSON-encoded message via
+   *                     SMTP</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>sms</code> – delivery of message via SMS</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>sqs</code> – delivery of JSON-encoded message to an Amazon SQS queue</p>
+   *                 <p>
+   *                   <code>sqs</code> – delivery of JSON-encoded message to an Amazon SQS
+   *                     queue</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>application</code> – delivery of JSON-encoded message to an EndpointArn
-   *                     for a mobile app and device</p>
+   *                 <p>
+   *                   <code>application</code> – delivery of JSON-encoded message to an
+   *                     EndpointArn for a mobile app and device</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>lambda</code> – delivery of JSON-encoded message to an AWS Lambda
    *                     function</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>firehose</code> – delivery of JSON-encoded message to an Amazon Kinesis
-   *                     Data Firehose delivery stream.</p>
+   *                 <p>
+   *                   <code>firehose</code> – delivery of JSON-encoded message to an Amazon
+   *                     Kinesis Data Firehose delivery stream.</p>
    *             </li>
    *          </ul>
    */
@@ -2463,36 +2829,39 @@ export interface SubscribeInput {
    *             protocol:</p>
    *         <ul>
    *             <li>
-   *                <p>For the <code>http</code> protocol, the (public) endpoint is a URL beginning with
-   *                         <code>http://</code>.</p>
+   *                 <p>For the <code>http</code> protocol, the (public) endpoint is a URL beginning
+   *                     with <code>http://</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>https</code> protocol, the (public) endpoint is a URL beginning with
-   *                         <code>https://</code>.</p>
+   *                 <p>For the <code>https</code> protocol, the (public) endpoint is a URL beginning
+   *                     with <code>https://</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>email</code> protocol, the endpoint is an email address.</p>
+   *                 <p>For the <code>email</code> protocol, the endpoint is an email address.</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>email-json</code> protocol, the endpoint is an email address.</p>
+   *                 <p>For the <code>email-json</code> protocol, the endpoint is an email
+   *                     address.</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>sms</code> protocol, the endpoint is a phone number of an SMS-enabled
-   *                     device.</p>
+   *                 <p>For the <code>sms</code> protocol, the endpoint is a phone number of an
+   *                     SMS-enabled device.</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>sqs</code> protocol, the endpoint is the ARN of an Amazon SQS queue.</p>
+   *                 <p>For the <code>sqs</code> protocol, the endpoint is the ARN of an Amazon SQS
+   *                     queue.</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>application</code> protocol, the endpoint is the EndpointArn of a mobile app and
-   *           device.</p>
+   *                 <p>For the <code>application</code> protocol, the endpoint is the EndpointArn of
+   *                     a mobile app and device.</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>lambda</code> protocol, the endpoint is the ARN of an AWS Lambda function.</p>
+   *                 <p>For the <code>lambda</code> protocol, the endpoint is the ARN of an AWS Lambda
+   *                     function.</p>
    *             </li>
    *             <li>
-   *                <p>For the <code>firehose</code> protocol, the endpoint is the ARN of an Amazon Kinesis Data Firehose
-   *           delivery stream.</p>
+   *                 <p>For the <code>firehose</code> protocol, the endpoint is the ARN of an Amazon
+   *                     Kinesis Data Firehose delivery stream.</p>
    *             </li>
    *          </ul>
    */
@@ -2500,27 +2869,29 @@ export interface SubscribeInput {
 
   /**
    * <p>A map of attributes with their corresponding values.</p>
-   *          <p>The following lists the names, descriptions, and values of the special request parameters that the
-   *         <code>SetTopicAttributes</code> action uses:</p>
-   *          <ul>
+   *         <p>The following lists the names, descriptions, and values of the special request
+   *             parameters that the <code>SetTopicAttributes</code> action uses:</p>
+   *         <ul>
    *             <li>
-   *                <p>
-   *                   <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S
-   *           endpoints.</p>
+   *                 <p>
+   *                   <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries
+   *                     failed deliveries to HTTP/S endpoints.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>FilterPolicy</code> – The simple JSON object that lets your subscriber receive only a subset
-   *           of messages, rather than receiving every message published to the topic.</p>
+   *                 <p>
+   *                   <code>FilterPolicy</code> – The simple JSON object that lets your
+   *                     subscriber receive only a subset of messages, rather than receiving every
+   *                     message published to the topic.</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>RawMessageDelivery</code> – When set to <code>true</code>, enables raw message delivery to
-   *           Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is
-   *           otherwise created for Amazon SNS metadata.</p>
+   *                 <p>
+   *                   <code>RawMessageDelivery</code> – When set to <code>true</code>,
+   *                     enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the
+   *                     need for the endpoints to process JSON formatting, which is otherwise created
+   *                     for Amazon SNS metadata.</p>
    *             </li>
    *             <li>
-   *                <p>
+   *                 <p>
    *                   <code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue.
    *     Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable)
    *     or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held
@@ -2529,7 +2900,7 @@ export interface SubscribeInput {
    *          </ul>
    *
    *
-   *          <p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p>
+   *         <p>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream subscriptions:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2553,11 +2924,12 @@ export interface SubscribeInput {
   /**
    * <p>Sets whether the response from the <code>Subscribe</code> request includes the
    *             subscription ARN, even if the subscription is not yet confirmed.</p>
-   *           <p>If you set this parameter to <code>true</code>, the response includes the ARN in all cases, even
-   *           if the subscription is not yet confirmed. In addition to the ARN for confirmed subscriptions, the response
-   *           also includes the <code>pending subscription</code> ARN value for subscriptions that aren't yet confirmed. A
-   *           subscription becomes confirmed when the subscriber calls the <code>ConfirmSubscription</code> action with a
-   *           confirmation token.</p>
+   *         <p>If you set this parameter to <code>true</code>, the response includes the ARN in all
+   *             cases, even if the subscription is not yet confirmed. In addition to the ARN for
+   *             confirmed subscriptions, the response also includes the <code>pending
+   *                 subscription</code> ARN value for subscriptions that aren't yet confirmed. A
+   *             subscription becomes confirmed when the subscriber calls the
+   *                 <code>ConfirmSubscription</code> action with a confirmation token.</p>
    *         <p></p>
    *         <p>The default value is <code>false</code>.</p>
    */
@@ -2602,8 +2974,8 @@ export interface TagResourceRequest {
   ResourceArn: string | undefined;
 
   /**
-   * <p>The tags to be added to the specified topic. A tag consists of a required key
-   *             and an optional value.</p>
+   * <p>The tags to be added to the specified topic. A tag consists of a required key and an
+   *             optional value.</p>
    */
   Tags: Tag[] | undefined;
 }
@@ -2675,6 +3047,64 @@ export namespace UntagResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Indicates that the one-time password (OTP) used for verification is invalid.</p>
+ */
+export interface VerificationException extends __SmithyException, $MetadataBearer {
+  name: "VerificationException";
+  $fault: "client";
+  Message: string | undefined;
+  /**
+   * <p>The status of the verification error.</p>
+   */
+  Status: string | undefined;
+}
+
+export namespace VerificationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VerificationException): any => ({
+    ...obj,
+  });
+}
+
+export interface VerifySMSSandboxPhoneNumberInput {
+  /**
+   * <p>The destination phone number to verify.</p>
+   */
+  PhoneNumber: string | undefined;
+
+  /**
+   * <p>The OTP sent to the destination number from the
+   *                 <code>CreateSMSSandBoxPhoneNumber</code> call.</p>
+   */
+  OneTimePassword: string | undefined;
+}
+
+export namespace VerifySMSSandboxPhoneNumberInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VerifySMSSandboxPhoneNumberInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The destination phone number's verification status.</p>
+ */
+export interface VerifySMSSandboxPhoneNumberResult {}
+
+export namespace VerifySMSSandboxPhoneNumberResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VerifySMSSandboxPhoneNumberResult): any => ({
     ...obj,
   });
 }

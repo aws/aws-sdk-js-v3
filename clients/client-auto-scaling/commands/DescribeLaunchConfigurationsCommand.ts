@@ -21,7 +21,7 @@ export interface DescribeLaunchConfigurationsCommandInput extends LaunchConfigur
 export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigurationsType, __MetadataBearer {}
 
 /**
- * <p>Describes one or more launch configurations.</p>
+ * <p>Gets information about the launch configurations in the account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

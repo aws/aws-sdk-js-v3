@@ -213,6 +213,11 @@ import {
   ListSolutionsCommandOutput,
 } from "./commands/ListSolutionsCommand";
 import {
+  StopSolutionVersionCreationCommand,
+  StopSolutionVersionCreationCommandInput,
+  StopSolutionVersionCreationCommandOutput,
+} from "./commands/StopSolutionVersionCreationCommand";
+import {
   UpdateCampaignCommand,
   UpdateCampaignCommandInput,
   UpdateCampaignCommandOutput,
@@ -948,7 +953,22 @@ export class Personalize extends PersonalizeClient {
    *          <p>A solution version can be in one of the following states:</p>
    *          <ul>
    *             <li>
-   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+   *                <p>CREATE PENDING</p>
+   *             </li>
+   *             <li>
+   *                <p>CREATE IN_PROGRESS</p>
+   *             </li>
+   *             <li>
+   *                <p>ACTIVE</p>
+   *             </li>
+   *             <li>
+   *                <p>CREATE FAILED</p>
+   *             </li>
+   *             <li>
+   *                <p>CREATE STOPPING</p>
+   *             </li>
+   *             <li>
+   *                <p>CREATE STOPPED</p>
    *             </li>
    *          </ul>
    *          <p>To get the status of the version, call <a>DescribeSolutionVersion</a>. Wait
@@ -2168,6 +2188,51 @@ export class Personalize extends PersonalizeClient {
     cb?: (err: any, data?: ListSolutionVersionsCommandOutput) => void
   ): Promise<ListSolutionVersionsCommandOutput> | void {
     const command = new ListSolutionVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops creating a solution version that is in a state of CREATE_PENDING or CREATE IN_PROGRESS.
+   *       </p>
+   *          <p>Depending on the current state of the solution version, the solution version state changes as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATE_PENDING > CREATE_STOPPED</p>
+   *                <p>or</p>
+   *             </li>
+   *             <li>
+   *                <p>CREATE_IN_PROGRESS > CREATE_STOPPING > CREATE_STOPPED</p>
+   *             </li>
+   *          </ul>
+   *          <p>You are billed for all of the training completed up
+   *       until you stop the solution version creation. You cannot resume creating a solution version once it has been stopped.</p>
+   */
+  public stopSolutionVersionCreation(
+    args: StopSolutionVersionCreationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopSolutionVersionCreationCommandOutput>;
+  public stopSolutionVersionCreation(
+    args: StopSolutionVersionCreationCommandInput,
+    cb: (err: any, data?: StopSolutionVersionCreationCommandOutput) => void
+  ): void;
+  public stopSolutionVersionCreation(
+    args: StopSolutionVersionCreationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopSolutionVersionCreationCommandOutput) => void
+  ): void;
+  public stopSolutionVersionCreation(
+    args: StopSolutionVersionCreationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopSolutionVersionCreationCommandOutput) => void),
+    cb?: (err: any, data?: StopSolutionVersionCreationCommandOutput) => void
+  ): Promise<StopSolutionVersionCreationCommandOutput> | void {
+    const command = new StopSolutionVersionCreationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

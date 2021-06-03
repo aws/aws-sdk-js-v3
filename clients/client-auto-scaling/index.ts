@@ -57,6 +57,7 @@ export * from "./commands/EnableMetricsCollectionCommand";
 export * from "./commands/EnterStandbyCommand";
 export * from "./commands/ExecutePolicyCommand";
 export * from "./commands/ExitStandbyCommand";
+export * from "./commands/GetPredictiveScalingForecastCommand";
 export * from "./commands/PutLifecycleHookCommand";
 export * from "./commands/PutNotificationConfigurationCommand";
 export * from "./commands/PutScalingPolicyCommand";

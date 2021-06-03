@@ -18,9 +18,8 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Add tags to the specified Amazon SNS topic. For an overview, see
- *             <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
- *             <i>Amazon SNS Developer Guide</i>.</p>
+ * <p>Add tags to the specified Amazon SNS topic. For an overview, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
+ *                 <i>Amazon SNS Developer Guide</i>.</p>
  *         <p>When you use topic tags, keep the following guidelines in mind:</p>
  *         <ul>
  *             <li>
@@ -38,8 +37,8 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *                     existing tag.</p>
  *             </li>
  *             <li>
- *                 <p>Tagging actions are limited to 10 TPS per AWS account, per AWS region. If your application
- *                     requires a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical support request</a>.</p>
+ *                 <p>Tagging actions are limited to 10 TPS per AWS account, per AWS region. If your
+ *                     application requires a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical support request</a>.</p>
  *             </li>
  *          </ul>
  * @example

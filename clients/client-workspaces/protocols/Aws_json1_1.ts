@@ -5986,6 +5986,8 @@ const serializeAws_json1_1WorkspaceAccessProperties = (
     ...(input.DeviceTypeChromeOs !== undefined &&
       input.DeviceTypeChromeOs !== null && { DeviceTypeChromeOs: input.DeviceTypeChromeOs }),
     ...(input.DeviceTypeIos !== undefined && input.DeviceTypeIos !== null && { DeviceTypeIos: input.DeviceTypeIos }),
+    ...(input.DeviceTypeLinux !== undefined &&
+      input.DeviceTypeLinux !== null && { DeviceTypeLinux: input.DeviceTypeLinux }),
     ...(input.DeviceTypeOsx !== undefined && input.DeviceTypeOsx !== null && { DeviceTypeOsx: input.DeviceTypeOsx }),
     ...(input.DeviceTypeWeb !== undefined && input.DeviceTypeWeb !== null && { DeviceTypeWeb: input.DeviceTypeWeb }),
     ...(input.DeviceTypeWindows !== undefined &&
@@ -7218,6 +7220,8 @@ const deserializeAws_json1_1WorkspaceAccessProperties = (
         : undefined,
     DeviceTypeIos:
       output.DeviceTypeIos !== undefined && output.DeviceTypeIos !== null ? output.DeviceTypeIos : undefined,
+    DeviceTypeLinux:
+      output.DeviceTypeLinux !== undefined && output.DeviceTypeLinux !== null ? output.DeviceTypeLinux : undefined,
     DeviceTypeOsx:
       output.DeviceTypeOsx !== undefined && output.DeviceTypeOsx !== null ? output.DeviceTypeOsx : undefined,
     DeviceTypeWeb:

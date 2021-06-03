@@ -19,6 +19,42 @@ export namespace AccessDeniedException {
   });
 }
 
+/**
+ * <p>The specified device is currently offline.</p>
+ */
+export interface DeviceOfflineException extends __SmithyException, $MetadataBearer {
+  name: "DeviceOfflineException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace DeviceOfflineException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeviceOfflineException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified device has been retired.</p>
+ */
+export interface DeviceRetiredException extends __SmithyException, $MetadataBearer {
+  name: "DeviceRetiredException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace DeviceRetiredException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeviceRetiredException): any => ({
+    ...obj,
+  });
+}
+
 export interface GetDeviceRequest {
   /**
    * <p>The ARN of the device to retrieve.</p>
@@ -38,6 +74,7 @@ export namespace GetDeviceRequest {
 export enum DeviceStatus {
   OFFLINE = "OFFLINE",
   ONLINE = "ONLINE",
+  RETIRED = "RETIRED",
 }
 
 export enum DeviceType {
@@ -433,24 +470,6 @@ export namespace CreateQuantumTaskResponse {
 }
 
 /**
- * <p>The specified device is currently offline.</p>
- */
-export interface DeviceOfflineException extends __SmithyException, $MetadataBearer {
-  name: "DeviceOfflineException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace DeviceOfflineException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceOfflineException): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>The request failed because a service quota is exceeded.</p>
  */
 export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
@@ -743,7 +762,7 @@ export interface UntagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>pecify the keys for the tags to remove from the resource.</p>
+   * <p>Specify the keys for the tags to remove from the resource.</p>
    */
   tagKeys: string[] | undefined;
 }

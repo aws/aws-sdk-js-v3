@@ -1112,14 +1112,15 @@ export interface ProductInformation {
   ResourceType: string | undefined;
 
   /**
-   * <p>Product information filters.</p>
-   *          <p>The following filters and logical operators are supported when the resource type
+   * <p>A Product information filter consists of a <code>ProductInformationFilterComparator</code> which is a logical operator, a <code>ProductInformationFilterName</code> which specifies the type of filter being declared, and a <code>ProductInformationFilterValue</code> that specifies the value to filter on. </p>
+   *          <p>Accepted values for <code>ProductInformationFilterName</code> are listed here along with descriptions and valid options for <code>ProductInformationFilterComparator</code>. </p>
+   *          <p>The following filters and are supported when the resource type
    *          is <code>SSM_MANAGED</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>Application Name</code> - The name of the application.
-   *               Logical operator is <code>EQUALS</code>.</p>
+   *                Logical operator is <code>EQUALS</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1140,6 +1141,16 @@ export interface ProductInformation {
    *                <p>
    *                   <code>Platform Type</code> - The platform type.
    *                Logical operator is <code>EQUALS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Tag:key</code> - The key of a tag attached to an AWS resource you wish to exclude from automated discovery. Logical operator is <code>NOT_EQUALS</code>.  The key for your tag must be appended to <code>Tag:</code> following the example: <code>Tag:name-of-your-key</code>. <code>ProductInformationFilterValue</code> is optional if you are not using values for the key.
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AccountId</code> - The 12-digit ID of an AWS account you wish to exclude from automated discovery.
+   *                Logical operator is <code>NOT_EQUALS</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1313,6 +1324,130 @@ export namespace CreateLicenseConfigurationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateLicenseConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details of the license configuration that this generator reports on.</p>
+ */
+export interface ReportContext {
+  /**
+   * <p>Amazon Resource Number (ARN) of the license configuration that this generator reports on.</p>
+   */
+  licenseConfigurationArns: string[] | undefined;
+}
+
+export namespace ReportContext {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReportContext): any => ({
+    ...obj,
+  });
+}
+
+export enum ReportFrequencyType {
+  DAY = "DAY",
+  MONTH = "MONTH",
+  WEEK = "WEEK",
+}
+
+/**
+ * <p>Details on how frequently reports are generated.</p>
+ */
+export interface ReportFrequency {
+  /**
+   * <p>Number of times within the frequency period that a report will be generated.  Currently only <code>1</code> is supported.</p>
+   */
+  value?: number;
+
+  /**
+   * <p>Time period between each report. The period can be daily, weekly, or monthly.</p>
+   */
+  period?: ReportFrequencyType | string;
+}
+
+export namespace ReportFrequency {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReportFrequency): any => ({
+    ...obj,
+  });
+}
+
+export enum ReportType {
+  LICENSE_CONFIGURATION_SUMMARY_REPORT = "LicenseConfigurationSummaryReport",
+  LICENSE_CONFIGURATION_USAGE_REPORT = "LicenseConfigurationUsageReport",
+}
+
+export interface CreateLicenseManagerReportGeneratorRequest {
+  /**
+   * <p>Name of the report generator.</p>
+   */
+  ReportGeneratorName: string | undefined;
+
+  /**
+   * <p>Type of reports to generate. The following report types an be generated:</p>
+   *          <ul>
+   *             <li>
+   *                <p>License configuration report - Reports on the number and details of consumed licenses for a license configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>Resource report - Reports on the tracked licenses and resource consumption for a license configuration.</p>
+   *             </li>
+   *          </ul>
+   */
+  Type: (ReportType | string)[] | undefined;
+
+  /**
+   * <p>Defines the type of license configuration the report generator tracks.</p>
+   */
+  ReportContext: ReportContext | undefined;
+
+  /**
+   * <p>Frequency by which reports are generated.  Reports can be generated daily, monthly, or weekly.</p>
+   */
+  ReportFrequency: ReportFrequency | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  ClientToken: string | undefined;
+
+  /**
+   * <p>Description of the report generator.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Tags to add to the report generator.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateLicenseManagerReportGeneratorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLicenseManagerReportGeneratorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateLicenseManagerReportGeneratorResponse {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the new report generator.</p>
+   */
+  LicenseManagerReportGeneratorArn?: string;
+}
+
+export namespace CreateLicenseManagerReportGeneratorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLicenseManagerReportGeneratorResponse): any => ({
     ...obj,
   });
 }
@@ -1602,6 +1737,33 @@ export namespace DeleteLicenseConfigurationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteLicenseConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteLicenseManagerReportGeneratorRequest {
+  /**
+   * <p>Amazon Resource Number (ARN) of the report generator that will be deleted.</p>
+   */
+  LicenseManagerReportGeneratorArn: string | undefined;
+}
+
+export namespace DeleteLicenseManagerReportGeneratorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLicenseManagerReportGeneratorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteLicenseManagerReportGeneratorResponse {}
+
+export namespace DeleteLicenseManagerReportGeneratorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLicenseManagerReportGeneratorResponse): any => ({
     ...obj,
   });
 }
@@ -2132,6 +2294,141 @@ export namespace GetLicenseConfigurationResponse {
   });
 }
 
+export interface GetLicenseManagerReportGeneratorRequest {
+  /**
+   * <p>mazon Resource Number (ARN) of the report generator to retrieve information on.</p>
+   */
+  LicenseManagerReportGeneratorArn: string | undefined;
+}
+
+export namespace GetLicenseManagerReportGeneratorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetLicenseManagerReportGeneratorRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details of the S3 bucket that report generator reports are published to.</p>
+ */
+export interface S3Location {
+  /**
+   * <p>Name of the S3 bucket reports are published to.</p>
+   */
+  bucket?: string;
+
+  /**
+   * <p>Prefix of the S3 bucket reports are published to.</p>
+   */
+  keyPrefix?: string;
+}
+
+export namespace S3Location {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3Location): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describe the details of a report generator.</p>
+ */
+export interface ReportGenerator {
+  /**
+   * <p>Name of the report generator.</p>
+   */
+  ReportGeneratorName?: string;
+
+  /**
+   * <p>Type of reports that are generated.</p>
+   */
+  ReportType?: (ReportType | string)[];
+
+  /**
+   * <p>License configuration type this generator reports on.</p>
+   */
+  ReportContext?: ReportContext;
+
+  /**
+   * <p>Details on how frequently reports are generated.</p>
+   */
+  ReportFrequency?: ReportFrequency;
+
+  /**
+   * <p>Amazon Resource Number (ARN) of the report generator.</p>
+   */
+  LicenseManagerReportGeneratorArn?: string;
+
+  /**
+   * <p>Status of the last report generation attempt.</p>
+   */
+  LastRunStatus?: string;
+
+  /**
+   * <p>Failure message for the last report generation attempt.</p>
+   */
+  LastRunFailureReason?: string;
+
+  /**
+   * <p>Time the last report was generated at.</p>
+   */
+  LastReportGenerationTime?: string;
+
+  /**
+   * <p>The AWS account ID used to create the report generator.</p>
+   */
+  ReportCreatorAccount?: string;
+
+  /**
+   * <p>Description of the report generator.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Details of the S3 bucket that report generator reports are published to.</p>
+   */
+  S3Location?: S3Location;
+
+  /**
+   * <p>Time the report was created.</p>
+   */
+  CreateTime?: string;
+
+  /**
+   * <p>Tags associated with the report generator.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ReportGenerator {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReportGenerator): any => ({
+    ...obj,
+  });
+}
+
+export interface GetLicenseManagerReportGeneratorResponse {
+  /**
+   * <p>A report generator that creates periodic reports on your license configurations.</p>
+   */
+  ReportGenerator?: ReportGenerator;
+}
+
+export namespace GetLicenseManagerReportGeneratorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetLicenseManagerReportGeneratorResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetLicenseUsageRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the license.</p>
@@ -2271,8 +2568,8 @@ export interface GetServiceSettingsResponse {
   EnableCrossAccountsDiscovery?: boolean;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the AWS resource share. The License Manager master account will provide member
-   *          accounts with access to this share.</p>
+   * <p>Amazon Resource Name (ARN) of the AWS resource share. The License Manager management account
+   *          provides member accounts with access to this share.</p>
    */
   LicenseManagerResourceShareArn?: string;
 }
@@ -2427,22 +2724,27 @@ export interface ListDistributedGrantsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>LicenseARN</code>
+   *                   <code>LicenseArn</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Status</code>
+   *                   <code>GrantStatus</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PrincipalARN</code>
+   *                   <code>GranteePrincipalARN</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ParentARN</code>
+   *                   <code>ProductSKU</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LicenseIssuerName</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2760,6 +3062,60 @@ export namespace ListLicenseConfigurationsResponse {
   });
 }
 
+export interface ListLicenseManagerReportGeneratorsRequest {
+  /**
+   * <p>Filters to scope the results. The following filters are supported: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LicenseConfigurationArn</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListLicenseManagerReportGeneratorsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLicenseManagerReportGeneratorsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListLicenseManagerReportGeneratorsResponse {
+  /**
+   * <p>A report generator that creates periodic reports on your license configurations.</p>
+   */
+  ReportGenerators?: ReportGenerator[];
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListLicenseManagerReportGeneratorsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListLicenseManagerReportGeneratorsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListLicensesRequest {
   /**
    * <p>Amazon Resource Names (ARNs) of the licenses.</p>
@@ -2781,7 +3137,7 @@ export interface ListLicensesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>KeyFingerprint</code>
+   *                   <code>Fingerprint</code>
    *                </p>
    *             </li>
    *             <li>
@@ -2963,12 +3319,27 @@ export interface ListReceivedGrantsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>LicenseARN</code>
+   *                   <code>ProductSKU</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Status</code>
+   *                   <code>LicenseIssuerName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LicenseArn</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GrantStatus</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GranterAccountId</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3037,12 +3408,17 @@ export interface ListReceivedLicensesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>KeyFingerprint</code>
+   *                   <code>Fingerprint</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Issuer</code>
+   *                   <code>IssuerName</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Beneficiary</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3440,7 +3816,7 @@ export interface ListTokensRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>licenseArns</code>
+   *                   <code>LicenseArns</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -3826,6 +4202,72 @@ export namespace UpdateLicenseConfigurationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateLicenseConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateLicenseManagerReportGeneratorRequest {
+  /**
+   * <p>Amazon Resource Number (ARN) of the report generator to update.</p>
+   */
+  LicenseManagerReportGeneratorArn: string | undefined;
+
+  /**
+   * <p>Name of the report generator.</p>
+   */
+  ReportGeneratorName: string | undefined;
+
+  /**
+   * <p>Type of reports to generate. The following report types an be generated:</p>
+   *          <ul>
+   *             <li>
+   *                <p>License configuration report - Reports on the number and details of consumed licenses for a license configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>Resource report - Reports on the tracked licenses and resource consumption for a license configuration.</p>
+   *             </li>
+   *          </ul>
+   */
+  Type: (ReportType | string)[] | undefined;
+
+  /**
+   * <p>?</p>
+   */
+  ReportContext: ReportContext | undefined;
+
+  /**
+   * <p>Frequency by which reports are generated.  The following options are avaiable:</p>
+   *          <p>??? What are the APi value options?</p>
+   */
+  ReportFrequency: ReportFrequency | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  ClientToken: string | undefined;
+
+  /**
+   * <p>Description of the report generator.</p>
+   */
+  Description?: string;
+}
+
+export namespace UpdateLicenseManagerReportGeneratorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateLicenseManagerReportGeneratorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateLicenseManagerReportGeneratorResponse {}
+
+export namespace UpdateLicenseManagerReportGeneratorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateLicenseManagerReportGeneratorResponse): any => ({
     ...obj,
   });
 }

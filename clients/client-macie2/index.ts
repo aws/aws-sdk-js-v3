@@ -56,6 +56,8 @@ export * from "./pagination/ListOrganizationAdminAccountsPaginator";
 export * from "./commands/ListTagsForResourceCommand";
 export * from "./commands/PutClassificationExportConfigurationCommand";
 export * from "./commands/PutFindingsPublicationConfigurationCommand";
+export * from "./commands/SearchResourcesCommand";
+export * from "./pagination/SearchResourcesPaginator";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/TestCustomDataIdentifierCommand";
 export * from "./commands/UntagResourceCommand";

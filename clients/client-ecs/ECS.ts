@@ -900,8 +900,8 @@ export class ECS extends ECSClient {
   }
 
   /**
-   * <p>Describes Amazon Elastic Container Service container instances. Returns metadata about registered and
-   * 			remaining resources on each container instance requested.</p>
+   * <p>Describes one or more container instances. Returns metadata about each container
+   * 			instance requested.</p>
    */
   public describeContainerInstances(
     args: DescribeContainerInstancesCommandInput,
@@ -1273,7 +1273,8 @@ export class ECS extends ECSClient {
   }
 
   /**
-   * <p>Lists the services that are running in a specified cluster.</p>
+   * <p>Returns a list of services. You can filter the results by cluster, launch type, and
+   * 			scheduling strategy.</p>
    */
   public listServices(
     args: ListServicesCommandInput,
@@ -1406,12 +1407,11 @@ export class ECS extends ECSClient {
   }
 
   /**
-   * <p>Returns a list of tasks for a specified cluster. You can filter the results by family
-   * 			name, by a particular container instance, or by the desired status of the task with the
-   * 				<code>family</code>, <code>containerInstance</code>, and <code>desiredStatus</code>
-   * 			parameters.</p>
+   * <p>Returns a list of tasks. You can filter the results by cluster, task definition
+   * 			family, container instance, launch type, what IAM principal started the task, or by the
+   * 			desired status of the task.</p>
    * 		       <p>Recently stopped tasks might appear in the returned results. Currently, stopped tasks
-   * 			appear in the returned results for at least one hour. </p>
+   * 			appear in the returned results for at least one hour.</p>
    */
   public listTasks(args: ListTasksCommandInput, options?: __HttpHandlerOptions): Promise<ListTasksCommandOutput>;
   public listTasks(args: ListTasksCommandInput, cb: (err: any, data?: ListTasksCommandOutput) => void): void;

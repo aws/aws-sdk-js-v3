@@ -127,6 +127,9 @@ import {
   ApplicationSummary,
   ApplicationVersionSummary,
   CSVMappingParameters,
+  CatalogConfiguration,
+  CatalogConfigurationDescription,
+  CatalogConfigurationUpdate,
   CheckpointConfiguration,
   CheckpointConfigurationDescription,
   CheckpointConfigurationUpdate,
@@ -144,6 +147,8 @@ import {
   CreateApplicationResponse,
   CreateApplicationSnapshotRequest,
   CreateApplicationSnapshotResponse,
+  CustomArtifactConfiguration,
+  CustomArtifactConfigurationDescription,
   DeleteApplicationCloudWatchLoggingOptionRequest,
   DeleteApplicationCloudWatchLoggingOptionResponse,
   DeleteApplicationInputProcessingConfigurationRequest,
@@ -158,6 +163,9 @@ import {
   DeleteApplicationSnapshotResponse,
   DeleteApplicationVpcConfigurationRequest,
   DeleteApplicationVpcConfigurationResponse,
+  DeployAsApplicationConfiguration,
+  DeployAsApplicationConfigurationDescription,
+  DeployAsApplicationConfigurationUpdate,
   DescribeApplicationRequest,
   DescribeApplicationResponse,
   DescribeApplicationSnapshotRequest,
@@ -174,6 +182,9 @@ import {
   FlinkApplicationConfigurationDescription,
   FlinkApplicationConfigurationUpdate,
   FlinkRunConfiguration,
+  GlueDataCatalogConfiguration,
+  GlueDataCatalogConfigurationDescription,
+  GlueDataCatalogConfigurationUpdate,
   Input,
   InputDescription,
   InputLambdaProcessor,
@@ -216,6 +227,7 @@ import {
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
   MappingParameters,
+  MavenReference,
   MonitoringConfiguration,
   MonitoringConfigurationDescription,
   MonitoringConfigurationUpdate,
@@ -241,6 +253,9 @@ import {
   RunConfigurationUpdate,
   S3ApplicationCodeLocationDescription,
   S3Configuration,
+  S3ContentBaseLocation,
+  S3ContentBaseLocationDescription,
+  S3ContentBaseLocationUpdate,
   S3ContentLocation,
   S3ContentLocationUpdate,
   S3ReferenceDataSource,
@@ -272,6 +287,12 @@ import {
   VpcConfiguration,
   VpcConfigurationDescription,
   VpcConfigurationUpdate,
+  ZeppelinApplicationConfiguration,
+  ZeppelinApplicationConfigurationDescription,
+  ZeppelinApplicationConfigurationUpdate,
+  ZeppelinMonitoringConfiguration,
+  ZeppelinMonitoringConfigurationDescription,
+  ZeppelinMonitoringConfigurationUpdate,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
@@ -3666,6 +3687,13 @@ const serializeAws_json1_1ApplicationConfiguration = (
       input.VpcConfigurations !== null && {
         VpcConfigurations: serializeAws_json1_1VpcConfigurations(input.VpcConfigurations, context),
       }),
+    ...(input.ZeppelinApplicationConfiguration !== undefined &&
+      input.ZeppelinApplicationConfiguration !== null && {
+        ZeppelinApplicationConfiguration: serializeAws_json1_1ZeppelinApplicationConfiguration(
+          input.ZeppelinApplicationConfiguration,
+          context
+        ),
+      }),
   };
 };
 
@@ -3713,6 +3741,13 @@ const serializeAws_json1_1ApplicationConfigurationUpdate = (
       input.VpcConfigurationUpdates !== null && {
         VpcConfigurationUpdates: serializeAws_json1_1VpcConfigurationUpdates(input.VpcConfigurationUpdates, context),
       }),
+    ...(input.ZeppelinApplicationConfigurationUpdate !== undefined &&
+      input.ZeppelinApplicationConfigurationUpdate !== null && {
+        ZeppelinApplicationConfigurationUpdate: serializeAws_json1_1ZeppelinApplicationConfigurationUpdate(
+          input.ZeppelinApplicationConfigurationUpdate,
+          context
+        ),
+      }),
   };
 };
 
@@ -3756,6 +3791,33 @@ const serializeAws_json1_1ApplicationSnapshotConfigurationUpdate = (
   return {
     ...(input.SnapshotsEnabledUpdate !== undefined &&
       input.SnapshotsEnabledUpdate !== null && { SnapshotsEnabledUpdate: input.SnapshotsEnabledUpdate }),
+  };
+};
+
+const serializeAws_json1_1CatalogConfiguration = (input: CatalogConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.GlueDataCatalogConfiguration !== undefined &&
+      input.GlueDataCatalogConfiguration !== null && {
+        GlueDataCatalogConfiguration: serializeAws_json1_1GlueDataCatalogConfiguration(
+          input.GlueDataCatalogConfiguration,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_json1_1CatalogConfigurationUpdate = (
+  input: CatalogConfigurationUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GlueDataCatalogConfigurationUpdate !== undefined &&
+      input.GlueDataCatalogConfigurationUpdate !== null && {
+        GlueDataCatalogConfigurationUpdate: serializeAws_json1_1GlueDataCatalogConfigurationUpdate(
+          input.GlueDataCatalogConfigurationUpdate,
+          context
+        ),
+      }),
   };
 };
 
@@ -3889,6 +3951,8 @@ const serializeAws_json1_1CreateApplicationRequest = (
       }),
     ...(input.ApplicationDescription !== undefined &&
       input.ApplicationDescription !== null && { ApplicationDescription: input.ApplicationDescription }),
+    ...(input.ApplicationMode !== undefined &&
+      input.ApplicationMode !== null && { ApplicationMode: input.ApplicationMode }),
     ...(input.ApplicationName !== undefined &&
       input.ApplicationName !== null && { ApplicationName: input.ApplicationName }),
     ...(input.CloudWatchLoggingOptions !== undefined &&
@@ -3921,6 +3985,37 @@ const serializeAws_json1_1CSVMappingParameters = (input: CSVMappingParameters, c
     ...(input.RecordRowDelimiter !== undefined &&
       input.RecordRowDelimiter !== null && { RecordRowDelimiter: input.RecordRowDelimiter }),
   };
+};
+
+const serializeAws_json1_1CustomArtifactConfiguration = (
+  input: CustomArtifactConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ArtifactType !== undefined && input.ArtifactType !== null && { ArtifactType: input.ArtifactType }),
+    ...(input.MavenReference !== undefined &&
+      input.MavenReference !== null && {
+        MavenReference: serializeAws_json1_1MavenReference(input.MavenReference, context),
+      }),
+    ...(input.S3ContentLocation !== undefined &&
+      input.S3ContentLocation !== null && {
+        S3ContentLocation: serializeAws_json1_1S3ContentLocation(input.S3ContentLocation, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1CustomArtifactsConfigurationList = (
+  input: CustomArtifactConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1CustomArtifactConfiguration(entry, context);
+    });
 };
 
 const serializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionRequest = (
@@ -4018,6 +4113,33 @@ const serializeAws_json1_1DeleteApplicationVpcConfigurationRequest = (
       input.CurrentApplicationVersionId !== null && { CurrentApplicationVersionId: input.CurrentApplicationVersionId }),
     ...(input.VpcConfigurationId !== undefined &&
       input.VpcConfigurationId !== null && { VpcConfigurationId: input.VpcConfigurationId }),
+  };
+};
+
+const serializeAws_json1_1DeployAsApplicationConfiguration = (
+  input: DeployAsApplicationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.S3ContentLocation !== undefined &&
+      input.S3ContentLocation !== null && {
+        S3ContentLocation: serializeAws_json1_1S3ContentBaseLocation(input.S3ContentLocation, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1DeployAsApplicationConfigurationUpdate = (
+  input: DeployAsApplicationConfigurationUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.S3ContentLocationUpdate !== undefined &&
+      input.S3ContentLocationUpdate !== null && {
+        S3ContentLocationUpdate: serializeAws_json1_1S3ContentBaseLocationUpdate(
+          input.S3ContentLocationUpdate,
+          context
+        ),
+      }),
   };
 };
 
@@ -4166,6 +4288,25 @@ const serializeAws_json1_1FlinkRunConfiguration = (input: FlinkRunConfiguration,
   return {
     ...(input.AllowNonRestoredState !== undefined &&
       input.AllowNonRestoredState !== null && { AllowNonRestoredState: input.AllowNonRestoredState }),
+  };
+};
+
+const serializeAws_json1_1GlueDataCatalogConfiguration = (
+  input: GlueDataCatalogConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DatabaseARN !== undefined && input.DatabaseARN !== null && { DatabaseARN: input.DatabaseARN }),
+  };
+};
+
+const serializeAws_json1_1GlueDataCatalogConfigurationUpdate = (
+  input: GlueDataCatalogConfigurationUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DatabaseARNUpdate !== undefined &&
+      input.DatabaseARNUpdate !== null && { DatabaseARNUpdate: input.DatabaseARNUpdate }),
   };
 };
 
@@ -4468,6 +4609,14 @@ const serializeAws_json1_1MappingParameters = (input: MappingParameters, context
       input.JSONMappingParameters !== null && {
         JSONMappingParameters: serializeAws_json1_1JSONMappingParameters(input.JSONMappingParameters, context),
       }),
+  };
+};
+
+const serializeAws_json1_1MavenReference = (input: MavenReference, context: __SerdeContext): any => {
+  return {
+    ...(input.ArtifactId !== undefined && input.ArtifactId !== null && { ArtifactId: input.ArtifactId }),
+    ...(input.GroupId !== undefined && input.GroupId !== null && { GroupId: input.GroupId }),
+    ...(input.Version !== undefined && input.Version !== null && { Version: input.Version }),
   };
 };
 
@@ -4774,6 +4923,25 @@ const serializeAws_json1_1S3Configuration = (input: S3Configuration, context: __
   };
 };
 
+const serializeAws_json1_1S3ContentBaseLocation = (input: S3ContentBaseLocation, context: __SerdeContext): any => {
+  return {
+    ...(input.BasePath !== undefined && input.BasePath !== null && { BasePath: input.BasePath }),
+    ...(input.BucketARN !== undefined && input.BucketARN !== null && { BucketARN: input.BucketARN }),
+  };
+};
+
+const serializeAws_json1_1S3ContentBaseLocationUpdate = (
+  input: S3ContentBaseLocationUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BasePathUpdate !== undefined &&
+      input.BasePathUpdate !== null && { BasePathUpdate: input.BasePathUpdate }),
+    ...(input.BucketARNUpdate !== undefined &&
+      input.BucketARNUpdate !== null && { BucketARNUpdate: input.BucketARNUpdate }),
+  };
+};
+
 const serializeAws_json1_1S3ContentLocation = (input: S3ContentLocation, context: __SerdeContext): any => {
   return {
     ...(input.BucketARN !== undefined && input.BucketARN !== null && { BucketARN: input.BucketARN }),
@@ -5068,6 +5236,94 @@ const serializeAws_json1_1VpcConfigurationUpdates = (input: VpcConfigurationUpda
     });
 };
 
+const serializeAws_json1_1ZeppelinApplicationConfiguration = (
+  input: ZeppelinApplicationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CatalogConfiguration !== undefined &&
+      input.CatalogConfiguration !== null && {
+        CatalogConfiguration: serializeAws_json1_1CatalogConfiguration(input.CatalogConfiguration, context),
+      }),
+    ...(input.CustomArtifactsConfiguration !== undefined &&
+      input.CustomArtifactsConfiguration !== null && {
+        CustomArtifactsConfiguration: serializeAws_json1_1CustomArtifactsConfigurationList(
+          input.CustomArtifactsConfiguration,
+          context
+        ),
+      }),
+    ...(input.DeployAsApplicationConfiguration !== undefined &&
+      input.DeployAsApplicationConfiguration !== null && {
+        DeployAsApplicationConfiguration: serializeAws_json1_1DeployAsApplicationConfiguration(
+          input.DeployAsApplicationConfiguration,
+          context
+        ),
+      }),
+    ...(input.MonitoringConfiguration !== undefined &&
+      input.MonitoringConfiguration !== null && {
+        MonitoringConfiguration: serializeAws_json1_1ZeppelinMonitoringConfiguration(
+          input.MonitoringConfiguration,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_json1_1ZeppelinApplicationConfigurationUpdate = (
+  input: ZeppelinApplicationConfigurationUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CatalogConfigurationUpdate !== undefined &&
+      input.CatalogConfigurationUpdate !== null && {
+        CatalogConfigurationUpdate: serializeAws_json1_1CatalogConfigurationUpdate(
+          input.CatalogConfigurationUpdate,
+          context
+        ),
+      }),
+    ...(input.CustomArtifactsConfigurationUpdate !== undefined &&
+      input.CustomArtifactsConfigurationUpdate !== null && {
+        CustomArtifactsConfigurationUpdate: serializeAws_json1_1CustomArtifactsConfigurationList(
+          input.CustomArtifactsConfigurationUpdate,
+          context
+        ),
+      }),
+    ...(input.DeployAsApplicationConfigurationUpdate !== undefined &&
+      input.DeployAsApplicationConfigurationUpdate !== null && {
+        DeployAsApplicationConfigurationUpdate: serializeAws_json1_1DeployAsApplicationConfigurationUpdate(
+          input.DeployAsApplicationConfigurationUpdate,
+          context
+        ),
+      }),
+    ...(input.MonitoringConfigurationUpdate !== undefined &&
+      input.MonitoringConfigurationUpdate !== null && {
+        MonitoringConfigurationUpdate: serializeAws_json1_1ZeppelinMonitoringConfigurationUpdate(
+          input.MonitoringConfigurationUpdate,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_json1_1ZeppelinMonitoringConfiguration = (
+  input: ZeppelinMonitoringConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LogLevel !== undefined && input.LogLevel !== null && { LogLevel: input.LogLevel }),
+  };
+};
+
+const serializeAws_json1_1ZeppelinMonitoringConfigurationUpdate = (
+  input: ZeppelinMonitoringConfigurationUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LogLevelUpdate !== undefined &&
+      input.LogLevelUpdate !== null && { LogLevelUpdate: input.LogLevelUpdate }),
+  };
+};
+
 const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionResponse = (
   output: any,
   context: __SerdeContext
@@ -5244,6 +5500,14 @@ const deserializeAws_json1_1ApplicationConfigurationDescription = (
       output.VpcConfigurationDescriptions !== undefined && output.VpcConfigurationDescriptions !== null
         ? deserializeAws_json1_1VpcConfigurationDescriptions(output.VpcConfigurationDescriptions, context)
         : undefined,
+    ZeppelinApplicationConfigurationDescription:
+      output.ZeppelinApplicationConfigurationDescription !== undefined &&
+      output.ZeppelinApplicationConfigurationDescription !== null
+        ? deserializeAws_json1_1ZeppelinApplicationConfigurationDescription(
+            output.ZeppelinApplicationConfigurationDescription,
+            context
+          )
+        : undefined,
   } as any;
 };
 
@@ -5267,6 +5531,8 @@ const deserializeAws_json1_1ApplicationDetail = (output: any, context: __SerdeCo
             context
           )
         : undefined,
+    ApplicationMode:
+      output.ApplicationMode !== undefined && output.ApplicationMode !== null ? output.ApplicationMode : undefined,
     ApplicationName:
       output.ApplicationName !== undefined && output.ApplicationName !== null ? output.ApplicationName : undefined,
     ApplicationStatus:
@@ -5369,6 +5635,8 @@ const deserializeAws_json1_1ApplicationSummary = (output: any, context: __SerdeC
   return {
     ApplicationARN:
       output.ApplicationARN !== undefined && output.ApplicationARN !== null ? output.ApplicationARN : undefined,
+    ApplicationMode:
+      output.ApplicationMode !== undefined && output.ApplicationMode !== null ? output.ApplicationMode : undefined,
     ApplicationName:
       output.ApplicationName !== undefined && output.ApplicationName !== null ? output.ApplicationName : undefined,
     ApplicationStatus:
@@ -5412,6 +5680,22 @@ const deserializeAws_json1_1ApplicationVersionSummary = (
     ApplicationVersionId:
       output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CatalogConfigurationDescription = (
+  output: any,
+  context: __SerdeContext
+): CatalogConfigurationDescription => {
+  return {
+    GlueDataCatalogConfigurationDescription:
+      output.GlueDataCatalogConfigurationDescription !== undefined &&
+      output.GlueDataCatalogConfigurationDescription !== null
+        ? deserializeAws_json1_1GlueDataCatalogConfigurationDescription(
+            output.GlueDataCatalogConfigurationDescription,
+            context
+          )
         : undefined,
   } as any;
 };
@@ -5543,6 +5827,37 @@ const deserializeAws_json1_1CSVMappingParameters = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1CustomArtifactConfigurationDescription = (
+  output: any,
+  context: __SerdeContext
+): CustomArtifactConfigurationDescription => {
+  return {
+    ArtifactType: output.ArtifactType !== undefined && output.ArtifactType !== null ? output.ArtifactType : undefined,
+    MavenReferenceDescription:
+      output.MavenReferenceDescription !== undefined && output.MavenReferenceDescription !== null
+        ? deserializeAws_json1_1MavenReference(output.MavenReferenceDescription, context)
+        : undefined,
+    S3ContentLocationDescription:
+      output.S3ContentLocationDescription !== undefined && output.S3ContentLocationDescription !== null
+        ? deserializeAws_json1_1S3ContentLocation(output.S3ContentLocationDescription, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CustomArtifactsConfigurationDescriptionList = (
+  output: any,
+  context: __SerdeContext
+): CustomArtifactConfigurationDescription[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CustomArtifactConfigurationDescription(entry, context);
+    });
+};
+
 const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionResponse = (
   output: any,
   context: __SerdeContext
@@ -5627,6 +5942,18 @@ const deserializeAws_json1_1DeleteApplicationVpcConfigurationResponse = (
     ApplicationVersionId:
       output.ApplicationVersionId !== undefined && output.ApplicationVersionId !== null
         ? output.ApplicationVersionId
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeployAsApplicationConfigurationDescription = (
+  output: any,
+  context: __SerdeContext
+): DeployAsApplicationConfigurationDescription => {
+  return {
+    S3ContentLocationDescription:
+      output.S3ContentLocationDescription !== undefined && output.S3ContentLocationDescription !== null
+        ? deserializeAws_json1_1S3ContentBaseLocationDescription(output.S3ContentLocationDescription, context)
         : undefined,
   } as any;
 };
@@ -5740,6 +6067,15 @@ const deserializeAws_json1_1FlinkRunConfiguration = (output: any, context: __Ser
       output.AllowNonRestoredState !== undefined && output.AllowNonRestoredState !== null
         ? output.AllowNonRestoredState
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GlueDataCatalogConfigurationDescription = (
+  output: any,
+  context: __SerdeContext
+): GlueDataCatalogConfigurationDescription => {
+  return {
+    DatabaseARN: output.DatabaseARN !== undefined && output.DatabaseARN !== null ? output.DatabaseARN : undefined,
   } as any;
 };
 
@@ -5993,6 +6329,14 @@ const deserializeAws_json1_1MappingParameters = (output: any, context: __SerdeCo
       output.JSONMappingParameters !== undefined && output.JSONMappingParameters !== null
         ? deserializeAws_json1_1JSONMappingParameters(output.JSONMappingParameters, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1MavenReference = (output: any, context: __SerdeContext): MavenReference => {
+  return {
+    ArtifactId: output.ArtifactId !== undefined && output.ArtifactId !== null ? output.ArtifactId : undefined,
+    GroupId: output.GroupId !== undefined && output.GroupId !== null ? output.GroupId : undefined,
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
   } as any;
 };
 
@@ -6277,6 +6621,25 @@ const deserializeAws_json1_1S3ApplicationCodeLocationDescription = (
   } as any;
 };
 
+const deserializeAws_json1_1S3ContentBaseLocationDescription = (
+  output: any,
+  context: __SerdeContext
+): S3ContentBaseLocationDescription => {
+  return {
+    BasePath: output.BasePath !== undefined && output.BasePath !== null ? output.BasePath : undefined,
+    BucketARN: output.BucketARN !== undefined && output.BucketARN !== null ? output.BucketARN : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1S3ContentLocation = (output: any, context: __SerdeContext): S3ContentLocation => {
+  return {
+    BucketARN: output.BucketARN !== undefined && output.BucketARN !== null ? output.BucketARN : undefined,
+    FileKey: output.FileKey !== undefined && output.FileKey !== null ? output.FileKey : undefined,
+    ObjectVersion:
+      output.ObjectVersion !== undefined && output.ObjectVersion !== null ? output.ObjectVersion : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1S3ReferenceDataSourceDescription = (
   output: any,
   context: __SerdeContext
@@ -6517,6 +6880,50 @@ const deserializeAws_json1_1VpcConfigurationDescriptions = (
       }
       return deserializeAws_json1_1VpcConfigurationDescription(entry, context);
     });
+};
+
+const deserializeAws_json1_1ZeppelinApplicationConfigurationDescription = (
+  output: any,
+  context: __SerdeContext
+): ZeppelinApplicationConfigurationDescription => {
+  return {
+    CatalogConfigurationDescription:
+      output.CatalogConfigurationDescription !== undefined && output.CatalogConfigurationDescription !== null
+        ? deserializeAws_json1_1CatalogConfigurationDescription(output.CatalogConfigurationDescription, context)
+        : undefined,
+    CustomArtifactsConfigurationDescription:
+      output.CustomArtifactsConfigurationDescription !== undefined &&
+      output.CustomArtifactsConfigurationDescription !== null
+        ? deserializeAws_json1_1CustomArtifactsConfigurationDescriptionList(
+            output.CustomArtifactsConfigurationDescription,
+            context
+          )
+        : undefined,
+    DeployAsApplicationConfigurationDescription:
+      output.DeployAsApplicationConfigurationDescription !== undefined &&
+      output.DeployAsApplicationConfigurationDescription !== null
+        ? deserializeAws_json1_1DeployAsApplicationConfigurationDescription(
+            output.DeployAsApplicationConfigurationDescription,
+            context
+          )
+        : undefined,
+    MonitoringConfigurationDescription:
+      output.MonitoringConfigurationDescription !== undefined && output.MonitoringConfigurationDescription !== null
+        ? deserializeAws_json1_1ZeppelinMonitoringConfigurationDescription(
+            output.MonitoringConfigurationDescription,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ZeppelinMonitoringConfigurationDescription = (
+  output: any,
+  context: __SerdeContext
+): ZeppelinMonitoringConfigurationDescription => {
+  return {
+    LogLevel: output.LogLevel !== undefined && output.LogLevel !== null ? output.LogLevel : undefined,
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

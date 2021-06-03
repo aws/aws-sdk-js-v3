@@ -28,13 +28,13 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
 /**
  * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster
  *       snapshot.</p>
- *          <p>When sharing snapshots with other AWS accounts,
+ *          <p>When sharing snapshots with other Amazon accounts,
  *       <code>DescribeDBClusterSnapshotAttributes</code> returns the <code>restore</code> attribute
- *       and a list of IDs for the AWS accounts that are authorized to copy or restore the manual DB
+ *       and a list of IDs for the Amazon accounts that are authorized to copy or restore the manual DB
  *       cluster snapshot. If <code>all</code> is included in the list of values for the
  *       <code>restore</code> attribute, then the manual DB cluster snapshot is public and can be
- *       copied or restored by all AWS accounts.</p>
- *          <p>To add or remove access for an AWS account to copy or restore a manual DB cluster
+ *       copied or restored by all Amazon accounts.</p>
+ *          <p>To add or remove access for an Amazon account to copy or restore a manual DB cluster
  *       snapshot, or to make the manual DB cluster snapshot public or private, use the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

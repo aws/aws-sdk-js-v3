@@ -692,9 +692,9 @@ export namespace LaunchTemplateSpecification {
  *             </li>
  *             <li>
  *                 <p>
- *                   <b>Create the lifecycle hook. Specify whether the hook is
+ *                     <b>Create the lifecycle hook. Specify whether the hook is
  *                         used when the instances launch or terminate.</b>
- *                </p>
+ *                 </p>
  *             </li>
  *             <li>
  *                 <p>If you need more time, record the lifecycle action heartbeat to keep the
@@ -976,7 +976,7 @@ export namespace MixedInstancesPolicy {
  */
 export interface Tag {
   /**
-   * <p>The name of the group.</p>
+   * <p>The name of the Auto Scaling group.</p>
    */
   ResourceId?: string;
 
@@ -1207,8 +1207,8 @@ export interface CreateAutoScalingGroupType {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to
-   *             call other AWS services on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked
-   *             role named AWSServiceRoleForAutoScaling, which it creates if it does not exist. For more
+   *             call other Amazon Web Services on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role
+   *             named AWSServiceRoleForAutoScaling, which it creates if it does not exist. For more
    *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-linked
    *                 roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
@@ -1244,27 +1244,37 @@ export interface Ebs {
   SnapshotId?: string;
 
   /**
-   * <p>The volume size, in Gibibytes (GiB).</p>
-   *         <p>This can be a number from 1-1,024 for <code>standard</code>, 4-16,384 for
-   *                 <code>io1</code>, 1-16,384 for <code>gp2</code>, and 500-16,384 for <code>st1</code>
-   *             and <code>sc1</code>. If you specify a snapshot, the volume size must be equal to or
-   *             larger than the snapshot size.</p>
-   *         <p>Default: If you create a volume from a snapshot and you don't specify a volume size,
-   *             the default is the snapshot size.</p>
-   *         <p>You must specify either a <code>VolumeSize</code> or a <code>SnapshotId</code>. If you
+   * <p>The volume size, in GiBs. The following are the supported volumes sizes for each
+   *             volume type: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>gp2</code> and <code>gp3</code>: 1-16,384</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>io1</code>: 4-16,384</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>st1</code> and <code>sc1</code>: 125-16,384</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>standard</code>: 1-1,024</p>
+   *             </li>
+   *          </ul>
+   *         <p>You must specify either a <code>SnapshotId</code> or a <code>VolumeSize</code>. If you
    *             specify both <code>SnapshotId</code> and <code>VolumeSize</code>, the volume size must
    *             be equal or greater than the size of the snapshot.</p>
    */
   VolumeSize?: number;
 
   /**
-   * <p>The volume type, which can be <code>standard</code> for Magnetic, <code>io1</code> for
-   *             Provisioned IOPS SSD, <code>gp2</code> for General Purpose SSD, <code>st1</code> for
-   *             Throughput Optimized HDD, or <code>sc1</code> for Cold HDD. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
-   *                 EBS Volume Types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in
+   *             the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *         <p>Valid Values: <code>standard</code> | <code>io1</code> | <code>gp2</code> |
-   *                 <code>st1</code> | <code>sc1</code>
+   *                 <code>st1</code> | <code>sc1</code> | <code>gp3</code>
    *          </p>
    */
   VolumeType?: string;
@@ -1276,12 +1286,31 @@ export interface Ebs {
   DeleteOnTermination?: boolean;
 
   /**
-   * <p>The number of I/O operations per second (IOPS) to provision for the volume. The
-   *             maximum ratio of IOPS to volume size (in GiB) is 50:1. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS
-   *                 Volume Types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   *         <p>Required when the volume type is <code>io1</code>. (Not used with
-   *                 <code>standard</code>, <code>gp2</code>, <code>st1</code>, or <code>sc1</code>
-   *             volumes.) </p>
+   * <p>The number of input/output (I/O) operations per second (IOPS) to provision for the
+   *             volume. For <code>gp3</code> and <code>io1</code> volumes, this represents the number of
+   *             IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents
+   *             the baseline performance of the volume and the rate at which the volume accumulates I/O
+   *             credits for bursting. </p>
+   *         <p>The following are the supported values for each volume type: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>gp3</code>: 3,000-16,000 IOPS</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>io1</code>: 100-64,000 IOPS</p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>For <code>io1</code> volumes, we guarantee 64,000 IOPS only for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances
+   *                 built on the Nitro System</a>. Other instance families guarantee performance up
+   *             to 32,000 IOPS. </p>
+   *         <p>
+   *             <code>Iops</code> is supported when the volume type is <code>gp3</code> or
+   *                 <code>io1</code> and required only when the volume type is <code>io1</code>. (Not
+   *             used with <code>standard</code>, <code>gp2</code>, <code>st1</code>, or <code>sc1</code>
+   *             volumes.)  </p>
    */
   Iops?: number;
 
@@ -1309,6 +1338,12 @@ export interface Ebs {
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   Encrypted?: boolean;
+
+  /**
+   * <p>The throughput to provision for a <code>gp3</code> volume.</p>
+   *         <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   */
+  Throughput?: number;
 }
 
 export namespace Ebs {
@@ -1868,8 +1903,8 @@ export interface DeleteWarmPoolType {
   AutoScalingGroupName: string | undefined;
 
   /**
-   * <p>Specifies that the warm pool is to be deleted along with all instances associated with
-   *             the warm pool, without waiting for all instances to be terminated. This parameter also
+   * <p>Specifies that the warm pool is to be deleted along with all of its associated
+   *             instances, without waiting for all instances to be terminated. This parameter also
    *             deletes any outstanding lifecycle actions associated with the warm pool
    *             instances.</p>
    */
@@ -1887,24 +1922,24 @@ export namespace DeleteWarmPoolType {
 
 export interface DescribeAccountLimitsAnswer {
   /**
-   * <p>The maximum number of groups allowed for your AWS account. The default is 200 groups
-   *             per AWS Region.</p>
+   * <p>The maximum number of groups allowed for your account. The default is 200 groups per
+   *             Region.</p>
    */
   MaxNumberOfAutoScalingGroups?: number;
 
   /**
-   * <p>The maximum number of launch configurations allowed for your AWS account. The
-   *             default is 200 launch configurations per AWS Region.</p>
+   * <p>The maximum number of launch configurations allowed for your account. The default is
+   *             200 launch configurations per Region.</p>
    */
   MaxNumberOfLaunchConfigurations?: number;
 
   /**
-   * <p>The current number of groups for your AWS account.</p>
+   * <p>The current number of groups for your account.</p>
    */
   NumberOfAutoScalingGroups?: number;
 
   /**
-   * <p>The current number of launch configurations for your AWS account.</p>
+   * <p>The current number of launch configurations for your account.</p>
    */
   NumberOfLaunchConfigurations?: number;
 }
@@ -2261,8 +2296,8 @@ export enum WarmPoolStatus {
  */
 export interface WarmPoolConfiguration {
   /**
-   * <p>The total maximum number of instances that are allowed to be in the warm pool or in
-   *             any state except <code>Terminated</code> for the Auto Scaling group.</p>
+   * <p>The maximum number of instances that are allowed to be in the warm pool or in any
+   *             state except <code>Terminated</code> for the Auto Scaling group.</p>
    */
   MaxGroupPreparedCapacity?: number;
 
@@ -2272,8 +2307,7 @@ export interface WarmPoolConfiguration {
   MinSize?: number;
 
   /**
-   * <p>The instance state to transition to after the lifecycle actions are complete:
-   *                 <code>Stopped</code> or <code>Running</code>.</p>
+   * <p>The instance state to transition to after the lifecycle actions are complete.</p>
    */
   PoolState?: WarmPoolState | string;
 
@@ -2337,6 +2371,11 @@ export interface AutoScalingGroup {
   DesiredCapacity: number | undefined;
 
   /**
+   * <p>The predicted capacity of the group when it has a predictive scaling policy.</p>
+   */
+  PredictedCapacity?: number;
+
+  /**
    * <p>The duration of the default cooldown period, in seconds.</p>
    */
   DefaultCooldown: number | undefined;
@@ -2358,9 +2397,9 @@ export interface AutoScalingGroup {
 
   /**
    * <p>The service to use for the health checks. The valid values are <code>EC2</code> and
-   *                 <code>ELB</code>. If you configure an Auto Scaling group to use ELB health checks, it
-   *             considers the instance unhealthy if it fails either the EC2 status checks or the load
-   *             balancer health checks.</p>
+   *                 <code>ELB</code>. If you configure an Auto Scaling group to use <code>ELB</code> health
+   *             checks, it considers the instance unhealthy if it fails either the EC2 status checks or
+   *             the load balancer health checks.</p>
    */
   HealthCheckType: string | undefined;
 
@@ -2424,7 +2463,7 @@ export interface AutoScalingGroup {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to
-   *             call other AWS services on your behalf.</p>
+   *             call other Amazon Web Services on your behalf.</p>
    */
   ServiceLinkedRoleARN?: string;
 
@@ -2613,9 +2652,9 @@ export namespace AutoScalingInstancesType {
 
 export interface DescribeAutoScalingInstancesType {
   /**
-   * <p>The IDs of the instances. You can specify up to <code>MaxRecords</code> IDs. If you
-   *             omit this parameter, all Auto Scaling instances are described. If you specify an ID that does
-   *             not exist, it is ignored with no error.</p>
+   * <p>The IDs of the instances. If you omit this parameter, all Auto Scaling instances are
+   *             described. If you specify an ID that does not exist, it is ignored with no error.</p>
+   *         <p>Array Members: Maximum number of 50 items.</p>
    */
   InstanceIds?: string[];
 
@@ -2658,7 +2697,7 @@ export namespace DescribeAutoScalingNotificationTypesAnswer {
 }
 
 /**
- * <p>Reports the progress of an instance fresh on instances that are in the Auto Scaling
+ * <p>Reports the progress of an instance refresh on instances that are in the Auto Scaling
  *             group.</p>
  */
 export interface InstanceRefreshLivePoolProgress {
@@ -2666,7 +2705,8 @@ export interface InstanceRefreshLivePoolProgress {
    * <p>The percentage of instances in the Auto Scaling group that have been replaced. For each
    *             instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time.
    *             When the instance's health status changes to healthy and the specified warm-up time
-   *             passes, the instance is considered updated and added to the percentage complete.</p>
+   *             passes, the instance is considered updated and is added to the percentage
+   *             complete.</p>
    */
   PercentageComplete?: number;
 
@@ -2686,7 +2726,7 @@ export namespace InstanceRefreshLivePoolProgress {
 }
 
 /**
- * <p>Reports the progress of an instance fresh on instances that are in the warm
+ * <p>Reports the progress of an instance refresh on instances that are in the warm
  *             pool.</p>
  */
 export interface InstanceRefreshWarmPoolProgress {
@@ -2694,7 +2734,8 @@ export interface InstanceRefreshWarmPoolProgress {
    * <p>The percentage of instances in the warm pool that have been replaced. For each
    *             instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time.
    *             When the instance's health status changes to healthy and the specified warm-up time
-   *             passes, the instance is considered updated and added to the percentage complete.</p>
+   *             passes, the instance is considered updated and is added to the percentage
+   *             complete.</p>
    */
   PercentageComplete?: number;
 
@@ -2720,13 +2761,13 @@ export namespace InstanceRefreshWarmPoolProgress {
  */
 export interface InstanceRefreshProgressDetails {
   /**
-   * <p>Indicates the progress of an instance fresh on instances that are in the Auto Scaling
+   * <p>Indicates the progress of an instance refresh on instances that are in the Auto Scaling
    *             group.</p>
    */
   LivePoolProgress?: InstanceRefreshLivePoolProgress;
 
   /**
-   * <p>Indicates the progress of an instance fresh on instances that are in the warm
+   * <p>Indicates the progress of an instance refresh on instances that are in the warm
    *             pool.</p>
    */
   WarmPoolProgress?: InstanceRefreshWarmPoolProgress;
@@ -2818,7 +2859,7 @@ export interface InstanceRefresh {
    * <p>The percentage of the instance refresh that is complete. For each instance
    *             replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the
    *             instance's health status changes to healthy and the specified warm-up time passes, the
-   *             instance is considered updated and added to the percentage complete.</p>
+   *             instance is considered updated and is added to the percentage complete.</p>
    */
   PercentageComplete?: number;
 
@@ -2904,6 +2945,7 @@ export interface LaunchConfigurationNamesType {
   /**
    * <p>The launch configuration names. If you omit this parameter, all launch configurations
    *             are described.</p>
+   *         <p>Array Members: Maximum number of 50 items.</p>
    */
   LaunchConfigurationNames?: string[];
 
@@ -3274,14 +3316,6 @@ export namespace DescribeLoadBalancersRequest {
 
 /**
  * <p>Describes the state of a Classic Load Balancer.</p>
- *         <p>If you specify a load balancer when creating the Auto Scaling group, the state of the load
- *             balancer is <code>InService</code>.</p>
- *         <p>If you attach a load balancer to an existing Auto Scaling group, the initial state is
- *                 <code>Adding</code>. The state transitions to <code>Added</code> after all instances
- *             in the group are registered with the load balancer. If Elastic Load Balancing health checks are enabled
- *             for the load balancer, the state transitions to <code>InService</code> after at least
- *             one instance in the group passes the health check. If EC2 health checks are enabled
- *             instead, the load balancer remains in the <code>Added</code> state.</p>
  */
 export interface LoadBalancerState {
   /**
@@ -3294,29 +3328,29 @@ export interface LoadBalancerState {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>Adding</code> - The instances in the group are being registered with the
-   *                     load balancer.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <code>Added</code> - All instances in the group are registered with the load
+   *                   <code>Adding</code> - The Auto Scaling instances are being registered with the load
    *                     balancer.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>InService</code> - At least one instance in the group passed an ELB
+   *                     <code>Added</code> - All Auto Scaling instances are registered with the load
+   *                     balancer.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>InService</code> - At least one Auto Scaling instance passed an <code>ELB</code>
    *                     health check.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>Removing</code> - The instances in the group are being deregistered from
-   *                     the load balancer. If connection draining is enabled, Elastic Load Balancing waits for in-flight
+   *                   <code>Removing</code> - The Auto Scaling instances are being deregistered from the
+   *                     load balancer. If connection draining is enabled, Elastic Load Balancing waits for in-flight
    *                     requests to complete before deregistering the instances.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>Removed</code> - All instances in the group are deregistered from the
-   *                     load balancer.</p>
+   *                   <code>Removed</code> - All Auto Scaling instances are deregistered from the load
+   *                     balancer.</p>
    *             </li>
    *          </ul>
    */
@@ -3386,12 +3420,6 @@ export namespace DescribeLoadBalancerTargetGroupsRequest {
 
 /**
  * <p>Describes the state of a target group.</p>
- *         <p>If you attach a target group to an existing Auto Scaling group, the initial state is
- *                 <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling
- *             instances are registered with the target group. If Elastic Load Balancing health checks are enabled, the
- *             state transitions to <code>InService</code> after at least one Auto Scaling instance passes the
- *             health check. If EC2 health checks are enabled instead, the target group remains in the
- *                 <code>Added</code> state.</p>
  */
 export interface LoadBalancerTargetGroupState {
   /**
@@ -3414,8 +3442,8 @@ export interface LoadBalancerTargetGroupState {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>InService</code> - At least one Auto Scaling instance passed an ELB health
-   *                     check.</p>
+   *                   <code>InService</code> - At least one Auto Scaling instance passed an <code>ELB</code>
+   *                     health check.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -3744,15 +3772,16 @@ export interface DescribePoliciesType {
 
   /**
    * <p>The names of one or more policies. If you omit this parameter, all policies are
-   *             described. If a group name is provided, the results are limited to that group. This list
-   *             is limited to 50 items. If you specify an unknown policy name, it is ignored with no
-   *             error.</p>
+   *             described. If a group name is provided, the results are limited to that group. If you
+   *             specify an unknown policy name, it is ignored with no error.</p>
+   *         <p>Array Members: Maximum number of 50 items.</p>
    */
   PolicyNames?: string[];
 
   /**
    * <p>One or more policy types. The valid values are <code>SimpleScaling</code>,
-   *                 <code>StepScaling</code>, and <code>TargetTrackingScaling</code>.</p>
+   *                 <code>StepScaling</code>, <code>TargetTrackingScaling</code>, and
+   *                 <code>PredictiveScaling</code>.</p>
    */
   PolicyTypes?: string[];
 
@@ -3774,6 +3803,330 @@ export namespace DescribePoliciesType {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribePoliciesType): any => ({
+    ...obj,
+  });
+}
+
+export enum PredictiveScalingMaxCapacityBreachBehavior {
+  HonorMaxCapacity = "HonorMaxCapacity",
+  IncreaseMaxCapacity = "IncreaseMaxCapacity",
+}
+
+export enum PredefinedLoadMetricType {
+  ALBTargetGroupRequestCount = "ALBTargetGroupRequestCount",
+  ASGTotalCPUUtilization = "ASGTotalCPUUtilization",
+  ASGTotalNetworkIn = "ASGTotalNetworkIn",
+  ASGTotalNetworkOut = "ASGTotalNetworkOut",
+}
+
+/**
+ * <p>Describes a load metric for a predictive scaling policy.</p>
+ *         <p>When returned in the output of <code>DescribePolicies</code>, it indicates that a
+ *             predictive scaling policy uses individually specified load and scaling metrics instead
+ *             of a metric pair.</p>
+ */
+export interface PredictiveScalingPredefinedLoadMetric {
+  /**
+   * <p>The metric type.</p>
+   */
+  PredefinedMetricType: PredefinedLoadMetricType | string | undefined;
+
+  /**
+   * <p>A label that uniquely identifies a specific Application Load Balancer target
+   *             group from which to determine the request count served by your Auto Scaling group. You can't specify a resource label
+   *             unless the target group is attached to the Auto Scaling group.</p>
+   *         <p>You create the resource label by appending the final portion of the load balancer ARN
+   *             and the final portion of the target group ARN into a single value, separated by a forward
+   *             slash (/). The format of the resource label is:</p>
+   *         <p>
+   *             <code>app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d</code>.</p>
+   *         <p>Where:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>app/<load-balancer-name>/<load-balancer-id> is the final portion of
+   *                     the load balancer ARN</p>
+   *             </li>
+   *             <li>
+   *                 <p>targetgroup/<target-group-name>/<target-group-id> is the final portion
+   *                     of the target group ARN.</p>
+   *             </li>
+   *          </ul>
+   *         <p>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operation. To find the ARN for the target group, use
+   *             the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
+   */
+  ResourceLabel?: string;
+}
+
+export namespace PredictiveScalingPredefinedLoadMetric {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PredictiveScalingPredefinedLoadMetric): any => ({
+    ...obj,
+  });
+}
+
+export enum PredefinedMetricPairType {
+  ALBRequestCount = "ALBRequestCount",
+  ASGCPUUtilization = "ASGCPUUtilization",
+  ASGNetworkIn = "ASGNetworkIn",
+  ASGNetworkOut = "ASGNetworkOut",
+}
+
+/**
+ * <p>Represents a metric pair for a predictive scaling policy. </p>
+ */
+export interface PredictiveScalingPredefinedMetricPair {
+  /**
+   * <p>Indicates which metrics to use. There are two different types of metrics for each
+   *             metric type: one is a load metric and one is a scaling metric. For example, if the
+   *             metric type is <code>ASGCPUUtilization</code>, the Auto Scaling group's total CPU metric is used
+   *             as the load metric, and the average CPU metric is used for the scaling metric.</p>
+   */
+  PredefinedMetricType: PredefinedMetricPairType | string | undefined;
+
+  /**
+   * <p>A label that uniquely identifies a specific Application Load Balancer target
+   *             group from which to determine the request count served by your Auto Scaling group. You can't specify a resource label
+   *             unless the target group is attached to the Auto Scaling group.</p>
+   *         <p>You create the resource label by appending the final portion of the load balancer ARN
+   *             and the final portion of the target group ARN into a single value, separated by a forward
+   *             slash (/). The format of the resource label is:</p>
+   *         <p>
+   *             <code>app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d</code>.</p>
+   *         <p>Where:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>app/<load-balancer-name>/<load-balancer-id> is the final portion of
+   *                     the load balancer ARN</p>
+   *             </li>
+   *             <li>
+   *                 <p>targetgroup/<target-group-name>/<target-group-id> is the final portion
+   *                     of the target group ARN.</p>
+   *             </li>
+   *          </ul>
+   *         <p>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operation. To find the ARN for the target group, use
+   *             the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
+   */
+  ResourceLabel?: string;
+}
+
+export namespace PredictiveScalingPredefinedMetricPair {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PredictiveScalingPredefinedMetricPair): any => ({
+    ...obj,
+  });
+}
+
+export enum PredefinedScalingMetricType {
+  ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
+  ASGAverageCPUUtilization = "ASGAverageCPUUtilization",
+  ASGAverageNetworkIn = "ASGAverageNetworkIn",
+  ASGAverageNetworkOut = "ASGAverageNetworkOut",
+}
+
+/**
+ * <p>Describes a scaling metric for a predictive scaling policy.</p>
+ *         <p>When returned in the output of <code>DescribePolicies</code>, it indicates that a
+ *             predictive scaling policy uses individually specified load and scaling metrics instead
+ *             of a metric pair.</p>
+ */
+export interface PredictiveScalingPredefinedScalingMetric {
+  /**
+   * <p>The metric type.</p>
+   */
+  PredefinedMetricType: PredefinedScalingMetricType | string | undefined;
+
+  /**
+   * <p>A label that uniquely identifies a specific Application Load Balancer target
+   *             group from which to determine the request count served by your Auto Scaling group. You can't specify a resource label
+   *             unless the target group is attached to the Auto Scaling group.</p>
+   *         <p>You create the resource label by appending the final portion of the load balancer ARN
+   *             and the final portion of the target group ARN into a single value, separated by a forward
+   *             slash (/). The format of the resource label is:</p>
+   *         <p>
+   *             <code>app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d</code>.</p>
+   *         <p>Where:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>app/<load-balancer-name>/<load-balancer-id> is the final portion of
+   *                     the load balancer ARN</p>
+   *             </li>
+   *             <li>
+   *                 <p>targetgroup/<target-group-name>/<target-group-id> is the final portion
+   *                     of the target group ARN.</p>
+   *             </li>
+   *          </ul>
+   *         <p>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operation. To find the ARN for the target group, use
+   *             the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
+   */
+  ResourceLabel?: string;
+}
+
+export namespace PredictiveScalingPredefinedScalingMetric {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PredictiveScalingPredefinedScalingMetric): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This structure specifies the metrics and target utilization settings for a predictive
+ *             scaling policy. </p>
+ *         <p>You must specify either a metric pair, or a load metric and a scaling metric
+ *             individually. Specifying a metric pair instead of individual metrics provides a simpler
+ *             way to configure metrics for a scaling policy. You choose the metric pair, and the
+ *             policy automatically knows the correct sum and average statistics to use for the load
+ *             metric and the scaling metric.</p>
+ *         <p>Example</p>
+ *         <ul>
+ *             <li>
+ *                 <p>You create a predictive scaling policy and specify
+ *                         <code>ALBRequestCount</code> as the value for the metric pair and
+ *                         <code>1000.0</code> as the target value. For this type of metric, you must
+ *                     provide the metric dimension for the corresponding target group, so you also
+ *                     provide a resource label for the Application Load Balancer target group that is
+ *                     attached to your Auto Scaling group.</p>
+ *             </li>
+ *             <li>
+ *                 <p>The number of requests the target group receives per minute provides the load
+ *                     metric, and the request count averaged between the members of the target group
+ *                     provides the scaling metric. In CloudWatch, this refers to the
+ *                         <code>RequestCount</code> and <code>RequestCountPerTarget</code> metrics,
+ *                     respectively.</p>
+ *             </li>
+ *             <li>
+ *                 <p>For optimal use of predictive scaling, you adhere to the best practice of
+ *                     using a dynamic scaling policy to automatically scale between the minimum
+ *                     capacity and maximum capacity in response to real-time changes in resource
+ *                     utilization.</p>
+ *             </li>
+ *             <li>
+ *                 <p>Amazon EC2 Auto Scaling consumes data points for the load metric over the last 14 days and
+ *                     creates an hourly load forecast for predictive scaling. (A minimum of 24 hours
+ *                     of data is required.)</p>
+ *             </li>
+ *             <li>
+ *                 <p>After creating the load forecast, Amazon EC2 Auto Scaling determines when to reduce or
+ *                     increase the capacity of your Auto Scaling group in each hour of the forecast period so
+ *                     that the average number of requests received by each instance is as close to
+ *                     1000 requests per minute as possible at all times.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface PredictiveScalingMetricSpecification {
+  /**
+   * <p>Specifies the target utilization.</p>
+   */
+  TargetValue: number | undefined;
+
+  /**
+   * <p>The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling
+   *             metric and load metric to use.</p>
+   */
+  PredefinedMetricPairSpecification?: PredictiveScalingPredefinedMetricPair;
+
+  /**
+   * <p>The scaling metric specification.</p>
+   */
+  PredefinedScalingMetricSpecification?: PredictiveScalingPredefinedScalingMetric;
+
+  /**
+   * <p>The load metric specification.</p>
+   */
+  PredefinedLoadMetricSpecification?: PredictiveScalingPredefinedLoadMetric;
+}
+
+export namespace PredictiveScalingMetricSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PredictiveScalingMetricSpecification): any => ({
+    ...obj,
+  });
+}
+
+export enum PredictiveScalingMode {
+  ForecastAndScale = "ForecastAndScale",
+  ForecastOnly = "ForecastOnly",
+}
+
+/**
+ * <p>Represents a predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.</p>
+ */
+export interface PredictiveScalingConfiguration {
+  /**
+   * <p>This structure includes the metrics and target utilization to use for predictive
+   *             scaling. </p>
+   *         <p>This is an array, but we currently only support a single metric specification. That
+   *             is, you can specify a target value and a single metric pair, or a target value and one
+   *             scaling metric and one load metric.</p>
+   */
+  MetricSpecifications: PredictiveScalingMetricSpecification[] | undefined;
+
+  /**
+   * <p>The predictive scaling mode. Defaults to <code>ForecastOnly</code> if not
+   *             specified.</p>
+   */
+  Mode?: PredictiveScalingMode | string;
+
+  /**
+   * <p>The amount of time, in seconds, by which the instance launch time can be advanced. For
+   *             example, the forecast says to add capacity at 10:00 AM, and you choose to pre-launch
+   *             instances by 5 minutes. In that case, the instances will be launched at 9:55 AM. The
+   *             intention is to give resources time to be provisioned. It can take a few minutes to
+   *             launch an EC2 instance. The actual amount of time required depends on several factors,
+   *             such as the size of the instance and whether there are startup scripts to complete. </p>
+   *         <p>The value must be less than the forecast interval duration of 3600 seconds (60
+   *             minutes). Defaults to 300 seconds if not specified. </p>
+   */
+  SchedulingBufferTime?: number;
+
+  /**
+   * <p>Defines the behavior that should be applied if the forecast capacity approaches or
+   *             exceeds the maximum capacity of the Auto Scaling group. Defaults to
+   *                 <code>HonorMaxCapacity</code> if not specified.</p>
+   *         <p>The following are possible values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>HonorMaxCapacity</code> - Amazon EC2 Auto Scaling cannot scale out capacity higher than
+   *                     the maximum capacity. The maximum capacity is enforced as a hard limit. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>IncreaseMaxCapacity</code> - Amazon EC2 Auto Scaling can scale out capacity higher than
+   *                     the maximum capacity when the forecast capacity is close to or exceeds the
+   *                     maximum capacity. The upper limit is determined by the forecasted capacity and
+   *                     the value for <code>MaxCapacityBuffer</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  MaxCapacityBreachBehavior?: PredictiveScalingMaxCapacityBreachBehavior | string;
+
+  /**
+   * <p>The size of the capacity buffer to use when the forecast capacity is close to or
+   *             exceeds the maximum capacity. The value is specified as a percentage relative to the
+   *             forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer,
+   *             such that if the forecast capacity is 50, and the maximum capacity is 40, then the
+   *             effective maximum capacity is 55.</p>
+   *         <p>If set to 0, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but
+   *             not exceed forecast capacity. </p>
+   *         <p>Required if the <code>MaxCapacityBreachBehavior</code> property is set to
+   *                 <code>IncreaseMaxCapacity</code>, and cannot be used otherwise.</p>
+   */
+  MaxCapacityBuffer?: number;
+}
+
+export namespace PredictiveScalingConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PredictiveScalingConfiguration): any => ({
     ...obj,
   });
 }
@@ -4082,17 +4435,22 @@ export interface ScalingPolicy {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>TargetTrackingScaling</code>
-   *                </p>
+   *                     <code>TargetTrackingScaling</code>
+   *                 </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>StepScaling</code>
-   *                </p>
+   *                     <code>StepScaling</code>
+   *                 </p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>SimpleScaling</code> (default)</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>PredictiveScaling</code>
+   *                 </p>
    *             </li>
    *          </ul>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html">Target tracking
@@ -4167,6 +4525,11 @@ export interface ScalingPolicy {
    *                 (<code>false</code>).</p>
    */
   Enabled?: boolean;
+
+  /**
+   * <p>A predictive scaling policy.</p>
+   */
+  PredictiveScalingConfiguration?: PredictiveScalingConfiguration;
 }
 
 export namespace ScalingPolicy {
@@ -4204,10 +4567,11 @@ export namespace PoliciesType {
 
 export interface DescribeScalingActivitiesType {
   /**
-   * <p>The activity IDs of the desired scaling activities. You can specify up to 50 IDs. If
-   *             you omit this parameter, all activities for the past six weeks are described. If unknown
-   *             activities are requested, they are ignored with no error. If you specify an Auto Scaling group,
-   *             the results are limited to that group.</p>
+   * <p>The activity IDs of the desired scaling activities. If you omit this parameter, all
+   *             activities for the past six weeks are described. If unknown activities are requested,
+   *             they are ignored with no error. If you specify an Auto Scaling group, the results are limited to
+   *             that group.</p>
+   *         <p>Array Members: Maximum number of 50 IDs.</p>
    */
   ActivityIds?: string[];
 
@@ -4333,9 +4697,10 @@ export interface DescribeScheduledActionsType {
   AutoScalingGroupName?: string;
 
   /**
-   * <p>The names of one or more scheduled actions. You can specify up to 50 actions. If you
-   *             omit this parameter, all scheduled actions are described. If you specify an unknown
-   *             scheduled action, it is ignored with no error.</p>
+   * <p>The names of one or more scheduled actions. If you omit this parameter, all scheduled
+   *             actions are described. If you specify an unknown scheduled action, it is ignored with no
+   *             error.</p>
+   *         <p>Array Members: Maximum number of 50 actions.</p>
    */
   ScheduledActionNames?: string[];
 
@@ -5129,6 +5494,126 @@ export namespace ExitStandbyQuery {
   });
 }
 
+/**
+ * <p>A <code>GetPredictiveScalingForecast</code> call returns the capacity forecast for a
+ *             predictive scaling policy. This structure includes the data points for that capacity
+ *             forecast, along with the timestamps of those data points. </p>
+ */
+export interface CapacityForecast {
+  /**
+   * <p>The time stamps for the data points, in UTC format.</p>
+   */
+  Timestamps: Date[] | undefined;
+
+  /**
+   * <p>The values of the data points.</p>
+   */
+  Values: number[] | undefined;
+}
+
+export namespace CapacityForecast {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CapacityForecast): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A <code>GetPredictiveScalingForecast</code> call returns the load forecast for a
+ *             predictive scaling policy. This structure includes the data points for that load
+ *             forecast, along with the timestamps of those data points and the metric specification.
+ *         </p>
+ */
+export interface LoadForecast {
+  /**
+   * <p>The time stamps for the data points, in UTC format.</p>
+   */
+  Timestamps: Date[] | undefined;
+
+  /**
+   * <p>The values of the data points.</p>
+   */
+  Values: number[] | undefined;
+
+  /**
+   * <p>The metric specification for the load forecast.</p>
+   */
+  MetricSpecification: PredictiveScalingMetricSpecification | undefined;
+}
+
+export namespace LoadForecast {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoadForecast): any => ({
+    ...obj,
+  });
+}
+
+export interface GetPredictiveScalingForecastAnswer {
+  /**
+   * <p>The load forecast.</p>
+   */
+  LoadForecast: LoadForecast[] | undefined;
+
+  /**
+   * <p>The capacity forecast.</p>
+   */
+  CapacityForecast: CapacityForecast | undefined;
+
+  /**
+   * <p>The time the forecast was made.</p>
+   */
+  UpdateTime: Date | undefined;
+}
+
+export namespace GetPredictiveScalingForecastAnswer {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPredictiveScalingForecastAnswer): any => ({
+    ...obj,
+  });
+}
+
+export interface GetPredictiveScalingForecastType {
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
+
+  /**
+   * <p>The name of the policy.</p>
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>The inclusive start time of the time range for the forecast data to get. At most, the
+   *             date and time can be one year before the current date and time.</p>
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The exclusive end time of the time range for the forecast data to get. The maximum
+   *             time duration between the start and end time is 30 days. </p>
+   *         <p>Although this parameter can accept a date and time that is more than two days in the
+   *             future, the availability of forecast data has limits. Amazon EC2 Auto Scaling only issues forecasts for
+   *             periods of two days in advance.</p>
+   */
+  EndTime: Date | undefined;
+}
+
+export namespace GetPredictiveScalingForecastType {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPredictiveScalingForecastType): any => ({
+    ...obj,
+  });
+}
+
 export interface PutLifecycleHookAnswer {}
 
 export namespace PutLifecycleHookAnswer {
@@ -5288,17 +5773,22 @@ export interface PutScalingPolicyType {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>TargetTrackingScaling</code>
-   *                </p>
+   *                     <code>TargetTrackingScaling</code>
+   *                 </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>StepScaling</code>
-   *                </p>
+   *                     <code>StepScaling</code>
+   *                 </p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>SimpleScaling</code> (default)</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>PredictiveScaling</code>
+   *                 </p>
    *             </li>
    *          </ul>
    */
@@ -5385,28 +5875,28 @@ export interface PutScalingPolicyType {
   EstimatedInstanceWarmup?: number;
 
   /**
-   * <p>A target tracking scaling policy. Includes support for predefined or customized
+   * <p>A target tracking scaling policy. Provides support for predefined or customized
    *             metrics.</p>
    *         <p>The following predefined metrics are available:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>ASGAverageCPUUtilization</code>
-   *                </p>
+   *                     <code>ASGAverageCPUUtilization</code>
+   *                 </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>ASGAverageNetworkIn</code>
-   *                </p>
+   *                     <code>ASGAverageNetworkIn</code>
+   *                 </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>ASGAverageNetworkOut</code>
-   *                </p>
+   *                     <code>ASGAverageNetworkOut</code>
+   *                 </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>ALBRequestCountPerTarget</code>
+   *                     <code>ALBRequestCountPerTarget</code>
    *                 </p>
    *             </li>
    *          </ul>
@@ -5426,6 +5916,16 @@ export interface PutScalingPolicyType {
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   Enabled?: boolean;
+
+  /**
+   * <p>A predictive scaling policy. Provides support for only predefined metrics.</p>
+   *         <p>Predictive scaling works with CPU utilization, network in/out, and the Application
+   *             Load Balancer request count.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API
+   *                 Reference</i>.</p>
+   *         <p>Required if the policy type is <code>PredictiveScaling</code>.</p>
+   */
+  PredictiveScalingConfiguration?: PredictiveScalingConfiguration;
 }
 
 export namespace PutScalingPolicyType {
@@ -5535,24 +6035,24 @@ export interface PutWarmPoolType {
   AutoScalingGroupName: string | undefined;
 
   /**
-   * <p>Specifies the total maximum number of instances that are allowed to be in the warm
-   *             pool or in any state except <code>Terminated</code> for the Auto Scaling group. This is an
-   *             optional property. Specify it only if the warm pool size should not be determined by the
+   * <p>Specifies the maximum number of instances that are allowed to be in the warm pool or
+   *             in any state except <code>Terminated</code> for the Auto Scaling group. This is an optional
+   *             property. Specify it only if you do not want the warm pool size to be determined by the
    *             difference between the group's maximum capacity and its desired capacity. </p>
    *         <important>
-   *             <p>Amazon EC2 Auto Scaling will launch and maintain either the difference between the group's
-   *                 maximum capacity and its desired capacity, if a value for
-   *                     <code>MaxGroupPreparedCapacity</code> is not specified, or the difference
-   *                 between the <code>MaxGroupPreparedCapacity</code> and the desired capacity, if a
-   *                 value for <code>MaxGroupPreparedCapacity</code> is specified. </p>
+   *             <p>If a value for <code>MaxGroupPreparedCapacity</code> is not specified, Amazon EC2 Auto Scaling
+   *                 launches and maintains the difference between the group's maximum capacity and its
+   *                 desired capacity. If you specify a value for <code>MaxGroupPreparedCapacity</code>,
+   *                 Amazon EC2 Auto Scaling uses the difference between the <code>MaxGroupPreparedCapacity</code> and
+   *                 the desired capacity instead. </p>
    *             <p>The size of the warm pool is dynamic. Only when
    *                     <code>MaxGroupPreparedCapacity</code> and <code>MinSize</code> are set to the
    *                 same value does the warm pool have an absolute size.</p>
    *         </important>
    *         <p>If the desired capacity of the Auto Scaling group is higher than the
-   *                 <code>MaxGroupPreparedCapacity</code>, the capacity of the warm pool is 0. To remove
-   *             a value that you previously set, include the property but specify -1 for the value.
-   *         </p>
+   *                 <code>MaxGroupPreparedCapacity</code>, the capacity of the warm pool is 0, unless
+   *             you specify a value for <code>MinSize</code>. To remove a value that you previously set,
+   *             include the property but specify -1 for the value. </p>
    */
   MaxGroupPreparedCapacity?: number;
 
@@ -5564,8 +6064,8 @@ export interface PutWarmPoolType {
   MinSize?: number;
 
   /**
-   * <p>Sets the instance state to transition to after the lifecycle hooks finish. Valid
-   *             values are: <code>Stopped</code> (default) or <code>Running</code>.</p>
+   * <p>Sets the instance state to transition to after the lifecycle actions are complete.
+   *             Default is <code>Stopped</code>.</p>
    */
   PoolState?: WarmPoolState | string;
 }
@@ -6014,9 +6514,9 @@ export interface UpdateAutoScalingGroupType {
 
   /**
    * <p>The service to use for the health checks. The valid values are <code>EC2</code> and
-   *                 <code>ELB</code>. If you configure an Auto Scaling group to use ELB health checks, it
-   *             considers the instance unhealthy if it fails either the EC2 status checks or the load
-   *             balancer health checks.</p>
+   *                 <code>ELB</code>. If you configure an Auto Scaling group to use <code>ELB</code> health
+   *             checks, it considers the instance unhealthy if it fails either the EC2 status checks or
+   *             the load balancer health checks.</p>
    */
   HealthCheckType?: string;
 
@@ -6062,7 +6562,7 @@ export interface UpdateAutoScalingGroupType {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to
-   *             call other AWS services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-linked
+   *             call other Amazon Web Services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-linked
    *                 roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   ServiceLinkedRoleARN?: string;

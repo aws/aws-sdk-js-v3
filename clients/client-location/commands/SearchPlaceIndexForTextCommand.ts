@@ -30,16 +30,6 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
  *             filter results within a bounding box using <code>FilterBBox</code>. Providing both
  *             parameters simultaneously returns an error.</p>
  *          </note>
- *          <note>
- *             <p>By using Places, you agree that AWS may transmit your API queries to your selected
- *             third party provider for processing, which may be outside the AWS region you are
- *             currently using. </p>
- *             <p>Also, when using HERE as your data provider, you may not (a) use HERE Places for
- *             Asset Management, or (b) select the <code>Storage</code> option for the
- *                <code>IntendedUse</code> parameter when requesting Places in Japan. For more
- *             information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service
- *                Terms</a> for Amazon Location Service.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

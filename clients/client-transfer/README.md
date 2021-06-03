@@ -32,16 +32,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `TransferClient` and
-the commands you need, for example `CreateServerCommand`:
+the commands you need, for example `CreateAccessCommand`:
 
 ```js
 // ES5 example
-const { TransferClient, CreateServerCommand } = require("@aws-sdk/client-transfer");
+const { TransferClient, CreateAccessCommand } = require("@aws-sdk/client-transfer");
 ```
 
 ```ts
 // ES6+ example
-import { TransferClient, CreateServerCommand } from "@aws-sdk/client-transfer";
+import { TransferClient, CreateAccessCommand } from "@aws-sdk/client-transfer";
 ```
 
 ### Usage
@@ -60,7 +60,7 @@ const client = new TransferClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateServerCommand(params);
+const command = new CreateAccessCommand(params);
 ```
 
 #### Async/await
@@ -139,7 +139,7 @@ const client = new AWS.Transfer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createServer(params);
+  const data = await client.createAccess(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -147,7 +147,7 @@ try {
 
 // Promises.
 client
-  .createServer(params)
+  .createAccess(params)
   .then((data) => {
     // process data.
   })
@@ -156,7 +156,7 @@ client
   });
 
 // callbacks.
-client.createServer(params, (err, data) => {
+client.createAccess(params, (err, data) => {
   // proccess err and data.
 });
 ```

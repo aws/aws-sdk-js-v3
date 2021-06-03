@@ -135,6 +135,7 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
       input.RequirementsS3ObjectVersion !== null && { RequirementsS3ObjectVersion: input.RequirementsS3ObjectVersion }),
     ...(input.RequirementsS3Path !== undefined &&
       input.RequirementsS3Path !== null && { RequirementsS3Path: input.RequirementsS3Path }),
+    ...(input.Schedulers !== undefined && input.Schedulers !== null && { Schedulers: input.Schedulers }),
     ...(input.SourceBucketArn !== undefined &&
       input.SourceBucketArn !== null && { SourceBucketArn: input.SourceBucketArn }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
@@ -508,6 +509,7 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
       input.RequirementsS3ObjectVersion !== null && { RequirementsS3ObjectVersion: input.RequirementsS3ObjectVersion }),
     ...(input.RequirementsS3Path !== undefined &&
       input.RequirementsS3Path !== null && { RequirementsS3Path: input.RequirementsS3Path }),
+    ...(input.Schedulers !== undefined && input.Schedulers !== null && { Schedulers: input.Schedulers }),
     ...(input.SourceBucketArn !== undefined &&
       input.SourceBucketArn !== null && { SourceBucketArn: input.SourceBucketArn }),
     ...(input.WebserverAccessMode !== undefined &&
@@ -1576,6 +1578,7 @@ const deserializeAws_restJson1Environment = (output: any, context: __SerdeContex
       output.RequirementsS3Path !== undefined && output.RequirementsS3Path !== null
         ? output.RequirementsS3Path
         : undefined,
+    Schedulers: output.Schedulers !== undefined && output.Schedulers !== null ? output.Schedulers : undefined,
     ServiceRoleArn:
       output.ServiceRoleArn !== undefined && output.ServiceRoleArn !== null ? output.ServiceRoleArn : undefined,
     SourceBucketArn:

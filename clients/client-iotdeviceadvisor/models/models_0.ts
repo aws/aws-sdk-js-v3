@@ -181,7 +181,7 @@ export namespace ValidationException {
 
 export interface DeleteSuiteDefinitionRequest {
   /**
-   * <p>Deletes a Device Advisor test suite with defined suite Id.</p>
+   * <p>Suite definition Id of the test suite to be deleted.</p>
    */
   suiteDefinitionId: string | undefined;
 }
@@ -208,12 +208,12 @@ export namespace DeleteSuiteDefinitionResponse {
 
 export interface GetSuiteDefinitionRequest {
   /**
-   * <p>Requests suite definition Id with GetSuiteDefinition API call.</p>
+   * <p>Suite definition Id of the test suite to get.</p>
    */
   suiteDefinitionId: string | undefined;
 
   /**
-   * <p>Requests the suite definition version of a test suite.</p>
+   * <p>Suite definition version of the test suite to get.</p>
    */
   suiteDefinitionVersion?: string;
 }
@@ -229,7 +229,7 @@ export namespace GetSuiteDefinitionRequest {
 
 export interface GetSuiteDefinitionResponse {
   /**
-   * <p>Gets suite definition Id with GetSuiteDefinition API call.</p>
+   * <p>Suite definition Id of the suite definition.</p>
    */
   suiteDefinitionId?: string;
 
@@ -239,27 +239,27 @@ export interface GetSuiteDefinitionResponse {
   suiteDefinitionArn?: string;
 
   /**
-   * <p>Gets suite definition version with GetSuiteDefinition API call.</p>
+   * <p>Suite definition version of the suite definition.</p>
    */
   suiteDefinitionVersion?: string;
 
   /**
-   * <p>Gets latest suite definition version with GetSuiteDefinition API call.</p>
+   * <p>Latest suite definition version of the suite definition.</p>
    */
   latestVersion?: string;
 
   /**
-   * <p>Gets the suite configuration with GetSuiteDefinition API call.</p>
+   * <p>Suite configuration of the suite definition.</p>
    */
   suiteDefinitionConfiguration?: SuiteDefinitionConfiguration;
 
   /**
-   * <p>Gets the timestamp of the time suite was created with GetSuiteDefinition API call.</p>
+   * <p>Date (in Unix epoch time) when the suite definition was created.</p>
    */
   createdAt?: Date;
 
   /**
-   * <p>Gets the timestamp of the time suite was modified with GetSuiteDefinition API call.</p>
+   * <p>Date (in Unix epoch time) when the suite definition was last modified.</p>
    */
   lastModifiedAt?: Date;
 
@@ -301,12 +301,12 @@ export namespace ResourceNotFoundException {
 
 export interface GetSuiteRunRequest {
   /**
-   * <p>Requests the information about Device Advisor test suite run based on suite definition Id.</p>
+   * <p>Suite definition Id for the test suite run.</p>
    */
   suiteDefinitionId: string | undefined;
 
   /**
-   * <p>Requests the information about Device Advisor test suite run based on suite run Id.</p>
+   * <p>Suite run Id for the test suite run.</p>
    */
   suiteRunId: string | undefined;
 }
@@ -328,6 +328,8 @@ export enum SuiteRunStatus {
   PASS_WITH_WARNINGS = "PASS_WITH_WARNINGS",
   PENDING = "PENDING",
   RUNNING = "RUNNING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING",
 }
 
 /**
@@ -338,11 +340,6 @@ export interface SuiteRunConfiguration {
    * <p>Gets the primary device for suite run.</p>
    */
   primaryDevice?: DeviceUnderTest;
-
-  /**
-   * <p>Gets the secondary device for suite run.</p>
-   */
-  secondaryDevice?: DeviceUnderTest;
 
   /**
    * <p>Gets test case list.</p>
@@ -367,6 +364,8 @@ export enum Status {
   PASS_WITH_WARNINGS = "PASS_WITH_WARNINGS",
   PENDING = "PENDING",
   RUNNING = "RUNNING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING",
 }
 
 /**
@@ -433,17 +432,17 @@ export namespace TestCaseRun {
  */
 export interface GroupResult {
   /**
-   * <p>Show Group Result Id.</p>
+   * <p>Group result Id.</p>
    */
   groupId?: string;
 
   /**
-   * <p>Show Group Result Name.</p>
+   * <p>Group Result Name.</p>
    */
   groupName?: string;
 
   /**
-   * <p>Show Group Result.</p>
+   * <p>Tests under Group Result.</p>
    */
   tests?: TestCaseRun[];
 }
@@ -478,17 +477,17 @@ export namespace TestResult {
 
 export interface GetSuiteRunResponse {
   /**
-   * <p>Gets the information about Device Advisor test suite run based on suite definition Id.</p>
+   * <p>Suite definition Id for the test suite run.</p>
    */
   suiteDefinitionId?: string;
 
   /**
-   * <p>Gets the information about Device Advisor test suite run based on suite definition version.</p>
+   * <p>Suite definition version for the test suite run.</p>
    */
   suiteDefinitionVersion?: string;
 
   /**
-   * <p>Gets the information about Device Advisor test suite run based on suite run Id.</p>
+   * <p>Suite run Id for the test suite run.</p>
    */
   suiteRunId?: string;
 
@@ -498,32 +497,32 @@ export interface GetSuiteRunResponse {
   suiteRunArn?: string;
 
   /**
-   * <p>Gets the information about Device Advisor test suite run based on suite configuration.</p>
+   * <p>Suite run configuration for the test suite run.</p>
    */
   suiteRunConfiguration?: SuiteRunConfiguration;
 
   /**
-   * <p>Gets the information about Device Advisor test suite run based on test case runs.</p>
+   * <p>Test results for the test suite run.</p>
    */
   testResult?: TestResult;
 
   /**
-   * <p>Gets the information about Device Advisor test suite run based on start time.</p>
+   * <p>Date (in Unix epoch time) when the test suite run was started.</p>
    */
   startTime?: Date;
 
   /**
-   * <p>Gets the information about Device Advisor test suite run based on end time.</p>
+   * <p>Date (in Unix epoch time) when the test suite run ended.</p>
    */
   endTime?: Date;
 
   /**
-   * <p>Gets the information about Device Advisor test suite run based on its status.</p>
+   * <p>Status for the test suite run.</p>
    */
   status?: SuiteRunStatus | string;
 
   /**
-   * <p>Gets the information about Device Advisor test suite run based on error.</p>
+   * <p>Error reason for any test suite run failure.</p>
    */
   errorReason?: string;
 
@@ -544,12 +543,12 @@ export namespace GetSuiteRunResponse {
 
 export interface GetSuiteRunReportRequest {
   /**
-   * <p>Device Advisor suite definition Id.</p>
+   * <p>Suite definition Id of the test suite.</p>
    */
   suiteDefinitionId: string | undefined;
 
   /**
-   * <p>Device Advisor suite run Id.</p>
+   * <p>Suite run Id of the test suite run.</p>
    */
   suiteRunId: string | undefined;
 }
@@ -565,7 +564,7 @@ export namespace GetSuiteRunReportRequest {
 
 export interface GetSuiteRunReportResponse {
   /**
-   * <p>Gets the download URL of the qualification report.</p>
+   * <p>Download URL of the qualification report.</p>
    */
   qualificationReportDownloadUrl?: string;
 }
@@ -581,12 +580,12 @@ export namespace GetSuiteRunReportResponse {
 
 export interface ListSuiteDefinitionsRequest {
   /**
-   * <p>Request the list of all the Device Advisor test suites.</p>
+   * <p>The maximum number of results to return at once.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>Requests the Device Advisor test suites next token.</p>
+   * <p>A token used to get the next set of results.</p>
    */
   nextToken?: string;
 }
@@ -601,31 +600,31 @@ export namespace ListSuiteDefinitionsRequest {
 }
 
 /**
- * <p>Get suite definition information.</p>
+ * <p>Information about the suite definition.</p>
  */
 export interface SuiteDefinitionInformation {
   /**
-   * <p>Get suite definition Id.</p>
+   * <p>Suite definition Id of the test suite.</p>
    */
   suiteDefinitionId?: string;
 
   /**
-   * <p>Get test suite name.</p>
+   * <p>Suite name of the test suite.</p>
    */
   suiteDefinitionName?: string;
 
   /**
-   * <p>Specifies the devices under test.</p>
+   * <p>Specifies the devices under test for the test suite.</p>
    */
   defaultDevices?: DeviceUnderTest[];
 
   /**
-   * <p>Gets the test suites which will be used for qualification.</p>
+   * <p>Specifies if the test suite is intended for qualification.</p>
    */
   intendedForQualification?: boolean;
 
   /**
-   * <p>Gets the information of when the test suite was created.</p>
+   * <p>Date (in Unix epoch time) when the test suite was created.</p>
    */
   createdAt?: Date;
 }
@@ -641,12 +640,12 @@ export namespace SuiteDefinitionInformation {
 
 export interface ListSuiteDefinitionsResponse {
   /**
-   * <p>Lists test suite information using List suite definition.</p>
+   * <p>An array of objects that provide summaries of information about the suite definitions in the list.</p>
    */
   suiteDefinitionInformationList?: SuiteDefinitionInformation[];
 
   /**
-   * <p>Creates a Device Advisor test suite.</p>
+   * <p>A token used to get the next set of results.</p>
    */
   nextToken?: string;
 }
@@ -662,22 +661,22 @@ export namespace ListSuiteDefinitionsResponse {
 
 export interface ListSuiteRunsRequest {
   /**
-   * <p>Lists the runs of the specified Device Advisor test suite based on suite definition Id.</p>
+   * <p>Lists the test suite runs of the specified test suite based on suite definition Id.</p>
    */
   suiteDefinitionId?: string;
 
   /**
-   * <p>Lists the runs of the specified Device Advisor test suite based on suite definition version.</p>
+   * <p>Must be passed along with suiteDefinitionId. Lists the test suite runs of the specified test suite based on suite definition version.</p>
    */
   suiteDefinitionVersion?: string;
 
   /**
-   * <p>MaxResults for list suite run API request.</p>
+   * <p>The maximum number of results to return at once.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>Next pagination token for list suite run request.</p>
+   * <p>A token to retrieve the next set of results.</p>
    */
   nextToken?: string;
 }
@@ -692,56 +691,56 @@ export namespace ListSuiteRunsRequest {
 }
 
 /**
- * <p>Get suite run information.</p>
+ * <p>Information about the suite run.</p>
  */
 export interface SuiteRunInformation {
   /**
-   * <p>Get suite run information based on suite definition Id.</p>
+   * <p>Suite definition Id of the suite run.</p>
    */
   suiteDefinitionId?: string;
 
   /**
-   * <p>Get suite run information based on suite definition version.</p>
+   * <p>Suite definition version of the suite run.</p>
    */
   suiteDefinitionVersion?: string;
 
   /**
-   * <p>Get suite run information based on suite definition name.</p>
+   * <p>Suite definition name of the suite run.</p>
    */
   suiteDefinitionName?: string;
 
   /**
-   * <p>Get suite run information based on suite run Id.</p>
+   * <p>Suite run Id of the suite run.</p>
    */
   suiteRunId?: string;
 
   /**
-   * <p>Get suite run information based on time suite was created.</p>
+   * <p>Date (in Unix epoch time) when the suite run was created.</p>
    */
   createdAt?: Date;
 
   /**
-   * <p>Get suite run information based on start time of the run.</p>
+   * <p>Date (in Unix epoch time) when the suite run was started.</p>
    */
   startedAt?: Date;
 
   /**
-   * <p>Get suite run information based on end time of the run.</p>
+   * <p>Date (in Unix epoch time) when the suite run ended.</p>
    */
   endAt?: Date;
 
   /**
-   * <p>Get suite run information based on test run status.</p>
+   * <p>Status of the suite run.</p>
    */
   status?: SuiteRunStatus | string;
 
   /**
-   * <p>Get suite run information based on result of the test suite run.</p>
+   * <p>Number of test cases that passed in the suite run.</p>
    */
   passed?: number;
 
   /**
-   * <p>Get suite run information based on result of the test suite run.</p>
+   * <p>Number of test cases that failed in the suite run.</p>
    */
   failed?: number;
 }
@@ -757,12 +756,12 @@ export namespace SuiteRunInformation {
 
 export interface ListSuiteRunsResponse {
   /**
-   * <p>Lists the runs of the specified Device Advisor test suite.</p>
+   * <p>An array of objects that provide summaries of information about the suite runs in the list.</p>
    */
   suiteRunsList?: SuiteRunInformation[];
 
   /**
-   * <p>Next pagination token for list suite run response.</p>
+   * <p>A token to retrieve the next set of results.</p>
    */
   nextToken?: string;
 }
@@ -808,153 +807,19 @@ export namespace ListTagsForResourceResponse {
   });
 }
 
-export interface ListTestCasesRequest {
-  /**
-   * <p>Lists all the qualification test cases in the test suite.</p>
-   */
-  intendedForQualification?: boolean;
-
-  /**
-   * <p>Requests the test cases max results.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>Requests the test cases next token.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListTestCasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTestCasesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides test case definition.</p>
- */
-export interface TestCaseDefinition {
-  /**
-   * <p>Provides test case definition Id.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>Provides test case definition version.</p>
-   */
-  testCaseVersion?: string;
-}
-
-export namespace TestCaseDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestCaseDefinition): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Shows tests in a test group.</p>
- */
-export interface TestCase {
-  /**
-   * <p>Shows test case name.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>Shows test case configuration.</p>
-   */
-  configuration?: { [key: string]: string };
-
-  /**
-   * <p>Specifies a test.</p>
-   */
-  test?: TestCaseDefinition;
-}
-
-export namespace TestCase {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestCase): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Gets the test case category.</p>
- */
-export interface TestCaseCategory {
-  /**
-   * <p>Lists all the tests name in the specified category.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>Lists all the tests in the specified category.</p>
-   */
-  tests?: TestCase[];
-}
-
-export namespace TestCaseCategory {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestCaseCategory): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTestCasesResponse {
-  /**
-   * <p>Gets the category of test case.</p>
-   */
-  categories?: TestCaseCategory[];
-
-  /**
-   * <p>Gets the configuration of root test group.</p>
-   */
-  rootGroupConfiguration?: { [key: string]: string };
-
-  /**
-   * <p>Gets the configuration of test group.</p>
-   */
-  groupConfiguration?: { [key: string]: string };
-
-  /**
-   * <p>Test cases next token response.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListTestCasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTestCasesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StartSuiteRunRequest {
   /**
-   * <p>Request to start suite run based on suite definition Id.</p>
+   * <p>Suite definition Id of the test suite.</p>
    */
   suiteDefinitionId: string | undefined;
 
   /**
-   * <p>Request to start suite run based on suite definition version.</p>
+   * <p>Suite definition version of the test suite.</p>
    */
   suiteDefinitionVersion?: string;
 
   /**
-   * <p>Request to start suite run based on suite configuration.</p>
+   * <p>Suite run configuration.</p>
    */
   suiteRunConfiguration?: SuiteRunConfiguration;
 
@@ -975,17 +840,17 @@ export namespace StartSuiteRunRequest {
 
 export interface StartSuiteRunResponse {
   /**
-   * <p>Starts a Device Advisor test suite run based on suite Run Id.</p>
+   * <p>Suite Run Id of the started suite run.</p>
    */
   suiteRunId?: string;
 
   /**
-   * <p>Starts a Device Advisor test suite run based on suite run arn.</p>
+   * <p>Amazon resource name of the started suite run.</p>
    */
   suiteRunArn?: string;
 
   /**
-   * <p>Starts a Device Advisor test suite run based on suite create time.</p>
+   * <p>Date (in Unix epoch time) when the suite run was created.</p>
    */
   createdAt?: Date;
 }
@@ -995,6 +860,38 @@ export namespace StartSuiteRunResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: StartSuiteRunResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StopSuiteRunRequest {
+  /**
+   * <p>Suite definition Id of the test suite run to be stopped.</p>
+   */
+  suiteDefinitionId: string | undefined;
+
+  /**
+   * <p>Suite run Id of the test suite run to be stopped.</p>
+   */
+  suiteRunId: string | undefined;
+}
+
+export namespace StopSuiteRunRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopSuiteRunRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopSuiteRunResponse {}
+
+export namespace StopSuiteRunResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopSuiteRunResponse): any => ({
     ...obj,
   });
 }
@@ -1065,7 +962,7 @@ export namespace UntagResourceResponse {
 
 export interface UpdateSuiteDefinitionRequest {
   /**
-   * <p>Updates a Device Advisor test suite with suite definition id.</p>
+   * <p>Suite definition Id of the test suite to be updated.</p>
    */
   suiteDefinitionId: string | undefined;
 
@@ -1086,32 +983,32 @@ export namespace UpdateSuiteDefinitionRequest {
 
 export interface UpdateSuiteDefinitionResponse {
   /**
-   * <p>Updates a Device Advisor test suite with suite UUID.</p>
+   * <p>Suite definition Id of the updated test suite.</p>
    */
   suiteDefinitionId?: string;
 
   /**
-   * <p>Updates a Device Advisor test suite with Amazon Resource name.</p>
+   * <p>Amazon Resource name of the updated test suite.</p>
    */
   suiteDefinitionArn?: string;
 
   /**
-   * <p>Updates a Device Advisor test suite with suite definition name.</p>
+   * <p>Suite definition name of the updated test suite.</p>
    */
   suiteDefinitionName?: string;
 
   /**
-   * <p>Updates a Device Advisor test suite with suite definition version.</p>
+   * <p>Suite definition version of the updated test suite.</p>
    */
   suiteDefinitionVersion?: string;
 
   /**
-   * <p>Updates a Device Advisor test suite with TimeStamp of when it was created.</p>
+   * <p>Timestamp of when the test suite was created.</p>
    */
   createdAt?: Date;
 
   /**
-   * <p>Updates a Device Advisor test suite with TimeStamp of when it was updated.</p>
+   * <p>Timestamp of when the test suite was updated.</p>
    */
   lastUpdatedAt?: Date;
 }

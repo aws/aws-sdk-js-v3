@@ -106,6 +106,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "sa-east-1":
+      regionInfo = {
+        hostname: "emr-containers.sa-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "us-east-1":
       regionInfo = {
         hostname: "emr-containers.us-east-1.amazonaws.com",

@@ -45,9 +45,9 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  *             </li>
  *             <li>
  *                 <p>
- *                   <b>If you need more time, record the lifecycle action
+ *                     <b>If you need more time, record the lifecycle action
  *                         heartbeat to keep the instance in a pending state.</b>
- *                </p>
+ *                 </p>
  *             </li>
  *             <li>
  *                 <p>If you finish before the timeout period ends, complete the lifecycle

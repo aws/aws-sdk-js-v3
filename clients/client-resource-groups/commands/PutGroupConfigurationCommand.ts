@@ -24,11 +24,11 @@ export interface PutGroupConfigurationCommandOutput extends PutGroupConfiguratio
  * <p>Attaches a service configuration to the specified group. This occurs asynchronously,
  *             and can take time to complete. You can use <a>GetGroupConfiguration</a> to
  *             check the status of the update.</p>
- *          <p>
+ *         <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
+ *         <ul>
  *             <li>
  *                 <p>
  *                   <code>resource-groups:PutGroupConfiguration</code>

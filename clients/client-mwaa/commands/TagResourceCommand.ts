@@ -21,7 +21,7 @@ export interface TagResourceCommandInput extends TagResourceInput {}
 export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Add tag to the MWAA environments.</p>
+ * <p>Associates key-value tag pairs to your Amazon Managed Workflows for Apache Airflow (MWAA) environment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

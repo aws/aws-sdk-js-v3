@@ -41,6 +41,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateLedgerCommandInput, UpdateLedgerCommandOutput } from "./commands/UpdateLedgerCommand";
+import {
+  UpdateLedgerPermissionsModeCommandInput,
+  UpdateLedgerPermissionsModeCommandOutput,
+} from "./commands/UpdateLedgerPermissionsModeCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -111,7 +115,8 @@ export type ServiceInputTypes =
   | StreamJournalToKinesisCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateLedgerCommandInput;
+  | UpdateLedgerCommandInput
+  | UpdateLedgerPermissionsModeCommandInput;
 
 export type ServiceOutputTypes =
   | CancelJournalKinesisStreamCommandOutput
@@ -132,7 +137,8 @@ export type ServiceOutputTypes =
   | StreamJournalToKinesisCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateLedgerCommandOutput;
+  | UpdateLedgerCommandOutput
+  | UpdateLedgerPermissionsModeCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

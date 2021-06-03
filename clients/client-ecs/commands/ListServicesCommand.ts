@@ -21,7 +21,8 @@ export interface ListServicesCommandInput extends ListServicesRequest {}
 export interface ListServicesCommandOutput extends ListServicesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the services that are running in a specified cluster.</p>
+ * <p>Returns a list of services. You can filter the results by cluster, launch type, and
+ * 			scheduling strategy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

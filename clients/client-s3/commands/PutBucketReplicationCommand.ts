@@ -24,7 +24,7 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p> Creates a replication configuration or replaces an existing one. For more information,
- *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a> in the <i>Amazon S3 Developer Guide</i>. </p>
+ *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a> in the <i>Amazon S3 User Guide</i>. </p>
  *          <note>
  *             <p>To perform this operation, the user or role performing the action must have the
  *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a> permission.</p>

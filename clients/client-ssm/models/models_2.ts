@@ -860,6 +860,11 @@ export interface UpdateServiceSettingRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>/ssm/documents/console/public-sharing-permission</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>/ssm/parameter-store/default-parameter-tier</code>
    *                </p>
    *             </li>
@@ -899,6 +904,8 @@ export interface UpdateServiceSettingRequest {
    *    value can be CloudWatch.</p>
    *          <p>For the <code>/ssm/automation/customer-script-log-group-name</code> setting ID, the setting
    *    value can be the name of a CloudWatch Logs log group.</p>
+   *          <p>For the <code>/ssm/documents/console/public-sharing-permission</code> setting ID, the setting
+   *    value can be Enable or Disable.</p>
    */
   SettingValue: string | undefined;
 }

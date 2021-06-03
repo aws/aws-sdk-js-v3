@@ -23,7 +23,7 @@ export interface BatchDeleteGeofenceCommandOutput extends BatchDeleteGeofenceRes
 /**
  * <p>Deletes a batch of geofences from a geofence collection.</p>
  *         <note>
- *             <p>This action deletes the resource permanently. You can't undo this action.</p>
+ *             <p>This operation deletes the resource permanently.</p>
  *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

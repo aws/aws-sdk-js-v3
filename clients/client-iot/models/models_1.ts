@@ -31,7 +31,6 @@ import {
   DimensionType,
   JobExecutionsRolloutConfig,
   LogLevel,
-  LogTargetType,
   MetricToRetain,
   MetricValue,
   MitigationActionParams,
@@ -56,6 +55,60 @@ import {
 } from "./models_0";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+export interface DeleteTopicRuleDestinationRequest {
+  /**
+   * <p>The ARN of the topic rule destination to delete.</p>
+   */
+  arn: string | undefined;
+}
+
+export namespace DeleteTopicRuleDestinationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteTopicRuleDestinationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTopicRuleDestinationResponse {}
+
+export namespace DeleteTopicRuleDestinationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteTopicRuleDestinationResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum LogTargetType {
+  DEFAULT = "DEFAULT",
+  THING_GROUP = "THING_GROUP",
+}
+
+export interface DeleteV2LoggingLevelRequest {
+  /**
+   * <p>The type of resource for which you are configuring logging. Must be
+   *             <code>THING_Group</code>.</p>
+   */
+  targetType: LogTargetType | string | undefined;
+
+  /**
+   * <p>The name of the resource for which you are configuring logging.</p>
+   */
+  targetName: string | undefined;
+}
+
+export namespace DeleteV2LoggingLevelRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteV2LoggingLevelRequest): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The input for the DeprecateThingType operation.</p>
@@ -1795,6 +1848,11 @@ export interface Job {
    *          </note>
    */
   namespaceId?: string;
+
+  /**
+   * <p>The ARN of the job template used to create the job.</p>
+   */
+  jobTemplateArn?: string;
 }
 
 export namespace Job {
@@ -1973,6 +2031,86 @@ export namespace DescribeJobExecutionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeJobExecutionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeJobTemplateRequest {
+  /**
+   * <p>The unique identifier of the job template.</p>
+   */
+  jobTemplateId: string | undefined;
+}
+
+export namespace DescribeJobTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeJobTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeJobTemplateResponse {
+  /**
+   * <p>The ARN of the job template.</p>
+   */
+  jobTemplateArn?: string;
+
+  /**
+   * <p>The unique identifier of the job template.</p>
+   */
+  jobTemplateId?: string;
+
+  /**
+   * <p>A description of the job template.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>An S3 link to the job document.</p>
+   */
+  documentSource?: string;
+
+  /**
+   * <p>The job document.</p>
+   */
+  document?: string;
+
+  /**
+   * <p>The time, in seconds since the epoch, when the job template was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>Configuration for pre-signed S3 URLs.</p>
+   */
+  presignedUrlConfig?: PresignedUrlConfig;
+
+  /**
+   * <p>Allows you to create a staged rollout of a job.</p>
+   */
+  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
+
+  /**
+   * <p>The criteria that determine when and how a job abort takes place.</p>
+   */
+  abortConfig?: AbortConfig;
+
+  /**
+   * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
+   *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
+   *            execution status is not set to another terminal state before the timer expires, it will
+   *            be automatically set to <code>TIMED_OUT</code>.</p>
+   */
+  timeoutConfig?: TimeoutConfig;
+}
+
+export namespace DescribeJobTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeJobTemplateResponse): any => ({
     ...obj,
   });
 }
@@ -5475,9 +5613,6 @@ export namespace ListDomainConfigurationsRequest {
  *                <p>CredentialProvider</p>
  *             </li>
  *          </ul>
- *          <note>
- *             <p>The domain configuration feature is in public preview and is subject to change.</p>
- *          </note>
  */
 export interface DomainConfigurationSummary {
   /**
@@ -5910,6 +6045,83 @@ export namespace ListJobsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListJobTemplatesRequest {
+  /**
+   * <p>The maximum number of results to return in the list.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token to use to return the next set of results in the list.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListJobTemplatesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListJobTemplatesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that contains information about the job template.</p>
+ */
+export interface JobTemplateSummary {
+  /**
+   * <p>The ARN of the job template.</p>
+   */
+  jobTemplateArn?: string;
+
+  /**
+   * <p>The unique identifier of the job template.</p>
+   */
+  jobTemplateId?: string;
+
+  /**
+   * <p>A description of the job template.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The time, in seconds since the epoch, when the job template was created.</p>
+   */
+  createdAt?: Date;
+}
+
+export namespace JobTemplateSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JobTemplateSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListJobTemplatesResponse {
+  /**
+   * <p>A list of objects that contain information about the job templates.</p>
+   */
+  jobTemplates?: JobTemplateSummary[];
+
+  /**
+   * <p>The token for the next set of results, or <b>null</b> if there are no
+   *             additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListJobTemplatesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListJobTemplatesResponse): any => ({
     ...obj,
   });
 }
@@ -8250,250 +8462,6 @@ export namespace ListViolationEventsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListViolationEventsResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input to the RegisterCACertificate operation.</p>
- */
-export interface RegisterCACertificateRequest {
-  /**
-   * <p>The CA certificate.</p>
-   */
-  caCertificate: string | undefined;
-
-  /**
-   * <p>The private key verification certificate.</p>
-   */
-  verificationCertificate: string | undefined;
-
-  /**
-   * <p>A boolean value that specifies if the CA certificate is set to active.</p>
-   */
-  setAsActive?: boolean;
-
-  /**
-   * <p>Allows this CA certificate to be used for auto registration of device
-   *          certificates.</p>
-   */
-  allowAutoRegistration?: boolean;
-
-  /**
-   * <p>Information about the registration configuration.</p>
-   */
-  registrationConfig?: RegistrationConfig;
-
-  /**
-   * <p>Metadata which can be used to manage the CA certificate.</p>
-   *          <note>
-   *             <p>For URI Request parameters use format: ...key1=value1&key2=value2...</p>
-   *             <p>For the CLI command-line parameter use format: &&tags
-   *             "key1=value1&key2=value2..."</p>
-   *             <p>For the cli-input-json file use format: "tags":
-   *             "key1=value1&key2=value2..."</p>
-   *          </note>
-   */
-  tags?: Tag[];
-}
-
-export namespace RegisterCACertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterCACertificateRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output from the RegisterCACertificateResponse operation.</p>
- */
-export interface RegisterCACertificateResponse {
-  /**
-   * <p>The CA certificate ARN.</p>
-   */
-  certificateArn?: string;
-
-  /**
-   * <p>The CA certificate identifier.</p>
-   */
-  certificateId?: string;
-}
-
-export namespace RegisterCACertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterCACertificateResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The registration code is invalid.</p>
- */
-export interface RegistrationCodeValidationException extends __SmithyException, $MetadataBearer {
-  name: "RegistrationCodeValidationException";
-  $fault: "client";
-  /**
-   * <p>Additional information about the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace RegistrationCodeValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegistrationCodeValidationException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Unable to verify the CA certificate used to sign the device certificate you are
- *          attempting to register. This is happens when you have registered more than one CA
- *          certificate that has the same subject field and public key.</p>
- */
-export interface CertificateConflictException extends __SmithyException, $MetadataBearer {
-  name: "CertificateConflictException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace CertificateConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateConflictException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The input to the RegisterCertificate operation.</p>
- */
-export interface RegisterCertificateRequest {
-  /**
-   * <p>The certificate data, in PEM format.</p>
-   */
-  certificatePem: string | undefined;
-
-  /**
-   * <p>The CA certificate used to sign the device certificate being registered.</p>
-   */
-  caCertificatePem?: string;
-
-  /**
-   * @deprecated
-   *
-   * <p>A boolean value that specifies if the certificate is set to active.</p>
-   */
-  setAsActive?: boolean;
-
-  /**
-   * <p>The status of the register certificate request.</p>
-   */
-  status?: CertificateStatus | string;
-}
-
-export namespace RegisterCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The output from the RegisterCertificate operation.</p>
- */
-export interface RegisterCertificateResponse {
-  /**
-   * <p>The certificate ARN.</p>
-   */
-  certificateArn?: string;
-
-  /**
-   * <p>The certificate identifier.</p>
-   */
-  certificateId?: string;
-}
-
-export namespace RegisterCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterCertificateResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface RegisterCertificateWithoutCARequest {
-  /**
-   * <p>The certificate data, in PEM format.</p>
-   */
-  certificatePem: string | undefined;
-
-  /**
-   * <p>The status of the register certificate request.</p>
-   */
-  status?: CertificateStatus | string;
-}
-
-export namespace RegisterCertificateWithoutCARequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterCertificateWithoutCARequest): any => ({
-    ...obj,
-  });
-}
-
-export interface RegisterCertificateWithoutCAResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registered certificate.</p>
-   */
-  certificateArn?: string;
-
-  /**
-   * <p>The ID of the registered certificate. (The last part of the certificate ARN contains the
-   *          certificate ID.</p>
-   */
-  certificateId?: string;
-}
-
-export namespace RegisterCertificateWithoutCAResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterCertificateWithoutCAResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface RegisterThingRequest {
-  /**
-   * <p>The provisioning template. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html">Provisioning Devices That Have Device Certificates</a> for more information.</p>
-   */
-  templateBody: string | undefined;
-
-  /**
-   * <p>The parameters for provisioning a thing. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning Templates</a> for more information.</p>
-   */
-  parameters?: { [key: string]: string };
-}
-
-export namespace RegisterThingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterThingRequest): any => ({
     ...obj,
   });
 }

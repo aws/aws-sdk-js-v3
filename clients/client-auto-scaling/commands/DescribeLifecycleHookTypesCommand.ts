@@ -25,10 +25,14 @@ export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecyc
  *         <p>The following hook types are supported:</p>
  *         <ul>
  *             <li>
- *                 <p>autoscaling:EC2_INSTANCE_LAUNCHING</p>
+ *                 <p>
+ *                     <code>autoscaling:EC2_INSTANCE_LAUNCHING</code>
+ *                 </p>
  *             </li>
  *             <li>
- *                 <p>autoscaling:EC2_INSTANCE_TERMINATING</p>
+ *                 <p>
+ *                     <code>autoscaling:EC2_INSTANCE_TERMINATING</code>
+ *                 </p>
  *             </li>
  *          </ul>
  * @example

@@ -23,7 +23,10 @@ export interface DescribeDetectorModelAnalysisCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves execution information about a detector model analysis</p>
+ * <p>Retrieves runtime information about a detector model analysis.</p>
+ *          <note>
+ *             <p>After AWS IoT Events starts analyzing your detector model, you have up to 24 hours to retrieve the analysis results.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

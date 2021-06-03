@@ -25,6 +25,8 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
 /**
  * <p>Returns AWS Lambda function recommendations.</p>
  *
+ *
+ *
  *         <p>AWS Compute Optimizer generates recommendations for functions that meet a specific set of
  *             requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
  *                 requirements</a> in the <i>AWS Compute Optimizer User Guide</i>.</p>

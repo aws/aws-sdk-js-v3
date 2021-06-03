@@ -34,7 +34,8 @@ export interface ExportAutoScalingGroupRecommendationsCommandOutput
  *             you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
  *                 Recommendations</a> in the <i>Compute Optimizer User Guide</i>.</p>
  *
- *         <p>You can have only one Auto Scaling group export job in progress per AWS Region.</p>
+ *         <p>You can have only one Auto Scaling group export job in progress per AWS
+ *             Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

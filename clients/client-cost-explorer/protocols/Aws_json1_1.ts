@@ -131,6 +131,7 @@ import {
   DescribeCostCategoryDefinitionResponse,
   DimensionValues,
   DimensionValuesWithAttributes,
+  DiskResourceUtilization,
   EBSResourceUtilization,
   EC2InstanceDetails,
   EC2ResourceDetails,
@@ -139,6 +140,7 @@ import {
   ESInstanceDetails,
   ElastiCacheInstanceDetails,
   Expression,
+  FindingReasonCode,
   ForecastResult,
   GetAnomaliesRequest,
   GetAnomaliesResponse,
@@ -187,6 +189,8 @@ import {
   MatchOption,
   MetricValue,
   ModifyRecommendationDetail,
+  NetworkResourceUtilization,
+  PlatformDifference,
   ProvideAnomalyFeedbackRequest,
   ProvideAnomalyFeedbackResponse,
   RDSInstanceDetails,
@@ -4111,6 +4115,30 @@ const deserializeAws_json1_1DimensionValuesWithAttributesList = (
     });
 };
 
+const deserializeAws_json1_1DiskResourceUtilization = (
+  output: any,
+  context: __SerdeContext
+): DiskResourceUtilization => {
+  return {
+    DiskReadBytesPerSecond:
+      output.DiskReadBytesPerSecond !== undefined && output.DiskReadBytesPerSecond !== null
+        ? output.DiskReadBytesPerSecond
+        : undefined,
+    DiskReadOpsPerSecond:
+      output.DiskReadOpsPerSecond !== undefined && output.DiskReadOpsPerSecond !== null
+        ? output.DiskReadOpsPerSecond
+        : undefined,
+    DiskWriteBytesPerSecond:
+      output.DiskWriteBytesPerSecond !== undefined && output.DiskWriteBytesPerSecond !== null
+        ? output.DiskWriteBytesPerSecond
+        : undefined,
+    DiskWriteOpsPerSecond:
+      output.DiskWriteOpsPerSecond !== undefined && output.DiskWriteOpsPerSecond !== null
+        ? output.DiskWriteOpsPerSecond
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1EBSResourceUtilization = (output: any, context: __SerdeContext): EBSResourceUtilization => {
   return {
     EbsReadBytesPerSecond:
@@ -4172,6 +4200,10 @@ const deserializeAws_json1_1EC2ResourceDetails = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1EC2ResourceUtilization = (output: any, context: __SerdeContext): EC2ResourceUtilization => {
   return {
+    DiskResourceUtilization:
+      output.DiskResourceUtilization !== undefined && output.DiskResourceUtilization !== null
+        ? deserializeAws_json1_1DiskResourceUtilization(output.DiskResourceUtilization, context)
+        : undefined,
     EBSResourceUtilization:
       output.EBSResourceUtilization !== undefined && output.EBSResourceUtilization !== null
         ? deserializeAws_json1_1EBSResourceUtilization(output.EBSResourceUtilization, context)
@@ -4187,6 +4219,10 @@ const deserializeAws_json1_1EC2ResourceUtilization = (output: any, context: __Se
     MaxStorageUtilizationPercentage:
       output.MaxStorageUtilizationPercentage !== undefined && output.MaxStorageUtilizationPercentage !== null
         ? output.MaxStorageUtilizationPercentage
+        : undefined,
+    NetworkResourceUtilization:
+      output.NetworkResourceUtilization !== undefined && output.NetworkResourceUtilization !== null
+        ? deserializeAws_json1_1NetworkResourceUtilization(output.NetworkResourceUtilization, context)
         : undefined,
   } as any;
 };
@@ -4269,6 +4305,20 @@ const deserializeAws_json1_1Expressions = (output: any, context: __SerdeContext)
         return null as any;
       }
       return deserializeAws_json1_1Expression(entry, context);
+    });
+};
+
+const deserializeAws_json1_1FindingReasonCodes = (
+  output: any,
+  context: __SerdeContext
+): (FindingReasonCode | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 
@@ -4777,6 +4827,44 @@ const deserializeAws_json1_1MonitorArnList = (output: any, context: __SerdeConte
     });
 };
 
+const deserializeAws_json1_1NetworkResourceUtilization = (
+  output: any,
+  context: __SerdeContext
+): NetworkResourceUtilization => {
+  return {
+    NetworkInBytesPerSecond:
+      output.NetworkInBytesPerSecond !== undefined && output.NetworkInBytesPerSecond !== null
+        ? output.NetworkInBytesPerSecond
+        : undefined,
+    NetworkOutBytesPerSecond:
+      output.NetworkOutBytesPerSecond !== undefined && output.NetworkOutBytesPerSecond !== null
+        ? output.NetworkOutBytesPerSecond
+        : undefined,
+    NetworkPacketsInPerSecond:
+      output.NetworkPacketsInPerSecond !== undefined && output.NetworkPacketsInPerSecond !== null
+        ? output.NetworkPacketsInPerSecond
+        : undefined,
+    NetworkPacketsOutPerSecond:
+      output.NetworkPacketsOutPerSecond !== undefined && output.NetworkPacketsOutPerSecond !== null
+        ? output.NetworkPacketsOutPerSecond
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1PlatformDifferences = (
+  output: any,
+  context: __SerdeContext
+): (PlatformDifference | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const deserializeAws_json1_1ProvideAnomalyFeedbackResponse = (
   output: any,
   context: __SerdeContext
@@ -5179,6 +5267,10 @@ const deserializeAws_json1_1RightsizingRecommendation = (
     CurrentInstance:
       output.CurrentInstance !== undefined && output.CurrentInstance !== null
         ? deserializeAws_json1_1CurrentInstance(output.CurrentInstance, context)
+        : undefined,
+    FindingReasonCodes:
+      output.FindingReasonCodes !== undefined && output.FindingReasonCodes !== null
+        ? deserializeAws_json1_1FindingReasonCodes(output.FindingReasonCodes, context)
         : undefined,
     ModifyRecommendationDetail:
       output.ModifyRecommendationDetail !== undefined && output.ModifyRecommendationDetail !== null
@@ -5754,6 +5846,10 @@ const deserializeAws_json1_1TargetInstance = (output: any, context: __SerdeConte
     ExpectedResourceUtilization:
       output.ExpectedResourceUtilization !== undefined && output.ExpectedResourceUtilization !== null
         ? deserializeAws_json1_1ResourceUtilization(output.ExpectedResourceUtilization, context)
+        : undefined,
+    PlatformDifferences:
+      output.PlatformDifferences !== undefined && output.PlatformDifferences !== null
+        ? deserializeAws_json1_1PlatformDifferences(output.PlatformDifferences, context)
         : undefined,
     ResourceDetails:
       output.ResourceDetails !== undefined && output.ResourceDetails !== null

@@ -32,6 +32,11 @@ import {
   CreateLicenseConfigurationCommandOutput,
 } from "./commands/CreateLicenseConfigurationCommand";
 import {
+  CreateLicenseManagerReportGeneratorCommand,
+  CreateLicenseManagerReportGeneratorCommandInput,
+  CreateLicenseManagerReportGeneratorCommandOutput,
+} from "./commands/CreateLicenseManagerReportGeneratorCommand";
+import {
   CreateLicenseVersionCommand,
   CreateLicenseVersionCommandInput,
   CreateLicenseVersionCommandOutput,
@@ -48,6 +53,11 @@ import {
   DeleteLicenseConfigurationCommandInput,
   DeleteLicenseConfigurationCommandOutput,
 } from "./commands/DeleteLicenseConfigurationCommand";
+import {
+  DeleteLicenseManagerReportGeneratorCommand,
+  DeleteLicenseManagerReportGeneratorCommandInput,
+  DeleteLicenseManagerReportGeneratorCommandOutput,
+} from "./commands/DeleteLicenseManagerReportGeneratorCommand";
 import { DeleteTokenCommand, DeleteTokenCommandInput, DeleteTokenCommandOutput } from "./commands/DeleteTokenCommand";
 import {
   ExtendLicenseConsumptionCommand,
@@ -66,6 +76,11 @@ import {
   GetLicenseConfigurationCommandInput,
   GetLicenseConfigurationCommandOutput,
 } from "./commands/GetLicenseConfigurationCommand";
+import {
+  GetLicenseManagerReportGeneratorCommand,
+  GetLicenseManagerReportGeneratorCommandInput,
+  GetLicenseManagerReportGeneratorCommandOutput,
+} from "./commands/GetLicenseManagerReportGeneratorCommand";
 import {
   GetLicenseUsageCommand,
   GetLicenseUsageCommandInput,
@@ -96,6 +111,11 @@ import {
   ListLicenseConfigurationsCommandInput,
   ListLicenseConfigurationsCommandOutput,
 } from "./commands/ListLicenseConfigurationsCommand";
+import {
+  ListLicenseManagerReportGeneratorsCommand,
+  ListLicenseManagerReportGeneratorsCommandInput,
+  ListLicenseManagerReportGeneratorsCommandOutput,
+} from "./commands/ListLicenseManagerReportGeneratorsCommand";
 import {
   ListLicenseSpecificationsForResourceCommand,
   ListLicenseSpecificationsForResourceCommandInput,
@@ -149,6 +169,11 @@ import {
   UpdateLicenseConfigurationCommandInput,
   UpdateLicenseConfigurationCommandOutput,
 } from "./commands/UpdateLicenseConfigurationCommand";
+import {
+  UpdateLicenseManagerReportGeneratorCommand,
+  UpdateLicenseManagerReportGeneratorCommandInput,
+  UpdateLicenseManagerReportGeneratorCommandOutput,
+} from "./commands/UpdateLicenseManagerReportGeneratorCommand";
 import {
   UpdateLicenseSpecificationsForResourceCommand,
   UpdateLicenseSpecificationsForResourceCommandInput,
@@ -417,6 +442,38 @@ export class LicenseManager extends LicenseManagerClient {
   }
 
   /**
+   * <p>Creates a new report generator.</p>
+   */
+  public createLicenseManagerReportGenerator(
+    args: CreateLicenseManagerReportGeneratorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLicenseManagerReportGeneratorCommandOutput>;
+  public createLicenseManagerReportGenerator(
+    args: CreateLicenseManagerReportGeneratorCommandInput,
+    cb: (err: any, data?: CreateLicenseManagerReportGeneratorCommandOutput) => void
+  ): void;
+  public createLicenseManagerReportGenerator(
+    args: CreateLicenseManagerReportGeneratorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLicenseManagerReportGeneratorCommandOutput) => void
+  ): void;
+  public createLicenseManagerReportGenerator(
+    args: CreateLicenseManagerReportGeneratorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLicenseManagerReportGeneratorCommandOutput) => void),
+    cb?: (err: any, data?: CreateLicenseManagerReportGeneratorCommandOutput) => void
+  ): Promise<CreateLicenseManagerReportGeneratorCommandOutput> | void {
+    const command = new CreateLicenseManagerReportGeneratorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a new version of the specified license.</p>
    */
   public createLicenseVersion(
@@ -558,6 +615,39 @@ export class LicenseManager extends LicenseManagerClient {
     cb?: (err: any, data?: DeleteLicenseConfigurationCommandOutput) => void
   ): Promise<DeleteLicenseConfigurationCommandOutput> | void {
     const command = new DeleteLicenseConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete an existing report generator.</p>
+   *          <p>This action deletes the report generator, which stops it from generating future reports and cannot be reversed. However, the previous reports from this generator will remain in your S3 bucket.</p>
+   */
+  public deleteLicenseManagerReportGenerator(
+    args: DeleteLicenseManagerReportGeneratorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLicenseManagerReportGeneratorCommandOutput>;
+  public deleteLicenseManagerReportGenerator(
+    args: DeleteLicenseManagerReportGeneratorCommandInput,
+    cb: (err: any, data?: DeleteLicenseManagerReportGeneratorCommandOutput) => void
+  ): void;
+  public deleteLicenseManagerReportGenerator(
+    args: DeleteLicenseManagerReportGeneratorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLicenseManagerReportGeneratorCommandOutput) => void
+  ): void;
+  public deleteLicenseManagerReportGenerator(
+    args: DeleteLicenseManagerReportGeneratorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLicenseManagerReportGeneratorCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLicenseManagerReportGeneratorCommandOutput) => void
+  ): Promise<DeleteLicenseManagerReportGeneratorCommandOutput> | void {
+    const command = new DeleteLicenseManagerReportGeneratorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -733,6 +823,38 @@ export class LicenseManager extends LicenseManagerClient {
     cb?: (err: any, data?: GetLicenseConfigurationCommandOutput) => void
   ): Promise<GetLicenseConfigurationCommandOutput> | void {
     const command = new GetLicenseConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information on the specified report generator.</p>
+   */
+  public getLicenseManagerReportGenerator(
+    args: GetLicenseManagerReportGeneratorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLicenseManagerReportGeneratorCommandOutput>;
+  public getLicenseManagerReportGenerator(
+    args: GetLicenseManagerReportGeneratorCommandInput,
+    cb: (err: any, data?: GetLicenseManagerReportGeneratorCommandOutput) => void
+  ): void;
+  public getLicenseManagerReportGenerator(
+    args: GetLicenseManagerReportGeneratorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLicenseManagerReportGeneratorCommandOutput) => void
+  ): void;
+  public getLicenseManagerReportGenerator(
+    args: GetLicenseManagerReportGeneratorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLicenseManagerReportGeneratorCommandOutput) => void),
+    cb?: (err: any, data?: GetLicenseManagerReportGeneratorCommandOutput) => void
+  ): Promise<GetLicenseManagerReportGeneratorCommandOutput> | void {
+    const command = new GetLicenseManagerReportGeneratorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -932,6 +1054,38 @@ export class LicenseManager extends LicenseManagerClient {
     cb?: (err: any, data?: ListLicenseConfigurationsCommandOutput) => void
   ): Promise<ListLicenseConfigurationsCommandOutput> | void {
     const command = new ListLicenseConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the report generators for your account.</p>
+   */
+  public listLicenseManagerReportGenerators(
+    args: ListLicenseManagerReportGeneratorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLicenseManagerReportGeneratorsCommandOutput>;
+  public listLicenseManagerReportGenerators(
+    args: ListLicenseManagerReportGeneratorsCommandInput,
+    cb: (err: any, data?: ListLicenseManagerReportGeneratorsCommandOutput) => void
+  ): void;
+  public listLicenseManagerReportGenerators(
+    args: ListLicenseManagerReportGeneratorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLicenseManagerReportGeneratorsCommandOutput) => void
+  ): void;
+  public listLicenseManagerReportGenerators(
+    args: ListLicenseManagerReportGeneratorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLicenseManagerReportGeneratorsCommandOutput) => void),
+    cb?: (err: any, data?: ListLicenseManagerReportGeneratorsCommandOutput) => void
+  ): Promise<ListLicenseManagerReportGeneratorsCommandOutput> | void {
+    const command = new ListLicenseManagerReportGeneratorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1329,6 +1483,39 @@ export class LicenseManager extends LicenseManagerClient {
     cb?: (err: any, data?: UpdateLicenseConfigurationCommandOutput) => void
   ): Promise<UpdateLicenseConfigurationCommandOutput> | void {
     const command = new UpdateLicenseConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a report generator.</p>
+   *          <p>After you make changes to a report generator, it will start generating new reports within 60 minutes of being updated.</p>
+   */
+  public updateLicenseManagerReportGenerator(
+    args: UpdateLicenseManagerReportGeneratorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLicenseManagerReportGeneratorCommandOutput>;
+  public updateLicenseManagerReportGenerator(
+    args: UpdateLicenseManagerReportGeneratorCommandInput,
+    cb: (err: any, data?: UpdateLicenseManagerReportGeneratorCommandOutput) => void
+  ): void;
+  public updateLicenseManagerReportGenerator(
+    args: UpdateLicenseManagerReportGeneratorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLicenseManagerReportGeneratorCommandOutput) => void
+  ): void;
+  public updateLicenseManagerReportGenerator(
+    args: UpdateLicenseManagerReportGeneratorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLicenseManagerReportGeneratorCommandOutput) => void),
+    cb?: (err: any, data?: UpdateLicenseManagerReportGeneratorCommandOutput) => void
+  ): Promise<UpdateLicenseManagerReportGeneratorCommandOutput> | void {
+    const command = new UpdateLicenseManagerReportGeneratorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

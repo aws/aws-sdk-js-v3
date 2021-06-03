@@ -23,5 +23,6 @@ export * from "./commands/StreamJournalToKinesisCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateLedgerCommand";
+export * from "./commands/UpdateLedgerPermissionsModeCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";

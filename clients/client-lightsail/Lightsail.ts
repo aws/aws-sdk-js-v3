@@ -4498,7 +4498,7 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
-   * <p>Returns information about a specific static IP.</p>
+   * <p>Returns information about an Amazon Lightsail static IP.</p>
    */
   public getStaticIp(args: GetStaticIpCommandInput, options?: __HttpHandlerOptions): Promise<GetStaticIpCommandOutput>;
   public getStaticIp(args: GetStaticIpCommandInput, cb: (err: any, data?: GetStaticIpCommandOutput) => void): void;

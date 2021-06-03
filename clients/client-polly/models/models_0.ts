@@ -164,6 +164,7 @@ export type VoiceId =
   | "Enrique"
   | "Ewa"
   | "Filiz"
+  | "Gabrielle"
   | "Geraint"
   | "Giorgio"
   | "Gwyneth"

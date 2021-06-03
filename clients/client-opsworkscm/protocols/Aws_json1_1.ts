@@ -2285,7 +2285,12 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 };
 
 const deserializeAws_json1_1RestoreServerResponse = (output: any, context: __SerdeContext): RestoreServerResponse => {
-  return {} as any;
+  return {
+    Server:
+      output.Server !== undefined && output.Server !== null
+        ? deserializeAws_json1_1Server(output.Server, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1Server = (output: any, context: __SerdeContext): Server => {

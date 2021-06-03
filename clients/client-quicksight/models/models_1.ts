@@ -37,6 +37,37 @@ import {
 } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
+export interface ListIngestionsRequest {
+  /**
+   * <p>The ID of the dataset used in the ingestion.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The AWS account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListIngestionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListIngestionsRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface ListIngestionsResponse {
   /**
    * <p>A list of the ingestions.</p>
@@ -970,6 +1001,33 @@ export interface RegisterUserRequest {
    *             SAML 2.0-Based Federation for Single Sign-On (SSO).</p>
    */
   CustomPermissionsName?: string;
+
+  /**
+   * <p>The type of supported external login provider that provides identity to let a user federate into Amazon QuickSight with an associated AWS Identity and Access Management (IAM) role. The type of supported external login provider can be one of the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com. When choosing the <code>COGNITO</code> provider type, don’t use the "CustomFederationProviderUrl" parameter which is only needed when the external provider is custom.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider. When choosing <code>CUSTOM_OIDC</code> type, use the <code>CustomFederationProviderUrl</code> parameter to provide the custom OIDC provider URL.</p>
+   *             </li>
+   *          </ul>
+   */
+  ExternalLoginFederationProviderType?: string;
+
+  /**
+   * <p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate
+   *          into QuickSight with an associated AWS Identity and Access Management (IAM) role. This parameter should
+   *          only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>
+   */
+  CustomFederationProviderUrl?: string;
+
+  /**
+   * <p>The identity ID for a user in the external login provider.</p>
+   */
+  ExternalLoginId?: string;
 }
 
 export namespace RegisterUserRequest {
@@ -2841,6 +2899,39 @@ export interface UpdateUserRequest {
    *             NULL and it doesn't accept any other value.</p>
    */
   UnapplyCustomPermissions?: boolean;
+
+  /**
+   * <p>The type of supported external login provider that provides identity to let a user federate into QuickSight with an associated AWS Identity and Access Management (IAM) role. The type of supported external login provider can be one of the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com. When choosing the <code>COGNITO</code> provider type, don’t use the "CustomFederationProviderUrl" parameter which is only needed when the external provider is custom.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider. When choosing <code>CUSTOM_OIDC</code> type, use the <code>CustomFederationProviderUrl</code> parameter to provide the custom OIDC provider URL.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: This clears all the previously saved external login information for a user. Use <code>
+   *                      <a>DescribeUser</a>
+   *                   </code> API to check the external login information.</p>
+   *             </li>
+   *          </ul>
+   */
+  ExternalLoginFederationProviderType?: string;
+
+  /**
+   * <p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate
+   *          into QuickSight with an associated AWS Identity and Access Management (IAM) role. This parameter should
+   *          only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>
+   */
+  CustomFederationProviderUrl?: string;
+
+  /**
+   * <p>The identity ID for a user in the external login provider.</p>
+   */
+  ExternalLoginId?: string;
 }
 
 export namespace UpdateUserRequest {

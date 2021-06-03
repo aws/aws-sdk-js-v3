@@ -1,8 +1,8 @@
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
-import { ListTestCasesRequest, ListTestCasesResponse } from "../models/models_0";
+import { StopSuiteRunRequest, StopSuiteRunResponse } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListTestCasesCommand,
-  serializeAws_restJson1ListTestCasesCommand,
+  deserializeAws_restJson1StopSuiteRunCommand,
+  serializeAws_restJson1StopSuiteRunCommand,
 } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -17,35 +17,35 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export interface ListTestCasesCommandInput extends ListTestCasesRequest {}
-export interface ListTestCasesCommandOutput extends ListTestCasesResponse, __MetadataBearer {}
+export interface StopSuiteRunCommandInput extends StopSuiteRunRequest {}
+export interface StopSuiteRunCommandOutput extends StopSuiteRunResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the test cases in the test suite.</p>
+ * <p>Stops a Device Advisor test suite run that is currently running.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IotDeviceAdvisorClient, ListTestCasesCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
- * // const { IotDeviceAdvisorClient, ListTestCasesCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
+ * import { IotDeviceAdvisorClient, StopSuiteRunCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
+ * // const { IotDeviceAdvisorClient, StopSuiteRunCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
- * const command = new ListTestCasesCommand(input);
+ * const command = new StopSuiteRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListTestCasesCommandInput} for command's `input` shape.
- * @see {@link ListTestCasesCommandOutput} for command's `response` shape.
+ * @see {@link StopSuiteRunCommandInput} for command's `input` shape.
+ * @see {@link StopSuiteRunCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for command's `input` shape.
  *
  */
-export class ListTestCasesCommand extends $Command<
-  ListTestCasesCommandInput,
-  ListTestCasesCommandOutput,
+export class StopSuiteRunCommand extends $Command<
+  StopSuiteRunCommandInput,
+  StopSuiteRunCommandOutput,
   IotDeviceAdvisorClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: ListTestCasesCommandInput) {
+  constructor(readonly input: StopSuiteRunCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -58,20 +58,20 @@ export class ListTestCasesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IotDeviceAdvisorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListTestCasesCommandInput, ListTestCasesCommandOutput> {
+  ): Handler<StopSuiteRunCommandInput, StopSuiteRunCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IotDeviceAdvisorClient";
-    const commandName = "ListTestCasesCommand";
+    const commandName = "StopSuiteRunCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTestCasesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTestCasesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopSuiteRunRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StopSuiteRunResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -81,12 +81,12 @@ export class ListTestCasesCommand extends $Command<
     );
   }
 
-  private serialize(input: ListTestCasesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListTestCasesCommand(input, context);
+  private serialize(input: StopSuiteRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1StopSuiteRunCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTestCasesCommandOutput> {
-    return deserializeAws_restJson1ListTestCasesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopSuiteRunCommandOutput> {
+    return deserializeAws_restJson1StopSuiteRunCommand(output, context);
   }
 
   // Start section: command_body_extra

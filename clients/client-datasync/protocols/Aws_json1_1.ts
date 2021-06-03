@@ -3244,6 +3244,8 @@ const serializeAws_json1_1Options = (input: Options, context: __SerdeContext): a
       input.PreserveDeletedFiles !== null && { PreserveDeletedFiles: input.PreserveDeletedFiles }),
     ...(input.PreserveDevices !== undefined &&
       input.PreserveDevices !== null && { PreserveDevices: input.PreserveDevices }),
+    ...(input.SecurityDescriptorCopyFlags !== undefined &&
+      input.SecurityDescriptorCopyFlags !== null && { SecurityDescriptorCopyFlags: input.SecurityDescriptorCopyFlags }),
     ...(input.TaskQueueing !== undefined && input.TaskQueueing !== null && { TaskQueueing: input.TaskQueueing }),
     ...(input.TransferMode !== undefined && input.TransferMode !== null && { TransferMode: input.TransferMode }),
     ...(input.Uid !== undefined && input.Uid !== null && { Uid: input.Uid }),
@@ -3982,6 +3984,10 @@ const deserializeAws_json1_1Options = (output: any, context: __SerdeContext): Op
         : undefined,
     PreserveDevices:
       output.PreserveDevices !== undefined && output.PreserveDevices !== null ? output.PreserveDevices : undefined,
+    SecurityDescriptorCopyFlags:
+      output.SecurityDescriptorCopyFlags !== undefined && output.SecurityDescriptorCopyFlags !== null
+        ? output.SecurityDescriptorCopyFlags
+        : undefined,
     TaskQueueing: output.TaskQueueing !== undefined && output.TaskQueueing !== null ? output.TaskQueueing : undefined,
     TransferMode: output.TransferMode !== undefined && output.TransferMode !== null ? output.TransferMode : undefined,
     Uid: output.Uid !== undefined && output.Uid !== null ? output.Uid : undefined,

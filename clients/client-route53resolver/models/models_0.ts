@@ -58,9 +58,9 @@ export namespace Tag {
 
 export interface AssociateFirewallRuleGroupRequest {
   /**
-   * <p>A unique string that identifies the request and that allows failed requests
-   *            to be retried without the risk of executing the operation twice.
-   *       <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
+   * <p>A unique string that identifies the request and that allows failed requests to be
+   * 			retried without the risk of running the operation twice. <code>CreatorRequestId</code>
+   * 			can be any unique string, for example, a date/time stamp. </p>
    */
   CreatorRequestId?: string;
 
@@ -75,11 +75,13 @@ export interface AssociateFirewallRuleGroupRequest {
   VpcId: string | undefined;
 
   /**
-   * <p>The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall
-   *            filters VPC traffic starting from rule group with the lowest numeric priority setting. </p>
+   * <p>The setting that determines the processing order of the rule group among the rule
+   * 			groups that you associate with the specified VPC. DNS Firewall filters VPC traffic
+   * 			starting from the rule group with the lowest numeric priority setting. </p>
    *          <p>You must specify a unique priority for each rule group that you associate with a single VPC.
-   *            To make it easier to insert rule groups later, leave space between the numbers, for example, use 100, 200, and so on. You
+   *            To make it easier to insert rule groups later, leave space between the numbers, for example, use 101, 200, and so on. You
    *    can change the priority setting for a rule group association after you create it.</p>
+   *    	     <p>The allowed values for <code>Priority</code> are between 100 and 9900.</p>
    */
   Priority: number | undefined;
 
@@ -116,7 +118,8 @@ export enum FirewallRuleGroupAssociationStatus {
 }
 
 /**
- * <p>An association between a firewall rul group and a VPC, which enables DNS filtering for the VPC. </p>
+ * <p>An association between a firewall rule group and a VPC, which enables DNS filtering for
+ * 			the VPC. </p>
  */
 export interface FirewallRuleGroupAssociation {
   /**
@@ -172,8 +175,9 @@ export interface FirewallRuleGroupAssociation {
   StatusMessage?: string;
 
   /**
-   * <p>A unique string defined by you to identify the request. This allows you to retry failed requests
-   *            without the risk of executing the operation twice. This can be any unique string, for example, a timestamp. </p>
+   * <p>A unique string defined by you to identify the request. This allows you to retry failed
+   * 			requests without the risk of running the operation twice. This can be any unique string,
+   * 			for example, a timestamp. </p>
    */
   CreatorRequestId?: string;
 
@@ -199,7 +203,8 @@ export namespace FirewallRuleGroupAssociation {
 
 export interface AssociateFirewallRuleGroupResponse {
   /**
-   * <p>The association that you just created. The association has an Id that you can use to identify it in other requests, like update and delete.</p>
+   * <p>The association that you just created. The association has an ID that you can use to
+   * 			identify it in other requests, like update and delete.</p>
    */
   FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation;
 }
@@ -417,8 +422,9 @@ export interface ResolverEndpoint {
   Id?: string;
 
   /**
-   * <p>A unique string that identifies the request that created the Resolver endpoint. The <code>CreatorRequestId</code> allows failed requests
-   * 			to be retried without the risk of executing the operation twice.</p>
+   * <p>A unique string that identifies the request that created the Resolver endpoint. The
+   * 				<code>CreatorRequestId</code> allows failed requests to be retried without the risk
+   * 			of running the operation twice.</p>
    */
   CreatorRequestId?: string;
 
@@ -896,8 +902,8 @@ export enum BlockResponse {
 export interface CreateFirewallDomainListRequest {
   /**
    * <p>A unique string that identifies the request and that allows you to retry failed requests
-   *            without the risk of executing the operation twice.
-   *       <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
+   * 			without the risk of running the operation twice. <code>CreatorRequestId</code> can be
+   * 			any unique string, for example, a date/time stamp. </p>
    */
   CreatorRequestId?: string;
 
@@ -930,7 +936,7 @@ export enum FirewallDomainListStatus {
 }
 
 /**
- * <p>High level information about a list of firewall domains for use in a <a>FirewallRule</a>. This is returned by <a>GetFirewallDomainList</a>.</p>
+ * <p>High-level information about a list of firewall domains for use in a <a>FirewallRule</a>. This is returned by <a>GetFirewallDomainList</a>.</p>
  *          <p>To retrieve the domains that are defined for this domain list, call <a>ListFirewallDomains</a>.</p>
  */
 export interface FirewallDomainList {
@@ -970,8 +976,9 @@ export interface FirewallDomainList {
   ManagedOwnerName?: string;
 
   /**
-   * <p>A unique string defined by you to identify the request. This allows you to retry failed requests
-   *            without the risk of executing the operation twice. This can be any unique string, for example, a timestamp. </p>
+   * <p>A unique string defined by you to identify the request. This allows you to retry failed
+   * 			requests without the risk of running the operation twice. This can be any unique string,
+   * 			for example, a timestamp. </p>
    */
   CreatorRequestId?: string;
 
@@ -997,7 +1004,8 @@ export namespace FirewallDomainList {
 
 export interface CreateFirewallDomainListResponse {
   /**
-   * <p>The domain list that you just created.</p>
+   * <p>The
+   * 			domain list that you just created.</p>
    */
   FirewallDomainList?: FirewallDomainList;
 }
@@ -1014,8 +1022,8 @@ export namespace CreateFirewallDomainListResponse {
 export interface CreateFirewallRuleRequest {
   /**
    * <p>A unique string that identifies the request and that allows you to retry failed requests
-   *            without the risk of executing the operation twice.
-   *       <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
+   * 			without the risk of running the operation twice. <code>CreatorRequestId</code> can be
+   * 			any unique string, for example, a date/time stamp. </p>
    */
   CreatorRequestId?: string;
 
@@ -1047,7 +1055,7 @@ export interface CreateFirewallRuleRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ALERT</code> - Permit the request and send metrics and log to Cloud Watch.</p>
+   *                   <code>ALERT</code> - Permit the request and send metrics and logs to Cloud Watch.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1058,7 +1066,8 @@ export interface CreateFirewallRuleRequest {
   Action: Action | string | undefined;
 
   /**
-   * <p>The way that you want DNS Firewall to block the request, used with the rule aciton setting <code>BLOCK</code>. </p>
+   * <p>The way that you want DNS Firewall to block the request, used with the rule action
+   * 			setting <code>BLOCK</code>. </p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1215,7 +1224,8 @@ export namespace FirewallRule {
 
 export interface CreateFirewallRuleResponse {
   /**
-   * <p>The firewall rule that you just created. </p>
+   * <p>The
+   * 			firewall rule that you just created. </p>
    */
   FirewallRule?: FirewallRule;
 }
@@ -1231,8 +1241,9 @@ export namespace CreateFirewallRuleResponse {
 
 export interface CreateFirewallRuleGroupRequest {
   /**
-   * <p>A unique string defined by you to identify the request. This allows you to retry failed requests
-   *            without the risk of executing the operation twice. This can be any unique string, for example, a timestamp. </p>
+   * <p>A unique string defined by you to identify the request. This allows you to retry failed
+   * 			requests without the risk of running the operation twice. This can be any unique string,
+   * 			for example, a timestamp. </p>
    */
   CreatorRequestId?: string;
 
@@ -1309,8 +1320,9 @@ export interface FirewallRuleGroup {
   OwnerId?: string;
 
   /**
-   * <p>A unique string defined by you to identify the request. This allows you to retry failed requests
-   *            without the risk of executing the operation twice. This can be any unique string, for example, a timestamp. </p>
+   * <p>A unique string defined by you to identify the request. This allows you to retry failed
+   * 			requests without the risk of running the operation twice. This can be any unique string,
+   * 			for example, a timestamp. </p>
    */
   CreatorRequestId?: string;
 
@@ -1385,8 +1397,9 @@ export namespace IpAddressRequest {
 
 export interface CreateResolverEndpointRequest {
   /**
-   * <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of executing the operation twice.
-   * 			<code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
+   * <p>A unique string that identifies the request and that allows failed requests to be retried
+   * 			without the risk of running the operation twice. <code>CreatorRequestId</code> can be
+   * 			any unique string, for example, a date/time stamp. </p>
    */
   CreatorRequestId: string | undefined;
 
@@ -1457,7 +1470,7 @@ export namespace CreateResolverEndpointResponse {
 
 export interface CreateResolverQueryLogConfigRequest {
   /**
-   * <p>The name that you want to give the query logging configuration</p>
+   * <p>The name that you want to give the query logging configuration.</p>
    */
   Name: string | undefined;
 
@@ -1496,8 +1509,9 @@ export interface CreateResolverQueryLogConfigRequest {
   DestinationArn: string | undefined;
 
   /**
-   * <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of executing the operation twice.
-   * 			<code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
+   * <p>A unique string that identifies the request and that allows failed requests to be retried
+   * 			without the risk of running the operation twice. <code>CreatorRequestId</code> can be
+   * 			any unique string, for example, a date/time stamp. </p>
    */
   CreatorRequestId?: string;
 
@@ -1604,8 +1618,9 @@ export interface ResolverQueryLogConfig {
   DestinationArn?: string;
 
   /**
-   * <p>A unique string that identifies the request that created the query logging configuration. The <code>CreatorRequestId</code> allows failed requests
-   * 			to be retried without the risk of executing the operation twice.</p>
+   * <p>A unique string that identifies the request that created the query logging configuration.
+   * 			The <code>CreatorRequestId</code> allows failed requests to be retried without the risk
+   * 			of running the operation twice.</p>
    */
   CreatorRequestId?: string;
 
@@ -1674,8 +1689,9 @@ export namespace TargetAddress {
 
 export interface CreateResolverRuleRequest {
   /**
-   * <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of executing the operation twice.
-   * 			<code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp. </p>
+   * <p>A unique string that identifies the request and that allows failed requests to be retried
+   * 			without the risk of running the operation twice. <code>CreatorRequestId</code> can be
+   * 			any unique string, for example, a date/time stamp. </p>
    */
   CreatorRequestId: string | undefined;
 
@@ -1703,7 +1719,7 @@ export interface CreateResolverRuleRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>The IPs that you want Resolver to forward DNS queries to. You can specify only IPv4 addresses. Separate IP addresses with a comma.</p>
+   * <p>The IPs that you want Resolver to forward DNS queries to. You can specify only IPv4 addresses. Separate IP addresses with a space.</p>
    * 		       <p>
    *             <code>TargetIps</code> is available only when the value of <code>Rule type</code> is <code>FORWARD</code>.</p>
    */
@@ -1754,8 +1770,9 @@ export interface ResolverRule {
   Id?: string;
 
   /**
-   * <p>A unique string that you specified when you created the Resolver rule. <code>CreatorRequestId</code> identifies the request and
-   * 			allows failed requests to be retried without the risk of executing the operation twice. </p>
+   * <p>A unique string that you specified when you created the Resolver rule.
+   * 				<code>CreatorRequestId</code> identifies the request and allows failed requests to
+   * 			be retried without the risk of running the operation twice. </p>
    */
   CreatorRequestId?: string;
 
@@ -1814,8 +1831,8 @@ export interface ResolverRule {
   OwnerId?: string;
 
   /**
-   * <p>Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or
-   * 			another account is sharing the rule with the current account.</p>
+   * <p>Whether the rule is shared and, if so, whether the current account is sharing the rule with
+   * 			another account, or another account is sharing the rule with the current account.</p>
    */
   ShareStatus?: ShareStatus | string;
 
@@ -2498,11 +2515,12 @@ export enum FirewallFailOpenStatus {
 }
 
 /**
- * <p>Configuration of the firewall behavior provided by DNS Firewall for a single Amazon virtual private cloud (VPC). </p>
+ * <p>Configuration of the firewall behavior provided by DNS Firewall for a single VPC from
+ * 			Amazon Virtual Private Cloud (Amazon VPC). </p>
  */
 export interface FirewallConfig {
   /**
-   * <p>The Id of the firewall configuration.</p>
+   * <p>The ID of the firewall configuration.</p>
    */
   Id?: string;
 
@@ -2567,8 +2585,9 @@ export interface FirewallDomainListMetadata {
   Name?: string;
 
   /**
-   * <p>A unique string defined by you to identify the request. This allows you to retry failed requests
-   *            without the risk of executing the operation twice. This can be any unique string, for example, a timestamp. </p>
+   * <p>A unique string defined by you to identify the request. This allows you to retry failed
+   * 			requests without the risk of running the operation twice. This can be any unique string,
+   * 			for example, a timestamp. </p>
    */
   CreatorRequestId?: string;
 
@@ -2620,8 +2639,9 @@ export interface FirewallRuleGroupMetadata {
   OwnerId?: string;
 
   /**
-   * <p>A unique string defined by you to identify the request. This allows you to retry failed requests
-   *            without the risk of executing the operation twice. This can be any unique string, for example, a timestamp. </p>
+   * <p>A unique string defined by you to identify the request. This allows you to retry failed
+   * 			requests without the risk of running the operation twice. This can be any unique string,
+   * 			for example, a timestamp. </p>
    */
   CreatorRequestId?: string;
 
@@ -2643,7 +2663,7 @@ export namespace FirewallRuleGroupMetadata {
 
 export interface GetFirewallConfigRequest {
   /**
-   * <p>The ID of the Amazon virtual private cloud (VPC) that the configuration is for.</p>
+   * <p>The ID of the VPC from Amazon VPC that the configuration is for.</p>
    */
   ResourceId: string | undefined;
 }
@@ -2659,7 +2679,8 @@ export namespace GetFirewallConfigRequest {
 
 export interface GetFirewallConfigResponse {
   /**
-   * <p>Configuration of the firewall behavior provided by DNS Firewall for a single Amazon virtual private cloud (VPC). </p>
+   * <p>Configuration of the firewall behavior provided by DNS Firewall for a single VPC from
+   * 			AmazonVPC. </p>
    */
   FirewallConfig?: FirewallConfig;
 }
@@ -2787,7 +2808,9 @@ export namespace GetFirewallRuleGroupPolicyRequest {
 
 export interface GetFirewallRuleGroupPolicyResponse {
   /**
-   * <p>The AWS Identity and Access Management (AWS IAM) policy for sharing the specified rule group. You can use the policy to share the rule group using AWS Resource Access Manager (RAM). </p>
+   * <p>The AWS Identity and Access Management (AWS IAM) policy for sharing the specified rule
+   * 			group. You can use the policy to share the rule group using AWS Resource Access Manager
+   * 			(AWS RAM). </p>
    */
   FirewallRuleGroupPolicy?: string;
 }
@@ -3147,7 +3170,8 @@ export interface ImportFirewallDomainsRequest {
   Operation: FirewallDomainImportOperation | string | undefined;
 
   /**
-   * <p>The fully qualified URL or URI of the file stored in Amazon Simple Storage Service (S3) that contains the list of domains to import.</p>
+   * <p>The fully qualified URL or URI of the file stored in Amazon Simple Storage Service
+   * 			(Amazon S3) that contains the list of domains to import.</p>
    *          <p>The file must be in an S3 bucket that's in the same Region
    *        as your DNS Firewall. The file must be a text file and must contain a single domain per line.</p>
    */
@@ -3348,7 +3372,8 @@ export interface ListFirewallConfigsResponse {
   NextToken?: string;
 
   /**
-   * <p>The configurations for the firewall behavior provided by DNS Firewall for Amazon virtual private clouds (VPC). </p>
+   * <p>The configurations for the firewall behavior provided by DNS Firewall for VPCs from
+   * 			Amazon Virtual Private Cloud (Amazon VPC). </p>
    */
   FirewallConfigs?: FirewallConfig[];
 }
@@ -3399,7 +3424,8 @@ export interface ListFirewallDomainListsResponse {
 
   /**
    * <p>A list of the domain lists that you have defined.   </p>
-   *          <p>This might be a parital list of the domain lists that you've defined. For information, see <code>MaxResults</code>. </p>
+   *          <p>This might be a partial list of the domain lists that you've defined. For information,
+   * 			see <code>MaxResults</code>. </p>
    */
   FirewallDomainLists?: FirewallDomainListMetadata[];
 }
@@ -3455,7 +3481,8 @@ export interface ListFirewallDomainsResponse {
 
   /**
    * <p>A list of the domains in the firewall domain list.  </p>
-   *          <p>This might be a parital list of the domains that you've defined in the domain list. For information, see <code>MaxResults</code>. </p>
+   *          <p>This might be a partial list of the domains that you've defined in the domain list. For
+   * 			information, see <code>MaxResults</code>. </p>
    */
   Domains?: string[];
 }
@@ -3483,8 +3510,9 @@ export interface ListFirewallRuleGroupAssociationsRequest {
   VpcId?: string;
 
   /**
-   * <p>The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC. DNS Firewall
-   *            filters VPC traffic starting from rule group with the lowest numeric priority setting. </p>
+   * <p>The setting that determines the processing order of the rule group among the rule
+   * 			groups that are associated with a single VPC. DNS Firewall filters VPC traffic starting
+   * 			from the rule group with the lowest numeric priority setting. </p>
    */
   Priority?: number;
 
@@ -3663,7 +3691,8 @@ export interface ListFirewallRulesResponse {
 
   /**
    * <p>A list of the rules that you have defined.  </p>
-   *          <p>This might be a parital list of the firewall rules that you've defined. For information, see <code>MaxResults</code>. </p>
+   *          <p>This might be a partial list of the firewall rules that you've defined. For information,
+   * 			see <code>MaxResults</code>. </p>
    */
   FirewallRules?: FirewallRule[];
 }
@@ -4698,7 +4727,7 @@ export namespace UntagResourceResponse {
 
 export interface UpdateFirewallConfigRequest {
   /**
-   * <p>The ID of the Amazon virtual private cloud (VPC) that the configuration is for.</p>
+   * <p>The ID of the VPC that the configuration is for.</p>
    */
   ResourceId: string | undefined;
 
@@ -4730,7 +4759,7 @@ export namespace UpdateFirewallConfigRequest {
 
 export interface UpdateFirewallConfigResponse {
   /**
-   * <p>Configuration of the firewall behavior provided by DNS Firewall for a single Amazon virtual private cloud (VPC). </p>
+   * <p>Configuration of the firewall behavior provided by DNS Firewall for a single VPC. </p>
    */
   FirewallConfig?: FirewallConfig;
 }
@@ -4801,7 +4830,7 @@ export namespace UpdateFirewallDomainsRequest {
 
 export interface UpdateFirewallDomainsResponse {
   /**
-   * <p>The Id of the firewall domain list that DNS Firewall just updated.</p>
+   * <p>The ID of the firewall domain list that DNS Firewall just updated.</p>
    */
   Id?: string;
 
@@ -4941,8 +4970,9 @@ export interface UpdateFirewallRuleGroupAssociationRequest {
   FirewallRuleGroupAssociationId: string | undefined;
 
   /**
-   * <p>The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall
-   *            filters VPC traffic starting from rule group with the lowest numeric priority setting. </p>
+   * <p>The setting that determines the processing order of the rule group among the rule
+   * 			groups that you associate with the specified VPC. DNS Firewall filters VPC traffic
+   * 			starting from the rule group with the lowest numeric priority setting. </p>
    *          <p>You must specify a unique priority for each rule group that you associate with a single VPC.
    *            To make it easier to insert rule groups later, leave space between the numbers, for example, use 100, 200, and so on. You
    *    can change the priority setting for a rule group association after you create it.</p>

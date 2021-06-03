@@ -88,6 +88,10 @@ import {
   ListSolutionVersionsCommandOutput,
 } from "./commands/ListSolutionVersionsCommand";
 import { ListSolutionsCommandInput, ListSolutionsCommandOutput } from "./commands/ListSolutionsCommand";
+import {
+  StopSolutionVersionCreationCommandInput,
+  StopSolutionVersionCreationCommandOutput,
+} from "./commands/StopSolutionVersionCreationCommand";
 import { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "./commands/UpdateCampaignCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -186,6 +190,7 @@ export type ServiceInputTypes =
   | ListSchemasCommandInput
   | ListSolutionVersionsCommandInput
   | ListSolutionsCommandInput
+  | StopSolutionVersionCreationCommandInput
   | UpdateCampaignCommandInput;
 
 export type ServiceOutputTypes =
@@ -234,6 +239,7 @@ export type ServiceOutputTypes =
   | ListSchemasCommandOutput
   | ListSolutionVersionsCommandOutput
   | ListSolutionsCommandOutput
+  | StopSolutionVersionCreationCommandOutput
   | UpdateCampaignCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

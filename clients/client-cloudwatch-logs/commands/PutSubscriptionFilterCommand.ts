@@ -45,10 +45,9 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  *           for same-account delivery.</p>
  *             </li>
  *          </ul>
- *          <p>There can only be one subscription filter associated with a log group. If you are
+ *          <p>Each log group can have up to two subscription filters associated with it. If you are
  *       updating an existing filter, you must specify the correct name in <code>filterName</code>.
- *       Otherwise, the call fails because you cannot associate a second filter with a log
- *       group.</p>
+ *       </p>
  *          <p>To perform a <code>PutSubscriptionFilter</code> operation, you must also have the
  *       <code>iam:PassRole</code> permission.</p>
  * @example

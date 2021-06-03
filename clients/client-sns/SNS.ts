@@ -24,6 +24,11 @@ import {
   CreatePlatformEndpointCommandInput,
   CreatePlatformEndpointCommandOutput,
 } from "./commands/CreatePlatformEndpointCommand";
+import {
+  CreateSMSSandboxPhoneNumberCommand,
+  CreateSMSSandboxPhoneNumberCommandInput,
+  CreateSMSSandboxPhoneNumberCommandOutput,
+} from "./commands/CreateSMSSandboxPhoneNumberCommand";
 import { CreateTopicCommand, CreateTopicCommandInput, CreateTopicCommandOutput } from "./commands/CreateTopicCommand";
 import {
   DeleteEndpointCommand,
@@ -35,6 +40,11 @@ import {
   DeletePlatformApplicationCommandInput,
   DeletePlatformApplicationCommandOutput,
 } from "./commands/DeletePlatformApplicationCommand";
+import {
+  DeleteSMSSandboxPhoneNumberCommand,
+  DeleteSMSSandboxPhoneNumberCommandInput,
+  DeleteSMSSandboxPhoneNumberCommandOutput,
+} from "./commands/DeleteSMSSandboxPhoneNumberCommand";
 import { DeleteTopicCommand, DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand";
 import {
   GetEndpointAttributesCommand,
@@ -52,6 +62,11 @@ import {
   GetSMSAttributesCommandOutput,
 } from "./commands/GetSMSAttributesCommand";
 import {
+  GetSMSSandboxAccountStatusCommand,
+  GetSMSSandboxAccountStatusCommandInput,
+  GetSMSSandboxAccountStatusCommandOutput,
+} from "./commands/GetSMSSandboxAccountStatusCommand";
+import {
   GetSubscriptionAttributesCommand,
   GetSubscriptionAttributesCommandInput,
   GetSubscriptionAttributesCommandOutput,
@@ -67,6 +82,11 @@ import {
   ListEndpointsByPlatformApplicationCommandOutput,
 } from "./commands/ListEndpointsByPlatformApplicationCommand";
 import {
+  ListOriginationNumbersCommand,
+  ListOriginationNumbersCommandInput,
+  ListOriginationNumbersCommandOutput,
+} from "./commands/ListOriginationNumbersCommand";
+import {
   ListPhoneNumbersOptedOutCommand,
   ListPhoneNumbersOptedOutCommandInput,
   ListPhoneNumbersOptedOutCommandOutput,
@@ -76,6 +96,11 @@ import {
   ListPlatformApplicationsCommandInput,
   ListPlatformApplicationsCommandOutput,
 } from "./commands/ListPlatformApplicationsCommand";
+import {
+  ListSMSSandboxPhoneNumbersCommand,
+  ListSMSSandboxPhoneNumbersCommandInput,
+  ListSMSSandboxPhoneNumbersCommandOutput,
+} from "./commands/ListSMSSandboxPhoneNumbersCommand";
 import {
   ListSubscriptionsByTopicCommand,
   ListSubscriptionsByTopicCommandInput,
@@ -136,6 +161,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  VerifySMSSandboxPhoneNumberCommand,
+  VerifySMSSandboxPhoneNumberCommandInput,
+  VerifySMSSandboxPhoneNumberCommandOutput,
+} from "./commands/VerifySMSSandboxPhoneNumberCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -143,11 +173,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *         <p>Amazon Simple Notification Service (Amazon SNS) is a web service that enables you to build
  *             distributed web-enabled applications. Applications can use Amazon SNS to easily push
  *             real-time notification messages to interested subscribers over multiple delivery
- *             protocols. For more information about this product see the <a href="http://aws.amazon.com/sns/">Amazon SNS product page</a>. For detailed information about Amazon SNS
- *             features and their associated API calls, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/">Amazon SNS Developer Guide</a>. </p>
- *         <p>For information on the permissions you need to use this API, see
- *             <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-authentication-and-access-control.html">Identity and
- *                 access management in Amazon SNS</a> in the <i>Amazon SNS Developer Guide.</i>
+ *             protocols. For more information about this product see the <a href="http://aws.amazon.com/sns/">Amazon SNS product page</a>. For detailed information about Amazon SNS features
+ *             and their associated API calls, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/">Amazon SNS Developer Guide</a>. </p>
+ *         <p>For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-authentication-and-access-control.html">Identity and access management in Amazon SNS</a> in the <i>Amazon SNS Developer
+ *                 Guide.</i>
  *          </p>
  *         <p>We also provide SDKs that enable you to access Amazon SNS from your preferred programming
  *             language. The SDKs contain functionality that automatically takes care of tasks such as:
@@ -261,10 +290,11 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Creates a platform application object for one of the supported push notification services,
-   *             such as APNS and GCM (Firebase Cloud Messaging), to which devices and mobile apps may register.
-   *             You must specify <code>PlatformPrincipal</code> and <code>PlatformCredential</code> attributes
-   *             when using the <code>CreatePlatformApplication</code> action.</p>
+   * <p>Creates a platform application object for one of the supported push notification
+   *             services, such as APNS and GCM (Firebase Cloud Messaging), to which devices and mobile
+   *             apps may register. You must specify <code>PlatformPrincipal</code> and
+   *                 <code>PlatformCredential</code> attributes when using the
+   *                 <code>CreatePlatformApplication</code> action.</p>
    *         <p>
    *             <code>PlatformPrincipal</code> and <code>PlatformCredential</code> are received from
    *             the notification service.</p>
@@ -376,10 +406,51 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * <p>Adds a destination phone number to an AWS account in the SMS sandbox and sends a
+   *             one-time password (OTP) to that phone number.</p>
+   *         <p>When you start using Amazon SNS to send SMS messages, your AWS account is in the
+   *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
+   *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
+   *                 account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
+   *                 SMS messages only to verified destination phone numbers. For more information, including how to
+   *                 move out of the sandbox to send messages without restrictions,
+   *                 see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in
+   *                 the <i>Amazon SNS Developer Guide</i>.</p>
+   */
+  public createSMSSandboxPhoneNumber(
+    args: CreateSMSSandboxPhoneNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSMSSandboxPhoneNumberCommandOutput>;
+  public createSMSSandboxPhoneNumber(
+    args: CreateSMSSandboxPhoneNumberCommandInput,
+    cb: (err: any, data?: CreateSMSSandboxPhoneNumberCommandOutput) => void
+  ): void;
+  public createSMSSandboxPhoneNumber(
+    args: CreateSMSSandboxPhoneNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSMSSandboxPhoneNumberCommandOutput) => void
+  ): void;
+  public createSMSSandboxPhoneNumber(
+    args: CreateSMSSandboxPhoneNumberCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSMSSandboxPhoneNumberCommandOutput) => void),
+    cb?: (err: any, data?: CreateSMSSandboxPhoneNumberCommandOutput) => void
+  ): Promise<CreateSMSSandboxPhoneNumberCommandOutput> | void {
+    const command = new CreateSMSSandboxPhoneNumberCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a topic to which notifications can be published. Users can create at most
-   *             100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href="http://aws.amazon.com/sns/">https://aws.amazon.com/sns</a>. This action is idempotent, so if the requester
-   *             already owns a topic with the specified name, that topic's ARN is returned without
-   *             creating a new topic.</p>
+   *             100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href="http://aws.amazon.com/sns/">https://aws.amazon.com/sns</a>. This action is
+   *             idempotent, so if the requester already owns a topic with the specified name, that
+   *             topic's ARN is returned without creating a new topic.</p>
    */
   public createTopic(args: CreateTopicCommandInput, options?: __HttpHandlerOptions): Promise<CreateTopicCommandOutput>;
   public createTopic(args: CreateTopicCommandInput, cb: (err: any, data?: CreateTopicCommandOutput) => void): void;
@@ -465,6 +536,46 @@ export class SNS extends SNSClient {
     cb?: (err: any, data?: DeletePlatformApplicationCommandOutput) => void
   ): Promise<DeletePlatformApplicationCommandOutput> | void {
     const command = new DeletePlatformApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an AWS account's verified or pending phone number from the SMS sandbox.</p>
+   *         <p>When you start using Amazon SNS to send SMS messages, your AWS account is in the
+   *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
+   *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
+   *                 account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
+   *                 SMS messages only to verified destination phone numbers. For more information, including how to
+   *                 move out of the sandbox to send messages without restrictions,
+   *                 see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in
+   *                 the <i>Amazon SNS Developer Guide</i>.</p>
+   */
+  public deleteSMSSandboxPhoneNumber(
+    args: DeleteSMSSandboxPhoneNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSMSSandboxPhoneNumberCommandOutput>;
+  public deleteSMSSandboxPhoneNumber(
+    args: DeleteSMSSandboxPhoneNumberCommandInput,
+    cb: (err: any, data?: DeleteSMSSandboxPhoneNumberCommandOutput) => void
+  ): void;
+  public deleteSMSSandboxPhoneNumber(
+    args: DeleteSMSSandboxPhoneNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSMSSandboxPhoneNumberCommandOutput) => void
+  ): void;
+  public deleteSMSSandboxPhoneNumber(
+    args: DeleteSMSSandboxPhoneNumberCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSMSSandboxPhoneNumberCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSMSSandboxPhoneNumberCommandOutput) => void
+  ): Promise<DeleteSMSSandboxPhoneNumberCommandOutput> | void {
+    const command = new DeleteSMSSandboxPhoneNumberCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -606,6 +717,47 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * <p>Retrieves the SMS sandbox status for the calling AWS account in the target AWS
+   *             Region.</p>
+   *         <p>When you start using Amazon SNS to send SMS messages, your AWS account is in the
+   *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
+   *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
+   *                 account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
+   *                 SMS messages only to verified destination phone numbers. For more information, including how to
+   *                 move out of the sandbox to send messages without restrictions,
+   *                 see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in
+   *                 the <i>Amazon SNS Developer Guide</i>.</p>
+   */
+  public getSMSSandboxAccountStatus(
+    args: GetSMSSandboxAccountStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSMSSandboxAccountStatusCommandOutput>;
+  public getSMSSandboxAccountStatus(
+    args: GetSMSSandboxAccountStatusCommandInput,
+    cb: (err: any, data?: GetSMSSandboxAccountStatusCommandOutput) => void
+  ): void;
+  public getSMSSandboxAccountStatus(
+    args: GetSMSSandboxAccountStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSMSSandboxAccountStatusCommandOutput) => void
+  ): void;
+  public getSMSSandboxAccountStatus(
+    args: GetSMSSandboxAccountStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSMSSandboxAccountStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetSMSSandboxAccountStatusCommandOutput) => void
+  ): Promise<GetSMSSandboxAccountStatusCommandOutput> | void {
+    const command = new GetSMSSandboxAccountStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns all of the properties of a subscription.</p>
    */
   public getSubscriptionAttributes(
@@ -712,6 +864,40 @@ export class SNS extends SNSClient {
   }
 
   /**
+   * <p>Lists the calling AWS account's dedicated origination numbers and their metadata. For
+   *             more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer
+   *             Guide</i>.</p>
+   */
+  public listOriginationNumbers(
+    args: ListOriginationNumbersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOriginationNumbersCommandOutput>;
+  public listOriginationNumbers(
+    args: ListOriginationNumbersCommandInput,
+    cb: (err: any, data?: ListOriginationNumbersCommandOutput) => void
+  ): void;
+  public listOriginationNumbers(
+    args: ListOriginationNumbersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOriginationNumbersCommandOutput) => void
+  ): void;
+  public listOriginationNumbers(
+    args: ListOriginationNumbersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOriginationNumbersCommandOutput) => void),
+    cb?: (err: any, data?: ListOriginationNumbersCommandOutput) => void
+  ): Promise<ListOriginationNumbersCommandOutput> | void {
+    const command = new ListOriginationNumbersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS
    *             messages to them.</p>
    *         <p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page
@@ -781,6 +967,47 @@ export class SNS extends SNSClient {
     cb?: (err: any, data?: ListPlatformApplicationsCommandOutput) => void
   ): Promise<ListPlatformApplicationsCommandOutput> | void {
     const command = new ListPlatformApplicationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the calling AWS account's current verified and pending destination phone numbers
+   *             in the SMS sandbox.</p>
+   *         <p>When you start using Amazon SNS to send SMS messages, your AWS account is in the
+   *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
+   *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
+   *                 account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
+   *                 SMS messages only to verified destination phone numbers. For more information, including how to
+   *                 move out of the sandbox to send messages without restrictions,
+   *                 see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in
+   *                 the <i>Amazon SNS Developer Guide</i>.</p>
+   */
+  public listSMSSandboxPhoneNumbers(
+    args: ListSMSSandboxPhoneNumbersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSMSSandboxPhoneNumbersCommandOutput>;
+  public listSMSSandboxPhoneNumbers(
+    args: ListSMSSandboxPhoneNumbersCommandInput,
+    cb: (err: any, data?: ListSMSSandboxPhoneNumbersCommandOutput) => void
+  ): void;
+  public listSMSSandboxPhoneNumbers(
+    args: ListSMSSandboxPhoneNumbersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSMSSandboxPhoneNumbersCommandOutput) => void
+  ): void;
+  public listSMSSandboxPhoneNumbers(
+    args: ListSMSSandboxPhoneNumbersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSMSSandboxPhoneNumbersCommandOutput) => void),
+    cb?: (err: any, data?: ListSMSSandboxPhoneNumbersCommandOutput) => void
+  ): Promise<ListSMSSandboxPhoneNumbersCommandOutput> | void {
+    const command = new ListSMSSandboxPhoneNumbersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -864,9 +1091,8 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>List all tags added to the specified Amazon SNS topic. For an overview, see
-   *             <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
-   *             <i>Amazon Simple Notification Service Developer Guide</i>.</p>
+   * <p>List all tags added to the specified Amazon SNS topic. For an overview, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
+   *                 <i>Amazon Simple Notification Service Developer Guide</i>.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -978,7 +1204,8 @@ export class SNS extends SNSClient {
    *         <p>For more information about formatting messages, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom
    *                 Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
    *         <important>
-   *             <p>You can publish messages only to topics and endpoints in the same AWS Region.</p>
+   *             <p>You can publish messages only to topics and endpoints in the same AWS
+   *                 Region.</p>
    *         </important>
    */
   public publish(args: PublishCommandInput, options?: __HttpHandlerOptions): Promise<PublishCommandOutput>;
@@ -1111,11 +1338,12 @@ export class SNS extends SNSClient {
    *             daily SMS usage reports.</p>
    *         <p>You can override some of these settings for a single message when you use the
    *                 <code>Publish</code> action with the <code>MessageAttributes.entry.N</code>
-   *             parameter. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing to a mobile phone</a> in the
-   *                 <i>Amazon SNS Developer Guide</i>.</p>
+   *             parameter. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing to a mobile phone</a>
+   *             in the <i>Amazon SNS Developer Guide</i>.</p>
    *         <note>
-   *             <p>To use this operation, you must grant the Amazon SNS service principal (<code>sns.amazonaws.com</code>)
-   *                 permission to perform the <code>s3:ListBucket</code> action. </p>
+   *             <p>To use this operation, you must grant the Amazon SNS service principal
+   *                     (<code>sns.amazonaws.com</code>) permission to perform the
+   *                     <code>s3:ListBucket</code> action. </p>
    *         </note>
    */
   public setSMSAttributes(
@@ -1216,8 +1444,8 @@ export class SNS extends SNSClient {
    * <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or
    *             if the endpoint and the topic are not in the same AWS account, the endpoint owner must
    *             run the <code>ConfirmSubscription</code> action to confirm the subscription.</p>
-   *          <p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response.
-   *       Confirmation tokens are valid for three days.</p>
+   *         <p>You call the <code>ConfirmSubscription</code> action with the token from the
+   *             subscription response. Confirmation tokens are valid for three days.</p>
    *         <p>This action is throttled at 100 transactions per second (TPS).</p>
    */
   public subscribe(args: SubscribeCommandInput, options?: __HttpHandlerOptions): Promise<SubscribeCommandOutput>;
@@ -1244,9 +1472,8 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Add tags to the specified Amazon SNS topic. For an overview, see
-   *             <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
-   *             <i>Amazon SNS Developer Guide</i>.</p>
+   * <p>Add tags to the specified Amazon SNS topic. For an overview, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
+   *                 <i>Amazon SNS Developer Guide</i>.</p>
    *         <p>When you use topic tags, keep the following guidelines in mind:</p>
    *         <ul>
    *             <li>
@@ -1264,8 +1491,8 @@ export class SNS extends SNSClient {
    *                     existing tag.</p>
    *             </li>
    *             <li>
-   *                 <p>Tagging actions are limited to 10 TPS per AWS account, per AWS region. If your application
-   *                     requires a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical support request</a>.</p>
+   *                 <p>Tagging actions are limited to 10 TPS per AWS account, per AWS region. If your
+   *                     application requires a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical support request</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -1325,9 +1552,8 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Remove tags from the specified Amazon SNS topic. For an overview, see
-   *             <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
-   *             <i>Amazon SNS Developer Guide</i>.</p>
+   * <p>Remove tags from the specified Amazon SNS topic. For an overview, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
+   *                 <i>Amazon SNS Developer Guide</i>.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1348,6 +1574,47 @@ export class SNS extends SNSClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Verifies a destination phone number with a one-time password (OTP) for the calling AWS
+   *             account.</p>
+   *         <p>When you start using Amazon SNS to send SMS messages, your AWS account is in the
+   *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
+   *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
+   *                 account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send
+   *                 SMS messages only to verified destination phone numbers. For more information, including how to
+   *                 move out of the sandbox to send messages without restrictions,
+   *                 see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in
+   *                 the <i>Amazon SNS Developer Guide</i>.</p>
+   */
+  public verifySMSSandboxPhoneNumber(
+    args: VerifySMSSandboxPhoneNumberCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<VerifySMSSandboxPhoneNumberCommandOutput>;
+  public verifySMSSandboxPhoneNumber(
+    args: VerifySMSSandboxPhoneNumberCommandInput,
+    cb: (err: any, data?: VerifySMSSandboxPhoneNumberCommandOutput) => void
+  ): void;
+  public verifySMSSandboxPhoneNumber(
+    args: VerifySMSSandboxPhoneNumberCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: VerifySMSSandboxPhoneNumberCommandOutput) => void
+  ): void;
+  public verifySMSSandboxPhoneNumber(
+    args: VerifySMSSandboxPhoneNumberCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: VerifySMSSandboxPhoneNumberCommandOutput) => void),
+    cb?: (err: any, data?: VerifySMSSandboxPhoneNumberCommandOutput) => void
+  ): Promise<VerifySMSSandboxPhoneNumberCommandOutput> | void {
+    const command = new VerifySMSSandboxPhoneNumberCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

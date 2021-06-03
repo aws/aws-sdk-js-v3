@@ -154,7 +154,7 @@ export interface CreateExportTaskRequest {
   from: number | undefined;
 
   /**
-   * <p>The end time of the range for the request, expressed as the number of milliseconds
+   * <p>The end time of the range for the request, expreswatchlogsdocused as the number of milliseconds
    *       after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not
    *       exported.</p>
    */
@@ -853,9 +853,9 @@ export interface DescribeLogStreamsRequest {
    *       The default value is <code>LogStreamName</code>.</p>
    *          <p>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code> parameter.</p>
    *          <p>
-   *             <code>lastEventTimeStamp</code> represents the time of the most recent log event in the
+   *             <code>lastEventTimestamp</code> represents the time of the most recent log event in the
    *       log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after
-   *       Jan 1, 1970 00:00:00 UTC. <code>lastEventTimeStamp</code> updates on an eventual consistency
+   *       Jan 1, 1970 00:00:00 UTC. <code>lastEventTimestamp</code> updates on an eventual consistency
    *       basis. It typically updates in less than an hour from ingestion, but in rare situations might
    *       take longer.</p>
    */
@@ -1021,6 +1021,36 @@ export namespace DescribeMetricFiltersRequest {
   });
 }
 
+export enum StandardUnit {
+  Bits = "Bits",
+  BitsSecond = "Bits/Second",
+  Bytes = "Bytes",
+  BytesSecond = "Bytes/Second",
+  Count = "Count",
+  CountSecond = "Count/Second",
+  Gigabits = "Gigabits",
+  GigabitsSecond = "Gigabits/Second",
+  Gigabytes = "Gigabytes",
+  GigabytesSecond = "Gigabytes/Second",
+  Kilobits = "Kilobits",
+  KilobitsSecond = "Kilobits/Second",
+  Kilobytes = "Kilobytes",
+  KilobytesSecond = "Kilobytes/Second",
+  Megabits = "Megabits",
+  MegabitsSecond = "Megabits/Second",
+  Megabytes = "Megabytes",
+  MegabytesSecond = "Megabytes/Second",
+  Microseconds = "Microseconds",
+  Milliseconds = "Milliseconds",
+  None = "None",
+  Percent = "Percent",
+  Seconds = "Seconds",
+  Terabits = "Terabits",
+  TerabitsSecond = "Terabits/Second",
+  Terabytes = "Terabytes",
+  TerabytesSecond = "Terabytes/Second",
+}
+
 /**
  * <p>Indicates how to transform ingested log events to metric data in a CloudWatch
  *       metric.</p>
@@ -1047,6 +1077,33 @@ export interface MetricTransformation {
    *       This value can be null.</p>
    */
   defaultValue?: number;
+
+  /**
+   * <p>The fields to use as dimensions for the metric. One metric filter can include
+   *     as many as three dimensions.</p>
+   *          <important>
+   *             <p>Metrics extracted from log events are charged as custom metrics.
+   *       To prevent unexpected high charges, do not specify high-cardinality fields such as
+   *       <code>IPAddress</code> or <code>requestID</code> as dimensions. Each different value
+   *       found for
+   *       a dimension is treated as a separate metric and accrues charges as a separate custom metric.
+   *     </p>
+   *             <p>To help prevent accidental high charges, Amazon disables a metric filter
+   *         if it generates 1000 different name/value pairs for the dimensions that you
+   *         have specified within a certain amount of time.</p>
+   *             <p>You can also set up a billing alarm to alert you if your charges are higher than
+   *         expected. For more information,
+   *         see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html">
+   *           Creating a Billing Alarm to Monitor Your Estimated AWS Charges</a>.
+   *        </p>
+   *          </important>
+   */
+  dimensions?: { [key: string]: string };
+
+  /**
+   * <p>The unit to assign to the metric. If you omit this, the unit is set as <code>None</code>.</p>
+   */
+  unit?: StandardUnit | string;
 }
 
 export namespace MetricTransformation {
@@ -1128,6 +1185,8 @@ export enum QueryStatus {
   Failed = "Failed",
   Running = "Running",
   Scheduled = "Scheduled",
+  Timeout = "Timeout",
+  Unknown = "Unknown",
 }
 
 export interface DescribeQueriesRequest {
@@ -1573,8 +1632,6 @@ export interface FilterLogEventsRequest {
   /**
    * <p>The start of the time range, expressed as the number of milliseconds after Jan 1, 1970
    *       00:00:00 UTC. Events with a timestamp before this time are not returned.</p>
-   *          <p>If you omit <code>startTime</code> and <code>endTime</code> the most recent log events
-   *     are retrieved, to up 1 MB or 10,000 log events.</p>
    */
   startTime?: number;
 
@@ -1801,9 +1858,9 @@ export interface GetLogGroupFieldsRequest {
   logGroupName: string | undefined;
 
   /**
-   * <p>The time to set as the center of the query. If you specify <code>time</code>, the 8
-   *       minutes before and 8 minutes after this time are searched. If you omit <code>time</code>, the
-   *       past 15 minutes are queried.</p>
+   * <p>The time to set as the center of the query. If you specify <code>time</code>, the 15 minutes
+   *        before this time are queries. If you omit <code>time</code> the 8
+   *       minutes before and 8 minutes after this time are searched.</p>
    *          <p>The <code>time</code> value is specified as epoch time, the number of seconds since
    *       January 1, 1970, 00:00:00 UTC.</p>
    */
@@ -2430,8 +2487,7 @@ export interface PutSubscriptionFilterRequest {
 
   /**
    * <p>A name for the subscription filter. If you are updating an existing filter, you must
-   *       specify the correct name in <code>filterName</code>. Otherwise, the call fails because you
-   *       cannot associate a second filter with a log group. To find the name of the filter currently
+   *       specify the correct name in <code>filterName</code>. To find the name of the filter currently
    *       associated with a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html">DescribeSubscriptionFilters</a>.</p>
    */
   filterName: string | undefined;
@@ -2452,6 +2508,9 @@ export interface PutSubscriptionFilterRequest {
    *             <li>
    *                <p>A logical destination (specified using an ARN) belonging to a different account,
    *           for cross-account delivery.</p>
+   *                <p>If you are setting up a cross-account subscription, the destination must have an
+   *         IAM policy associated with it that allows the sender to send logs to the destination.
+   *         For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html">PutDestinationPolicy</a>.</p>
    *             </li>
    *             <li>
    *                <p>An Amazon Kinesis Firehose delivery stream belonging to the same account as the

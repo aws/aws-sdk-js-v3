@@ -21,7 +21,7 @@ export interface DescribeLifecycleHooksCommandInput extends DescribeLifecycleHoo
 export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHooksAnswer, __MetadataBearer {}
 
 /**
- * <p>Describes the lifecycle hooks for the specified Auto Scaling group.</p>
+ * <p>Gets information about the lifecycle hooks for the specified Auto Scaling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

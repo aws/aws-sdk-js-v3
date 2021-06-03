@@ -196,7 +196,7 @@ export namespace InternalServerError {
 
 export interface AddCommunicationToCaseRequest {
   /**
-   * <p>The AWS Support case ID requested or returned in the call. The case ID is an
+   * <p>The support case ID requested or returned in the call. The case ID is an
    *             alphanumeric string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
    *         </p>
@@ -251,7 +251,7 @@ export namespace AddCommunicationToCaseResponse {
 }
 
 /**
- * <p>The requested <code>caseId</code> could not be located.</p>
+ * <p>The requested <code>caseId</code> couldn't be located.</p>
  */
 export interface CaseIdNotFound extends __SmithyException, $MetadataBearer {
   name: "CaseIdNotFound";
@@ -341,7 +341,7 @@ export namespace CaseCreationLimitExceeded {
 
 export interface CreateCaseRequest {
   /**
-   * <p>The title of the AWS Support case. The title appears in the <b>Subject</b> field on the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
+   * <p>The title of the support case. The title appears in the <b>Subject</b> field on the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.</p>
    */
   subject: string | undefined;
 
@@ -365,7 +365,7 @@ export interface CreateCaseRequest {
   severityCode?: string;
 
   /**
-   * <p>The category of problem for the AWS Support case. You also use the <a>DescribeServices</a> operation to get the category code for a service. Each
+   * <p>The category of problem for the support case. You also use the <a>DescribeServices</a> operation to get the category code for a service. Each
    *             AWS service defines its own set of category codes.</p>
    */
   categoryCode?: string;
@@ -415,11 +415,11 @@ export namespace CreateCaseRequest {
 }
 
 /**
- * <p>The AWS Support case ID returned by a successful completion of the <a>CreateCase</a> operation.</p>
+ * <p>The support case ID returned by a successful completion of the <a>CreateCase</a> operation.</p>
  */
 export interface CreateCaseResponse {
   /**
-   * <p>The AWS Support case ID requested or returned in the call. The case ID is an
+   * <p>The support case ID requested or returned in the call. The case ID is an
    *             alphanumeric string in the following format:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
    *         </p>
@@ -547,7 +547,7 @@ export interface DescribeCasesRequest {
 
   /**
    * <p>Specifies whether to include communications in the <code>DescribeCases</code>
-   *             response. By default, communications are incuded.</p>
+   *             response. By default, communications are included.</p>
    */
   includeCommunications?: boolean;
 }
@@ -562,13 +562,13 @@ export namespace DescribeCasesRequest {
 }
 
 /**
- * <p>A communication associated with an AWS Support case. The communication consists of the
+ * <p>A communication associated with a support case. The communication consists of the
  *             case ID, the message body, attachment information, the submitter of the communication,
  *             and the date and time of the communication.</p>
  */
 export interface Communication {
   /**
-   * <p>The AWS Support case ID requested or returned in the call. The case ID is an
+   * <p>The support case ID requested or returned in the call. The case ID is an
    *             alphanumeric string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
    *         </p>
@@ -583,8 +583,8 @@ export interface Communication {
   /**
    * <p>The identity of the account that submitted, or responded to, the support case.
    *             Customer entries include the role or IAM user as well as the email address. For example,
-   *             "AdminRole (Role) <someone@example.com>. Entries from the AWS Support team display
-   *             "Amazon Web Services," and do not show an email address.
+   *             "AdminRole (Role) <janedoe@example.com>. Entries from the AWS Support team display
+   *             "Amazon Web Services," and don't show an email address.
    *             </p>
    */
   submittedBy?: string;
@@ -639,56 +639,55 @@ export namespace RecentCaseCommunications {
  *         <ul>
  *             <li>
  *                 <p>
- *                     <b>caseId.</b> The AWS Support case ID requested or
+ *                     <b>caseId</b> - The support case ID requested or
  *                     returned in the call. The case ID is an alphanumeric string formatted as shown
  *                     in this example:
  *                     case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>.</p>
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>categoryCode.</b> The category of problem for the
- *                     AWS Support case. Corresponds to the CategoryCode values returned by a call to
+ *                     <b>categoryCode</b> - The category of problem for the
+ *                     support case. Corresponds to the <code>CategoryCode</code> values returned by a call to
  *                         <a>DescribeServices</a>.</p>
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>displayId.</b> The identifier for the case on pages
+ *                     <b>displayId</b> - The identifier for the case on pages
  *                     in the AWS Support Center.</p>
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>language.</b> The ISO 639-1 code for the language
+ *                     <b>language</b> - The ISO 639-1 code for the language
  *                     in which AWS provides support. AWS Support currently supports English ("en") and
  *                     Japanese ("ja"). Language parameters must be passed explicitly for operations
  *                     that take them.</p>
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>nextToken.</b> A resumption point for
+ *                     <b>nextToken</b> - A resumption point for
  *                     pagination.</p>
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>recentCommunications.</b> One or more <a>Communication</a> objects. Fields of these objects are
+ *                     <b>recentCommunications</b> - One or more <a>Communication</a> objects. Fields of these objects are
  *                         <code>attachments</code>, <code>body</code>, <code>caseId</code>,
  *                         <code>submittedBy</code>, and <code>timeCreated</code>.</p>
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>serviceCode.</b> The identifier for the AWS service
+ *                     <b>serviceCode</b> - The identifier for the AWS service
  *                     that corresponds to the service code defined in the call to <a>DescribeServices</a>.</p>
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>severityCode.</b> The severity code assigned to the
+ *                     <b>severityCode</b> - The severity code assigned to the
  *                     case. Contains one of the values returned by the call to <a>DescribeSeverityLevels</a>. The possible values are:
  *                         <code>low</code>, <code>normal</code>, <code>high</code>,
  *                         <code>urgent</code>, and <code>critical</code>.</p>
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>status.</b> The status of the case in the AWS
- *                     Support Center. Valid values:</p>
+ *                     <b>status</b> - The status of the case in the AWS Support Center. Valid values:</p>
  *                 <ul>
  *                   <li>
  *                         <p>
@@ -724,23 +723,23 @@ export namespace RecentCaseCommunications {
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>subject.</b> The subject line of the case.</p>
+ *                     <b>subject</b> - The subject line of the case.</p>
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>submittedBy.</b> The email address of the account
+ *                     <b>submittedBy</b> - The email address of the account
  *                     that submitted the case.</p>
  *             </li>
  *             <li>
  *                 <p>
- *                     <b>timeCreated.</b> The time the case was created, in
+ *                     <b>timeCreated</b> - The time the case was created, in
  *                     ISO-8601 format.</p>
  *             </li>
  *          </ul>
  */
 export interface CaseDetails {
   /**
-   * <p>The AWS Support case ID requested or returned in the call. The case ID is an
+   * <p>The support case ID requested or returned in the call. The case ID is an
    *             alphanumeric string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
    *         </p>
@@ -803,7 +802,7 @@ export interface CaseDetails {
   serviceCode?: string;
 
   /**
-   * <p>The category of problem for the AWS Support case.</p>
+   * <p>The category of problem for the support case.</p>
    */
   categoryCode?: string;
 
@@ -879,7 +878,7 @@ export namespace DescribeCasesResponse {
 
 export interface DescribeCommunicationsRequest {
   /**
-   * <p>The AWS Support case ID requested or returned in the call. The case ID is an
+   * <p>The support case ID requested or returned in the call. The case ID is an
    *             alphanumeric string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
    *         </p>
@@ -1082,30 +1081,30 @@ export interface SeverityLevel {
   /**
    * <p>The name of the severity level that corresponds to the severity level code.</p>
    *         <note>
-   *             <p>The values returned by the API differ from the values that are displayed in the
-   *                 AWS Support Center. For example, for the code "low", the API name is "Low", but the
-   *                 name in the Support Center is "General guidance". These are the Support Center
-   *                 code/name mappings:</p>
+   *             <p>The values returned by the API are different from the values that appear in the
+   *                 AWS Support Center. For example, the API uses the code <code>low</code>, but the name
+   *                 appears as General guidance in Support Center. </p>
+   *             <p>The following are the API code names and how they appear in the console:</p>
    *             <ul>
    *                <li>
    *                     <p>
-   *                      <code>low</code>: General guidance</p>
+   *                      <code>low</code> - General guidance</p>
    *                 </li>
    *                <li>
    *                     <p>
-   *                      <code>normal</code>: System impaired</p>
+   *                      <code>normal</code> - System impaired</p>
    *                 </li>
    *                <li>
    *                     <p>
-   *                      <code>high</code>: Production system impaired</p>
+   *                      <code>high</code> - Production system impaired</p>
    *                 </li>
    *                <li>
    *                     <p>
-   *                      <code>urgent</code>: Production system down</p>
+   *                      <code>urgent</code> - Production system down</p>
    *                 </li>
    *                <li>
    *                     <p>
-   *                      <code>critical</code>: Business-critical system down</p>
+   *                      <code>critical</code> - Business-critical system down</p>
    *                 </li>
    *             </ul>
    *         </note>
@@ -1147,7 +1146,7 @@ export namespace DescribeSeverityLevelsResponse {
 
 export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
   /**
-   * <p>The IDs of the Trusted Advisor checks to get the status of.  </p>
+   * <p>The IDs of the Trusted Advisor checks to get the status.</p>
    *         <note>
    *             <p>If you specify the check ID of a check that is automatically refreshed, you might
    *                 see an <code>InvalidParameterValue</code> error.</p>
@@ -1180,26 +1179,26 @@ export interface TrustedAdvisorCheckRefreshStatus {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>none:</code> The check is not refreshed or the non-success status
+   *                   <code>none</code> - The check is not refreshed or the non-success status
    *                     exceeds the timeout</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>enqueued:</code> The check refresh requests has entered the refresh
+   *                   <code>enqueued</code> - The check refresh requests has entered the refresh
    *                     queue</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>processing:</code> The check refresh request is picked up by the rule
+   *                   <code>processing</code> - The check refresh request is picked up by the rule
    *                     processing engine</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>success:</code> The check is successfully refreshed</p>
+   *                   <code>success</code> - The check is successfully refreshed</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>abandoned:</code> The check refresh has failed</p>
+   *                   <code>abandoned</code> - The check refresh has failed</p>
    *             </li>
    *          </ul>
    */
@@ -1294,8 +1293,7 @@ export namespace TrustedAdvisorCostOptimizingSummary {
 }
 
 /**
- * <p>The container for summary information that relates to the category of the Trusted
- *             Advisor check.</p>
+ * <p>The container for summary information that relates to the category of the Trusted Advisor check.</p>
  */
 export interface TrustedAdvisorCategorySpecificSummary {
   /**
@@ -1324,7 +1322,7 @@ export interface TrustedAdvisorResourceDetail {
   status: string | undefined;
 
   /**
-   * <p>The AWS region in which the identified resource is located.</p>
+   * <p>The AWS Region in which the identified resource is located.</p>
    */
   region?: string;
 
@@ -1627,8 +1625,11 @@ export namespace DescribeTrustedAdvisorCheckSummariesResponse {
  */
 export interface RefreshTrustedAdvisorCheckRequest {
   /**
-   * <p>The unique identifier for the Trusted Advisor check to refresh. <b>Note:</b> Specifying the check ID of a check that is automatically refreshed
-   *             causes an <code>InvalidParameterValue</code> error.</p>
+   * <p>The unique identifier for the Trusted Advisor check to refresh.</p>
+   *             <note>
+   *                 <p>Specifying the check ID of a check that is automatically refreshed
+   *                     causes an <code>InvalidParameterValue</code> error.</p>
+   *             </note>
    */
   checkId: string | undefined;
 }
@@ -1664,7 +1665,7 @@ export namespace RefreshTrustedAdvisorCheckResponse {
 
 export interface ResolveCaseRequest {
   /**
-   * <p>The AWS Support case ID requested or returned in the call. The case ID is an
+   * <p>The support case ID requested or returned in the call. The case ID is an
    *             alphanumeric string formatted as shown in this example:
    *                 case-<i>12345678910-2013-c4c1d2bf33c5cf47</i>
    *         </p>

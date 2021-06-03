@@ -33,7 +33,7 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  *          </note>
  *
  *          <p>This operation requires permissions to perform the
- *         <code>rekognition:CreateCollection</code> action.</p>
+ *       <code>rekognition:CreateCollection</code> action. If you want to tag your collection, you also require permission to perform the <code>rekognition:TagResource</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

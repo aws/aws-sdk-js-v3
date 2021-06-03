@@ -21,7 +21,7 @@ export interface ListEnvironmentsCommandInput extends ListEnvironmentsInput {}
 export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, __MetadataBearer {}
 
 /**
- * <p>List Amazon MWAA Environments.</p>
+ * <p>Lists the Amazon Managed Workflows for Apache Airflow (MWAA) environments.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

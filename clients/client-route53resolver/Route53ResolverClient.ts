@@ -517,9 +517,11 @@ type Route53ResolverClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface Route53ResolverClientResolvedConfig extends Route53ResolverClientResolvedConfigType {}
 
 /**
- * <p>When you create a VPC using Amazon VPC, you automatically get DNS resolution within the VPC from Route 53 Resolver.
- * 			By default, Resolver answers DNS queries for VPC domain names such as domain names for EC2 instances or ELB load balancers.
- * 			Resolver performs recursive lookups against public name servers for all other domain names.</p>
+ * <p>When you create a VPC using Amazon VPC, you automatically get DNS resolution within the VPC
+ * 			from Route 53 Resolver. By default, Resolver answers DNS queries for VPC domain names
+ * 			such as domain names for EC2 instances or Elastic Load Balancing load balancers.
+ * 			Resolver performs recursive lookups against public name servers for all other domain
+ * 			names.</p>
  *
  * 		       <p>You can also configure DNS resolution between your VPC and your network over a Direct Connect or VPN connection:</p>
  *
@@ -545,8 +547,9 @@ export interface Route53ResolverClientResolvedConfig extends Route53ResolverClie
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-vpc-to-network">How Route 53 Resolver
  * 			Forwards DNS Queries from Your VPCs to Your Network</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
  *
- * 		       <p>Like Amazon VPC, Resolver is regional. In each region where you have VPCs, you can choose whether to forward queries from your VPCs
- * 			to your network (outbound queries), from your network to your VPCs (inbound queries), or both.</p>
+ * 		       <p>Like Amazon VPC, Resolver is Regional. In each Region where you have VPCs, you can choose
+ * 			whether to forward queries from your VPCs to your network (outbound queries), from your
+ * 			network to your VPCs (inbound queries), or both.</p>
  */
 export class Route53ResolverClient extends __Client<
   __HttpHandlerOptions,

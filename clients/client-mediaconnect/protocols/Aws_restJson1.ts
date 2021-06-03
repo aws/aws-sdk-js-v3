@@ -1,3 +1,7 @@
+import {
+  AddFlowMediaStreamsCommandInput,
+  AddFlowMediaStreamsCommandOutput,
+} from "../commands/AddFlowMediaStreamsCommand";
 import { AddFlowOutputsCommandInput, AddFlowOutputsCommandOutput } from "../commands/AddFlowOutputsCommand";
 import { AddFlowSourcesCommandInput, AddFlowSourcesCommandOutput } from "../commands/AddFlowSourcesCommand";
 import {
@@ -25,6 +29,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "../commands/PurchaseOfferingCommand";
+import {
+  RemoveFlowMediaStreamCommandInput,
+  RemoveFlowMediaStreamCommandOutput,
+} from "../commands/RemoveFlowMediaStreamCommand";
 import { RemoveFlowOutputCommandInput, RemoveFlowOutputCommandOutput } from "../commands/RemoveFlowOutputCommand";
 import { RemoveFlowSourceCommandInput, RemoveFlowSourceCommandOutput } from "../commands/RemoveFlowSourceCommand";
 import {
@@ -44,23 +52,45 @@ import {
   UpdateFlowEntitlementCommandInput,
   UpdateFlowEntitlementCommandOutput,
 } from "../commands/UpdateFlowEntitlementCommand";
+import {
+  UpdateFlowMediaStreamCommandInput,
+  UpdateFlowMediaStreamCommandOutput,
+} from "../commands/UpdateFlowMediaStreamCommand";
 import { UpdateFlowOutputCommandInput, UpdateFlowOutputCommandOutput } from "../commands/UpdateFlowOutputCommand";
 import { UpdateFlowSourceCommandInput, UpdateFlowSourceCommandOutput } from "../commands/UpdateFlowSourceCommand";
 import {
   AddFlowOutputs420Exception,
+  AddMediaStreamRequest,
   AddOutputRequest,
   BadRequestException,
   CreateFlow420Exception,
+  DestinationConfiguration,
+  DestinationConfigurationRequest,
+  EncodingParameters,
+  EncodingParametersRequest,
   Encryption,
   Entitlement,
   FailoverConfig,
   Flow,
+  Fmtp,
+  FmtpRequest,
   ForbiddenException,
   GrantEntitlementRequest,
   GrantFlowEntitlements420Exception,
+  InputConfiguration,
+  InputConfigurationRequest,
+  Interface,
+  InterfaceRequest,
   InternalServerErrorException,
   ListedEntitlement,
   ListedFlow,
+  MediaStream,
+  MediaStreamAttributes,
+  MediaStreamAttributesRequest,
+  MediaStreamOutputConfiguration,
+  MediaStreamOutputConfigurationRequest,
+  MediaStreamSourceConfiguration,
+  MediaStreamSourceConfigurationRequest,
   Messages,
   NotFoundException,
   Offering,
@@ -89,6 +119,42 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+export const serializeAws_restJson1AddFlowMediaStreamsCommand = async (
+  input: AddFlowMediaStreamsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/v1/flows/{FlowArn}/mediaStreams";
+  if (input.FlowArn !== undefined) {
+    const labelValue: string = input.FlowArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FlowArn.");
+    }
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FlowArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.MediaStreams !== undefined &&
+      input.MediaStreams !== null && {
+        mediaStreams: serializeAws_restJson1__listOfAddMediaStreamRequest(input.MediaStreams, context),
+      }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1AddFlowOutputsCommand = async (
   input: AddFlowOutputsCommandInput,
@@ -209,6 +275,10 @@ export const serializeAws_restJson1CreateFlowCommand = async (
     ...(input.Entitlements !== undefined &&
       input.Entitlements !== null && {
         entitlements: serializeAws_restJson1__listOfGrantEntitlementRequest(input.Entitlements, context),
+      }),
+    ...(input.MediaStreams !== undefined &&
+      input.MediaStreams !== null && {
+        mediaStreams: serializeAws_restJson1__listOfAddMediaStreamRequest(input.MediaStreams, context),
       }),
     ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
     ...(input.Outputs !== undefined &&
@@ -539,6 +609,43 @@ export const serializeAws_restJson1PurchaseOfferingCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1RemoveFlowMediaStreamCommand = async (
+  input: RemoveFlowMediaStreamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/v1/flows/{FlowArn}/mediaStreams/{MediaStreamName}";
+  if (input.FlowArn !== undefined) {
+    const labelValue: string = input.FlowArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FlowArn.");
+    }
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FlowArn.");
+  }
+  if (input.MediaStreamName !== undefined) {
+    const labelValue: string = input.MediaStreamName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MediaStreamName.");
+    }
+    resolvedPath = resolvedPath.replace("{MediaStreamName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MediaStreamName.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
     headers,
     path: resolvedPath,
     body,
@@ -901,6 +1008,56 @@ export const serializeAws_restJson1UpdateFlowEntitlementCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateFlowMediaStreamCommand = async (
+  input: UpdateFlowMediaStreamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/v1/flows/{FlowArn}/mediaStreams/{MediaStreamName}";
+  if (input.FlowArn !== undefined) {
+    const labelValue: string = input.FlowArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FlowArn.");
+    }
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FlowArn.");
+  }
+  if (input.MediaStreamName !== undefined) {
+    const labelValue: string = input.MediaStreamName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MediaStreamName.");
+    }
+    resolvedPath = resolvedPath.replace("{MediaStreamName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MediaStreamName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Attributes !== undefined &&
+      input.Attributes !== null && {
+        attributes: serializeAws_restJson1MediaStreamAttributesRequest(input.Attributes, context),
+      }),
+    ...(input.ClockRate !== undefined && input.ClockRate !== null && { clockRate: input.ClockRate }),
+    ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
+    ...(input.MediaStreamType !== undefined &&
+      input.MediaStreamType !== null && { mediaStreamType: input.MediaStreamType }),
+    ...(input.VideoFormat !== undefined && input.VideoFormat !== null && { videoFormat: input.VideoFormat }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateFlowOutputCommand = async (
   input: UpdateFlowOutputCommandInput,
   context: __SerdeContext
@@ -938,6 +1095,13 @@ export const serializeAws_restJson1UpdateFlowOutputCommand = async (
     ...(input.Encryption !== undefined &&
       input.Encryption !== null && { encryption: serializeAws_restJson1UpdateEncryption(input.Encryption, context) }),
     ...(input.MaxLatency !== undefined && input.MaxLatency !== null && { maxLatency: input.MaxLatency }),
+    ...(input.MediaStreamOutputConfigurations !== undefined &&
+      input.MediaStreamOutputConfigurations !== null && {
+        mediaStreamOutputConfigurations: serializeAws_restJson1__listOfMediaStreamOutputConfigurationRequest(
+          input.MediaStreamOutputConfigurations,
+          context
+        ),
+      }),
     ...(input.MinLatency !== undefined && input.MinLatency !== null && { minLatency: input.MinLatency }),
     ...(input.Port !== undefined && input.Port !== null && { port: input.Port }),
     ...(input.Protocol !== undefined && input.Protocol !== null && { protocol: input.Protocol }),
@@ -998,6 +1162,14 @@ export const serializeAws_restJson1UpdateFlowSourceCommand = async (
     ...(input.IngestPort !== undefined && input.IngestPort !== null && { ingestPort: input.IngestPort }),
     ...(input.MaxBitrate !== undefined && input.MaxBitrate !== null && { maxBitrate: input.MaxBitrate }),
     ...(input.MaxLatency !== undefined && input.MaxLatency !== null && { maxLatency: input.MaxLatency }),
+    ...(input.MaxSyncBuffer !== undefined && input.MaxSyncBuffer !== null && { maxSyncBuffer: input.MaxSyncBuffer }),
+    ...(input.MediaStreamSourceConfigurations !== undefined &&
+      input.MediaStreamSourceConfigurations !== null && {
+        mediaStreamSourceConfigurations: serializeAws_restJson1__listOfMediaStreamSourceConfigurationRequest(
+          input.MediaStreamSourceConfigurations,
+          context
+        ),
+      }),
     ...(input.MinLatency !== undefined && input.MinLatency !== null && { minLatency: input.MinLatency }),
     ...(input.Protocol !== undefined && input.Protocol !== null && { protocol: input.Protocol }),
     ...(input.StreamId !== undefined && input.StreamId !== null && { streamId: input.StreamId }),
@@ -1015,6 +1187,105 @@ export const serializeAws_restJson1UpdateFlowSourceCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+export const deserializeAws_restJson1AddFlowMediaStreamsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddFlowMediaStreamsCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AddFlowMediaStreamsCommandError(output, context);
+  }
+  const contents: AddFlowMediaStreamsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    FlowArn: undefined,
+    MediaStreams: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.flowArn !== undefined && data.flowArn !== null) {
+    contents.FlowArn = data.flowArn;
+  }
+  if (data.mediaStreams !== undefined && data.mediaStreams !== null) {
+    contents.MediaStreams = deserializeAws_restJson1__listOfMediaStream(data.mediaStreams, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AddFlowMediaStreamsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddFlowMediaStreamsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1AddFlowOutputsCommand = async (
@@ -2394,6 +2665,105 @@ const deserializeAws_restJson1PurchaseOfferingCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1RemoveFlowMediaStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveFlowMediaStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1RemoveFlowMediaStreamCommandError(output, context);
+  }
+  const contents: RemoveFlowMediaStreamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    FlowArn: undefined,
+    MediaStreamName: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.flowArn !== undefined && data.flowArn !== null) {
+    contents.FlowArn = data.flowArn;
+  }
+  if (data.mediaStreamName !== undefined && data.mediaStreamName !== null) {
+    contents.MediaStreamName = data.mediaStreamName;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1RemoveFlowMediaStreamCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveFlowMediaStreamCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1RemoveFlowOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3323,6 +3693,105 @@ const deserializeAws_restJson1UpdateFlowEntitlementCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateFlowMediaStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFlowMediaStreamCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateFlowMediaStreamCommandError(output, context);
+  }
+  const contents: UpdateFlowMediaStreamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    FlowArn: undefined,
+    MediaStream: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.flowArn !== undefined && data.flowArn !== null) {
+    contents.FlowArn = data.flowArn;
+  }
+  if (data.mediaStream !== undefined && data.mediaStream !== null) {
+    contents.MediaStream = deserializeAws_restJson1MediaStream(data.mediaStream, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateFlowMediaStreamCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFlowMediaStreamCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateFlowOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3685,6 +4154,20 @@ const serializeAws_restJson1__listOf__string = (input: string[], context: __Serd
     });
 };
 
+const serializeAws_restJson1__listOfAddMediaStreamRequest = (
+  input: AddMediaStreamRequest[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AddMediaStreamRequest(entry, context);
+    });
+};
+
 const serializeAws_restJson1__listOfAddOutputRequest = (input: AddOutputRequest[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -3693,6 +4176,20 @@ const serializeAws_restJson1__listOfAddOutputRequest = (input: AddOutputRequest[
         return null as any;
       }
       return serializeAws_restJson1AddOutputRequest(entry, context);
+    });
+};
+
+const serializeAws_restJson1__listOfDestinationConfigurationRequest = (
+  input: DestinationConfigurationRequest[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1DestinationConfigurationRequest(entry, context);
     });
 };
 
@@ -3707,6 +4204,48 @@ const serializeAws_restJson1__listOfGrantEntitlementRequest = (
         return null as any;
       }
       return serializeAws_restJson1GrantEntitlementRequest(entry, context);
+    });
+};
+
+const serializeAws_restJson1__listOfInputConfigurationRequest = (
+  input: InputConfigurationRequest[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1InputConfigurationRequest(entry, context);
+    });
+};
+
+const serializeAws_restJson1__listOfMediaStreamOutputConfigurationRequest = (
+  input: MediaStreamOutputConfigurationRequest[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1MediaStreamOutputConfigurationRequest(entry, context);
+    });
+};
+
+const serializeAws_restJson1__listOfMediaStreamSourceConfigurationRequest = (
+  input: MediaStreamSourceConfigurationRequest[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1MediaStreamSourceConfigurationRequest(entry, context);
     });
 };
 
@@ -3747,6 +4286,23 @@ const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string },
   }, {});
 };
 
+const serializeAws_restJson1AddMediaStreamRequest = (input: AddMediaStreamRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Attributes !== undefined &&
+      input.Attributes !== null && {
+        attributes: serializeAws_restJson1MediaStreamAttributesRequest(input.Attributes, context),
+      }),
+    ...(input.ClockRate !== undefined && input.ClockRate !== null && { clockRate: input.ClockRate }),
+    ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
+    ...(input.MediaStreamId !== undefined && input.MediaStreamId !== null && { mediaStreamId: input.MediaStreamId }),
+    ...(input.MediaStreamName !== undefined &&
+      input.MediaStreamName !== null && { mediaStreamName: input.MediaStreamName }),
+    ...(input.MediaStreamType !== undefined &&
+      input.MediaStreamType !== null && { mediaStreamType: input.MediaStreamType }),
+    ...(input.VideoFormat !== undefined && input.VideoFormat !== null && { videoFormat: input.VideoFormat }),
+  };
+};
+
 const serializeAws_restJson1AddOutputRequest = (input: AddOutputRequest, context: __SerdeContext): any => {
   return {
     ...(input.CidrAllowList !== undefined &&
@@ -3758,6 +4314,13 @@ const serializeAws_restJson1AddOutputRequest = (input: AddOutputRequest, context
     ...(input.Encryption !== undefined &&
       input.Encryption !== null && { encryption: serializeAws_restJson1Encryption(input.Encryption, context) }),
     ...(input.MaxLatency !== undefined && input.MaxLatency !== null && { maxLatency: input.MaxLatency }),
+    ...(input.MediaStreamOutputConfigurations !== undefined &&
+      input.MediaStreamOutputConfigurations !== null && {
+        mediaStreamOutputConfigurations: serializeAws_restJson1__listOfMediaStreamOutputConfigurationRequest(
+          input.MediaStreamOutputConfigurations,
+          context
+        ),
+      }),
     ...(input.MinLatency !== undefined && input.MinLatency !== null && { minLatency: input.MinLatency }),
     ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
     ...(input.Port !== undefined && input.Port !== null && { port: input.Port }),
@@ -3770,6 +4333,31 @@ const serializeAws_restJson1AddOutputRequest = (input: AddOutputRequest, context
       input.VpcInterfaceAttachment !== null && {
         vpcInterfaceAttachment: serializeAws_restJson1VpcInterfaceAttachment(input.VpcInterfaceAttachment, context),
       }),
+  };
+};
+
+const serializeAws_restJson1DestinationConfigurationRequest = (
+  input: DestinationConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationIp !== undefined && input.DestinationIp !== null && { destinationIp: input.DestinationIp }),
+    ...(input.DestinationPort !== undefined &&
+      input.DestinationPort !== null && { destinationPort: input.DestinationPort }),
+    ...(input.Interface !== undefined &&
+      input.Interface !== null && { interface: serializeAws_restJson1InterfaceRequest(input.Interface, context) }),
+  };
+};
+
+const serializeAws_restJson1EncodingParametersRequest = (
+  input: EncodingParametersRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CompressionFactor !== undefined &&
+      input.CompressionFactor !== null && { compressionFactor: input.CompressionFactor }),
+    ...(input.EncoderProfile !== undefined &&
+      input.EncoderProfile !== null && { encoderProfile: input.EncoderProfile }),
   };
 };
 
@@ -3798,6 +4386,19 @@ const serializeAws_restJson1FailoverConfig = (input: FailoverConfig, context: __
   };
 };
 
+const serializeAws_restJson1FmtpRequest = (input: FmtpRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ChannelOrder !== undefined && input.ChannelOrder !== null && { channelOrder: input.ChannelOrder }),
+    ...(input.Colorimetry !== undefined && input.Colorimetry !== null && { colorimetry: input.Colorimetry }),
+    ...(input.ExactFramerate !== undefined &&
+      input.ExactFramerate !== null && { exactFramerate: input.ExactFramerate }),
+    ...(input.Par !== undefined && input.Par !== null && { par: input.Par }),
+    ...(input.Range !== undefined && input.Range !== null && { range: input.Range }),
+    ...(input.ScanMode !== undefined && input.ScanMode !== null && { scanMode: input.ScanMode }),
+    ...(input.Tcs !== undefined && input.Tcs !== null && { tcs: input.Tcs }),
+  };
+};
+
 const serializeAws_restJson1GrantEntitlementRequest = (
   input: GrantEntitlementRequest,
   context: __SerdeContext
@@ -3820,6 +4421,74 @@ const serializeAws_restJson1GrantEntitlementRequest = (
   };
 };
 
+const serializeAws_restJson1InputConfigurationRequest = (
+  input: InputConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InputPort !== undefined && input.InputPort !== null && { inputPort: input.InputPort }),
+    ...(input.Interface !== undefined &&
+      input.Interface !== null && { interface: serializeAws_restJson1InterfaceRequest(input.Interface, context) }),
+  };
+};
+
+const serializeAws_restJson1InterfaceRequest = (input: InterfaceRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
+  };
+};
+
+const serializeAws_restJson1MediaStreamAttributesRequest = (
+  input: MediaStreamAttributesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Fmtp !== undefined &&
+      input.Fmtp !== null && { fmtp: serializeAws_restJson1FmtpRequest(input.Fmtp, context) }),
+    ...(input.Lang !== undefined && input.Lang !== null && { lang: input.Lang }),
+  };
+};
+
+const serializeAws_restJson1MediaStreamOutputConfigurationRequest = (
+  input: MediaStreamOutputConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationConfigurations !== undefined &&
+      input.DestinationConfigurations !== null && {
+        destinationConfigurations: serializeAws_restJson1__listOfDestinationConfigurationRequest(
+          input.DestinationConfigurations,
+          context
+        ),
+      }),
+    ...(input.EncodingName !== undefined && input.EncodingName !== null && { encodingName: input.EncodingName }),
+    ...(input.EncodingParameters !== undefined &&
+      input.EncodingParameters !== null && {
+        encodingParameters: serializeAws_restJson1EncodingParametersRequest(input.EncodingParameters, context),
+      }),
+    ...(input.MediaStreamName !== undefined &&
+      input.MediaStreamName !== null && { mediaStreamName: input.MediaStreamName }),
+  };
+};
+
+const serializeAws_restJson1MediaStreamSourceConfigurationRequest = (
+  input: MediaStreamSourceConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EncodingName !== undefined && input.EncodingName !== null && { encodingName: input.EncodingName }),
+    ...(input.InputConfigurations !== undefined &&
+      input.InputConfigurations !== null && {
+        inputConfigurations: serializeAws_restJson1__listOfInputConfigurationRequest(
+          input.InputConfigurations,
+          context
+        ),
+      }),
+    ...(input.MediaStreamName !== undefined &&
+      input.MediaStreamName !== null && { mediaStreamName: input.MediaStreamName }),
+  };
+};
+
 const serializeAws_restJson1SetSourceRequest = (input: SetSourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.Decryption !== undefined &&
@@ -3830,6 +4499,14 @@ const serializeAws_restJson1SetSourceRequest = (input: SetSourceRequest, context
     ...(input.IngestPort !== undefined && input.IngestPort !== null && { ingestPort: input.IngestPort }),
     ...(input.MaxBitrate !== undefined && input.MaxBitrate !== null && { maxBitrate: input.MaxBitrate }),
     ...(input.MaxLatency !== undefined && input.MaxLatency !== null && { maxLatency: input.MaxLatency }),
+    ...(input.MaxSyncBuffer !== undefined && input.MaxSyncBuffer !== null && { maxSyncBuffer: input.MaxSyncBuffer }),
+    ...(input.MediaStreamSourceConfigurations !== undefined &&
+      input.MediaStreamSourceConfigurations !== null && {
+        mediaStreamSourceConfigurations: serializeAws_restJson1__listOfMediaStreamSourceConfigurationRequest(
+          input.MediaStreamSourceConfigurations,
+          context
+        ),
+      }),
     ...(input.MinLatency !== undefined && input.MinLatency !== null && { minLatency: input.MinLatency }),
     ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
     ...(input.Protocol !== undefined && input.Protocol !== null && { protocol: input.Protocol }),
@@ -3875,6 +4552,8 @@ const serializeAws_restJson1VpcInterfaceAttachment = (input: VpcInterfaceAttachm
 const serializeAws_restJson1VpcInterfaceRequest = (input: VpcInterfaceRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
+    ...(input.NetworkInterfaceType !== undefined &&
+      input.NetworkInterfaceType !== null && { networkInterfaceType: input.NetworkInterfaceType }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { roleArn: input.RoleArn }),
     ...(input.SecurityGroupIds !== undefined &&
       input.SecurityGroupIds !== null && {
@@ -3895,6 +4574,20 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
     });
 };
 
+const deserializeAws_restJson1__listOfDestinationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DestinationConfiguration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DestinationConfiguration(entry, context);
+    });
+};
+
 const deserializeAws_restJson1__listOfEntitlement = (output: any, context: __SerdeContext): Entitlement[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -3903,6 +4596,20 @@ const deserializeAws_restJson1__listOfEntitlement = (output: any, context: __Ser
         return null as any;
       }
       return deserializeAws_restJson1Entitlement(entry, context);
+    });
+};
+
+const deserializeAws_restJson1__listOfInputConfiguration = (
+  output: any,
+  context: __SerdeContext
+): InputConfiguration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1InputConfiguration(entry, context);
     });
 };
 
@@ -3928,6 +4635,45 @@ const deserializeAws_restJson1__listOfListedFlow = (output: any, context: __Serd
         return null as any;
       }
       return deserializeAws_restJson1ListedFlow(entry, context);
+    });
+};
+
+const deserializeAws_restJson1__listOfMediaStream = (output: any, context: __SerdeContext): MediaStream[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MediaStream(entry, context);
+    });
+};
+
+const deserializeAws_restJson1__listOfMediaStreamOutputConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MediaStreamOutputConfiguration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MediaStreamOutputConfiguration(entry, context);
+    });
+};
+
+const deserializeAws_restJson1__listOfMediaStreamSourceConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MediaStreamSourceConfiguration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MediaStreamSourceConfiguration(entry, context);
     });
 };
 
@@ -3998,6 +4744,34 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
   }, {});
 };
 
+const deserializeAws_restJson1DestinationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DestinationConfiguration => {
+  return {
+    DestinationIp:
+      output.destinationIp !== undefined && output.destinationIp !== null ? output.destinationIp : undefined,
+    DestinationPort:
+      output.destinationPort !== undefined && output.destinationPort !== null ? output.destinationPort : undefined,
+    Interface:
+      output.interface !== undefined && output.interface !== null
+        ? deserializeAws_restJson1Interface(output.interface, context)
+        : undefined,
+    OutboundIp: output.outboundIp !== undefined && output.outboundIp !== null ? output.outboundIp : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EncodingParameters = (output: any, context: __SerdeContext): EncodingParameters => {
+  return {
+    CompressionFactor:
+      output.compressionFactor !== undefined && output.compressionFactor !== null
+        ? output.compressionFactor
+        : undefined,
+    EncoderProfile:
+      output.encoderProfile !== undefined && output.encoderProfile !== null ? output.encoderProfile : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Encryption = (output: any, context: __SerdeContext): Encryption => {
   return {
     Algorithm: output.algorithm !== undefined && output.algorithm !== null ? output.algorithm : undefined,
@@ -4059,6 +4833,10 @@ const deserializeAws_restJson1Flow = (output: any, context: __SerdeContext): Flo
         ? deserializeAws_restJson1__listOfEntitlement(output.entitlements, context)
         : undefined,
     FlowArn: output.flowArn !== undefined && output.flowArn !== null ? output.flowArn : undefined,
+    MediaStreams:
+      output.mediaStreams !== undefined && output.mediaStreams !== null
+        ? deserializeAws_restJson1__listOfMediaStream(output.mediaStreams, context)
+        : undefined,
     Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     Outputs:
       output.outputs !== undefined && output.outputs !== null
@@ -4084,6 +4862,36 @@ const deserializeAws_restJson1Flow = (output: any, context: __SerdeContext): Flo
   } as any;
 };
 
+const deserializeAws_restJson1Fmtp = (output: any, context: __SerdeContext): Fmtp => {
+  return {
+    ChannelOrder: output.channelOrder !== undefined && output.channelOrder !== null ? output.channelOrder : undefined,
+    Colorimetry: output.colorimetry !== undefined && output.colorimetry !== null ? output.colorimetry : undefined,
+    ExactFramerate:
+      output.exactFramerate !== undefined && output.exactFramerate !== null ? output.exactFramerate : undefined,
+    Par: output.par !== undefined && output.par !== null ? output.par : undefined,
+    Range: output.range !== undefined && output.range !== null ? output.range : undefined,
+    ScanMode: output.scanMode !== undefined && output.scanMode !== null ? output.scanMode : undefined,
+    Tcs: output.tcs !== undefined && output.tcs !== null ? output.tcs : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InputConfiguration = (output: any, context: __SerdeContext): InputConfiguration => {
+  return {
+    InputIp: output.inputIp !== undefined && output.inputIp !== null ? output.inputIp : undefined,
+    InputPort: output.inputPort !== undefined && output.inputPort !== null ? output.inputPort : undefined,
+    Interface:
+      output.interface !== undefined && output.interface !== null
+        ? deserializeAws_restJson1Interface(output.interface, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Interface = (output: any, context: __SerdeContext): Interface => {
+  return {
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ListedEntitlement = (output: any, context: __SerdeContext): ListedEntitlement => {
   return {
     DataTransferSubscriberFeePercent:
@@ -4106,6 +4914,69 @@ const deserializeAws_restJson1ListedFlow = (output: any, context: __SerdeContext
     Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     SourceType: output.sourceType !== undefined && output.sourceType !== null ? output.sourceType : undefined,
     Status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MediaStream = (output: any, context: __SerdeContext): MediaStream => {
+  return {
+    Attributes:
+      output.attributes !== undefined && output.attributes !== null
+        ? deserializeAws_restJson1MediaStreamAttributes(output.attributes, context)
+        : undefined,
+    ClockRate: output.clockRate !== undefined && output.clockRate !== null ? output.clockRate : undefined,
+    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    Fmt: output.fmt !== undefined && output.fmt !== null ? output.fmt : undefined,
+    MediaStreamId:
+      output.mediaStreamId !== undefined && output.mediaStreamId !== null ? output.mediaStreamId : undefined,
+    MediaStreamName:
+      output.mediaStreamName !== undefined && output.mediaStreamName !== null ? output.mediaStreamName : undefined,
+    MediaStreamType:
+      output.mediaStreamType !== undefined && output.mediaStreamType !== null ? output.mediaStreamType : undefined,
+    VideoFormat: output.videoFormat !== undefined && output.videoFormat !== null ? output.videoFormat : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MediaStreamAttributes = (output: any, context: __SerdeContext): MediaStreamAttributes => {
+  return {
+    Fmtp:
+      output.fmtp !== undefined && output.fmtp !== null
+        ? deserializeAws_restJson1Fmtp(output.fmtp, context)
+        : undefined,
+    Lang: output.lang !== undefined && output.lang !== null ? output.lang : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MediaStreamOutputConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MediaStreamOutputConfiguration => {
+  return {
+    DestinationConfigurations:
+      output.destinationConfigurations !== undefined && output.destinationConfigurations !== null
+        ? deserializeAws_restJson1__listOfDestinationConfiguration(output.destinationConfigurations, context)
+        : undefined,
+    EncodingName: output.encodingName !== undefined && output.encodingName !== null ? output.encodingName : undefined,
+    EncodingParameters:
+      output.encodingParameters !== undefined && output.encodingParameters !== null
+        ? deserializeAws_restJson1EncodingParameters(output.encodingParameters, context)
+        : undefined,
+    MediaStreamName:
+      output.mediaStreamName !== undefined && output.mediaStreamName !== null ? output.mediaStreamName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MediaStreamSourceConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MediaStreamSourceConfiguration => {
+  return {
+    EncodingName: output.encodingName !== undefined && output.encodingName !== null ? output.encodingName : undefined,
+    InputConfigurations:
+      output.inputConfigurations !== undefined && output.inputConfigurations !== null
+        ? deserializeAws_restJson1__listOfInputConfiguration(output.inputConfigurations, context)
+        : undefined,
+    MediaStreamName:
+      output.mediaStreamName !== undefined && output.mediaStreamName !== null ? output.mediaStreamName : undefined,
   } as any;
 };
 
@@ -4157,6 +5028,13 @@ const deserializeAws_restJson1Output = (output: any, context: __SerdeContext): O
     MediaLiveInputArn:
       output.mediaLiveInputArn !== undefined && output.mediaLiveInputArn !== null
         ? output.mediaLiveInputArn
+        : undefined,
+    MediaStreamOutputConfigurations:
+      output.mediaStreamOutputConfigurations !== undefined && output.mediaStreamOutputConfigurations !== null
+        ? deserializeAws_restJson1__listOfMediaStreamOutputConfiguration(
+            output.mediaStreamOutputConfigurations,
+            context
+          )
         : undefined,
     Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     OutputArn: output.outputArn !== undefined && output.outputArn !== null ? output.outputArn : undefined,
@@ -4223,6 +5101,13 @@ const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): S
       output.entitlementArn !== undefined && output.entitlementArn !== null ? output.entitlementArn : undefined,
     IngestIp: output.ingestIp !== undefined && output.ingestIp !== null ? output.ingestIp : undefined,
     IngestPort: output.ingestPort !== undefined && output.ingestPort !== null ? output.ingestPort : undefined,
+    MediaStreamSourceConfigurations:
+      output.mediaStreamSourceConfigurations !== undefined && output.mediaStreamSourceConfigurations !== null
+        ? deserializeAws_restJson1__listOfMediaStreamSourceConfiguration(
+            output.mediaStreamSourceConfigurations,
+            context
+          )
+        : undefined,
     Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     SourceArn: output.sourceArn !== undefined && output.sourceArn !== null ? output.sourceArn : undefined,
     Transport:
@@ -4244,6 +5129,8 @@ const deserializeAws_restJson1Transport = (output: any, context: __SerdeContext)
         : undefined,
     MaxBitrate: output.maxBitrate !== undefined && output.maxBitrate !== null ? output.maxBitrate : undefined,
     MaxLatency: output.maxLatency !== undefined && output.maxLatency !== null ? output.maxLatency : undefined,
+    MaxSyncBuffer:
+      output.maxSyncBuffer !== undefined && output.maxSyncBuffer !== null ? output.maxSyncBuffer : undefined,
     MinLatency: output.minLatency !== undefined && output.minLatency !== null ? output.minLatency : undefined,
     Protocol: output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
     RemoteId: output.remoteId !== undefined && output.remoteId !== null ? output.remoteId : undefined,
@@ -4259,6 +5146,10 @@ const deserializeAws_restJson1VpcInterface = (output: any, context: __SerdeConte
     NetworkInterfaceIds:
       output.networkInterfaceIds !== undefined && output.networkInterfaceIds !== null
         ? deserializeAws_restJson1__listOf__string(output.networkInterfaceIds, context)
+        : undefined,
+    NetworkInterfaceType:
+      output.networkInterfaceType !== undefined && output.networkInterfaceType !== null
+        ? output.networkInterfaceType
         : undefined,
     RoleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     SecurityGroupIds:

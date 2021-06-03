@@ -509,12 +509,12 @@ export interface CreateQueueRequest {
    *                   You can provide this attribute only during queue creation. You can't change it for an existing queue.
    *                   When you set this attribute, you must also provide the <code>MessageGroupId</code> for your messages explicitly.</p>
    *                <p>For more information, see
-   *                   <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-understanding-logic">FIFO Queue Logic</a>
+   *                       <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html">FIFO queue logic</a>
    *                   in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *             </li>
    *             <li>
    *               <p>
-   *                   <code>ContentBasedDeduplication</code> – Enables content-based deduplication. Valid values are <code>true</code> and <code>false</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing">Exactly-Once Processing</a> in the
+   *                   <code>ContentBasedDeduplication</code> – Enables content-based deduplication. Valid values are <code>true</code> and <code>false</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the
    *                       <i>Amazon Simple Queue Service Developer Guide</i>. Note the following:
    *               </p>
    *               <ul>
@@ -552,15 +552,9 @@ export interface CreateQueueRequest {
    *          </ul>
    *
    *
-   *          <p>
-   *             <b>Preview: High throughput for FIFO queues</b>
-   *          </p>
-   *          <p>
-   *             <b>High throughput for Amazon SQS FIFO queues is in preview release and is subject to change.</b>
-   *   This feature provides a high number of transactions per second (TPS) for messages in FIFO queues. For information on throughput quotas,
-   *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
-   *   in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   *          <p>This preview includes two new attributes:</p>
+   *          <p>The following attributes apply only to
+   * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high throughput
+   * for FIFO queues</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -584,25 +578,10 @@ export interface CreateQueueRequest {
    *             </li>
    *          </ul>
    *          <p>If you set these attributes to anything other than the values shown for enabling high
-   *   throughput, standard throughput is in effect and deduplication occurs as specified.</p>
-   *          <p>This preview is available in the following AWS Regions:</p>
-   *             <ul>
-   *             <li>
-   *                  <p>US East (Ohio); us-east-2</p>
-   *                </li>
-   *             <li>
-   *                  <p>US East (N. Virginia); us-east-1</p>
-   *                </li>
-   *             <li>
-   *                  <p>US West (Oregon); us-west-2</p>
-   *                </li>
-   *             <li>
-   *                  <p>Europe (Ireland); eu-west-1</p>
-   *                </li>
-   *          </ul>
-   *          <p>For more information about high throughput for FIFO queues,
-   *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">Preview:
-   *   High throughput for FIFO queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   *   throughput, normal throughput is in effect and deduplication occurs as specified.</p>
+   *          <p>For information on throughput quotas,
+   *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
+   *   in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    */
   Attributes?: { [key: string]: string };
 }
@@ -971,28 +950,22 @@ export interface GetQueueAttributesRequest {
    *          <ul>
    *             <li>
    *               <p>
-   *                   <code>FifoQueue</code> – Returns information about whether the queue is FIFO. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-understanding-logic">FIFO Queue Logic</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   *                   <code>FifoQueue</code> – Returns information about whether the queue is FIFO. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-understanding-logic.html">FIFO queue logic</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *               <note>
    *                   <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.</p>
    *                </note>
    *             </li>
    *             <li>
    *               <p>
-   *                   <code>ContentBasedDeduplication</code> – Returns whether content-based deduplication is enabled for the queue. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing">Exactly-Once Processing</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
+   *                   <code>ContentBasedDeduplication</code> – Returns whether content-based deduplication is enabled for the queue. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
    *               </p>
    *             </li>
    *          </ul>
    *
    *
-   *          <p>
-   *             <b>Preview: High throughput for FIFO queues</b>
-   *          </p>
-   *          <p>
-   *             <b>High throughput for Amazon SQS FIFO queues is in preview release and is subject to change.</b>
-   *   This feature provides a high number of transactions per second (TPS) for messages in FIFO queues. For information on throughput quotas,
-   *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
-   *   in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   *          <p>This preview includes two new attributes:</p>
+   *          <p>The following attributes apply only to
+   * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high throughput
+   * for FIFO queues</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1016,25 +989,10 @@ export interface GetQueueAttributesRequest {
    *             </li>
    *          </ul>
    *          <p>If you set these attributes to anything other than the values shown for enabling high
-   *   throughput, standard throughput is in effect and deduplication occurs as specified.</p>
-   *          <p>This preview is available in the following AWS Regions:</p>
-   *             <ul>
-   *             <li>
-   *                  <p>US East (Ohio); us-east-2</p>
-   *                </li>
-   *             <li>
-   *                  <p>US East (N. Virginia); us-east-1</p>
-   *                </li>
-   *             <li>
-   *                  <p>US West (Oregon); us-west-2</p>
-   *                </li>
-   *             <li>
-   *                  <p>Europe (Ireland); eu-west-1</p>
-   *                </li>
-   *          </ul>
-   *          <p>For more information about high throughput for FIFO queues,
-   *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">Preview:
-   *   High throughput for FIFO queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   *   throughput, normal throughput is in effect and deduplication occurs as specified.</p>
+   *          <p>For information on throughput quotas,
+   *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
+   *   in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    */
   AttributeNames?: (QueueAttributeName | string)[];
 }
@@ -1816,8 +1774,8 @@ export interface SendMessageRequest {
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
    *          <p>The token used for deduplication of sent messages. If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, any messages sent with the same <code>MessageDeduplicationId</code>
-   *           are accepted successfully but aren't delivered during the 5-minute deduplication interval. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing">
-   *           Exactly-Once Processing</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   *           are accepted successfully but aren't delivered during the 5-minute deduplication interval. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">
+   *           Exactly-once processing</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *          <ul>
    *             <li>
    *               <p>Every message must have a unique <code>MessageDeduplicationId</code>,</p>
@@ -2035,8 +1993,8 @@ export interface SendMessageBatchRequestEntry {
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
    *          <p>The token used for deduplication of messages within a 5-minute minimum deduplication interval. If a message with a particular
    *           <code>MessageDeduplicationId</code> is sent successfully, subsequent messages with the same <code>MessageDeduplicationId</code> are
-   *           accepted successfully but aren't delivered. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing">
-   *           Exactly-Once Processing</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   *           accepted successfully but aren't delivered. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">
+   *           Exactly-once processing</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *          <ul>
    *             <li>
    *               <p>Every message must have a unique <code>MessageDeduplicationId</code>,</p>
@@ -2324,7 +2282,7 @@ export interface SetQueueAttributesRequest {
    *          <ul>
    *             <li>
    *               <p>
-   *                   <code>ContentBasedDeduplication</code> – Enables content-based deduplication. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing">Exactly-Once Processing</a> in the
+   *                   <code>ContentBasedDeduplication</code> – Enables content-based deduplication. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the
    *                   <i>Amazon Simple Queue Service Developer Guide</i>. Note the following:
    *               </p>
    *               <ul>
@@ -2362,15 +2320,9 @@ export interface SetQueueAttributesRequest {
    *          </ul>
    *
    *
-   *          <p>
-   *             <b>Preview: High throughput for FIFO queues</b>
-   *          </p>
-   *          <p>
-   *             <b>High throughput for Amazon SQS FIFO queues is in preview release and is subject to change.</b>
-   *   This feature provides a high number of transactions per second (TPS) for messages in FIFO queues. For information on throughput quotas,
-   *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
-   *   in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   *          <p>This preview includes two new attributes:</p>
+   *          <p>The following attributes apply only to
+   * <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high throughput
+   * for FIFO queues</a>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2394,25 +2346,10 @@ export interface SetQueueAttributesRequest {
    *             </li>
    *          </ul>
    *          <p>If you set these attributes to anything other than the values shown for enabling high
-   *   throughput, standard throughput is in effect and deduplication occurs as specified.</p>
-   *          <p>This preview is available in the following AWS Regions:</p>
-   *             <ul>
-   *             <li>
-   *                  <p>US East (Ohio); us-east-2</p>
-   *                </li>
-   *             <li>
-   *                  <p>US East (N. Virginia); us-east-1</p>
-   *                </li>
-   *             <li>
-   *                  <p>US West (Oregon); us-west-2</p>
-   *                </li>
-   *             <li>
-   *                  <p>Europe (Ireland); eu-west-1</p>
-   *                </li>
-   *          </ul>
-   *          <p>For more information about high throughput for FIFO queues,
-   *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">Preview:
-   *   High throughput for FIFO queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   *   throughput, normal throughput is in effect and deduplication occurs as specified.</p>
+   *          <p>For information on throughput quotas,
+   *   see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a>
+   *   in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    */
   Attributes: { [key: string]: string } | undefined;
 }

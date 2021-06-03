@@ -1,6 +1,168 @@
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum Colorimetry {
+  BT2020 = "BT2020",
+  BT2100 = "BT2100",
+  BT601 = "BT601",
+  BT709 = "BT709",
+  ST2065_1 = "ST2065-1",
+  ST2065_3 = "ST2065-3",
+  XYZ = "XYZ",
+}
+
+export enum Range {
+  FULL = "FULL",
+  FULLPROTECT = "FULLPROTECT",
+  NARROW = "NARROW",
+}
+
+export enum ScanMode {
+  interlace = "interlace",
+  progressive = "progressive",
+  progressive_segmented_frame = "progressive-segmented-frame",
+}
+
+export enum Tcs {
+  BT2100LINHLG = "BT2100LINHLG",
+  BT2100LINPQ = "BT2100LINPQ",
+  DENSITY = "DENSITY",
+  HLG = "HLG",
+  LINEAR = "LINEAR",
+  PQ = "PQ",
+  SDR = "SDR",
+  ST2065_1 = "ST2065-1",
+  ST428_1 = "ST428-1",
+}
+
+/**
+ * The settings that you want to use to define the media stream.
+ */
+export interface FmtpRequest {
+  /**
+   * The format of the audio channel.
+   */
+  ChannelOrder?: string;
+
+  /**
+   * The format that is used for the representation of color.
+   */
+  Colorimetry?: Colorimetry | string;
+
+  /**
+   * The frame rate for the video stream, in frames/second. For example: 60000/1001. If you specify a whole number, MediaConnect uses a ratio of N/1. For example, if you specify 60, MediaConnect uses 60/1 as the exactFramerate.
+   */
+  ExactFramerate?: string;
+
+  /**
+   * The pixel aspect ratio (PAR) of the video.
+   */
+  Par?: string;
+
+  /**
+   * The encoding range of the video.
+   */
+  Range?: Range | string;
+
+  /**
+   * The type of compression that was used to smooth the video’s appearance.
+   */
+  ScanMode?: ScanMode | string;
+
+  /**
+   * The transfer characteristic system (TCS) that is used in the video.
+   */
+  Tcs?: Tcs | string;
+}
+
+export namespace FmtpRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FmtpRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Attributes that are related to the media stream.
+ */
+export interface MediaStreamAttributesRequest {
+  /**
+   * The settings that you want to use to define the media stream.
+   */
+  Fmtp?: FmtpRequest;
+
+  /**
+   * The audio language, in a format that is recognized by the receiver.
+   */
+  Lang?: string;
+}
+
+export namespace MediaStreamAttributesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MediaStreamAttributesRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum MediaStreamType {
+  ancillary_data = "ancillary-data",
+  audio = "audio",
+  video = "video",
+}
+
+/**
+ * The media stream that you want to add to the flow.
+ */
+export interface AddMediaStreamRequest {
+  /**
+   * The attributes that you want to assign to the new media stream.
+   */
+  Attributes?: MediaStreamAttributesRequest;
+
+  /**
+   * The sample rate (in Hz) for the stream. If the media stream type is video or ancillary data, set this value to 90000. If the media stream type is audio, set this value to either 48000 or 96000.
+   */
+  ClockRate?: number;
+
+  /**
+   * A description that can help you quickly identify what your media stream is used for.
+   */
+  Description?: string;
+
+  /**
+   * A unique identifier for the media stream.
+   */
+  MediaStreamId: number | undefined;
+
+  /**
+   * A name that helps you distinguish one media stream from another.
+   */
+  MediaStreamName: string | undefined;
+
+  /**
+   * The type of media stream.
+   */
+  MediaStreamType: MediaStreamType | string | undefined;
+
+  /**
+   * The resolution of the video.
+   */
+  VideoFormat?: string;
+}
+
+export namespace AddMediaStreamRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AddMediaStreamRequest): any => ({
+    ...obj,
+  });
+}
+
 export enum Algorithm {
   aes128 = "aes128",
   aes192 = "aes192",
@@ -72,11 +234,131 @@ export namespace Encryption {
   });
 }
 
+/**
+ * The VPC interface that you want to designate where the media stream is coming from or going to.
+ */
+export interface InterfaceRequest {
+  /**
+   * The name of the VPC interface.
+   */
+  Name: string | undefined;
+}
+
+export namespace InterfaceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InterfaceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * The transport parameters that you want to associate with an outbound media stream.
+ */
+export interface DestinationConfigurationRequest {
+  /**
+   * The IP address where you want MediaConnect to send contents of the media stream.
+   */
+  DestinationIp: string | undefined;
+
+  /**
+   * The port that you want MediaConnect to use when it distributes the media stream to the output.
+   */
+  DestinationPort: number | undefined;
+
+  /**
+   * The VPC interface that you want to use for the media stream associated with the output.
+   */
+  Interface: InterfaceRequest | undefined;
+}
+
+export namespace DestinationConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DestinationConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum EncodingName {
+  jxsv = "jxsv",
+  pcm = "pcm",
+  raw = "raw",
+  smpte291 = "smpte291",
+}
+
+export enum EncoderProfile {
+  high = "high",
+  main = "main",
+}
+
+/**
+ * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+ */
+export interface EncodingParametersRequest {
+  /**
+   * A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are floating point numbers in the range of 3.0 to 10.0, inclusive.
+   */
+  CompressionFactor: number | undefined;
+
+  /**
+   * A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, if at least one source on the flow uses the CDI protocol.
+   */
+  EncoderProfile: EncoderProfile | string | undefined;
+}
+
+export namespace EncodingParametersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EncodingParametersRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * The media stream that you want to associate with the output, and the parameters for that association.
+ */
+export interface MediaStreamOutputConfigurationRequest {
+  /**
+   * The transport parameters that you want to associate with the media stream.
+   */
+  DestinationConfigurations?: DestinationConfigurationRequest[];
+
+  /**
+   * The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+   */
+  EncodingName: EncodingName | string | undefined;
+
+  /**
+   * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+   */
+  EncodingParameters?: EncodingParametersRequest;
+
+  /**
+   * The name of the media stream that is associated with the output.
+   */
+  MediaStreamName: string | undefined;
+}
+
+export namespace MediaStreamOutputConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MediaStreamOutputConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
 export enum Protocol {
+  cdi = "cdi",
   rist = "rist",
   rtp = "rtp",
   rtp_fec = "rtp-fec",
   srt_listener = "srt-listener",
+  st2110_jpegxs = "st2110-jpegxs",
   zixi_pull = "zixi-pull",
   zixi_push = "zixi-push",
 }
@@ -130,6 +412,11 @@ export interface AddOutputRequest {
   MaxLatency?: number;
 
   /**
+   * The media streams that are associated with the output, and the parameters for those associations.
+   */
+  MediaStreamOutputConfigurations?: MediaStreamOutputConfigurationRequest[];
+
+  /**
    * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
    */
   MinLatency?: number;
@@ -175,6 +462,59 @@ export namespace AddOutputRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: AddOutputRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * The VPC interface that is used for the media stream associated with the source or output.
+ */
+export interface Interface {
+  /**
+   * The name of the VPC interface.
+   */
+  Name: string | undefined;
+}
+
+export namespace Interface {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Interface): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * The transport parameters that are associated with an outbound media stream.
+ */
+export interface DestinationConfiguration {
+  /**
+   * The IP address where contents of the media stream will be sent.
+   */
+  DestinationIp: string | undefined;
+
+  /**
+   * The port to use when the content of the media stream is distributed to the output.
+   */
+  DestinationPort: number | undefined;
+
+  /**
+   * The VPC interface that is used for the media stream associated with the output.
+   */
+  Interface: Interface | undefined;
+
+  /**
+   * The IP address that the receiver requires in order to establish a connection with the flow. This value is represented by the elastic network interface IP address of the VPC. This field applies only to outputs that use the CDI or ST 2110 JPEG XS protocol.
+   */
+  OutboundIp: string | undefined;
+}
+
+export namespace DestinationConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DestinationConfiguration): any => ({
     ...obj,
   });
 }
@@ -278,6 +618,59 @@ export namespace GrantEntitlementRequest {
 }
 
 /**
+ * The transport parameters that are associated with an incoming media stream.
+ */
+export interface InputConfiguration {
+  /**
+   * The IP address that the flow listens on for incoming content for a media stream.
+   */
+  InputIp: string | undefined;
+
+  /**
+   * The port that the flow listens on for an incoming media stream.
+   */
+  InputPort: number | undefined;
+
+  /**
+   * The VPC interface where the media stream comes in from.
+   */
+  Interface: Interface | undefined;
+}
+
+export namespace InputConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InputConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * The transport parameters that you want to associate with an incoming media stream.
+ */
+export interface InputConfigurationRequest {
+  /**
+   * The port that you want the flow to listen on for an incoming media stream.
+   */
+  InputPort: number | undefined;
+
+  /**
+   * The VPC interface that you want to use for the incoming media stream.
+   */
+  Interface: InterfaceRequest | undefined;
+}
+
+export namespace InputConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InputConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
  * An entitlement that has been granted to you from other AWS accounts.
  */
 export interface ListedEntitlement {
@@ -361,6 +754,249 @@ export namespace ListedFlow {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListedFlow): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * FMTP
+ */
+export interface Fmtp {
+  /**
+   * The format of the audio channel.
+   */
+  ChannelOrder?: string;
+
+  /**
+   * The format that is used for the representation of color.
+   */
+  Colorimetry?: Colorimetry | string;
+
+  /**
+   * The frame rate for the video stream, in frames/second. For example: 60000/1001. If you specify a whole number, MediaConnect uses a ratio of N/1. For example, if you specify 60, MediaConnect uses 60/1 as the exactFramerate.
+   */
+  ExactFramerate?: string;
+
+  /**
+   * The pixel aspect ratio (PAR) of the video.
+   */
+  Par?: string;
+
+  /**
+   * The encoding range of the video.
+   */
+  Range?: Range | string;
+
+  /**
+   * The type of compression that was used to smooth the video’s appearance
+   */
+  ScanMode?: ScanMode | string;
+
+  /**
+   * The transfer characteristic system (TCS) that is used in the video.
+   */
+  Tcs?: Tcs | string;
+}
+
+export namespace Fmtp {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Fmtp): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Attributes that are related to the media stream.
+ */
+export interface MediaStreamAttributes {
+  /**
+   * A set of parameters that define the media stream.
+   */
+  Fmtp: Fmtp | undefined;
+
+  /**
+   * The audio language, in a format that is recognized by the receiver.
+   */
+  Lang?: string;
+}
+
+export namespace MediaStreamAttributes {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MediaStreamAttributes): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
+ */
+export interface MediaStream {
+  /**
+   * Attributes that are related to the media stream.
+   */
+  Attributes?: MediaStreamAttributes;
+
+  /**
+   * The sample rate for the stream. This value is measured in Hz.
+   */
+  ClockRate?: number;
+
+  /**
+   * A description that can help you quickly identify what your media stream is used for.
+   */
+  Description?: string;
+
+  /**
+   * The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
+   */
+  Fmt: number | undefined;
+
+  /**
+   * A unique identifier for the media stream.
+   */
+  MediaStreamId: number | undefined;
+
+  /**
+   * A name that helps you distinguish one media stream from another.
+   */
+  MediaStreamName: string | undefined;
+
+  /**
+   * The type of media stream.
+   */
+  MediaStreamType: MediaStreamType | string | undefined;
+
+  /**
+   * The resolution of the video.
+   */
+  VideoFormat?: string;
+}
+
+export namespace MediaStream {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MediaStream): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+ */
+export interface EncodingParameters {
+  /**
+   * A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are floating point numbers in the range of 3.0 to 10.0, inclusive.
+   */
+  CompressionFactor: number | undefined;
+
+  /**
+   * A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+   */
+  EncoderProfile: EncoderProfile | string | undefined;
+}
+
+export namespace EncodingParameters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EncodingParameters): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * The media stream that is associated with the output, and the parameters for that association.
+ */
+export interface MediaStreamOutputConfiguration {
+  /**
+   * The transport parameters that are associated with each outbound media stream.
+   */
+  DestinationConfigurations?: DestinationConfiguration[];
+
+  /**
+   * The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+   */
+  EncodingName: EncodingName | string | undefined;
+
+  /**
+   * Encoding parameters
+   */
+  EncodingParameters?: EncodingParameters;
+
+  /**
+   * The name of the media stream.
+   */
+  MediaStreamName: string | undefined;
+}
+
+export namespace MediaStreamOutputConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MediaStreamOutputConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * The media stream that is associated with the source, and the parameters for that association.
+ */
+export interface MediaStreamSourceConfiguration {
+  /**
+   * The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+   */
+  EncodingName: EncodingName | string | undefined;
+
+  /**
+   * The transport parameters that are associated with an incoming media stream.
+   */
+  InputConfigurations?: InputConfiguration[];
+
+  /**
+   * The name of the media stream.
+   */
+  MediaStreamName: string | undefined;
+}
+
+export namespace MediaStreamSourceConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MediaStreamSourceConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * The definition of a media stream that you want to associate with the source.
+ */
+export interface MediaStreamSourceConfigurationRequest {
+  /**
+   * The format you want to use to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+   */
+  EncodingName: EncodingName | string | undefined;
+
+  /**
+   * The transport parameters that you want to associate with the media stream.
+   */
+  InputConfigurations?: InputConfigurationRequest[];
+
+  /**
+   * The name of the media stream.
+   */
+  MediaStreamName: string | undefined;
+}
+
+export namespace MediaStreamSourceConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MediaStreamSourceConfigurationRequest): any => ({
     ...obj,
   });
 }
@@ -475,6 +1111,11 @@ export interface Transport {
   MaxLatency?: number;
 
   /**
+   * The size of the buffer (in milliseconds) to use to sync incoming source data.
+   */
+  MaxSyncBuffer?: number;
+
+  /**
    * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
    */
   MinLatency?: number;
@@ -547,6 +1188,11 @@ export interface Output {
    * The input ARN of the AWS Elemental MediaLive channel. This parameter is relevant only for outputs that were added by creating a MediaLive input.
    */
   MediaLiveInputArn?: string;
+
+  /**
+   * The configuration for each media stream that is associated with the output.
+   */
+  MediaStreamOutputConfigurations?: MediaStreamOutputConfiguration[];
 
   /**
    * The name of the output. This value must be unique within the current flow.
@@ -704,6 +1350,16 @@ export interface SetSourceRequest {
   MaxLatency?: number;
 
   /**
+   * The size of the buffer (in milliseconds) to use to sync incoming source data.
+   */
+  MaxSyncBuffer?: number;
+
+  /**
+   * The media streams that are associated with the source, and the parameters for those associations.
+   */
+  MediaStreamSourceConfigurations?: MediaStreamSourceConfigurationRequest[];
+
+  /**
    * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
    */
   MinLatency?: number;
@@ -778,6 +1434,11 @@ export interface Source {
   IngestPort?: number;
 
   /**
+   * The media streams that are associated with the source, and the parameters for those associations.
+   */
+  MediaStreamSourceConfigurations?: MediaStreamSourceConfiguration[];
+
+  /**
    * The name of the source.
    */
   Name: string | undefined;
@@ -793,7 +1454,7 @@ export interface Source {
   Transport?: Transport;
 
   /**
-   * The name of the VPC Interface this Source is configured with.
+   * The name of the VPC interface that is used for this source.
    */
   VpcInterfaceName?: string;
 
@@ -812,6 +1473,11 @@ export namespace Source {
   });
 }
 
+export enum NetworkInterfaceType {
+  efa = "efa",
+  ena = "ena",
+}
+
 /**
  * The settings for a VPC Source.
  */
@@ -825,6 +1491,11 @@ export interface VpcInterface {
    * IDs of the network interfaces created in customer's account by MediaConnect.
    */
   NetworkInterfaceIds: string[] | undefined;
+
+  /**
+   * The type of network interface.
+   */
+  NetworkInterfaceType: NetworkInterfaceType | string | undefined;
 
   /**
    * Role Arn MediaConnect can assumes to create ENIs in customer's account
@@ -861,6 +1532,11 @@ export interface VpcInterfaceRequest {
   Name: string | undefined;
 
   /**
+   * The type of network interface. If this value is not included in the request, MediaConnect uses ENA as the networkInterfaceType.
+   */
+  NetworkInterfaceType?: NetworkInterfaceType | string;
+
+  /**
    * Role Arn MediaConnect can assumes to create ENIs in customer's account
    */
   RoleArn: string | undefined;
@@ -886,67 +1562,46 @@ export namespace VpcInterfaceRequest {
 }
 
 /**
- * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ * A request to add media streams to the flow.
  */
-export interface AddFlowOutputs420Exception extends __SmithyException, $MetadataBearer {
-  name: "AddFlowOutputs420Exception";
-  $fault: "client";
+export interface AddFlowMediaStreamsRequest {
   /**
-   * The error message returned by AWS Elemental MediaConnect.
-   */
-  Message: string | undefined;
-}
-
-export namespace AddFlowOutputs420Exception {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddFlowOutputs420Exception): any => ({
-    ...obj,
-  });
-}
-
-/**
- * A request to add outputs to the specified flow.
- */
-export interface AddFlowOutputsRequest {
-  /**
-   * The flow that you want to add outputs to.
+   * The Amazon Resource Name (ARN) of the flow.
    */
   FlowArn: string | undefined;
 
   /**
-   * A list of outputs that you want to add.
+   * The media streams that you want to add to the flow.
    */
-  Outputs: AddOutputRequest[] | undefined;
+  MediaStreams: AddMediaStreamRequest[] | undefined;
 }
 
-export namespace AddFlowOutputsRequest {
+export namespace AddFlowMediaStreamsRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AddFlowOutputsRequest): any => ({
+  export const filterSensitiveLog = (obj: AddFlowMediaStreamsRequest): any => ({
     ...obj,
   });
 }
 
-export interface AddFlowOutputsResponse {
+export interface AddFlowMediaStreamsResponse {
   /**
-   * The ARN of the flow that these outputs were added to.
+   * The ARN of the flow that you added media streams to.
    */
   FlowArn?: string;
 
   /**
-   * The details of the newly added outputs.
+   * The media streams that you added to the flow.
    */
-  Outputs?: Output[];
+  MediaStreams?: MediaStream[];
 }
 
-export namespace AddFlowOutputsResponse {
+export namespace AddFlowMediaStreamsResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AddFlowOutputsResponse): any => ({
+  export const filterSensitiveLog = (obj: AddFlowMediaStreamsResponse): any => ({
     ...obj,
   });
 }
@@ -1073,6 +1728,72 @@ export namespace TooManyRequestsException {
    * @internal
    */
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ */
+export interface AddFlowOutputs420Exception extends __SmithyException, $MetadataBearer {
+  name: "AddFlowOutputs420Exception";
+  $fault: "client";
+  /**
+   * The error message returned by AWS Elemental MediaConnect.
+   */
+  Message: string | undefined;
+}
+
+export namespace AddFlowOutputs420Exception {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AddFlowOutputs420Exception): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * A request to add outputs to the specified flow.
+ */
+export interface AddFlowOutputsRequest {
+  /**
+   * The flow that you want to add outputs to.
+   */
+  FlowArn: string | undefined;
+
+  /**
+   * A list of outputs that you want to add.
+   */
+  Outputs: AddOutputRequest[] | undefined;
+}
+
+export namespace AddFlowOutputsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AddFlowOutputsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AddFlowOutputsResponse {
+  /**
+   * The ARN of the flow that these outputs were added to.
+   */
+  FlowArn?: string;
+
+  /**
+   * The details of the newly added outputs.
+   */
+  Outputs?: Output[];
+}
+
+export namespace AddFlowOutputsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AddFlowOutputsResponse): any => ({
     ...obj,
   });
 }
@@ -1229,6 +1950,11 @@ export interface CreateFlowRequest {
   Entitlements?: GrantEntitlementRequest[];
 
   /**
+   * The media streams that you want to add to the flow. You can associate these media streams with sources and outputs on the flow.
+   */
+  MediaStreams?: AddMediaStreamRequest[];
+
+  /**
    * The name of the flow.
    */
   Name: string | undefined;
@@ -1292,6 +2018,11 @@ export interface Flow {
    * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
    */
   FlowArn: string | undefined;
+
+  /**
+   * The media streams that are associated with the flow. After you associate a media stream with a source, you can also associate it with outputs on the flow.
+   */
+  MediaStreams?: MediaStream[];
 
   /**
    * The name of the flow.
@@ -1818,6 +2549,48 @@ export namespace PurchaseOfferingResponse {
   });
 }
 
+export interface RemoveFlowMediaStreamRequest {
+  /**
+   * The Amazon Resource Name (ARN) of the flow.
+   */
+  FlowArn: string | undefined;
+
+  /**
+   * The name of the media stream that you want to remove.
+   */
+  MediaStreamName: string | undefined;
+}
+
+export namespace RemoveFlowMediaStreamRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveFlowMediaStreamRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RemoveFlowMediaStreamResponse {
+  /**
+   * The Amazon Resource Name (ARN) of the flow.
+   */
+  FlowArn?: string;
+
+  /**
+   * The name of the media stream that was removed.
+   */
+  MediaStreamName?: string;
+}
+
+export namespace RemoveFlowMediaStreamResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoveFlowMediaStreamResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface RemoveFlowOutputRequest {
   /**
    * The flow that you want to remove an output from.
@@ -2296,6 +3069,76 @@ export namespace UpdateFlowEntitlementResponse {
 }
 
 /**
+ * The fields that you want to update in the media stream.
+ */
+export interface UpdateFlowMediaStreamRequest {
+  /**
+   * The attributes that you want to assign to the media stream.
+   */
+  Attributes?: MediaStreamAttributesRequest;
+
+  /**
+   * The sample rate (in Hz) for the stream. If the media stream type is video or ancillary data, set this value to 90000. If the media stream type is audio, set this value to either 48000 or 96000.
+   */
+  ClockRate?: number;
+
+  /**
+   * Description
+   */
+  Description?: string;
+
+  /**
+   * The Amazon Resource Name (ARN) of the flow.
+   */
+  FlowArn: string | undefined;
+
+  /**
+   * The name of the media stream that you want to update.
+   */
+  MediaStreamName: string | undefined;
+
+  /**
+   * The type of media stream.
+   */
+  MediaStreamType?: MediaStreamType | string;
+
+  /**
+   * The resolution of the video.
+   */
+  VideoFormat?: string;
+}
+
+export namespace UpdateFlowMediaStreamRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFlowMediaStreamRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFlowMediaStreamResponse {
+  /**
+   * The ARN of the flow that is associated with the media stream that you updated.
+   */
+  FlowArn?: string;
+
+  /**
+   * The media stream that you updated.
+   */
+  MediaStream?: MediaStream;
+}
+
+export namespace UpdateFlowMediaStreamResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFlowMediaStreamResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * The fields that you want to update in the output.
  */
 export interface UpdateFlowOutputRequest {
@@ -2328,6 +3171,11 @@ export interface UpdateFlowOutputRequest {
    * The maximum latency in milliseconds for Zixi-based streams.
    */
   MaxLatency?: number;
+
+  /**
+   * The media streams that are associated with the output, and the parameters for those associations.
+   */
+  MediaStreamOutputConfigurations?: MediaStreamOutputConfigurationRequest[];
 
   /**
    * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
@@ -2440,6 +3288,16 @@ export interface UpdateFlowSourceRequest {
   MaxLatency?: number;
 
   /**
+   * The size of the buffer (in milliseconds) to use to sync incoming source data.
+   */
+  MaxSyncBuffer?: number;
+
+  /**
+   * The media streams that are associated with the source, and the parameters for those associations.
+   */
+  MediaStreamSourceConfigurations?: MediaStreamSourceConfigurationRequest[];
+
+  /**
    * The minimum latency in milliseconds for SRT-based streams. In streams that use the SRT protocol, this value that you set on your MediaConnect source or output represents the minimal potential latency of that connection. The latency of the stream is set to the highest number between the sender’s minimum latency and the receiver’s minimum latency.
    */
   MinLatency?: number;
@@ -2460,7 +3318,7 @@ export interface UpdateFlowSourceRequest {
   StreamId?: string;
 
   /**
-   * The name of the VPC Interface to configure this Source with.
+   * The name of the VPC interface to use for this source.
    */
   VpcInterfaceName?: string;
 

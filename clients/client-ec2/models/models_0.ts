@@ -2225,15 +2225,15 @@ export namespace AssociateRouteTableResult {
 
 export interface AssociateSubnetCidrBlockRequest {
   /**
-   * <p>The ID of your subnet.</p>
-   */
-  SubnetId: string | undefined;
-
-  /**
    * <p>The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix
    *             length.</p>
    */
   Ipv6CidrBlock: string | undefined;
+
+  /**
+   * <p>The ID of your subnet.</p>
+   */
+  SubnetId: string | undefined;
 }
 
 export namespace AssociateSubnetCidrBlockRequest {
@@ -4643,6 +4643,11 @@ export interface CreateCapacityReservationRequest {
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.</p>
+   */
+  OutpostArn?: string;
 }
 
 export namespace CreateCapacityReservationRequest {
@@ -4823,6 +4828,12 @@ export interface CapacityReservation {
    * <p>Any tags assigned to the Capacity Reservation.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost on which the Capacity
+   * 	  		Reservation was created.</p>
+   */
+  OutpostArn?: string;
 }
 
 export namespace CapacityReservation {

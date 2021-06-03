@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MediaConnectClient` and
-the commands you need, for example `AddFlowOutputsCommand`:
+the commands you need, for example `AddFlowMediaStreamsCommand`:
 
 ```js
 // ES5 example
-const { MediaConnectClient, AddFlowOutputsCommand } = require("@aws-sdk/client-mediaconnect");
+const { MediaConnectClient, AddFlowMediaStreamsCommand } = require("@aws-sdk/client-mediaconnect");
 ```
 
 ```ts
 // ES6+ example
-import { MediaConnectClient, AddFlowOutputsCommand } from "@aws-sdk/client-mediaconnect";
+import { MediaConnectClient, AddFlowMediaStreamsCommand } from "@aws-sdk/client-mediaconnect";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new MediaConnectClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddFlowOutputsCommand(params);
+const command = new AddFlowMediaStreamsCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.MediaConnect({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addFlowOutputs(params);
+  const data = await client.addFlowMediaStreams(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .addFlowOutputs(params)
+  .addFlowMediaStreams(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.addFlowOutputs(params, (err, data) => {
+client.addFlowMediaStreams(params, (err, data) => {
   // proccess err and data.
 });
 ```

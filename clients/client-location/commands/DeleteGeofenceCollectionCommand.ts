@@ -23,9 +23,8 @@ export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCol
 /**
  * <p>Deletes a geofence collection from your AWS account.</p>
  *         <note>
- *             <p>This action deletes the resource permanently. You can't undo this action. If the
- *                 geofence collection is the target of a tracker resource, the devices will no longer
- *                 be monitored.</p>
+ *             <p>This operation deletes the resource permanently. If the geofence collection is the
+ *                 target of a tracker resource, the devices will no longer be monitored.</p>
  *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -126,6 +126,7 @@ import {
   PutFindingsPublicationConfigurationCommandInput,
   PutFindingsPublicationConfigurationCommandOutput,
 } from "./commands/PutFindingsPublicationConfigurationCommand";
+import { SearchResourcesCommandInput, SearchResourcesCommandOutput } from "./commands/SearchResourcesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestCustomDataIdentifierCommandInput,
@@ -248,6 +249,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | PutClassificationExportConfigurationCommandInput
   | PutFindingsPublicationConfigurationCommandInput
+  | SearchResourcesCommandInput
   | TagResourceCommandInput
   | TestCustomDataIdentifierCommandInput
   | UntagResourceCommandInput
@@ -305,6 +307,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | PutClassificationExportConfigurationCommandOutput
   | PutFindingsPublicationConfigurationCommandOutput
+  | SearchResourcesCommandOutput
   | TagResourceCommandOutput
   | TestCustomDataIdentifierCommandOutput
   | UntagResourceCommandOutput

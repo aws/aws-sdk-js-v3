@@ -2192,7 +2192,7 @@ export interface AttachPolicyRequest {
   policyName: string | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html">identity</a> to which the policy is attached.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html">identity</a> to which the policy is attached. For example, a thing group or a certificate.</p>
    */
   target: string | undefined;
 }
@@ -4413,12 +4413,7 @@ export interface CreateJobRequest {
   targets: string[] | undefined;
 
   /**
-   * <p>An S3 link to the job document.</p>
-   */
-  documentSource?: string;
-
-  /**
-   * <p>The job document.</p>
+   * <p>An S3 link to the job document. Required if you don't specify a value for <code>document</code>.</p>
    *         <note>
    *             <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p>
    *             <p>The placeholder link is of the following form:</p>
@@ -4427,6 +4422,11 @@ export interface CreateJobRequest {
    *             </p>
    *             <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p>
    *         </note>
+   */
+  documentSource?: string;
+
+  /**
+   * <p>The job document. Required if you don't specify a value for <code>documentSource</code>.</p>
    */
   document?: string;
 
@@ -4483,6 +4483,11 @@ export interface CreateJobRequest {
    *          </note>
    */
   namespaceId?: string;
+
+  /**
+   * <p>The ARN of the job template used to create the job.</p>
+   */
+  jobTemplateArn?: string;
 }
 
 export namespace CreateJobRequest {
@@ -4516,6 +4521,118 @@ export namespace CreateJobResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateJobResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A resource with the same name already exists.</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ConflictException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateJobTemplateRequest {
+  /**
+   * <p>A unique identifier for the job template. We recommend using a UUID. Alpha-numeric
+   *         characters, "-", and "_" are valid for use here.</p>
+   */
+  jobTemplateId: string | undefined;
+
+  /**
+   * <p>The ARN of the job to use as the basis for the job template.</p>
+   */
+  jobArn?: string;
+
+  /**
+   * <p>An S3 link to the job document to use in the template. Required if you don't specify a value for <code>document</code>.</p>
+   *         <note>
+   *             <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p>
+   *             <p>The placeholder link is of the following form:</p>
+   *             <p>
+   *                <code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code>
+   *             </p>
+   *             <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p>
+   *         </note>
+   */
+  documentSource?: string;
+
+  /**
+   * <p>The job document. Required if you don't specify a value for <code>documentSource</code>.</p>
+   */
+  document?: string;
+
+  /**
+   * <p>A description of the job document.</p>
+   */
+  description: string | undefined;
+
+  /**
+   * <p>Configuration for pre-signed S3 URLs.</p>
+   */
+  presignedUrlConfig?: PresignedUrlConfig;
+
+  /**
+   * <p>Allows you to create a staged rollout of a job.</p>
+   */
+  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
+
+  /**
+   * <p>The criteria that determine when and how a job abort takes place.</p>
+   */
+  abortConfig?: AbortConfig;
+
+  /**
+   * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
+   *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
+   *            execution status is not set to another terminal state before the timer expires, it will
+   *            be automatically set to <code>TIMED_OUT</code>.</p>
+   */
+  timeoutConfig?: TimeoutConfig;
+
+  /**
+   * <p>Metadata that can be used to manage the job template.</p>
+   */
+  tags?: Tag[];
+}
+
+export namespace CreateJobTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateJobTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateJobTemplateResponse {
+  /**
+   * <p>The ARN of the job template.</p>
+   */
+  jobTemplateArn?: string;
+
+  /**
+   * <p>The unique identifier of the job template.</p>
+   */
+  jobTemplateId?: string;
+}
+
+export namespace CreateJobTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateJobTemplateResponse): any => ({
     ...obj,
   });
 }
@@ -7187,6 +7304,22 @@ export namespace DeleteJobExecutionRequest {
   });
 }
 
+export interface DeleteJobTemplateRequest {
+  /**
+   * <p>The unique identifier of the job template to delete.</p>
+   */
+  jobTemplateId: string | undefined;
+}
+
+export namespace DeleteJobTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteJobTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteMitigationActionRequest {
   /**
    * <p>The name of the mitigation action that you want to delete.</p>
@@ -7619,60 +7752,6 @@ export namespace DeleteTopicRuleRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteTopicRuleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTopicRuleDestinationRequest {
-  /**
-   * <p>The ARN of the topic rule destination to delete.</p>
-   */
-  arn: string | undefined;
-}
-
-export namespace DeleteTopicRuleDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTopicRuleDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteTopicRuleDestinationResponse {}
-
-export namespace DeleteTopicRuleDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTopicRuleDestinationResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum LogTargetType {
-  DEFAULT = "DEFAULT",
-  THING_GROUP = "THING_GROUP",
-}
-
-export interface DeleteV2LoggingLevelRequest {
-  /**
-   * <p>The type of resource for which you are configuring logging. Must be
-   *             <code>THING_Group</code>.</p>
-   */
-  targetType: LogTargetType | string | undefined;
-
-  /**
-   * <p>The name of the resource for which you are configuring logging.</p>
-   */
-  targetName: string | undefined;
-}
-
-export namespace DeleteV2LoggingLevelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteV2LoggingLevelRequest): any => ({
     ...obj,
   });
 }

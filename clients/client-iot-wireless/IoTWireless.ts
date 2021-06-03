@@ -120,10 +120,20 @@ import {
   GetDeviceProfileCommandOutput,
 } from "./commands/GetDeviceProfileCommand";
 import {
+  GetLogLevelsByResourceTypesCommand,
+  GetLogLevelsByResourceTypesCommandInput,
+  GetLogLevelsByResourceTypesCommandOutput,
+} from "./commands/GetLogLevelsByResourceTypesCommand";
+import {
   GetPartnerAccountCommand,
   GetPartnerAccountCommandInput,
   GetPartnerAccountCommandOutput,
 } from "./commands/GetPartnerAccountCommand";
+import {
+  GetResourceLogLevelCommand,
+  GetResourceLogLevelCommandInput,
+  GetResourceLogLevelCommandOutput,
+} from "./commands/GetResourceLogLevelCommand";
 import {
   GetServiceEndpointCommand,
   GetServiceEndpointCommandInput,
@@ -215,6 +225,21 @@ import {
   ListWirelessGatewaysCommandOutput,
 } from "./commands/ListWirelessGatewaysCommand";
 import {
+  PutResourceLogLevelCommand,
+  PutResourceLogLevelCommandInput,
+  PutResourceLogLevelCommandOutput,
+} from "./commands/PutResourceLogLevelCommand";
+import {
+  ResetAllResourceLogLevelsCommand,
+  ResetAllResourceLogLevelsCommandInput,
+  ResetAllResourceLogLevelsCommandOutput,
+} from "./commands/ResetAllResourceLogLevelsCommand";
+import {
+  ResetResourceLogLevelCommand,
+  ResetResourceLogLevelCommandInput,
+  ResetResourceLogLevelCommandOutput,
+} from "./commands/ResetResourceLogLevelCommand";
+import {
   SendDataToWirelessDeviceCommand,
   SendDataToWirelessDeviceCommandInput,
   SendDataToWirelessDeviceCommandOutput,
@@ -235,6 +260,11 @@ import {
   UpdateDestinationCommandInput,
   UpdateDestinationCommandOutput,
 } from "./commands/UpdateDestinationCommand";
+import {
+  UpdateLogLevelsByResourceTypesCommand,
+  UpdateLogLevelsByResourceTypesCommandInput,
+  UpdateLogLevelsByResourceTypesCommandOutput,
+} from "./commands/UpdateLogLevelsByResourceTypesCommand";
 import {
   UpdatePartnerAccountCommand,
   UpdatePartnerAccountCommandInput,
@@ -1033,6 +1063,38 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>Returns current default log-levels, or log levels by resource types, could be for wireless device log options or wireless gateway log options.</p>
+   */
+  public getLogLevelsByResourceTypes(
+    args: GetLogLevelsByResourceTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLogLevelsByResourceTypesCommandOutput>;
+  public getLogLevelsByResourceTypes(
+    args: GetLogLevelsByResourceTypesCommandInput,
+    cb: (err: any, data?: GetLogLevelsByResourceTypesCommandOutput) => void
+  ): void;
+  public getLogLevelsByResourceTypes(
+    args: GetLogLevelsByResourceTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLogLevelsByResourceTypesCommandOutput) => void
+  ): void;
+  public getLogLevelsByResourceTypes(
+    args: GetLogLevelsByResourceTypesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLogLevelsByResourceTypesCommandOutput) => void),
+    cb?: (err: any, data?: GetLogLevelsByResourceTypesCommandOutput) => void
+  ): Promise<GetLogLevelsByResourceTypesCommandOutput> | void {
+    const command = new GetLogLevelsByResourceTypesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about a partner account. If <code>PartnerAccountId</code> and <code>PartnerType</code> are <code>null</code>, returns all partner accounts.</p>
    */
   public getPartnerAccount(
@@ -1054,6 +1116,38 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: GetPartnerAccountCommandOutput) => void
   ): Promise<GetPartnerAccountCommandOutput> | void {
     const command = new GetPartnerAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Fetches the log-level override if any for a given resource-ID and resource-type, coulde be a wireless device or a wireless gateway.</p>
+   */
+  public getResourceLogLevel(
+    args: GetResourceLogLevelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourceLogLevelCommandOutput>;
+  public getResourceLogLevel(
+    args: GetResourceLogLevelCommandInput,
+    cb: (err: any, data?: GetResourceLogLevelCommandOutput) => void
+  ): void;
+  public getResourceLogLevel(
+    args: GetResourceLogLevelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourceLogLevelCommandOutput) => void
+  ): void;
+  public getResourceLogLevel(
+    args: GetResourceLogLevelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourceLogLevelCommandOutput) => void),
+    cb?: (err: any, data?: GetResourceLogLevelCommandOutput) => void
+  ): Promise<GetResourceLogLevelCommandOutput> | void {
+    const command = new GetResourceLogLevelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1643,6 +1737,102 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>Sets the log-level override for a resource-ID and resource-type, could be a wireless gateway or a wireless device.</p>
+   */
+  public putResourceLogLevel(
+    args: PutResourceLogLevelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourceLogLevelCommandOutput>;
+  public putResourceLogLevel(
+    args: PutResourceLogLevelCommandInput,
+    cb: (err: any, data?: PutResourceLogLevelCommandOutput) => void
+  ): void;
+  public putResourceLogLevel(
+    args: PutResourceLogLevelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourceLogLevelCommandOutput) => void
+  ): void;
+  public putResourceLogLevel(
+    args: PutResourceLogLevelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourceLogLevelCommandOutput) => void),
+    cb?: (err: any, data?: PutResourceLogLevelCommandOutput) => void
+  ): Promise<PutResourceLogLevelCommandOutput> | void {
+    const command = new PutResourceLogLevelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Remove log-level overrides if any for all resources (both wireless devices and wireless gateways).</p>
+   */
+  public resetAllResourceLogLevels(
+    args: ResetAllResourceLogLevelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResetAllResourceLogLevelsCommandOutput>;
+  public resetAllResourceLogLevels(
+    args: ResetAllResourceLogLevelsCommandInput,
+    cb: (err: any, data?: ResetAllResourceLogLevelsCommandOutput) => void
+  ): void;
+  public resetAllResourceLogLevels(
+    args: ResetAllResourceLogLevelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResetAllResourceLogLevelsCommandOutput) => void
+  ): void;
+  public resetAllResourceLogLevels(
+    args: ResetAllResourceLogLevelsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetAllResourceLogLevelsCommandOutput) => void),
+    cb?: (err: any, data?: ResetAllResourceLogLevelsCommandOutput) => void
+  ): Promise<ResetAllResourceLogLevelsCommandOutput> | void {
+    const command = new ResetAllResourceLogLevelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Remove log-level override if any for a specific resource-ID and resource-type, could be a wireless device or a wireless gateway.</p>
+   */
+  public resetResourceLogLevel(
+    args: ResetResourceLogLevelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResetResourceLogLevelCommandOutput>;
+  public resetResourceLogLevel(
+    args: ResetResourceLogLevelCommandInput,
+    cb: (err: any, data?: ResetResourceLogLevelCommandOutput) => void
+  ): void;
+  public resetResourceLogLevel(
+    args: ResetResourceLogLevelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResetResourceLogLevelCommandOutput) => void
+  ): void;
+  public resetResourceLogLevel(
+    args: ResetResourceLogLevelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetResourceLogLevelCommandOutput) => void),
+    cb?: (err: any, data?: ResetResourceLogLevelCommandOutput) => void
+  ): Promise<ResetResourceLogLevelCommandOutput> | void {
+    const command = new ResetResourceLogLevelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Sends a decrypted application data frame to a device.</p>
    */
   public sendDataToWirelessDevice(
@@ -1786,6 +1976,38 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: UpdateDestinationCommandOutput) => void
   ): Promise<UpdateDestinationCommandOutput> | void {
     const command = new UpdateDestinationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Set default log level, or log levels by resource types, could be for wireless device log options or wireless gateways log options. This is to control the log messages that will be displayed in CloudWatch.</p>
+   */
+  public updateLogLevelsByResourceTypes(
+    args: UpdateLogLevelsByResourceTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLogLevelsByResourceTypesCommandOutput>;
+  public updateLogLevelsByResourceTypes(
+    args: UpdateLogLevelsByResourceTypesCommandInput,
+    cb: (err: any, data?: UpdateLogLevelsByResourceTypesCommandOutput) => void
+  ): void;
+  public updateLogLevelsByResourceTypes(
+    args: UpdateLogLevelsByResourceTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLogLevelsByResourceTypesCommandOutput) => void
+  ): void;
+  public updateLogLevelsByResourceTypes(
+    args: UpdateLogLevelsByResourceTypesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLogLevelsByResourceTypesCommandOutput) => void),
+    cb?: (err: any, data?: UpdateLogLevelsByResourceTypesCommandOutput) => void
+  ): Promise<UpdateLogLevelsByResourceTypesCommandOutput> | void {
+    const command = new UpdateLogLevelsByResourceTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -316,8 +316,14 @@ export interface DataSourceSyncJobMetricTarget {
 
   /**
    * <p>The ID of the sync job that is running on the data source.</p>
+   *         <p>If the ID of a sync job is not provided and there is a sync job
+   *             running, then the ID of this sync job is used and metrics are
+   *             generated for this sync job.</p>
+   *         <p>If the ID of a sync job is not provided and there is no sync job
+   *             running, then no metrics are generated and documents are
+   *             indexed/deleted at the index level without sync job metrics included.</p>
    */
-  DataSourceSyncJobId: string | undefined;
+  DataSourceSyncJobId?: string;
 }
 
 export namespace DataSourceSyncJobMetricTarget {
@@ -654,7 +660,13 @@ export interface BatchPutDocumentRequest {
   RoleArn?: string;
 
   /**
-   * <p>One or more documents to add to the index. </p>
+   * <p>One or more documents to add to the index.</p>
+   *          <p>Documents can include custom attributes. For example,
+   *       'DataSourceId' and 'DataSourceSyncJobId' are custom
+   *       attributes that provide information on the synchronization
+   *       of documents running on a data source. Note,
+   *       'DataSourceSyncJobId' could be an optional custom attribute
+   *       as Amazon Kendra will use the ID of a running sync job.</p>
    *          <p>Documents have the following file size limits.</p>
    *          <ul>
    *             <li>
@@ -751,6 +763,22 @@ export namespace ServiceQuotaExceededException {
    * @internal
    */
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
+    ...obj,
+  });
+}
+
+export interface ClearQuerySuggestionsRequest {
+  /**
+   * <p>The identifier of the index you want to clear query suggestions from.</p>
+   */
+  IndexId: string | undefined;
+}
+
+export namespace ClearQuerySuggestionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClearQuerySuggestionsRequest): any => ({
     ...obj,
   });
 }
@@ -1656,8 +1684,26 @@ export interface S3DataSourceConfiguration {
    * <p>A list of glob patterns for documents that should be indexed. If a
    *             document that matches an inclusion pattern also matches an exclusion
    *             pattern, the document is not indexed.</p>
-   *         <p>For more information about glob patterns, see <a href="https://en.wikipedia.org/wiki/Glob_(programming)">glob
-   *                 (programming)</a> in <i>Wikipedia</i>.</p>
+   *         <p>Some <a href="https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters">examples</a>
+   *             are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <i>*.txt</i> will include all text files
+   *                     in a directory (files with the extension .txt).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <i>**\/*.txt</i> will include all text
+   *                     files in a directory and its subdirectories.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <i>*tax*</i> will include all files in
+   *                     a directory that contain 'tax' in the file name, such as 'tax',
+   *                     'taxes', 'income_tax'.</p>
+   *             </li>
+   *          </ul>
    */
   InclusionPatterns?: string[];
 
@@ -1666,8 +1712,27 @@ export interface S3DataSourceConfiguration {
    *             If a document that matches an inclusion prefix or inclusion pattern
    *             also matches an exclusion pattern, the document is not
    *             indexed.</p>
-   *         <p>For more information about glob patterns, see <a href="https://en.wikipedia.org/wiki/Glob_(programming)">glob
-   *                 (programming)</a> in <i>Wikipedia</i>.</p>
+   *         <p>Some <a href="https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters">examples</a>
+   *             are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <i>*.png , *.jpg</i> will exclude
+   *                     all PNG and JPEG image files in a directory
+   *                     (files with the extensions .png and .jpg).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <i>*internal*</i> will exclude all
+   *                     files in a directory that contain 'internal' in the file name,
+   *                     such as 'internal', 'internal_only', 'company_internal'.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <i>**\/*internal*</i> will exclude
+   *                     all internal-related files in a directory and its subdirectories.</p>
+   *             </li>
+   *          </ul>
    */
   ExclusionPatterns?: string[];
 
@@ -1717,7 +1782,7 @@ export interface SalesforceChatterFeedConfiguration {
   /**
    * <p>The name of the column in the Salesforce FeedItem table that
    *             contains the title of the document. This is typically the
-   *                 <code>Title</code> collumn.</p>
+   *                 <code>Title</code> column.</p>
    */
   DocumentTitleFieldName?: string;
 
@@ -2908,6 +2973,84 @@ export namespace CreateIndexResponse {
   });
 }
 
+export interface CreateQuerySuggestionsBlockListRequest {
+  /**
+   * <p>The identifier of the index you want to create a query suggestions block list for.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>A user friendly name for the block list.</p>
+   *         <p>For example, the block list named 'offensive-words' includes all
+   *             offensive words that could appear in user queries and need to be
+   *             blocked from suggestions.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A user-friendly description for the block list.</p>
+   *         <p>For example, the description "List of all offensive words that can
+   *             appear in user queries and need to be blocked from suggestions."</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The S3 path to your block list text file in your S3 bucket.</p>
+   *         <p>Each block word or phrase should be on a separate line in a text file.</p>
+   *             <p>For information on the current quota limits for block lists, see
+   *                 <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
+   *                     for Amazon Kendra</a>.</p>
+   */
+  SourceS3Path: S3Path | undefined;
+
+  /**
+   * <p>A token that you provide to identify the request to create a
+   *             query suggestions block list.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The IAM (Identity and Access Management) role used by Amazon Kendra to
+   *             access the block list text file in your S3 bucket.</p>
+   *         <p>You need permissions to the role ARN (Amazon Resource Name).
+   *             The role needs S3 read permissions to your file in S3 and needs
+   *             to give STS (Security Token Service) assume role permissions
+   *             to Amazon Kendra.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A tag that you can assign to a block list that categorizes
+   *             the block list.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateQuerySuggestionsBlockListRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateQuerySuggestionsBlockListRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateQuerySuggestionsBlockListResponse {
+  /**
+   * <p>The unique identifier of the created block list.</p>
+   */
+  Id?: string;
+}
+
+export namespace CreateQuerySuggestionsBlockListResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateQuerySuggestionsBlockListResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateThesaurusRequest {
   /**
    * <p>The unique identifier of the index for the new thesaurus.
@@ -3036,6 +3179,27 @@ export namespace DeleteIndexRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteIndexRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteQuerySuggestionsBlockListRequest {
+  /**
+   * <p>The identifier of the you want to delete a block list from.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the block list that needs to be deleted.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace DeleteQuerySuggestionsBlockListRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteQuerySuggestionsBlockListRequest): any => ({
     ...obj,
   });
 }
@@ -3668,6 +3832,220 @@ export namespace DescribeIndexResponse {
   });
 }
 
+export interface DescribeQuerySuggestionsBlockListRequest {
+  /**
+   * <p>The identifier of the index for the block list.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the block list.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace DescribeQuerySuggestionsBlockListRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeQuerySuggestionsBlockListRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum QuerySuggestionsBlockListStatus {
+  ACTIVE = "ACTIVE",
+  ACTIVE_BUT_UPDATE_FAILED = "ACTIVE_BUT_UPDATE_FAILED",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  UPDATING = "UPDATING",
+}
+
+export interface DescribeQuerySuggestionsBlockListResponse {
+  /**
+   * <p>Shows the identifier of the index for the block list.</p>
+   */
+  IndexId?: string;
+
+  /**
+   * <p>Shows the unique identifier of the block list.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>Shows the name of the block list.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Shows the description for the block list.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Shows whether the current status of the block list is
+   *             <code>ACTIVE</code> or <code>INACTIVE</code>.</p>
+   */
+  Status?: QuerySuggestionsBlockListStatus | string;
+
+  /**
+   * <p>Shows the error message with details when there are issues in
+   *             processing the block list.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>Shows the date-time a block list for query suggestions was last created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>Shows the date-time a block list for query suggestions was last updated.</p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p>Shows the current S3 path to your block list text file in your S3 bucket.</p>
+   *         <p>Each block word or phrase should be on a separate line in a text file.</p>
+   *         <p>For information on the current quota limits for block lists, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
+   *                 for Amazon Kendra</a>.</p>
+   */
+  SourceS3Path?: S3Path;
+
+  /**
+   * <p>Shows the current number of valid, non-empty words or phrases in
+   *             the block list text file.</p>
+   */
+  ItemCount?: number;
+
+  /**
+   * <p>Shows the current size of the block list text file in S3.</p>
+   */
+  FileSizeBytes?: number;
+
+  /**
+   * <p>Shows the current IAM (Identity and Access Management) role used by
+   *             Amazon Kendra to access the block list text file in S3.</p>
+   *         <p>The role needs S3 read permissions to your file in S3 and needs to
+   *             give STS (Security Token Service) assume role permissions to
+   *             Amazon Kendra.</p>
+   */
+  RoleArn?: string;
+}
+
+export namespace DescribeQuerySuggestionsBlockListResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeQuerySuggestionsBlockListResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeQuerySuggestionsConfigRequest {
+  /**
+   * <p>The identifier of the index you want to describe query suggestions
+   *             settings for.</p>
+   */
+  IndexId: string | undefined;
+}
+
+export namespace DescribeQuerySuggestionsConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeQuerySuggestionsConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum Mode {
+  ENABLED = "ENABLED",
+  LEARN_ONLY = "LEARN_ONLY",
+}
+
+export enum QuerySuggestionsStatus {
+  ACTIVE = "ACTIVE",
+  UPDATING = "UPDATING",
+}
+
+export interface DescribeQuerySuggestionsConfigResponse {
+  /**
+   * <p>Shows whether query suggestions are currently in
+   *             <code>ENABLED</code> mode or <code>LEARN_ONLY</code> mode.</p>
+   *         <p>By default, Amazon Kendra enables query suggestions.<code>LEARN_ONLY</code>
+   *             turns off query suggestions for your users. You can change the mode using
+   *             the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html">UpdateQuerySuggestionsConfig</a>
+   *             operation.</p>
+   */
+  Mode?: Mode | string;
+
+  /**
+   * <p>Shows whether the status of query suggestions settings is currently
+   *             Active or Updating.</p>
+   *         <p>Active means the current settings apply and Updating means your
+   *             changed settings are in the process of applying.</p>
+   */
+  Status?: QuerySuggestionsStatus | string;
+
+  /**
+   * <p>Shows how recent your queries are in your query log time
+   *             window (in days).</p>
+   */
+  QueryLogLookBackWindowInDays?: number;
+
+  /**
+   * <p>Shows whether Amazon Kendra uses all queries or only uses queries that
+   *             include user information to generate query suggestions.</p>
+   */
+  IncludeQueriesWithoutUserInformation?: boolean;
+
+  /**
+   * <p>Shows the minimum number of unique users who must search a query in
+   *             order for the query to be eligible to suggest to your users.</p>
+   */
+  MinimumNumberOfQueryingUsers?: number;
+
+  /**
+   * <p>Shows the minimum number of times a query must be searched in order for
+   *             the query to be eligible to suggest to your users.</p>
+   */
+  MinimumQueryCount?: number;
+
+  /**
+   * <p>Shows the date-time query suggestions for an index was last updated.</p>
+   */
+  LastSuggestionsBuildTime?: Date;
+
+  /**
+   * <p>Shows the date-time query suggestions for an index was last cleared.</p>
+   *         <p>After you clear suggestions, Amazon Kendra learns new suggestions based
+   *             on new queries added to the query log from the time you cleared suggestions.
+   *             Amazon Kendra only considers re-occurences of a query from the time you cleared
+   *             suggestions. </p>
+   */
+  LastClearTime?: Date;
+
+  /**
+   * <p>Shows the current total count of query suggestions for an index.</p>
+   *         <p>This count can change when you update your query suggestions settings,
+   *             if you filter out certain queries from suggestions using a block list,
+   *             and as the query log accumulates more queries for Amazon Kendra to learn from.</p>
+   */
+  TotalSuggestionsCount?: number;
+}
+
+export namespace DescribeQuerySuggestionsConfigResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeQuerySuggestionsConfigResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeThesaurusRequest {
   /**
    * <p>The identifier of the thesaurus to describe.</p>
@@ -3786,6 +4164,155 @@ export namespace DescribeThesaurusResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeThesaurusResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetQuerySuggestionsRequest {
+  /**
+   * <p>The identifier of the index you want to get query suggestions from.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The text of a user's query to generate query suggestions.</p>
+   *         <p>A query is suggested if the query prefix matches
+   *             what a user starts to type as their query.</p>
+   *         <p>Amazon Kendra does not show any suggestions if a user
+   *             types fewer than two characters or more than 60 characters.
+   *             A query must also have at least one search result and contain
+   *             at least one word of more than four characters.</p>
+   */
+  QueryText: string | undefined;
+
+  /**
+   * <p>The maximum number of query suggestions you want to show
+   *             to your users.</p>
+   */
+  MaxSuggestionsCount?: number;
+}
+
+export namespace GetQuerySuggestionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetQuerySuggestionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The text highlights for a single query suggestion.</p>
+ */
+export interface SuggestionHighlight {
+  /**
+   * <p>The zero-based location in the response string where the highlight starts.</p>
+   */
+  BeginOffset?: number;
+
+  /**
+   * <p>The zero-based location in the response string where the highlight ends.</p>
+   */
+  EndOffset?: number;
+}
+
+export namespace SuggestionHighlight {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SuggestionHighlight): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides text and information about where to highlight the query suggestion text.</p>
+ */
+export interface SuggestionTextWithHighlights {
+  /**
+   * <p>The query suggestion text to display to the user.</p>
+   */
+  Text?: string;
+
+  /**
+   * <p>The beginning and end of the query suggestion text that should be highlighted.</p>
+   */
+  Highlights?: SuggestionHighlight[];
+}
+
+export namespace SuggestionTextWithHighlights {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SuggestionTextWithHighlights): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The <code>SuggestionTextWithHighlights</code> structure information.</p>
+ */
+export interface SuggestionValue {
+  /**
+   * <p>The <code>SuggestionTextWithHighlights</code> structure that contains
+   *             the query suggestion text and highlights.</p>
+   */
+  Text?: SuggestionTextWithHighlights;
+}
+
+export namespace SuggestionValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SuggestionValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A single query suggestion.</p>
+ */
+export interface Suggestion {
+  /**
+   * <p>The unique UUID (universally unique identifier) of a single
+   *             query suggestion.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The value for the unique UUID (universally unique identifier)
+   *             of a single query suggestion.</p>
+   *         <p>The value is the text string of a suggestion.</p>
+   */
+  Value?: SuggestionValue;
+}
+
+export namespace Suggestion {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Suggestion): any => ({
+    ...obj,
+  });
+}
+
+export interface GetQuerySuggestionsResponse {
+  /**
+   * <p>The unique identifier for a list of query suggestions for an index.</p>
+   */
+  QuerySuggestionsId?: string;
+
+  /**
+   * <p>A list of query suggestions for an index.</p>
+   */
+  Suggestions?: Suggestion[];
+}
+
+export namespace GetQuerySuggestionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetQuerySuggestionsResponse): any => ({
     ...obj,
   });
 }
@@ -4302,6 +4829,117 @@ export namespace ListIndicesResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListIndicesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListQuerySuggestionsBlockListsRequest {
+  /**
+   * <p>The identifier of the index for a list of all block lists that exist for
+   *             that index.</p>
+   *         <p>For information on the current quota limits for block lists, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
+   *                 for Amazon Kendra</a>.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>If the previous response was incomplete (because there is more data to retrieve),
+   *             Amazon Kendra returns a pagination token in the response. You can use this pagination
+   *             token to retrieve the next set of block lists (<code>BlockListSummaryItems</code>).</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of block lists to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListQuerySuggestionsBlockListsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListQuerySuggestionsBlockListsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary information on a query suggestions block list.</p>
+ *         <p>This includes information on the block list ID, block list name, when the
+ *             block list was created, when the block list was last updated, and the count
+ *             of block words/phrases in the block list.</p>
+ *         <p>For information on the current quota limits for block lists, see
+ *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
+ *                 for Amazon Kendra</a>.</p>
+ */
+export interface QuerySuggestionsBlockListSummary {
+  /**
+   * <p>The identifier of a block list.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The name of the block list.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The status of the block list.</p>
+   */
+  Status?: QuerySuggestionsBlockListStatus | string;
+
+  /**
+   * <p>The date-time summary information for a query suggestions
+   *             block list was last created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The date-time the block list was last updated.</p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p>The number of items in the block list file.</p>
+   */
+  ItemCount?: number;
+}
+
+export namespace QuerySuggestionsBlockListSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QuerySuggestionsBlockListSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListQuerySuggestionsBlockListsResponse {
+  /**
+   * <p>Summary items for a block list.</p>
+   *         <p>This includes summary items on the block list ID, block list name, when the
+   *             block list was created, when the block list was last updated, and the count
+   *             of block words/phrases in the block list.</p>
+   *         <p>For information on the current quota limits for block lists, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
+   *                 for Amazon Kendra</a>.</p>
+   */
+  BlockListSummaryItems?: QuerySuggestionsBlockListSummary[];
+
+  /**
+   * <p>If the response is truncated, Amazon Kendra returns this token that you can use
+   *             in the subsequent request to retrieve the next set of block lists.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListQuerySuggestionsBlockListsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListQuerySuggestionsBlockListsResponse): any => ({
     ...obj,
   });
 }
@@ -5156,6 +5794,125 @@ export namespace UpdateIndexRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateIndexRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateQuerySuggestionsBlockListRequest {
+  /**
+   * <p>The identifier of the index for a block list.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The unique identifier of a block list.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of a block list.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description for a block list.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The S3 path where your block list text file sits in S3.</p>
+   *         <p>If you update your block list and provide the same path to the
+   *             block list text file in S3, then Amazon Kendra reloads the file to refresh
+   *             the block list. Amazon Kendra does not automatically refresh your block list.
+   *             You need to call the <code>UpdateQuerySuggestionsBlockList</code> API
+   *             to refresh you block list.</p>
+   *         <p>If you update your block list, then Amazon Kendra asynchronously refreshes
+   *             all query suggestions with the latest content in the S3 file. This
+   *             means changes might not take effect immediately.</p>
+   */
+  SourceS3Path?: S3Path;
+
+  /**
+   * <p>The IAM (Identity and Access Management) role used to access the
+   *             block list text file in S3.</p>
+   */
+  RoleArn?: string;
+}
+
+export namespace UpdateQuerySuggestionsBlockListRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateQuerySuggestionsBlockListRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateQuerySuggestionsConfigRequest {
+  /**
+   * <p>The identifier of the index you want to update query suggestions settings for.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>Set the mode to <code>ENABLED</code> or <code>LEARN_ONLY</code>.</p>
+   *         <p>By default, Amazon Kendra enables query suggestions.
+   *             <code>LEARN_ONLY</code> mode allows you to turn off query suggestions.
+   *             You can to update this at any time.</p>
+   *         <p>In <code>LEARN_ONLY</code> mode, Amazon Kendra continues to learn from new
+   *             queries to keep suggestions up to date for when you are ready to
+   *             switch to ENABLED mode again.</p>
+   */
+  Mode?: Mode | string;
+
+  /**
+   * <p>How recent your queries are in your query log time window.</p>
+   *         <p>The time window is the number of days from current day to past days.</p>
+   *         <p>By default, Amazon Kendra sets this to 180.</p>
+   */
+  QueryLogLookBackWindowInDays?: number;
+
+  /**
+   * <p>
+   *             <code>TRUE</code> to include queries without user information (i.e. all queries,
+   *             irrespective of the user), otherwise <code>FALSE</code> to only include queries
+   *             with user information.</p>
+   *         <p>If you pass user information to Amazon Kendra along with the queries, you can set this
+   *             flag to <code>FALSE</code> and instruct Amazon Kendra to only consider queries with user
+   *             information.</p>
+   *         <p>If you set to <code>FALSE</code>, Amazon Kendra only considers queries searched at least
+   *             <code>MinimumQueryCount</code> times across <code>MinimumNumberOfQueryingUsers</code>
+   *             unique users for suggestions.</p>
+   *         <p>If you set to <code>TRUE</code>, Amazon Kendra ignores all user information and learns
+   *             from all queries.</p>
+   */
+  IncludeQueriesWithoutUserInformation?: boolean;
+
+  /**
+   * <p>The minimum number of unique users who must search a query in order for the query
+   *             to be eligible to suggest to your users.</p>
+   *         <p>Increasing this number might decrease the number of suggestions. However, this
+   *             ensures a query is searched by many users and is truly popular to suggest to users.</p>
+   *         <p>How you tune this setting depends on your specific needs.</p>
+   */
+  MinimumNumberOfQueryingUsers?: number;
+
+  /**
+   * <p>The the minimum number of times a query must be searched in order to be
+   *             eligible to suggest to your users.</p>
+   *         <p>Decreasing this number increases the number of suggestions. However, this
+   *             affects the quality of suggestions as it sets a low bar for a query to be
+   *             considered popular to suggest to users.</p>
+   *         <p>How you tune this setting depends on your specific needs.</p>
+   */
+  MinimumQueryCount?: number;
+}
+
+export namespace UpdateQuerySuggestionsConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateQuerySuggestionsConfigRequest): any => ({
     ...obj,
   });
 }

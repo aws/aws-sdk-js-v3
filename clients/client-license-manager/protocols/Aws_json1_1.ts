@@ -13,6 +13,10 @@ import {
   CreateLicenseConfigurationCommandOutput,
 } from "../commands/CreateLicenseConfigurationCommand";
 import {
+  CreateLicenseManagerReportGeneratorCommandInput,
+  CreateLicenseManagerReportGeneratorCommandOutput,
+} from "../commands/CreateLicenseManagerReportGeneratorCommand";
+import {
   CreateLicenseVersionCommandInput,
   CreateLicenseVersionCommandOutput,
 } from "../commands/CreateLicenseVersionCommand";
@@ -23,6 +27,10 @@ import {
   DeleteLicenseConfigurationCommandInput,
   DeleteLicenseConfigurationCommandOutput,
 } from "../commands/DeleteLicenseConfigurationCommand";
+import {
+  DeleteLicenseManagerReportGeneratorCommandInput,
+  DeleteLicenseManagerReportGeneratorCommandOutput,
+} from "../commands/DeleteLicenseManagerReportGeneratorCommand";
 import { DeleteTokenCommandInput, DeleteTokenCommandOutput } from "../commands/DeleteTokenCommand";
 import {
   ExtendLicenseConsumptionCommandInput,
@@ -35,6 +43,10 @@ import {
   GetLicenseConfigurationCommandInput,
   GetLicenseConfigurationCommandOutput,
 } from "../commands/GetLicenseConfigurationCommand";
+import {
+  GetLicenseManagerReportGeneratorCommandInput,
+  GetLicenseManagerReportGeneratorCommandOutput,
+} from "../commands/GetLicenseManagerReportGeneratorCommand";
 import { GetLicenseUsageCommandInput, GetLicenseUsageCommandOutput } from "../commands/GetLicenseUsageCommand";
 import { GetServiceSettingsCommandInput, GetServiceSettingsCommandOutput } from "../commands/GetServiceSettingsCommand";
 import {
@@ -53,6 +65,10 @@ import {
   ListLicenseConfigurationsCommandInput,
   ListLicenseConfigurationsCommandOutput,
 } from "../commands/ListLicenseConfigurationsCommand";
+import {
+  ListLicenseManagerReportGeneratorsCommandInput,
+  ListLicenseManagerReportGeneratorsCommandOutput,
+} from "../commands/ListLicenseManagerReportGeneratorsCommand";
 import {
   ListLicenseSpecificationsForResourceCommandInput,
   ListLicenseSpecificationsForResourceCommandOutput,
@@ -88,6 +104,10 @@ import {
   UpdateLicenseConfigurationCommandOutput,
 } from "../commands/UpdateLicenseConfigurationCommand";
 import {
+  UpdateLicenseManagerReportGeneratorCommandInput,
+  UpdateLicenseManagerReportGeneratorCommandOutput,
+} from "../commands/UpdateLicenseManagerReportGeneratorCommand";
+import {
   UpdateLicenseSpecificationsForResourceCommandInput,
   UpdateLicenseSpecificationsForResourceCommandOutput,
 } from "../commands/UpdateLicenseSpecificationsForResourceCommand";
@@ -118,6 +138,8 @@ import {
   CreateGrantVersionResponse,
   CreateLicenseConfigurationRequest,
   CreateLicenseConfigurationResponse,
+  CreateLicenseManagerReportGeneratorRequest,
+  CreateLicenseManagerReportGeneratorResponse,
   CreateLicenseRequest,
   CreateLicenseResponse,
   CreateLicenseVersionRequest,
@@ -129,6 +151,8 @@ import {
   DeleteGrantResponse,
   DeleteLicenseConfigurationRequest,
   DeleteLicenseConfigurationResponse,
+  DeleteLicenseManagerReportGeneratorRequest,
+  DeleteLicenseManagerReportGeneratorResponse,
   DeleteLicenseRequest,
   DeleteLicenseResponse,
   DeleteTokenRequest,
@@ -148,6 +172,8 @@ import {
   GetGrantResponse,
   GetLicenseConfigurationRequest,
   GetLicenseConfigurationResponse,
+  GetLicenseManagerReportGeneratorRequest,
+  GetLicenseManagerReportGeneratorResponse,
   GetLicenseRequest,
   GetLicenseResponse,
   GetLicenseUsageRequest,
@@ -177,6 +203,8 @@ import {
   ListFailuresForLicenseConfigurationOperationsResponse,
   ListLicenseConfigurationsRequest,
   ListLicenseConfigurationsResponse,
+  ListLicenseManagerReportGeneratorsRequest,
+  ListLicenseManagerReportGeneratorsResponse,
   ListLicenseSpecificationsForResourceRequest,
   ListLicenseSpecificationsForResourceResponse,
   ListLicenseVersionsRequest,
@@ -207,9 +235,14 @@ import {
   RedirectException,
   RejectGrantRequest,
   RejectGrantResponse,
+  ReportContext,
+  ReportFrequency,
+  ReportGenerator,
+  ReportType,
   ResourceInventory,
   ResourceLimitExceededException,
   ResourceNotFoundException,
+  S3Location,
   ServerInternalException,
   Tag,
   TagResourceRequest,
@@ -220,6 +253,8 @@ import {
   UntagResourceResponse,
   UpdateLicenseConfigurationRequest,
   UpdateLicenseConfigurationResponse,
+  UpdateLicenseManagerReportGeneratorRequest,
+  UpdateLicenseManagerReportGeneratorResponse,
   UpdateLicenseSpecificationsForResourceRequest,
   UpdateLicenseSpecificationsForResourceResponse,
   UpdateServiceSettingsRequest,
@@ -340,6 +375,19 @@ export const serializeAws_json1_1CreateLicenseConfigurationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateLicenseManagerReportGeneratorCommand = async (
+  input: CreateLicenseManagerReportGeneratorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLicenseManager.CreateLicenseManagerReportGenerator",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateLicenseManagerReportGeneratorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateLicenseVersionCommand = async (
   input: CreateLicenseVersionCommandInput,
   context: __SerdeContext
@@ -402,6 +450,19 @@ export const serializeAws_json1_1DeleteLicenseConfigurationCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteLicenseConfigurationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand = async (
+  input: DeleteLicenseManagerReportGeneratorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLicenseManager.DeleteLicenseManagerReportGenerator",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteLicenseManagerReportGeneratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -483,6 +544,19 @@ export const serializeAws_json1_1GetLicenseConfigurationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetLicenseManagerReportGeneratorCommand = async (
+  input: GetLicenseManagerReportGeneratorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLicenseManager.GetLicenseManagerReportGenerator",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetLicenseManagerReportGeneratorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetLicenseUsageCommand = async (
   input: GetLicenseUsageCommandInput,
   context: __SerdeContext
@@ -558,6 +632,19 @@ export const serializeAws_json1_1ListLicenseConfigurationsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListLicenseConfigurationsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListLicenseManagerReportGeneratorsCommand = async (
+  input: ListLicenseManagerReportGeneratorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLicenseManager.ListLicenseManagerReportGenerators",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListLicenseManagerReportGeneratorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -727,6 +814,19 @@ export const serializeAws_json1_1UpdateLicenseConfigurationCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateLicenseConfigurationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateLicenseManagerReportGeneratorCommand = async (
+  input: UpdateLicenseManagerReportGeneratorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLicenseManager.UpdateLicenseManagerReportGenerator",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateLicenseManagerReportGeneratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1604,6 +1704,116 @@ const deserializeAws_json1_1CreateLicenseConfigurationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CreateLicenseManagerReportGeneratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLicenseManagerReportGeneratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateLicenseManagerReportGeneratorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateLicenseManagerReportGeneratorResponse(data, context);
+  const response: CreateLicenseManagerReportGeneratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateLicenseManagerReportGeneratorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLicenseManagerReportGeneratorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.licensemanager#ResourceLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.licensemanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.licensemanager#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreateLicenseVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2101,6 +2311,116 @@ const deserializeAws_json1_1DeleteLicenseConfigurationCommandError = async (
     case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLicenseManagerReportGeneratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteLicenseManagerReportGeneratorResponse(data, context);
+  const response: DeleteLicenseManagerReportGeneratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteLicenseManagerReportGeneratorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLicenseManagerReportGeneratorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.licensemanager#ResourceLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.licensemanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.licensemanager#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2694,6 +3014,116 @@ const deserializeAws_json1_1GetLicenseConfigurationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetLicenseManagerReportGeneratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLicenseManagerReportGeneratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetLicenseManagerReportGeneratorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetLicenseManagerReportGeneratorResponse(data, context);
+  const response: GetLicenseManagerReportGeneratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetLicenseManagerReportGeneratorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLicenseManagerReportGeneratorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.licensemanager#ResourceLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.licensemanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.licensemanager#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetLicenseUsageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3221,6 +3651,116 @@ const deserializeAws_json1_1ListLicenseConfigurationsCommandError = async (
     case "com.amazonaws.licensemanager#ServerInternalException":
       response = {
         ...(await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListLicenseManagerReportGeneratorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLicenseManagerReportGeneratorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListLicenseManagerReportGeneratorsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListLicenseManagerReportGeneratorsResponse(data, context);
+  const response: ListLicenseManagerReportGeneratorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListLicenseManagerReportGeneratorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLicenseManagerReportGeneratorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.licensemanager#ResourceLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.licensemanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.licensemanager#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4448,6 +4988,116 @@ const deserializeAws_json1_1UpdateLicenseConfigurationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateLicenseManagerReportGeneratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLicenseManagerReportGeneratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateLicenseManagerReportGeneratorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateLicenseManagerReportGeneratorResponse(data, context);
+  const response: UpdateLicenseManagerReportGeneratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateLicenseManagerReportGeneratorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLicenseManagerReportGeneratorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
+      response = {
+        ...(await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.licensemanager#ResourceLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.licensemanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
+      response = {
+        ...(await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.licensemanager#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5049,6 +5699,29 @@ const serializeAws_json1_1CreateLicenseConfigurationRequest = (
   };
 };
 
+const serializeAws_json1_1CreateLicenseManagerReportGeneratorRequest = (
+  input: CreateLicenseManagerReportGeneratorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.ReportContext !== undefined &&
+      input.ReportContext !== null && {
+        ReportContext: serializeAws_json1_1ReportContext(input.ReportContext, context),
+      }),
+    ...(input.ReportFrequency !== undefined &&
+      input.ReportFrequency !== null && {
+        ReportFrequency: serializeAws_json1_1ReportFrequency(input.ReportFrequency, context),
+      }),
+    ...(input.ReportGeneratorName !== undefined &&
+      input.ReportGeneratorName !== null && { ReportGeneratorName: input.ReportGeneratorName }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Type !== undefined &&
+      input.Type !== null && { Type: serializeAws_json1_1ReportTypeList(input.Type, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateLicenseRequest = (input: CreateLicenseRequest, context: __SerdeContext): any => {
   return {
     ...(input.Beneficiary !== undefined && input.Beneficiary !== null && { Beneficiary: input.Beneficiary }),
@@ -5143,6 +5816,18 @@ const serializeAws_json1_1DeleteLicenseConfigurationRequest = (
   return {
     ...(input.LicenseConfigurationArn !== undefined &&
       input.LicenseConfigurationArn !== null && { LicenseConfigurationArn: input.LicenseConfigurationArn }),
+  };
+};
+
+const serializeAws_json1_1DeleteLicenseManagerReportGeneratorRequest = (
+  input: DeleteLicenseManagerReportGeneratorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LicenseManagerReportGeneratorArn !== undefined &&
+      input.LicenseManagerReportGeneratorArn !== null && {
+        LicenseManagerReportGeneratorArn: input.LicenseManagerReportGeneratorArn,
+      }),
   };
 };
 
@@ -5279,6 +5964,18 @@ const serializeAws_json1_1GetLicenseConfigurationRequest = (
   };
 };
 
+const serializeAws_json1_1GetLicenseManagerReportGeneratorRequest = (
+  input: GetLicenseManagerReportGeneratorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LicenseManagerReportGeneratorArn !== undefined &&
+      input.LicenseManagerReportGeneratorArn !== null && {
+        LicenseManagerReportGeneratorArn: input.LicenseManagerReportGeneratorArn,
+      }),
+  };
+};
+
 const serializeAws_json1_1GetLicenseRequest = (input: GetLicenseRequest, context: __SerdeContext): any => {
   return {
     ...(input.LicenseArn !== undefined && input.LicenseArn !== null && { LicenseArn: input.LicenseArn }),
@@ -5394,6 +6091,18 @@ const serializeAws_json1_1ListLicenseConfigurationsRequest = (
       input.LicenseConfigurationArns !== null && {
         LicenseConfigurationArns: serializeAws_json1_1StringList(input.LicenseConfigurationArns, context),
       }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListLicenseManagerReportGeneratorsRequest = (
+  input: ListLicenseManagerReportGeneratorsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
@@ -5630,6 +6339,33 @@ const serializeAws_json1_1RejectGrantRequest = (input: RejectGrantRequest, conte
   };
 };
 
+const serializeAws_json1_1ReportContext = (input: ReportContext, context: __SerdeContext): any => {
+  return {
+    ...(input.licenseConfigurationArns !== undefined &&
+      input.licenseConfigurationArns !== null && {
+        licenseConfigurationArns: serializeAws_json1_1ArnList(input.licenseConfigurationArns, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1ReportFrequency = (input: ReportFrequency, context: __SerdeContext): any => {
+  return {
+    ...(input.period !== undefined && input.period !== null && { period: input.period }),
+    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+  };
+};
+
+const serializeAws_json1_1ReportTypeList = (input: (ReportType | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -5707,6 +6443,32 @@ const serializeAws_json1_1UpdateLicenseConfigurationRequest = (
       input.ProductInformationList !== null && {
         ProductInformationList: serializeAws_json1_1ProductInformationList(input.ProductInformationList, context),
       }),
+  };
+};
+
+const serializeAws_json1_1UpdateLicenseManagerReportGeneratorRequest = (
+  input: UpdateLicenseManagerReportGeneratorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.LicenseManagerReportGeneratorArn !== undefined &&
+      input.LicenseManagerReportGeneratorArn !== null && {
+        LicenseManagerReportGeneratorArn: input.LicenseManagerReportGeneratorArn,
+      }),
+    ...(input.ReportContext !== undefined &&
+      input.ReportContext !== null && {
+        ReportContext: serializeAws_json1_1ReportContext(input.ReportContext, context),
+      }),
+    ...(input.ReportFrequency !== undefined &&
+      input.ReportFrequency !== null && {
+        ReportFrequency: serializeAws_json1_1ReportFrequency(input.ReportFrequency, context),
+      }),
+    ...(input.ReportGeneratorName !== undefined &&
+      input.ReportGeneratorName !== null && { ReportGeneratorName: input.ReportGeneratorName }),
+    ...(input.Type !== undefined &&
+      input.Type !== null && { Type: serializeAws_json1_1ReportTypeList(input.Type, context) }),
   };
 };
 
@@ -5947,6 +6709,18 @@ const deserializeAws_json1_1CreateLicenseConfigurationResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateLicenseManagerReportGeneratorResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateLicenseManagerReportGeneratorResponse => {
+  return {
+    LicenseManagerReportGeneratorArn:
+      output.LicenseManagerReportGeneratorArn !== undefined && output.LicenseManagerReportGeneratorArn !== null
+        ? output.LicenseManagerReportGeneratorArn
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateLicenseResponse = (output: any, context: __SerdeContext): CreateLicenseResponse => {
   return {
     LicenseArn: output.LicenseArn !== undefined && output.LicenseArn !== null ? output.LicenseArn : undefined,
@@ -5993,6 +6767,13 @@ const deserializeAws_json1_1DeleteLicenseConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteLicenseConfigurationResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeleteLicenseManagerReportGeneratorResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteLicenseManagerReportGeneratorResponse => {
   return {} as any;
 };
 
@@ -6181,6 +6962,18 @@ const deserializeAws_json1_1GetLicenseConfigurationResponse = (
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetLicenseManagerReportGeneratorResponse = (
+  output: any,
+  context: __SerdeContext
+): GetLicenseManagerReportGeneratorResponse => {
+  return {
+    ReportGenerator:
+      output.ReportGenerator !== undefined && output.ReportGenerator !== null
+        ? deserializeAws_json1_1ReportGenerator(output.ReportGenerator, context)
         : undefined,
   } as any;
 };
@@ -6645,6 +7438,19 @@ const deserializeAws_json1_1ListLicenseConfigurationsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListLicenseManagerReportGeneratorsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListLicenseManagerReportGeneratorsResponse => {
+  return {
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    ReportGenerators:
+      output.ReportGenerators !== undefined && output.ReportGenerators !== null
+        ? deserializeAws_json1_1ReportGeneratorList(output.ReportGenerators, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListLicenseSpecificationsForResourceResponse = (
   output: any,
   context: __SerdeContext
@@ -6929,6 +7735,93 @@ const deserializeAws_json1_1RejectGrantResponse = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1ReportContext = (output: any, context: __SerdeContext): ReportContext => {
+  return {
+    licenseConfigurationArns:
+      output.licenseConfigurationArns !== undefined && output.licenseConfigurationArns !== null
+        ? deserializeAws_json1_1ArnList(output.licenseConfigurationArns, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ReportFrequency = (output: any, context: __SerdeContext): ReportFrequency => {
+  return {
+    period: output.period !== undefined && output.period !== null ? output.period : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ReportGenerator = (output: any, context: __SerdeContext): ReportGenerator => {
+  return {
+    CreateTime: output.CreateTime !== undefined && output.CreateTime !== null ? output.CreateTime : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    LastReportGenerationTime:
+      output.LastReportGenerationTime !== undefined && output.LastReportGenerationTime !== null
+        ? output.LastReportGenerationTime
+        : undefined,
+    LastRunFailureReason:
+      output.LastRunFailureReason !== undefined && output.LastRunFailureReason !== null
+        ? output.LastRunFailureReason
+        : undefined,
+    LastRunStatus:
+      output.LastRunStatus !== undefined && output.LastRunStatus !== null ? output.LastRunStatus : undefined,
+    LicenseManagerReportGeneratorArn:
+      output.LicenseManagerReportGeneratorArn !== undefined && output.LicenseManagerReportGeneratorArn !== null
+        ? output.LicenseManagerReportGeneratorArn
+        : undefined,
+    ReportContext:
+      output.ReportContext !== undefined && output.ReportContext !== null
+        ? deserializeAws_json1_1ReportContext(output.ReportContext, context)
+        : undefined,
+    ReportCreatorAccount:
+      output.ReportCreatorAccount !== undefined && output.ReportCreatorAccount !== null
+        ? output.ReportCreatorAccount
+        : undefined,
+    ReportFrequency:
+      output.ReportFrequency !== undefined && output.ReportFrequency !== null
+        ? deserializeAws_json1_1ReportFrequency(output.ReportFrequency, context)
+        : undefined,
+    ReportGeneratorName:
+      output.ReportGeneratorName !== undefined && output.ReportGeneratorName !== null
+        ? output.ReportGeneratorName
+        : undefined,
+    ReportType:
+      output.ReportType !== undefined && output.ReportType !== null
+        ? deserializeAws_json1_1ReportTypeList(output.ReportType, context)
+        : undefined,
+    S3Location:
+      output.S3Location !== undefined && output.S3Location !== null
+        ? deserializeAws_json1_1S3Location(output.S3Location, context)
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ReportGeneratorList = (output: any, context: __SerdeContext): ReportGenerator[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ReportGenerator(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ReportTypeList = (output: any, context: __SerdeContext): (ReportType | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const deserializeAws_json1_1ResourceInventory = (output: any, context: __SerdeContext): ResourceInventory => {
   return {
     Platform: output.Platform !== undefined && output.Platform !== null ? output.Platform : undefined,
@@ -6970,6 +7863,13 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1S3Location = (output: any, context: __SerdeContext): S3Location => {
+  return {
+    bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
+    keyPrefix: output.keyPrefix !== undefined && output.keyPrefix !== null ? output.keyPrefix : undefined,
   } as any;
 };
 
@@ -7062,6 +7962,13 @@ const deserializeAws_json1_1UpdateLicenseConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateLicenseConfigurationResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateLicenseManagerReportGeneratorResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateLicenseManagerReportGeneratorResponse => {
   return {} as any;
 };
 

@@ -3,18 +3,42 @@ import {
   BatchDeleteDocumentCommandOutput,
 } from "../commands/BatchDeleteDocumentCommand";
 import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "../commands/BatchPutDocumentCommand";
+import {
+  ClearQuerySuggestionsCommandInput,
+  ClearQuerySuggestionsCommandOutput,
+} from "../commands/ClearQuerySuggestionsCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
 import { CreateFaqCommandInput, CreateFaqCommandOutput } from "../commands/CreateFaqCommand";
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "../commands/CreateIndexCommand";
+import {
+  CreateQuerySuggestionsBlockListCommandInput,
+  CreateQuerySuggestionsBlockListCommandOutput,
+} from "../commands/CreateQuerySuggestionsBlockListCommand";
 import { CreateThesaurusCommandInput, CreateThesaurusCommandOutput } from "../commands/CreateThesaurusCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
 import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "../commands/DeleteFaqCommand";
 import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "../commands/DeleteIndexCommand";
+import {
+  DeleteQuerySuggestionsBlockListCommandInput,
+  DeleteQuerySuggestionsBlockListCommandOutput,
+} from "../commands/DeleteQuerySuggestionsBlockListCommand";
 import { DeleteThesaurusCommandInput, DeleteThesaurusCommandOutput } from "../commands/DeleteThesaurusCommand";
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "../commands/DescribeDataSourceCommand";
 import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "../commands/DescribeFaqCommand";
 import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "../commands/DescribeIndexCommand";
+import {
+  DescribeQuerySuggestionsBlockListCommandInput,
+  DescribeQuerySuggestionsBlockListCommandOutput,
+} from "../commands/DescribeQuerySuggestionsBlockListCommand";
+import {
+  DescribeQuerySuggestionsConfigCommandInput,
+  DescribeQuerySuggestionsConfigCommandOutput,
+} from "../commands/DescribeQuerySuggestionsConfigCommand";
 import { DescribeThesaurusCommandInput, DescribeThesaurusCommandOutput } from "../commands/DescribeThesaurusCommand";
+import {
+  GetQuerySuggestionsCommandInput,
+  GetQuerySuggestionsCommandOutput,
+} from "../commands/GetQuerySuggestionsCommand";
 import {
   ListDataSourceSyncJobsCommandInput,
   ListDataSourceSyncJobsCommandOutput,
@@ -22,6 +46,10 @@ import {
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
 import { ListFaqsCommandInput, ListFaqsCommandOutput } from "../commands/ListFaqsCommand";
 import { ListIndicesCommandInput, ListIndicesCommandOutput } from "../commands/ListIndicesCommand";
+import {
+  ListQuerySuggestionsBlockListsCommandInput,
+  ListQuerySuggestionsBlockListsCommandOutput,
+} from "../commands/ListQuerySuggestionsBlockListsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -41,6 +69,14 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "../commands/UpdateIndexCommand";
+import {
+  UpdateQuerySuggestionsBlockListCommandInput,
+  UpdateQuerySuggestionsBlockListCommandOutput,
+} from "../commands/UpdateQuerySuggestionsBlockListCommand";
+import {
+  UpdateQuerySuggestionsConfigCommandInput,
+  UpdateQuerySuggestionsConfigCommandOutput,
+} from "../commands/UpdateQuerySuggestionsConfigCommand";
 import { UpdateThesaurusCommandInput, UpdateThesaurusCommandOutput } from "../commands/UpdateThesaurusCommand";
 import {
   AccessControlListConfiguration,
@@ -56,6 +92,7 @@ import {
   BatchPutDocumentResponse,
   BatchPutDocumentResponseFailedDocument,
   CapacityUnitsConfiguration,
+  ClearQuerySuggestionsRequest,
   ClickFeedback,
   ColumnConfiguration,
   ConflictException,
@@ -75,6 +112,8 @@ import {
   CreateFaqResponse,
   CreateIndexRequest,
   CreateIndexResponse,
+  CreateQuerySuggestionsBlockListRequest,
+  CreateQuerySuggestionsBlockListResponse,
   CreateThesaurusRequest,
   CreateThesaurusResponse,
   DataSourceConfiguration,
@@ -88,6 +127,7 @@ import {
   DeleteDataSourceRequest,
   DeleteFaqRequest,
   DeleteIndexRequest,
+  DeleteQuerySuggestionsBlockListRequest,
   DeleteThesaurusRequest,
   DescribeDataSourceRequest,
   DescribeDataSourceResponse,
@@ -95,6 +135,10 @@ import {
   DescribeFaqResponse,
   DescribeIndexRequest,
   DescribeIndexResponse,
+  DescribeQuerySuggestionsBlockListRequest,
+  DescribeQuerySuggestionsBlockListResponse,
+  DescribeQuerySuggestionsConfigRequest,
+  DescribeQuerySuggestionsConfigResponse,
   DescribeThesaurusRequest,
   DescribeThesaurusResponse,
   Document,
@@ -108,6 +152,8 @@ import {
   FacetResult,
   FaqStatistics,
   FaqSummary,
+  GetQuerySuggestionsRequest,
+  GetQuerySuggestionsResponse,
   GoogleDriveConfiguration,
   Highlight,
   IndexConfigurationSummary,
@@ -123,6 +169,8 @@ import {
   ListFaqsResponse,
   ListIndicesRequest,
   ListIndicesResponse,
+  ListQuerySuggestionsBlockListsRequest,
+  ListQuerySuggestionsBlockListsResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
   ListThesauriRequest,
@@ -133,6 +181,7 @@ import {
   QueryRequest,
   QueryResult,
   QueryResultItem,
+  QuerySuggestionsBlockListSummary,
   Relevance,
   RelevanceFeedback,
   ResourceAlreadyExistException,
@@ -164,6 +213,10 @@ import {
   StartDataSourceSyncJobResponse,
   StopDataSourceSyncJobRequest,
   SubmitFeedbackRequest,
+  Suggestion,
+  SuggestionHighlight,
+  SuggestionTextWithHighlights,
+  SuggestionValue,
   Tag,
   TagResourceRequest,
   TagResourceResponse,
@@ -176,6 +229,8 @@ import {
   UntagResourceResponse,
   UpdateDataSourceRequest,
   UpdateIndexRequest,
+  UpdateQuerySuggestionsBlockListRequest,
+  UpdateQuerySuggestionsConfigRequest,
   UpdateThesaurusRequest,
   UserContext,
   UserTokenConfiguration,
@@ -218,6 +273,19 @@ export const serializeAws_json1_1BatchPutDocumentCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ClearQuerySuggestionsCommand = async (
+  input: ClearQuerySuggestionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.ClearQuerySuggestions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ClearQuerySuggestionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateDataSourceCommand = async (
   input: CreateDataSourceCommandInput,
   context: __SerdeContext
@@ -254,6 +322,19 @@ export const serializeAws_json1_1CreateIndexCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateIndexRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateQuerySuggestionsBlockListCommand = async (
+  input: CreateQuerySuggestionsBlockListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.CreateQuerySuggestionsBlockList",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateQuerySuggestionsBlockListRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -309,6 +390,19 @@ export const serializeAws_json1_1DeleteIndexCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteQuerySuggestionsBlockListCommand = async (
+  input: DeleteQuerySuggestionsBlockListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.DeleteQuerySuggestionsBlockList",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteQuerySuggestionsBlockListRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteThesaurusCommand = async (
   input: DeleteThesaurusCommandInput,
   context: __SerdeContext
@@ -361,6 +455,32 @@ export const serializeAws_json1_1DescribeIndexCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeQuerySuggestionsBlockListCommand = async (
+  input: DescribeQuerySuggestionsBlockListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.DescribeQuerySuggestionsBlockList",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeQuerySuggestionsBlockListRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeQuerySuggestionsConfigCommand = async (
+  input: DescribeQuerySuggestionsConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.DescribeQuerySuggestionsConfig",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeQuerySuggestionsConfigRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeThesaurusCommand = async (
   input: DescribeThesaurusCommandInput,
   context: __SerdeContext
@@ -371,6 +491,19 @@ export const serializeAws_json1_1DescribeThesaurusCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeThesaurusRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetQuerySuggestionsCommand = async (
+  input: GetQuerySuggestionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.GetQuerySuggestions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetQuerySuggestionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -423,6 +556,19 @@ export const serializeAws_json1_1ListIndicesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListIndicesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListQuerySuggestionsBlockListsCommand = async (
+  input: ListQuerySuggestionsBlockListsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.ListQuerySuggestionsBlockLists",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListQuerySuggestionsBlockListsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -553,6 +699,32 @@ export const serializeAws_json1_1UpdateIndexCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateIndexRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateQuerySuggestionsBlockListCommand = async (
+  input: UpdateQuerySuggestionsBlockListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.UpdateQuerySuggestionsBlockList",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateQuerySuggestionsBlockListRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateQuerySuggestionsConfigCommand = async (
+  input: UpdateQuerySuggestionsConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.UpdateQuerySuggestionsConfig",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateQuerySuggestionsConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -728,6 +900,97 @@ const deserializeAws_json1_1BatchPutDocumentCommandError = async (
     case "com.amazonaws.kendra#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ClearQuerySuggestionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ClearQuerySuggestionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ClearQuerySuggestionsCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: ClearQuerySuggestionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ClearQuerySuggestionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ClearQuerySuggestionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.kendra#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1079,6 +1342,108 @@ const deserializeAws_json1_1CreateIndexCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CreateQuerySuggestionsBlockListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateQuerySuggestionsBlockListCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateQuerySuggestionsBlockListCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateQuerySuggestionsBlockListResponse(data, context);
+  const response: CreateQuerySuggestionsBlockListCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateQuerySuggestionsBlockListCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateQuerySuggestionsBlockListCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.kendra#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.kendra#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreateThesaurusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1381,6 +1746,97 @@ const deserializeAws_json1_1DeleteIndexCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIndexCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.kendra#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteQuerySuggestionsBlockListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteQuerySuggestionsBlockListCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteQuerySuggestionsBlockListCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteQuerySuggestionsBlockListCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteQuerySuggestionsBlockListCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteQuerySuggestionsBlockListCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1803,6 +2259,178 @@ const deserializeAws_json1_1DescribeIndexCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeQuerySuggestionsBlockListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeQuerySuggestionsBlockListCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeQuerySuggestionsBlockListCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeQuerySuggestionsBlockListResponse(data, context);
+  const response: DescribeQuerySuggestionsBlockListCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeQuerySuggestionsBlockListCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeQuerySuggestionsBlockListCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeQuerySuggestionsConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeQuerySuggestionsConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeQuerySuggestionsConfigCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeQuerySuggestionsConfigResponse(data, context);
+  const response: DescribeQuerySuggestionsConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeQuerySuggestionsConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeQuerySuggestionsConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeThesaurusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1852,6 +2480,108 @@ const deserializeAws_json1_1DescribeThesaurusCommandError = async (
     case "com.amazonaws.kendra#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetQuerySuggestionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetQuerySuggestionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetQuerySuggestionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetQuerySuggestionsResponse(data, context);
+  const response: GetQuerySuggestionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetQuerySuggestionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetQuerySuggestionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.kendra#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.kendra#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2196,6 +2926,92 @@ const deserializeAws_json1_1ListIndicesCommandError = async (
     case "com.amazonaws.kendra#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListQuerySuggestionsBlockListsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListQuerySuggestionsBlockListsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListQuerySuggestionsBlockListsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListQuerySuggestionsBlockListsResponse(data, context);
+  const response: ListQuerySuggestionsBlockListsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListQuerySuggestionsBlockListsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListQuerySuggestionsBlockListsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3145,6 +3961,188 @@ const deserializeAws_json1_1UpdateIndexCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateQuerySuggestionsBlockListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateQuerySuggestionsBlockListCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateQuerySuggestionsBlockListCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdateQuerySuggestionsBlockListCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateQuerySuggestionsBlockListCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateQuerySuggestionsBlockListCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.kendra#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateQuerySuggestionsConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateQuerySuggestionsConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateQuerySuggestionsConfigCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdateQuerySuggestionsConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateQuerySuggestionsConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateQuerySuggestionsConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.kendra#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateThesaurusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3498,6 +4496,15 @@ const serializeAws_json1_1ChangeDetectingColumns = (input: string[], context: __
     });
 };
 
+const serializeAws_json1_1ClearQuerySuggestionsRequest = (
+  input: ClearQuerySuggestionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+  };
+};
+
 const serializeAws_json1_1ClickFeedback = (input: ClickFeedback, context: __SerdeContext): any => {
   return {
     ...(input.ClickTime !== undefined &&
@@ -3828,6 +4835,22 @@ const serializeAws_json1_1CreateIndexRequest = (input: CreateIndexRequest, conte
   };
 };
 
+const serializeAws_json1_1CreateQuerySuggestionsBlockListRequest = (
+  input: CreateQuerySuggestionsBlockListRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.SourceS3Path !== undefined &&
+      input.SourceS3Path !== null && { SourceS3Path: serializeAws_json1_1S3Path(input.SourceS3Path, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateThesaurusRequest = (input: CreateThesaurusRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
@@ -3989,6 +5012,16 @@ const serializeAws_json1_1DeleteIndexRequest = (input: DeleteIndexRequest, conte
   };
 };
 
+const serializeAws_json1_1DeleteQuerySuggestionsBlockListRequest = (
+  input: DeleteQuerySuggestionsBlockListRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+  };
+};
+
 const serializeAws_json1_1DeleteThesaurusRequest = (input: DeleteThesaurusRequest, context: __SerdeContext): any => {
   return {
     ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
@@ -4016,6 +5049,25 @@ const serializeAws_json1_1DescribeFaqRequest = (input: DescribeFaqRequest, conte
 const serializeAws_json1_1DescribeIndexRequest = (input: DescribeIndexRequest, context: __SerdeContext): any => {
   return {
     ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+  };
+};
+
+const serializeAws_json1_1DescribeQuerySuggestionsBlockListRequest = (
+  input: DescribeQuerySuggestionsBlockListRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+  };
+};
+
+const serializeAws_json1_1DescribeQuerySuggestionsConfigRequest = (
+  input: DescribeQuerySuggestionsConfigRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
   };
 };
 
@@ -4236,6 +5288,18 @@ const serializeAws_json1_1FacetList = (input: Facet[], context: __SerdeContext):
     });
 };
 
+const serializeAws_json1_1GetQuerySuggestionsRequest = (
+  input: GetQuerySuggestionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.MaxSuggestionsCount !== undefined &&
+      input.MaxSuggestionsCount !== null && { MaxSuggestionsCount: input.MaxSuggestionsCount }),
+    ...(input.QueryText !== undefined && input.QueryText !== null && { QueryText: input.QueryText }),
+  };
+};
+
 const serializeAws_json1_1GoogleDriveConfiguration = (
   input: GoogleDriveConfiguration,
   context: __SerdeContext
@@ -4334,6 +5398,17 @@ const serializeAws_json1_1ListFaqsRequest = (input: ListFaqsRequest, context: __
 
 const serializeAws_json1_1ListIndicesRequest = (input: ListIndicesRequest, context: __SerdeContext): any => {
   return {
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListQuerySuggestionsBlockListsRequest = (
+  input: ListQuerySuggestionsBlockListsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
@@ -5078,6 +6153,45 @@ const serializeAws_json1_1UpdateIndexRequest = (input: UpdateIndexRequest, conte
   };
 };
 
+const serializeAws_json1_1UpdateQuerySuggestionsBlockListRequest = (
+  input: UpdateQuerySuggestionsBlockListRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.SourceS3Path !== undefined &&
+      input.SourceS3Path !== null && { SourceS3Path: serializeAws_json1_1S3Path(input.SourceS3Path, context) }),
+  };
+};
+
+const serializeAws_json1_1UpdateQuerySuggestionsConfigRequest = (
+  input: UpdateQuerySuggestionsConfigRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IncludeQueriesWithoutUserInformation !== undefined &&
+      input.IncludeQueriesWithoutUserInformation !== null && {
+        IncludeQueriesWithoutUserInformation: input.IncludeQueriesWithoutUserInformation,
+      }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.MinimumNumberOfQueryingUsers !== undefined &&
+      input.MinimumNumberOfQueryingUsers !== null && {
+        MinimumNumberOfQueryingUsers: input.MinimumNumberOfQueryingUsers,
+      }),
+    ...(input.MinimumQueryCount !== undefined &&
+      input.MinimumQueryCount !== null && { MinimumQueryCount: input.MinimumQueryCount }),
+    ...(input.Mode !== undefined && input.Mode !== null && { Mode: input.Mode }),
+    ...(input.QueryLogLookBackWindowInDays !== undefined &&
+      input.QueryLogLookBackWindowInDays !== null && {
+        QueryLogLookBackWindowInDays: input.QueryLogLookBackWindowInDays,
+      }),
+  };
+};
+
 const serializeAws_json1_1UpdateThesaurusRequest = (input: UpdateThesaurusRequest, context: __SerdeContext): any => {
   return {
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
@@ -5607,6 +6721,15 @@ const deserializeAws_json1_1CreateIndexResponse = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1CreateQuerySuggestionsBlockListResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateQuerySuggestionsBlockListResponse => {
+  return {
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateThesaurusResponse = (
   output: any,
   context: __SerdeContext
@@ -5928,6 +7051,74 @@ const deserializeAws_json1_1DescribeIndexResponse = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1DescribeQuerySuggestionsBlockListResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeQuerySuggestionsBlockListResponse => {
+  return {
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    FileSizeBytes:
+      output.FileSizeBytes !== undefined && output.FileSizeBytes !== null ? output.FileSizeBytes : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    IndexId: output.IndexId !== undefined && output.IndexId !== null ? output.IndexId : undefined,
+    ItemCount: output.ItemCount !== undefined && output.ItemCount !== null ? output.ItemCount : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
+    SourceS3Path:
+      output.SourceS3Path !== undefined && output.SourceS3Path !== null
+        ? deserializeAws_json1_1S3Path(output.SourceS3Path, context)
+        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    UpdatedAt:
+      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+        ? new Date(Math.round(output.UpdatedAt * 1000))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeQuerySuggestionsConfigResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeQuerySuggestionsConfigResponse => {
+  return {
+    IncludeQueriesWithoutUserInformation:
+      output.IncludeQueriesWithoutUserInformation !== undefined && output.IncludeQueriesWithoutUserInformation !== null
+        ? output.IncludeQueriesWithoutUserInformation
+        : undefined,
+    LastClearTime:
+      output.LastClearTime !== undefined && output.LastClearTime !== null
+        ? new Date(Math.round(output.LastClearTime * 1000))
+        : undefined,
+    LastSuggestionsBuildTime:
+      output.LastSuggestionsBuildTime !== undefined && output.LastSuggestionsBuildTime !== null
+        ? new Date(Math.round(output.LastSuggestionsBuildTime * 1000))
+        : undefined,
+    MinimumNumberOfQueryingUsers:
+      output.MinimumNumberOfQueryingUsers !== undefined && output.MinimumNumberOfQueryingUsers !== null
+        ? output.MinimumNumberOfQueryingUsers
+        : undefined,
+    MinimumQueryCount:
+      output.MinimumQueryCount !== undefined && output.MinimumQueryCount !== null
+        ? output.MinimumQueryCount
+        : undefined,
+    Mode: output.Mode !== undefined && output.Mode !== null ? output.Mode : undefined,
+    QueryLogLookBackWindowInDays:
+      output.QueryLogLookBackWindowInDays !== undefined && output.QueryLogLookBackWindowInDays !== null
+        ? output.QueryLogLookBackWindowInDays
+        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    TotalSuggestionsCount:
+      output.TotalSuggestionsCount !== undefined && output.TotalSuggestionsCount !== null
+        ? output.TotalSuggestionsCount
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeThesaurusResponse = (
   output: any,
   context: __SerdeContext
@@ -6182,6 +7373,22 @@ const deserializeAws_json1_1FaqSummaryItems = (output: any, context: __SerdeCont
     });
 };
 
+const deserializeAws_json1_1GetQuerySuggestionsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetQuerySuggestionsResponse => {
+  return {
+    QuerySuggestionsId:
+      output.QuerySuggestionsId !== undefined && output.QuerySuggestionsId !== null
+        ? output.QuerySuggestionsId
+        : undefined,
+    Suggestions:
+      output.Suggestions !== undefined && output.Suggestions !== null
+        ? deserializeAws_json1_1SuggestionList(output.Suggestions, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1GoogleDriveConfiguration = (
   output: any,
   context: __SerdeContext
@@ -6375,6 +7582,19 @@ const deserializeAws_json1_1ListIndicesResponse = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1ListQuerySuggestionsBlockListsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListQuerySuggestionsBlockListsResponse => {
+  return {
+    BlockListSummaryItems:
+      output.BlockListSummaryItems !== undefined && output.BlockListSummaryItems !== null
+        ? deserializeAws_json1_1QuerySuggestionsBlockListSummaryItems(output.BlockListSummaryItems, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
   context: __SerdeContext
@@ -6505,6 +7725,40 @@ const deserializeAws_json1_1QueryResultItemList = (output: any, context: __Serde
         return null as any;
       }
       return deserializeAws_json1_1QueryResultItem(entry, context);
+    });
+};
+
+const deserializeAws_json1_1QuerySuggestionsBlockListSummary = (
+  output: any,
+  context: __SerdeContext
+): QuerySuggestionsBlockListSummary => {
+  return {
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    ItemCount: output.ItemCount !== undefined && output.ItemCount !== null ? output.ItemCount : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    UpdatedAt:
+      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+        ? new Date(Math.round(output.UpdatedAt * 1000))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1QuerySuggestionsBlockListSummaryItems = (
+  output: any,
+  context: __SerdeContext
+): QuerySuggestionsBlockListSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1QuerySuggestionsBlockListSummary(entry, context);
     });
 };
 
@@ -7030,6 +8284,67 @@ const deserializeAws_json1_1SubnetIdList = (output: any, context: __SerdeContext
       }
       return entry;
     });
+};
+
+const deserializeAws_json1_1Suggestion = (output: any, context: __SerdeContext): Suggestion => {
+  return {
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? deserializeAws_json1_1SuggestionValue(output.Value, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SuggestionHighlight = (output: any, context: __SerdeContext): SuggestionHighlight => {
+  return {
+    BeginOffset: output.BeginOffset !== undefined && output.BeginOffset !== null ? output.BeginOffset : undefined,
+    EndOffset: output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SuggestionHighlightList = (output: any, context: __SerdeContext): SuggestionHighlight[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SuggestionHighlight(entry, context);
+    });
+};
+
+const deserializeAws_json1_1SuggestionList = (output: any, context: __SerdeContext): Suggestion[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Suggestion(entry, context);
+    });
+};
+
+const deserializeAws_json1_1SuggestionTextWithHighlights = (
+  output: any,
+  context: __SerdeContext
+): SuggestionTextWithHighlights => {
+  return {
+    Highlights:
+      output.Highlights !== undefined && output.Highlights !== null
+        ? deserializeAws_json1_1SuggestionHighlightList(output.Highlights, context)
+        : undefined,
+    Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SuggestionValue = (output: any, context: __SerdeContext): SuggestionValue => {
+  return {
+    Text:
+      output.Text !== undefined && output.Text !== null
+        ? deserializeAws_json1_1SuggestionTextWithHighlights(output.Text, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {

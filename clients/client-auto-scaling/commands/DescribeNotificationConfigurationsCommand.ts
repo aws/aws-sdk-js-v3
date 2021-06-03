@@ -23,7 +23,8 @@ export interface DescribeNotificationConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the notification actions associated with the specified Auto Scaling group.</p>
+ * <p>Gets information about the Amazon SNS notifications that are configured for one or more
+ *             Auto Scaling groups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

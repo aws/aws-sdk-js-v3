@@ -1362,6 +1362,8 @@ export interface CreatePolicyRequest {
    *             templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS
    *             CloudFormation always converts a YAML policy to JSON format before submitting it to
    *             IAM.</p>
+   *         <p>To learn more about JSON policy grammar, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html">Grammar of the IAM JSON policy language</a> in the
+   *             <i>IAM User Guide</i>. </p>
    *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     used to validate this parameter is a string of characters consisting of the following:</p>
    *          <ul>

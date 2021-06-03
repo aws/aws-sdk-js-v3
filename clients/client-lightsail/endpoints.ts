@@ -82,6 +82,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "eu-north-1":
+      regionInfo = {
+        hostname: "lightsail.eu-north-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "eu-west-1":
       regionInfo = {
         hostname: "lightsail.eu-west-1.amazonaws.com",

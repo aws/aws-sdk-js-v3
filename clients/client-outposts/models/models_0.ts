@@ -19,6 +19,37 @@ export namespace AccessDeniedException {
   });
 }
 
+export enum ResourceType {
+  OUTPOST = "OUTPOST",
+}
+
+/**
+ * <p>Updating or deleting this resource can cause an inconsistent state.</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p>The ID of the resource causing the conflict.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The type of the resource causing the conflict.</p>
+   */
+  ResourceType?: ResourceType | string;
+}
+
+export namespace ConflictException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateOutpostInput {
   /**
    * <p>The name of the Outpost.</p>
@@ -117,6 +148,11 @@ export interface Outpost {
    * <p>The Outpost tags.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the site.</p>
+   */
+  SiteArn?: string;
 }
 
 export namespace Outpost {
@@ -469,6 +505,11 @@ export interface Site {
    * <p>The site tags.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the site.</p>
+   */
+  SiteArn?: string;
 }
 
 export namespace Site {

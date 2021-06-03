@@ -1160,6 +1160,38 @@ export namespace HPOConfig {
   });
 }
 
+export enum ObjectiveSensitivity {
+  HIGH = "HIGH",
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+  OFF = "OFF",
+}
+
+/**
+ * <p>Describes the additional objective for the solution, such as maximizing streaming
+ *       minutes or increasing revenue. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html">Optimizing a solution</a>.</p>
+ */
+export interface OptimizationObjective {
+  /**
+   * <p>The numerical metadata column in an Items dataset related to the optimization objective. For example, VIDEO_LENGTH (to maximize streaming minutes), or PRICE (to maximize revenue).</p>
+   */
+  itemAttribute?: string;
+
+  /**
+   * <p>Specifies how Amazon Personalize balances the importance of your optimization objective versus relevance.</p>
+   */
+  objectiveSensitivity?: ObjectiveSensitivity | string;
+}
+
+export namespace OptimizationObjective {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OptimizationObjective): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Describes the configuration properties for the solution.</p>
  */
@@ -1190,6 +1222,12 @@ export interface SolutionConfig {
    *       when AutoML is performed.</p>
    */
   autoMLConfig?: AutoMLConfig;
+
+  /**
+   * <p>Describes the additional objective for the solution, such as maximizing streaming
+   *       minutes or increasing revenue. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html">Optimizing a solution</a>.</p>
+   */
+  optimizationObjective?: OptimizationObjective;
 }
 
 export namespace SolutionConfig {
@@ -3001,6 +3039,12 @@ export interface SolutionVersion {
    *             <li>
    *                <p>CREATE FAILED</p>
    *             </li>
+   *             <li>
+   *                <p>CREATE STOPPING</p>
+   *             </li>
+   *             <li>
+   *                <p>CREATE STOPPED</p>
+   *             </li>
    *          </ul>
    */
   status?: string;
@@ -4240,6 +4284,22 @@ export namespace ListSolutionVersionsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListSolutionVersionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StopSolutionVersionCreationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the solution version you want to stop creating.</p>
+   */
+  solutionVersionArn: string | undefined;
+}
+
+export namespace StopSolutionVersionCreationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopSolutionVersionCreationRequest): any => ({
     ...obj,
   });
 }

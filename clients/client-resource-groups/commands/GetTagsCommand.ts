@@ -23,11 +23,11 @@ export interface GetTagsCommandOutput extends GetTagsOutput, __MetadataBearer {}
 /**
  * <p>Returns a list of tags that are associated with a resource group, specified by an
  *             ARN.</p>
- *          <p>
+ *         <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
+ *         <ul>
  *             <li>
  *                 <p>
  *                   <code>resource-groups:GetTags</code>

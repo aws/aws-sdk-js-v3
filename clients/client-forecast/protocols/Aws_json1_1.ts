@@ -3267,6 +3267,8 @@ const serializeAws_json1_1CreatePredictorBacktestExportJobRequest = (
 const serializeAws_json1_1CreatePredictorRequest = (input: CreatePredictorRequest, context: __SerdeContext): any => {
   return {
     ...(input.AlgorithmArn !== undefined && input.AlgorithmArn !== null && { AlgorithmArn: input.AlgorithmArn }),
+    ...(input.AutoMLOverrideStrategy !== undefined &&
+      input.AutoMLOverrideStrategy !== null && { AutoMLOverrideStrategy: input.AutoMLOverrideStrategy }),
     ...(input.EncryptionConfig !== undefined &&
       input.EncryptionConfig !== null && {
         EncryptionConfig: serializeAws_json1_1EncryptionConfig(input.EncryptionConfig, context),
@@ -4331,6 +4333,10 @@ const deserializeAws_json1_1DescribePredictorResponse = (
       output.AutoMLAlgorithmArns !== undefined && output.AutoMLAlgorithmArns !== null
         ? deserializeAws_json1_1ArnList(output.AutoMLAlgorithmArns, context)
         : undefined,
+    AutoMLOverrideStrategy:
+      output.AutoMLOverrideStrategy !== undefined && output.AutoMLOverrideStrategy !== null
+        ? output.AutoMLOverrideStrategy
+        : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -4630,6 +4636,10 @@ const deserializeAws_json1_1GetAccuracyMetricsResponse = (
   context: __SerdeContext
 ): GetAccuracyMetricsResponse => {
   return {
+    AutoMLOverrideStrategy:
+      output.AutoMLOverrideStrategy !== undefined && output.AutoMLOverrideStrategy !== null
+        ? output.AutoMLOverrideStrategy
+        : undefined,
     PredictorEvaluationResults:
       output.PredictorEvaluationResults !== undefined && output.PredictorEvaluationResults !== null
         ? deserializeAws_json1_1PredictorEvaluationResults(output.PredictorEvaluationResults, context)
@@ -5013,8 +5023,16 @@ const deserializeAws_json1_1Statistics = (output: any, context: __SerdeContext):
     Count: output.Count !== undefined && output.Count !== null ? output.Count : undefined,
     CountDistinct:
       output.CountDistinct !== undefined && output.CountDistinct !== null ? output.CountDistinct : undefined,
+    CountDistinctLong:
+      output.CountDistinctLong !== undefined && output.CountDistinctLong !== null
+        ? output.CountDistinctLong
+        : undefined,
+    CountLong: output.CountLong !== undefined && output.CountLong !== null ? output.CountLong : undefined,
     CountNan: output.CountNan !== undefined && output.CountNan !== null ? output.CountNan : undefined,
+    CountNanLong: output.CountNanLong !== undefined && output.CountNanLong !== null ? output.CountNanLong : undefined,
     CountNull: output.CountNull !== undefined && output.CountNull !== null ? output.CountNull : undefined,
+    CountNullLong:
+      output.CountNullLong !== undefined && output.CountNullLong !== null ? output.CountNullLong : undefined,
     Max: output.Max !== undefined && output.Max !== null ? output.Max : undefined,
     Min: output.Min !== undefined && output.Min !== null ? output.Min : undefined,
     Stddev: output.Stddev !== undefined && output.Stddev !== null ? output.Stddev : undefined,

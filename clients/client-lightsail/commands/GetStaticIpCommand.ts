@@ -21,7 +21,7 @@ export interface GetStaticIpCommandInput extends GetStaticIpRequest {}
 export interface GetStaticIpCommandOutput extends GetStaticIpResult, __MetadataBearer {}
 
 /**
- * <p>Returns information about a specific static IP.</p>
+ * <p>Returns information about an Amazon Lightsail static IP.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

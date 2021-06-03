@@ -126,6 +126,7 @@ import {
   PutFindingsPublicationConfigurationCommandInput,
   PutFindingsPublicationConfigurationCommandOutput,
 } from "../commands/PutFindingsPublicationConfigurationCommand";
+import { SearchResourcesCommandInput, SearchResourcesCommandOutput } from "../commands/SearchResourcesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   TestCustomDataIdentifierCommandInput,
@@ -179,6 +180,8 @@ import {
   ClassificationResult,
   ClassificationResultStatus,
   ConflictException,
+  CriteriaBlockForJob,
+  CriteriaForJob,
   CriterionAdditionalProperties,
   CustomDataIdentifierSummary,
   CustomDataIdentifiers,
@@ -213,6 +216,8 @@ import {
   ListJobsFilterCriteria,
   ListJobsFilterTerm,
   ListJobsSortCriteria,
+  MatchingBucket,
+  MatchingResource,
   Member,
   MonthlySchedule,
   ObjectCountByEncryptionType,
@@ -225,12 +230,20 @@ import {
   ResourceNotFoundException,
   ResourcesAffected,
   S3Bucket,
+  S3BucketCriteriaForJob,
   S3BucketDefinitionForJob,
   S3BucketOwner,
   S3Destination,
   S3JobDefinition,
   S3Object,
   Scoping,
+  SearchResourcesBucketCriteria,
+  SearchResourcesCriteria,
+  SearchResourcesCriteriaBlock,
+  SearchResourcesSimpleCriterion,
+  SearchResourcesSortCriteria,
+  SearchResourcesTagCriterion,
+  SearchResourcesTagCriterionPair,
   SecurityHubConfiguration,
   SensitiveDataItem,
   ServerSideEncryption,
@@ -240,9 +253,12 @@ import {
   SessionContextAttributes,
   SessionIssuer,
   Severity,
+  SimpleCriterionForJob,
   SimpleScopeTerm,
   SortCriteria,
   Statistics,
+  TagCriterionForJob,
+  TagCriterionPairForJob,
   TagScopeTerm,
   TagValuePair,
   ThrottlingException,
@@ -1523,6 +1539,39 @@ export const serializeAws_restJson1PutFindingsPublicationConfigurationCommand = 
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SearchResourcesCommand = async (
+  input: SearchResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/datasources/search-resources";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.bucketCriteria !== undefined &&
+      input.bucketCriteria !== null && {
+        bucketCriteria: serializeAws_restJson1SearchResourcesBucketCriteria(input.bucketCriteria, context),
+      }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.sortCriteria !== undefined &&
+      input.sortCriteria !== null && {
+        sortCriteria: serializeAws_restJson1SearchResourcesSortCriteria(input.sortCriteria, context),
+      }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -6848,6 +6897,113 @@ const deserializeAws_restJson1PutFindingsPublicationConfigurationCommandError = 
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1SearchResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchResourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchResourcesCommandError(output, context);
+  }
+  const contents: SearchResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    matchingResources: undefined,
+    nextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.matchingResources !== undefined && data.matchingResources !== null) {
+    contents.matchingResources = deserializeAws_restJson1__listOfMatchingResource(data.matchingResources, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1SearchResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.macie2#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.macie2#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.macie2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.macie2#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.macie2#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.macie2#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.macie2#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7670,6 +7826,17 @@ const serializeAws_restJson1__listOf__string = (input: string[], context: __Serd
     });
 };
 
+const serializeAws_restJson1__listOfCriteriaForJob = (input: CriteriaForJob[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1CriteriaForJob(entry, context);
+    });
+};
+
 const serializeAws_restJson1__listOfFindingType = (input: (FindingType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -7717,6 +7884,48 @@ const serializeAws_restJson1__listOfS3BucketDefinitionForJob = (
         return null as any;
       }
       return serializeAws_restJson1S3BucketDefinitionForJob(entry, context);
+    });
+};
+
+const serializeAws_restJson1__listOfSearchResourcesCriteria = (
+  input: SearchResourcesCriteria[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SearchResourcesCriteria(entry, context);
+    });
+};
+
+const serializeAws_restJson1__listOfSearchResourcesTagCriterionPair = (
+  input: SearchResourcesTagCriterionPair[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SearchResourcesTagCriterionPair(entry, context);
+    });
+};
+
+const serializeAws_restJson1__listOfTagCriterionPairForJob = (
+  input: TagCriterionPairForJob[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1TagCriterionPairForJob(entry, context);
     });
 };
 
@@ -7802,6 +8011,26 @@ const serializeAws_restJson1ClassificationExportConfiguration = (
     ...(input.s3Destination !== undefined &&
       input.s3Destination !== null && {
         s3Destination: serializeAws_restJson1S3Destination(input.s3Destination, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1CriteriaBlockForJob = (input: CriteriaBlockForJob, context: __SerdeContext): any => {
+  return {
+    ...(input.and !== undefined &&
+      input.and !== null && { and: serializeAws_restJson1__listOfCriteriaForJob(input.and, context) }),
+  };
+};
+
+const serializeAws_restJson1CriteriaForJob = (input: CriteriaForJob, context: __SerdeContext): any => {
+  return {
+    ...(input.simpleCriterion !== undefined &&
+      input.simpleCriterion !== null && {
+        simpleCriterion: serializeAws_restJson1SimpleCriterionForJob(input.simpleCriterion, context),
+      }),
+    ...(input.tagCriterion !== undefined &&
+      input.tagCriterion !== null && {
+        tagCriterion: serializeAws_restJson1TagCriterionForJob(input.tagCriterion, context),
       }),
   };
 };
@@ -7935,6 +8164,15 @@ const serializeAws_restJson1MonthlySchedule = (input: MonthlySchedule, context: 
   };
 };
 
+const serializeAws_restJson1S3BucketCriteriaForJob = (input: S3BucketCriteriaForJob, context: __SerdeContext): any => {
+  return {
+    ...(input.excludes !== undefined &&
+      input.excludes !== null && { excludes: serializeAws_restJson1CriteriaBlockForJob(input.excludes, context) }),
+    ...(input.includes !== undefined &&
+      input.includes !== null && { includes: serializeAws_restJson1CriteriaBlockForJob(input.includes, context) }),
+  };
+};
+
 const serializeAws_restJson1S3BucketDefinitionForJob = (
   input: S3BucketDefinitionForJob,
   context: __SerdeContext
@@ -7956,6 +8194,10 @@ const serializeAws_restJson1S3Destination = (input: S3Destination, context: __Se
 
 const serializeAws_restJson1S3JobDefinition = (input: S3JobDefinition, context: __SerdeContext): any => {
   return {
+    ...(input.bucketCriteria !== undefined &&
+      input.bucketCriteria !== null && {
+        bucketCriteria: serializeAws_restJson1S3BucketCriteriaForJob(input.bucketCriteria, context),
+      }),
     ...(input.bucketDefinitions !== undefined &&
       input.bucketDefinitions !== null && {
         bucketDefinitions: serializeAws_restJson1__listOfS3BucketDefinitionForJob(input.bucketDefinitions, context),
@@ -7974,6 +8216,93 @@ const serializeAws_restJson1Scoping = (input: Scoping, context: __SerdeContext):
   };
 };
 
+const serializeAws_restJson1SearchResourcesBucketCriteria = (
+  input: SearchResourcesBucketCriteria,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.excludes !== undefined &&
+      input.excludes !== null && {
+        excludes: serializeAws_restJson1SearchResourcesCriteriaBlock(input.excludes, context),
+      }),
+    ...(input.includes !== undefined &&
+      input.includes !== null && {
+        includes: serializeAws_restJson1SearchResourcesCriteriaBlock(input.includes, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1SearchResourcesCriteria = (
+  input: SearchResourcesCriteria,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.simpleCriterion !== undefined &&
+      input.simpleCriterion !== null && {
+        simpleCriterion: serializeAws_restJson1SearchResourcesSimpleCriterion(input.simpleCriterion, context),
+      }),
+    ...(input.tagCriterion !== undefined &&
+      input.tagCriterion !== null && {
+        tagCriterion: serializeAws_restJson1SearchResourcesTagCriterion(input.tagCriterion, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1SearchResourcesCriteriaBlock = (
+  input: SearchResourcesCriteriaBlock,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.and !== undefined &&
+      input.and !== null && { and: serializeAws_restJson1__listOfSearchResourcesCriteria(input.and, context) }),
+  };
+};
+
+const serializeAws_restJson1SearchResourcesSimpleCriterion = (
+  input: SearchResourcesSimpleCriterion,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.comparator !== undefined && input.comparator !== null && { comparator: input.comparator }),
+    ...(input.key !== undefined && input.key !== null && { key: input.key }),
+    ...(input.values !== undefined &&
+      input.values !== null && { values: serializeAws_restJson1__listOf__string(input.values, context) }),
+  };
+};
+
+const serializeAws_restJson1SearchResourcesSortCriteria = (
+  input: SearchResourcesSortCriteria,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.attributeName !== undefined && input.attributeName !== null && { attributeName: input.attributeName }),
+    ...(input.orderBy !== undefined && input.orderBy !== null && { orderBy: input.orderBy }),
+  };
+};
+
+const serializeAws_restJson1SearchResourcesTagCriterion = (
+  input: SearchResourcesTagCriterion,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.comparator !== undefined && input.comparator !== null && { comparator: input.comparator }),
+    ...(input.tagValues !== undefined &&
+      input.tagValues !== null && {
+        tagValues: serializeAws_restJson1__listOfSearchResourcesTagCriterionPair(input.tagValues, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1SearchResourcesTagCriterionPair = (
+  input: SearchResourcesTagCriterionPair,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.key !== undefined && input.key !== null && { key: input.key }),
+    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+  };
+};
+
 const serializeAws_restJson1SecurityHubConfiguration = (
   input: SecurityHubConfiguration,
   context: __SerdeContext
@@ -7985,6 +8314,15 @@ const serializeAws_restJson1SecurityHubConfiguration = (
       }),
     ...(input.publishPolicyFindings !== undefined &&
       input.publishPolicyFindings !== null && { publishPolicyFindings: input.publishPolicyFindings }),
+  };
+};
+
+const serializeAws_restJson1SimpleCriterionForJob = (input: SimpleCriterionForJob, context: __SerdeContext): any => {
+  return {
+    ...(input.comparator !== undefined && input.comparator !== null && { comparator: input.comparator }),
+    ...(input.key !== undefined && input.key !== null && { key: input.key }),
+    ...(input.values !== undefined &&
+      input.values !== null && { values: serializeAws_restJson1__listOf__string(input.values, context) }),
   };
 };
 
@@ -8001,6 +8339,23 @@ const serializeAws_restJson1SortCriteria = (input: SortCriteria, context: __Serd
   return {
     ...(input.attributeName !== undefined && input.attributeName !== null && { attributeName: input.attributeName }),
     ...(input.orderBy !== undefined && input.orderBy !== null && { orderBy: input.orderBy }),
+  };
+};
+
+const serializeAws_restJson1TagCriterionForJob = (input: TagCriterionForJob, context: __SerdeContext): any => {
+  return {
+    ...(input.comparator !== undefined && input.comparator !== null && { comparator: input.comparator }),
+    ...(input.tagValues !== undefined &&
+      input.tagValues !== null && {
+        tagValues: serializeAws_restJson1__listOfTagCriterionPairForJob(input.tagValues, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1TagCriterionPairForJob = (input: TagCriterionPairForJob, context: __SerdeContext): any => {
+  return {
+    ...(input.key !== undefined && input.key !== null && { key: input.key }),
+    ...(input.value !== undefined && input.value !== null && { value: input.value }),
   };
 };
 
@@ -8102,6 +8457,17 @@ const deserializeAws_restJson1__listOfBucketMetadata = (output: any, context: __
     });
 };
 
+const deserializeAws_restJson1__listOfCriteriaForJob = (output: any, context: __SerdeContext): CriteriaForJob[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CriteriaForJob(entry, context);
+    });
+};
+
 const deserializeAws_restJson1__listOfCustomDataIdentifierSummary = (
   output: any,
   context: __SerdeContext
@@ -8196,6 +8562,17 @@ const deserializeAws_restJson1__listOfKeyValuePair = (output: any, context: __Se
     });
 };
 
+const deserializeAws_restJson1__listOfMatchingResource = (output: any, context: __SerdeContext): MatchingResource[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MatchingResource(entry, context);
+    });
+};
+
 const deserializeAws_restJson1__listOfMember = (output: any, context: __SerdeContext): Member[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -8218,6 +8595,20 @@ const deserializeAws_restJson1__listOfS3BucketDefinitionForJob = (
         return null as any;
       }
       return deserializeAws_restJson1S3BucketDefinitionForJob(entry, context);
+    });
+};
+
+const deserializeAws_restJson1__listOfTagCriterionPairForJob = (
+  output: any,
+  context: __SerdeContext
+): TagCriterionPairForJob[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TagCriterionPairForJob(entry, context);
     });
 };
 
@@ -8658,6 +9049,28 @@ const deserializeAws_restJson1ClassificationResultStatus = (
   } as any;
 };
 
+const deserializeAws_restJson1CriteriaBlockForJob = (output: any, context: __SerdeContext): CriteriaBlockForJob => {
+  return {
+    and:
+      output.and !== undefined && output.and !== null
+        ? deserializeAws_restJson1__listOfCriteriaForJob(output.and, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CriteriaForJob = (output: any, context: __SerdeContext): CriteriaForJob => {
+  return {
+    simpleCriterion:
+      output.simpleCriterion !== undefined && output.simpleCriterion !== null
+        ? deserializeAws_restJson1SimpleCriterionForJob(output.simpleCriterion, context)
+        : undefined,
+    tagCriterion:
+      output.tagCriterion !== undefined && output.tagCriterion !== null
+        ? deserializeAws_restJson1TagCriterionForJob(output.tagCriterion, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Criterion = (
   output: any,
   context: __SerdeContext
@@ -9013,6 +9426,10 @@ const deserializeAws_restJson1JobScopingBlock = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext): JobSummary => {
   return {
+    bucketCriteria:
+      output.bucketCriteria !== undefined && output.bucketCriteria !== null
+        ? deserializeAws_restJson1S3BucketCriteriaForJob(output.bucketCriteria, context)
+        : undefined,
     bucketDefinitions:
       output.bucketDefinitions !== undefined && output.bucketDefinitions !== null
         ? deserializeAws_restJson1__listOfS3BucketDefinitionForJob(output.bucketDefinitions, context)
@@ -9054,6 +9471,52 @@ const deserializeAws_restJson1KeyValuePairList = (output: any, context: __SerdeC
 const deserializeAws_restJson1LastRunErrorStatus = (output: any, context: __SerdeContext): LastRunErrorStatus => {
   return {
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MatchingBucket = (output: any, context: __SerdeContext): MatchingBucket => {
+  return {
+    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
+    bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
+    classifiableObjectCount:
+      output.classifiableObjectCount !== undefined && output.classifiableObjectCount !== null
+        ? output.classifiableObjectCount
+        : undefined,
+    classifiableSizeInBytes:
+      output.classifiableSizeInBytes !== undefined && output.classifiableSizeInBytes !== null
+        ? output.classifiableSizeInBytes
+        : undefined,
+    jobDetails:
+      output.jobDetails !== undefined && output.jobDetails !== null
+        ? deserializeAws_restJson1JobDetails(output.jobDetails, context)
+        : undefined,
+    objectCount: output.objectCount !== undefined && output.objectCount !== null ? output.objectCount : undefined,
+    objectCountByEncryptionType:
+      output.objectCountByEncryptionType !== undefined && output.objectCountByEncryptionType !== null
+        ? deserializeAws_restJson1ObjectCountByEncryptionType(output.objectCountByEncryptionType, context)
+        : undefined,
+    sizeInBytes: output.sizeInBytes !== undefined && output.sizeInBytes !== null ? output.sizeInBytes : undefined,
+    sizeInBytesCompressed:
+      output.sizeInBytesCompressed !== undefined && output.sizeInBytesCompressed !== null
+        ? output.sizeInBytesCompressed
+        : undefined,
+    unclassifiableObjectCount:
+      output.unclassifiableObjectCount !== undefined && output.unclassifiableObjectCount !== null
+        ? deserializeAws_restJson1ObjectLevelStatistics(output.unclassifiableObjectCount, context)
+        : undefined,
+    unclassifiableObjectSizeInBytes:
+      output.unclassifiableObjectSizeInBytes !== undefined && output.unclassifiableObjectSizeInBytes !== null
+        ? deserializeAws_restJson1ObjectLevelStatistics(output.unclassifiableObjectSizeInBytes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MatchingResource = (output: any, context: __SerdeContext): MatchingResource => {
+  return {
+    matchingBucket:
+      output.matchingBucket !== undefined && output.matchingBucket !== null
+        ? deserializeAws_restJson1MatchingBucket(output.matchingBucket, context)
+        : undefined,
   } as any;
 };
 
@@ -9264,6 +9727,22 @@ const deserializeAws_restJson1S3Bucket = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_restJson1S3BucketCriteriaForJob = (
+  output: any,
+  context: __SerdeContext
+): S3BucketCriteriaForJob => {
+  return {
+    excludes:
+      output.excludes !== undefined && output.excludes !== null
+        ? deserializeAws_restJson1CriteriaBlockForJob(output.excludes, context)
+        : undefined,
+    includes:
+      output.includes !== undefined && output.includes !== null
+        ? deserializeAws_restJson1CriteriaBlockForJob(output.includes, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1S3BucketDefinitionForJob = (
   output: any,
   context: __SerdeContext
@@ -9294,6 +9773,10 @@ const deserializeAws_restJson1S3Destination = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1S3JobDefinition = (output: any, context: __SerdeContext): S3JobDefinition => {
   return {
+    bucketCriteria:
+      output.bucketCriteria !== undefined && output.bucketCriteria !== null
+        ? deserializeAws_restJson1S3BucketCriteriaForJob(output.bucketCriteria, context)
+        : undefined,
     bucketDefinitions:
       output.bucketDefinitions !== undefined && output.bucketDefinitions !== null
         ? deserializeAws_restJson1__listOfS3BucketDefinitionForJob(output.bucketDefinitions, context)
@@ -9440,6 +9923,17 @@ const deserializeAws_restJson1Severity = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_restJson1SimpleCriterionForJob = (output: any, context: __SerdeContext): SimpleCriterionForJob => {
+  return {
+    comparator: output.comparator !== undefined && output.comparator !== null ? output.comparator : undefined,
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    values:
+      output.values !== undefined && output.values !== null
+        ? deserializeAws_restJson1__listOf__string(output.values, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1SimpleScopeTerm = (output: any, context: __SerdeContext): SimpleScopeTerm => {
   return {
     comparator: output.comparator !== undefined && output.comparator !== null ? output.comparator : undefined,
@@ -9458,6 +9952,26 @@ const deserializeAws_restJson1Statistics = (output: any, context: __SerdeContext
         ? output.approximateNumberOfObjectsToProcess
         : undefined,
     numberOfRuns: output.numberOfRuns !== undefined && output.numberOfRuns !== null ? output.numberOfRuns : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TagCriterionForJob = (output: any, context: __SerdeContext): TagCriterionForJob => {
+  return {
+    comparator: output.comparator !== undefined && output.comparator !== null ? output.comparator : undefined,
+    tagValues:
+      output.tagValues !== undefined && output.tagValues !== null
+        ? deserializeAws_restJson1__listOfTagCriterionPairForJob(output.tagValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TagCriterionPairForJob = (
+  output: any,
+  context: __SerdeContext
+): TagCriterionPairForJob => {
+  return {
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
 };
 

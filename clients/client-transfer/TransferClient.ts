@@ -1,8 +1,11 @@
+import { CreateAccessCommandInput, CreateAccessCommandOutput } from "./commands/CreateAccessCommand";
 import { CreateServerCommandInput, CreateServerCommandOutput } from "./commands/CreateServerCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import { DeleteAccessCommandInput, DeleteAccessCommandOutput } from "./commands/DeleteAccessCommand";
 import { DeleteServerCommandInput, DeleteServerCommandOutput } from "./commands/DeleteServerCommand";
 import { DeleteSshPublicKeyCommandInput, DeleteSshPublicKeyCommandOutput } from "./commands/DeleteSshPublicKeyCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import { DescribeAccessCommandInput, DescribeAccessCommandOutput } from "./commands/DescribeAccessCommand";
 import {
   DescribeSecurityPolicyCommandInput,
   DescribeSecurityPolicyCommandOutput,
@@ -10,6 +13,7 @@ import {
 import { DescribeServerCommandInput, DescribeServerCommandOutput } from "./commands/DescribeServerCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
 import { ImportSshPublicKeyCommandInput, ImportSshPublicKeyCommandOutput } from "./commands/ImportSshPublicKeyCommand";
+import { ListAccessesCommandInput, ListAccessesCommandOutput } from "./commands/ListAccessesCommand";
 import {
   ListSecurityPoliciesCommandInput,
   ListSecurityPoliciesCommandOutput,
@@ -28,6 +32,7 @@ import {
   TestIdentityProviderCommandOutput,
 } from "./commands/TestIdentityProviderCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAccessCommandInput, UpdateAccessCommandOutput } from "./commands/UpdateAccessCommand";
 import { UpdateServerCommandInput, UpdateServerCommandOutput } from "./commands/UpdateServerCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
@@ -82,15 +87,19 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | CreateAccessCommandInput
   | CreateServerCommandInput
   | CreateUserCommandInput
+  | DeleteAccessCommandInput
   | DeleteServerCommandInput
   | DeleteSshPublicKeyCommandInput
   | DeleteUserCommandInput
+  | DescribeAccessCommandInput
   | DescribeSecurityPolicyCommandInput
   | DescribeServerCommandInput
   | DescribeUserCommandInput
   | ImportSshPublicKeyCommandInput
+  | ListAccessesCommandInput
   | ListSecurityPoliciesCommandInput
   | ListServersCommandInput
   | ListTagsForResourceCommandInput
@@ -100,19 +109,24 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | TestIdentityProviderCommandInput
   | UntagResourceCommandInput
+  | UpdateAccessCommandInput
   | UpdateServerCommandInput
   | UpdateUserCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateAccessCommandOutput
   | CreateServerCommandOutput
   | CreateUserCommandOutput
+  | DeleteAccessCommandOutput
   | DeleteServerCommandOutput
   | DeleteSshPublicKeyCommandOutput
   | DeleteUserCommandOutput
+  | DescribeAccessCommandOutput
   | DescribeSecurityPolicyCommandOutput
   | DescribeServerCommandOutput
   | DescribeUserCommandOutput
   | ImportSshPublicKeyCommandOutput
+  | ListAccessesCommandOutput
   | ListSecurityPoliciesCommandOutput
   | ListServersCommandOutput
   | ListTagsForResourceCommandOutput
@@ -122,6 +136,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | TestIdentityProviderCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAccessCommandOutput
   | UpdateServerCommandOutput
   | UpdateUserCommandOutput;
 

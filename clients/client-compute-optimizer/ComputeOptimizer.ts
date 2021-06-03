@@ -10,10 +10,20 @@ import {
   ExportAutoScalingGroupRecommendationsCommandOutput,
 } from "./commands/ExportAutoScalingGroupRecommendationsCommand";
 import {
+  ExportEBSVolumeRecommendationsCommand,
+  ExportEBSVolumeRecommendationsCommandInput,
+  ExportEBSVolumeRecommendationsCommandOutput,
+} from "./commands/ExportEBSVolumeRecommendationsCommand";
+import {
   ExportEC2InstanceRecommendationsCommand,
   ExportEC2InstanceRecommendationsCommandInput,
   ExportEC2InstanceRecommendationsCommandOutput,
 } from "./commands/ExportEC2InstanceRecommendationsCommand";
+import {
+  ExportLambdaFunctionRecommendationsCommand,
+  ExportLambdaFunctionRecommendationsCommandInput,
+  ExportLambdaFunctionRecommendationsCommandOutput,
+} from "./commands/ExportLambdaFunctionRecommendationsCommand";
 import {
   GetAutoScalingGroupRecommendationsCommand,
   GetAutoScalingGroupRecommendationsCommandInput,
@@ -57,16 +67,17 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>AWS Compute Optimizer is a service that analyzes the configuration and utilization metrics of your
- *             AWS compute resources, such as EC2 instances, Auto Scaling groups, AWS Lambda functions, and
- *             Amazon EBS volumes. It reports whether your resources are optimal, and generates optimization
- *             recommendations to reduce the cost and improve the performance of your workloads. Compute Optimizer
- *             also provides recent utilization metric data, as well as projected utilization metric
- *             data for the recommendations, which you can use to evaluate which recommendation
- *             provides the best price-performance trade-off. The analysis of your usage patterns can
- *             help you decide when to move or resize your running resources, and still meet your
- *             performance and capacity requirements. For more information about Compute Optimizer, including the
- *             required permissions to use the service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">AWS Compute Optimizer User Guide</a>.</p>
+ * <p>AWS Compute Optimizer is a service that analyzes the configuration and utilization
+ *             metrics of your AWS compute resources, such as EC2 instances, Auto Scaling groups, AWS Lambda
+ *             functions, and Amazon EBS volumes. It reports whether your resources are optimal, and
+ *             generates optimization recommendations to reduce the cost and improve the performance of
+ *             your workloads. Compute Optimizer also provides recent utilization metric data, as well as projected
+ *             utilization metric data for the recommendations, which you can use to evaluate which
+ *             recommendation provides the best price-performance trade-off. The analysis of your usage
+ *             patterns can help you decide when to move or resize your running resources, and still
+ *             meet your performance and capacity requirements. For more information about Compute Optimizer,
+ *             including the required permissions to use the service, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/">AWS Compute Optimizer User
+ *             Guide</a>.</p>
  */
 export class ComputeOptimizer extends ComputeOptimizerClient {
   /**
@@ -114,7 +125,8 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
    *             you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
    *                 Recommendations</a> in the <i>Compute Optimizer User Guide</i>.</p>
    *
-   *         <p>You can have only one Auto Scaling group export job in progress per AWS Region.</p>
+   *         <p>You can have only one Auto Scaling group export job in progress per AWS
+   *             Region.</p>
    */
   public exportAutoScalingGroupRecommendations(
     args: ExportAutoScalingGroupRecommendationsCommandInput,
@@ -148,6 +160,46 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   }
 
   /**
+   * <p>Exports optimization recommendations for Amazon EBS volumes.</p>
+   *
+   *         <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
+   *             in a JavaScript Object Notation (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that
+   *             you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
+   *                 Recommendations</a> in the <i>Compute Optimizer User Guide</i>.</p>
+   *
+   *         <p>You can have only one Amazon EBS volume export job in progress per AWS
+   *             Region.</p>
+   */
+  public exportEBSVolumeRecommendations(
+    args: ExportEBSVolumeRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportEBSVolumeRecommendationsCommandOutput>;
+  public exportEBSVolumeRecommendations(
+    args: ExportEBSVolumeRecommendationsCommandInput,
+    cb: (err: any, data?: ExportEBSVolumeRecommendationsCommandOutput) => void
+  ): void;
+  public exportEBSVolumeRecommendations(
+    args: ExportEBSVolumeRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportEBSVolumeRecommendationsCommandOutput) => void
+  ): void;
+  public exportEBSVolumeRecommendations(
+    args: ExportEBSVolumeRecommendationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportEBSVolumeRecommendationsCommandOutput) => void),
+    cb?: (err: any, data?: ExportEBSVolumeRecommendationsCommandOutput) => void
+  ): Promise<ExportEBSVolumeRecommendationsCommandOutput> | void {
+    const command = new ExportEBSVolumeRecommendationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Exports optimization recommendations for Amazon EC2 instances.</p>
    *
    *         <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
@@ -155,7 +207,8 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
    *             you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
    *                 Recommendations</a> in the <i>Compute Optimizer User Guide</i>.</p>
    *
-   *         <p>You can have only one Amazon EC2 instance export job in progress per AWS Region.</p>
+   *         <p>You can have only one Amazon EC2 instance export job in progress per AWS
+   *             Region.</p>
    */
   public exportEC2InstanceRecommendations(
     args: ExportEC2InstanceRecommendationsCommandInput,
@@ -187,10 +240,52 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   }
 
   /**
+   * <p>Exports optimization recommendations for AWS Lambda functions.</p>
+   *
+   *
+   *
+   *         <p>Recommendations are exported in a comma-separated values (.csv) file, and its metadata
+   *             in a JavaScript Object Notation (.json) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that
+   *             you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
+   *                 Recommendations</a> in the <i>Compute Optimizer User Guide</i>.</p>
+   *
+   *         <p>You can have only one Lambda function export job in progress per AWS
+   *             Region.</p>
+   */
+  public exportLambdaFunctionRecommendations(
+    args: ExportLambdaFunctionRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportLambdaFunctionRecommendationsCommandOutput>;
+  public exportLambdaFunctionRecommendations(
+    args: ExportLambdaFunctionRecommendationsCommandInput,
+    cb: (err: any, data?: ExportLambdaFunctionRecommendationsCommandOutput) => void
+  ): void;
+  public exportLambdaFunctionRecommendations(
+    args: ExportLambdaFunctionRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportLambdaFunctionRecommendationsCommandOutput) => void
+  ): void;
+  public exportLambdaFunctionRecommendations(
+    args: ExportLambdaFunctionRecommendationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportLambdaFunctionRecommendationsCommandOutput) => void),
+    cb?: (err: any, data?: ExportLambdaFunctionRecommendationsCommandOutput) => void
+  ): Promise<ExportLambdaFunctionRecommendationsCommandOutput> | void {
+    const command = new ExportLambdaFunctionRecommendationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns Auto Scaling group recommendations.</p>
    *
-   *         <p>AWS Compute Optimizer generates recommendations for Amazon EC2 Auto Scaling groups that meet a specific set of
-   *             requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
+   *         <p>AWS Compute Optimizer generates recommendations for Amazon EC2 Auto Scaling groups that meet a specific
+   *             set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
    *                 requirements</a> in the <i>AWS Compute Optimizer User Guide</i>.</p>
    */
   public getAutoScalingGroupRecommendations(
@@ -225,8 +320,8 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   /**
    * <p>Returns Amazon Elastic Block Store (Amazon EBS) volume recommendations.</p>
    *
-   *         <p>AWS Compute Optimizer generates recommendations for Amazon EBS volumes that meet a specific set of
-   *             requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
+   *         <p>AWS Compute Optimizer generates recommendations for Amazon EBS volumes that meet a specific
+   *             set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
    *                 requirements</a> in the <i>AWS Compute Optimizer User Guide</i>.</p>
    */
   public getEBSVolumeRecommendations(
@@ -261,9 +356,10 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   /**
    * <p>Returns Amazon EC2 instance recommendations.</p>
    *
-   *         <p>AWS Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud (Amazon EC2) instances that meet a
-   *             specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
-   *                 requirements</a> in the <i>AWS Compute Optimizer User Guide</i>.</p>
+   *         <p>AWS Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud (Amazon EC2) instances that meet
+   *             a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
+   *                 resources and requirements</a> in the <i>AWS Compute Optimizer User
+   *             Guide</i>.</p>
    */
   public getEC2InstanceRecommendations(
     args: GetEC2InstanceRecommendationsCommandInput,
@@ -335,7 +431,11 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   }
 
   /**
-   * <p>Returns the enrollment (opt in) status of an account to the AWS Compute Optimizer service.</p>
+   * <p>Returns the enrollment (opt in) status of an account to the AWS Compute Optimizer
+   *             service.</p>
+   *
+   *
+   *
    *         <p>If the account is the management account of an organization, this action also confirms
    *             the enrollment status of member accounts within the organization.</p>
    */
@@ -370,6 +470,8 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
 
   /**
    * <p>Returns AWS Lambda function recommendations.</p>
+   *
+   *
    *
    *         <p>AWS Compute Optimizer generates recommendations for functions that meet a specific set of
    *             requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
@@ -456,19 +558,25 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   }
 
   /**
-   * <p>Updates the enrollment (opt in and opt out) status of an account to the AWS Compute Optimizer
-   *             service.</p>
+   * <p>Updates the enrollment (opt in and opt out) status of an account to the
+   *             AWS Compute Optimizer service.</p>
+   *
+   *
    *
    *         <p>If the account is a management account of an organization, this action can also be used
    *             to enroll member accounts within the organization.</p>
    *
    *         <p>You must have the appropriate permissions to opt in to Compute Optimizer, to view its
-   *             recommendations, and to opt out. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/ug/security-iam.html">Controlling access with AWS Identity
-   *                 and Access Management</a> in the <i>Compute Optimizer User Guide</i>.</p>
+   *             recommendations, and to opt out. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html">Controlling access with AWS
+   *                 Identity and Access Management</a> in the <i>AWS Compute Optimizer User
+   *                 Guide</i>.</p>
    *
-   *         <p>When you opt in, Compute Optimizer automatically creates a Service-Linked Role in your account to
-   *             access its data. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/ug/using-service-linked-roles.html">Using Service-Linked
-   *                 Roles for AWS Compute Optimizer</a> in the <i>Compute Optimizer User Guide</i>.</p>
+   *
+   *
+   *         <p>When you opt in, Compute Optimizer automatically creates a Service-Linked Role in your
+   *             account to access its data. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/using-service-linked-roles.html">Using
+   *                 Service-Linked Roles for AWS Compute Optimizer</a> in the <i>AWS Compute Optimizer User
+   *                 Guide</i>.</p>
    */
   public updateEnrollmentStatus(
     args: UpdateEnrollmentStatusCommandInput,

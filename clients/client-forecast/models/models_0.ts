@@ -782,6 +782,10 @@ export namespace CreateForecastExportJobResponse {
   });
 }
 
+export enum AutoMLOverrideStrategy {
+  LatencyOptimized = "LatencyOptimized",
+}
+
 /**
  * <p>Parameters that define how to split a dataset into training data and testing data, and the
  *       number of iterations to perform. These parameters are specified in the predefined algorithms
@@ -1584,6 +1588,14 @@ export interface CreatePredictorRequest {
   PerformAutoML?: boolean;
 
   /**
+   * <p>Used to overide the default AutoML strategy, which is to optimize predictor accuracy.
+   *             To apply an AutoML strategy that minimizes training time, use
+   *                 <code>LatencyOptimized</code>.</p>
+   *         <p>This parameter is only valid for predictors trained using AutoML.</p>
+   */
+  AutoMLOverrideStrategy?: AutoMLOverrideStrategy | string;
+
+  /**
    * <p>Whether to perform hyperparameter optimization (HPO). HPO finds optimal hyperparameter
    *       values for your training data. The process of performing HPO is known as running a
    *       hyperparameter tuning job.</p>
@@ -2147,22 +2159,26 @@ export namespace DescribeDatasetImportJobRequest {
  */
 export interface Statistics {
   /**
-   * <p>The number of values in the field.</p>
+   * <p>The number of values in the field. If the response value is -1, refer to
+   *         <code>CountLong</code>.</p>
    */
   Count?: number;
 
   /**
-   * <p>The number of distinct values in the field.</p>
+   * <p>The number of distinct values in the field. If the response value is -1, refer to
+   *       <code>CountDistinctLong</code>.</p>
    */
   CountDistinct?: number;
 
   /**
-   * <p>The number of null values in the field.</p>
+   * <p>The number of null values in the field. If the response value is -1, refer to
+   *       <code>CountNullLong</code>.</p>
    */
   CountNull?: number;
 
   /**
-   * <p>The number of NAN (not a number) values in the field.</p>
+   * <p>The number of NAN (not a number) values in the field. If the response value is -1, refer to
+   *       <code>CountNanLong</code>.</p>
    */
   CountNan?: number;
 
@@ -2185,6 +2201,30 @@ export interface Statistics {
    * <p>For a numeric field, the standard deviation.</p>
    */
   Stddev?: number;
+
+  /**
+   * <p>The number of values in the field. <code>CountLong</code> is used instead of
+   *         <code>Count</code> if the value is greater than 2,147,483,647.</p>
+   */
+  CountLong?: number;
+
+  /**
+   * <p>The number of distinct values in the field. <code>CountDistinctLong</code> is used instead
+   *       of <code>CountDistinct</code> if the value is greater than 2,147,483,647.</p>
+   */
+  CountDistinctLong?: number;
+
+  /**
+   * <p>The number of null values in the field. <code>CountNullLong</code> is used instead of
+   *         <code>CountNull</code> if the value is greater than 2,147,483,647.</p>
+   */
+  CountNullLong?: number;
+
+  /**
+   * <p>The number of NAN (not a number) values in the field. <code>CountNanLong</code> is used
+   *       instead of <code>CountNan</code> if the value is greater than 2,147,483,647.</p>
+   */
+  CountNanLong?: number;
 }
 
 export namespace Statistics {
@@ -2310,7 +2350,8 @@ export interface DescribeDatasetImportJobResponse {
   CreationTime?: Date;
 
   /**
-   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   * <p>The last time the resource was modified. The timestamp depends on the status of the
+   *       job:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2742,6 +2783,13 @@ export interface DescribePredictorResponse {
    * <p>Whether the predictor is set to perform AutoML.</p>
    */
   PerformAutoML?: boolean;
+
+  /**
+   * <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code>
+   *             is specified, the AutoML strategy optimizes predictor accuracy.</p>
+   *         <p>This parameter is only valid for predictors trained using AutoML.</p>
+   */
+  AutoMLOverrideStrategy?: AutoMLOverrideStrategy | string;
 
   /**
    * <p>Whether the predictor is set to perform hyperparameter optimization (HPO).</p>
@@ -3209,6 +3257,13 @@ export interface GetAccuracyMetricsResponse {
    * <p>An array of results from evaluating the predictor.</p>
    */
   PredictorEvaluationResults?: EvaluationResult[];
+
+  /**
+   * <p>The AutoML strategy used to train the predictor. Unless <code>LatencyOptimized</code>
+   *             is specified, the AutoML strategy optimizes predictor accuracy.</p>
+   *         <p>This parameter is only valid for predictors trained using AutoML.</p>
+   */
+  AutoMLOverrideStrategy?: AutoMLOverrideStrategy | string;
 }
 
 export namespace GetAccuracyMetricsResponse {
@@ -3451,13 +3506,13 @@ export interface DatasetImportJobSummary {
    *             <li>
    *                <p>
    *                   <code>CREATE_PENDING</code>, <code>CREATE_IN_PROGRESS</code>,
-   *           <code>CREATE_FAILED</code>
+   *             <code>CREATE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>DELETE_PENDING</code>, <code>DELETE_IN_PROGRESS</code>,
-   *           <code>DELETE_FAILED</code>
+   *             <code>DELETE_FAILED</code>
    *                </p>
    *             </li>
    *             <li>
@@ -3480,7 +3535,8 @@ export interface DatasetImportJobSummary {
   CreationTime?: Date;
 
   /**
-   * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
+   * <p>The last time the resource was modified. The timestamp depends on the status of the
+   *       job:</p>
    *          <ul>
    *             <li>
    *                <p>

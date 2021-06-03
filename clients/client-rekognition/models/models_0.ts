@@ -1500,7 +1500,7 @@ export namespace CreateCollectionResponse {
 }
 
 /**
- * <p>A collection with the specified ID already exists.</p>
+ * <p>A resource with the specified ID already exists.</p>
  */
 export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
@@ -1526,7 +1526,7 @@ export namespace ResourceAlreadyExistsException {
  * <p></p>
  *
  *
- *          <p>The size of the collection or tag list exceeds the allowed limit. For more information, see
+ *          <p>The size of the collection exceeds the allowed limit. For more information, see
  *       Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
  */
 export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
@@ -1731,6 +1731,18 @@ export interface CreateProjectVersionRequest {
    *     </p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The identifier for your AWS Key Management Service (AWS KMS) customer master key (CMK).
+   *          You can supply the Amazon Resource Name (ARN) of your CMK, the ID of your CMK,
+   *          or an alias for your CMK.
+   *          The key is used to encrypt training and test images copied into the service for model training. Your
+   *          source images are unaffected. The key is also used to encrypt training results and manifest files written
+   *          to the output Amazon S3 bucket (<code>OutputConfig</code>).</p>
+   *          <p>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service are encrypted
+   *          using a key that AWS owns and manages.</p>
+   */
+  KmsKeyId?: string;
 }
 
 export namespace CreateProjectVersionRequest {
@@ -1760,7 +1772,7 @@ export namespace CreateProjectVersionResponse {
 }
 
 /**
- * <p>The collection specified in the request cannot be found.</p>
+ * <p>The resource specified in the request cannot be found.</p>
  */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
@@ -2638,6 +2650,11 @@ export interface ProjectVersionDescription {
    *          and test datasets.</p>
    */
   ManifestSummary?: GroundTruthManifest;
+
+  /**
+   * <p>The identifer for the AWS Key Management Service (AWS KMS) customer master key that was used to encrypt the model during training. </p>
+   */
+  KmsKeyId?: string;
 }
 
 export namespace ProjectVersionDescription {

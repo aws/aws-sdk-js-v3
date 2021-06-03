@@ -3904,12 +3904,39 @@ export namespace GetPatchBaselineForPatchGroupResult {
  */
 export interface GetServiceSettingRequest {
   /**
-   * <p>The ID of the service setting to get. The setting ID can be
-   *     <code>/ssm/automation/customer-script-log-destination</code>,
-   *     <code>/ssm/automation/customer-script-log-group-name</code>,
-   *     <code>/ssm/parameter-store/default-parameter-tier</code>,
-   *     <code>/ssm/parameter-store/high-throughput-enabled</code>, or
-   *     <code>/ssm/managed-instance/activation-tier</code>.</p>
+   * <p>The ID of the service setting to get. The setting ID can be one of the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/automation/customer-script-log-destination</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/automation/customer-script-log-group-name</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/documents/console/public-sharing-permission</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/parameter-store/default-parameter-tier</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/parameter-store/high-throughput-enabled</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/managed-instance/activation-tier</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   SettingId: string | undefined;
 }
@@ -4877,7 +4904,11 @@ export interface CommandInvocation {
    */
   StandardErrorUrl?: string;
 
+  /**
+   * <p>Plugins processed by the command.</p>
+   */
   CommandPlugins?: CommandPlugin[];
+
   /**
    * <p>The IAM service role that Run Command uses to act on your behalf when sending notifications
    *    about command status changes on a per instance basis.</p>
@@ -5879,7 +5910,7 @@ export namespace DocumentFilter {
  *             <code>aws ssm list-documents --filters Key=Name,Values=Te</code>
  *          </p>
  *          <p>You can also use the <code>TargetType</code> AWS-provided key. For a list of valid resource
- *    type values that can be used with this key, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS resource and property types
+ *    type values that can be used with this key, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS resource and property types
  *     reference</a> in the <i>AWS CloudFormation User Guide</i>.</p>
  *          <p>If you specify more than two keys, only documents that are identified by all the tags are
  *    returned in the results. If you specify more than two values for a key, documents that are
@@ -6016,7 +6047,7 @@ export interface DocumentIdentifier {
 
   /**
    * <p>The target type which defines the kinds of resources the document can run on. For example,
-   *    /AWS::EC2::Instance. For a list of valid resource types, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS resource and property types
+   *    /AWS::EC2::Instance. For a list of valid resource types, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS resource and property types
    *     reference</a> in the <i>AWS CloudFormation User Guide</i>. </p>
    */
   TargetType?: string;
@@ -7694,9 +7725,9 @@ export namespace ParameterLimitExceeded {
  *          <p>This safeguard is to prevent parameter versions with mission critical labels assigned to
  *    them from being deleted. To continue creating new parameters, first move the label from the
  *    oldest version of the parameter to a newer one for use in your operations. For information about
- *    moving parameter labels, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-console-move">Move a
- *     parameter label (console)</a> or <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-cli-move">Move a
- *     parameter label (CLI) </a> in the <i>AWS Systems Manager User Guide</i>. </p>
+ *    moving parameter labels, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-console-move">Move a
+ *     parameter label (console)</a> or <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-cli-move">Move a
+ *     parameter label (CLI)</a> in the <i>AWS Systems Manager User Guide</i>. </p>
  */
 export interface ParameterMaxVersionLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "ParameterMaxVersionLimitExceeded";
@@ -8000,7 +8031,7 @@ export interface PutParameterRequest {
    *          <p>When you create a <code>String</code> parameter and specify <code>aws:ec2:image</code>,
    *    Systems Manager validates the parameter value is in the required format, such as
    *     <code>ami-12345abcdeEXAMPLE</code>, and that the specified AMI is available in your AWS account.
-   *    For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html">Native
+   *    For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html">Native
    *     parameter support for Amazon Machine Image IDs</a> in the
    *     <i>AWS Systems Manager User Guide</i>.</p>
    */
@@ -8496,13 +8527,39 @@ export namespace RemoveTagsFromResourceResult {
  */
 export interface ResetServiceSettingRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the service setting to reset. The setting ID can be
-   *     <code>/ssm/automation/customer-script-log-destination</code>,
-   *     <code>/ssm/automation/customer-script-log-group-name</code>,
-   *     <code>/ssm/parameter-store/default-parameter-tier</code>,
-   *     <code>/ssm/parameter-store/high-throughput-enabled</code>, or
-   *     <code>/ssm/managed-instance/activation-tier</code>. For example,
-   *     <code>arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/high-throughput-enabled</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the service setting to reset. The setting ID can be one of the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/automation/customer-script-log-destination</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/automation/customer-script-log-group-name</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/documents/console/public-sharing-permission</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/parameter-store/default-parameter-tier</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/parameter-store/high-throughput-enabled</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/managed-instance/activation-tier</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   SettingId: string | undefined;
 }

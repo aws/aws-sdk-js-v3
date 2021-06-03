@@ -25,14 +25,6 @@ export interface SearchPlaceIndexForPositionCommandOutput
 /**
  * <p>Reverse geocodes a given coordinate and returns a legible address. Allows you to search
  *          for Places or points of interest near a given position.</p>
- *          <note>
- *             <p>By using Places, you agree that AWS may transmit your API queries to your selected
- *             third party provider for processing, which may be outside the AWS region you are
- *             currently using. </p>
- *             <p>Because of licensing limitations, you may not use HERE to store results for locations
- *             in Japan. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon
- *             Location Service.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

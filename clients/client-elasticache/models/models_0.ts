@@ -2190,7 +2190,7 @@ export interface CreateCacheClusterMessage {
    * <p>The initial number of cache nodes that the cluster has.</p>
    *         <p>For clusters running Redis, this value must be 1.
    *     For clusters running Memcached, this value must be between 1 and 40.</p>
-   *         <p>If you need more than 20 nodes for your Memcached cluster,
+   *         <p>If you need more than 40 nodes for your Memcached cluster,
    *             please fill out the ElastiCache Limit Increase Request form at <a href="http://aws.amazon.com/contact-us/elasticache-node-limit-request/">http://aws.amazon.com/contact-us/elasticache-node-limit-request/</a>.</p>
    */
   NumCacheNodes?: number;
@@ -4937,7 +4937,7 @@ export interface CreateReplicationGroupMessage {
   KmsKeyId?: string;
 
   /**
-   * <p>The list of user groups to associate with the replication group.</p>
+   * <p>The user group to associate with the replication group.</p>
    */
   UserGroupIds?: string[];
 
@@ -10163,12 +10163,12 @@ export interface ModifyReplicationGroupMessage {
   AuthTokenUpdateStrategy?: AuthTokenUpdateStrategyType | string;
 
   /**
-   * <p>A list of user group IDs.</p>
+   * <p>The user group you are associating with the replication group.</p>
    */
   UserGroupIdsToAdd?: string[];
 
   /**
-   * <p>A list of users groups to remove, meaning the users in the group no longer can access thereplication group.</p>
+   * <p>The user group to remove, meaning the users in the group no longer can access the replication group.</p>
    */
   UserGroupIdsToRemove?: string[];
 
