@@ -48,7 +48,7 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 Let’s walk through setting up a project that depends on DynamoDB from the SDK and makes a simple service call. The following steps use yarn as an example. These steps assume you have Node.js and yarn already installed.
 
 1. Create a new Node.js project.
-2. Inside of the project, run: `yarn add @aws-sdk/client-dynamodb`. Adding packages results in update in [lock file](https://docs.npmjs.com/configuring-npm/package-locks.html), `yarn.lock` or `package-lock.json`. You **should** commit your lock file along with your code to avoid potential breaking changes.
+2. Inside of the project, run: `yarn add @aws-sdk/client-dynamodb`. Adding packages results in update in lock file, [yarn.lock](https://yarnpkg.com/getting-started/qa/#should-lockfiles-be-committed-to-the-repository) or [package-lock.json](https://docs.npmjs.com/configuring-npm/package-lock-json). You **should** commit your lock file along with your code to avoid potential breaking changes.
 
 3. Create a new file called index.js, create a DynamoDB service client and send a request.
 
