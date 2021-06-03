@@ -5,5 +5,6 @@ export * from "./AdaptiveRetryStrategy";
 export * from "./config";
 export * from "./configurations";
 export * from "./delayDecider";
+export * from "./DefaultRateLimiter";
 export * from "./retryDecider";
 export * from "./types";
