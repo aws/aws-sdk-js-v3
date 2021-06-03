@@ -21,9 +21,15 @@ export interface DescribeInstanceRefreshesCommandInput extends DescribeInstanceR
 export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstanceRefreshesAnswer, __MetadataBearer {}
 
 /**
- * <p>Describes one or more instance refreshes.</p>
- *         <p>You can determine the status of a request by looking at the <code>Status</code>
- *             parameter. The following are the possible statuses: </p>
+ * <p>Gets information about the instance refreshes for the specified Auto Scaling group.</p>
+ *         <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
+ *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling
+ *             group after you make configuration changes.</p>
+ *         <p>To help you determine the status of an instance refresh, this operation returns
+ *             information about the instance refreshes you previously initiated, including their
+ *             status, end time, the percentage of the instance refresh that is complete, and the
+ *             number of instances remaining to update before the instance refresh is complete.</p>
+ *         <p>The following are the possible statuses: </p>
  *         <ul>
  *             <li>
  *                 <p>
@@ -54,9 +60,6 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  *                   <code>Cancelled</code> - The operation is cancelled. </p>
  *             </li>
  *          </ul>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling instances
- *                 based on an instance refresh</a> in the
- *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

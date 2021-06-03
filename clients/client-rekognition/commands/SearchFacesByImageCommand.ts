@@ -48,6 +48,8 @@ export interface SearchFacesByImageCommandOutput extends SearchFacesByImageRespo
  *       box (and a confidence level that the bounding box contains a face) of the face that Amazon Rekognition
  *       used for the input image.
  *     </p>
+ *          <p>If no faces are detected in the input image, <code>SearchFacesByImage</code> returns an
+ *       <code>InvalidParameterException</code> error. </p>
  *
  *          <p>For an example, Searching for a Face Using an Image in the Amazon Rekognition Developer Guide.</p>
  *

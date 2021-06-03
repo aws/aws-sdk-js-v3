@@ -22,7 +22,8 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
 
 /**
  * <p>Updates some of the parameters of a previously created location for Server Message Block
- *       (SMB) file system access. For information about creating an SMB location, see <a>create-smb-location</a>.</p>
+ *       (SMB) file system access. For information about creating an SMB location, see
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Creating a location for SMB</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

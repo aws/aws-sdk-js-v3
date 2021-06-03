@@ -21,7 +21,7 @@ export interface ListPlaceIndexesCommandInput extends ListPlaceIndexesRequest {}
 export interface ListPlaceIndexesCommandOutput extends ListPlaceIndexesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists Place index resources in your AWS account.</p>
+ * <p>Lists place index resources in your AWS account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -6780,6 +6780,7 @@ const serializeAws_json1_1CreateProjectVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
     ...(input.OutputConfig !== undefined &&
       input.OutputConfig !== null && { OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context) }),
     ...(input.ProjectArn !== undefined && input.ProjectArn !== null && { ProjectArn: input.ProjectArn }),
@@ -9161,6 +9162,7 @@ const deserializeAws_json1_1ProjectVersionDescription = (
       output.EvaluationResult !== undefined && output.EvaluationResult !== null
         ? deserializeAws_json1_1EvaluationResult(output.EvaluationResult, context)
         : undefined,
+    KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
     ManifestSummary:
       output.ManifestSummary !== undefined && output.ManifestSummary !== null
         ? deserializeAws_json1_1GroundTruthManifest(output.ManifestSummary, context)

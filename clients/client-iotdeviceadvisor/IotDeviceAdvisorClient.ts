@@ -18,8 +18,8 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
-import { ListTestCasesCommandInput, ListTestCasesCommandOutput } from "./commands/ListTestCasesCommand";
 import { StartSuiteRunCommandInput, StartSuiteRunCommandOutput } from "./commands/StartSuiteRunCommand";
+import { StopSuiteRunCommandInput, StopSuiteRunCommandOutput } from "./commands/StopSuiteRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -86,8 +86,8 @@ export type ServiceInputTypes =
   | ListSuiteDefinitionsCommandInput
   | ListSuiteRunsCommandInput
   | ListTagsForResourceCommandInput
-  | ListTestCasesCommandInput
   | StartSuiteRunCommandInput
+  | StopSuiteRunCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateSuiteDefinitionCommandInput;
@@ -101,8 +101,8 @@ export type ServiceOutputTypes =
   | ListSuiteDefinitionsCommandOutput
   | ListSuiteRunsCommandOutput
   | ListTagsForResourceCommandOutput
-  | ListTestCasesCommandOutput
   | StartSuiteRunCommandOutput
+  | StopSuiteRunCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateSuiteDefinitionCommandOutput;

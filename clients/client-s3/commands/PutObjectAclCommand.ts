@@ -30,8 +30,7 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *          <p>Depending on your application needs, you can choose to set
  *          the ACL on an object using either the request body or the headers. For example, if you have
  *          an existing application that updates a bucket ACL using the request body, you can continue
- *          to use that approach. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> in the <i>Amazon S3 Developer
- *             Guide</i>.</p>
+ *          to use that approach. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> in the <i>Amazon S3 User Guide</i>.</p>
  *
  *
  *

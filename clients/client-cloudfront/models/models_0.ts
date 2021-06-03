@@ -1876,7 +1876,7 @@ export interface CloudFrontOriginAccessIdentityConfig {
   CallerReference: string | undefined;
 
   /**
-   * <p>An optional comment to describe the origin access identity. The comment cannot be longer
+   * <p>A comment to describe the origin access identity. The comment cannot be longer
    * 			than 128 characters.</p>
    */
   Comment: string | undefined;

@@ -26,6 +26,8 @@ export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, _
 
 /**
  * <p>Deletes the specified human loop for a flow definition.</p>
+ *          <p>If the human loop was deleted, this operation will return a
+ *         <code>ResourceNotFoundException</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

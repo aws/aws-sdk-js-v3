@@ -21,11 +21,15 @@ export interface DescribeScalingActivitiesCommandInput extends DescribeScalingAc
 export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, __MetadataBearer {}
 
 /**
- * <p>Describes one or more scaling activities for the specified Auto Scaling group.</p>
- *         <p>To view the scaling activities from the Amazon EC2 Auto Scaling console, choose the <b>Activity</b> tab of the Auto Scaling group. When scaling events occur,
- *             you see scaling activity messages in the <b>Activity
- *                 history</b>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying a scaling
+ * <p>Gets information about the scaling activities in the account and Region.</p>
+ *         <p>When scaling events occur, you see a record of the scaling activity in the scaling
+ *             activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying a scaling
  *                 activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *         <p>If the scaling event succeeds, the value of the <code>StatusCode</code> element in the
+ *             response is <code>Successful</code>. If an attempt to launch instances failed, the
+ *                 <code>StatusCode</code> value is <code>Failed</code> or <code>Cancelled</code> and
+ *             the <code>StatusMessage</code> element in the response indicates the cause of the
+ *             failure. For help interpreting the <code>StatusMessage</code>, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html">Troubleshooting Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -40,6 +40,187 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "af-south-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.af-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-east-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.ap-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-northeast-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.ap-northeast-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-northeast-2":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.ap-northeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-south-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.ap-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-southeast-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.ap-southeast-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-southeast-2":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.ap-southeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ca-central-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.ca-central-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-central-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.eu-central-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-north-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.eu-north-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-south-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.eu-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.eu-west-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-2":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.eu-west-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-3":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.eu-west-3.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "fips-ca-central-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry-fips.ca-central-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ca-central-1",
+      };
+      break;
+    case "fips-us-east-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry-fips.us-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-1",
+      };
+      break;
+    case "fips-us-east-2":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry-fips.us-east-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-2",
+      };
+      break;
+    case "fips-us-gov-east-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-east-1",
+      };
+      break;
+    case "fips-us-gov-west-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-west-1",
+      };
+      break;
+    case "fips-us-west-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry-fips.us-west-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-1",
+      };
+      break;
+    case "fips-us-west-2":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry-fips.us-west-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-2",
+      };
+      break;
+    case "me-south-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.me-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "sa-east-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.sa-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-east-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.us-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-east-2":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.us-east-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-gov-east-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
+      };
+      break;
+    case "us-gov-west-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
+      };
+      break;
+    case "us-west-1":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.us-west-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-west-2":
+      regionInfo = {
+        hostname: "servicecatalog-appregistry.us-west-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {

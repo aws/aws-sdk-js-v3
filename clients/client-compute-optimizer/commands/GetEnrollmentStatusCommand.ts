@@ -21,7 +21,11 @@ export interface GetEnrollmentStatusCommandInput extends GetEnrollmentStatusRequ
 export interface GetEnrollmentStatusCommandOutput extends GetEnrollmentStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the enrollment (opt in) status of an account to the AWS Compute Optimizer service.</p>
+ * <p>Returns the enrollment (opt in) status of an account to the AWS Compute Optimizer
+ *             service.</p>
+ *
+ *
+ *
  *         <p>If the account is the management account of an organization, this action also confirms
  *             the enrollment status of member accounts within the organization.</p>
  * @example

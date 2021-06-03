@@ -1,4 +1,4 @@
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -1767,6 +1767,35 @@ export namespace CreateRemoteAccessSessionResult {
   });
 }
 
+/**
+ * <p>The VPC security groups and subnets that are attached to a project.</p>
+ */
+export interface TestGridVpcConfig {
+  /**
+   * <p>A list of VPC security group IDs in your Amazon VPC.</p>
+   */
+  securityGroupIds: string[] | undefined;
+
+  /**
+   * <p>A list of VPC subnet IDs in your Amazon VPC.</p>
+   */
+  subnetIds: string[] | undefined;
+
+  /**
+   * <p>The ID of the Amazon VPC.</p>
+   */
+  vpcId: string | undefined;
+}
+
+export namespace TestGridVpcConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestGridVpcConfig): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateTestGridProjectRequest {
   /**
    * <p>Human-readable name of the Selenium testing project.</p>
@@ -1777,6 +1806,11 @@ export interface CreateTestGridProjectRequest {
    * <p>Human-readable description of the project.</p>
    */
   description?: string;
+
+  /**
+   * <p>The VPC security groups and subnets that are attached to a project.</p>
+   */
+  vpcConfig?: TestGridVpcConfig;
 }
 
 export namespace CreateTestGridProjectRequest {
@@ -1806,6 +1840,11 @@ export interface TestGridProject {
    * <p>A human-readable description for the project.</p>
    */
   description?: string;
+
+  /**
+   * <p>The VPC security groups and subnets that are attached to a project.</p>
+   */
+  vpcConfig?: TestGridVpcConfig;
 
   /**
    * <p>When the project was created.</p>
@@ -1898,6 +1937,7 @@ export namespace CreateTestGridUrlResult {
    */
   export const filterSensitiveLog = (obj: CreateTestGridUrlResult): any => ({
     ...obj,
+    ...(obj.url && { url: SENSITIVE_STRING }),
   });
 }
 
@@ -2272,6 +2312,7 @@ export namespace Upload {
    */
   export const filterSensitiveLog = (obj: Upload): any => ({
     ...obj,
+    ...(obj.url && { url: SENSITIVE_STRING }),
   });
 }
 
@@ -2291,6 +2332,7 @@ export namespace CreateUploadResult {
    */
   export const filterSensitiveLog = (obj: CreateUploadResult): any => ({
     ...obj,
+    ...(obj.upload && { upload: Upload.filterSensitiveLog(obj.upload) }),
   });
 }
 
@@ -4169,13 +4211,13 @@ export interface DeviceFilter {
    *                 </dd>
    *          </dl>
    */
-  attribute?: DeviceFilterAttribute | string;
+  attribute: DeviceFilterAttribute | string | undefined;
 
   /**
    * <p>Specifies how Device Farm compares the filter's attribute to the value. See the attribute
    *             descriptions.</p>
    */
-  operator?: RuleOperator | string;
+  operator: RuleOperator | string | undefined;
 
   /**
    * <p>An array of one or more filter values used in a device filter.</p>
@@ -4210,7 +4252,7 @@ export interface DeviceFilter {
    *             </li>
    *          </ul>
    */
-  values?: string[];
+  values: string[] | undefined;
 }
 
 export namespace DeviceFilter {
@@ -5191,6 +5233,7 @@ export namespace GetUploadResult {
    */
   export const filterSensitiveLog = (obj: GetUploadResult): any => ({
     ...obj,
+    ...(obj.upload && { upload: Upload.filterSensitiveLog(obj.upload) }),
   });
 }
 
@@ -5270,6 +5313,7 @@ export namespace InstallToRemoteAccessSessionResult {
    */
   export const filterSensitiveLog = (obj: InstallToRemoteAccessSessionResult): any => ({
     ...obj,
+    ...(obj.appUpload && { appUpload: Upload.filterSensitiveLog(obj.appUpload) }),
   });
 }
 
@@ -6572,6 +6616,7 @@ export namespace TestGridSessionArtifact {
    */
   export const filterSensitiveLog = (obj: TestGridSessionArtifact): any => ({
     ...obj,
+    ...(obj.url && { url: SENSITIVE_STRING }),
   });
 }
 
@@ -6593,6 +6638,7 @@ export namespace ListTestGridSessionArtifactsResult {
    */
   export const filterSensitiveLog = (obj: ListTestGridSessionArtifactsResult): any => ({
     ...obj,
+    ...(obj.artifacts && { artifacts: obj.artifacts.map((item) => TestGridSessionArtifact.filterSensitiveLog(item)) }),
   });
 }
 
@@ -7068,6 +7114,7 @@ export namespace ListUploadsResult {
    */
   export const filterSensitiveLog = (obj: ListUploadsResult): any => ({
     ...obj,
+    ...(obj.uploads && { uploads: obj.uploads.map((item) => Upload.filterSensitiveLog(item)) }),
   });
 }
 
@@ -7123,12 +7170,12 @@ export interface PurchaseOfferingRequest {
   /**
    * <p>The ID of the offering.</p>
    */
-  offeringId?: string;
+  offeringId: string | undefined;
 
   /**
    * <p>The number of device slots to purchase in an offering request.</p>
    */
-  quantity?: number;
+  quantity: number | undefined;
 
   /**
    * <p>The ID of the offering promotion to be applied to the purchase.</p>
@@ -7171,12 +7218,12 @@ export interface RenewOfferingRequest {
   /**
    * <p>The ID of a request to renew an offering.</p>
    */
-  offeringId?: string;
+  offeringId: string | undefined;
 
   /**
    * <p>The quantity requested in an offering renewal.</p>
    */
-  quantity?: number;
+  quantity: number | undefined;
 }
 
 export namespace RenewOfferingRequest {
@@ -8062,6 +8109,11 @@ export interface UpdateTestGridProjectRequest {
    * <p>Human-readable description for the project.</p>
    */
   description?: string;
+
+  /**
+   * <p>The VPC security groups and subnets that are attached to a project.</p>
+   */
+  vpcConfig?: TestGridVpcConfig;
 }
 
 export namespace UpdateTestGridProjectRequest {
@@ -8134,6 +8186,7 @@ export namespace UpdateUploadResult {
    */
   export const filterSensitiveLog = (obj: UpdateUploadResult): any => ({
     ...obj,
+    ...(obj.upload && { upload: Upload.filterSensitiveLog(obj.upload) }),
   });
 }
 

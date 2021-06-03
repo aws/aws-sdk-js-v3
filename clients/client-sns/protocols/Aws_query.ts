@@ -15,12 +15,20 @@ import {
   CreatePlatformEndpointCommandInput,
   CreatePlatformEndpointCommandOutput,
 } from "../commands/CreatePlatformEndpointCommand";
+import {
+  CreateSMSSandboxPhoneNumberCommandInput,
+  CreateSMSSandboxPhoneNumberCommandOutput,
+} from "../commands/CreateSMSSandboxPhoneNumberCommand";
 import { CreateTopicCommandInput, CreateTopicCommandOutput } from "../commands/CreateTopicCommand";
 import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "../commands/DeleteEndpointCommand";
 import {
   DeletePlatformApplicationCommandInput,
   DeletePlatformApplicationCommandOutput,
 } from "../commands/DeletePlatformApplicationCommand";
+import {
+  DeleteSMSSandboxPhoneNumberCommandInput,
+  DeleteSMSSandboxPhoneNumberCommandOutput,
+} from "../commands/DeleteSMSSandboxPhoneNumberCommand";
 import { DeleteTopicCommandInput, DeleteTopicCommandOutput } from "../commands/DeleteTopicCommand";
 import {
   GetEndpointAttributesCommandInput,
@@ -32,6 +40,10 @@ import {
 } from "../commands/GetPlatformApplicationAttributesCommand";
 import { GetSMSAttributesCommandInput, GetSMSAttributesCommandOutput } from "../commands/GetSMSAttributesCommand";
 import {
+  GetSMSSandboxAccountStatusCommandInput,
+  GetSMSSandboxAccountStatusCommandOutput,
+} from "../commands/GetSMSSandboxAccountStatusCommand";
+import {
   GetSubscriptionAttributesCommandInput,
   GetSubscriptionAttributesCommandOutput,
 } from "../commands/GetSubscriptionAttributesCommand";
@@ -41,6 +53,10 @@ import {
   ListEndpointsByPlatformApplicationCommandOutput,
 } from "../commands/ListEndpointsByPlatformApplicationCommand";
 import {
+  ListOriginationNumbersCommandInput,
+  ListOriginationNumbersCommandOutput,
+} from "../commands/ListOriginationNumbersCommand";
+import {
   ListPhoneNumbersOptedOutCommandInput,
   ListPhoneNumbersOptedOutCommandOutput,
 } from "../commands/ListPhoneNumbersOptedOutCommand";
@@ -48,6 +64,10 @@ import {
   ListPlatformApplicationsCommandInput,
   ListPlatformApplicationsCommandOutput,
 } from "../commands/ListPlatformApplicationsCommand";
+import {
+  ListSMSSandboxPhoneNumbersCommandInput,
+  ListSMSSandboxPhoneNumbersCommandOutput,
+} from "../commands/ListSMSSandboxPhoneNumbersCommand";
 import {
   ListSubscriptionsByTopicCommandInput,
   ListSubscriptionsByTopicCommandOutput,
@@ -80,6 +100,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UnsubscribeCommandInput, UnsubscribeCommandOutput } from "../commands/UnsubscribeCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  VerifySMSSandboxPhoneNumberCommandInput,
+  VerifySMSSandboxPhoneNumberCommandOutput,
+} from "../commands/VerifySMSSandboxPhoneNumberCommand";
+import {
   AddPermissionInput,
   AuthorizationErrorException,
   CheckIfPhoneNumberIsOptedOutInput,
@@ -91,10 +115,14 @@ import {
   CreatePlatformApplicationInput,
   CreatePlatformApplicationResponse,
   CreatePlatformEndpointInput,
+  CreateSMSSandboxPhoneNumberInput,
+  CreateSMSSandboxPhoneNumberResult,
   CreateTopicInput,
   CreateTopicResponse,
   DeleteEndpointInput,
   DeletePlatformApplicationInput,
+  DeleteSMSSandboxPhoneNumberInput,
+  DeleteSMSSandboxPhoneNumberResult,
   DeleteTopicInput,
   Endpoint,
   EndpointDisabledException,
@@ -105,6 +133,8 @@ import {
   GetPlatformApplicationAttributesResponse,
   GetSMSAttributesInput,
   GetSMSAttributesResponse,
+  GetSMSSandboxAccountStatusInput,
+  GetSMSSandboxAccountStatusResult,
   GetSubscriptionAttributesInput,
   GetSubscriptionAttributesResponse,
   GetTopicAttributesInput,
@@ -121,10 +151,14 @@ import {
   KMSThrottlingException,
   ListEndpointsByPlatformApplicationInput,
   ListEndpointsByPlatformApplicationResponse,
+  ListOriginationNumbersRequest,
+  ListOriginationNumbersResult,
   ListPhoneNumbersOptedOutInput,
   ListPhoneNumbersOptedOutResponse,
   ListPlatformApplicationsInput,
   ListPlatformApplicationsResponse,
+  ListSMSSandboxPhoneNumbersInput,
+  ListSMSSandboxPhoneNumbersResult,
   ListSubscriptionsByTopicInput,
   ListSubscriptionsByTopicResponse,
   ListSubscriptionsInput,
@@ -135,14 +169,18 @@ import {
   ListTopicsResponse,
   MessageAttributeValue,
   NotFoundException,
+  NumberCapability,
   OptInPhoneNumberInput,
   OptInPhoneNumberResponse,
+  OptedOutException,
+  PhoneNumberInformation,
   PlatformApplication,
   PlatformApplicationDisabledException,
   PublishInput,
   PublishResponse,
   RemovePermissionInput,
   ResourceNotFoundException,
+  SMSSandboxPhoneNumber,
   SetEndpointAttributesInput,
   SetPlatformApplicationAttributesInput,
   SetSMSAttributesInput,
@@ -165,6 +203,11 @@ import {
   UnsubscribeInput,
   UntagResourceRequest,
   UntagResourceResponse,
+  UserErrorException,
+  ValidationException,
+  VerificationException,
+  VerifySMSSandboxPhoneNumberInput,
+  VerifySMSSandboxPhoneNumberResult,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -263,6 +306,22 @@ export const serializeAws_queryCreatePlatformEndpointCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryCreateSMSSandboxPhoneNumberCommand = async (
+  input: CreateSMSSandboxPhoneNumberCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryCreateSMSSandboxPhoneNumberInput(input, context),
+    Action: "CreateSMSSandboxPhoneNumber",
+    Version: "2010-03-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryCreateTopicCommand = async (
   input: CreateTopicCommandInput,
   context: __SerdeContext
@@ -306,6 +365,22 @@ export const serializeAws_queryDeletePlatformApplicationCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeletePlatformApplicationInput(input, context),
     Action: "DeletePlatformApplication",
+    Version: "2010-03-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeleteSMSSandboxPhoneNumberCommand = async (
+  input: DeleteSMSSandboxPhoneNumberCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeleteSMSSandboxPhoneNumberInput(input, context),
+    Action: "DeleteSMSSandboxPhoneNumber",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -375,6 +450,22 @@ export const serializeAws_queryGetSMSAttributesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryGetSMSSandboxAccountStatusCommand = async (
+  input: GetSMSSandboxAccountStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryGetSMSSandboxAccountStatusInput(input, context),
+    Action: "GetSMSSandboxAccountStatus",
+    Version: "2010-03-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryGetSubscriptionAttributesCommand = async (
   input: GetSubscriptionAttributesCommandInput,
   context: __SerdeContext
@@ -423,6 +514,22 @@ export const serializeAws_queryListEndpointsByPlatformApplicationCommand = async
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryListOriginationNumbersCommand = async (
+  input: ListOriginationNumbersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryListOriginationNumbersRequest(input, context),
+    Action: "ListOriginationNumbers",
+    Version: "2010-03-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryListPhoneNumbersOptedOutCommand = async (
   input: ListPhoneNumbersOptedOutCommandInput,
   context: __SerdeContext
@@ -450,6 +557,22 @@ export const serializeAws_queryListPlatformApplicationsCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryListPlatformApplicationsInput(input, context),
     Action: "ListPlatformApplications",
+    Version: "2010-03-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryListSMSSandboxPhoneNumbersCommand = async (
+  input: ListSMSSandboxPhoneNumbersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryListSMSSandboxPhoneNumbersInput(input, context),
+    Action: "ListSMSSandboxPhoneNumbers",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -706,6 +829,22 @@ export const serializeAws_queryUntagResourceCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryUntagResourceRequest(input, context),
     Action: "UntagResource",
+    Version: "2010-03-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryVerifySMSSandboxPhoneNumberCommand = async (
+  input: VerifySMSSandboxPhoneNumberCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryVerifySMSSandboxPhoneNumberInput(input, context),
+    Action: "VerifySMSSandboxPhoneNumber",
     Version: "2010-03-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1106,6 +1245,100 @@ const deserializeAws_queryCreatePlatformEndpointCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryCreateSMSSandboxPhoneNumberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSMSSandboxPhoneNumberCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryCreateSMSSandboxPhoneNumberCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryCreateSMSSandboxPhoneNumberResult(data.CreateSMSSandboxPhoneNumberResult, context);
+  const response: CreateSMSSandboxPhoneNumberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryCreateSMSSandboxPhoneNumberCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSMSSandboxPhoneNumberCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
+      response = {
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
+      response = {
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OptedOutException":
+    case "com.amazonaws.sns#OptedOutException":
+      response = {
+        ...(await deserializeAws_queryOptedOutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledException":
+    case "com.amazonaws.sns#ThrottledException":
+      response = {
+        ...(await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserErrorException":
+    case "com.amazonaws.sns#UserErrorException":
+      response = {
+        ...(await deserializeAws_queryUserErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryCreateTopicCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1337,6 +1570,100 @@ const deserializeAws_queryDeletePlatformApplicationCommandError = async (
     case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDeleteSMSSandboxPhoneNumberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSMSSandboxPhoneNumberCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeleteSMSSandboxPhoneNumberCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDeleteSMSSandboxPhoneNumberResult(data.DeleteSMSSandboxPhoneNumberResult, context);
+  const response: DeleteSMSSandboxPhoneNumberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeleteSMSSandboxPhoneNumberCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSMSSandboxPhoneNumberCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
+      response = {
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
+      response = {
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.sns#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledException":
+    case "com.amazonaws.sns#ThrottledException":
+      response = {
+        ...(await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserErrorException":
+    case "com.amazonaws.sns#UserErrorException":
+      response = {
+        ...(await deserializeAws_queryUserErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1694,6 +2021,76 @@ const deserializeAws_queryGetSMSAttributesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryGetSMSSandboxAccountStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSMSSandboxAccountStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryGetSMSSandboxAccountStatusCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryGetSMSSandboxAccountStatusResult(data.GetSMSSandboxAccountStatusResult, context);
+  const response: GetSMSSandboxAccountStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryGetSMSSandboxAccountStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSMSSandboxAccountStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
+      response = {
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
+      response = {
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledException":
+    case "com.amazonaws.sns#ThrottledException":
+      response = {
+        ...(await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryGetSubscriptionAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1939,6 +2336,92 @@ const deserializeAws_queryListEndpointsByPlatformApplicationCommandError = async
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryListOriginationNumbersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOriginationNumbersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryListOriginationNumbersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryListOriginationNumbersResult(data.ListOriginationNumbersResult, context);
+  const response: ListOriginationNumbersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryListOriginationNumbersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOriginationNumbersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
+      response = {
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
+      response = {
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledException":
+    case "com.amazonaws.sns#ThrottledException":
+      response = {
+        ...(await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.sns#ValidationException":
+      response = {
+        ...(await deserializeAws_queryValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryListPhoneNumbersOptedOutCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2066,6 +2549,92 @@ const deserializeAws_queryListPlatformApplicationsCommandError = async (
     case "com.amazonaws.sns#InvalidParameterException":
       response = {
         ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryListSMSSandboxPhoneNumbersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSMSSandboxPhoneNumbersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryListSMSSandboxPhoneNumbersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryListSMSSandboxPhoneNumbersResult(data.ListSMSSandboxPhoneNumbersResult, context);
+  const response: ListSMSSandboxPhoneNumbersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryListSMSSandboxPhoneNumbersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSMSSandboxPhoneNumbersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
+      response = {
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
+      response = {
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.sns#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledException":
+    case "com.amazonaws.sns#ThrottledException":
+      response = {
+        ...(await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3485,6 +4054,100 @@ const deserializeAws_queryUntagResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryVerifySMSSandboxPhoneNumberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<VerifySMSSandboxPhoneNumberCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryVerifySMSSandboxPhoneNumberCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryVerifySMSSandboxPhoneNumberResult(data.VerifySMSSandboxPhoneNumberResult, context);
+  const response: VerifySMSSandboxPhoneNumberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryVerifySMSSandboxPhoneNumberCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<VerifySMSSandboxPhoneNumberCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthorizationErrorException":
+    case "com.amazonaws.sns#AuthorizationErrorException":
+      response = {
+        ...(await deserializeAws_queryAuthorizationErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalErrorException":
+    case "com.amazonaws.sns#InternalErrorException":
+      response = {
+        ...(await deserializeAws_queryInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.sns#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.sns#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledException":
+    case "com.amazonaws.sns#ThrottledException":
+      response = {
+        ...(await deserializeAws_queryThrottledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "VerificationException":
+    case "com.amazonaws.sns#VerificationException":
+      response = {
+        ...(await deserializeAws_queryVerificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_queryAuthorizationErrorExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3710,6 +4373,21 @@ const deserializeAws_queryNotFoundExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_queryOptedOutExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OptedOutException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryOptedOutException(body.Error, context);
+  const contents: OptedOutException = {
+    name: "OptedOutException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryPlatformApplicationDisabledExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3830,6 +4508,51 @@ const deserializeAws_queryTopicLimitExceededExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_queryUserErrorExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UserErrorException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryUserErrorException(body.Error, context);
+  const contents: UserErrorException = {
+    name: "UserErrorException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryValidationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ValidationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryValidationException(body.Error, context);
+  const contents: ValidationException = {
+    name: "ValidationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryVerificationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<VerificationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryVerificationException(body.Error, context);
+  const contents: VerificationException = {
+    name: "VerificationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const serializeAws_queryActionsList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -3938,6 +4661,20 @@ const serializeAws_queryCreatePlatformEndpointInput = (
   return entries;
 };
 
+const serializeAws_queryCreateSMSSandboxPhoneNumberInput = (
+  input: CreateSMSSandboxPhoneNumberInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.PhoneNumber !== undefined && input.PhoneNumber !== null) {
+    entries["PhoneNumber"] = input.PhoneNumber;
+  }
+  if (input.LanguageCode !== undefined && input.LanguageCode !== null) {
+    entries["LanguageCode"] = input.LanguageCode;
+  }
+  return entries;
+};
+
 const serializeAws_queryCreateTopicInput = (input: CreateTopicInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Name !== undefined && input.Name !== null) {
@@ -3992,6 +4729,17 @@ const serializeAws_queryDeletePlatformApplicationInput = (
   return entries;
 };
 
+const serializeAws_queryDeleteSMSSandboxPhoneNumberInput = (
+  input: DeleteSMSSandboxPhoneNumberInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.PhoneNumber !== undefined && input.PhoneNumber !== null) {
+    entries["PhoneNumber"] = input.PhoneNumber;
+  }
+  return entries;
+};
+
 const serializeAws_queryDeleteTopicInput = (input: DeleteTopicInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.TopicArn !== undefined && input.TopicArn !== null) {
@@ -4034,6 +4782,14 @@ const serializeAws_queryGetSMSAttributesInput = (input: GetSMSAttributesInput, c
   return entries;
 };
 
+const serializeAws_queryGetSMSSandboxAccountStatusInput = (
+  input: GetSMSSandboxAccountStatusInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  return entries;
+};
+
 const serializeAws_queryGetSubscriptionAttributesInput = (
   input: GetSubscriptionAttributesInput,
   context: __SerdeContext
@@ -4067,6 +4823,20 @@ const serializeAws_queryListEndpointsByPlatformApplicationInput = (
   return entries;
 };
 
+const serializeAws_queryListOriginationNumbersRequest = (
+  input: ListOriginationNumbersRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  return entries;
+};
+
 const serializeAws_queryListPhoneNumbersOptedOutInput = (
   input: ListPhoneNumbersOptedOutInput,
   context: __SerdeContext
@@ -4085,6 +4855,20 @@ const serializeAws_queryListPlatformApplicationsInput = (
   const entries: any = {};
   if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
+  }
+  return entries;
+};
+
+const serializeAws_queryListSMSSandboxPhoneNumbersInput = (
+  input: ListSMSSandboxPhoneNumbersInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
   }
   return entries;
 };
@@ -4454,6 +5238,20 @@ const serializeAws_queryUntagResourceRequest = (input: UntagResourceRequest, con
   return entries;
 };
 
+const serializeAws_queryVerifySMSSandboxPhoneNumberInput = (
+  input: VerifySMSSandboxPhoneNumberInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.PhoneNumber !== undefined && input.PhoneNumber !== null) {
+    entries["PhoneNumber"] = input.PhoneNumber;
+  }
+  if (input.OneTimePassword !== undefined && input.OneTimePassword !== null) {
+    entries["OneTimePassword"] = input.OneTimePassword;
+  }
+  return entries;
+};
+
 const deserializeAws_queryAuthorizationErrorException = (
   output: any,
   context: __SerdeContext
@@ -4529,6 +5327,14 @@ const deserializeAws_queryCreatePlatformApplicationResponse = (
   return contents;
 };
 
+const deserializeAws_queryCreateSMSSandboxPhoneNumberResult = (
+  output: any,
+  context: __SerdeContext
+): CreateSMSSandboxPhoneNumberResult => {
+  let contents: any = {};
+  return contents;
+};
+
 const deserializeAws_queryCreateTopicResponse = (output: any, context: __SerdeContext): CreateTopicResponse => {
   let contents: any = {
     TopicArn: undefined,
@@ -4536,6 +5342,14 @@ const deserializeAws_queryCreateTopicResponse = (output: any, context: __SerdeCo
   if (output["TopicArn"] !== undefined) {
     contents.TopicArn = output["TopicArn"];
   }
+  return contents;
+};
+
+const deserializeAws_queryDeleteSMSSandboxPhoneNumberResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteSMSSandboxPhoneNumberResult => {
+  let contents: any = {};
   return contents;
 };
 
@@ -4638,6 +5452,19 @@ const deserializeAws_queryGetSMSAttributesResponse = (
       __getArrayIfSingleItem(output["attributes"]["entry"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryGetSMSSandboxAccountStatusResult = (
+  output: any,
+  context: __SerdeContext
+): GetSMSSandboxAccountStatusResult => {
+  let contents: any = {
+    IsInSandbox: undefined,
+  };
+  if (output["IsInSandbox"] !== undefined) {
+    contents.IsInSandbox = output["IsInSandbox"] == "true";
   }
   return contents;
 };
@@ -4843,6 +5670,29 @@ const deserializeAws_queryListOfPlatformApplications = (
     });
 };
 
+const deserializeAws_queryListOriginationNumbersResult = (
+  output: any,
+  context: __SerdeContext
+): ListOriginationNumbersResult => {
+  let contents: any = {
+    NextToken: undefined,
+    PhoneNumbers: undefined,
+  };
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
+  if (output.PhoneNumbers === "") {
+    contents.PhoneNumbers = [];
+  }
+  if (output["PhoneNumbers"] !== undefined && output["PhoneNumbers"]["member"] !== undefined) {
+    contents.PhoneNumbers = deserializeAws_queryPhoneNumberInformationList(
+      __getArrayIfSingleItem(output["PhoneNumbers"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryListPhoneNumbersOptedOutResponse = (
   output: any,
   context: __SerdeContext
@@ -4880,6 +5730,29 @@ const deserializeAws_queryListPlatformApplicationsResponse = (
   if (output["PlatformApplications"] !== undefined && output["PlatformApplications"]["member"] !== undefined) {
     contents.PlatformApplications = deserializeAws_queryListOfPlatformApplications(
       __getArrayIfSingleItem(output["PlatformApplications"]["member"]),
+      context
+    );
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryListSMSSandboxPhoneNumbersResult = (
+  output: any,
+  context: __SerdeContext
+): ListSMSSandboxPhoneNumbersResult => {
+  let contents: any = {
+    PhoneNumbers: undefined,
+    NextToken: undefined,
+  };
+  if (output.PhoneNumbers === "") {
+    contents.PhoneNumbers = [];
+  }
+  if (output["PhoneNumbers"] !== undefined && output["PhoneNumbers"]["member"] !== undefined) {
+    contents.PhoneNumbers = deserializeAws_querySMSSandboxPhoneNumberList(
+      __getArrayIfSingleItem(output["PhoneNumbers"]["member"]),
       context
     );
   }
@@ -4990,12 +5863,86 @@ const deserializeAws_queryNotFoundException = (output: any, context: __SerdeCont
   return contents;
 };
 
+const deserializeAws_queryNumberCapabilityList = (
+  output: any,
+  context: __SerdeContext
+): (NumberCapability | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_queryOptedOutException = (output: any, context: __SerdeContext): OptedOutException => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryOptInPhoneNumberResponse = (
   output: any,
   context: __SerdeContext
 ): OptInPhoneNumberResponse => {
   let contents: any = {};
   return contents;
+};
+
+const deserializeAws_queryPhoneNumberInformation = (output: any, context: __SerdeContext): PhoneNumberInformation => {
+  let contents: any = {
+    CreatedAt: undefined,
+    PhoneNumber: undefined,
+    Status: undefined,
+    Iso2CountryCode: undefined,
+    RouteType: undefined,
+    NumberCapabilities: undefined,
+  };
+  if (output["CreatedAt"] !== undefined) {
+    contents.CreatedAt = new Date(output["CreatedAt"]);
+  }
+  if (output["PhoneNumber"] !== undefined) {
+    contents.PhoneNumber = output["PhoneNumber"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["Iso2CountryCode"] !== undefined) {
+    contents.Iso2CountryCode = output["Iso2CountryCode"];
+  }
+  if (output["RouteType"] !== undefined) {
+    contents.RouteType = output["RouteType"];
+  }
+  if (output.NumberCapabilities === "") {
+    contents.NumberCapabilities = [];
+  }
+  if (output["NumberCapabilities"] !== undefined && output["NumberCapabilities"]["member"] !== undefined) {
+    contents.NumberCapabilities = deserializeAws_queryNumberCapabilityList(
+      __getArrayIfSingleItem(output["NumberCapabilities"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryPhoneNumberInformationList = (
+  output: any,
+  context: __SerdeContext
+): PhoneNumberInformation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPhoneNumberInformation(entry, context);
+    });
 };
 
 const deserializeAws_queryPhoneNumberList = (output: any, context: __SerdeContext): string[] => {
@@ -5075,6 +6022,34 @@ const deserializeAws_querySetSMSAttributesResponse = (
 ): SetSMSAttributesResponse => {
   let contents: any = {};
   return contents;
+};
+
+const deserializeAws_querySMSSandboxPhoneNumber = (output: any, context: __SerdeContext): SMSSandboxPhoneNumber => {
+  let contents: any = {
+    PhoneNumber: undefined,
+    Status: undefined,
+  };
+  if (output["PhoneNumber"] !== undefined) {
+    contents.PhoneNumber = output["PhoneNumber"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySMSSandboxPhoneNumberList = (
+  output: any,
+  context: __SerdeContext
+): SMSSandboxPhoneNumber[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_querySMSSandboxPhoneNumber(entry, context);
+    });
 };
 
 const deserializeAws_queryStaleTagException = (output: any, context: __SerdeContext): StaleTagException => {
@@ -5272,6 +6247,48 @@ const deserializeAws_queryTopicsList = (output: any, context: __SerdeContext): T
 };
 
 const deserializeAws_queryUntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
+  let contents: any = {};
+  return contents;
+};
+
+const deserializeAws_queryUserErrorException = (output: any, context: __SerdeContext): UserErrorException => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryValidationException = (output: any, context: __SerdeContext): ValidationException => {
+  let contents: any = {
+    Message: undefined,
+  };
+  if (output["Message"] !== undefined) {
+    contents.Message = output["Message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryVerificationException = (output: any, context: __SerdeContext): VerificationException => {
+  let contents: any = {
+    Message: undefined,
+    Status: undefined,
+  };
+  if (output["Message"] !== undefined) {
+    contents.Message = output["Message"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryVerifySMSSandboxPhoneNumberResult = (
+  output: any,
+  context: __SerdeContext
+): VerifySMSSandboxPhoneNumberResult => {
   let contents: any = {};
   return contents;
 };

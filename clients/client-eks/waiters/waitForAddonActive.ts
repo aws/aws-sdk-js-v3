@@ -19,6 +19,14 @@ const checkState = async (client: EKSClient, input: DescribeAddonCommandInput): 
       let returnComparator = () => {
         return result.addon.status;
       };
+      if (returnComparator() === "DEGRADED") {
+        return { state: WaiterState.FAILURE, reason };
+      }
+    } catch (e) {}
+    try {
+      let returnComparator = () => {
+        return result.addon.status;
+      };
       if (returnComparator() === "ACTIVE") {
         return { state: WaiterState.SUCCESS, reason };
       }

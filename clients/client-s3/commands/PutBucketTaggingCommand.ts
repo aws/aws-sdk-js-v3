@@ -30,12 +30,13 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  *          tag key values. For example, you can tag several resources with a specific application
  *          name, and then organize your billing information to see the total cost of that application
  *          across several services. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost Allocation
- *             and Tagging</a>.</p>
+ *             and Tagging</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html">Using Cost Allocation in Amazon S3 Bucket
+ *                Tags</a>.</p>
  *
  *          <note>
- *             <p>Within a bucket, if you add a tag that has the same key as an existing tag, the new
- *             value overwrites the old value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html">Using Cost Allocation in Amazon S3 Bucket
- *                Tags</a>.</p>
+ *             <p>
+ *             When this operation sets the tags for a bucket, it will overwrite any current tags the
+ *             bucket already has. You cannot use this operation to add tags to an existing list of tags.</p>
  *          </note>
  *          <p>To use this operation, you must have permissions to perform the
  *             <code>s3:PutBucketTagging</code> action. The bucket owner has this permission by default

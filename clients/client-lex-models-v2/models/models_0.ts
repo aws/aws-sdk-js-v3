@@ -1,4 +1,4 @@
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -245,6 +245,31 @@ export namespace BotAliasSummary {
   });
 }
 
+/**
+ * <p>Provided the identity of a the bot that was exported.</p>
+ */
+export interface BotExportSpecification {
+  /**
+   * <p>The identifier of the bot assigned by Amazon Lex.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot that was exported. This will be either
+   *             <code>DRAFT</code> or the version number.</p>
+   */
+  botVersion: string | undefined;
+}
+
+export namespace BotExportSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BotExportSpecification): any => ({
+    ...obj,
+  });
+}
+
 export enum BotFilterName {
   BotName = "BotName",
 }
@@ -284,6 +309,144 @@ export namespace BotFilter {
    * @internal
    */
   export const filterSensitiveLog = (obj: BotFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>By default, data stored by Amazon Lex is encrypted. The
+ *             <code>DataPrivacy</code> structure provides settings that determine
+ *          how Amazon Lex handles special cases of securing the data for your bot.
+ *       </p>
+ */
+export interface DataPrivacy {
+  /**
+   * <p>For each Amazon Lex bot created with the Amazon Lex Model Building Service,
+   *          you must specify whether your use of Amazon Lex is related to a website,
+   *          program, or other application that is directed or targeted, in whole or
+   *          in part, to children under age 13 and subject to the Children's Online
+   *          Privacy Protection Act (COPPA) by specifying <code>true</code> or
+   *             <code>false</code> in the <code>childDirected</code> field. By
+   *          specifying <code>true</code> in the <code>childDirected</code> field,
+   *          you confirm that your use of Amazon Lex <b>is</b>
+   *          related to a website, program, or other application that is directed or
+   *          targeted, in whole or in part, to children under age 13 and subject to
+   *          COPPA. By specifying <code>false</code> in the
+   *             <code>childDirected</code> field, you confirm that your use of Amazon Lex
+   *             <b>is not</b> related to a website,
+   *          program, or other application that is directed or targeted, in whole or
+   *          in part, to children under age 13 and subject to COPPA. You may not
+   *          specify a default value for the <code>childDirected</code> field that
+   *          does not accurately reflect whether your use of Amazon Lex is related to a
+   *          website, program, or other application that is directed or targeted, in
+   *          whole or in part, to children under age 13 and subject to COPPA. If
+   *          your use of Amazon Lex relates to a website, program, or other application
+   *          that is directed in whole or in part, to children under age 13, you
+   *          must obtain any required verifiable parental consent under COPPA. For
+   *          information regarding the use of Amazon Lex in connection with websites,
+   *          programs, or other applications that are directed or targeted, in whole
+   *          or in part, to children under age 13, see the <a href="https://aws.amazon.com/lex/faqs#data-security">Amazon Lex
+   *             FAQ</a>.</p>
+   */
+  childDirected: boolean | undefined;
+}
+
+export namespace DataPrivacy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DataPrivacy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the bot parameters required for importing a bot.</p>
+ */
+export interface BotImportSpecification {
+  /**
+   * <p>The name that Amazon Lex should use for the bot.</p>
+   */
+  botName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role used to build and run
+   *          the bot.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>By default, data stored by Amazon Lex is encrypted. The
+   *             <code>DataPrivacy</code> structure provides settings that determine
+   *          how Amazon Lex handles special cases of securing the data for your bot.
+   *       </p>
+   */
+  dataPrivacy: DataPrivacy | undefined;
+
+  /**
+   * <p>The time, in seconds, that Amazon Lex should keep information about a
+   *          user's conversation with the bot. </p>
+   *          <p>A user interaction remains active for the amount of time specified.
+   *          If no conversation occurs during this time, the session expires and
+   *          Amazon Lex deletes any data provided before the timeout.</p>
+   *          <p>You can specify between 60 (1 minute) and 86,400 (24 hours)
+   *          seconds.</p>
+   */
+  idleSessionTTLInSeconds?: number;
+
+  /**
+   * <p>A list of tags to add to the bot. You can only add tags when you
+   *          import a bot. You can't use the <code>UpdateBot</code> operation to
+   *          update tags. To update tags, use the <code>TagResource</code>
+   *          operation.</p>
+   */
+  botTags?: { [key: string]: string };
+
+  /**
+   * <p>A list of tags to add to the test alias for a bot. You can only add
+   *          tags when you import a bot. You can't use the <code>UpdateAlias</code>
+   *          operation to update tags. To update tags on the test alias, use the
+   *             <code>TagResource</code> operation.</p>
+   */
+  testBotAliasTags?: { [key: string]: string };
+}
+
+export namespace BotImportSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BotImportSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the bot locale parameters required for exporting a bot
+ *          locale.</p>
+ */
+export interface BotLocaleExportSpecification {
+  /**
+   * <p>The identifier of the bot to create the locale for.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot to export.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The identifier of the language and locale to export. The string must
+   *          match one of the locales in the bot.</p>
+   */
+  localeId: string | undefined;
+}
+
+export namespace BotLocaleExportSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BotLocaleExportSpecification): any => ({
     ...obj,
   });
 }
@@ -356,6 +519,104 @@ export namespace BotLocaleHistoryEvent {
   });
 }
 
+/**
+ * <p>Defines settings for using an Amazon Polly voice to communicate with a
+ *          user.</p>
+ */
+export interface VoiceSettings {
+  /**
+   * <p>The identifier of the Amazon Polly voice to use.</p>
+   */
+  voiceId: string | undefined;
+}
+
+export namespace VoiceSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VoiceSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the bot locale parameters required for importing a bot
+ *          locale.</p>
+ */
+export interface BotLocaleImportSpecification {
+  /**
+   * <p>The identifier of the bot to import the locale to.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot to import the locale to. This can only be the
+   *             <code>DRAFT</code> version of the bot.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The identifier of the language and locale that the bot will be used
+   *          in. The string must match one of the supported locales. All of the
+   *          intents, slot types, and slots used in the bot must have the same
+   *          locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported
+   *          languages</a>.</p>
+   */
+  localeId: string | undefined;
+
+  /**
+   * <p>Determines the threshold where Amazon Lex will insert the
+   *             <code>AMAZON.FallbackIntent</code>,
+   *             <code>AMAZON.KendraSearchIntent</code>, or both when returning
+   *          alternative intents. <code>AMAZON.FallbackIntent</code> and
+   *             <code>AMAZON.KendraSearchIntent</code> are only inserted if they are
+   *          configured for the bot. </p>
+   *          <p>For example, suppose a bot is configured with the confidence
+   *          threshold of 0.80 and the <code>AMAZON.FallbackIntent</code>. Amazon
+   *          Lex returns three alternative intents with the following confidence
+   *          scores: IntentA (0.70), IntentB (0.60), IntentC (0.50). The response
+   *          from the <code>PostText</code> operation would be:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AMAZON.FallbackIntent</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentA</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentB</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IntentC</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  nluIntentConfidenceThreshold?: number;
+
+  /**
+   * <p>Defines settings for using an Amazon Polly voice to communicate with a
+   *          user.</p>
+   */
+  voiceSettings?: VoiceSettings;
+}
+
+export namespace BotLocaleImportSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BotLocaleImportSpecification): any => ({
+    ...obj,
+  });
+}
+
 export enum BotLocaleSortAttribute {
   BotLocaleName = "BotLocaleName",
 }
@@ -396,6 +657,7 @@ export enum BotLocaleStatus {
   Creating = "Creating",
   Deleting = "Deleting",
   Failed = "Failed",
+  Importing = "Importing",
   NotBuilt = "NotBuilt",
   ReadyExpressTesting = "ReadyExpressTesting",
 }
@@ -481,6 +743,7 @@ export enum BotStatus {
   Creating = "Creating",
   Deleting = "Deleting",
   Failed = "Failed",
+  Importing = "Importing",
   Inactive = "Inactive",
   Versioning = "Versioning",
 }
@@ -638,7 +901,7 @@ export interface BuildBotLocaleRequest {
    * <p>The identifier of the language and locale that the bot will be used
    *          in. The string must match one of the supported locales. All of the
    *          intents, slot types, and slots used in the bot must have the same
-   *          locale. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 }
@@ -1040,53 +1303,6 @@ export namespace ConversationLogSettings {
   });
 }
 
-/**
- * <p>By default, data stored by Amazon Lex is encrypted. The
- *             <code>DataPrivacy</code> structure provides settings that determine
- *          how Amazon Lex handles special cases of securing the data for your bot.
- *       </p>
- */
-export interface DataPrivacy {
-  /**
-   * <p>For each Amazon Lex bot created with the Amazon Lex Model Building Service,
-   *          you must specify whether your use of Amazon Lex is related to a website,
-   *          program, or other application that is directed or targeted, in whole or
-   *          in part, to children under age 13 and subject to the Children's Online
-   *          Privacy Protection Act (COPPA) by specifying <code>true</code> or
-   *             <code>false</code> in the <code>childDirected</code> field. By
-   *          specifying <code>true</code> in the <code>childDirected</code> field,
-   *          you confirm that your use of Amazon Lex <b>is</b>
-   *          related to a website, program, or other application that is directed or
-   *          targeted, in whole or in part, to children under age 13 and subject to
-   *          COPPA. By specifying <code>false</code> in the
-   *             <code>childDirected</code> field, you confirm that your use of Amazon Lex
-   *             <b>is not</b> related to a website,
-   *          program, or other application that is directed or targeted, in whole or
-   *          in part, to children under age 13 and subject to COPPA. You may not
-   *          specify a default value for the <code>childDirected</code> field that
-   *          does not accurately reflect whether your use of Amazon Lex is related to a
-   *          website, program, or other application that is directed or targeted, in
-   *          whole or in part, to children under age 13 and subject to COPPA. If
-   *          your use of Amazon Lex relates to a website, program, or other application
-   *          that is directed in whole or in part, to children under age 13, you
-   *          must obtain any required verifiable parental consent under COPPA. For
-   *          information regarding the use of Amazon Lex in connection with websites,
-   *          programs, or other applications that are directed or targeted, in whole
-   *          or in part, to children under age 13, see the <a href="https://aws.amazon.com/lex/faqs#data-security">Amazon Lex
-   *             FAQ</a>.</p>
-   */
-  childDirected: boolean | undefined;
-}
-
-export namespace DataPrivacy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataPrivacy): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateBotRequest {
   /**
    * <p>The name of the bot. The bot name must be unique in the account that
@@ -1371,26 +1587,6 @@ export namespace CreateBotAliasResponse {
   });
 }
 
-/**
- * <p>Defines settings for using an Amazon Polly voice to communicate with a
- *          user.</p>
- */
-export interface VoiceSettings {
-  /**
-   * <p>The identifier of the Amazon Polly voice to use.</p>
-   */
-  voiceId: string | undefined;
-}
-
-export namespace VoiceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VoiceSettings): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateBotLocaleRequest {
   /**
    * <p>The identifier of the bot to create the locale for.</p>
@@ -1407,7 +1603,7 @@ export interface CreateBotLocaleRequest {
    * <p>The identifier of the language and locale that the bot will be used
    *          in. The string must match one of the supported locales. All of the
    *          intents, slot types, and slots used in the bot must have the same
-   *          locale. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 
@@ -1603,6 +1799,132 @@ export namespace CreateBotVersionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateBotVersionResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum ImportExportFileFormat {
+  LexJson = "LexJson",
+}
+
+/**
+ * <p>Provides information about the bot or bot locale that you want to
+ *          export. You can specify the <code>botExportSpecification</code> or the
+ *             <code>botLocaleExportSpecification</code>, but not both.</p>
+ */
+export interface ExportResourceSpecification {
+  /**
+   * <p>Parameters for exporting a bot.</p>
+   */
+  botExportSpecification?: BotExportSpecification;
+
+  /**
+   * <p>Parameters for exporting a bot locale.</p>
+   */
+  botLocaleExportSpecification?: BotLocaleExportSpecification;
+}
+
+export namespace ExportResourceSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportResourceSpecification): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateExportRequest {
+  /**
+   * <p>Specifies the type of resource to export, either a bot or a bot
+   *          locale. You can only specify one type of resource to export.</p>
+   */
+  resourceSpecification: ExportResourceSpecification | undefined;
+
+  /**
+   * <p>The file format of the bot or bot locale definition files.</p>
+   */
+  fileFormat: ImportExportFileFormat | string | undefined;
+
+  /**
+   * <p>An password to use to encrypt the exported archive. Using a password
+   *          is optional, but you should encrypt the archive to protect the data in
+   *          transit between Amazon Lex and your local computer.</p>
+   */
+  filePassword?: string;
+}
+
+export namespace CreateExportRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateExportRequest): any => ({
+    ...obj,
+    ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
+  });
+}
+
+export enum ExportStatus {
+  Completed = "Completed",
+  Deleting = "Deleting",
+  Failed = "Failed",
+  InProgress = "InProgress",
+}
+
+export interface CreateExportResponse {
+  /**
+   * <p>An identifier for a specific request to create an export.</p>
+   */
+  exportId?: string;
+
+  /**
+   * <p>A description of the type of resource that was exported, either a
+   *          bot or a bot locale.</p>
+   */
+  resourceSpecification?: ExportResourceSpecification;
+
+  /**
+   * <p>The file format used for the bot or bot locale definition
+   *          files.</p>
+   */
+  fileFormat?: ImportExportFileFormat | string;
+
+  /**
+   * <p>The status of the export. When the status is <code>Completed</code>,
+   *          you can use the  operation to get
+   *          the pre-signed S3 URL link to your exported bot or bot locale.</p>
+   */
+  exportStatus?: ExportStatus | string;
+
+  /**
+   * <p>The date and time that the request to export a bot was
+   *          created.</p>
+   */
+  creationDateTime?: Date;
+}
+
+export namespace CreateExportResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateExportResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
 }
@@ -2162,7 +2484,7 @@ export interface CreateIntentRequest {
   /**
    * <p>The identifier of the language and locale where this intent is used.
    *          All of the bots, slot types, and slots used by the intent must have the
-   *          same locale.</p>
+   *          same locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 }
@@ -2265,6 +2587,180 @@ export namespace CreateIntentResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateIntentResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
+   *          resource policy is attached to.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A resource policy to add to the resource. The policy is a JSON
+   *          structure that contains one or more statements that define the policy.
+   *          The policy must follow the IAM syntax. For more information about the
+   *          contents of a JSON policy document, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html"> IAM JSON policy
+   *             reference </a>. </p>
+   *          <p>If the policy isn't valid, Amazon Lex returns a validation
+   *          exception.</p>
+   */
+  policy: string | undefined;
+}
+
+export namespace CreateResourcePolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateResourcePolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateResourcePolicyResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
+   *          resource policy was attached to.</p>
+   */
+  resourceArn?: string;
+
+  /**
+   * <p>The current revision of the resource policy. Use the revision ID to
+   *          make sure that you are updating the most current version of a resource
+   *          policy when you add a policy statement to a resource, delete a
+   *          resource, or update a resource.</p>
+   */
+  revisionId?: string;
+}
+
+export namespace CreateResourcePolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateResourcePolicyResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum Effect {
+  Allow = "Allow",
+  Deny = "Deny",
+}
+
+/**
+ * <p>The IAM principal that you allowing or denying access to an Amazon Lex
+ *          action. You must provide a <code>service</code> or an <code>arn</code>,
+ *          but not both in the same statement. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html"> AWS JSON policy elements: Principal </a>.</p>
+ */
+export interface Principal {
+  /**
+   * <p>The name of the AWS service that should allowed or denied access to
+   *          an Amazon Lex action.</p>
+   */
+  service?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the principal.</p>
+   */
+  arn?: string;
+}
+
+export namespace Principal {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Principal): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateResourcePolicyStatementRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
+   *          resource policy is attached to.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The name of the statement. The ID is the same as the
+   *             <code>Sid</code> IAM property. The statement name must be unique
+   *          within the policy. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_sid.html">IAM
+   *             JSON policy elements: Sid</a>. </p>
+   */
+  statementId: string | undefined;
+
+  /**
+   * <p>Determines whether the statement allows or denies access to the
+   *          resource.</p>
+   */
+  effect: Effect | string | undefined;
+
+  /**
+   * <p>An IAM principal, such as an IAM users, IAM roles, or AWS services
+   *          that is allowed or denied access to a resource. For more information,
+   *          see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">AWS JSON policy elements: Principal</a>.</p>
+   */
+  principal: Principal[] | undefined;
+
+  /**
+   * <p>The Amazon Lex action that this policy either allows or denies. The
+   *          action must apply to the resource type of the specified ARN. For more
+   *          information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html">
+   *             Actions, resources, and condition keys for Amazon Lex V2</a>.</p>
+   */
+  action: string[] | undefined;
+
+  /**
+   * <p>Specifies a condition when the policy is in effect. If the principal
+   *          of the policy is a service principal, you must provide two condition
+   *          blocks, one with a SourceAccount global condition key and one with a
+   *          SourceArn global condition key.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html">IAM JSON policy elements: Condition </a>.</p>
+   */
+  condition?: { [key: string]: { [key: string]: string } };
+
+  /**
+   * <p>The identifier of the revision of the policy to edit. If this
+   *          revision ID doesn't match the current revision ID, Amazon Lex throws an
+   *          exception.</p>
+   *          <p>If you don't specify a revision, Amazon Lex overwrites the contents of
+   *          the policy with the new values.</p>
+   */
+  expectedRevisionId?: string;
+}
+
+export namespace CreateResourcePolicyStatementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateResourcePolicyStatementRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateResourcePolicyStatementResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
+   *          resource policy is attached to.</p>
+   */
+  resourceArn?: string;
+
+  /**
+   * <p>The current revision of the resource policy. Use the revision ID to
+   *          make sure that you are updating the most current version of a resource
+   *          policy when you add a policy statement to a resource, delete a
+   *          resource, or update a resource.</p>
+   */
+  revisionId?: string;
+}
+
+export namespace CreateResourcePolicyStatementResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateResourcePolicyStatementResponse): any => ({
     ...obj,
   });
 }
@@ -2511,7 +3007,7 @@ export interface CreateSlotRequest {
    * <p>The identifier of the language and locale that the slot will be used
    *          in. The string must match one of the supported locales. All of the
    *          bots, intents, slot types used by the slot must have the same locale.
-   *          For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 
@@ -2800,7 +3296,7 @@ export interface CreateSlotTypeRequest {
    * <p>The identifier of the language and locale that the slot type will be
    *          used in. The string must match one of the supported locales. All of the
    *          bots, intents, and slots used by the slot type must have the same
-   *          locale. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 }
@@ -2876,6 +3372,40 @@ export namespace CreateSlotTypeResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateSlotTypeResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateUploadUrlRequest {}
+
+export namespace CreateUploadUrlRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateUploadUrlRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateUploadUrlResponse {
+  /**
+   * <p>An identifier for a unique import job. Use it when you call the
+   *              operation.</p>
+   */
+  importId?: string;
+
+  /**
+   * <p>A pre-signed S3 write URL. Upload the zip archive file that contains
+   *          the definition of your bot or bot locale.</p>
+   */
+  uploadUrl?: string;
+}
+
+export namespace CreateUploadUrlResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateUploadUrlResponse): any => ({
     ...obj,
   });
 }
@@ -2997,7 +3527,7 @@ export interface DeleteBotLocaleRequest {
   /**
    * <p>The identifier of the language and locale that will be deleted. The
    *          string must match one of the supported locales. For more information,
-   *          see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 }
@@ -3101,6 +3631,91 @@ export namespace DeleteBotVersionResponse {
   });
 }
 
+export interface DeleteExportRequest {
+  /**
+   * <p>The unique identifier of the export to delete.</p>
+   */
+  exportId: string | undefined;
+}
+
+export namespace DeleteExportRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteExportRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteExportResponse {
+  /**
+   * <p>The unique identifier of the deleted export.</p>
+   */
+  exportId?: string;
+
+  /**
+   * <p>The current status of the deletion. When the deletion is complete,
+   *          the export will no longer be returned by the  operation and calls to the  with the export identifier will
+   *          fail.</p>
+   */
+  exportStatus?: ExportStatus | string;
+}
+
+export namespace DeleteExportResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteExportResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteImportRequest {
+  /**
+   * <p>The unique identifier of the import to delete.</p>
+   */
+  importId: string | undefined;
+}
+
+export namespace DeleteImportRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteImportRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ImportStatus {
+  Completed = "Completed",
+  Deleting = "Deleting",
+  Failed = "Failed",
+  InProgress = "InProgress",
+}
+
+export interface DeleteImportResponse {
+  /**
+   * <p>The unique identifier of the deleted import.</p>
+   */
+  importId?: string;
+
+  /**
+   * <p>The current status of the deletion. When the deletion is complete,
+   *          the import will no longer be returned by the  operation and calls to the  with the import identifier will
+   *          fail.</p>
+   */
+  importStatus?: ImportStatus | string;
+}
+
+export namespace DeleteImportResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteImportResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteIntentRequest {
   /**
    * <p>The unique identifier of the intent to delete.</p>
@@ -3120,7 +3735,7 @@ export interface DeleteIntentRequest {
   /**
    * <p>The identifier of the language and locale where the bot will be
    *          deleted. The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 }
@@ -3130,6 +3745,112 @@ export namespace DeleteIntentRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteIntentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that has the
+   *          resource policy attached.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The identifier of the revision to edit. If this ID doesn't match the
+   *          current revision number, Amazon Lex returns an exception</p>
+   *          <p>If you don't specify a revision ID, Amazon Lex will delete the current
+   *          policy.</p>
+   */
+  expectedRevisionId?: string;
+}
+
+export namespace DeleteResourcePolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteResourcePolicyResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
+   *          resource policy was deleted from.</p>
+   */
+  resourceArn?: string;
+
+  /**
+   * <p>The current revision of the resource policy. Use the revision ID to
+   *          make sure that you are updating the most current version of a resource
+   *          policy when you add a policy statement to a resource, delete a
+   *          resource, or update a resource.</p>
+   */
+  revisionId?: string;
+}
+
+export namespace DeleteResourcePolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteResourcePolicyStatementRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
+   *          resource policy is attached to.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The name of the statement (SID) to delete from the policy.</p>
+   */
+  statementId: string | undefined;
+
+  /**
+   * <p>The identifier of the revision of the policy to delete the statement
+   *          from. If this revision ID doesn't match the current revision ID, Amazon Lex
+   *          throws an exception.</p>
+   *          <p>If you don't specify a revision, Amazon Lex removes the current contents
+   *          of the statement. </p>
+   */
+  expectedRevisionId?: string;
+}
+
+export namespace DeleteResourcePolicyStatementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteResourcePolicyStatementRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteResourcePolicyStatementResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
+   *          resource policy statement was removed from.</p>
+   */
+  resourceArn?: string;
+
+  /**
+   * <p>The current revision of the resource policy. Use the revision ID to
+   *          make sure that you are updating the most current version of a resource
+   *          policy when you add a policy statement to a resource, delete a
+   *          resource, or update a resource.</p>
+   */
+  revisionId?: string;
+}
+
+export namespace DeleteResourcePolicyStatementResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteResourcePolicyStatementResponse): any => ({
     ...obj,
   });
 }
@@ -3153,7 +3874,7 @@ export interface DeleteSlotRequest {
   /**
    * <p>The identifier of the language and locale that the slot will be
    *          deleted from. The string must match one of the supported locales. For
-   *          more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 
@@ -3191,7 +3912,7 @@ export interface DeleteSlotTypeRequest {
   /**
    * <p>The identifier of the language and locale that the slot type will be
    *          deleted from. The string must match one of the supported locales. For
-   *          more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 
@@ -3288,24 +4009,6 @@ export namespace DescribeBotResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeBotResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p></p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
 }
@@ -3423,8 +4126,7 @@ export interface DescribeBotLocaleRequest {
 
   /**
    * <p>The unique identifier of the locale to describe. The string must
-   *          match one of the supported locales. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.
-   *       </p>
+   *          match one of the supported locales. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>. </p>
    */
   localeId: string | undefined;
 }
@@ -3622,6 +4324,189 @@ export namespace DescribeBotVersionResponse {
   });
 }
 
+export interface DescribeExportRequest {
+  /**
+   * <p>The unique identifier of the export to describe.</p>
+   */
+  exportId: string | undefined;
+}
+
+export namespace DescribeExportRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeExportRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeExportResponse {
+  /**
+   * <p>The unique identifier of the described export.</p>
+   */
+  exportId?: string;
+
+  /**
+   * <p>The bot, bot ID, and optional locale ID of the exported bot or bot
+   *          locale.</p>
+   */
+  resourceSpecification?: ExportResourceSpecification;
+
+  /**
+   * <p>The file format used in the files that describe the bot or bot
+   *          locale.</p>
+   */
+  fileFormat?: ImportExportFileFormat | string;
+
+  /**
+   * <p>The status of the export. When the status is <code>Complete</code>
+   *          the export archive file is available for download.</p>
+   */
+  exportStatus?: ExportStatus | string;
+
+  /**
+   * <p>If the <code>exportStatus</code> is failed, contains one or more
+   *          reasons why the export could not be completed.</p>
+   */
+  failureReasons?: string[];
+
+  /**
+   * <p>A pre-signed S3 URL that points to the bot or bot locale archive.
+   *          The URL is only available for 5 minutes after calling the
+   *             <code>DescribeExport</code> operation.</p>
+   */
+  downloadUrl?: string;
+
+  /**
+   * <p>The date and time that the export was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The last date and time that the export was updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+export namespace DescribeExportResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeExportResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeImportRequest {
+  /**
+   * <p>The unique identifier of the import to describe.</p>
+   */
+  importId: string | undefined;
+}
+
+export namespace DescribeImportRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeImportRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum MergeStrategy {
+  FailOnConflict = "FailOnConflict",
+  Overwrite = "Overwrite",
+}
+
+/**
+ * <p>Provides information about the bot or bot locale that you want to
+ *          import. You can sepcifiy the <code>botImportSpecification</code> or the
+ *             <code>botLocaleImportSpecification</code>, but not both.</p>
+ */
+export interface ImportResourceSpecification {
+  /**
+   * <p>Parameters for importing a bot.</p>
+   */
+  botImportSpecification?: BotImportSpecification;
+
+  /**
+   * <p>Parameters for importing a bot locale.</p>
+   */
+  botLocaleImportSpecification?: BotLocaleImportSpecification;
+}
+
+export namespace ImportResourceSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportResourceSpecification): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeImportResponse {
+  /**
+   * <p>The unique identifier of the described import.</p>
+   */
+  importId?: string;
+
+  /**
+   * <p>The specifications of the imported bot or bot locale.</p>
+   */
+  resourceSpecification?: ImportResourceSpecification;
+
+  /**
+   * <p>The unique identifier that Amazon Lex assigned to the resource created by
+   *          the import.</p>
+   */
+  importedResourceId?: string;
+
+  /**
+   * <p>The name of the imported resource.</p>
+   */
+  importedResourceName?: string;
+
+  /**
+   * <p>The strategy used when there was a name conflict between the
+   *          imported resource and an existing resource. When the merge strategy is
+   *             <code>FailOnConflict</code> existing resources are not overwritten
+   *          and the import fails.</p>
+   */
+  mergeStrategy?: MergeStrategy | string;
+
+  /**
+   * <p>The status of the import process. When the status is
+   *             <code>Completed</code> the resource is imported and ready for
+   *          use.</p>
+   */
+  importStatus?: ImportStatus | string;
+
+  /**
+   * <p>If the <code>importStatus</code> field is <code>Failed</code>, this
+   *          provides one or more reasons for the failture.</p>
+   */
+  failureReasons?: string[];
+
+  /**
+   * <p>The date and time that the import was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time that the import was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+export namespace DescribeImportResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeImportResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeIntentRequest {
   /**
    * <p>The identifier of the intent to describe.</p>
@@ -3641,7 +4526,7 @@ export interface DescribeIntentRequest {
   /**
    * <p>The identifier of the language and locale of the intent to describe.
    *          The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 }
@@ -3791,6 +4676,55 @@ export namespace DescribeIntentResponse {
   });
 }
 
+export interface DescribeResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
+   *          resource policy is attached to.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+export namespace DescribeResourcePolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeResourcePolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeResourcePolicyResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
+   *          resource policy is attached to.</p>
+   */
+  resourceArn?: string;
+
+  /**
+   * <p>The JSON structure that contains the resource policy. For more
+   *          information about the contents of a JSON policy document, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html"> IAM JSON policy
+   *             reference </a>.</p>
+   */
+  policy?: string;
+
+  /**
+   * <p>The current revision of the resource policy. Use the revision ID to
+   *          make sure that you are updating the most current version of a resource
+   *          policy when you add a policy statement to a resource, delete a
+   *          resource, or update a resource.</p>
+   */
+  revisionId?: string;
+}
+
+export namespace DescribeResourcePolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeResourcePolicyResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeSlotRequest {
   /**
    * <p>The unique identifier for the slot.</p>
@@ -3810,7 +4744,7 @@ export interface DescribeSlotRequest {
   /**
    * <p>The identifier of the language and locale of the slot to describe.
    *          The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 
@@ -3923,7 +4857,7 @@ export interface DescribeSlotTypeRequest {
   /**
    * <p>The identifier of the language and locale of the slot type to
    *          describe. The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 }
@@ -4003,6 +4937,247 @@ export namespace DescribeSlotTypeResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeSlotTypeResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum ExportFilterName {
+  ExportResourceType = "ExportResourceType",
+}
+
+export enum ExportFilterOperator {
+  Contains = "CO",
+  Equals = "EQ",
+}
+
+/**
+ * <p>Filtes the response form the
+ *          operation</p>
+ */
+export interface ExportFilter {
+  /**
+   * <p>The name of the field to use for filtering.</p>
+   */
+  name: ExportFilterName | string | undefined;
+
+  /**
+   * <p>The values to use to fileter the response.</p>
+   */
+  values: string[] | undefined;
+
+  /**
+   * <p>The operator to use for the filter. Specify EQ when the
+   *             <code>ListExports</code> operation should return only resource types
+   *          that equal the specified value. Specify CO when the
+   *             <code>ListExports</code> operation should return resource types that
+   *          contain the specified value.</p>
+   */
+  operator: ExportFilterOperator | string | undefined;
+}
+
+export namespace ExportFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportFilter): any => ({
+    ...obj,
+  });
+}
+
+export enum ExportSortAttribute {
+  LastUpdatedDateTime = "LastUpdatedDateTime",
+}
+
+/**
+ * <p>Provides information about sorting a list of exports.</p>
+ */
+export interface ExportSortBy {
+  /**
+   * <p>The export field to use for sorting.</p>
+   */
+  attribute: ExportSortAttribute | string | undefined;
+
+  /**
+   * <p>The order to sort the list.</p>
+   */
+  order: SortOrder | string | undefined;
+}
+
+export namespace ExportSortBy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportSortBy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides summary information about an export in an export list.
+ *       </p>
+ */
+export interface ExportSummary {
+  /**
+   * <p>The unique identifier that Amazon Lex assigned to the export.</p>
+   */
+  exportId?: string;
+
+  /**
+   * <p>Information about the bot or bot locale that was exported.</p>
+   */
+  resourceSpecification?: ExportResourceSpecification;
+
+  /**
+   * <p>The file format used in the export files.</p>
+   */
+  fileFormat?: ImportExportFileFormat | string;
+
+  /**
+   * <p>The status of the export. When the status is <code>Completed</code>
+   *          the export is ready to download.</p>
+   */
+  exportStatus?: ExportStatus | string;
+
+  /**
+   * <p>The date and time that the export was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time that the export was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+export namespace ExportSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportSummary): any => ({
+    ...obj,
+  });
+}
+
+export enum ImportFilterName {
+  ImportResourceType = "ImportResourceType",
+}
+
+export enum ImportFilterOperator {
+  Contains = "CO",
+  Equals = "EQ",
+}
+
+/**
+ * <p>Filters the response from the
+ *          operation.</p>
+ */
+export interface ImportFilter {
+  /**
+   * <p>The name of the field to use for filtering.</p>
+   */
+  name: ImportFilterName | string | undefined;
+
+  /**
+   * <p>The values to use to filter the response.</p>
+   */
+  values: string[] | undefined;
+
+  /**
+   * <p>The operator to use for the filter. Specify EQ when the
+   *             <code>ListImports</code> operation should return only resource types
+   *          that equal the specified value. Specify CO when the
+   *             <code>ListImports</code> operation should return resource types that
+   *          contain the specified value.</p>
+   */
+  operator: ImportFilterOperator | string | undefined;
+}
+
+export namespace ImportFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportFilter): any => ({
+    ...obj,
+  });
+}
+
+export enum ImportSortAttribute {
+  LastUpdatedDateTime = "LastUpdatedDateTime",
+}
+
+/**
+ * <p>Provides information for sorting a list of imports.</p>
+ */
+export interface ImportSortBy {
+  /**
+   * <p>The export field to use for sorting.</p>
+   */
+  attribute: ImportSortAttribute | string | undefined;
+
+  /**
+   * <p>The order to sort the list.</p>
+   */
+  order: SortOrder | string | undefined;
+}
+
+export namespace ImportSortBy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportSortBy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides summary information about an import in an import
+ *          list.</p>
+ */
+export interface ImportSummary {
+  /**
+   * <p>The unique identifier that Amazon Lex assigned to the import.</p>
+   */
+  importId?: string;
+
+  /**
+   * <p>The unique identifier that Amazon Lex assigned to the imported
+   *          resource.</p>
+   */
+  importedResourceId?: string;
+
+  /**
+   * <p>The name that you gave the imported resource.</p>
+   */
+  importedResourceName?: string;
+
+  /**
+   * <p>The status of the resource. When the status is
+   *             <code>Completed</code> the resource is ready to build.</p>
+   */
+  importStatus?: ImportStatus | string;
+
+  /**
+   * <p>The strategy used to merge existing bot or bot locale definitions
+   *          with the imported definition.</p>
+   */
+  mergeStrategy?: MergeStrategy | string;
+
+  /**
+   * <p>The date and time that the import was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time that the import was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+export namespace ImportSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportSummary): any => ({
     ...obj,
   });
 }
@@ -4438,7 +5613,7 @@ export interface ListBuiltInIntentsRequest {
   /**
    * <p>The identifier of the language and locale of the intents to list.
    *          The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 
@@ -4513,7 +5688,7 @@ export interface ListBuiltInSlotTypesRequest {
   /**
    * <p>The identifier of the language and locale of the slot types to list.
    *          The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 
@@ -4586,6 +5761,187 @@ export namespace ListBuiltInSlotTypesResponse {
   });
 }
 
+export interface ListExportsRequest {
+  /**
+   * <p>The unique identifier that Amazon Lex assigned to the bot.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot to list exports for. </p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>Determines the field that the list of exports is sorted by. You can
+   *          sort by the <code>LastUpdatedDateTime</code> field in ascending or
+   *          descending order.</p>
+   */
+  sortBy?: ExportSortBy;
+
+  /**
+   * <p>Provides the specification of a filter used to limit the exports in
+   *          the response to only those that match the filter specification. You can
+   *          only specify one filter and one string to filter on.</p>
+   */
+  filters?: ExportFilter[];
+
+  /**
+   * <p>The maximum number of exports to return in each page of results. If
+   *          there are fewer results than the max page size, only the actual number
+   *          of results are returned.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If the response from the <code>ListExports</code> operation contans
+   *          more results that specified in the <code>maxResults</code> parameter, a
+   *          token is returned in the response. Use that token in the
+   *             <code>nextToken</code> parameter to return the next page of
+   *          results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListExportsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExportsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListExportsResponse {
+  /**
+   * <p>The unique identifier assigned to the bot by Amazon Lex.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot that was exported.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>Summary information for the exports that meet the filter criteria
+   *          specified in the request. The length of the list is specified in the
+   *             <code>maxResults</code> parameter. If there are more exports
+   *          available, the <code>nextToken</code> field contains a token to get the
+   *          next page of results.</p>
+   */
+  exportSummaries?: ExportSummary[];
+
+  /**
+   * <p>A token that indicates whether there are more results to return in a
+   *          response to the <code>ListExports</code> operation. If the
+   *             <code>nextToken</code> field is present, you send the contents as
+   *          the <code>nextToken</code> parameter of a <code>ListExports</code>
+   *          operation request to get the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListExportsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListExportsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListImportsRequest {
+  /**
+   * <p>The unique identifier that Amazon Lex assigned to the bot.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot to list imports for.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>Determines the field that the list of imports is sorted by. You can
+   *          sort by the <code>LastUpdatedDateTime</code> field in ascending or
+   *          descending order.</p>
+   */
+  sortBy?: ImportSortBy;
+
+  /**
+   * <p>Provides the specification of a filter used to limit the bots in the
+   *          response to only those that match the filter specification. You can
+   *          only specify one filter and one string to filter on.</p>
+   */
+  filters?: ImportFilter[];
+
+  /**
+   * <p>The maximum number of imports to return in each page of results. If
+   *          there are fewer results than the max page size, only the actual number
+   *          of results are returned.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If the response from the <code>ListImports</code> operation contains
+   *          more results than specified in the <code>maxResults</code> parameter, a
+   *          token is returned in the response. Use that token in the
+   *             <code>nextToken</code> parameter to return the next page of
+   *          results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListImportsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListImportsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListImportsResponse {
+  /**
+   * <p>The unique identifier assigned by Amazon Lex to the bot.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot that was imported. It will always be
+   *             <code>DRAFT</code>.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>Summary information for the imports that meet the filter criteria
+   *          specified in the request. The length of the list is specified in the
+   *             <code>maxResults</code> parameter. If there are more imports
+   *          available, the <code>nextToken</code> field contains a token to get the
+   *          next page of results.</p>
+   */
+  importSummaries?: ImportSummary[];
+
+  /**
+   * <p>A token that indicates whether there are more results to return in a
+   *          response to the <code>ListImports</code> operation. If the
+   *             <code>nextToken</code> field is present, you send the contents as
+   *          the <code>nextToken</code> parameter of a <code>ListImports</code>
+   *          operation request to get the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListImportsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListImportsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListIntentsRequest {
   /**
    * <p>The unique identifier of the bot that contains the intent.</p>
@@ -4600,7 +5956,7 @@ export interface ListIntentsRequest {
   /**
    * <p>The identifier of the language and locale of the intents to list.
    *          The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 
@@ -4776,7 +6132,7 @@ export interface ListSlotsRequest {
   /**
    * <p>The identifier of the language and locale of the slots to list. The
    *          string must match one of the supported locales. For more information,
-   *          see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 
@@ -5017,7 +6373,7 @@ export interface ListSlotTypesRequest {
   /**
    * <p>The identifier of the language and locale of the slot types to list.
    *          The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 
@@ -5176,6 +6532,84 @@ export namespace ListTagsForResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StartImportRequest {
+  /**
+   * <p>The unique identifier for the import. It is included in the response
+   *          from the  operation.</p>
+   */
+  importId: string | undefined;
+
+  /**
+   * <p>Parameters for creating the bot or bot locale.</p>
+   */
+  resourceSpecification: ImportResourceSpecification | undefined;
+
+  /**
+   * <p>The strategy to use when there is a name conflict between the
+   *          imported resource and an existing resource. When the merge strategy is
+   *             <code>FailOnConflict</code> existing resources are not overwritten
+   *          and the import fails.</p>
+   */
+  mergeStrategy: MergeStrategy | string | undefined;
+
+  /**
+   * <p>The password used to encrypt the zip archive that contains the bot
+   *          or bot locale definition. You should always encrypt the zip archive to
+   *          protect it during transit between your site and Amazon Lex.</p>
+   */
+  filePassword?: string;
+}
+
+export namespace StartImportRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartImportRequest): any => ({
+    ...obj,
+    ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
+  });
+}
+
+export interface StartImportResponse {
+  /**
+   * <p>A unique identifier for the import.</p>
+   */
+  importId?: string;
+
+  /**
+   * <p>The parameters used when importing the bot or bot locale.</p>
+   */
+  resourceSpecification?: ImportResourceSpecification;
+
+  /**
+   * <p>The strategy used when there was a name conflict between the
+   *          imported resource and an existing resource. When the merge strategy is
+   *             <code>FailOnConflict</code> existing resources are not overwritten
+   *          and the import fails.</p>
+   */
+  mergeStrategy?: MergeStrategy | string;
+
+  /**
+   * <p>The current status of the import. When the status is
+   *             <code>Complete</code> the bot or bot alias is ready to use.</p>
+   */
+  importStatus?: ImportStatus | string;
+
+  /**
+   * <p>The date and time that the import request was created.</p>
+   */
+  creationDateTime?: Date;
+}
+
+export namespace StartImportResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartImportResponse): any => ({
     ...obj,
   });
 }
@@ -5500,7 +6934,7 @@ export interface UpdateBotLocaleRequest {
 
   /**
    * <p>The identifier of the language and locale to update. The string must
-   *          match one of the supported locales. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          match one of the supported locales. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 
@@ -5607,6 +7041,71 @@ export namespace UpdateBotLocaleResponse {
   });
 }
 
+export interface UpdateExportRequest {
+  /**
+   * <p>The unique identifier Amazon Lex assigned to the export.</p>
+   */
+  exportId: string | undefined;
+
+  /**
+   * <p>The new password to use to encrypt the export zip archive.</p>
+   */
+  filePassword?: string;
+}
+
+export namespace UpdateExportRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateExportRequest): any => ({
+    ...obj,
+    ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
+  });
+}
+
+export interface UpdateExportResponse {
+  /**
+   * <p>The unique identifier Amazon Lex assigned to the export.</p>
+   */
+  exportId?: string;
+
+  /**
+   * <p>A description of the type of resource that was exported, either a
+   *          bot or a bot locale.</p>
+   */
+  resourceSpecification?: ExportResourceSpecification;
+
+  /**
+   * <p>The file format used for the files that define the resource.</p>
+   */
+  fileFormat?: ImportExportFileFormat | string;
+
+  /**
+   * <p>The status of the export. When the status is <code>Completed</code>
+   *          the export archive is available for download.</p>
+   */
+  exportStatus?: ExportStatus | string;
+
+  /**
+   * <p>The date and time that the export was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time that the export was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+export namespace UpdateExportResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateExportResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateIntentRequest {
   /**
    * <p>The unique identifier of the intent to update.</p>
@@ -5695,7 +7194,7 @@ export interface UpdateIntentRequest {
   /**
    * <p>The identifier of the language and locale where this intent is used.
    *          The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 }
@@ -5820,6 +7319,68 @@ export namespace UpdateIntentResponse {
   });
 }
 
+export interface UpdateResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
+   *          resource policy is attached to.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A resource policy to add to the resource. The policy is a JSON
+   *          structure that contains one or more statements that define the policy.
+   *          The policy must follow the IAM syntax. For more information about the
+   *          contents of a JSON policy document, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html"> IAM JSON policy
+   *             reference </a>. </p>
+   *          <p>If the policy isn't valid, Amazon Lex returns a validation
+   *          exception.</p>
+   */
+  policy: string | undefined;
+
+  /**
+   * <p>The identifier of the revision of the policy to update. If this
+   *          revision ID doesn't match the current revision ID, Amazon Lex throws an
+   *          exception.</p>
+   *          <p>If you don't specify a revision, Amazon Lex overwrites the contents of
+   *          the policy with the new values.</p>
+   */
+  expectedRevisionId?: string;
+}
+
+export namespace UpdateResourcePolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateResourcePolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateResourcePolicyResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
+   *          resource policy is attached to.</p>
+   */
+  resourceArn?: string;
+
+  /**
+   * <p>The current revision of the resource policy. Use the revision ID to
+   *          make sure that you are updating the most current version of a resource
+   *          policy when you add a policy statement to a resource, delete a
+   *          resource, or update a resource.</p>
+   */
+  revisionId?: string;
+}
+
+export namespace UpdateResourcePolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateResourcePolicyResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateSlotRequest {
   /**
    * <p>The unique identifier for the slot to update.</p>
@@ -5868,7 +7429,7 @@ export interface UpdateSlotRequest {
   /**
    * <p>The identifier of the language and locale that contains the slot.
    *          The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 
@@ -6011,7 +7572,7 @@ export interface UpdateSlotTypeRequest {
   /**
    * <p>The identifier of the language and locale that contains the slot
    *          type. The string must match one of the supported locales. For more
-   *          information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html">https://docs.aws.amazon.com/lex/latest/dg/supported-locales.html</a>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
 }

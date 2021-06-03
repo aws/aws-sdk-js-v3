@@ -21,7 +21,9 @@ export interface DescribeWarmPoolCommandInput extends DescribeWarmPoolType {}
 export interface DescribeWarmPoolCommandOutput extends DescribeWarmPoolAnswer, __MetadataBearer {}
 
 /**
- * <p>Describes a warm pool and its instances.</p>
+ * <p>Gets information about a warm pool and its instances.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for
+ *             Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

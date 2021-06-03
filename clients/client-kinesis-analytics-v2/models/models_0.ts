@@ -28,9 +28,11 @@ export interface AddApplicationCloudWatchLoggingOptionRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The version ID of the Kinesis Data Analytics application.
-   *         You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.You can retrieve the application version ID using
-   *       <a>DescribeApplication</a>.</p>
+   * <p>The version ID of the Kinesis Data Analytics application. You must provide the
+   *         <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>.You can
+   *       retrieve the application version ID using <a>DescribeApplication</a>. For better
+   *       concurrency support, use the <code>ConditionalToken</code> parameter instead of
+   *         <code>CurrentApplicationVersionId</code>.</p>
    */
   CurrentApplicationVersionId?: number;
 
@@ -40,9 +42,11 @@ export interface AddApplicationCloudWatchLoggingOptionRequest {
   CloudWatchLoggingOption: CloudWatchLoggingOption | undefined;
 
   /**
-   * <p>A value you use to implement strong concurrency for application updates.
-   *           You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
-   *           You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>.</p>
+   * <p>A value you use to implement strong concurrency for application updates. You must
+   *       provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You
+   *       get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the
+   *         <code>ConditionalToken</code> parameter instead of
+   *       <code>CurrentApplicationVersionId</code>.</p>
    */
   ConditionalToken?: string;
 }
@@ -881,9 +885,7 @@ export interface AddApplicationInputProcessingConfigurationRequest {
 
   /**
    * <p>The version of the application to which you want to add the input processing
-   *       configuration.
-   *       You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
-   *         You can use the <a>DescribeApplication</a> operation to get the
+   *       configuration. You can use the <a>DescribeApplication</a> operation to get the
    *       current application version. If the version specified is not the current version, the
    *         <code>ConcurrentModificationException</code> is returned.</p>
    */
@@ -917,7 +919,7 @@ export interface AddApplicationInputProcessingConfigurationResponse {
   ApplicationARN?: string;
 
   /**
-   * <p>Provides the current application version.</p>
+   * <p>Provides the current application version. </p>
    */
   ApplicationVersionId?: number;
 
@@ -1082,9 +1084,7 @@ export interface AddApplicationOutputRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The version of the application to which you want to add the output configuration.
-   *         You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
-   *         You can
+   * <p>The version of the application to which you want to add the output configuration. You can
    *       use the <a>DescribeApplication</a> operation to get the current application
    *       version. If the version specified is not the current version, the
    *         <code>ConcurrentModificationException</code> is returned. </p>
@@ -1259,8 +1259,8 @@ export interface AddApplicationOutputResponse {
   ApplicationARN?: string;
 
   /**
-   * <p>The updated application version ID. Kinesis Data Analytics increments this ID when the
-   *       application is updated.</p>
+   * <p>The updated application version ID. Kinesis Data Analytics increments this ID when the application is
+   *       updated.</p>
    */
   ApplicationVersionId?: number;
 
@@ -1514,12 +1514,13 @@ export interface AddApplicationVpcConfigurationRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The version of the application to which you want to add the VPC
-   *       configuration.
-   *       You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
-   *           You can use the <a>DescribeApplication</a> operation to get the
-   *       current application version. If the version specified is not the current version, the
-   *         <code>ConcurrentModificationException</code> is returned.</p>
+   * <p>The version of the application to which you want to add the VPC configuration. You must
+   *       provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You
+   *       can use the <a>DescribeApplication</a> operation to get the current application
+   *       version. If the version specified is not the current version, the
+   *         <code>ConcurrentModificationException</code> is returned. For better concurrency support,
+   *       use the <code>ConditionalToken</code> parameter instead of
+   *         <code>CurrentApplicationVersionId</code>.</p>
    */
   CurrentApplicationVersionId?: number;
 
@@ -1529,9 +1530,11 @@ export interface AddApplicationVpcConfigurationRequest {
   VpcConfiguration: VpcConfiguration | undefined;
 
   /**
-   * <p>A value you use to implement strong concurrency for application updates.
-   *            You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
-   *            You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>.</p>
+   * <p>A value you use to implement strong concurrency for application updates. You must
+   *       provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>. You get
+   *       the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the
+   *         <code>ConditionalToken</code> parameter instead of
+   *       <code>CurrentApplicationVersionId</code>.</p>
    */
   ConditionalToken?: string;
 }
@@ -1588,7 +1591,8 @@ export interface AddApplicationVpcConfigurationResponse {
   ApplicationARN?: string;
 
   /**
-   * <p>Provides the current application version. Kinesis Data Analytics updates the ApplicationVersionId each time you update the application. </p>
+   * <p>Provides the current application version. Kinesis Data Analytics updates the ApplicationVersionId each
+   *       time you update the application.</p>
    */
   ApplicationVersionId?: number;
 
@@ -1608,7 +1612,7 @@ export namespace AddApplicationVpcConfigurationResponse {
 }
 
 /**
- * <p>For a Flink-based Kinesis Data Analytics application, provides a
+ * <p>For a Kinesis Data Analytics application provides a
  *       description of an Amazon S3 object, including the Amazon Resource Name (ARN) of the S3 bucket,
  *       the name of the Amazon S3 object that contains the data, and the version number of the Amazon
  *       S3 object that contains the data. </p>
@@ -1655,7 +1659,7 @@ export interface CodeContent {
   ZipFileContent?: Uint8Array;
 
   /**
-   * <p>Information about the Amazon S3 bucket containing the application code.</p>
+   * <p>Information about the Amazon S3 bucket that contains the application code.</p>
    */
   S3ContentLocation?: S3ContentLocation;
 }
@@ -1675,7 +1679,7 @@ export enum CodeContentType {
 }
 
 /**
- * <p>Describes code configuration for a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes code configuration for an application.</p>
  */
 export interface ApplicationCodeConfiguration {
   /**
@@ -1699,7 +1703,7 @@ export namespace ApplicationCodeConfiguration {
 }
 
 /**
- * <p>Describes the location of a Flink-based Kinesis Data Analytics application's code stored in an S3 bucket.</p>
+ * <p>Describes the location of an application's code stored in an S3 bucket.</p>
  */
 export interface S3ApplicationCodeLocationDescription {
   /**
@@ -1728,7 +1732,7 @@ export namespace S3ApplicationCodeLocationDescription {
 }
 
 /**
- * <p>Describes details about the application code for a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes details about the code of a Kinesis Data Analytics application.</p>
  */
 export interface CodeContentDescription {
   /**
@@ -1763,7 +1767,7 @@ export namespace CodeContentDescription {
 }
 
 /**
- * <p>Describes code configuration for a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes code configuration for an application.</p>
  */
 export interface ApplicationCodeConfigurationDescription {
   /**
@@ -1787,8 +1791,7 @@ export namespace ApplicationCodeConfigurationDescription {
 }
 
 /**
- * <p>Describes an update for the Amazon S3 code content location for a
- *       Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes an update for the Amazon S3 code content location for an application.</p>
  */
 export interface S3ContentLocationUpdate {
   /**
@@ -1817,7 +1820,7 @@ export namespace S3ContentLocationUpdate {
 }
 
 /**
- * <p>Describes an update to the code of a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes an update to the code of an application. Not supported for Apache Zeppelin.</p>
  */
 export interface CodeContentUpdate {
   /**
@@ -1846,7 +1849,7 @@ export namespace CodeContentUpdate {
 }
 
 /**
- * <p>Describes code configuration updates to a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes code configuration updates for an application. This is supported for a Flink-based Kinesis Data Analytics application or a SQL-based Kinesis Data Analytics application.</p>
  */
 export interface ApplicationCodeConfigurationUpdate {
   /**
@@ -1889,7 +1892,7 @@ export namespace ApplicationSnapshotConfiguration {
 }
 
 /**
- * <p>Property key-value pairs passed into a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Property key-value pairs passed into an application.</p>
  */
 export interface PropertyGroup {
   /**
@@ -2029,8 +2032,7 @@ export enum MetricsLevel {
 }
 
 /**
- * <p>Describes configuration parameters for Amazon CloudWatch logging for a Flink-based
- *       Kinesis Data Analytics application. For more information about CloudWatch logging, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview.html">Monitoring</a>.</p>
+ * <p>Describes configuration parameters for Amazon CloudWatch logging for an application. For more information about CloudWatch logging, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview.html">Monitoring</a>.</p>
  */
 export interface MonitoringConfiguration {
   /**
@@ -2108,7 +2110,7 @@ export namespace ParallelismConfiguration {
 }
 
 /**
- * <p>Describes configuration parameters for a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes configuration parameters for a Flink-based Kinesis Data Analytics application or a Studio notebook.</p>
  */
 export interface FlinkApplicationConfiguration {
   /**
@@ -2175,6 +2177,208 @@ export namespace SqlApplicationConfiguration {
 }
 
 /**
+ * <p>The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.</p>
+ */
+export interface GlueDataCatalogConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the database.</p>
+   */
+  DatabaseARN: string | undefined;
+}
+
+export namespace GlueDataCatalogConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GlueDataCatalogConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration parameters for the default AWS Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
+ */
+export interface CatalogConfiguration {
+  /**
+   * <p>The configuration parameters for the default AWS Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.</p>
+   */
+  GlueDataCatalogConfiguration: GlueDataCatalogConfiguration | undefined;
+}
+
+export namespace CatalogConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CatalogConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum ArtifactType {
+  DEPENDENCY_JAR = "DEPENDENCY_JAR",
+  UDF = "UDF",
+}
+
+/**
+ * <p>The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files.</p>
+ */
+export interface MavenReference {
+  /**
+   * <p>The group ID of the Maven reference.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>The artifact ID of the Maven reference.</p>
+   */
+  ArtifactId: string | undefined;
+
+  /**
+   * <p>The version of the Maven reference.</p>
+   */
+  Version: string | undefined;
+}
+
+export namespace MavenReference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MavenReference): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies dependency JARs, as well as JAR files that contain user-defined functions (UDF).</p>
+ */
+export interface CustomArtifactConfiguration {
+  /**
+   * <p>
+   *             <code>UDF</code> stands for user-defined functions. This type of artifact must be in an S3 bucket. A <code>DEPENDENCY_JAR</code> can be in either Maven or an S3 bucket.</p>
+   */
+  ArtifactType: ArtifactType | string | undefined;
+
+  /**
+   * <p>For a Kinesis Data Analytics application provides a
+   *       description of an Amazon S3 object, including the Amazon Resource Name (ARN) of the S3 bucket,
+   *       the name of the Amazon S3 object that contains the data, and the version number of the Amazon
+   *       S3 object that contains the data. </p>
+   */
+  S3ContentLocation?: S3ContentLocation;
+
+  /**
+   * <p>The parameters required to fully specify a Maven reference.</p>
+   */
+  MavenReference?: MavenReference;
+}
+
+export namespace CustomArtifactConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomArtifactConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The S3 bucket that holds the application information.</p>
+ */
+export interface S3ContentBaseLocation {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 bucket.</p>
+   */
+  BucketARN: string | undefined;
+
+  /**
+   * <p>The base path for the S3 bucket.</p>
+   */
+  BasePath?: string;
+}
+
+export namespace S3ContentBaseLocation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3ContentBaseLocation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state..</p>
+ */
+export interface DeployAsApplicationConfiguration {
+  /**
+   * <p>The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data.
+   *     </p>
+   */
+  S3ContentLocation: S3ContentBaseLocation | undefined;
+}
+
+export namespace DeployAsApplicationConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeployAsApplicationConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook. For more information about CloudWatch logging, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview.html">Monitoring</a>.</p>
+ */
+export interface ZeppelinMonitoringConfiguration {
+  /**
+   * <p>The verbosity of the CloudWatch Logs for an application.</p>
+   */
+  LogLevel: LogLevel | string | undefined;
+}
+
+export namespace ZeppelinMonitoringConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ZeppelinMonitoringConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration of a Kinesis Data Analytics Studio notebook.</p>
+ */
+export interface ZeppelinApplicationConfiguration {
+  /**
+   * <p>The monitoring configuration of a Kinesis Data Analytics Studio notebook.</p>
+   */
+  MonitoringConfiguration?: ZeppelinMonitoringConfiguration;
+
+  /**
+   * <p>The AWS Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.</p>
+   */
+  CatalogConfiguration?: CatalogConfiguration;
+
+  /**
+   * <p>The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state..</p>
+   */
+  DeployAsApplicationConfiguration?: DeployAsApplicationConfiguration;
+
+  /**
+   * <p>Custom artifacts are dependency JARs and user-defined functions (UDF).</p>
+   */
+  CustomArtifactsConfiguration?: CustomArtifactConfiguration[];
+}
+
+export namespace ZeppelinApplicationConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ZeppelinApplicationConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Specifies the creation parameters for a Kinesis Data Analytics application.</p>
  */
 export interface ApplicationConfiguration {
@@ -2196,7 +2400,7 @@ export interface ApplicationConfiguration {
   /**
    * <p>The code location and type parameters for a Flink-based Kinesis Data Analytics application.</p>
    */
-  ApplicationCodeConfiguration: ApplicationCodeConfiguration | undefined;
+  ApplicationCodeConfiguration?: ApplicationCodeConfiguration;
 
   /**
    * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
@@ -2207,6 +2411,11 @@ export interface ApplicationConfiguration {
    * <p>The array of descriptions of VPC configurations available to the application.</p>
    */
   VpcConfigurations?: VpcConfiguration[];
+
+  /**
+   * <p>The configuration parameters for a Kinesis Data Analytics Studio notebook.</p>
+   */
+  ZeppelinApplicationConfiguration?: ZeppelinApplicationConfiguration;
 }
 
 export namespace ApplicationConfiguration {
@@ -2238,7 +2447,7 @@ export namespace ApplicationSnapshotConfigurationDescription {
 }
 
 /**
- * <p>Describes the execution properties for a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes the execution properties for an Apache Flink runtime.</p>
  */
 export interface EnvironmentPropertyDescriptions {
   /**
@@ -2326,8 +2535,7 @@ export namespace CheckpointConfigurationDescription {
 }
 
 /**
- * <p>Describes configuration parameters for CloudWatch logging for a Flink-based
- *       Kinesis Data Analytics application.</p>
+ * <p>Describes configuration parameters for CloudWatch logging for an application.</p>
  */
 export interface MonitoringConfigurationDescription {
   /**
@@ -2561,6 +2769,173 @@ export namespace SqlApplicationConfigurationDescription {
 }
 
 /**
+ * <p>The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.</p>
+ */
+export interface GlueDataCatalogConfigurationDescription {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the database.</p>
+   */
+  DatabaseARN: string | undefined;
+}
+
+export namespace GlueDataCatalogConfigurationDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GlueDataCatalogConfigurationDescription): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration parameters for the default AWS Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.</p>
+ */
+export interface CatalogConfigurationDescription {
+  /**
+   * <p>The configuration parameters for the default AWS Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
+   */
+  GlueDataCatalogConfigurationDescription: GlueDataCatalogConfigurationDescription | undefined;
+}
+
+export namespace CatalogConfigurationDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CatalogConfigurationDescription): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a dependency JAR or a JAR of user-defined functions.</p>
+ */
+export interface CustomArtifactConfigurationDescription {
+  /**
+   * <p>
+   *             <code>UDF</code> stands for user-defined functions. This type of artifact must be in an S3 bucket. A <code>DEPENDENCY_JAR</code> can be in either Maven or an S3 bucket.</p>
+   */
+  ArtifactType?: ArtifactType | string;
+
+  /**
+   * <p>For a Kinesis Data Analytics application provides a
+   *       description of an Amazon S3 object, including the Amazon Resource Name (ARN) of the S3 bucket,
+   *       the name of the Amazon S3 object that contains the data, and the version number of the Amazon
+   *       S3 object that contains the data. </p>
+   */
+  S3ContentLocationDescription?: S3ContentLocation;
+
+  /**
+   * <p>The parameters that are required to specify a Maven dependency.</p>
+   */
+  MavenReferenceDescription?: MavenReference;
+}
+
+export namespace CustomArtifactConfigurationDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomArtifactConfigurationDescription): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The description of the S3 base location that holds the application.</p>
+ */
+export interface S3ContentBaseLocationDescription {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 bucket.</p>
+   */
+  BucketARN: string | undefined;
+
+  /**
+   * <p>The base path for the S3 bucket.</p>
+   */
+  BasePath?: string;
+}
+
+export namespace S3ContentBaseLocationDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3ContentBaseLocationDescription): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration information required to deploy an Amazon Data Analytics Studio notebook as an application with durable state.</p>
+ */
+export interface DeployAsApplicationConfigurationDescription {
+  /**
+   * <p>The location that holds the data required to specify an Amazon Data Analytics application.</p>
+   */
+  S3ContentLocationDescription: S3ContentBaseLocationDescription | undefined;
+}
+
+export namespace DeployAsApplicationConfigurationDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeployAsApplicationConfigurationDescription): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The monitoring configuration for Apache Zeppelin within a Kinesis Data Analytics Studio notebook.</p>
+ */
+export interface ZeppelinMonitoringConfigurationDescription {
+  /**
+   * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>
+   */
+  LogLevel?: LogLevel | string;
+}
+
+export namespace ZeppelinMonitoringConfigurationDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ZeppelinMonitoringConfigurationDescription): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration of a Kinesis Data Analytics Studio notebook.</p>
+ */
+export interface ZeppelinApplicationConfigurationDescription {
+  /**
+   * <p>The monitoring configuration of a Kinesis Data Analytics Studio notebook.</p>
+   */
+  MonitoringConfigurationDescription: ZeppelinMonitoringConfigurationDescription | undefined;
+
+  /**
+   * <p>The AWS Glue Data Catalog that is associated with the Kinesis Data Analytics Studio notebook.</p>
+   */
+  CatalogConfigurationDescription?: CatalogConfigurationDescription;
+
+  /**
+   * <p>The parameters required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state..</p>
+   */
+  DeployAsApplicationConfigurationDescription?: DeployAsApplicationConfigurationDescription;
+
+  /**
+   * <p>Custom artifacts are dependency JARs and user-defined functions (UDF).</p>
+   */
+  CustomArtifactsConfigurationDescription?: CustomArtifactConfigurationDescription[];
+}
+
+export namespace ZeppelinApplicationConfigurationDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ZeppelinApplicationConfigurationDescription): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes details about the application code and starting parameters for a Kinesis Data Analytics application.</p>
  */
 export interface ApplicationConfigurationDescription {
@@ -2598,6 +2973,11 @@ export interface ApplicationConfigurationDescription {
    * <p>The array of descriptions of VPC configurations available to the application.</p>
    */
   VpcConfigurationDescriptions?: VpcConfigurationDescription[];
+
+  /**
+   * <p>The configuration parameters for a Kinesis Data Analytics Studio notebook.</p>
+   */
+  ZeppelinApplicationConfigurationDescription?: ZeppelinApplicationConfigurationDescription;
 }
 
 export namespace ApplicationConfigurationDescription {
@@ -2614,7 +2994,7 @@ export namespace ApplicationConfigurationDescription {
  */
 export interface ApplicationSnapshotConfigurationUpdate {
   /**
-   * <p>Describes updates to whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>Describes updates to whether snapshots are enabled for an application.</p>
    */
   SnapshotsEnabledUpdate: boolean | undefined;
 }
@@ -2629,7 +3009,7 @@ export namespace ApplicationSnapshotConfigurationUpdate {
 }
 
 /**
- * <p>Describes updates to the execution property groups for a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes updates to the execution property groups for a Flink-based Kinesis Data Analytics application or a Studio notebook.</p>
  */
 export interface EnvironmentPropertyUpdates {
   /**
@@ -2720,7 +3100,7 @@ export namespace CheckpointConfigurationUpdate {
 }
 
 /**
- * <p>Describes updates to configuration parameters for Amazon CloudWatch logging for a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes updates to configuration parameters for Amazon CloudWatch logging for an application.</p>
  */
 export interface MonitoringConfigurationUpdate {
   /**
@@ -2752,7 +3132,7 @@ export namespace MonitoringConfigurationUpdate {
 }
 
 /**
- * <p>Describes updates to parameters for how a Flink-based Kinesis Data Analytics application executes multiple tasks simultaneously.</p>
+ * <p>Describes updates to parameters for how an application executes multiple tasks simultaneously.</p>
  */
 export interface ParallelismConfigurationUpdate {
   /**
@@ -2777,7 +3157,7 @@ export interface ParallelismConfigurationUpdate {
   ParallelismPerKPUUpdate?: number;
 
   /**
-   * <p>Describes updates to whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.</p>
+   * <p>Describes updates to whether the Kinesis Data Analytics service can increase the parallelism of a Flink-based Kinesis Data Analytics application in response to increased throughput.</p>
    */
   AutoScalingEnabledUpdate?: boolean;
 }
@@ -3262,6 +3642,140 @@ export namespace VpcConfigurationUpdate {
 }
 
 /**
+ * <p>Updates to the configuration of the Glue Data Catalog that you use for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
+ */
+export interface GlueDataCatalogConfigurationUpdate {
+  /**
+   * <p>The updated Amazon Resource Name (ARN) of the database.</p>
+   */
+  DatabaseARNUpdate?: string;
+}
+
+export namespace GlueDataCatalogConfigurationUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GlueDataCatalogConfigurationUpdate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Updates to </p>
+ */
+export interface CatalogConfigurationUpdate {
+  /**
+   * <p>Updates to the configuration parameters for the default AWS Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
+   */
+  GlueDataCatalogConfigurationUpdate: GlueDataCatalogConfigurationUpdate | undefined;
+}
+
+export namespace CatalogConfigurationUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CatalogConfigurationUpdate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The information required to update the S3 base location that holds the application.</p>
+ */
+export interface S3ContentBaseLocationUpdate {
+  /**
+   * <p>The updated Amazon Resource Name (ARN) of the S3 bucket.</p>
+   */
+  BucketARNUpdate: string | undefined;
+
+  /**
+   * <p>The updated S3 bucket path.</p>
+   */
+  BasePathUpdate?: string;
+}
+
+export namespace S3ContentBaseLocationUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3ContentBaseLocationUpdate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Updates to the configuration information required to deploy an Amazon Data Analytics Studio notebook as an application with durable state..</p>
+ */
+export interface DeployAsApplicationConfigurationUpdate {
+  /**
+   * <p>Updates to the location that holds the data required to specify an Amazon Data Analytics application.</p>
+   */
+  S3ContentLocationUpdate: S3ContentBaseLocationUpdate | undefined;
+}
+
+export namespace DeployAsApplicationConfigurationUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeployAsApplicationConfigurationUpdate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Updates to the monitoring configuration for Apache Zeppelin within a Kinesis Data Analytics Studio notebook.</p>
+ */
+export interface ZeppelinMonitoringConfigurationUpdate {
+  /**
+   * <p>Updates to the logging level for Apache Zeppelin within a Kinesis Data Analytics Studio notebook.</p>
+   */
+  LogLevelUpdate: LogLevel | string | undefined;
+}
+
+export namespace ZeppelinMonitoringConfigurationUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ZeppelinMonitoringConfigurationUpdate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Updates to the configuration of Kinesis Data Analytics Studio notebook.</p>
+ */
+export interface ZeppelinApplicationConfigurationUpdate {
+  /**
+   * <p>Updates to the monitoring configuration of a Kinesis Data Analytics Studio notebook.</p>
+   */
+  MonitoringConfigurationUpdate?: ZeppelinMonitoringConfigurationUpdate;
+
+  /**
+   * <p>Updates to the configuration of the AWS Glue Data Catalog that is associated with the Kinesis Data Analytics Studio notebook.</p>
+   */
+  CatalogConfigurationUpdate?: CatalogConfigurationUpdate;
+
+  /**
+   * <p>Updates to the configuration information required to deploy an Amazon Data Analytics Studio notebook as an application with durable state..</p>
+   */
+  DeployAsApplicationConfigurationUpdate?: DeployAsApplicationConfigurationUpdate;
+
+  /**
+   * <p>Updates to the customer artifacts. Custom artifacts are dependency JAR files and user-defined functions (UDF).</p>
+   */
+  CustomArtifactsConfigurationUpdate?: CustomArtifactConfiguration[];
+}
+
+export namespace ZeppelinApplicationConfigurationUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ZeppelinApplicationConfigurationUpdate): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes updates to an application's configuration.</p>
  */
 export interface ApplicationConfigurationUpdate {
@@ -3272,7 +3786,7 @@ export interface ApplicationConfigurationUpdate {
   SqlApplicationConfigurationUpdate?: SqlApplicationConfigurationUpdate;
 
   /**
-   * <p>Describes updates to a Flink-based Kinesis Data Analytics application's code
+   * <p>Describes updates to an application's code
    *       configuration.</p>
    */
   ApplicationCodeConfigurationUpdate?: ApplicationCodeConfigurationUpdate;
@@ -3296,6 +3810,11 @@ export interface ApplicationConfigurationUpdate {
    * <p>Updates to the array of descriptions of VPC configurations available to the application.</p>
    */
   VpcConfigurationUpdates?: VpcConfigurationUpdate[];
+
+  /**
+   * <p>Updates to the configuration of a Kinesis Data Analytics Studio notebook.</p>
+   */
+  ZeppelinApplicationConfigurationUpdate?: ZeppelinApplicationConfigurationUpdate;
 }
 
 export namespace ApplicationConfigurationUpdate {
@@ -3331,6 +3850,11 @@ export namespace ApplicationMaintenanceConfigurationDescription {
   });
 }
 
+export enum ApplicationMode {
+  INTERACTIVE = "INTERACTIVE",
+  STREAMING = "STREAMING",
+}
+
 export enum ApplicationStatus {
   AUTOSCALING = "AUTOSCALING",
   DELETING = "DELETING",
@@ -3350,6 +3874,7 @@ export enum RuntimeEnvironment {
   FLINK_1_6 = "FLINK-1_6",
   FLINK_1_8 = "FLINK-1_8",
   SQL_1_0 = "SQL-1_0",
+  ZEPPELIN_FLINK_1_0 = "ZEPPELIN-FLINK-1_0",
 }
 
 /**
@@ -3404,7 +3929,7 @@ export interface ApplicationDetail {
   LastUpdateTimestamp?: Date;
 
   /**
-   * <p>Provides details about the application's Java, SQL, or Scala code and starting parameters.</p>
+   * <p>Describes details about the application code and starting parameters for a Kinesis Data Analytics application.</p>
    */
   ApplicationConfigurationDescription?: ApplicationConfigurationDescription;
 
@@ -3439,6 +3964,11 @@ export interface ApplicationDetail {
    * <p>The version to which you want to roll back the application.</p>
    */
   ApplicationVersionRolledBackTo?: number;
+
+  /**
+   * <p>To create a Kinesis Data Analytics Studio notebook, you must set the mode to <code>INTERACTIVE</code>. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.</p>
+   */
+  ApplicationMode?: ApplicationMode | string;
 }
 
 export namespace ApplicationDetail {
@@ -3494,9 +4024,14 @@ export interface ApplicationSummary {
   ApplicationVersionId: number | undefined;
 
   /**
-   * <p>The runtime environment for the application (<code>SQL-1_0</code>, <code>FLINK-1_6</code>, <code>FLINK-1_8</code>, or <code>FLINK-1_11</code>).</p>
+   * <p>The runtime environment for the application.</p>
    */
   RuntimeEnvironment: RuntimeEnvironment | string | undefined;
+
+  /**
+   * <p>For a Kinesis Data Analytics for Apache Flink application, the mode is <code>STREAMING</code>. For a Kinesis Data Analytics Studio notebook, it is <code>INTERACTIVE</code>.</p>
+   */
+  ApplicationMode?: ApplicationMode | string;
 }
 
 export namespace ApplicationSummary {
@@ -3629,6 +4164,12 @@ export interface CreateApplicationRequest {
    *         <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using Tagging</a>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Use the <code>STREAMING</code> mode to create a Kinesis Data Analytics Studio notebook. To create a Kinesis Data Analytics Studio notebook, use the
+   *     <code>INTERACTIVE</code> mode.</p>
+   */
+  ApplicationMode?: ApplicationMode | string;
 }
 
 export namespace CreateApplicationRequest {
@@ -3696,6 +4237,7 @@ export namespace TooManyTagsException {
 
 export enum UrlType {
   FLINK_DASHBOARD_URL = "FLINK_DASHBOARD_URL",
+  ZEPPELIN_UI_URL = "ZEPPELIN_UI_URL",
 }
 
 export interface CreateApplicationPresignedUrlRequest {
@@ -3831,10 +4373,11 @@ export interface DeleteApplicationCloudWatchLoggingOptionRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The version ID of the application.
-   *         You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
-   *         You can retrieve the application version ID using
-   *     <a>DescribeApplication</a>.</p>
+   * <p>The version ID of the application. You must provide the
+   *         <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You can
+   *       retrieve the application version ID using <a>DescribeApplication</a>. For better
+   *       concurrency support, use the <code>ConditionalToken</code> parameter instead of
+   *         <code>CurrentApplicationVersionId</code>.</p>
    */
   CurrentApplicationVersionId?: number;
 
@@ -3845,9 +4388,10 @@ export interface DeleteApplicationCloudWatchLoggingOptionRequest {
   CloudWatchLoggingOptionId: string | undefined;
 
   /**
-   * <p>A value you use to implement strong concurrency for application updates.
-   *           You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
-   *           You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>.</p>
+   * <p>A value you use to implement strong concurrency for application updates. You must provide
+   *       the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You get the
+   *       application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of
+   *         <code>CurrentApplicationVersionId</code>.</p>
    */
   ConditionalToken?: string;
 }
@@ -4095,9 +4639,11 @@ export interface DeleteApplicationVpcConfigurationRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The current application version ID. You must provide the <code>ApplicationVersionID</code>
-   *            or the <code>ConditionalToken</code>.You can retrieve the application version ID using
-   *         <a>DescribeApplication</a>.</p>
+   * <p>The current application version ID. You must provide the
+   *         <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You can
+   *       retrieve the application version ID using <a>DescribeApplication</a>. For better
+   *       concurrency support, use the <code>ConditionalToken</code> parameter instead of
+   *         <code>CurrentApplicationVersionId</code>.</p>
    */
   CurrentApplicationVersionId?: number;
 
@@ -4107,9 +4653,10 @@ export interface DeleteApplicationVpcConfigurationRequest {
   VpcConfigurationId: string | undefined;
 
   /**
-   * <p>A value you use to implement strong concurrency for application updates.
-   *            You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
-   *            You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>.</p>
+   * <p>A value you use to implement strong concurrency for application updates. You must provide
+   *       the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You get the
+   *       application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of
+   *         <code>CurrentApplicationVersionId</code>.</p>
    */
   ConditionalToken?: string;
 }
@@ -4747,7 +5294,7 @@ export interface StartApplicationRequest {
   /**
    * <p>Identifies the run configuration (start parameters) of a Kinesis Data Analytics application.</p>
    */
-  RunConfiguration: RunConfiguration | undefined;
+  RunConfiguration?: RunConfiguration;
 }
 
 export namespace StartApplicationRequest {
@@ -4908,9 +5455,11 @@ export interface UpdateApplicationRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The current application version ID. You must provide the <code>ApplicationVersionID</code>
-   *           or the <code>ConditionalToken</code>.You can retrieve the application version ID using
-   *       <a>DescribeApplication</a>.</p>
+   * <p>The current application version ID. You must provide the
+   *         <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>.You can
+   *       retrieve the application version ID using <a>DescribeApplication</a>. For better
+   *       concurrency support, use the <code>ConditionalToken</code> parameter instead of
+   *         <code>CurrentApplicationVersionId</code>.</p>
    */
   CurrentApplicationVersionId?: number;
 
@@ -4937,9 +5486,11 @@ export interface UpdateApplicationRequest {
   CloudWatchLoggingOptionUpdates?: CloudWatchLoggingOptionUpdate[];
 
   /**
-   * <p>A value you use to implement strong concurrency for application updates.
-   *           You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>.
-   *           You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>.</p>
+   * <p>A value you use to implement strong concurrency for application updates. You must
+   *       provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You
+   *       get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the
+   *         <code>ConditionalToken</code> parameter instead of
+   *       <code>CurrentApplicationVersionId</code>.</p>
    */
   ConditionalToken?: string;
 }

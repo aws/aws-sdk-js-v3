@@ -24,8 +24,8 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
 
 /**
  * <p>Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
- *          configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
- *             Resources</a>.</p>
+ *          configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing your storage
+ *             lifecycle</a>.</p>
  *
  *          <note>
  *             <p>Bucket lifecycle configuration now supports specifying a lifecycle rule using an

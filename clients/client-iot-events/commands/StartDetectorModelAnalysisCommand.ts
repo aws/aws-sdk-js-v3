@@ -22,7 +22,7 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
 
 /**
  * <p>Performs an analysis of your detector model. For more information,
- *       see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html">Running detector model analyses</a>
+ *       see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html">Troubleshooting a detector model</a>
  *       in the <i>AWS IoT Events Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

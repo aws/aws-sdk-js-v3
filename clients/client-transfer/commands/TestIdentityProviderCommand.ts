@@ -22,10 +22,11 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
 
 /**
  * <p>If the <code>IdentityProviderType</code> of a file transfer protocol-enabled server is
- *         <code>API_Gateway</code>, tests whether your API Gateway is set up successfully. We highly
- *       recommend that you call this operation to test your authentication method as soon as you
- *       create your server. By doing so, you can troubleshoot issues with the API Gateway integration
- *       to ensure that your users can successfully use the service.</p>
+ *         <code>AWS_DIRECTORY_SERVICE</code> or <code>API_Gateway</code>, tests whether your identity
+ *       provider is set up successfully. We highly recommend that you call this operation to test your
+ *       authentication method as soon as you create your server. By doing so, you can troubleshoot
+ *       issues with the identity provider integration to ensure that your users can successfully use
+ *       the service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

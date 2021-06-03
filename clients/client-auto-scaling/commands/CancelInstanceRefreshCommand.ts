@@ -24,9 +24,9 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  * <p>Cancels an instance refresh operation in progress. Cancellation does not roll back any
  *             replacements that have already been completed, but it prevents new replacements from
  *             being started. </p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling instances
- *                 based on an instance refresh</a> in the
- *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *         <p>This operation is part of the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">instance refresh
+ *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling
+ *             group after you make configuration changes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

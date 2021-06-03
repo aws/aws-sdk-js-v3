@@ -939,7 +939,7 @@ export interface CreateWorkspaceBundleRequest {
    * <p>The tags associated with the bundle.</p>
    *
    *          <note>
-   *             <p>To add tags at the same time that you're creating the bundle, you must create an IAM policy that
+   *             <p>To add tags at the same time when you're creating the bundle, you must create an IAM policy that
    *             grants your IAM user permissions to use <code>workspaces:CreateTags</code>. </p>
    *          </note>
    */
@@ -2045,6 +2045,11 @@ export interface WorkspaceAccessProperties {
    * <p>Indicates whether users can use zero client devices to access their WorkSpaces.</p>
    */
   DeviceTypeZeroClient?: AccessPropertyValue | string;
+
+  /**
+   * <p>Indicates whether users can use Linux clients to access their WorkSpaces.</p>
+   */
+  DeviceTypeLinux?: AccessPropertyValue | string;
 }
 
 export namespace WorkspaceAccessProperties {

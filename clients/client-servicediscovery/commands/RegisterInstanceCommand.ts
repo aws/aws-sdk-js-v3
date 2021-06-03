@@ -25,8 +25,8 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  *    specified service. When you submit a <code>RegisterInstance</code> request, the following occurs:</p>
  *          <ul>
  *             <li>
- *                <p>For each DNS record that you define in the service that is specified by <code>ServiceId</code>, a record is
- *      created or updated in the hosted zone that is associated with the corresponding namespace.</p>
+ *                <p>For each DNS record that you define in the service that's specified by <code>ServiceId</code>, a record is
+ *      created or updated in the hosted zone that's associated with the corresponding namespace.</p>
  *             </li>
  *             <li>
  *                <p>If the service includes <code>HealthCheckConfig</code>, a health check is created based on the settings in the

@@ -25,17 +25,17 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
 /**
  * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB
  *       cluster snapshot.</p>
- *          <p>To share a manual DB cluster snapshot with other AWS accounts, specify
+ *          <p>To share a manual DB cluster snapshot with other Amazon accounts, specify
  *       <code>restore</code> as the <code>AttributeName</code> and use the <code>ValuesToAdd</code>
- *       parameter to add a list of IDs of the AWS accounts that are authorized to restore the manual
+ *       parameter to add a list of IDs of the Amazon accounts that are authorized to restore the manual
  *       DB cluster snapshot. Use the value <code>all</code> to make the manual DB cluster snapshot
- *       public, which means that it can be copied or restored by all AWS accounts. Do not add the
+ *       public, which means that it can be copied or restored by all Amazon accounts. Do not add the
  *       <code>all</code> value for any manual DB cluster snapshots that contain private information
- *       that you don't want available to all AWS accounts. If a manual DB cluster snapshot is
- *       encrypted, it can be shared, but only by specifying a list of authorized AWS account IDs for
+ *       that you don't want available to all Amazon accounts. If a manual DB cluster snapshot is
+ *       encrypted, it can be shared, but only by specifying a list of authorized Amazon account IDs for
  *       the <code>ValuesToAdd</code> parameter. You can't use <code>all</code> as a value for that
  *       parameter in this case.</p>
- *          <p>To view which AWS accounts have access to copy or restore a manual DB cluster snapshot, or
+ *          <p>To view which Amazon accounts have access to copy or restore a manual DB cluster snapshot, or
  *       whether a manual DB cluster snapshot public or private, use the <a>DescribeDBClusterSnapshotAttributes</a> API action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

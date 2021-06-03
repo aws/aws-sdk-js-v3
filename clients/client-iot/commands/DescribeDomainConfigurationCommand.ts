@@ -24,9 +24,6 @@ export interface DescribeDomainConfigurationCommandOutput
 
 /**
  * <p>Gets summary information about a domain configuration.</p>
- *          <note>
- *             <p>The domain configuration feature is in public preview and is subject to change.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

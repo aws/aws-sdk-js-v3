@@ -21,7 +21,8 @@ export interface UpdateFirewallConfigCommandInput extends UpdateFirewallConfigRe
 export interface UpdateFirewallConfigCommandOutput extends UpdateFirewallConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of the firewall behavior provided by DNS Firewall for a single Amazon virtual private cloud (VPC). </p>
+ * <p>Updates the configuration of the firewall behavior provided by DNS Firewall for a single
+ * 			VPC from Amazon Virtual Private Cloud (Amazon VPC). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

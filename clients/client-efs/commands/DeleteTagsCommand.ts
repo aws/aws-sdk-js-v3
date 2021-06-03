@@ -23,7 +23,11 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 /**
  * @deprecated
  *
- * <p>Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
+ * <note>
+ *             <p>DEPRECATED - DeleteTags is deprecated and not maintained. Please use the
+ *        API action to remove tags from EFS resources.</p>
+ *          </note>
+ *          <p>Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
  *       includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an
  *       error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag Restrictions</a> in the
  *         <i>AWS Billing and Cost Management User Guide</i>.</p>

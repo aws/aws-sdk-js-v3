@@ -1,16 +1,31 @@
 import { IoTEventsClient } from "./IoTEventsClient";
 import {
+  CreateAlarmModelCommand,
+  CreateAlarmModelCommandInput,
+  CreateAlarmModelCommandOutput,
+} from "./commands/CreateAlarmModelCommand";
+import {
   CreateDetectorModelCommand,
   CreateDetectorModelCommandInput,
   CreateDetectorModelCommandOutput,
 } from "./commands/CreateDetectorModelCommand";
 import { CreateInputCommand, CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand";
 import {
+  DeleteAlarmModelCommand,
+  DeleteAlarmModelCommandInput,
+  DeleteAlarmModelCommandOutput,
+} from "./commands/DeleteAlarmModelCommand";
+import {
   DeleteDetectorModelCommand,
   DeleteDetectorModelCommandInput,
   DeleteDetectorModelCommandOutput,
 } from "./commands/DeleteDetectorModelCommand";
 import { DeleteInputCommand, DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand";
+import {
+  DescribeAlarmModelCommand,
+  DescribeAlarmModelCommandInput,
+  DescribeAlarmModelCommandOutput,
+} from "./commands/DescribeAlarmModelCommand";
 import {
   DescribeDetectorModelAnalysisCommand,
   DescribeDetectorModelAnalysisCommandInput,
@@ -37,6 +52,16 @@ import {
   GetDetectorModelAnalysisResultsCommandOutput,
 } from "./commands/GetDetectorModelAnalysisResultsCommand";
 import {
+  ListAlarmModelVersionsCommand,
+  ListAlarmModelVersionsCommandInput,
+  ListAlarmModelVersionsCommandOutput,
+} from "./commands/ListAlarmModelVersionsCommand";
+import {
+  ListAlarmModelsCommand,
+  ListAlarmModelsCommandInput,
+  ListAlarmModelsCommandOutput,
+} from "./commands/ListAlarmModelsCommand";
+import {
   ListDetectorModelVersionsCommand,
   ListDetectorModelVersionsCommandInput,
   ListDetectorModelVersionsCommandOutput,
@@ -46,6 +71,11 @@ import {
   ListDetectorModelsCommandInput,
   ListDetectorModelsCommandOutput,
 } from "./commands/ListDetectorModelsCommand";
+import {
+  ListInputRoutingsCommand,
+  ListInputRoutingsCommandInput,
+  ListInputRoutingsCommandOutput,
+} from "./commands/ListInputRoutingsCommand";
 import { ListInputsCommand, ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand";
 import {
   ListTagsForResourceCommand,
@@ -69,6 +99,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateAlarmModelCommand,
+  UpdateAlarmModelCommandInput,
+  UpdateAlarmModelCommandOutput,
+} from "./commands/UpdateAlarmModelCommand";
+import {
   UpdateDetectorModelCommand,
   UpdateDetectorModelCommandInput,
   UpdateDetectorModelCommandOutput,
@@ -82,6 +117,40 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *       update, and delete inputs and detector models, and to list their versions.</p>
  */
 export class IoTEvents extends IoTEventsClient {
+  /**
+   * <p>Creates an alarm model to monitor an AWS IoT Events input attribute. You can use the alarm to get
+   *       notified when the value is outside a specified range. For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html">Create an
+   *         alarm model</a> in the <i>AWS IoT Events Developer Guide</i>.</p>
+   */
+  public createAlarmModel(
+    args: CreateAlarmModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAlarmModelCommandOutput>;
+  public createAlarmModel(
+    args: CreateAlarmModelCommandInput,
+    cb: (err: any, data?: CreateAlarmModelCommandOutput) => void
+  ): void;
+  public createAlarmModel(
+    args: CreateAlarmModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAlarmModelCommandOutput) => void
+  ): void;
+  public createAlarmModel(
+    args: CreateAlarmModelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAlarmModelCommandOutput) => void),
+    cb?: (err: any, data?: CreateAlarmModelCommandOutput) => void
+  ): Promise<CreateAlarmModelCommandOutput> | void {
+    const command = new CreateAlarmModelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates a detector model.</p>
    */
@@ -130,6 +199,39 @@ export class IoTEvents extends IoTEventsClient {
     cb?: (err: any, data?: CreateInputCommandOutput) => void
   ): Promise<CreateInputCommandOutput> | void {
     const command = new CreateInputCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an alarm model. Any alarm instances that were created based on this alarm model
+   *       are also deleted. This action can't be undone.</p>
+   */
+  public deleteAlarmModel(
+    args: DeleteAlarmModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAlarmModelCommandOutput>;
+  public deleteAlarmModel(
+    args: DeleteAlarmModelCommandInput,
+    cb: (err: any, data?: DeleteAlarmModelCommandOutput) => void
+  ): void;
+  public deleteAlarmModel(
+    args: DeleteAlarmModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAlarmModelCommandOutput) => void
+  ): void;
+  public deleteAlarmModel(
+    args: DeleteAlarmModelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAlarmModelCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAlarmModelCommandOutput) => void
+  ): Promise<DeleteAlarmModelCommandOutput> | void {
+    const command = new DeleteAlarmModelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -200,6 +302,39 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
+   * <p>Retrieves information about an alarm model. If you don't specify a value for the
+   *         <code>alarmModelVersion</code> parameter, the latest version is returned.</p>
+   */
+  public describeAlarmModel(
+    args: DescribeAlarmModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAlarmModelCommandOutput>;
+  public describeAlarmModel(
+    args: DescribeAlarmModelCommandInput,
+    cb: (err: any, data?: DescribeAlarmModelCommandOutput) => void
+  ): void;
+  public describeAlarmModel(
+    args: DescribeAlarmModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAlarmModelCommandOutput) => void
+  ): void;
+  public describeAlarmModel(
+    args: DescribeAlarmModelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAlarmModelCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAlarmModelCommandOutput) => void
+  ): Promise<DescribeAlarmModelCommandOutput> | void {
+    const command = new DescribeAlarmModelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes a detector model. If the <code>version</code> parameter is not specified,
    *       information about the latest version is returned.</p>
    */
@@ -233,7 +368,10 @@ export class IoTEvents extends IoTEventsClient {
   }
 
   /**
-   * <p>Retrieves execution information about a detector model analysis</p>
+   * <p>Retrieves runtime information about a detector model analysis.</p>
+   *          <note>
+   *             <p>After AWS IoT Events starts analyzing your detector model, you have up to 24 hours to retrieve the analysis results.</p>
+   *          </note>
    */
   public describeDetectorModelAnalysis(
     args: DescribeDetectorModelAnalysisCommandInput,
@@ -330,6 +468,9 @@ export class IoTEvents extends IoTEventsClient {
 
   /**
    * <p>Retrieves one or more analysis results of the detector model.</p>
+   *          <note>
+   *             <p>After AWS IoT Events starts analyzing your detector model, you have up to 24 hours to retrieve the analysis results.</p>
+   *          </note>
    */
   public getDetectorModelAnalysisResults(
     args: GetDetectorModelAnalysisResultsCommandInput,
@@ -350,6 +491,72 @@ export class IoTEvents extends IoTEventsClient {
     cb?: (err: any, data?: GetDetectorModelAnalysisResultsCommandOutput) => void
   ): Promise<GetDetectorModelAnalysisResultsCommandOutput> | void {
     const command = new GetDetectorModelAnalysisResultsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the alarm models that you created. The operation returns only the metadata
+   *       associated with each alarm model.</p>
+   */
+  public listAlarmModels(
+    args: ListAlarmModelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAlarmModelsCommandOutput>;
+  public listAlarmModels(
+    args: ListAlarmModelsCommandInput,
+    cb: (err: any, data?: ListAlarmModelsCommandOutput) => void
+  ): void;
+  public listAlarmModels(
+    args: ListAlarmModelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAlarmModelsCommandOutput) => void
+  ): void;
+  public listAlarmModels(
+    args: ListAlarmModelsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAlarmModelsCommandOutput) => void),
+    cb?: (err: any, data?: ListAlarmModelsCommandOutput) => void
+  ): Promise<ListAlarmModelsCommandOutput> | void {
+    const command = new ListAlarmModelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the versions of an alarm model. The operation returns only the metadata
+   *       associated with each alarm model version.</p>
+   */
+  public listAlarmModelVersions(
+    args: ListAlarmModelVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAlarmModelVersionsCommandOutput>;
+  public listAlarmModelVersions(
+    args: ListAlarmModelVersionsCommandInput,
+    cb: (err: any, data?: ListAlarmModelVersionsCommandOutput) => void
+  ): void;
+  public listAlarmModelVersions(
+    args: ListAlarmModelVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAlarmModelVersionsCommandOutput) => void
+  ): void;
+  public listAlarmModelVersions(
+    args: ListAlarmModelVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAlarmModelVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListAlarmModelVersionsCommandOutput) => void
+  ): Promise<ListAlarmModelVersionsCommandOutput> | void {
+    const command = new ListAlarmModelVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -416,6 +623,40 @@ export class IoTEvents extends IoTEventsClient {
     cb?: (err: any, data?: ListDetectorModelVersionsCommandOutput) => void
   ): Promise<ListDetectorModelVersionsCommandOutput> | void {
     const command = new ListDetectorModelVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Lists one or more input routings.
+   *     </p>
+   */
+  public listInputRoutings(
+    args: ListInputRoutingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInputRoutingsCommandOutput>;
+  public listInputRoutings(
+    args: ListInputRoutingsCommandInput,
+    cb: (err: any, data?: ListInputRoutingsCommandOutput) => void
+  ): void;
+  public listInputRoutings(
+    args: ListInputRoutingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInputRoutingsCommandOutput) => void
+  ): void;
+  public listInputRoutings(
+    args: ListInputRoutingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInputRoutingsCommandOutput) => void),
+    cb?: (err: any, data?: ListInputRoutingsCommandOutput) => void
+  ): Promise<ListInputRoutingsCommandOutput> | void {
+    const command = new ListInputRoutingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -522,7 +763,7 @@ export class IoTEvents extends IoTEventsClient {
 
   /**
    * <p>Performs an analysis of your detector model. For more information,
-   *       see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html">Running detector model analyses</a>
+   *       see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html">Troubleshooting a detector model</a>
    *       in the <i>AWS IoT Events Developer Guide</i>.</p>
    */
   public startDetectorModelAnalysis(
@@ -603,6 +844,39 @@ export class IoTEvents extends IoTEventsClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an alarm model. Any alarms that were created based on the previous version are
+   *       deleted and then created again as new data arrives.</p>
+   */
+  public updateAlarmModel(
+    args: UpdateAlarmModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAlarmModelCommandOutput>;
+  public updateAlarmModel(
+    args: UpdateAlarmModelCommandInput,
+    cb: (err: any, data?: UpdateAlarmModelCommandOutput) => void
+  ): void;
+  public updateAlarmModel(
+    args: UpdateAlarmModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAlarmModelCommandOutput) => void
+  ): void;
+  public updateAlarmModel(
+    args: UpdateAlarmModelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAlarmModelCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAlarmModelCommandOutput) => void
+  ): Promise<UpdateAlarmModelCommandOutput> | void {
+    const command = new UpdateAlarmModelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

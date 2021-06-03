@@ -36,15 +36,15 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
-  ListTestCasesCommand,
-  ListTestCasesCommandInput,
-  ListTestCasesCommandOutput,
-} from "./commands/ListTestCasesCommand";
-import {
   StartSuiteRunCommand,
   StartSuiteRunCommandInput,
   StartSuiteRunCommandOutput,
 } from "./commands/StartSuiteRunCommand";
+import {
+  StopSuiteRunCommand,
+  StopSuiteRunCommandInput,
+  StopSuiteRunCommandOutput,
+} from "./commands/StopSuiteRunCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -314,38 +314,6 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
   }
 
   /**
-   * <p>Lists all the test cases in the test suite.</p>
-   */
-  public listTestCases(
-    args: ListTestCasesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTestCasesCommandOutput>;
-  public listTestCases(
-    args: ListTestCasesCommandInput,
-    cb: (err: any, data?: ListTestCasesCommandOutput) => void
-  ): void;
-  public listTestCases(
-    args: ListTestCasesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTestCasesCommandOutput) => void
-  ): void;
-  public listTestCases(
-    args: ListTestCasesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTestCasesCommandOutput) => void),
-    cb?: (err: any, data?: ListTestCasesCommandOutput) => void
-  ): Promise<ListTestCasesCommandOutput> | void {
-    const command = new ListTestCasesCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * <p>Starts a Device Advisor test suite run.</p>
    */
   public startSuiteRun(
@@ -367,6 +335,35 @@ export class IotDeviceAdvisor extends IotDeviceAdvisorClient {
     cb?: (err: any, data?: StartSuiteRunCommandOutput) => void
   ): Promise<StartSuiteRunCommandOutput> | void {
     const command = new StartSuiteRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops a Device Advisor test suite run that is currently running.</p>
+   */
+  public stopSuiteRun(
+    args: StopSuiteRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopSuiteRunCommandOutput>;
+  public stopSuiteRun(args: StopSuiteRunCommandInput, cb: (err: any, data?: StopSuiteRunCommandOutput) => void): void;
+  public stopSuiteRun(
+    args: StopSuiteRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopSuiteRunCommandOutput) => void
+  ): void;
+  public stopSuiteRun(
+    args: StopSuiteRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopSuiteRunCommandOutput) => void),
+    cb?: (err: any, data?: StopSuiteRunCommandOutput) => void
+  ): Promise<StopSuiteRunCommandOutput> | void {
+    const command = new StopSuiteRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

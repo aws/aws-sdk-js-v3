@@ -58,6 +58,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "ca-central-1":
+      regionInfo = {
+        hostname: "profile.ca-central-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "eu-central-1":
       regionInfo = {
         hostname: "profile.eu-central-1.amazonaws.com",

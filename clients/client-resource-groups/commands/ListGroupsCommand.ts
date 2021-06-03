@@ -22,11 +22,11 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
 
 /**
  * <p>Returns a list of existing resource groups in your account.</p>
- *          <p>
+ *         <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
+ *         <ul>
  *             <li>
  *                 <p>
  *                   <code>resource-groups:ListGroups</code>

@@ -25,8 +25,8 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  *             uses the data when reporting the last known device position and position history.</p>
  *          <note>
  *            <p>Only one position update is stored per sample time. Location data is sampled at a
- *                 fixed rate of one position per 30-second interval, and retained for one year before
- *                 it is deleted.</p>
+ *                 fixed rate of one position per 30-second interval and retained for 30 days before
+ *                 it's deleted.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

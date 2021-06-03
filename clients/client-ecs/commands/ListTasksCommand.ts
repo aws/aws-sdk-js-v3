@@ -18,12 +18,11 @@ export interface ListTasksCommandInput extends ListTasksRequest {}
 export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of tasks for a specified cluster. You can filter the results by family
- * 			name, by a particular container instance, or by the desired status of the task with the
- * 				<code>family</code>, <code>containerInstance</code>, and <code>desiredStatus</code>
- * 			parameters.</p>
+ * <p>Returns a list of tasks. You can filter the results by cluster, task definition
+ * 			family, container instance, launch type, what IAM principal started the task, or by the
+ * 			desired status of the task.</p>
  * 		       <p>Recently stopped tasks might appear in the returned results. Currently, stopped tasks
- * 			appear in the returned results for at least one hour. </p>
+ * 			appear in the returned results for at least one hour.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

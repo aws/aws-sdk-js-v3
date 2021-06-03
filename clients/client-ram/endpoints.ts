@@ -215,6 +215,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         signingRegion: "us-gov-west-1",
       };
       break;
+    case "us-iso-east-1":
+      regionInfo = {
+        hostname: "ram.us-iso-east-1.c2s.ic.gov",
+        partition: "aws-iso",
+      };
+      break;
     case "us-west-1":
       regionInfo = {
         hostname: "ram.us-west-1.amazonaws.com",

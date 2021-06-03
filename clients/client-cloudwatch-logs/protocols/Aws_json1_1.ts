@@ -4145,6 +4145,18 @@ const serializeAws_json1_1DescribeSubscriptionFiltersRequest = (
   };
 };
 
+const serializeAws_json1_1Dimensions = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
 const serializeAws_json1_1DisassociateKmsKeyRequest = (
   input: DisassociateKmsKeyRequest,
   context: __SerdeContext
@@ -4256,10 +4268,13 @@ const serializeAws_json1_1LogGroupNames = (input: string[], context: __SerdeCont
 const serializeAws_json1_1MetricTransformation = (input: MetricTransformation, context: __SerdeContext): any => {
   return {
     ...(input.defaultValue !== undefined && input.defaultValue !== null && { defaultValue: input.defaultValue }),
+    ...(input.dimensions !== undefined &&
+      input.dimensions !== null && { dimensions: serializeAws_json1_1Dimensions(input.dimensions, context) }),
     ...(input.metricName !== undefined && input.metricName !== null && { metricName: input.metricName }),
     ...(input.metricNamespace !== undefined &&
       input.metricNamespace !== null && { metricNamespace: input.metricNamespace }),
     ...(input.metricValue !== undefined && input.metricValue !== null && { metricValue: input.metricValue }),
+    ...(input.unit !== undefined && input.unit !== null && { unit: input.unit }),
   };
 };
 
@@ -4616,6 +4631,18 @@ const deserializeAws_json1_1Destinations = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1Destination(entry, context);
     });
+};
+
+const deserializeAws_json1_1Dimensions = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1ExportTask = (output: any, context: __SerdeContext): ExportTask => {
@@ -4993,10 +5020,15 @@ const deserializeAws_json1_1MetricFilters = (output: any, context: __SerdeContex
 const deserializeAws_json1_1MetricTransformation = (output: any, context: __SerdeContext): MetricTransformation => {
   return {
     defaultValue: output.defaultValue !== undefined && output.defaultValue !== null ? output.defaultValue : undefined,
+    dimensions:
+      output.dimensions !== undefined && output.dimensions !== null
+        ? deserializeAws_json1_1Dimensions(output.dimensions, context)
+        : undefined,
     metricName: output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
     metricNamespace:
       output.metricNamespace !== undefined && output.metricNamespace !== null ? output.metricNamespace : undefined,
     metricValue: output.metricValue !== undefined && output.metricValue !== null ? output.metricValue : undefined,
+    unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
   } as any;
 };
 

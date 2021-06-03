@@ -2795,6 +2795,7 @@ const serializeAws_json1_1CrlConfiguration = (input: CrlConfiguration, context: 
     ...(input.ExpirationInDays !== undefined &&
       input.ExpirationInDays !== null && { ExpirationInDays: input.ExpirationInDays }),
     ...(input.S3BucketName !== undefined && input.S3BucketName !== null && { S3BucketName: input.S3BucketName }),
+    ...(input.S3ObjectAcl !== undefined && input.S3ObjectAcl !== null && { S3ObjectAcl: input.S3ObjectAcl }),
   };
 };
 
@@ -3393,6 +3394,7 @@ const deserializeAws_json1_1CrlConfiguration = (output: any, context: __SerdeCon
     ExpirationInDays:
       output.ExpirationInDays !== undefined && output.ExpirationInDays !== null ? output.ExpirationInDays : undefined,
     S3BucketName: output.S3BucketName !== undefined && output.S3BucketName !== null ? output.S3BucketName : undefined,
+    S3ObjectAcl: output.S3ObjectAcl !== undefined && output.S3ObjectAcl !== null ? output.S3ObjectAcl : undefined,
   } as any;
 };
 

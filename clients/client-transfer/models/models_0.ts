@@ -39,6 +39,306 @@ export namespace ConflictException {
   });
 }
 
+/**
+ * <p>Represents an object that contains entries and targets for
+ *         <code>HomeDirectoryMappings</code>.</p>
+ */
+export interface HomeDirectoryMapEntry {
+  /**
+   * <p>Represents an entry and a target for <code>HomeDirectoryMappings</code>.</p>
+   */
+  Entry: string | undefined;
+
+  /**
+   * <p>Represents the map target that is used in a <code>HomeDirectorymapEntry</code>.</p>
+   */
+  Target: string | undefined;
+}
+
+export namespace HomeDirectoryMapEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HomeDirectoryMapEntry): any => ({
+    ...obj,
+  });
+}
+
+export enum HomeDirectoryType {
+  LOGICAL = "LOGICAL",
+  PATH = "PATH",
+}
+
+/**
+ * <p>The full POSIX identity, including user ID (<code>Uid</code>), group ID
+ *       (<code>Gid</code>), and any secondary groups IDs (<code>SecondaryGids</code>), that controls
+ *       your users' access to your Amazon EFS file systems. The POSIX permissions that are set on
+ *       files and directories in your file system determine the level of access your users get when
+ *       transferring files into and out of your Amazon EFS file systems.</p>
+ */
+export interface PosixProfile {
+  /**
+   * <p>The POSIX user ID used for all EFS operations by this user.</p>
+   */
+  Uid: number | undefined;
+
+  /**
+   * <p>The POSIX group ID used for all EFS operations by this user.</p>
+   */
+  Gid: number | undefined;
+
+  /**
+   * <p>The secondary POSIX group IDs used for all EFS operations by this user.</p>
+   */
+  SecondaryGids?: number[];
+}
+
+export namespace PosixProfile {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PosixProfile): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateAccessRequest {
+  /**
+   * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
+   *          <p>A <code>HomeDirectory</code> example is <code>/directory_name/home/mydirectory</code>.</p>
+   */
+  HomeDirectory?: string;
+
+  /**
+   * <p>The type of landing directory (folder) that you want your users' home directory to be when
+   *       they log in to the server. If you set it to <code>PATH</code>, the user will see the absolute
+   *       Amazon S3 bucket paths as is in their file transfer protocol clients. If you set it
+   *         <code>LOGICAL</code>, you must provide mappings in the <code>HomeDirectoryMappings</code>
+   *       for how you want to make Amazon S3 paths visible to your users.</p>
+   */
+  HomeDirectoryType?: HomeDirectoryType | string;
+
+  /**
+   * <p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should
+   *       be visible to your user and how you want to make them visible. You must specify the
+   *         <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path
+   *       is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you
+   *       only specify a target, it will be displayed as is. You also must ensure that your AWS Identity
+   *       and Access Management (IAM) role provides access to paths in <code>Target</code>. This value
+   *       can only be set when <code>HomeDirectoryType</code> is set to
+   *       <i>LOGICAL</i>.</p>
+   *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
+   *          <p>
+   *             <code>[ { "Entry": "your-personal-report.pdf", "Target": "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]</code>
+   *          </p>
+   *          <p>In most cases, you can use this value instead of the scope-down policy to lock down your
+   *       user to the designated home directory ("<code>chroot</code>"). To do this, you can set
+   *         <code>Entry</code> to <code>/</code> and set <code>Target</code> to the
+   *         <code>HomeDirectory</code> parameter value.</p>
+   *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
+   *          <p>
+   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *          </p>
+   *          <note>
+   *             <p>If the target of a logical directory entry does not exist in Amazon S3 or Amazon EFS, the
+   *         entry will be ignored. As a workaround, you can use the Amazon S3 API or EFS API to create
+   *         0-byte objects as place holders for your directory. If using the AWS CLI, use the
+   *           <code>s3api</code> or <code>efsapi</code> call instead of <code>s3</code> or
+   *           <code>efs</code> so you can use the <code>put-object</code> operation. For example, you
+   *         can use the following.</p>
+   *             <p>
+   *                <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>
+   *             </p>
+   *             <p>The end of the key name must end in a <code>/</code> for it to be considered a
+   *         folder.</p>
+   *          </note>
+   *          <p>Required: No</p>
+   */
+  HomeDirectoryMappings?: HomeDirectoryMapEntry[];
+
+  /**
+   * <p>A scope-down policy for your user so that you can use the same IAM role across multiple
+   *       users. This policy scopes down user access to portions of their Amazon S3 bucket. Variables
+   *       that you can use inside this policy include <code>${Transfer:UserName}</code>,
+   *         <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
+   *          <note>
+   *             <p>This only applies when domain of <code>ServerId</code> is S3. Amazon EFS does not use scope
+   *         down policy.</p>
+   *             <p>For scope-down policies, AWS Transfer Family stores the policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass it in the <code>Policy</code> argument.</p>
+   *             <p>For an example of a scope-down policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/scope-down-policy.html">Example
+   *           scope-down policy</a>.</p>
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>AWS Security Token Service API
+   *           Reference</i>.</p>
+   *          </note>
+   */
+  Policy?: string;
+
+  /**
+   * <p>The full POSIX identity, including user ID (<code>Uid</code>), group ID
+   *       (<code>Gid</code>), and any secondary groups IDs (<code>SecondaryGids</code>), that controls
+   *       your users' access to your Amazon EFS file systems. The POSIX permissions that are set on
+   *       files and directories in your file system determine the level of access your users get when
+   *       transferring files into and out of your Amazon EFS file systems.</p>
+   */
+  PosixProfile?: PosixProfile;
+
+  /**
+   * <p>Specifies the IAM role that controls your users' access to your Amazon S3 bucket or EFS
+   *       file system. The policies attached to this role determine the level of access that you want to
+   *       provide your users when transferring files into and out of your Amazon S3 bucket or EFS file
+   *       system. The IAM role should also contain a trust relationship that allows the server to access
+   *       your resources when servicing your users' transfer requests.</p>
+   */
+  Role: string | undefined;
+
+  /**
+   * <p>A system-assigned unique identifier for a server instance. This is the specific server that you added your user to.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>A unique identifier that is required to identify specific groups within your directory.
+   *       The users of the group that you associate have access to your Amazon S3 or Amazon EFS
+   *       resources over the enabled protocols using AWS Transfer Family. If you know the group name,
+   *       you can view the SID values by running the following command using Windows PowerShell.</p>
+   *          <p>
+   *             <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamaccountName,ObjectSid</code>
+   *          </p>
+   *          <p>In that command, replace <i>YourGroupName</i> with the name of your Active
+   *       Directory group.</p>
+   *          <p>The regex used to validate this parameter is a string of characters consisting of
+   *       uppercase and lowercase alphanumeric characters with no spaces. You can also include
+   *       underscores or any of the following characters: =,.@:/-</p>
+   */
+  ExternalId: string | undefined;
+}
+
+export namespace CreateAccessRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAccessRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateAccessResponse {
+  /**
+   * <p>The ID of the server that the user is attached to.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>The external ID of the group whose users have access to your Amazon S3 or Amazon EFS
+   *       resources over the enabled protocols using AWS Transfer Family.</p>
+   */
+  ExternalId: string | undefined;
+}
+
+export namespace CreateAccessResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAccessResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This exception is thrown when an error occurs in the AWS Transfer Family service.</p>
+ */
+export interface InternalServiceError extends __SmithyException, $MetadataBearer {
+  name: "InternalServiceError";
+  $fault: "server";
+  Message: string | undefined;
+}
+
+export namespace InternalServiceError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InternalServiceError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This exception is thrown when the client submits a malformed request.</p>
+ */
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
+  name: "InvalidRequestException";
+  $fault: "client";
+  Message: string | undefined;
+}
+
+export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The requested resource does not exist.</p>
+ */
+export interface ResourceExistsException extends __SmithyException, $MetadataBearer {
+  name: "ResourceExistsException";
+  $fault: "client";
+  Message: string | undefined;
+  Resource: string | undefined;
+  ResourceType: string | undefined;
+}
+
+export namespace ResourceExistsException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceExistsException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This exception is thrown when a resource is not found by the AWS Transfer Family
+ *       service.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  Message: string | undefined;
+  Resource: string | undefined;
+  ResourceType: string | undefined;
+}
+
+export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request has failed because the AWS Transfer Family service is not available.</p>
+ */
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  Message?: string;
+}
+
+export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
+  });
+}
+
 export enum Domain {
   EFS = "EFS",
   S3 = "S3",
@@ -48,8 +348,19 @@ export enum Domain {
  * <p>The virtual private cloud (VPC) endpoint settings that are configured for your file
  *       transfer protocol-enabled server. With a VPC endpoint, you can restrict access to your server
  *       and resources only within your VPC. To control incoming internet traffic, invoke the
- *         <code>UpdateServer</code> API and attach an Elastic IP to your server's
+ *         <code>UpdateServer</code> API and attach an Elastic IP address to your server's
  *       endpoint.</p>
+ *          <note>
+ *             <p> After March 31, 2021, you won't be able to create a server using
+ *           <code>EndpointType=VPC_ENDPOINT</code> in your AWS account if your account hasn't already
+ *       done so before March 31, 2021. If you have already created servers with
+ *       <code>EndpointType=VPC_ENDPOINT</code> in your AWS account on or before March 31, 2021,
+ *         you will not be affected. After this date, use
+ *         <code>EndpointType</code>=<code>VPC</code>.</p>
+ *
+ *             <p>For more information, see
+ *         https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</p>
+ *          </note>
  */
 export interface EndpointDetails {
   /**
@@ -80,6 +391,9 @@ export interface EndpointDetails {
    *          <note>
    *             <p>This property can only be set when <code>EndpointType</code> is set to
    *           <code>VPC_ENDPOINT</code>.</p>
+   *
+   *             <p>For more information, see
+   *         https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</p>
    *          </note>
    */
   VpcEndpointId?: string;
@@ -102,9 +416,10 @@ export interface EndpointDetails {
    *             <p>This property can only be set when <code>EndpointType</code> is set to
    *         <code>VPC</code>.</p>
    *
-   *             <p>You can only edit the <code>SecurityGroupIds</code> property in the
-   *           <code>UpdateServer</code> API and only if you are changing the <code>EndpointType</code>
-   *         from <code>PUBLIC</code> or <code>VPC_ENDPOINT</code> to <code>VPC</code>.</p>
+   *             <p>You can edit the <code>SecurityGroupIds</code> property in the <a href="https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html">UpdateServer</a> API only if you are changing the <code>EndpointType</code> from
+   *           <code>PUBLIC</code> or <code>VPC_ENDPOINT</code> to <code>VPC</code>. To change security
+   *         groups associated with your server's VPC endpoint after creation, use the Amazon EC2
+   *           <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html">ModifyVpcEndpoint</a> API.</p>
    *          </note>
    */
   SecurityGroupIds?: string[];
@@ -141,6 +456,11 @@ export interface IdentityProviderDetails {
    *       account.</p>
    */
   InvocationRole?: string;
+
+  /**
+   * <p>The identifier of the AWS Directory Service directory that you want to stop sharing.</p>
+   */
+  DirectoryId?: string;
 }
 
 export namespace IdentityProviderDetails {
@@ -154,6 +474,7 @@ export namespace IdentityProviderDetails {
 
 export enum IdentityProviderType {
   API_GATEWAY = "API_GATEWAY",
+  AWS_DIRECTORY_SERVICE = "AWS_DIRECTORY_SERVICE",
   SERVICE_MANAGED = "SERVICE_MANAGED",
 }
 
@@ -234,22 +555,40 @@ export interface CreateServerRequest {
    */
   Certificate?: string;
 
+  /**
+   * <p>The domain of the storage system that is used for file transfers. There are two domains
+   *       available: Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS). The
+   *       default value is S3.</p>
+   *
+   *          <note>
+   *             <p>After the server is created, the domain cannot be changed.</p>
+   *          </note>
+   */
   Domain?: Domain | string;
+
   /**
    * <p>The virtual private cloud (VPC) endpoint settings that are configured for your server.
    *       When you host your endpoint within your VPC, you can make it accessible only to resources
-   *       within your VPC, or you can attach Elastic IPs and make it accessible to clients over the
-   *       internet. Your VPC's default security groups are automatically assigned to your
+   *       within your VPC, or you can attach Elastic IP addresses and make it accessible to clients over
+   *       the internet. Your VPC's default security groups are automatically assigned to your
    *       endpoint.</p>
    */
   EndpointDetails?: EndpointDetails;
 
   /**
-   * <p>The type of VPC endpoint that you want your server to connect to. You can choose to
-   *       connect to the public internet or a VPC endpoint. With a VPC endpoint, you can restrict access
-   *       to your server and resources only within your VPC.</p>
-   *
+   * <p>The type of endpoint that you want your server to use. You can choose to make your server's endpoint publicly accessible (PUBLIC)
+   *       or host it inside your VPC. With an endpoint that is hosted in a VPC, you can restrict access to your server and
+   *       resources only within your VPC or choose to make it internet facing by attaching Elastic IP addresses directly to it.</p>
    *          <note>
+   *             <p> After March 31, 2021, you won't be able to create a server using
+   *           <code>EndpointType=VPC_ENDPOINT</code> in your AWS account if your account hasn't already
+   *       done so before March 31, 2021. If you have already created servers with
+   *       <code>EndpointType=VPC_ENDPOINT</code> in your AWS account on or before March 31, 2021,
+   *         you will not be affected. After this date, use
+   *         <code>EndpointType</code>=<code>VPC</code>.</p>
+   *
+   *             <p>For more information, see
+   *         https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</p>
    *             <p>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>. With
    *         this endpoint type, you have the option to directly associate up to three Elastic IPv4
    *         addresses (BYO IP included) with your server's endpoint and use VPC security groups to
@@ -277,20 +616,24 @@ export interface CreateServerRequest {
   HostKey?: string;
 
   /**
-   * <p>Required when <code>IdentityProviderType</code> is set to <code>API_GATEWAY</code>.
-   *       Accepts an array containing all of the information required to call a customer-supplied
-   *       authentication API, including the API Gateway URL. Not required when
-   *         <code>IdentityProviderType</code> is set to <code>SERVICE_MANAGED</code>.</p>
+   * <p>Required when <code>IdentityProviderType</code> is set to
+   *         <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>. Accepts an array containing
+   *       all of the information required to use a directory in <code>AWS_DIRECTORY_SERVICE</code> or
+   *       invoke a customer-supplied authentication API, including the API Gateway URL. Not required
+   *       when <code>IdentityProviderType</code> is set to <code>SERVICE_MANAGED</code>.</p>
    */
   IdentityProviderDetails?: IdentityProviderDetails;
 
   /**
    * <p>Specifies the mode of authentication for a server. The default value is
    *         <code>SERVICE_MANAGED</code>, which allows you to store and access user credentials within
-   *       the AWS Transfer Family service. Use the <code>API_GATEWAY</code> value to integrate with an
-   *       identity provider of your choosing. The <code>API_GATEWAY</code> setting requires you to
-   *       provide an API Gateway endpoint URL to call for authentication using the
-   *         <code>IdentityProviderDetails</code> parameter.</p>
+   *       the AWS Transfer Family service. Use <code>AWS_DIRECTORY_SERVICE</code> to provide access to
+   *       Active Directory groups in AWS Managed Active Directory or Microsoft Active Directory in your
+   *       on-premises environment or in AWS using AD Connectors. This option also requires you to
+   *       provide a Directory ID using the <code>IdentityProviderDetails</code> parameter. Use the
+   *         <code>API_GATEWAY</code> value to integrate with an identity provider of your choosing. The
+   *         <code>API_GATEWAY</code> setting requires you to provide an API Gateway endpoint URL to call
+   *       for authentication using the <code>IdentityProviderDetails</code> parameter.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
 
@@ -328,7 +671,7 @@ export interface CreateServerRequest {
    *
    *             <p>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then the
    *           <code>EndpointType</code> must be <code>VPC</code> and the
-   *           <code>IdentityProviderType</code> must be <code>API_GATEWAY</code>.</p>
+   *           <code>IdentityProviderType</code> must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.</p>
    *
    *             <p>If <code>Protocol</code> includes <code>FTP</code>, then
    *           <code>AddressAllocationIds</code> cannot be associated.</p>
@@ -378,80 +721,6 @@ export namespace CreateServerResponse {
 }
 
 /**
- * <p>This exception is thrown when an error occurs in the AWS Transfer Family service.</p>
- */
-export interface InternalServiceError extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceError";
-  $fault: "server";
-  Message: string | undefined;
-}
-
-export namespace InternalServiceError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceError): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>This exception is thrown when the client submits a malformed request.</p>
- */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
-  Message: string | undefined;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The requested resource does not exist.</p>
- */
-export interface ResourceExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceExistsException";
-  $fault: "client";
-  Message: string | undefined;
-  Resource: string | undefined;
-  ResourceType: string | undefined;
-}
-
-export namespace ResourceExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceExistsException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request has failed because the AWS Transfer Family service is not available.</p>
- */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  Message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>The request was denied due to request throttling.</p>
  *
  *          <p> HTTP Status Code: 400</p>
@@ -471,60 +740,12 @@ export namespace ThrottlingException {
   });
 }
 
-/**
- * <p>Represents an object that contains entries and targets for
- *         <code>HomeDirectoryMappings</code>.</p>
- */
-export interface HomeDirectoryMapEntry {
-  /**
-   * <p>Represents an entry and a target for <code>HomeDirectoryMappings</code>.</p>
-   */
-  Entry: string | undefined;
-
-  /**
-   * <p>Represents the map target that is used in a <code>HomeDirectorymapEntry</code>.</p>
-   */
-  Target: string | undefined;
-}
-
-export namespace HomeDirectoryMapEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HomeDirectoryMapEntry): any => ({
-    ...obj,
-  });
-}
-
-export enum HomeDirectoryType {
-  LOGICAL = "LOGICAL",
-  PATH = "PATH",
-}
-
-export interface PosixProfile {
-  Uid: number | undefined;
-  Gid: number | undefined;
-  SecondaryGids?: number[];
-}
-
-export namespace PosixProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PosixProfile): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUserRequest {
   /**
    * <p>The landing directory (folder) for a user when they log in to the server using the
    *       client.</p>
    *
-   *          <p>An example is
-   *       <i>
-   *                <code>your-Amazon-S3-bucket-name>/home/username</code>
-   *             </i>.</p>
+   *          <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>
    */
   HomeDirectory?: string;
 
@@ -539,29 +760,40 @@ export interface CreateUserRequest {
   HomeDirectoryType?: HomeDirectoryType | string;
 
   /**
-   * <p>Logical directory mappings that specify what Amazon S3 paths and keys should be visible to
+   * <p>Logical directory mappings that specify what Amazon S3 or EFS paths and keys should be visible to
    *       your user and how you want to make them visible. You will need to specify the
-   *         "<code>Entry</code>" and "<code>Target</code>" pair, where <code>Entry</code> shows how the
-   *       path is made visible and <code>Target</code> is the actual Amazon S3 path. If you only specify
-   *       a target, it will be displayed as is. You will need to also make sure that your IAM role
-   *       provides access to paths in <code>Target</code>. The following is an example.</p>
+   *         <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path
+   *       is made visible and <code>Target</code> is the actual Amazon S3 or EFS path. If you only specify a
+   *       target, it will be displayed as is. You will need to also make sure that your IAM role
+   *       provides access to paths in <code>Target</code>. This value can only be set when
+   *         <code>HomeDirectoryType</code> is set to <code>LOGICAL</code>.</p>
+   *
+   *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
    *
    *          <p>
-   *             <code>'[ "/bucket2/documentation", { "Entry": "your-personal-report.pdf", "Target":
-   *         "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]'</code>
+   *             <code>[ { "Entry": "your-personal-report.pdf", "Target":
+   *         "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]</code>
    *          </p>
    *
    *          <p>In most cases, you can use this value instead of the scope-down policy to lock your user
-   *       down to the designated home directory ("chroot"). To do this, you can set <code>Entry</code>
-   *       to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>
+   *       down to the designated home directory ("<code>chroot</code>"). To do this, you can set
+   *         <code>Entry</code> to <code>/</code> and set <code>Target</code> to the HomeDirectory
+   *       parameter value.</p>
+   *
+   *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for
+   *         <code>chroot</code>.</p>
+   *
+   *          <p>
+   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *          </p>
    *
    *          <note>
-   *             <p>If the target of a logical directory entry does not exist in Amazon S3, the entry will
-   *         be ignored. As a workaround, you can use the Amazon S3 API to create 0 byte objects as place
-   *         holders for your directory. If using the CLI, use the <code>s3api</code> call instead of
-   *           <code>s3</code> so you can use the put-object operation. For example, you use the
+   *             <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry will
+   *         be ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0 byte objects as place
+   *         holders for your directory. If using the CLI, use the <code>s3api</code> or <code>efsapi</code> call instead of
+   *         <code>s3</code> or <code>efs</code> so you can use the put-object operation. For example, you use the
    *         following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make
-   *         sure that the end of the key name ends in a '/' for it to be considered a
+   *         sure that the end of the key name ends in a <code>/</code> for it to be considered a
    *         folder.</p>
    *          </note>
    */
@@ -574,14 +806,15 @@ export interface CreateUserRequest {
    *         <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
    *
    *          <note>
+   *             <p>This only applies when domain of ServerId is S3. EFS does not use scope down policy.</p>
    *             <p>For scope-down policies, AWS Transfer Family stores the policy as a JSON blob, instead
    *         of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass
    *         it in the <code>Policy</code> argument.</p>
    *
    *
    *
-   *             <p>For an example of a scope-down policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/users.html#users-policies-scope-down">Creating a scope-down
-   *           policy</a>.</p>
+   *             <p>For an example of a scope-down policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/scope-down-policy.html">Example scope-down
+   *         policy</a>.</p>
    *
    *
    *
@@ -591,11 +824,20 @@ export interface CreateUserRequest {
    */
   Policy?: string;
 
-  PosixProfile?: PosixProfile;
   /**
-   * <p>The IAM role that controls your users' access to your Amazon S3 bucket. The policies
+   * <p>Specifies the full POSIX identity, including user ID (<code>Uid</code>), group ID
+   *         (<code>Gid</code>), and any secondary groups IDs (<code>SecondaryGids</code>), that controls
+   *       your users' access to your Amazon EFS file systems. The POSIX permissions that are set on
+   *       files and directories in Amazon EFS determine the level of access your users get when
+   *       transferring files into and out of your Amazon EFS file systems.</p>
+   */
+  PosixProfile?: PosixProfile;
+
+  /**
+   * <p>Specifies the IAM role that controls your users' access to your Amazon S3 bucket or EFS file system. The policies
    *       attached to this role will determine the level of access you want to provide your users when
-   *       transferring files into and out of your Amazon S3 bucket or buckets. The IAM role should also
+   *       transferring files into and out of your Amazon S3 bucket or EFS file system. The IAM role should also
+   *
    *       contain a trust relationship that allows the server to access your resources when servicing
    *       your users' transfer requests.</p>
    */
@@ -659,23 +901,34 @@ export namespace CreateUserResponse {
   });
 }
 
-/**
- * <p>This exception is thrown when a resource is not found by the AWS Transfer Family
- *       service.</p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  Message: string | undefined;
-  Resource: string | undefined;
-  ResourceType: string | undefined;
+export interface DeleteAccessRequest {
+  /**
+   * <p>A system-assigned unique identifier for a server that has this user assigned.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>A unique identifier that is required to identify specific groups within your directory.
+   *       The users of the group that you associate have access to your Amazon S3 or Amazon EFS
+   *       resources over the enabled protocols using AWS Transfer Family. If you know the group name,
+   *       you can view the SID values by running the following command using Windows PowerShell.</p>
+   *          <p>
+   *             <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamaccountName,ObjectSid</code>
+   *          </p>
+   *          <p>In that command, replace <i>YourGroupName</i> with the name of your Active
+   *       Directory group.</p>
+   *          <p>The regex used to validate this parameter is a string of characters consisting of
+   *       uppercase and lowercase alphanumeric characters with no spaces. You can also include
+   *       underscores or any of the following characters: =,.@:/-</p>
+   */
+  ExternalId: string | undefined;
 }
 
-export namespace ResourceNotFoundException {
+export namespace DeleteAccessRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+  export const filterSensitiveLog = (obj: DeleteAccessRequest): any => ({
     ...obj,
   });
 }
@@ -741,6 +994,146 @@ export namespace DeleteUserRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAccessRequest {
+  /**
+   * <p>A system-assigned unique identifier for a server that has this access assigned.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>A unique identifier that is required to identify specific groups within your directory.
+   *       The users of the group you associate have access to your Amazon S3 or Amazon EFS resources
+   *       over the enabled protocols using AWS Transfer Family. If you know the group name, you can view
+   *       the SID values by running the following command using Windows PowerShell.</p>
+   *          <p>
+   *             <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamaccountName,ObjectSid</code>
+   *          </p>
+   *          <p>In that command, replace <i>YourGroupName</i> with the name of your Active
+   *       Directory group.</p>
+   *          <p>The regex used to validate this parameter is a string of characters consisting of
+   *       uppercase and lowercase alphanumeric characters with no spaces. You can also include
+   *       underscores or any of the following characters: =,.@:/-</p>
+   */
+  ExternalId: string | undefined;
+}
+
+export namespace DescribeAccessRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAccessRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the properties of the access that was specified.</p>
+ */
+export interface DescribedAccess {
+  /**
+   * <p>Specifies the landing directory (or folder), which is the location that files are written
+   *       to or read from in an Amazon S3 bucket, for the described access.</p>
+   */
+  HomeDirectory?: string;
+
+  /**
+   * <p>Specifies the logical directory mappings that specify what Amazon S3 or Amazon EFS paths
+   *       and keys should be visible to the associated access and how you want to make them visible. You
+   *       must specify the "<code>Entry</code>" and "<code>Target</code>" pair, where <code>Entry</code>
+   *       shows how the path is made visible and <code>Target</code> is the actual Amazon S3 or EFS
+   *       path. If you only specify a target, it will be displayed as is. You also must ensure that your
+   *       AWS Identity and Access Management (IAM) role provides access to paths in
+   *       <code>Target</code>.</p>
+   *
+   *          <p>In most cases, you can use this value instead of the scope-down policy to lock down the
+   *       associated access to the designated home directory ("<code>chroot</code>"). To do this, you
+   *       can set <code>Entry</code> to '/' and set <code>Target</code> to the
+   *         <code>HomeDirectory</code> parameter value.</p>
+   */
+  HomeDirectoryMappings?: HomeDirectoryMapEntry[];
+
+  /**
+   * <p>The type of landing directory (folder) that you want your users' home directory to be when
+   *       they log in to the server. If you set it to <code>PATH</code>, the user will see the absolute
+   *       Amazon S3 bucket paths as is in their file transfer protocol clients. If you set it to
+   *         <code>LOGICAL</code>, you must provide mappings in the <code>HomeDirectoryMappings</code>
+   *       for how you want to make Amazon S3 paths visible to your users.</p>
+   */
+  HomeDirectoryType?: HomeDirectoryType | string;
+
+  /**
+   * <p>A scope-down policy for your user so that you can use the same AWS Identity and Access
+   *       Management (IAM) role across multiple users. This policy scopes down user access to portions
+   *       of their Amazon S3 bucket. Variables that you can use inside this policy include
+   *         <code>${Transfer:UserName}</code>, <code>${Transfer:HomeDirectory}</code>, and
+   *         <code>${Transfer:HomeBucket}</code>.</p>
+   */
+  Policy?: string;
+
+  /**
+   * <p>The full POSIX identity, including user ID (<code>Uid</code>), group ID
+   *       (<code>Gid</code>), and any secondary groups IDs (<code>SecondaryGids</code>), that controls
+   *       your users' access to your Amazon EFS file systems. The POSIX permissions that are set on
+   *       files and directories in your file system determine the level of access your users get when
+   *       transferring files into and out of your Amazon EFS file systems.</p>
+   */
+  PosixProfile?: PosixProfile;
+
+  /**
+   * <p>The IAM role that controls access to your Amazon S3 bucket from the specified associated
+   *       access. The policies attached to this role will determine the level of access that you want to
+   *       provide the associated access when transferring files into and out of your Amazon S3 bucket or
+   *       buckets. The IAM role should also contain a trust relationship that allows a server to access
+   *       your resources when servicing transfer requests for the associated access.</p>
+   */
+  Role?: string;
+
+  /**
+   * <p>A unique identifier that might be required when you assume a role in another account.
+   *       Think of the <code>ExternalID</code> as a group membership mechanism that uses a unique
+   *       identifier (often a SID, but could be a group name or something else) as a basis. If the
+   *       administrator of the account to which the role belongs provided you with an external ID, then
+   *       provide that value in the <code>ExternalId</code> parameter. A cross-account role is usually
+   *       set up to trust everyone in an account. Therefore, the administrator of the trusting account
+   *       might send an external ID to the administrator of the trusted account. That way, only someone
+   *       with the ID can assume the role, rather than everyone in the account.</p>
+   *          <p>The regex used to validate this parameter is a string of characters consisting of
+   *       uppercase and lowercase alphanumeric characters with no spaces. You can also include
+   *       underscores or any of the following characters: =,.@:/-</p>
+   */
+  ExternalId?: string;
+}
+
+export namespace DescribedAccess {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribedAccess): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAccessResponse {
+  /**
+   * <p>A system-assigned unique identifier for a server that has this access assigned.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>The external ID of the server that the access is attached to.</p>
+   */
+  Access: DescribedAccess | undefined;
+}
+
+export namespace DescribeAccessResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAccessResponse): any => ({
     ...obj,
   });
 }
@@ -821,7 +1214,11 @@ export interface DescribedServer {
    */
   Certificate?: string;
 
+  /**
+   * <p>Specifies the domain of the storage system that is used for file transfers.</p>
+   */
   Domain?: Domain | string;
+
   /**
    * <p>Specifies the virtual private cloud (VPC) endpoint settings that you configured for your
    *       server.</p>
@@ -844,22 +1241,24 @@ export interface DescribedServer {
   /**
    * <p>Specifies information to call a customer-supplied authentication API. This field is not
    *       populated when the <code>IdentityProviderType</code> of a server is
-   *         <code>SERVICE_MANAGED</code>.</p>
+   *       <code>AWS_DIRECTORY_SERVICE</code> or <code>SERVICE_MANAGED</code>.</p>
    */
   IdentityProviderDetails?: IdentityProviderDetails;
 
   /**
    * <p>Specifies the mode of authentication method enabled for this service. A value of
-   *         <code>SERVICE_MANAGED</code> means that you are using this server to store and access user
-   *       credentials within the service. A value of <code>API_GATEWAY</code> indicates that you have
-   *       integrated an API Gateway endpoint that will be invoked for authenticating your user into the
-   *       service.</p>
+   *         <code>AWS_DIRECTORY_SERVICE</code> means that you are providing access to Active Directory
+   *       groups in AWS Managed Active Directory or Microsoft Active Directory in your on-premises
+   *       environment or in AWS using AD Connectors. A value of <code>SERVICE_MANAGED</code> means that
+   *       you are using this server to store and access user credentials within the service. A value of
+   *         <code>API_GATEWAY</code> indicates that you have integrated an API Gateway endpoint that
+   *       will be invoked for authenticating your user into the service.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
 
   /**
    * <p>Specifies the AWS Identity and Access Management (IAM) role that allows a server to turn
-   *       on Amazon CloudWatch logging for Amazon S3 events. When set, user activity can be viewed in
+   *       on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, user activity can be viewed in
    *       your CloudWatch logs.</p>
    */
   LoggingRole?: string;
@@ -987,25 +1386,26 @@ export interface DescribedUser {
   HomeDirectory?: string;
 
   /**
-   * <p>Specifies the logical directory mappings that specify what Amazon S3 paths and keys should
+   * <p>Specifies the logical directory mappings that specify what Amazon S3 or EFS paths and keys should
    *       be visible to your user and how you want to make them visible. You will need to specify the
    *         "<code>Entry</code>" and "<code>Target</code>" pair, where <code>Entry</code> shows how the
-   *       path is made visible and <code>Target</code> is the actual Amazon S3 path. If you only specify
+   *       path is made visible and <code>Target</code> is the actual Amazon S3 or EFS path. If you only specify
    *       a target, it will be displayed as is. You will need to also make sure that your AWS Identity
    *       and Access Management (IAM) role provides access to paths in <code>Target</code>.</p>
    *
    *          <p>In most cases, you can use this value instead of the scope-down policy to lock your user
-   *       down to the designated home directory ("chroot"). To do this, you can set <code>Entry</code>
-   *       to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>
+   *       down to the designated home directory ("<code>chroot</code>"). To do this, you can set
+   *         <code>Entry</code> to '/' and set <code>Target</code> to the HomeDirectory
+   *       parameter value.</p>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
   /**
    * <p>Specifies the type of landing directory (folder) you mapped for your users to see when
    *       they log into the file transfer protocol-enabled server. If you set it to <code>PATH</code>,
-   *       the user will see the absolute Amazon S3 bucket paths as is in their file transfer protocol
+   *       the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer protocol
    *       clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in the
-   *         <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 paths visible to your
+   *         <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 or EFS paths visible to your
    *       users.</p>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
@@ -1015,9 +1415,18 @@ export interface DescribedUser {
    */
   Policy?: string;
 
-  PosixProfile?: PosixProfile;
   /**
-   * <p>Specifies the IAM role that controls your users' access to your Amazon S3 bucket. The
+   * <p>Specifies the full POSIX identity, including user ID (<code>Uid</code>), group ID
+   *         (<code>Gid</code>), and any secondary groups IDs (<code>SecondaryGids</code>), that controls
+   *       your users' access to your Amazon Elastic File System (Amazon EFS) file systems. The POSIX
+   *       permissions that are set on files and directories in your file system determine the level of
+   *       access your users get when transferring files into and out of your Amazon EFS file
+   *       systems.</p>
+   */
+  PosixProfile?: PosixProfile;
+
+  /**
+   * <p>The IAM role that controls your users' access to your Amazon S3 bucket. The
    *       policies attached to this role will determine the level of access you want to provide your
    *       users when transferring files into and out of your Amazon S3 bucket or buckets. The IAM role
    *       should also contain a trust relationship that allows a server to access your resources when
@@ -1238,6 +1647,119 @@ export namespace InvalidNextTokenException {
   });
 }
 
+export interface ListAccessesRequest {
+  /**
+   * <p>Specifies the maximum number of access SIDs to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>When you can get additional results from the <code>ListAccesses</code> call, a
+   *         <code>NextToken</code> parameter is returned in the output. You can then pass in a
+   *       subsequent command to the <code>NextToken</code> parameter to continue listing additional
+   *       accesses.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A system-assigned unique identifier for a server that has users assigned to it.</p>
+   */
+  ServerId: string | undefined;
+}
+
+export namespace ListAccessesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAccessesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Lists the properties for one or more specified associated accesses.</p>
+ */
+export interface ListedAccess {
+  /**
+   * <p>Specifies the landing directory (or folder), which is the location that files are written
+   *       to or read from in an Amazon S3 bucket, for the described access.</p>
+   */
+  HomeDirectory?: string;
+
+  /**
+   * <p>The type of landing directory (folder) that you want your users' home directory to be when
+   *       they log in to the server. If you set it to <code>PATH</code>, the user will see the absolute
+   *       Amazon S3 bucket paths as is in their file transfer protocol clients. If you set it to
+   *         <code>LOGICAL</code>, you must provide mappings in the <code>HomeDirectoryMappings</code>
+   *       for how you want to make Amazon S3 paths visible to your users.</p>
+   */
+  HomeDirectoryType?: HomeDirectoryType | string;
+
+  /**
+   * <p>The AWS Identity and Access Management (IAM) role that controls access to your Amazon S3
+   *       bucket from the specified associated access. The policies attached to this role will determine
+   *       the level of access that you want to provide the associated access when transferring files
+   *       into and out of your Amazon S3 bucket or buckets. The IAM role should also contain a trust
+   *       relationship that allows a server to access your resources when servicing transfer requests
+   *       for the associated access.</p>
+   */
+  Role?: string;
+
+  /**
+   * <p>A unique identifier that might be required when you assume a role in another account. Think
+   *       of the <code>ExternalID</code> as a group membership mechanism that uses a unique identifier
+   *       (often a SID, but could be a group name or something else) as a basis. If the administrator of
+   *       the account to which the role belongs provided you with an external ID, then provide that
+   *       value in the <code>ExternalId</code> parameter. A cross-account role is usually set up to
+   *       trust everyone in an account. Therefore, the administrator of the trusting account might send
+   *       an external ID to the administrator of the trusted account. That way, only someone with the ID
+   *       can assume the role, rather than everyone in the account.</p>
+   *          <p>The regex used to validate this parameter is a string of characters consisting of
+   *       uppercase and lowercase alphanumeric characters with no spaces. You can also include
+   *       underscores or any of the following characters: =,.@:/-</p>
+   */
+  ExternalId?: string;
+}
+
+export namespace ListedAccess {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListedAccess): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAccessesResponse {
+  /**
+   * <p>When you can get additional results from the <code>ListAccesses</code> call, a
+   *         <code>NextToken</code> parameter is returned in the output. You can then pass in a
+   *       subsequent command to the <code>NextToken</code> parameter to continue listing additional
+   *       accesses.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A system-assigned unique identifier for a server that has users assigned to it.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>Returns the accesses and their properties for the <code>ServerId</code> value that you
+   *       specify.</p>
+   */
+  Accesses: ListedAccess[] | undefined;
+}
+
+export namespace ListAccessesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAccessesResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Returns properties of a file transfer protocol-enabled server that was specified.</p>
  */
@@ -1247,12 +1769,15 @@ export interface ListedServer {
    */
   Arn: string | undefined;
 
+  /**
+   * <p>Specifies the domain of the storage system that is used for file transfers.</p>
+   */
   Domain?: Domain | string;
+
   /**
    * <p>Specifies the authentication method used to validate a user for a server that was
-   *       specified. This can include Secure Shell (SSH), user name and password combinations, or your
-   *       own custom authentication method. Valid values include <code>SERVICE_MANAGED</code> or
-   *         <code>API_GATEWAY</code>.</p>
+   *       specified. This can include Secure Shell (SSH), Active Directory groups, user name and
+   *       password combinations, or your own custom authentication method. </p>
    */
   IdentityProviderType?: IdentityProviderType | string;
 
@@ -1334,6 +1859,14 @@ export interface ListedUser {
    *       protocol-enabled server to act on a user's behalf. It allows the server to inherit the
    *       trust relationship that enables that user to perform file operations to their Amazon S3
    *       bucket.</p>
+   *          <note>
+   *
+   *             <p>The IAM role that controls your users' access to your Amazon S3 bucket for servers with <code>Domain=S3</code>, or your EFS file system for servers with <code>Domain=EFS</code>.
+   *         </p>
+   *             <p>The policies attached to this role determine the level of access you want to provide your users when
+   *         transferring files into and out of your S3 buckets or EFS file systems.</p>
+   *
+   *          </note>
    */
   Role?: string;
 
@@ -1735,6 +2268,149 @@ export namespace UntagResourceRequest {
   });
 }
 
+export interface UpdateAccessRequest {
+  /**
+   * <p>The landing directory (folder) for a user when they log in to the server using the client.</p>
+   *          <p>A <code>HomeDirectory</code> example is <code>/directory_name/home/mydirectory</code>.</p>
+   */
+  HomeDirectory?: string;
+
+  /**
+   * <p>The type of landing directory (folder) that you want your users' home directory to be when
+   *       they log in to the server. If you set it to <code>PATH</code>, the user will see the absolute
+   *       Amazon S3 bucket paths as is in their file transfer protocol clients. If you set it
+   *       <code>LOGICAL</code>, you must provide mappings in the <code>HomeDirectoryMappings</code>
+   *       for how you want to make Amazon S3 paths visible to your users.</p>
+   */
+  HomeDirectoryType?: HomeDirectoryType | string;
+
+  /**
+   * <p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should
+   *       be visible to your user and how you want to make them visible. You must specify the
+   *       <code>Entry</code> and <code>Target</code> pair, where <code>Entry</code> shows how the path
+   *       is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you
+   *       only specify a target, it will be displayed as is. You also must ensure that your AWS Identity
+   *       and Access Management (IAM) role provides access to paths in <code>Target</code>. This value
+   *       can only be set when <code>HomeDirectoryType</code> is set to
+   *       <i>LOGICAL</i>.</p>
+   *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
+   *          <p>
+   *             <code>[ { "Entry": "your-personal-report.pdf", "Target": "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]</code>
+   *          </p>
+   *          <p>In most cases, you can use this value instead of the scope-down policy to lock down your
+   *         user to the designated home directory ("<code>chroot</code>"). To do this, you can set
+   *         <code>Entry</code> to <code>/</code> and set <code>Target</code> to the
+   *         <code>HomeDirectory</code> parameter value.</p>
+   *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example for <code>chroot</code>.</p>
+   *          <p>
+   *             <code>[ { "Entry": "/", "Target": "/bucket_name/home/mydirectory" } ]</code>
+   *          </p>
+   *          <note>
+   *             <p>If the target of a logical directory entry does not exist in Amazon S3 or Amazon EFS, the
+   *         entry will be ignored. As a workaround, you can use the Amazon S3 API or EFS API to create
+   *         0-byte objects as place holders for your directory. If using the AWS CLI, use the
+   *         <code>s3api</code> or <code>efsapi</code> call instead of <code>s3</code> or
+   *         <code>efs</code> so you can use the <code>put-object</code> operation. For example, you
+   *         can use the following.</p>
+   *             <p>
+   *                <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>
+   *             </p>
+   *             <p>The end of the key name must end in a <code>/</code> for it to be considered a
+   *           folder.</p>
+   *          </note>
+   *          <p>Required: No</p>
+   */
+  HomeDirectoryMappings?: HomeDirectoryMapEntry[];
+
+  /**
+   * <p></p>
+   *          <p>A scope-down policy for your user so that you can use the same IAM role across multiple
+   *       users. This policy scopes down user access to portions of their Amazon S3 bucket. Variables
+   *       that you can use inside this policy include <code>${Transfer:UserName}</code>,
+   *       <code>${Transfer:HomeDirectory}</code>, and <code>${Transfer:HomeBucket}</code>.</p>
+   *          <note>
+   *             <p>This only applies when domain of <code>ServerId</code> is S3. Amazon EFS does not use scope
+   *       down policy.</p>
+   *             <p>For scope-down policies, AWS Transfer Family stores the policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob and pass it in the <code>Policy</code> argument.</p>
+   *             <p>For an example of a scope-down policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/scope-down-policy.html">Example
+   *         scope-down policy</a>.</p>
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> in the <i>AWS Security Token Service API
+   *           Reference</i>.</p>
+   *          </note>
+   */
+  Policy?: string;
+
+  /**
+   * <p>The full POSIX identity, including user ID (<code>Uid</code>), group ID
+   *       (<code>Gid</code>), and any secondary groups IDs (<code>SecondaryGids</code>), that controls
+   *       your users' access to your Amazon EFS file systems. The POSIX permissions that are set on
+   *       files and directories in your file system determine the level of access your users get when
+   *       transferring files into and out of your Amazon EFS file systems.</p>
+   */
+  PosixProfile?: PosixProfile;
+
+  /**
+   * <p>Specifies the IAM role that controls your users' access to your Amazon S3 bucket or EFS
+   *       file system. The policies attached to this role determine the level of access that you want to
+   *       provide your users when transferring files into and out of your Amazon S3 bucket or EFS file
+   *       system. The IAM role should also contain a trust relationship that allows the server to access
+   *       your resources when servicing your users' transfer requests.</p>
+   */
+  Role?: string;
+
+  /**
+   * <p>A system-assigned unique identifier for a server instance. This is the specific server that you added your user to.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>A unique identifier that is required to identify specific groups within your directory.
+   *       The users of the group that you associate have access to your Amazon S3 or Amazon EFS
+   *       resources over the enabled protocols using AWS Transfer Family. If you know the group name,
+   *       you can view the SID values by running the following command using Windows PowerShell.</p>
+   *          <p>
+   *             <code>Get-ADGroup -Filter {samAccountName -like "<i>YourGroupName</i>*"} -Properties * | Select SamaccountName,ObjectSid</code>
+   *          </p>
+   *          <p>In that command, replace <i>YourGroupName</i> with the name of your Active
+   *       Directory group.</p>
+   *          <p>The regex used to validate this parameter is a string of characters consisting of
+   *       uppercase and lowercase alphanumeric characters with no spaces. You can also include
+   *       underscores or any of the following characters: =,.@:/-</p>
+   */
+  ExternalId: string | undefined;
+}
+
+export namespace UpdateAccessRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAccessRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAccessResponse {
+  /**
+   * <p>The ID of the server that the user is attached to.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>The external ID of the group whose users have access to your Amazon S3 or Amazon EFS
+   *       resources over the enabled protocols using AWS Transfer Family.</p>
+   */
+  ExternalId: string | undefined;
+}
+
+export namespace UpdateAccessResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAccessResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateServerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required
@@ -1787,11 +2463,19 @@ export interface UpdateServerRequest {
   EndpointDetails?: EndpointDetails;
 
   /**
-   * <p>The type of endpoint that you want your server to connect to. You can choose to connect to
-   *       the public internet or a VPC endpoint. With a VPC endpoint, you can restrict access to your
-   *       server and resources only within your VPC.</p>
-   *
+   * <p>The type of endpoint that you want your server to use. You can choose to make your server's endpoint publicly accessible (PUBLIC)
+   *       or host it inside your VPC. With an endpoint that is hosted in a VPC, you can restrict access to your server and
+   *       resources only within your VPC or choose to make it internet facing by attaching Elastic IP addresses directly to it.</p>
    *          <note>
+   *             <p> After March 31, 2021, you won't be able to create a server using
+   *           <code>EndpointType=VPC_ENDPOINT</code> in your AWS account if your account hasn't already
+   *       done so before March 31, 2021. If you have already created servers with
+   *       <code>EndpointType=VPC_ENDPOINT</code> in your AWS account on or before March 31, 2021,
+   *         you will not be affected. After this date, use
+   *         <code>EndpointType</code>=<code>VPC</code>.</p>
+   *
+   *             <p>For more information, see
+   *         https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</p>
    *             <p>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>. With
    *         this endpoint type, you have the option to directly associate up to three Elastic IPv4
    *         addresses (BYO IP included) with your server's endpoint and use VPC security groups to
@@ -1825,7 +2509,7 @@ export interface UpdateServerRequest {
   IdentityProviderDetails?: IdentityProviderDetails;
 
   /**
-   * <p>Changes the AWS Identity and Access Management (IAM) role that allows Amazon S3 events to
+   * <p>Changes the AWS Identity and Access Management (IAM) role that allows Amazon S3 or Amazon EFS events to
    *       be logged in Amazon CloudWatch, turning logging on or off.</p>
    */
   LoggingRole?: string;
@@ -1851,9 +2535,10 @@ export interface UpdateServerRequest {
    *         Manager (ACM) which will be used to identify your server when clients connect to it over
    *         FTPS.</p>
    *
+   *
    *             <p>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then the
-   *           <code>EndpointType</code> must be <code>VPC</code> and the
-   *           <code>IdentityProviderType</code> must be <code>API_GATEWAY</code>.</p>
+   *         <code>EndpointType</code> must be <code>VPC</code> and the
+   *         <code>IdentityProviderType</code> must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.</p>
    *
    *             <p>If <code>Protocol</code> includes <code>FTP</code>, then
    *           <code>AddressAllocationIds</code> cannot be associated.</p>
@@ -1916,18 +2601,18 @@ export interface UpdateUserRequest {
   /**
    * <p>The type of landing directory (folder) you want your users' home directory to be when
    *       they log into the server. If you set it to <code>PATH</code>, the user will see the absolute
-   *       Amazon S3 bucket paths as is in their file transfer protocol clients. If you set it
+   *       Amazon S3 bucket or EFS paths as is in their file transfer protocol clients. If you set it
    *         <code>LOGICAL</code>, you will need to provide mappings in the
-   *         <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 paths visible to your
+   *         <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 or EFS paths visible to your
    *       users.</p>
    */
   HomeDirectoryType?: HomeDirectoryType | string;
 
   /**
-   * <p>Logical directory mappings that specify what Amazon S3 paths and keys should be visible to
+   * <p>Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should be visible to
    *       your user and how you want to make them visible. You will need to specify the
    *         "<code>Entry</code>" and "<code>Target</code>" pair, where <code>Entry</code> shows how the
-   *       path is made visible and <code>Target</code> is the actual Amazon S3 path. If you only specify
+   *       path is made visible and <code>Target</code> is the actual Amazon S3 or Amazon EFS path. If you only specify
    *       a target, it will be displayed as is. You will need to also make sure that your IAM role
    *       provides access to paths in <code>Target</code>. The following is an example.</p>
    *
@@ -1936,15 +2621,17 @@ export interface UpdateUserRequest {
    *         "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]'</code>
    *          </p>
    *
-   *          <p>In most cases, you can use this value instead of the scope-down policy to lock your user
-   *       down to the designated home directory ("chroot"). To do this, you can set <code>Entry</code>
-   *       to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>
+   *          <p>In most cases, you can use this value instead of the scope-down policy to lock down your
+   *       user to the designated home directory ("<code>chroot</code>"). To do this, you can set
+   *         <code>Entry</code> to '/' and set <code>Target</code> to the HomeDirectory
+   *       parameter value.</p>
    *
    *          <note>
-   *             <p>If the target of a logical directory entry does not exist in Amazon S3, the entry will
-   *         be ignored. As a workaround, you can use the Amazon S3 API to create 0 byte objects as place
-   *         holders for your directory. If using the CLI, use the <code>s3api</code> call instead of
-   *           <code>s3</code> so you can use the put-object operation. For example, you use the
+   *             <p>If the target of a logical directory entry does not exist in Amazon S3 or EFS, the entry
+   *         will be ignored. As a workaround, you can use the Amazon S3 API or EFS API to create 0-byte
+   *         objects as place holders for your directory. If using the AWS CLI, use the
+   *           <code>s3api</code> or <code>efsapi</code> call instead of <code>s3</code>
+   *                <code>efs</code> so you can use the put-object operation. For example, you use the
    *         following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make
    *         sure that the end of the key name ends in a / for it to be considered a folder.</p>
    *          </note>
@@ -1963,6 +2650,7 @@ export interface UpdateUserRequest {
    *
    *
    *
+   *
    *             <p>For an example of a scope-down policy, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/users.html#users-policies-scope-down">Creating a scope-down
    *           policy</a>.</p>
    *
@@ -1974,13 +2662,21 @@ export interface UpdateUserRequest {
    */
   Policy?: string;
 
+  /**
+   * <p>Specifies the full POSIX identity, including user ID (<code>Uid</code>), group ID
+   *         (<code>Gid</code>), and any secondary groups IDs (<code>SecondaryGids</code>), that controls
+   *       your users' access to your Amazon Elastic File Systems (Amazon EFS). The POSIX permissions
+   *       that are set on files and directories in your file system determines the level of access your
+   *       users get when transferring files into and out of your Amazon EFS file systems.</p>
+   */
   PosixProfile?: PosixProfile;
+
   /**
    * <p>The IAM role that controls your users' access to your Amazon S3 bucket. The policies
-   *       attached to this role will determine the level of access you want to provide your users when
-   *       transferring files into and out of your Amazon S3 bucket or buckets. The IAM role should also
-   *       contain a trust relationship that allows the server to access your resources when servicing
-   *       your users' transfer requests.</p>
+   *       attached to this role determine the level of access you want to provide your users when
+   *       transferring files into and out of your S3 bucket or buckets. The IAM role should also contain
+   *       a trust relationship that allows the server to access your resources when servicing your
+   *       users' transfer requests.</p>
    */
   Role?: string;
 

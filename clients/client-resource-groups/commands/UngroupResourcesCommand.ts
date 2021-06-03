@@ -22,11 +22,11 @@ export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, _
 
 /**
  * <p>Removes the specified resources from the specified group.</p>
- *          <p>
+ *         <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
+ *         <ul>
  *             <li>
  *                 <p>
  *                   <code>resource-groups:UngroupResources</code>

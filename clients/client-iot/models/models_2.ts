@@ -45,6 +45,250 @@ import {
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+/**
+ * <p>The input to the RegisterCACertificate operation.</p>
+ */
+export interface RegisterCACertificateRequest {
+  /**
+   * <p>The CA certificate.</p>
+   */
+  caCertificate: string | undefined;
+
+  /**
+   * <p>The private key verification certificate.</p>
+   */
+  verificationCertificate: string | undefined;
+
+  /**
+   * <p>A boolean value that specifies if the CA certificate is set to active.</p>
+   */
+  setAsActive?: boolean;
+
+  /**
+   * <p>Allows this CA certificate to be used for auto registration of device
+   *          certificates.</p>
+   */
+  allowAutoRegistration?: boolean;
+
+  /**
+   * <p>Information about the registration configuration.</p>
+   */
+  registrationConfig?: RegistrationConfig;
+
+  /**
+   * <p>Metadata which can be used to manage the CA certificate.</p>
+   *          <note>
+   *             <p>For URI Request parameters use format: ...key1=value1&key2=value2...</p>
+   *             <p>For the CLI command-line parameter use format: &&tags
+   *             "key1=value1&key2=value2..."</p>
+   *             <p>For the cli-input-json file use format: "tags":
+   *             "key1=value1&key2=value2..."</p>
+   *          </note>
+   */
+  tags?: Tag[];
+}
+
+export namespace RegisterCACertificateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterCACertificateRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output from the RegisterCACertificateResponse operation.</p>
+ */
+export interface RegisterCACertificateResponse {
+  /**
+   * <p>The CA certificate ARN.</p>
+   */
+  certificateArn?: string;
+
+  /**
+   * <p>The CA certificate identifier.</p>
+   */
+  certificateId?: string;
+}
+
+export namespace RegisterCACertificateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterCACertificateResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The registration code is invalid.</p>
+ */
+export interface RegistrationCodeValidationException extends __SmithyException, $MetadataBearer {
+  name: "RegistrationCodeValidationException";
+  $fault: "client";
+  /**
+   * <p>Additional information about the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace RegistrationCodeValidationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegistrationCodeValidationException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Unable to verify the CA certificate used to sign the device certificate you are
+ *          attempting to register. This is happens when you have registered more than one CA
+ *          certificate that has the same subject field and public key.</p>
+ */
+export interface CertificateConflictException extends __SmithyException, $MetadataBearer {
+  name: "CertificateConflictException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace CertificateConflictException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CertificateConflictException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input to the RegisterCertificate operation.</p>
+ */
+export interface RegisterCertificateRequest {
+  /**
+   * <p>The certificate data, in PEM format.</p>
+   */
+  certificatePem: string | undefined;
+
+  /**
+   * <p>The CA certificate used to sign the device certificate being registered.</p>
+   */
+  caCertificatePem?: string;
+
+  /**
+   * @deprecated
+   *
+   * <p>A boolean value that specifies if the certificate is set to active.</p>
+   */
+  setAsActive?: boolean;
+
+  /**
+   * <p>The status of the register certificate request.</p>
+   */
+  status?: CertificateStatus | string;
+}
+
+export namespace RegisterCertificateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterCertificateRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output from the RegisterCertificate operation.</p>
+ */
+export interface RegisterCertificateResponse {
+  /**
+   * <p>The certificate ARN.</p>
+   */
+  certificateArn?: string;
+
+  /**
+   * <p>The certificate identifier.</p>
+   */
+  certificateId?: string;
+}
+
+export namespace RegisterCertificateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterCertificateResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterCertificateWithoutCARequest {
+  /**
+   * <p>The certificate data, in PEM format.</p>
+   */
+  certificatePem: string | undefined;
+
+  /**
+   * <p>The status of the register certificate request.</p>
+   */
+  status?: CertificateStatus | string;
+}
+
+export namespace RegisterCertificateWithoutCARequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterCertificateWithoutCARequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterCertificateWithoutCAResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registered certificate.</p>
+   */
+  certificateArn?: string;
+
+  /**
+   * <p>The ID of the registered certificate. (The last part of the certificate ARN contains the
+   *          certificate ID.</p>
+   */
+  certificateId?: string;
+}
+
+export namespace RegisterCertificateWithoutCAResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterCertificateWithoutCAResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterThingRequest {
+  /**
+   * <p>The provisioning template. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html">Provisioning Devices That Have Device Certificates</a> for more information.</p>
+   */
+  templateBody: string | undefined;
+
+  /**
+   * <p>The parameters for provisioning a thing. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning Templates</a> for more information.</p>
+   */
+  parameters?: { [key: string]: string };
+}
+
+export namespace RegisterThingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterThingRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface RegisterThingResponse {
   /**
    * <p>The certificate data, in PEM format.</p>

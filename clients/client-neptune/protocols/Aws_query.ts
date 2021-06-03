@@ -7405,6 +7405,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   if (input.CharacterSetName !== undefined && input.CharacterSetName !== null) {
     entries["CharacterSetName"] = input.CharacterSetName;
   }
+  if (input.CopyTagsToSnapshot !== undefined && input.CopyTagsToSnapshot !== null) {
+    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  }
   if (input.DatabaseName !== undefined && input.DatabaseName !== null) {
     entries["DatabaseName"] = input.DatabaseName;
   }
@@ -8564,6 +8567,9 @@ const serializeAws_queryModifyDBClusterMessage = (input: ModifyDBClusterMessage,
   if (input.DeletionProtection !== undefined && input.DeletionProtection !== null) {
     entries["DeletionProtection"] = input.DeletionProtection;
   }
+  if (input.CopyTagsToSnapshot !== undefined && input.CopyTagsToSnapshot !== null) {
+    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
+  }
   return entries;
 };
 
@@ -9042,6 +9048,9 @@ const serializeAws_queryRestoreDBClusterFromSnapshotMessage = (
   }
   if (input.DeletionProtection !== undefined && input.DeletionProtection !== null) {
     entries["DeletionProtection"] = input.DeletionProtection;
+  }
+  if (input.CopyTagsToSnapshot !== undefined && input.CopyTagsToSnapshot !== null) {
+    entries["CopyTagsToSnapshot"] = input.CopyTagsToSnapshot;
   }
   return entries;
 };
@@ -9546,8 +9555,11 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     IAMDatabaseAuthenticationEnabled: undefined,
     CloneGroupId: undefined,
     ClusterCreateTime: undefined,
+    CopyTagsToSnapshot: undefined,
     EnabledCloudwatchLogsExports: undefined,
     DeletionProtection: undefined,
+    CrossAccountClone: undefined,
+    AutomaticRestartTime: undefined,
   };
   if (output["AllocatedStorage"] !== undefined) {
     contents.AllocatedStorage = parseInt(output["AllocatedStorage"]);
@@ -9699,6 +9711,9 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
   if (output["ClusterCreateTime"] !== undefined) {
     contents.ClusterCreateTime = new Date(output["ClusterCreateTime"]);
   }
+  if (output["CopyTagsToSnapshot"] !== undefined) {
+    contents.CopyTagsToSnapshot = output["CopyTagsToSnapshot"] == "true";
+  }
   if (output.EnabledCloudwatchLogsExports === "") {
     contents.EnabledCloudwatchLogsExports = [];
   }
@@ -9713,6 +9728,12 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
   }
   if (output["DeletionProtection"] !== undefined) {
     contents.DeletionProtection = output["DeletionProtection"] == "true";
+  }
+  if (output["CrossAccountClone"] !== undefined) {
+    contents.CrossAccountClone = output["CrossAccountClone"] == "true";
+  }
+  if (output["AutomaticRestartTime"] !== undefined) {
+    contents.AutomaticRestartTime = new Date(output["AutomaticRestartTime"]);
   }
   return contents;
 };

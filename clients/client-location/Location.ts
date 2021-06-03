@@ -5,6 +5,11 @@ import {
   AssociateTrackerConsumerCommandOutput,
 } from "./commands/AssociateTrackerConsumerCommand";
 import {
+  BatchDeleteDevicePositionHistoryCommand,
+  BatchDeleteDevicePositionHistoryCommandInput,
+  BatchDeleteDevicePositionHistoryCommandOutput,
+} from "./commands/BatchDeleteDevicePositionHistoryCommand";
+import {
   BatchDeleteGeofenceCommand,
   BatchDeleteGeofenceCommandInput,
   BatchDeleteGeofenceCommandOutput,
@@ -30,6 +35,11 @@ import {
   BatchUpdateDevicePositionCommandOutput,
 } from "./commands/BatchUpdateDevicePositionCommand";
 import {
+  CalculateRouteCommand,
+  CalculateRouteCommandInput,
+  CalculateRouteCommandOutput,
+} from "./commands/CalculateRouteCommand";
+import {
   CreateGeofenceCollectionCommand,
   CreateGeofenceCollectionCommandInput,
   CreateGeofenceCollectionCommandOutput,
@@ -40,6 +50,11 @@ import {
   CreatePlaceIndexCommandInput,
   CreatePlaceIndexCommandOutput,
 } from "./commands/CreatePlaceIndexCommand";
+import {
+  CreateRouteCalculatorCommand,
+  CreateRouteCalculatorCommandInput,
+  CreateRouteCalculatorCommandOutput,
+} from "./commands/CreateRouteCalculatorCommand";
 import {
   CreateTrackerCommand,
   CreateTrackerCommandInput,
@@ -57,6 +72,11 @@ import {
   DeletePlaceIndexCommandOutput,
 } from "./commands/DeletePlaceIndexCommand";
 import {
+  DeleteRouteCalculatorCommand,
+  DeleteRouteCalculatorCommandInput,
+  DeleteRouteCalculatorCommandOutput,
+} from "./commands/DeleteRouteCalculatorCommand";
+import {
   DeleteTrackerCommand,
   DeleteTrackerCommandInput,
   DeleteTrackerCommandOutput,
@@ -72,6 +92,11 @@ import {
   DescribePlaceIndexCommandInput,
   DescribePlaceIndexCommandOutput,
 } from "./commands/DescribePlaceIndexCommand";
+import {
+  DescribeRouteCalculatorCommand,
+  DescribeRouteCalculatorCommandInput,
+  DescribeRouteCalculatorCommandOutput,
+} from "./commands/DescribeRouteCalculatorCommand";
 import {
   DescribeTrackerCommand,
   DescribeTrackerCommandInput,
@@ -110,6 +135,11 @@ import {
 } from "./commands/GetMapStyleDescriptorCommand";
 import { GetMapTileCommand, GetMapTileCommandInput, GetMapTileCommandOutput } from "./commands/GetMapTileCommand";
 import {
+  ListDevicePositionsCommand,
+  ListDevicePositionsCommandInput,
+  ListDevicePositionsCommandOutput,
+} from "./commands/ListDevicePositionsCommand";
+import {
   ListGeofenceCollectionsCommand,
   ListGeofenceCollectionsCommandInput,
   ListGeofenceCollectionsCommandOutput,
@@ -125,6 +155,16 @@ import {
   ListPlaceIndexesCommandInput,
   ListPlaceIndexesCommandOutput,
 } from "./commands/ListPlaceIndexesCommand";
+import {
+  ListRouteCalculatorsCommand,
+  ListRouteCalculatorsCommandInput,
+  ListRouteCalculatorsCommandOutput,
+} from "./commands/ListRouteCalculatorsCommand";
+import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import {
   ListTrackerConsumersCommand,
   ListTrackerConsumersCommandInput,
@@ -146,10 +186,16 @@ import {
   SearchPlaceIndexForTextCommandInput,
   SearchPlaceIndexForTextCommandOutput,
 } from "./commands/SearchPlaceIndexForTextCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * Suite of geospatial services including Maps, Places, Tracking, and Geofencing
+ * Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing
  */
 export class Location extends LocationClient {
   /**
@@ -190,9 +236,41 @@ export class Location extends LocationClient {
   }
 
   /**
+   * <p>Deletes the position history of one or more devices from a tracker resource.</p>
+   */
+  public batchDeleteDevicePositionHistory(
+    args: BatchDeleteDevicePositionHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteDevicePositionHistoryCommandOutput>;
+  public batchDeleteDevicePositionHistory(
+    args: BatchDeleteDevicePositionHistoryCommandInput,
+    cb: (err: any, data?: BatchDeleteDevicePositionHistoryCommandOutput) => void
+  ): void;
+  public batchDeleteDevicePositionHistory(
+    args: BatchDeleteDevicePositionHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteDevicePositionHistoryCommandOutput) => void
+  ): void;
+  public batchDeleteDevicePositionHistory(
+    args: BatchDeleteDevicePositionHistoryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteDevicePositionHistoryCommandOutput) => void),
+    cb?: (err: any, data?: BatchDeleteDevicePositionHistoryCommandOutput) => void
+  ): Promise<BatchDeleteDevicePositionHistoryCommandOutput> | void {
+    const command = new BatchDeleteDevicePositionHistoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a batch of geofences from a geofence collection.</p>
    *         <note>
-   *             <p>This action deletes the resource permanently. You can't undo this action.</p>
+   *             <p>This operation deletes the resource permanently.</p>
    *         </note>
    */
   public batchDeleteGeofence(
@@ -295,8 +373,8 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>A batch request for storing geofence geometries into a given geofence
-   *             collection.</p>
+   * <p>A batch request for storing geofence geometries into a given geofence collection, or
+   *             updates the geometry of an existing geofence if a geofence ID is included in the request.</p>
    */
   public batchPutGeofence(
     args: BatchPutGeofenceCommandInput,
@@ -332,8 +410,8 @@ export class Location extends LocationClient {
    *             uses the data when reporting the last known device position and position history.</p>
    *          <note>
    *            <p>Only one position update is stored per sample time. Location data is sampled at a
-   *                 fixed rate of one position per 30-second interval, and retained for one year before
-   *                 it is deleted.</p>
+   *                 fixed rate of one position per 30-second interval and retained for 30 days before
+   *                 it's deleted.</p>
    *          </note>
    */
   public batchUpdateDevicePosition(
@@ -355,6 +433,68 @@ export class Location extends LocationClient {
     cb?: (err: any, data?: BatchUpdateDevicePositionCommandOutput) => void
   ): Promise<BatchUpdateDevicePositionCommandOutput> | void {
     const command = new BatchUpdateDevicePositionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters:
+   *                 <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that
+   *             you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create
+   *                 aroute calculator resource</a>
+   *          </p>
+   *         <p>By default, a request that doesn't specify a departure time uses the best time of day
+   *             to travel with the best traffic conditions when calculating the route.</p>
+   *         <p>Additional options include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time">Specifying a departure time</a> using either <code>DepartureTime</code> or
+   *                         <code>DepartureNow</code>. This calculates a route based on predictive
+   *                     traffic data at the given time. </p>
+   *                 <note>
+   *                     <p>You can't specify both <code>DepartureTime</code> and
+   *                             <code>DepartureNow</code> in a single request. Specifying both
+   *                         parameters returns an error message.</p>
+   *                 </note>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify additional
+   *                     route preference such as <code>CarModeOptions</code> if traveling by
+   *                         <code>Car</code>, or <code>TruckModeOptions</code> if traveling by
+   *                         <code>Truck</code>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             </p>
+   */
+  public calculateRoute(
+    args: CalculateRouteCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CalculateRouteCommandOutput>;
+  public calculateRoute(
+    args: CalculateRouteCommandInput,
+    cb: (err: any, data?: CalculateRouteCommandOutput) => void
+  ): void;
+  public calculateRoute(
+    args: CalculateRouteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CalculateRouteCommandOutput) => void
+  ): void;
+  public calculateRoute(
+    args: CalculateRouteCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CalculateRouteCommandOutput) => void),
+    cb?: (err: any, data?: CalculateRouteCommandOutput) => void
+  ): Promise<CalculateRouteCommandOutput> | void {
+    const command = new CalculateRouteCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -400,12 +540,6 @@ export class Location extends LocationClient {
   /**
    * <p>Creates a map resource in your AWS account, which provides map tiles of different
    *             styles sourced from global location data providers.</p>
-   *         <note>
-   *             <p>By using Maps, you agree that AWS may transmit your API queries to your selected
-   *                 third party provider for processing, which may be outside the AWS region you are
-   *                 currently using. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon
-   *                 Location Service. </p>
-   *         </note>
    */
   public createMap(args: CreateMapCommandInput, options?: __HttpHandlerOptions): Promise<CreateMapCommandOutput>;
   public createMap(args: CreateMapCommandInput, cb: (err: any, data?: CreateMapCommandOutput) => void): void;
@@ -431,16 +565,8 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Creates a Place index resource in your AWS account, which supports Places functions with
+   * <p>Creates a place index resource in your AWS account, which supports functions with
    *          geospatial data sourced from your chosen data provider.</p>
-   *          <note>
-   *             <p>By using Places, you agree that AWS may transmit your API queries to your selected
-   *             third party provider for processing, which may be outside the AWS region you are
-   *             currently using. </p>
-   *             <p>Because of licensing limitations, you may not use HERE to store results for locations
-   *             in Japan. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon
-   *             Location Service.</p>
-   *          </note>
    */
   public createPlaceIndex(
     args: CreatePlaceIndexCommandInput,
@@ -461,6 +587,41 @@ export class Location extends LocationClient {
     cb?: (err: any, data?: CreatePlaceIndexCommandOutput) => void
   ): Promise<CreatePlaceIndexCommandOutput> | void {
     const command = new CreatePlaceIndexCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a route calculator resource in your AWS account.</p>
+   *         <p>You can send requests to a route calculator resource to estimate travel time,
+   *             distance, and get directions. A route calculator sources traffic and road network data
+   *             from your chosen data provider.</p>
+   */
+  public createRouteCalculator(
+    args: CreateRouteCalculatorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRouteCalculatorCommandOutput>;
+  public createRouteCalculator(
+    args: CreateRouteCalculatorCommandInput,
+    cb: (err: any, data?: CreateRouteCalculatorCommandOutput) => void
+  ): void;
+  public createRouteCalculator(
+    args: CreateRouteCalculatorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRouteCalculatorCommandOutput) => void
+  ): void;
+  public createRouteCalculator(
+    args: CreateRouteCalculatorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRouteCalculatorCommandOutput) => void),
+    cb?: (err: any, data?: CreateRouteCalculatorCommandOutput) => void
+  ): Promise<CreateRouteCalculatorCommandOutput> | void {
+    const command = new CreateRouteCalculatorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -507,9 +668,8 @@ export class Location extends LocationClient {
   /**
    * <p>Deletes a geofence collection from your AWS account.</p>
    *         <note>
-   *             <p>This action deletes the resource permanently. You can't undo this action. If the
-   *                 geofence collection is the target of a tracker resource, the devices will no longer
-   *                 be monitored.</p>
+   *             <p>This operation deletes the resource permanently. If the geofence collection is the
+   *                 target of a tracker resource, the devices will no longer be monitored.</p>
    *         </note>
    */
   public deleteGeofenceCollection(
@@ -544,8 +704,8 @@ export class Location extends LocationClient {
   /**
    * <p>Deletes a map resource from your AWS account.</p>
    *         <note>
-   *             <p>This action deletes the resource permanently. You cannot undo this action. If the map is being
-   *                 used in an application, the map may not render.</p>
+   *             <p>This operation deletes the resource permanently. If the map is being used in an application,
+   *                 the map may not render.</p>
    *          </note>
    */
   public deleteMap(args: DeleteMapCommandInput, options?: __HttpHandlerOptions): Promise<DeleteMapCommandOutput>;
@@ -572,9 +732,9 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Deletes a Place index resource from your AWS account.</p>
+   * <p>Deletes a place index resource from your AWS account.</p>
    *          <note>
-   *             <p>This action deletes the resource permanently. You cannot undo this action.</p>
+   *             <p>This operation deletes the resource permanently.</p>
    *          </note>
    */
   public deletePlaceIndex(
@@ -607,9 +767,46 @@ export class Location extends LocationClient {
   }
 
   /**
+   * <p>Deletes a route calculator resource from your AWS account.</p>
+   *         <note>
+   *             <p>This operation deletes the resource permanently.</p>
+   *          </note>
+   */
+  public deleteRouteCalculator(
+    args: DeleteRouteCalculatorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRouteCalculatorCommandOutput>;
+  public deleteRouteCalculator(
+    args: DeleteRouteCalculatorCommandInput,
+    cb: (err: any, data?: DeleteRouteCalculatorCommandOutput) => void
+  ): void;
+  public deleteRouteCalculator(
+    args: DeleteRouteCalculatorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRouteCalculatorCommandOutput) => void
+  ): void;
+  public deleteRouteCalculator(
+    args: DeleteRouteCalculatorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRouteCalculatorCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRouteCalculatorCommandOutput) => void
+  ): Promise<DeleteRouteCalculatorCommandOutput> | void {
+    const command = new DeleteRouteCalculatorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a tracker resource from your AWS account.</p>
    *          <note>
-   *             <p>This action deletes the resource permanently. You can't undo this action. If the tracker resource is in use, you may encounter an error. Make sure that the target resource is not a dependency for your applications.</p>
+   *             <p>This operation deletes the resource permanently. If the tracker resource is in use, you may
+   *                 encounter an error. Make sure that the target resource isn't a dependency for your
+   *                 applications.</p>
    *          </note>
    */
   public deleteTracker(
@@ -700,7 +897,7 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Retrieves the Place index resource details.</p>
+   * <p>Retrieves the place index resource details.</p>
    */
   public describePlaceIndex(
     args: DescribePlaceIndexCommandInput,
@@ -721,6 +918,38 @@ export class Location extends LocationClient {
     cb?: (err: any, data?: DescribePlaceIndexCommandOutput) => void
   ): Promise<DescribePlaceIndexCommandOutput> | void {
     const command = new DescribePlaceIndexCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the route calculator resource details.</p>
+   */
+  public describeRouteCalculator(
+    args: DescribeRouteCalculatorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRouteCalculatorCommandOutput>;
+  public describeRouteCalculator(
+    args: DescribeRouteCalculatorCommandInput,
+    cb: (err: any, data?: DescribeRouteCalculatorCommandOutput) => void
+  ): void;
+  public describeRouteCalculator(
+    args: DescribeRouteCalculatorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRouteCalculatorCommandOutput) => void
+  ): void;
+  public describeRouteCalculator(
+    args: DescribeRouteCalculatorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRouteCalculatorCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRouteCalculatorCommandOutput) => void
+  ): Promise<DescribeRouteCalculatorCommandOutput> | void {
+    const command = new DescribeRouteCalculatorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -802,7 +1031,7 @@ export class Location extends LocationClient {
   /**
    * <p>Retrieves a device's most recent position according to its sample time.</p>
    *          <note>
-   *             <p>Device positions are deleted after one year.</p>
+   *             <p>Device positions are deleted after 30 days.</p>
    *          </note>
    */
   public getDevicePosition(
@@ -838,7 +1067,7 @@ export class Location extends LocationClient {
    * <p>Retrieves the device position history from a tracker resource within a specified range
    *             of time.</p>
    *          <note>
-   *            <p>Device positions are deleted after 1 year.</p>
+   *            <p>Device positions are deleted after 30 days.</p>
    *          </note>
    */
   public getDevicePositionHistory(
@@ -996,7 +1225,7 @@ export class Location extends LocationClient {
 
   /**
    * <p>Retrieves a vector data tile from the map resource. Map tiles are used by clients to
-   *             render a map. They are addressed using a grid arrangement with an X coordinate, Y
+   *             render a map. they're addressed using a grid arrangement with an X coordinate, Y
    *             coordinate, and Z (zoom) level. </p>
    *         <p>The origin (0, 0) is the top left of the map. Increasing the zoom level by 1 doubles
    *             both the X and Y dimensions, so a tile containing data for the entire world at (0/0/0)
@@ -1015,6 +1244,38 @@ export class Location extends LocationClient {
     cb?: (err: any, data?: GetMapTileCommandOutput) => void
   ): Promise<GetMapTileCommandOutput> | void {
     const command = new GetMapTileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the latest device positions for requested devices.</p>
+   */
+  public listDevicePositions(
+    args: ListDevicePositionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDevicePositionsCommandOutput>;
+  public listDevicePositions(
+    args: ListDevicePositionsCommandInput,
+    cb: (err: any, data?: ListDevicePositionsCommandOutput) => void
+  ): void;
+  public listDevicePositions(
+    args: ListDevicePositionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDevicePositionsCommandOutput) => void
+  ): void;
+  public listDevicePositions(
+    args: ListDevicePositionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevicePositionsCommandOutput) => void),
+    cb?: (err: any, data?: ListDevicePositionsCommandOutput) => void
+  ): Promise<ListDevicePositionsCommandOutput> | void {
+    const command = new ListDevicePositionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1116,7 +1377,7 @@ export class Location extends LocationClient {
   }
 
   /**
-   * <p>Lists Place index resources in your AWS account.</p>
+   * <p>Lists place index resources in your AWS account.</p>
    */
   public listPlaceIndexes(
     args: ListPlaceIndexesCommandInput,
@@ -1137,6 +1398,70 @@ export class Location extends LocationClient {
     cb?: (err: any, data?: ListPlaceIndexesCommandOutput) => void
   ): Promise<ListPlaceIndexesCommandOutput> | void {
     const command = new ListPlaceIndexesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists route calculator resources in your AWS account.</p>
+   */
+  public listRouteCalculators(
+    args: ListRouteCalculatorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRouteCalculatorsCommandOutput>;
+  public listRouteCalculators(
+    args: ListRouteCalculatorsCommandInput,
+    cb: (err: any, data?: ListRouteCalculatorsCommandOutput) => void
+  ): void;
+  public listRouteCalculators(
+    args: ListRouteCalculatorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRouteCalculatorsCommandOutput) => void
+  ): void;
+  public listRouteCalculators(
+    args: ListRouteCalculatorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRouteCalculatorsCommandOutput) => void),
+    cb?: (err: any, data?: ListRouteCalculatorsCommandOutput) => void
+  ): Promise<ListRouteCalculatorsCommandOutput> | void {
+    const command = new ListRouteCalculatorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the tags for the specified Amazon Location Service resource.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1238,14 +1563,6 @@ export class Location extends LocationClient {
   /**
    * <p>Reverse geocodes a given coordinate and returns a legible address. Allows you to search
    *          for Places or points of interest near a given position.</p>
-   *          <note>
-   *             <p>By using Places, you agree that AWS may transmit your API queries to your selected
-   *             third party provider for processing, which may be outside the AWS region you are
-   *             currently using. </p>
-   *             <p>Because of licensing limitations, you may not use HERE to store results for locations
-   *             in Japan. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon
-   *             Location Service.</p>
-   *          </note>
    */
   public searchPlaceIndexForPosition(
     args: SearchPlaceIndexForPositionCommandInput,
@@ -1286,16 +1603,6 @@ export class Location extends LocationClient {
    *             filter results within a bounding box using <code>FilterBBox</code>. Providing both
    *             parameters simultaneously returns an error.</p>
    *          </note>
-   *          <note>
-   *             <p>By using Places, you agree that AWS may transmit your API queries to your selected
-   *             third party provider for processing, which may be outside the AWS region you are
-   *             currently using. </p>
-   *             <p>Also, when using HERE as your data provider, you may not (a) use HERE Places for
-   *             Asset Management, or (b) select the <code>Storage</code> option for the
-   *                <code>IntendedUse</code> parameter when requesting Places in Japan. For more
-   *             information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service
-   *                Terms</a> for Amazon Location Service.</p>
-   *          </note>
    */
   public searchPlaceIndexForText(
     args: SearchPlaceIndexForTextCommandInput,
@@ -1316,6 +1623,82 @@ export class Location extends LocationClient {
     cb?: (err: any, data?: SearchPlaceIndexForTextCommandOutput) => void
   ): Promise<SearchPlaceIndexForTextCommandOutput> | void {
     const command = new SearchPlaceIndexForTextCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Assigns one or more tags (key-value pairs) to the specified Amazon
+   *             Location Service resource.</p>
+   *
+   *         <p>Tags can help you organize and categorize your resources.
+   *             You can also use them to scope user permissions, by granting a user
+   *             permission to access or change only resources with certain tag values.</p>
+   *
+   *         <p>Tags don't have any semantic meaning to AWS and are interpreted
+   *             strictly as strings of characters.</p>
+   *
+   *         <p>You can use the <code>TagResource</code> action with an Amazon
+   *             Location Service resource that already has tags. If you specify a new
+   *             tag key for the resource, this tag is appended to the tags already
+   *             associated with the resource. If you specify a tag key that is already
+   *             associated with the resource, the new tag value that you specify replaces
+   *             the previous value for that tag.
+   *         </p>
+   *
+   *         <p>You can associate as many as 50 tags with a resource.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes one or more tags from the specified Amazon Location Service resource.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

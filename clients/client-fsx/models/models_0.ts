@@ -140,6 +140,11 @@ export enum FileSystemLifecycle {
   UPDATING = "UPDATING",
 }
 
+export enum DataCompressionType {
+  LZ4 = "LZ4",
+  NONE = "NONE",
+}
+
 export enum AutoImportPolicyType {
   NEW = "NEW",
   NEW_CHANGED = "NEW_CHANGED",
@@ -373,6 +378,25 @@ export interface LustreFileSystemConfiguration {
    *         <p>This parameter is required when <code>StorageType</code> is set to HDD.</p>
    */
   DriveCacheType?: DriveCacheType | string;
+
+  /**
+   * <p>The data compression configuration for the file system. <code>DataCompressionType</code>
+   *             can have the following values:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - Data compression is turned off for
+   *                 the file system.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LZ4</code> - Data compression is turned on with the LZ4
+   *                 algorithm.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>.</p>
+   */
+  DataCompressionType?: DataCompressionType | string;
 }
 
 export namespace LustreFileSystemConfiguration {
@@ -1707,8 +1731,6 @@ export interface CreateFileSystemLustreConfiguration {
    *             as you add or modify objects in your linked S3 bucket. <code>AutoImportPolicy</code> can
    *             have the following values:</p>
    *
-   *
-   *
    *         <ul>
    *             <li>
    *                <p>
@@ -1781,6 +1803,25 @@ export interface CreateFileSystemLustreConfiguration {
    *         <p>This parameter is required when <code>StorageType</code> is set to HDD.</p>
    */
   DriveCacheType?: DriveCacheType | string;
+
+  /**
+   * <p>Sets the data compression configuration for the file system. <code>DataCompressionType</code>
+   *             can have the following values:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - (Default) Data compression is turned off when
+   *                 the file system is created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LZ4</code> - Data compression is turned on with the LZ4
+   *                 algorithm.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>.</p>
+   */
+  DataCompressionType?: DataCompressionType | string;
 }
 
 export namespace CreateFileSystemLustreConfiguration {
@@ -3242,6 +3283,27 @@ export interface UpdateFileSystemLustreConfiguration {
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html">Automatically import updates from your S3 bucket</a>.</p>
    */
   AutoImportPolicy?: AutoImportPolicyType | string;
+
+  /**
+   * <p>Sets the data compression configuration for the file system. <code>DataCompressionType</code>
+   *             can have the following values:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - Data compression is turned off for
+   *                 the file system.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LZ4</code> - Data compression is turned on with the LZ4
+   *                 algorithm.</p>
+   *             </li>
+   *          </ul>
+   *         <p>If you don't use <code>DataCompressionType</code>, the file system retains
+   *             its current data compression configuration.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>.</p>
+   */
+  DataCompressionType?: DataCompressionType | string;
 }
 
 export namespace UpdateFileSystemLustreConfiguration {

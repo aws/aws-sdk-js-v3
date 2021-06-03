@@ -165,7 +165,7 @@
           "min": 1,
           "max": 2048
         },
-        "smithy.api#pattern": "[\\w\\-]+|(\\$LATEST)|(\\$PUBLISHED)"
+        "smithy.api#pattern": "^[\\w\\-]+|(\\$LATEST)|(\\$PUBLISHED)$"
       }
     },
     "com.amazonaws.quicksight#AmazonElasticsearchParameters": {
@@ -1136,7 +1136,7 @@
     "com.amazonaws.quicksight#CopySourceArn": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^arn:[-a-z0-9]*:quicksight:[-a-z0-9]*:[0-9]{12}:datasource/.+"
+        "smithy.api#pattern": "^arn:[-a-z0-9]*:quicksight:[-a-z0-9]*:[0-9]{12}:datasource/.+$"
       }
     },
     "com.amazonaws.quicksight#CreateAccountCustomization": {
@@ -8249,7 +8249,7 @@
           "min": 1,
           "max": 256
         },
-        "smithy.api#pattern": "[\\u0020-\\u00FF]+"
+        "smithy.api#pattern": "^[\\u0020-\\u00FF]+$"
       }
     },
     "com.amazonaws.quicksight#GroupName": {
@@ -8258,7 +8258,7 @@
         "smithy.api#length": {
           "min": 1
         },
-        "smithy.api#pattern": "[\\u0020-\\u00FF]+"
+        "smithy.api#pattern": "^[\\u0020-\\u00FF]+$"
       }
     },
     "com.amazonaws.quicksight#GutterStyle": {
@@ -8341,7 +8341,7 @@
         "smithy.api#length": {
           "min": 1
         },
-        "smithy.api#pattern": "(?=^.{2,256}$)(?!.*\\s)[0-9a-zA-Z-_.:=+@]*$"
+        "smithy.api#pattern": "^(?=^.{2,256}$)(?!.*\\s)[0-9a-zA-Z-_.:=+@]*$"
       }
     },
     "com.amazonaws.quicksight#IAMPolicyAssignmentSummary": {
@@ -8385,7 +8385,7 @@
         "smithy.api#length": {
           "min": 1
         },
-        "smithy.api#pattern": "[\\u0020-\\u00FF]+"
+        "smithy.api#pattern": "^[\\u0020-\\u00FF]+$"
       }
     },
     "com.amazonaws.quicksight#IdentityNameList": {
@@ -11202,7 +11202,7 @@
           "min": 1,
           "max": 64
         },
-        "smithy.api#pattern": "[0-9a-zA-Z-]*"
+        "smithy.api#pattern": "^[0-9a-zA-Z-]*$"
       }
     },
     "com.amazonaws.quicksight#LogicalTableMap": {
@@ -11478,7 +11478,7 @@
     "com.amazonaws.quicksight#NonEmptyString": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": ".*\\S.*"
+        "smithy.api#pattern": "\\S"
       }
     },
     "com.amazonaws.quicksight#OnClause": {
@@ -11634,7 +11634,7 @@
           "min": 1,
           "max": 64
         },
-        "smithy.api#pattern": "[0-9a-zA-Z-]*"
+        "smithy.api#pattern": "^[0-9a-zA-Z-]*$"
       }
     },
     "com.amazonaws.quicksight#PhysicalTableMap": {
@@ -12336,6 +12336,24 @@
           "traits": {
             "smithy.api#documentation": "<p>(Enterprise edition only) The name of the custom permissions profile that you want to\n            assign to this user. Customized permissions allows you to control a user's access by\n            restricting access the following operations:</p>\n        <ul>\n            <li>\n                <p>Create and update data sources</p>\n            </li>\n            <li>\n                <p>Create and update datasets</p>\n            </li>\n            <li>\n                <p>Create and update email reports</p>\n            </li>\n            <li>\n                <p>Subscribe to email reports</p>\n            </li>\n         </ul>\n        <p>To add custom permissions to an existing user, use <code>\n               <a>UpdateUser</a>\n            </code> instead.</p>\n        <p>A set of custom permissions includes any combination of these restrictions. Currently,\n            you need to create the profile names for custom permission sets by using the QuickSight\n            console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of\n            permissions to a QuickSight user. </p>\n        <p>QuickSight custom permissions are applied through IAM policies. Therefore, they\n            override the permissions typically granted by assigning QuickSight users to one of the\n            default security cohorts in QuickSight (admin, author, reader).</p>\n        <p>This feature is available only to QuickSight Enterprise edition subscriptions that use\n            SAML 2.0-Based Federation for Single Sign-On (SSO).</p>"
           }
+        },
+        "ExternalLoginFederationProviderType": {
+          "target": "com.amazonaws.quicksight#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of supported external login provider that provides identity to let a user federate into Amazon QuickSight with an associated AWS Identity and Access Management (IAM) role. The type of supported external login provider can be one of the following.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com. When choosing the <code>COGNITO</code> provider type, don’t use the \"CustomFederationProviderUrl\" parameter which is only needed when the external provider is custom.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider. When choosing <code>CUSTOM_OIDC</code> type, use the <code>CustomFederationProviderUrl</code> parameter to provide the custom OIDC provider URL.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "CustomFederationProviderUrl": {
+          "target": "com.amazonaws.quicksight#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate\n         into QuickSight with an associated AWS Identity and Access Management (IAM) role. This parameter should\n         only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>"
+          }
+        },
+        "ExternalLoginId": {
+          "target": "com.amazonaws.quicksight#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The identity ID for a user in the external login provider.</p>"
+          }
         }
       }
     },
@@ -12710,7 +12728,7 @@
           "min": 1,
           "max": 2048
         },
-        "smithy.api#pattern": "[\\w\\-]+"
+        "smithy.api#pattern": "^[\\w\\-]+$"
       }
     },
     "com.amazonaws.quicksight#RoleName": {
@@ -12730,7 +12748,7 @@
           "min": 2,
           "max": 64
         },
-        "smithy.api#pattern": "[\\w+=.@-]*"
+        "smithy.api#pattern": "^[\\w+=.@-]*$"
       }
     },
     "com.amazonaws.quicksight#RowInfo": {
@@ -12777,10 +12795,31 @@
             "smithy.api#documentation": "<p>The type of permissions to use when interpretting the permissions for RLS. <code>DENY_ACCESS</code> \n        is included for backward compatibility only.</p>",
             "smithy.api#required": {}
           }
+        },
+        "FormatVersion": {
+          "target": "com.amazonaws.quicksight#RowLevelPermissionFormatVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The user or group rules associated with the dataset that contains permissions for RLS.</p>\n         <p>By default, <code>FormatVersion</code> is <code>VERSION_1</code>. When <code>FormatVersion</code> is <code>VERSION_1</code>, <code>UserName</code> and <code>GroupName</code> are required. When <code>FormatVersion</code> is <code>VERSION_2</code>, <code>UserARN</code> and <code>GroupARN</code> are required, and <code>Namespace</code> must not exist.</p>"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Information about a dataset that contains permissions for row-level security (RLS). \n            The permissions dataset maps fields to users or groups. For more information, see \n            <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html\">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User\n                Guide</i>.</p>\n            <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is \n            not supported for new RLS datasets.</p>"
+      }
+    },
+    "com.amazonaws.quicksight#RowLevelPermissionFormatVersion": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "VERSION_1",
+            "name": "VERSION_1"
+          },
+          {
+            "value": "VERSION_2",
+            "name": "VERSION_2"
+          }
+        ]
       }
     },
     "com.amazonaws.quicksight#RowLevelPermissionPolicy": {
@@ -16859,6 +16898,24 @@
           "traits": {
             "smithy.api#documentation": "<p>A flag that you use to indicate that you want to remove all custom permissions\n            from this user. Using this parameter resets the user to the state\n            it was in before a custom permissions profile was applied. This parameter defaults to\n            NULL and it doesn't accept any other value.</p>"
           }
+        },
+        "ExternalLoginFederationProviderType": {
+          "target": "com.amazonaws.quicksight#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of supported external login provider that provides identity to let a user federate into QuickSight with an associated AWS Identity and Access Management (IAM) role. The type of supported external login provider can be one of the following.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com. When choosing the <code>COGNITO</code> provider type, don’t use the \"CustomFederationProviderUrl\" parameter which is only needed when the external provider is custom.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider. When choosing <code>CUSTOM_OIDC</code> type, use the <code>CustomFederationProviderUrl</code> parameter to provide the custom OIDC provider URL.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NONE</code>: This clears all the previously saved external login information for a user. Use <code>\n                     <a>DescribeUser</a>\n                  </code> API to check the external login information.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "CustomFederationProviderUrl": {
+          "target": "com.amazonaws.quicksight#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate\n         into QuickSight with an associated AWS Identity and Access Management (IAM) role. This parameter should\n         only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>"
+          }
+        },
+        "ExternalLoginId": {
+          "target": "com.amazonaws.quicksight#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The identity ID for a user in the external login provider.</p>"
+          }
         }
       }
     },
@@ -16976,6 +17033,24 @@
           "traits": {
             "smithy.api#documentation": "<p>The custom permissions profile associated with this user.</p>"
           }
+        },
+        "ExternalLoginFederationProviderType": {
+          "target": "com.amazonaws.quicksight#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of supported external login provider that provides identity to let the user\n            federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p>\n        <ul>\n            <li>\n                    <p>\n                  <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p>\n                </li>\n            <li>\n                    <p>\n                  <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p>\n                </li>\n         </ul>"
+          }
+        },
+        "ExternalLoginFederationProviderUrl": {
+          "target": "com.amazonaws.quicksight#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL of the external login provider.</p>"
+          }
+        },
+        "ExternalLoginId": {
+          "target": "com.amazonaws.quicksight#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The identity ID for the user in the external login provider.</p>"
+          }
         }
       },
       "traits": {
@@ -16994,7 +17069,7 @@
         "smithy.api#length": {
           "min": 1
         },
-        "smithy.api#pattern": "[\\u0020-\\u00FF]+"
+        "smithy.api#pattern": "^[\\u0020-\\u00FF]+$"
       }
     },
     "com.amazonaws.quicksight#UserName2": {

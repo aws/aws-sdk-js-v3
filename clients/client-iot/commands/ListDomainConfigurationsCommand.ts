@@ -22,9 +22,6 @@ export interface ListDomainConfigurationsCommandOutput extends ListDomainConfigu
 
 /**
  * <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p>
- *          <note>
- *             <p>The domain configuration feature is in public preview and is subject to change.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

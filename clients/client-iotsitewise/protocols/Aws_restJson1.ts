@@ -114,6 +114,7 @@ import {
   AccessPolicySummary,
   AggregatedValue,
   Aggregates,
+  Alarms,
   AssetCompositeModel,
   AssetErrorDetails,
   AssetHierarchy,
@@ -576,7 +577,11 @@ export const serializeAws_restJson1CreatePortalCommand = async (
   let resolvedPath = "/portals";
   let body: any;
   body = JSON.stringify({
+    ...(input.alarms !== undefined &&
+      input.alarms !== null && { alarms: serializeAws_restJson1Alarms(input.alarms, context) }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.notificationSenderEmail !== undefined &&
+      input.notificationSenderEmail !== null && { notificationSenderEmail: input.notificationSenderEmail }),
     ...(input.portalAuthMode !== undefined &&
       input.portalAuthMode !== null && { portalAuthMode: input.portalAuthMode }),
     ...(input.portalContactEmail !== undefined &&
@@ -2327,7 +2332,11 @@ export const serializeAws_restJson1UpdatePortalCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.alarms !== undefined &&
+      input.alarms !== null && { alarms: serializeAws_restJson1Alarms(input.alarms, context) }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.notificationSenderEmail !== undefined &&
+      input.notificationSenderEmail !== null && { notificationSenderEmail: input.notificationSenderEmail }),
     ...(input.portalContactEmail !== undefined &&
       input.portalContactEmail !== null && { portalContactEmail: input.portalContactEmail }),
     ...(input.portalDescription !== undefined &&
@@ -4913,6 +4922,8 @@ export const deserializeAws_restJson1DescribePortalCommand = async (
   }
   const contents: DescribePortalCommandOutput = {
     $metadata: deserializeMetadata(output),
+    alarms: undefined,
+    notificationSenderEmail: undefined,
     portalArn: undefined,
     portalAuthMode: undefined,
     portalClientId: undefined,
@@ -4928,6 +4939,12 @@ export const deserializeAws_restJson1DescribePortalCommand = async (
     roleArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data.alarms !== undefined && data.alarms !== null) {
+    contents.alarms = deserializeAws_restJson1Alarms(data.alarms, context);
+  }
+  if (data.notificationSenderEmail !== undefined && data.notificationSenderEmail !== null) {
+    contents.notificationSenderEmail = data.notificationSenderEmail;
+  }
   if (data.portalArn !== undefined && data.portalArn !== null) {
     contents.portalArn = data.portalArn;
   }
@@ -7812,6 +7829,14 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1Alarms = (input: Alarms, context: __SerdeContext): any => {
+  return {
+    ...(input.alarmRoleArn !== undefined && input.alarmRoleArn !== null && { alarmRoleArn: input.alarmRoleArn }),
+    ...(input.notificationLambdaArn !== undefined &&
+      input.notificationLambdaArn !== null && { notificationLambdaArn: input.notificationLambdaArn }),
+  };
+};
+
 const serializeAws_restJson1AssetModelCompositeModel = (
   input: AssetModelCompositeModel,
   context: __SerdeContext
@@ -8298,6 +8323,16 @@ const deserializeAws_restJson1Aggregates = (output: any, context: __SerdeContext
         ? output.standardDeviation
         : undefined,
     sum: output.sum !== undefined && output.sum !== null ? output.sum : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Alarms = (output: any, context: __SerdeContext): Alarms => {
+  return {
+    alarmRoleArn: output.alarmRoleArn !== undefined && output.alarmRoleArn !== null ? output.alarmRoleArn : undefined,
+    notificationLambdaArn:
+      output.notificationLambdaArn !== undefined && output.notificationLambdaArn !== null
+        ? output.notificationLambdaArn
+        : undefined,
   } as any;
 };
 

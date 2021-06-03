@@ -21,10 +21,11 @@ export interface CreatePlatformApplicationCommandInput extends CreatePlatformApp
 export interface CreatePlatformApplicationCommandOutput extends CreatePlatformApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a platform application object for one of the supported push notification services,
- *             such as APNS and GCM (Firebase Cloud Messaging), to which devices and mobile apps may register.
- *             You must specify <code>PlatformPrincipal</code> and <code>PlatformCredential</code> attributes
- *             when using the <code>CreatePlatformApplication</code> action.</p>
+ * <p>Creates a platform application object for one of the supported push notification
+ *             services, such as APNS and GCM (Firebase Cloud Messaging), to which devices and mobile
+ *             apps may register. You must specify <code>PlatformPrincipal</code> and
+ *                 <code>PlatformCredential</code> attributes when using the
+ *                 <code>CreatePlatformApplication</code> action.</p>
  *         <p>
  *             <code>PlatformPrincipal</code> and <code>PlatformCredential</code> are received from
  *             the notification service.</p>

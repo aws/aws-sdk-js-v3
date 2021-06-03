@@ -414,6 +414,27 @@
         "smithy.api#documentation": "<p>Contains the (pre-calculated) aggregate values for an asset property.</p>"
       }
     },
+    "com.amazonaws.iotsitewise#Alarms": {
+      "type": "structure",
+      "members": {
+        "alarmRoleArn": {
+          "target": "com.amazonaws.iotsitewise#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the IAM role that allows the alarm to perform actions and access AWS resources, including AWS IoT Events.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "notificationLambdaArn": {
+          "target": "com.amazonaws.iotsitewise#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the AWS Lambda function that manages alarm notifications. For more information, see <a href=\"https://docs.aws.amazon.com/\">Managing alarm notifications</a> \n      in the <i>AWS IoT Events Developer Guide</i>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. \n  You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see .</p>"
+      }
+    },
     "com.amazonaws.iotsitewise#AmazonResourceName": {
       "type": "string",
       "traits": {
@@ -983,7 +1004,7 @@
           "min": 1,
           "max": 2048
         },
-        "smithy.api#pattern": "[^\\u0000-\\u001F\\u007F]+"
+        "smithy.api#pattern": "^[^\\u0000-\\u001F\\u007F]+$"
       }
     },
     "com.amazonaws.iotsitewise#AssetPropertyValue": {
@@ -1606,7 +1627,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Sends a list of asset property values to AWS IoT SiteWise. Each value is a timestamp-quality-value\n      (TQV) data point. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html\">Ingesting data using the API</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>\n         <p>To identify an asset property, you must specify one of the following:</p>\n         <ul>\n            <li>\n               <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>\n            </li>\n            <li>\n               <p>A <code>propertyAlias</code>, which is a data stream alias (for example,\n          <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p>\n            </li>\n         </ul>\n         <important>\n            <p>With respect to Unix epoch time, AWS IoT SiteWise accepts only TQVs that have a timestamp of no more\n        than 7 days in the past and no more than 5 minutes in the future. AWS IoT SiteWise rejects timestamps\n        outside of the inclusive range of [-7 days, +5 minutes] and returns a\n          <code>TimestampOutOfRangeException</code> error.</p>\n            <p>For each asset property, AWS IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer\n        TQV has a different quality. For example, if you store a TQV <code>{T1, GOOD, V1}</code>,\n        then storing <code>{T1, GOOD, V2}</code> replaces the existing TQV.</p>\n         </important>\n         <p>AWS IoT SiteWise authorizes access to each <code>BatchPutAssetPropertyValue</code> entry individually.\n      For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action\">BatchPutAssetPropertyValue authorization</a> in the\n      <i>AWS IoT SiteWise User Guide</i>.</p>",
+        "smithy.api#documentation": "<p>Sends a list of asset property values to AWS IoT SiteWise. Each value is a timestamp-quality-value\n      (TQV) data point. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html\">Ingesting data using the API</a> in the\n        <i>AWS IoT SiteWise User Guide</i>.</p>\n         <p>To identify an asset property, you must specify one of the following:</p>\n         <ul>\n            <li>\n               <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>\n            </li>\n            <li>\n               <p>A <code>propertyAlias</code>, which is a data stream alias (for example,\n          <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p>\n            </li>\n         </ul>\n         <important>\n            <p>With respect to Unix epoch time, AWS IoT SiteWise accepts only TQVs that have a timestamp of no more\n        than 7 days in the past and no more than 10 minutes in the future. AWS IoT SiteWise rejects timestamps\n        outside of the inclusive range of [-7 days, +10 minutes] and returns a\n          <code>TimestampOutOfRangeException</code> error.</p>\n            <p>For each asset property, AWS IoT SiteWise overwrites TQVs with duplicate timestamps unless the newer\n        TQV has a different quality. For example, if you store a TQV <code>{T1, GOOD, V1}</code>,\n        then storing <code>{T1, GOOD, V2}</code> replaces the existing TQV.</p>\n         </important>\n         <p>AWS IoT SiteWise authorizes access to each <code>BatchPutAssetPropertyValue</code> entry individually.\n      For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action\">BatchPutAssetPropertyValue authorization</a> in the\n      <i>AWS IoT SiteWise User Guide</i>.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "data."
         },
@@ -1729,7 +1750,7 @@
           "min": 36,
           "max": 64
         },
-        "smithy.api#pattern": "\\S{36,64}"
+        "smithy.api#pattern": "^\\S{36,64}$"
       }
     },
     "com.amazonaws.iotsitewise#CompositeModelProperty": {
@@ -2439,6 +2460,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The service to use to authenticate users to the portal. Choose from the following\n      options:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>SSO</code> – The portal uses AWS Single Sign-On to authenticate users and manage\n          user permissions. Before you can create a portal that uses AWS SSO, you must enable AWS SSO.\n          For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso\">Enabling AWS SSO</a> in the\n            <i>AWS IoT SiteWise User Guide</i>. This option is only available in AWS Regions other than\n          the China Regions.</p>\n            </li>\n            <li>\n               <p>\n                  <code>IAM</code> – The portal uses AWS Identity and Access Management (IAM) to authenticate users and manage\n          user permissions. This option is only available in the China Regions.</p>\n            </li>\n         </ul>\n         <p>You can't change this value after you create a portal.</p>\n         <p>Default: <code>SSO</code>\n         </p>"
           }
+        },
+        "notificationSenderEmail": {
+          "target": "com.amazonaws.iotsitewise#Email",
+          "traits": {
+            "smithy.api#documentation": "<p>The email address that sends alarm notifications.</p>\n         <important>\n            <p>If you use the AWS IoT Events managed AWS Lambda function to manage your emails, you must \n        <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html\">verify the sender email address in Amazon SES</a>.</p>\n         </important>"
+          }
+        },
+        "alarms": {
+          "target": "com.amazonaws.iotsitewise#Alarms",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. \n  You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see .</p>"
+          }
         }
       }
     },
@@ -2583,7 +2616,7 @@
           "min": 0,
           "max": 204800
         },
-        "smithy.api#pattern": ".+"
+        "smithy.api#pattern": "^.+$"
       }
     },
     "com.amazonaws.iotsitewise#DashboardSummaries": {
@@ -2639,7 +2672,7 @@
           "min": 1,
           "max": 1024
         },
-        "smithy.api#pattern": "[^\\u0000-\\u001F\\u007F]+"
+        "smithy.api#pattern": "^[^\\u0000-\\u001F\\u007F]+$"
       }
     },
     "com.amazonaws.iotsitewise#DeleteAccessPolicy": {
@@ -4151,6 +4184,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The service to use to authenticate users to the portal.</p>"
           }
+        },
+        "notificationSenderEmail": {
+          "target": "com.amazonaws.iotsitewise#Email",
+          "traits": {
+            "smithy.api#documentation": "<p>The email address that sends alarm notifications.</p>"
+          }
+        },
+        "alarms": {
+          "target": "com.amazonaws.iotsitewise#Alarms",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains the configuration information of an alarm created in a AWS IoT SiteWise Monitor portal.</p>"
+          }
         }
       }
     },
@@ -4261,7 +4306,7 @@
           "min": 1,
           "max": 2048
         },
-        "smithy.api#pattern": "[^\\u0000-\\u001F\\u007F]+"
+        "smithy.api#pattern": "^[^\\u0000-\\u001F\\u007F]+$"
       }
     },
     "com.amazonaws.iotsitewise#DisassociateAssets": {
@@ -4339,7 +4384,7 @@
           "min": 1,
           "max": 255
         },
-        "smithy.api#pattern": "[^@]+@[^@]+"
+        "smithy.api#pattern": "^[^@]+@[^@]+$"
       }
     },
     "com.amazonaws.iotsitewise#EncryptionType": {
@@ -4912,7 +4957,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Get interpolated values for an asset property for a specified time interval, during a\n      period of time. For example, you can use the this operation to return the interpolated temperature values for a wind turbine every 24 hours \n      over a duration of 7 days.</p>\n      \n         <p>To identify an asset property, you must specify one of the following:</p>\n         <ul>\n            <li>\n               <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>\n            </li>\n            <li>\n               <p>A <code>propertyAlias</code>, which is a data stream alias (for example,\n          <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Get interpolated values for an asset property for a specified time interval, during a\n      period of time. For example, you can use the this operation to return the interpolated temperature values for a wind turbine every 24 hours \n      over a duration of 7 days.</p>\n         <note>\n            <p>This API isn't available in China (Beijing).</p>\n         </note>\n         <p>To identify an asset property, you must specify one of the following:</p>\n         <ul>\n            <li>\n               <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>\n            </li>\n            <li>\n               <p>A <code>propertyAlias</code>, which is a data stream alias (for example,\n          <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html\">UpdateAssetProperty</a>.</p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "data."
         },
@@ -5161,7 +5206,7 @@
           "min": 1,
           "max": 256
         },
-        "smithy.api#pattern": "\\S+"
+        "smithy.api#pattern": "^\\S+$"
       }
     },
     "com.amazonaws.iotsitewise#IdentityType": {
@@ -5322,7 +5367,7 @@
           "min": 2,
           "max": 3
         },
-        "smithy.api#pattern": "1w|1d|1h|15m|5m|1m"
+        "smithy.api#pattern": "^1w|1d|1h|15m|5m|1m$"
       }
     },
     "com.amazonaws.iotsitewise#IntervalInSeconds": {
@@ -6345,7 +6390,7 @@
           "min": 1,
           "max": 256
         },
-        "smithy.api#pattern": "[^\\u0000-\\u001F\\u007F]+"
+        "smithy.api#pattern": "^[^\\u0000-\\u001F\\u007F]+$"
       }
     },
     "com.amazonaws.iotsitewise#MaxInterpolatedResults": {
@@ -6466,7 +6511,7 @@
           "min": 1,
           "max": 256
         },
-        "smithy.api#pattern": "[^\\u0000-\\u001F\\u007F]+"
+        "smithy.api#pattern": "^[^\\u0000-\\u001F\\u007F]+$"
       }
     },
     "com.amazonaws.iotsitewise#NextToken": {
@@ -6476,7 +6521,7 @@
           "min": 1,
           "max": 4096
         },
-        "smithy.api#pattern": "[A-Za-z0-9+/=]+"
+        "smithy.api#pattern": "^[A-Za-z0-9+/=]+$"
       }
     },
     "com.amazonaws.iotsitewise#OffsetInNanos": {
@@ -6511,7 +6556,7 @@
           "min": 1,
           "max": 256
         },
-        "smithy.api#pattern": "^[!-~]*"
+        "smithy.api#pattern": "^[!-~]*$"
       }
     },
     "com.amazonaws.iotsitewise#PortalResource": {
@@ -6762,7 +6807,7 @@
         "smithy.api#length": {
           "min": 1
         },
-        "smithy.api#pattern": "[^\\u0000-\\u001F\\u007F]+"
+        "smithy.api#pattern": "^[^\\u0000-\\u001F\\u007F]+$"
       }
     },
     "com.amazonaws.iotsitewise#PropertyDataType": {
@@ -6871,7 +6916,7 @@
           "min": 1,
           "max": 256
         },
-        "smithy.api#pattern": "[^\\u0000-\\u001F\\u007F]+"
+        "smithy.api#pattern": "^[^\\u0000-\\u001F\\u007F]+$"
       }
     },
     "com.amazonaws.iotsitewise#PropertyValueBooleanValue": {
@@ -6895,7 +6940,7 @@
     "com.amazonaws.iotsitewise#PropertyValueStringValue": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "[^\\u0000-\\u001F\\u007F]+"
+        "smithy.api#pattern": "^[^\\u0000-\\u001F\\u007F]+$"
       }
     },
     "com.amazonaws.iotsitewise#PutAssetPropertyValueEntries": {
@@ -7112,7 +7157,7 @@
           "min": 2,
           "max": 2
         },
-        "smithy.api#pattern": "1m|1h|1d"
+        "smithy.api#pattern": "^1m|1h|1d$"
       }
     },
     "com.amazonaws.iotsitewise#Resource": {
@@ -7209,7 +7254,7 @@
           "min": 1,
           "max": 64
         },
-        "smithy.api#pattern": "^[!-~]*"
+        "smithy.api#pattern": "^[!-~]*$"
       }
     },
     "com.amazonaws.iotsitewise#ServiceUnavailableException": {
@@ -8214,6 +8259,18 @@
             "smithy.api#documentation": "<p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>",
             "smithy.api#idempotencyToken": {}
           }
+        },
+        "notificationSenderEmail": {
+          "target": "com.amazonaws.iotsitewise#Email",
+          "traits": {
+            "smithy.api#documentation": "<p>The email address that sends alarm notifications.</p>"
+          }
+        },
+        "alarms": {
+          "target": "com.amazonaws.iotsitewise#Alarms",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. \n  You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see .</p>"
+          }
         }
       }
     },
@@ -8307,7 +8364,7 @@
           "min": 1,
           "max": 256
         },
-        "smithy.api#pattern": "^(http|https)\\://\\S+"
+        "smithy.api#pattern": "^(http|https)\\://\\S+$"
       }
     },
     "com.amazonaws.iotsitewise#UserIdentity": {

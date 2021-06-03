@@ -2579,6 +2579,8 @@ const serializeAws_json1_1CreateFileSystemLustreConfiguration = (
       input.DailyAutomaticBackupStartTime !== null && {
         DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
       }),
+    ...(input.DataCompressionType !== undefined &&
+      input.DataCompressionType !== null && { DataCompressionType: input.DataCompressionType }),
     ...(input.DeploymentType !== undefined &&
       input.DeploymentType !== null && { DeploymentType: input.DeploymentType }),
     ...(input.DriveCacheType !== undefined &&
@@ -3014,6 +3016,8 @@ const serializeAws_json1_1UpdateFileSystemLustreConfiguration = (
       input.DailyAutomaticBackupStartTime !== null && {
         DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
       }),
+    ...(input.DataCompressionType !== undefined &&
+      input.DataCompressionType !== null && { DataCompressionType: input.DataCompressionType }),
     ...(input.WeeklyMaintenanceStartTime !== undefined &&
       input.WeeklyMaintenanceStartTime !== null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
   };
@@ -3790,6 +3794,10 @@ const deserializeAws_json1_1LustreFileSystemConfiguration = (
     DailyAutomaticBackupStartTime:
       output.DailyAutomaticBackupStartTime !== undefined && output.DailyAutomaticBackupStartTime !== null
         ? output.DailyAutomaticBackupStartTime
+        : undefined,
+    DataCompressionType:
+      output.DataCompressionType !== undefined && output.DataCompressionType !== null
+        ? output.DataCompressionType
         : undefined,
     DataRepositoryConfiguration:
       output.DataRepositoryConfiguration !== undefined && output.DataRepositoryConfiguration !== null

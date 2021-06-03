@@ -1,10 +1,20 @@
 import { TransferClient } from "./TransferClient";
 import {
+  CreateAccessCommand,
+  CreateAccessCommandInput,
+  CreateAccessCommandOutput,
+} from "./commands/CreateAccessCommand";
+import {
   CreateServerCommand,
   CreateServerCommandInput,
   CreateServerCommandOutput,
 } from "./commands/CreateServerCommand";
 import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import {
+  DeleteAccessCommand,
+  DeleteAccessCommandInput,
+  DeleteAccessCommandOutput,
+} from "./commands/DeleteAccessCommand";
 import {
   DeleteServerCommand,
   DeleteServerCommandInput,
@@ -16,6 +26,11 @@ import {
   DeleteSshPublicKeyCommandOutput,
 } from "./commands/DeleteSshPublicKeyCommand";
 import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import {
+  DescribeAccessCommand,
+  DescribeAccessCommandInput,
+  DescribeAccessCommandOutput,
+} from "./commands/DescribeAccessCommand";
 import {
   DescribeSecurityPolicyCommand,
   DescribeSecurityPolicyCommandInput,
@@ -36,6 +51,11 @@ import {
   ImportSshPublicKeyCommandInput,
   ImportSshPublicKeyCommandOutput,
 } from "./commands/ImportSshPublicKeyCommand";
+import {
+  ListAccessesCommand,
+  ListAccessesCommandInput,
+  ListAccessesCommandOutput,
+} from "./commands/ListAccessesCommand";
 import {
   ListSecurityPoliciesCommand,
   ListSecurityPoliciesCommandInput,
@@ -62,6 +82,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateAccessCommand,
+  UpdateAccessCommandInput,
+  UpdateAccessCommandOutput,
+} from "./commands/UpdateAccessCommand";
+import {
   UpdateServerCommand,
   UpdateServerCommandInput,
   UpdateServerCommandOutput,
@@ -82,10 +107,44 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class Transfer extends TransferClient {
   /**
-   * <p>Instantiates an autoscaling virtual server based on the selected file transfer protocol in
-   *       AWS. When you make updates to your file transfer protocol-enabled server or when you work with
-   *       users, use the service-generated <code>ServerId</code> property that is assigned to the newly
-   *       created server.</p>
+   * <p>Used by administrators to choose which groups in the directory should have access to
+   *       upload and download files over the enabled protocols using AWS Transfer Family. For example, a
+   *       Microsoft Active Directory might contain 50,000 users, but only a small fraction might need
+   *       the ability to transfer files to the server. An administrator can use
+   *         <code>CreateAccess</code> to limit the access to the correct set of users who need this
+   *       ability.</p>
+   */
+  public createAccess(
+    args: CreateAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAccessCommandOutput>;
+  public createAccess(args: CreateAccessCommandInput, cb: (err: any, data?: CreateAccessCommandOutput) => void): void;
+  public createAccess(
+    args: CreateAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAccessCommandOutput) => void
+  ): void;
+  public createAccess(
+    args: CreateAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAccessCommandOutput) => void),
+    cb?: (err: any, data?: CreateAccessCommandOutput) => void
+  ): Promise<CreateAccessCommandOutput> | void {
+    const command = new CreateAccessCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Instantiates an auto-scaling virtual server based on the selected file transfer protocol
+   *       in AWS. When you make updates to your file transfer protocol-enabled server or when you work
+   *       with users, use the service-generated <code>ServerId</code> property that is assigned to the
+   *       newly created server.</p>
    */
   public createServer(
     args: CreateServerCommandInput,
@@ -135,6 +194,36 @@ export class Transfer extends TransferClient {
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Allows you to delete the access specified in the <code>ServerID</code> and
+   *       <code>ExternalID</code> parameters.</p>
+   */
+  public deleteAccess(
+    args: DeleteAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccessCommandOutput>;
+  public deleteAccess(args: DeleteAccessCommandInput, cb: (err: any, data?: DeleteAccessCommandOutput) => void): void;
+  public deleteAccess(
+    args: DeleteAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccessCommandOutput) => void
+  ): void;
+  public deleteAccess(
+    args: DeleteAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccessCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAccessCommandOutput) => void
+  ): Promise<DeleteAccessCommandOutput> | void {
+    const command = new DeleteAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -232,6 +321,43 @@ export class Transfer extends TransferClient {
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the access that is assigned to the specific file transfer protocol-enabled
+   *       server, as identified by its <code>ServerId</code> property and its
+   *       <code>ExternalID</code>.</p>
+   *
+   *          <p>The response from this call returns the properties of the access that is associated with
+   *       the <code>ServerId</code> value that was specified.</p>
+   */
+  public describeAccess(
+    args: DescribeAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAccessCommandOutput>;
+  public describeAccess(
+    args: DescribeAccessCommandInput,
+    cb: (err: any, data?: DescribeAccessCommandOutput) => void
+  ): void;
+  public describeAccess(
+    args: DescribeAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAccessCommandOutput) => void
+  ): void;
+  public describeAccess(
+    args: DescribeAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccessCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAccessCommandOutput) => void
+  ): Promise<DescribeAccessCommandOutput> | void {
+    const command = new DescribeAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -385,6 +511,35 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * <p>Lists the details for all the accesses you have on your server.</p>
+   */
+  public listAccesses(
+    args: ListAccessesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccessesCommandOutput>;
+  public listAccesses(args: ListAccessesCommandInput, cb: (err: any, data?: ListAccessesCommandOutput) => void): void;
+  public listAccesses(
+    args: ListAccessesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccessesCommandOutput) => void
+  ): void;
+  public listAccesses(
+    args: ListAccessesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccessesCommandOutput) => void),
+    cb?: (err: any, data?: ListAccessesCommandOutput) => void
+  ): Promise<ListAccessesCommandOutput> | void {
+    const command = new ListAccessesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the security policies that are attached to your file transfer protocol-enabled
    *       servers.</p>
    */
@@ -445,7 +600,7 @@ export class Transfer extends TransferClient {
   }
 
   /**
-   * <p>Lists all of the tags associated with the Amazon Resource Number (ARN) you specify. The
+   * <p>Lists all of the tags associated with the Amazon Resource Name (ARN) that you specify. The
    *       resource can be a user, server, or role.</p>
    */
   public listTagsForResource(
@@ -609,10 +764,11 @@ export class Transfer extends TransferClient {
 
   /**
    * <p>If the <code>IdentityProviderType</code> of a file transfer protocol-enabled server is
-   *         <code>API_Gateway</code>, tests whether your API Gateway is set up successfully. We highly
-   *       recommend that you call this operation to test your authentication method as soon as you
-   *       create your server. By doing so, you can troubleshoot issues with the API Gateway integration
-   *       to ensure that your users can successfully use the service.</p>
+   *         <code>AWS_DIRECTORY_SERVICE</code> or <code>API_Gateway</code>, tests whether your identity
+   *       provider is set up successfully. We highly recommend that you call this operation to test your
+   *       authentication method as soon as you create your server. By doing so, you can troubleshoot
+   *       issues with the identity provider integration to ensure that your users can successfully use
+   *       the service.</p>
    */
   public testIdentityProvider(
     args: TestIdentityProviderCommandInput,
@@ -668,6 +824,36 @@ export class Transfer extends TransferClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Allows you to update parameters for the access specified in the <code>ServerID</code> and
+   *       <code>ExternalID</code> parameters.</p>
+   */
+  public updateAccess(
+    args: UpdateAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAccessCommandOutput>;
+  public updateAccess(args: UpdateAccessCommandInput, cb: (err: any, data?: UpdateAccessCommandOutput) => void): void;
+  public updateAccess(
+    args: UpdateAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAccessCommandOutput) => void
+  ): void;
+  public updateAccess(
+    args: UpdateAccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAccessCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAccessCommandOutput) => void
+  ): Promise<UpdateAccessCommandOutput> | void {
+    const command = new UpdateAccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

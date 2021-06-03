@@ -328,7 +328,7 @@ export class DataSync extends DataSyncClient {
 
   /**
    * <p>Creates an endpoint for a self-managed object storage bucket. For more information
-   *       about self-managed object storage locations, see <a>create-object-location</a>.</p>
+   *       about self-managed object storage locations, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object storage</a>.</p>
    */
   public createLocationObjectStorage(
     args: CreateLocationObjectStorageCommandInput,
@@ -694,7 +694,7 @@ export class DataSync extends DataSyncClient {
 
   /**
    * <p>Returns metadata about a self-managed object storage server location. For more information
-   *       about self-managed object storage locations, see <a>create-object-location</a>.</p>
+   *       about self-managed object storage locations, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object storage</a>.</p>
    */
   public describeLocationObjectStorage(
     args: DescribeLocationObjectStorageCommandInput,
@@ -1134,7 +1134,7 @@ export class DataSync extends DataSyncClient {
 
   /**
    * <p>Updates some of the parameters of a previously created location for Network File System (NFS) access.
-   *       For information about creating an NFS location, see <a>create-nfs-location</a>.</p>
+   *       For information about creating an NFS location, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Creating a location for NFS</a>.</p>
    */
   public updateLocationNfs(
     args: UpdateLocationNfsCommandInput,
@@ -1168,7 +1168,7 @@ export class DataSync extends DataSyncClient {
   /**
    * <p>Updates some of the parameters of a previously created location for self-managed object
    *       storage server access. For information about creating a self-managed object storage location,
-   *       see <a>create-object-location</a>.</p>
+   *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object storage</a>.</p>
    */
   public updateLocationObjectStorage(
     args: UpdateLocationObjectStorageCommandInput,
@@ -1201,7 +1201,8 @@ export class DataSync extends DataSyncClient {
 
   /**
    * <p>Updates some of the parameters of a previously created location for Server Message Block
-   *       (SMB) file system access. For information about creating an SMB location, see <a>create-smb-location</a>.</p>
+   *       (SMB) file system access. For information about creating an SMB location, see
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Creating a location for SMB</a>.</p>
    */
   public updateLocationSmb(
     args: UpdateLocationSmbCommandInput,

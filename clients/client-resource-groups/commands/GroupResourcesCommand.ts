@@ -22,11 +22,11 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
 
 /**
  * <p>Adds the specified resources to the specified group.</p>
- *          <p>
+ *         <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
+ *         <ul>
  *             <li>
  *                 <p>
  *                   <code>resource-groups:GroupResources</code>

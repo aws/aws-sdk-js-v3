@@ -42,6 +42,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateLedgerCommandInput, UpdateLedgerCommandOutput } from "../commands/UpdateLedgerCommand";
 import {
+  UpdateLedgerPermissionsModeCommandInput,
+  UpdateLedgerPermissionsModeCommandOutput,
+} from "../commands/UpdateLedgerPermissionsModeCommand";
+import {
   InvalidParameterException,
   JournalKinesisStreamDescription,
   JournalS3ExportDescription,
@@ -698,6 +702,40 @@ export const serializeAws_restJson1UpdateLedgerCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateLedgerPermissionsModeCommand = async (
+  input: UpdateLedgerPermissionsModeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/ledgers/{Name}/permissions-mode";
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.PermissionsMode !== undefined &&
+      input.PermissionsMode !== null && { PermissionsMode: input.PermissionsMode }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const deserializeAws_restJson1CancelJournalKinesisStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -782,6 +820,7 @@ export const deserializeAws_restJson1CreateLedgerCommand = async (
     CreationDateTime: undefined,
     DeletionProtection: undefined,
     Name: undefined,
+    PermissionsMode: undefined,
     State: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -796,6 +835,9 @@ export const deserializeAws_restJson1CreateLedgerCommand = async (
   }
   if (data.Name !== undefined && data.Name !== null) {
     contents.Name = data.Name;
+  }
+  if (data.PermissionsMode !== undefined && data.PermissionsMode !== null) {
+    contents.PermissionsMode = data.PermissionsMode;
   }
   if (data.State !== undefined && data.State !== null) {
     contents.State = data.State;
@@ -1078,6 +1120,7 @@ export const deserializeAws_restJson1DescribeLedgerCommand = async (
     CreationDateTime: undefined,
     DeletionProtection: undefined,
     Name: undefined,
+    PermissionsMode: undefined,
     State: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1092,6 +1135,9 @@ export const deserializeAws_restJson1DescribeLedgerCommand = async (
   }
   if (data.Name !== undefined && data.Name !== null) {
     contents.Name = data.Name;
+  }
+  if (data.PermissionsMode !== undefined && data.PermissionsMode !== null) {
+    contents.PermissionsMode = data.PermissionsMode;
   }
   if (data.State !== undefined && data.State !== null) {
     contents.State = data.State;
@@ -1950,6 +1996,77 @@ const deserializeAws_restJson1UpdateLedgerCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLedgerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.qldb#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.qldb#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateLedgerPermissionsModeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLedgerPermissionsModeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateLedgerPermissionsModeCommandError(output, context);
+  }
+  const contents: UpdateLedgerPermissionsModeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    Name: undefined,
+    PermissionsMode: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = data.Arn;
+  }
+  if (data.Name !== undefined && data.Name !== null) {
+    contents.Name = data.Name;
+  }
+  if (data.PermissionsMode !== undefined && data.PermissionsMode !== null) {
+    contents.PermissionsMode = data.PermissionsMode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateLedgerPermissionsModeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLedgerPermissionsModeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),

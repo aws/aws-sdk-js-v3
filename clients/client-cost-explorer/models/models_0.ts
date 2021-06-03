@@ -2837,6 +2837,50 @@ export namespace ResourceDetails {
 
 /**
  * <p>
+ *             The field that contains a list of disk (local storage) metrics associated with the current instance.
+ *         </p>
+ */
+export interface DiskResourceUtilization {
+  /**
+   * <p>
+   *             The maximum number of read operations per second.
+   *         </p>
+   */
+  DiskReadOpsPerSecond?: string;
+
+  /**
+   * <p>
+   *             The maximum number of write operations per second.
+   *         </p>
+   */
+  DiskWriteOpsPerSecond?: string;
+
+  /**
+   * <p>
+   *             The maximum read throughput operations per second.
+   *         </p>
+   */
+  DiskReadBytesPerSecond?: string;
+
+  /**
+   * <p>
+   *             The maximum write throughput operations per second.
+   *         </p>
+   */
+  DiskWriteBytesPerSecond?: string;
+}
+
+export namespace DiskResourceUtilization {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DiskResourceUtilization): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
  *             The EBS field that contains a list of EBS metrics associated with the current instance.
  *         </p>
  */
@@ -2880,6 +2924,50 @@ export namespace EBSResourceUtilization {
 }
 
 /**
+ * <p>
+ *             The network field that contains a list of network metrics associated with the current instance.
+ *         </p>
+ */
+export interface NetworkResourceUtilization {
+  /**
+   * <p>
+   *             The network ingress throughput utilization measured in Bytes per second.
+   *         </p>
+   */
+  NetworkInBytesPerSecond?: string;
+
+  /**
+   * <p>
+   *             The network outgress throughput utilization measured in Bytes per second.
+   *         </p>
+   */
+  NetworkOutBytesPerSecond?: string;
+
+  /**
+   * <p>
+   *             The network ingress packets measured in packets per second.
+   *         </p>
+   */
+  NetworkPacketsInPerSecond?: string;
+
+  /**
+   * <p>
+   *             The network outgress packets measured in packets per second.
+   *         </p>
+   */
+  NetworkPacketsOutPerSecond?: string;
+}
+
+export namespace NetworkResourceUtilization {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkResourceUtilization): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p> Utilization metrics of the instance.  </p>
  */
 export interface EC2ResourceUtilization {
@@ -2904,6 +2992,20 @@ export interface EC2ResourceUtilization {
    *         </p>
    */
   EBSResourceUtilization?: EBSResourceUtilization;
+
+  /**
+   * <p>
+   *             The field that contains a list of disk (local storage) metrics associated with the current instance.
+   *         </p>
+   */
+  DiskResourceUtilization?: DiskResourceUtilization;
+
+  /**
+   * <p>
+   *             The network field that contains a list of network metrics associated with the current instance.
+   *         </p>
+   */
+  NetworkResourceUtilization?: NetworkResourceUtilization;
 }
 
 export namespace EC2ResourceUtilization {
@@ -3003,6 +3105,33 @@ export namespace CurrentInstance {
   });
 }
 
+export enum FindingReasonCode {
+  CPU_OVER_PROVISIONED = "CPU_OVER_PROVISIONED",
+  CPU_UNDER_PROVISIONED = "CPU_UNDER_PROVISIONED",
+  DISK_IOPS_OVER_PROVISIONED = "DISK_IOPS_OVER_PROVISIONED",
+  DISK_IOPS_UNDER_PROVISIONED = "DISK_IOPS_UNDER_PROVISIONED",
+  DISK_THROUGHPUT_OVER_PROVISIONED = "DISK_THROUGHPUT_OVER_PROVISIONED",
+  DISK_THROUGHPUT_UNDER_PROVISIONED = "DISK_THROUGHPUT_UNDER_PROVISIONED",
+  EBS_IOPS_OVER_PROVISIONED = "EBS_IOPS_OVER_PROVISIONED",
+  EBS_IOPS_UNDER_PROVISIONED = "EBS_IOPS_UNDER_PROVISIONED",
+  EBS_THROUGHPUT_OVER_PROVISIONED = "EBS_THROUGHPUT_OVER_PROVISIONED",
+  EBS_THROUGHPUT_UNDER_PROVISIONED = "EBS_THROUGHPUT_UNDER_PROVISIONED",
+  MEMORY_OVER_PROVISIONED = "MEMORY_OVER_PROVISIONED",
+  MEMORY_UNDER_PROVISIONED = "MEMORY_UNDER_PROVISIONED",
+  NETWORK_BANDWIDTH_OVER_PROVISIONED = "NETWORK_BANDWIDTH_OVER_PROVISIONED",
+  NETWORK_BANDWIDTH_UNDER_PROVISIONED = "NETWORK_BANDWIDTH_UNDER_PROVISIONED",
+  NETWORK_PPS_OVER_PROVISIONED = "NETWORK_PPS_OVER_PROVISIONED",
+  NETWORK_PPS_UNDER_PROVISIONED = "NETWORK_PPS_UNDER_PROVISIONED",
+}
+
+export enum PlatformDifference {
+  HYPERVISOR = "HYPERVISOR",
+  INSTANCE_STORE_AVAILABILITY = "INSTANCE_STORE_AVAILABILITY",
+  NETWORK_INTERFACE = "NETWORK_INTERFACE",
+  STORAGE_INTERFACE = "STORAGE_INTERFACE",
+  VIRTUALIZATION_TYPE = "VIRTUALIZATION_TYPE",
+}
+
 /**
  * <p> Details on recommended instance.</p>
  */
@@ -3036,6 +3165,13 @@ export interface TargetInstance {
    * <p> Expected utilization metrics for target instance type.</p>
    */
   ExpectedResourceUtilization?: ResourceUtilization;
+
+  /**
+   * <p>
+   *             Explains the actions you might need to take in order to successfully migrate your workloads from the current instance type to the recommended instance type.
+   *         </p>
+   */
+  PlatformDifferences?: (PlatformDifference | string)[];
 }
 
 export namespace TargetInstance {
@@ -3123,6 +3259,13 @@ export interface RightsizingRecommendation {
    * <p>Details for termination recommendations.</p>
    */
   TerminateRecommendationDetail?: TerminateRecommendationDetail;
+
+  /**
+   * <p>
+   *             The list of possible reasons why the recommendation is generated such as under or over utilization of specific metrics (for example, CPU, Memory, Network).
+   *         </p>
+   */
+  FindingReasonCodes?: (FindingReasonCode | string)[];
 }
 
 export namespace RightsizingRecommendation {

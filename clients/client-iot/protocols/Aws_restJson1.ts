@@ -71,6 +71,7 @@ import {
   CreateDynamicThingGroupCommandOutput,
 } from "../commands/CreateDynamicThingGroupCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "../commands/CreateJobCommand";
+import { CreateJobTemplateCommandInput, CreateJobTemplateCommandOutput } from "../commands/CreateJobTemplateCommand";
 import {
   CreateKeysAndCertificateCommandInput,
   CreateKeysAndCertificateCommandOutput,
@@ -142,6 +143,7 @@ import {
 } from "../commands/DeleteDynamicThingGroupCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "../commands/DeleteJobCommand";
 import { DeleteJobExecutionCommandInput, DeleteJobExecutionCommandOutput } from "../commands/DeleteJobExecutionCommand";
+import { DeleteJobTemplateCommandInput, DeleteJobTemplateCommandOutput } from "../commands/DeleteJobTemplateCommand";
 import {
   DeleteMitigationActionCommandInput,
   DeleteMitigationActionCommandOutput,
@@ -245,6 +247,10 @@ import {
   DescribeJobExecutionCommandInput,
   DescribeJobExecutionCommandOutput,
 } from "../commands/DescribeJobExecutionCommand";
+import {
+  DescribeJobTemplateCommandInput,
+  DescribeJobTemplateCommandOutput,
+} from "../commands/DescribeJobTemplateCommand";
 import {
   DescribeMitigationActionCommandInput,
   DescribeMitigationActionCommandOutput,
@@ -375,6 +381,7 @@ import {
   ListJobExecutionsForThingCommandInput,
   ListJobExecutionsForThingCommandOutput,
 } from "../commands/ListJobExecutionsForThingCommand";
+import { ListJobTemplatesCommandInput, ListJobTemplatesCommandOutput } from "../commands/ListJobTemplatesCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import {
   ListMitigationActionsCommandInput,
@@ -657,6 +664,7 @@ import {
   CodeSigning,
   CodeSigningCertificateChain,
   CodeSigningSignature,
+  ConflictException,
   ConflictingResourceUpdateException,
   CustomCodeSigning,
   DeleteConflictException,
@@ -756,7 +764,6 @@ import {
   CACertificate,
   CACertificateDescription,
   Certificate,
-  CertificateConflictException,
   CertificateDescription,
   CertificateValidity,
   Configuration,
@@ -781,6 +788,7 @@ import {
   JobExecutionSummaryForThing,
   JobProcessDetails,
   JobSummary,
+  JobTemplateSummary,
   LogTarget,
   LogTargetConfiguration,
   MitigationAction,
@@ -793,7 +801,6 @@ import {
   PolicyVersion,
   ProvisioningTemplateSummary,
   ProvisioningTemplateVersionSummary,
-  RegistrationCodeValidationException,
   RegistrationConfig,
   RoleAliasDescription,
   ScheduledAuditMetadata,
@@ -820,10 +827,12 @@ import {
   VpcDestinationSummary,
 } from "../models/models_1";
 import {
+  CertificateConflictException,
   HttpContext,
   InvalidResponseException,
   LoggingOptionsPayload,
   MqttContext,
+  RegistrationCodeValidationException,
   ResourceRegistrationFailureException,
   TaskAlreadyExistsException,
   ThingConnectivity,
@@ -1699,6 +1708,8 @@ export const serializeAws_restJson1CreateJobCommand = async (
           context
         ),
       }),
+    ...(input.jobTemplateArn !== undefined &&
+      input.jobTemplateArn !== null && { jobTemplateArn: input.jobTemplateArn }),
     ...(input.namespaceId !== undefined && input.namespaceId !== null && { namespaceId: input.namespaceId }),
     ...(input.presignedUrlConfig !== undefined &&
       input.presignedUrlConfig !== null && {
@@ -1710,6 +1721,62 @@ export const serializeAws_restJson1CreateJobCommand = async (
       input.targetSelection !== null && { targetSelection: input.targetSelection }),
     ...(input.targets !== undefined &&
       input.targets !== null && { targets: serializeAws_restJson1JobTargets(input.targets, context) }),
+    ...(input.timeoutConfig !== undefined &&
+      input.timeoutConfig !== null && {
+        timeoutConfig: serializeAws_restJson1TimeoutConfig(input.timeoutConfig, context),
+      }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateJobTemplateCommand = async (
+  input: CreateJobTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/job-templates/{jobTemplateId}";
+  if (input.jobTemplateId !== undefined) {
+    const labelValue: string = input.jobTemplateId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: jobTemplateId.");
+    }
+    resolvedPath = resolvedPath.replace("{jobTemplateId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: jobTemplateId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.abortConfig !== undefined &&
+      input.abortConfig !== null && { abortConfig: serializeAws_restJson1AbortConfig(input.abortConfig, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.document !== undefined && input.document !== null && { document: input.document }),
+    ...(input.documentSource !== undefined &&
+      input.documentSource !== null && { documentSource: input.documentSource }),
+    ...(input.jobArn !== undefined && input.jobArn !== null && { jobArn: input.jobArn }),
+    ...(input.jobExecutionsRolloutConfig !== undefined &&
+      input.jobExecutionsRolloutConfig !== null && {
+        jobExecutionsRolloutConfig: serializeAws_restJson1JobExecutionsRolloutConfig(
+          input.jobExecutionsRolloutConfig,
+          context
+        ),
+      }),
+    ...(input.presignedUrlConfig !== undefined &&
+      input.presignedUrlConfig !== null && {
+        presignedUrlConfig: serializeAws_restJson1PresignedUrlConfig(input.presignedUrlConfig, context),
+      }),
+    ...(input.tags !== undefined &&
+      input.tags !== null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
     ...(input.timeoutConfig !== undefined &&
       input.timeoutConfig !== null && {
         timeoutConfig: serializeAws_restJson1TimeoutConfig(input.timeoutConfig, context),
@@ -2755,6 +2822,34 @@ export const serializeAws_restJson1DeleteJobExecutionCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteJobTemplateCommand = async (
+  input: DeleteJobTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/job-templates/{jobTemplateId}";
+  if (input.jobTemplateId !== undefined) {
+    const labelValue: string = input.jobTemplateId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: jobTemplateId.");
+    }
+    resolvedPath = resolvedPath.replace("{jobTemplateId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: jobTemplateId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -3817,6 +3912,34 @@ export const serializeAws_restJson1DescribeJobExecutionCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeJobTemplateCommand = async (
+  input: DescribeJobTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/job-templates/{jobTemplateId}";
+  if (input.jobTemplateId !== undefined) {
+    const labelValue: string = input.jobTemplateId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: jobTemplateId.");
+    }
+    resolvedPath = resolvedPath.replace("{jobTemplateId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: jobTemplateId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -5316,6 +5439,30 @@ export const serializeAws_restJson1ListJobsCommand = async (
     ...(input.thingGroupName !== undefined && { thingGroupName: input.thingGroupName }),
     ...(input.thingGroupId !== undefined && { thingGroupId: input.thingGroupId }),
     ...(input.namespaceId !== undefined && { namespaceId: input.namespaceId }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListJobTemplatesCommand = async (
+  input: ListJobTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/job-templates";
+  const query: any = {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -10168,6 +10315,105 @@ const deserializeAws_restJson1CreateJobCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CreateJobTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateJobTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateJobTemplateCommandError(output, context);
+  }
+  const contents: CreateJobTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    jobTemplateArn: undefined,
+    jobTemplateId: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.jobTemplateArn !== undefined && data.jobTemplateArn !== null) {
+    contents.jobTemplateArn = data.jobTemplateArn;
+  }
+  if (data.jobTemplateId !== undefined && data.jobTemplateId !== null) {
+    contents.jobTemplateId = data.jobTemplateId;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateJobTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateJobTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.iot#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.iot#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1CreateKeysAndCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -12894,6 +13140,81 @@ const deserializeAws_restJson1DeleteJobExecutionCommandError = async (
     case "com.amazonaws.iot#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteJobTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteJobTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteJobTemplateCommandError(output, context);
+  }
+  const contents: DeleteJobTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteJobTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteJobTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -16246,6 +16567,124 @@ const deserializeAws_restJson1DescribeJobExecutionCommandError = async (
     case "com.amazonaws.iot#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeJobTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeJobTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeJobTemplateCommandError(output, context);
+  }
+  const contents: DescribeJobTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    abortConfig: undefined,
+    createdAt: undefined,
+    description: undefined,
+    document: undefined,
+    documentSource: undefined,
+    jobExecutionsRolloutConfig: undefined,
+    jobTemplateArn: undefined,
+    jobTemplateId: undefined,
+    presignedUrlConfig: undefined,
+    timeoutConfig: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.abortConfig !== undefined && data.abortConfig !== null) {
+    contents.abortConfig = deserializeAws_restJson1AbortConfig(data.abortConfig, context);
+  }
+  if (data.createdAt !== undefined && data.createdAt !== null) {
+    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+  }
+  if (data.description !== undefined && data.description !== null) {
+    contents.description = data.description;
+  }
+  if (data.document !== undefined && data.document !== null) {
+    contents.document = data.document;
+  }
+  if (data.documentSource !== undefined && data.documentSource !== null) {
+    contents.documentSource = data.documentSource;
+  }
+  if (data.jobExecutionsRolloutConfig !== undefined && data.jobExecutionsRolloutConfig !== null) {
+    contents.jobExecutionsRolloutConfig = deserializeAws_restJson1JobExecutionsRolloutConfig(
+      data.jobExecutionsRolloutConfig,
+      context
+    );
+  }
+  if (data.jobTemplateArn !== undefined && data.jobTemplateArn !== null) {
+    contents.jobTemplateArn = data.jobTemplateArn;
+  }
+  if (data.jobTemplateId !== undefined && data.jobTemplateId !== null) {
+    contents.jobTemplateId = data.jobTemplateId;
+  }
+  if (data.presignedUrlConfig !== undefined && data.presignedUrlConfig !== null) {
+    contents.presignedUrlConfig = deserializeAws_restJson1PresignedUrlConfig(data.presignedUrlConfig, context);
+  }
+  if (data.timeoutConfig !== undefined && data.timeoutConfig !== null) {
+    contents.timeoutConfig = deserializeAws_restJson1TimeoutConfig(data.timeoutConfig, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeJobTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeJobTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -21193,6 +21632,81 @@ const deserializeAws_restJson1ListJobsCommandError = async (
     case "com.amazonaws.iot#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListJobTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListJobTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListJobTemplatesCommandError(output, context);
+  }
+  const contents: ListJobTemplatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    jobTemplates: undefined,
+    nextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.jobTemplates !== undefined && data.jobTemplates !== null) {
+    contents.jobTemplates = deserializeAws_restJson1JobTemplateSummaryList(data.jobTemplates, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListJobTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListJobTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -28398,6 +28912,23 @@ const deserializeAws_restJson1CertificateValidationExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const contents: ConflictException = {
+    name: "ConflictException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = data.message;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1ConflictingResourceUpdateExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -32397,6 +32928,8 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
       output.jobProcessDetails !== undefined && output.jobProcessDetails !== null
         ? deserializeAws_restJson1JobProcessDetails(output.jobProcessDetails, context)
         : undefined,
+    jobTemplateArn:
+      output.jobTemplateArn !== undefined && output.jobTemplateArn !== null ? output.jobTemplateArn : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
         ? new Date(Math.round(output.lastUpdatedAt * 1000))
@@ -32638,6 +33171,31 @@ const deserializeAws_restJson1JobTargets = (output: any, context: __SerdeContext
         return null as any;
       }
       return entry;
+    });
+};
+
+const deserializeAws_restJson1JobTemplateSummary = (output: any, context: __SerdeContext): JobTemplateSummary => {
+  return {
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    jobTemplateArn:
+      output.jobTemplateArn !== undefined && output.jobTemplateArn !== null ? output.jobTemplateArn : undefined,
+    jobTemplateId:
+      output.jobTemplateId !== undefined && output.jobTemplateId !== null ? output.jobTemplateId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1JobTemplateSummaryList = (output: any, context: __SerdeContext): JobTemplateSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1JobTemplateSummary(entry, context);
     });
 };
 

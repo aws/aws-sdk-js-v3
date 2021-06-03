@@ -21,7 +21,7 @@ export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentInput {}
 export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput, __MetadataBearer {}
 
 /**
- * <p>Update an MWAA environment.</p>
+ * <p>Updates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

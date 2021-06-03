@@ -21,7 +21,7 @@ export interface DescribeAutoScalingInstancesCommandInput extends DescribeAutoSc
 export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingInstancesType, __MetadataBearer {}
 
 /**
- * <p>Describes one or more Auto Scaling instances.</p>
+ * <p>Gets information about the Auto Scaling instances in the account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

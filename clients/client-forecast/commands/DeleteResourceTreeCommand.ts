@@ -31,12 +31,12 @@ export interface DeleteResourceTreeCommandOutput extends __MetadataBearer {}
  *         <ul>
  *             <li>
  *                 <p>
- *                   <b>Dataset Group</b>: predictors, predictor backtest
- *                     export jobs, forecasts, forecast export jobs</p>
+ *                   <b>Dataset</b>: dataset import jobs</p>
  *             </li>
  *             <li>
  *                 <p>
- *                   <b>Dataset</b>: dataset import jobs</p>
+ *                   <b>Dataset Group</b>: predictors, predictor backtest
+ *                     export jobs, forecasts, forecast export jobs</p>
  *             </li>
  *             <li>
  *                 <p>

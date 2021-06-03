@@ -82,8 +82,8 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *          <p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The
  *          STANDARD storage class provides high durability and high availability. Depending on
  *          performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses
- *          the OUTPOSTS Storage Class. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the <i>Amazon S3
- *             Service Developer Guide</i>.</p>
+ *          the OUTPOSTS Storage Class. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the
+ *          <i>Amazon S3 User Guide</i>.</p>
  *
  *
  *          <p>

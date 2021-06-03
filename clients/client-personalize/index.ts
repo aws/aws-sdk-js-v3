@@ -57,6 +57,7 @@ export * from "./commands/ListSolutionsCommand";
 export * from "./pagination/ListSolutionsPaginator";
 export * from "./commands/ListSolutionVersionsCommand";
 export * from "./pagination/ListSolutionVersionsPaginator";
+export * from "./commands/StopSolutionVersionCreationCommand";
 export * from "./commands/UpdateCampaignCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";

@@ -365,6 +365,7 @@ import {
   TestGridSession,
   TestGridSessionAction,
   TestGridSessionArtifact,
+  TestGridVpcConfig,
   TooManyTagsException,
   TrialMinutes,
   UniqueProblem,
@@ -1827,10 +1828,26 @@ const deserializeAws_json1_1CreateTestGridProjectCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ArgumentException":
+    case "com.amazonaws.devicefarm#ArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServiceException":
     case "com.amazonaws.devicefarm#InternalServiceException":
       response = {
         ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7153,6 +7170,14 @@ const deserializeAws_json1_1UpdateTestGridProjectCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "LimitExceededException":
+    case "com.amazonaws.devicefarm#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "NotFoundException":
     case "com.amazonaws.devicefarm#NotFoundException":
       response = {
@@ -7647,6 +7672,8 @@ const serializeAws_json1_1CreateTestGridProjectRequest = (
   return {
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.vpcConfig !== undefined &&
+      input.vpcConfig !== null && { vpcConfig: serializeAws_json1_1TestGridVpcConfig(input.vpcConfig, context) }),
   };
 };
 
@@ -8369,6 +8396,17 @@ const serializeAws_json1_1ScheduleRunTest = (input: ScheduleRunTest, context: __
   };
 };
 
+const serializeAws_json1_1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1StopJobRequest = (input: StopJobRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
@@ -8388,6 +8426,17 @@ const serializeAws_json1_1StopRunRequest = (input: StopRunRequest, context: __Se
   return {
     ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   };
+};
+
+const serializeAws_json1_1SubnetIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -8423,6 +8472,18 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
   return {
     ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1TestGridVpcConfig = (input: TestGridVpcConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.securityGroupIds !== undefined &&
+      input.securityGroupIds !== null && {
+        securityGroupIds: serializeAws_json1_1SecurityGroupIds(input.securityGroupIds, context),
+      }),
+    ...(input.subnetIds !== undefined &&
+      input.subnetIds !== null && { subnetIds: serializeAws_json1_1SubnetIds(input.subnetIds, context) }),
+    ...(input.vpcId !== undefined && input.vpcId !== null && { vpcId: input.vpcId }),
   };
 };
 
@@ -8534,6 +8595,8 @@ const serializeAws_json1_1UpdateTestGridProjectRequest = (
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.projectArn !== undefined && input.projectArn !== null && { projectArn: input.projectArn }),
+    ...(input.vpcConfig !== undefined &&
+      input.vpcConfig !== null && { vpcConfig: serializeAws_json1_1TestGridVpcConfig(input.vpcConfig, context) }),
   };
 };
 
@@ -10169,6 +10232,17 @@ const deserializeAws_json1_1ScheduleRunResult = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const deserializeAws_json1_1ServiceAccountException = (
   output: any,
   context: __SerdeContext
@@ -10200,6 +10274,17 @@ const deserializeAws_json1_1StopRunResult = (output: any, context: __SerdeContex
   return {
     run: output.run !== undefined && output.run !== null ? deserializeAws_json1_1Run(output.run, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1Suite = (output: any, context: __SerdeContext): Suite => {
@@ -10306,6 +10391,10 @@ const deserializeAws_json1_1TestGridProject = (output: any, context: __SerdeCont
       output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    vpcConfig:
+      output.vpcConfig !== undefined && output.vpcConfig !== null
+        ? deserializeAws_json1_1TestGridVpcConfig(output.vpcConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -10396,6 +10485,20 @@ const deserializeAws_json1_1TestGridSessions = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1TestGridSession(entry, context);
     });
+};
+
+const deserializeAws_json1_1TestGridVpcConfig = (output: any, context: __SerdeContext): TestGridVpcConfig => {
+  return {
+    securityGroupIds:
+      output.securityGroupIds !== undefined && output.securityGroupIds !== null
+        ? deserializeAws_json1_1SecurityGroupIds(output.securityGroupIds, context)
+        : undefined,
+    subnetIds:
+      output.subnetIds !== undefined && output.subnetIds !== null
+        ? deserializeAws_json1_1SubnetIds(output.subnetIds, context)
+        : undefined,
+    vpcId: output.vpcId !== undefined && output.vpcId !== null ? output.vpcId : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1Tests = (output: any, context: __SerdeContext): Test[] => {

@@ -258,7 +258,7 @@ export class Forecast extends ForecastClient {
    *       operation.</p>
    *          <note>
    *             <p>The <code>Status</code> of a dataset group must be <code>ACTIVE</code> before you can
-   *          use the dataset group to create a predictor. To get the status, use the <a>DescribeDatasetGroup</a> operation.</p>
+   *         use the dataset group to create a predictor. To get the status, use the <a>DescribeDatasetGroup</a> operation.</p>
    *          </note>
    */
   public createDatasetGroup(
@@ -831,12 +831,12 @@ export class Forecast extends ForecastClient {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <b>Dataset Group</b>: predictors, predictor backtest
-   *                     export jobs, forecasts, forecast export jobs</p>
+   *                   <b>Dataset</b>: dataset import jobs</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <b>Dataset</b>: dataset import jobs</p>
+   *                   <b>Dataset Group</b>: predictors, predictor backtest
+   *                     export jobs, forecasts, forecast export jobs</p>
    *             </li>
    *             <li>
    *                 <p>

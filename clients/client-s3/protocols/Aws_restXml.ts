@@ -10920,6 +10920,7 @@ const serializeAws_restXmlGrant = (input: Grant, context: __SerdeContext): any =
   const bodyNode = new __XmlNode("Grant");
   if (input.Grantee !== undefined && input.Grantee !== null) {
     const node = serializeAws_restXmlGrantee(input.Grantee, context).withName("Grantee");
+    node.addAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
     bodyNode.addChildNode(node);
   }
   if (input.Permission !== undefined && input.Permission !== null) {
@@ -12350,6 +12351,7 @@ const serializeAws_restXmlTargetGrant = (input: TargetGrant, context: __SerdeCon
   const bodyNode = new __XmlNode("TargetGrant");
   if (input.Grantee !== undefined && input.Grantee !== null) {
     const node = serializeAws_restXmlGrantee(input.Grantee, context).withName("Grantee");
+    node.addAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
     bodyNode.addChildNode(node);
   }
   if (input.Permission !== undefined && input.Permission !== null) {

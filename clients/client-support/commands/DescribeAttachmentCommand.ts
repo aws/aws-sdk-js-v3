@@ -29,12 +29,12 @@ export interface DescribeAttachmentCommandOutput extends DescribeAttachmentRespo
  *         <note>
  *             <ul>
  *                <li>
- *                     <p>You must have a Business or Enterprise support plan to use the AWS Support
+ *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
  *                         API. </p>
  *                 </li>
  *                <li>
  *                     <p>If you call the AWS Support API from an account that does not have a
- *                         Business or Enterprise support plan, the
+ *                         Business or Enterprise Support plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
  *                 </li>

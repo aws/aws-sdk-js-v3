@@ -58,6 +58,9 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *                <p>DailyAutomaticBackupStartTime</p>
  *             </li>
  *             <li>
+ *                <p>DataCompressionType</p>
+ *             </li>
+ *             <li>
  *                <p>StorageCapacity</p>
  *             </li>
  *             <li>

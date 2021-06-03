@@ -46,9 +46,9 @@ export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleA
  *             </li>
  *             <li>
  *                 <p>
- *                   <b>If you finish before the timeout period ends, complete
- *                         the lifecycle action.</b>
- *                </p>
+ *                     <b>If you finish before the timeout period ends, complete the
+ *                         lifecycle action.</b>
+ *                 </p>
  *             </li>
  *          </ol>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle

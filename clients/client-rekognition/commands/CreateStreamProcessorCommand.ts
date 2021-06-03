@@ -30,6 +30,8 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
  *             the <code>Name</code> field. </p>
  *         <p>After you have finished analyzing a streaming video, use <a>StopStreamProcessor</a> to
  *         stop processing. You can delete the stream processor by calling <a>DeleteStreamProcessor</a>.</p>
+ *         <p>This operation requires permissions to perform the
+ *             <code>rekognition:CreateStreamProcessor</code> action. If you want to tag your stream processor, you also require permission to perform the <code>rekognition:TagResource</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

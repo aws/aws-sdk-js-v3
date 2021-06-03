@@ -4424,8 +4424,8 @@ export interface CreateDomainRequest {
    *          <note>
    *             <p>You cannot register a new domain name using Lightsail. You must register a domain name
    *         using Amazon Route 53 or another domain name registrar. If you have already registered your
-   *         domain, you can enter its name in this parameter to manage the DNS records for that
-   *         domain.</p>
+   *         domain, you can enter its name in this parameter to manage the DNS records for that domain
+   *         using Lightsail.</p>
    *          </note>
    */
   domainName: string | undefined;
@@ -4478,11 +4478,15 @@ export interface DomainEntry {
   name?: string;
 
   /**
-   * <p>The target AWS name server (e.g., <code>ns-111.awsdns-22.com.</code>).</p>
+   * <p>The target IP address (e.g., <code>192.0.2.0</code>), or AWS name server (e.g.,
+   *         <code>ns-111.awsdns-22.com.</code>).</p>
    *          <p>For Lightsail load balancers, the value looks like
-   *         <code>ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com</code>. Be sure
-   *       to also set <code>isAlias</code> to <code>true</code> when setting up an A record for a load
-   *       balancer.</p>
+   *         <code>ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com</code>. For
+   *       Lightsail distributions, the value looks like <code>exampled1182ne.cloudfront.net</code>.
+   *       For Lightsail container services, the value looks like
+   *         <code>container-service-1.example23scljs.us-west-2.cs.amazonlightsail.com</code>. Be sure to
+   *       also set <code>isAlias</code> to <code>true</code> when setting up an A record for a
+   *       Lightsail load balancer, distribution, or container service.</p>
    */
   target?: string;
 
@@ -4494,13 +4498,19 @@ export interface DomainEntry {
   isAlias?: boolean;
 
   /**
-   * <p>The type of domain entry, such as address (A), canonical name (CNAME), mail exchanger
-   *       (MX), name server (NS), start of authority (SOA), service locator (SRV), or text (TXT).</p>
+   * <p>The type of domain entry, such as address for IPv4 (A), address for IPv6 (AAAA), canonical
+   *       name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service locator
+   *       (SRV), or text (TXT).</p>
    *          <p>The following domain entry types can be used:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>A</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AAAA</code>
    *                </p>
    *             </li>
    *             <li>

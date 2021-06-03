@@ -6029,6 +6029,12 @@ const serializeAws_restXmlS3CopyObjectOperation = (input: S3CopyObjectOperation,
       .withName("ObjectLockRetainUntilDate");
     bodyNode.addChildNode(node);
   }
+  if (input.BucketKeyEnabled !== undefined && input.BucketKeyEnabled !== null) {
+    const node = new __XmlNode("Boolean")
+      .addChildNode(new __XmlText(String(input.BucketKeyEnabled)))
+      .withName("BucketKeyEnabled");
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
@@ -7531,6 +7537,7 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
     ObjectLockLegalHoldStatus: undefined,
     ObjectLockMode: undefined,
     ObjectLockRetainUntilDate: undefined,
+    BucketKeyEnabled: undefined,
   };
   if (output["TargetResource"] !== undefined) {
     contents.TargetResource = output["TargetResource"];
@@ -7591,6 +7598,9 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
   }
   if (output["ObjectLockRetainUntilDate"] !== undefined) {
     contents.ObjectLockRetainUntilDate = new Date(output["ObjectLockRetainUntilDate"]);
+  }
+  if (output["BucketKeyEnabled"] !== undefined) {
+    contents.BucketKeyEnabled = output["BucketKeyEnabled"] == "true";
   }
   return contents;
 };

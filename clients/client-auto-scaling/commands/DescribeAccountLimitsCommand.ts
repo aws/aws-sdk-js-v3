@@ -21,7 +21,7 @@ export interface DescribeAccountLimitsCommandInput {}
 export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsAnswer, __MetadataBearer {}
 
 /**
- * <p>Describes the current Amazon EC2 Auto Scaling resource quotas for your AWS account.</p>
+ * <p>Describes the current Amazon EC2 Auto Scaling resource quotas for your account.</p>
  *         <p>For information about requesting an increase, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling service
  *                 quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example

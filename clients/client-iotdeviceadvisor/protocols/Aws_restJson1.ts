@@ -18,8 +18,8 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
-import { ListTestCasesCommandInput, ListTestCasesCommandOutput } from "../commands/ListTestCasesCommand";
 import { StartSuiteRunCommandInput, StartSuiteRunCommandOutput } from "../commands/StartSuiteRunCommand";
+import { StopSuiteRunCommandInput, StopSuiteRunCommandOutput } from "../commands/StopSuiteRunCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -36,9 +36,6 @@ import {
   SuiteDefinitionInformation,
   SuiteRunConfiguration,
   SuiteRunInformation,
-  TestCase,
-  TestCaseCategory,
-  TestCaseDefinition,
   TestCaseRun,
   TestResult,
   ValidationException,
@@ -298,33 +295,6 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
-export const serializeAws_restJson1ListTestCasesCommand = async (
-  input: ListTestCasesCommandInput,
-  context: __SerdeContext
-): Promise<__HttpRequest> => {
-  const headers: any = {};
-  let resolvedPath = "/testCases";
-  const query: any = {
-    ...(input.intendedForQualification !== undefined && {
-      intendedForQualification: input.intendedForQualification.toString(),
-    }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-  };
-  let body: any;
-  const { hostname, protocol = "https", port } = await context.endpoint();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
-};
-
 export const serializeAws_restJson1StartSuiteRunCommand = async (
   input: StartSuiteRunCommandInput,
   context: __SerdeContext
@@ -352,6 +322,43 @@ export const serializeAws_restJson1StartSuiteRunCommand = async (
       }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StopSuiteRunCommand = async (
+  input: StopSuiteRunCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/stop";
+  if (input.suiteDefinitionId !== undefined) {
+    const labelValue: string = input.suiteDefinitionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: suiteDefinitionId.");
+    }
+    resolvedPath = resolvedPath.replace("{suiteDefinitionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: suiteDefinitionId.");
+  }
+  if (input.suiteRunId !== undefined) {
+    const labelValue: string = input.suiteRunId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: suiteRunId.");
+    }
+    resolvedPath = resolvedPath.replace("{suiteRunId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: suiteRunId.");
+  }
+  let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1094,73 +1101,6 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
-export const deserializeAws_restJson1ListTestCasesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTestCasesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return deserializeAws_restJson1ListTestCasesCommandError(output, context);
-  }
-  const contents: ListTestCasesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    categories: undefined,
-    groupConfiguration: undefined,
-    nextToken: undefined,
-    rootGroupConfiguration: undefined,
-  };
-  const data: any = await parseBody(output.body, context);
-  if (data.categories !== undefined && data.categories !== null) {
-    contents.categories = deserializeAws_restJson1TestCategory(data.categories, context);
-  }
-  if (data.groupConfiguration !== undefined && data.groupConfiguration !== null) {
-    contents.groupConfiguration = deserializeAws_restJson1TestConfiguration(data.groupConfiguration, context);
-  }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
-    contents.nextToken = data.nextToken;
-  }
-  if (data.rootGroupConfiguration !== undefined && data.rootGroupConfiguration !== null) {
-    contents.rootGroupConfiguration = deserializeAws_restJson1TestConfiguration(data.rootGroupConfiguration, context);
-  }
-  return Promise.resolve(contents);
-};
-
-const deserializeAws_restJson1ListTestCasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTestCasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseBody(output.body, context),
-  };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
-  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.iotdeviceadvisor#InternalServerException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    default:
-      const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
-        $fault: "client",
-        $metadata: deserializeMetadata(output),
-      } as any;
-  }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
-};
-
 export const deserializeAws_restJson1StartSuiteRunCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1211,6 +1151,73 @@ const deserializeAws_restJson1StartSuiteRunCommandError = async (
     case "com.amazonaws.iotdeviceadvisor#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotdeviceadvisor#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1StopSuiteRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopSuiteRunCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StopSuiteRunCommandError(output, context);
+  }
+  const contents: StopSuiteRunCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StopSuiteRunCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopSuiteRunCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.iotdeviceadvisor#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotdeviceadvisor#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1578,10 +1585,6 @@ const serializeAws_restJson1SuiteRunConfiguration = (input: SuiteRunConfiguratio
       input.primaryDevice !== null && {
         primaryDevice: serializeAws_restJson1DeviceUnderTest(input.primaryDevice, context),
       }),
-    ...(input.secondaryDevice !== undefined &&
-      input.secondaryDevice !== null && {
-        secondaryDevice: serializeAws_restJson1DeviceUnderTest(input.secondaryDevice, context),
-      }),
     ...(input.selectedTestList !== undefined &&
       input.selectedTestList !== null && {
         selectedTestList: serializeAws_restJson1SelectedTestList(input.selectedTestList, context),
@@ -1726,10 +1729,6 @@ const deserializeAws_restJson1SuiteRunConfiguration = (output: any, context: __S
       output.primaryDevice !== undefined && output.primaryDevice !== null
         ? deserializeAws_restJson1DeviceUnderTest(output.primaryDevice, context)
         : undefined,
-    secondaryDevice:
-      output.secondaryDevice !== undefined && output.secondaryDevice !== null
-        ? deserializeAws_restJson1DeviceUnderTest(output.secondaryDevice, context)
-        : undefined,
     selectedTestList:
       output.selectedTestList !== undefined && output.selectedTestList !== null
         ? deserializeAws_restJson1SelectedTestList(output.selectedTestList, context)
@@ -1790,49 +1789,6 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
   }, {});
 };
 
-const deserializeAws_restJson1TestCase = (output: any, context: __SerdeContext): TestCase => {
-  return {
-    configuration:
-      output.configuration !== undefined && output.configuration !== null
-        ? deserializeAws_restJson1TestConfiguration(output.configuration, context)
-        : undefined,
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    test:
-      output.test !== undefined && output.test !== null
-        ? deserializeAws_restJson1TestCaseDefinition(output.test, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TestCaseCategory = (output: any, context: __SerdeContext): TestCaseCategory => {
-  return {
-    name: output.name !== undefined && output.name !== null ? output.name : undefined,
-    tests:
-      output.tests !== undefined && output.tests !== null
-        ? deserializeAws_restJson1TestCaseList(output.tests, context)
-        : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TestCaseDefinition = (output: any, context: __SerdeContext): TestCaseDefinition => {
-  return {
-    id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    testCaseVersion:
-      output.testCaseVersion !== undefined && output.testCaseVersion !== null ? output.testCaseVersion : undefined,
-  } as any;
-};
-
-const deserializeAws_restJson1TestCaseList = (output: any, context: __SerdeContext): TestCase[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1TestCase(entry, context);
-    });
-};
-
 const deserializeAws_restJson1TestCaseRun = (output: any, context: __SerdeContext): TestCaseRun => {
   return {
     endTime:
@@ -1867,29 +1823,6 @@ const deserializeAws_restJson1TestCaseRuns = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1TestCaseRun(entry, context);
     });
-};
-
-const deserializeAws_restJson1TestCategory = (output: any, context: __SerdeContext): TestCaseCategory[] => {
-  return (output || [])
-    .filter((e: any) => e != null)
-    .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
-      return deserializeAws_restJson1TestCaseCategory(entry, context);
-    });
-};
-
-const deserializeAws_restJson1TestConfiguration = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
 };
 
 const deserializeAws_restJson1TestResult = (output: any, context: __SerdeContext): TestResult => {

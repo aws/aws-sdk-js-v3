@@ -8,7 +8,8 @@ export enum AgentStatus {
 
 /**
  * <p>Represents a single entry in a list of agents. <code>AgentListEntry</code> returns an
- *       array that contains a list of agents when the <a>ListAgents</a> operation is
+ *       array that contains a list of agents when the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListAgents.html">ListAgents</a>
+ *       operation is
  *       called.</p>
  */
 export interface AgentListEntry {
@@ -112,7 +113,8 @@ export namespace InvalidRequestException {
 
 /**
  * <p>Represents a single entry in a list of AWS resource tags. <code>TagListEntry</code>
- *       returns an array that contains a list of tasks when the <a>ListTagsForResource</a>
+ *       returns an array that contains a list of tasks when the
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListTagsForResource.html">ListTagsForResource</a>
  *       operation is called.</p>
  */
 export interface TagListEntry {
@@ -192,7 +194,7 @@ export interface CreateAgentRequest {
   SubnetArns?: string[];
 
   /**
-   * <p>The ARNs of the security groups used to protect your data transfer task subnets. See <a>CreateAgentRequest$SubnetArns</a>.</p>
+   * <p>The ARNs of the security groups used to protect your data transfer task subnets. See <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Ec2Config.html#DataSync-Type-Ec2Config-SecurityGroupArns">SecurityGroupArns</a>.</p>
    */
   SecurityGroupArns?: string[];
 }
@@ -370,6 +372,8 @@ export interface CreateLocationFsxWindowsRequest {
   /**
    * <p>The user who has the permissions to access files and folders in the FSx for Windows File
    *       Server file system.</p>
+   *          <p>For information about choosing a user name that ensures sufficient permissions to files,
+   *       folders, and metadata, see <a href="create-fsx-location.html#FSxWuser">user</a>.</p>
    */
   User: string | undefined;
 
@@ -683,7 +687,9 @@ export namespace CreateLocationObjectStorageResponse {
  */
 export interface S3Config {
   /**
-   * <p>The Amazon S3 bucket to access. This bucket is used as a parameter in the <a>CreateLocationS3</a> operation. </p>
+   * <p>The Amazon S3 bucket to access. This bucket is used as a parameter in the
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationS3.html">CreateLocationS3</a>
+   *       operation. </p>
    */
   BucketAccessRoleArn: string | undefined;
 }
@@ -729,7 +735,7 @@ export interface CreateLocationS3Request {
    *       For buckets on AWS Outposts, the storage class defaults to AWS S3 Outposts.</p>
    *
    *          <p>For more information about S3 storage classes, see <a href="http://aws.amazon.com/s3/storage-classes/">Amazon S3 Storage Classes</a>. Some storage classes have behaviors that
-   *       can affect your S3 storage cost. For detailed information, see <a>using-storage-classes</a>.</p>
+   *       can affect your S3 storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations when working with S3 storage classes in DataSync</a>.</p>
    */
   S3StorageClass?: S3StorageClass | string;
 
@@ -745,7 +751,7 @@ export interface CreateLocationS3Request {
   /**
    * <p>If you are using DataSync on an AWS Outpost, specify the Amazon Resource Names (ARNs) of
    *       the DataSync agents deployed on your Outpost. For more information about launching a DataSync
-   *       agent on an AWS Outpost, see <a>outposts-agent</a>.</p>
+   *       agent on an AWS Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy your DataSync agent on AWS Outposts</a>.</p>
    */
   AgentArns?: string[];
 
@@ -851,6 +857,9 @@ export interface CreateLocationSmbRequest {
   /**
    * <p>The user who can mount the share, has the permissions to access files and folders in the
    *       SMB share.</p>
+   *
+   *          <p>For information about choosing a user name that ensures sufficient permissions to files,
+   *       folders, and metadata, see <a href="create-smb-location.html#SMBuser">user</a>.</p>
    */
   User: string | undefined;
 
@@ -918,7 +927,7 @@ export enum FilterType {
 }
 
 /**
- * <p>Specifies which files, folders and objects to include or exclude when transferring files
+ * <p>Specifies which files, folders, and objects to include or exclude when transferring files
  *       from source to destination.</p>
  */
 export interface FilterRule {
@@ -985,6 +994,12 @@ export enum PreserveDevices {
   PRESERVE = "PRESERVE",
 }
 
+export enum SmbSecurityDescriptorCopyFlags {
+  NONE = "NONE",
+  OWNER_DACL = "OWNER_DACL",
+  OWNER_DACL_SACL = "OWNER_DACL_SACL",
+}
+
 export enum TaskQueueing {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -1009,21 +1024,24 @@ export enum VerifyMode {
 }
 
 /**
- * <p>Represents the options that are available to control the behavior of a <a>StartTaskExecution</a> operation. Behavior includes preserving metadata such as user
+ * <p>Represents the options that are available to control the behavior of a
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>
+ *       operation. Behavior includes preserving metadata such as user
  *       ID (UID), group ID (GID), and file permissions, and also overwriting files in the destination,
  *       data integrity verification, and so on.</p>
  *          <p>A task has a set of default options associated with it. If you don't specify an option
- *       in <a>StartTaskExecution</a>, the default value is used. You can override the
+ *       in <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>,
+ *       the default value is used. You can override the
  *       defaults options on each task execution by specifying an overriding <code>Options</code> value
- *       to <a>StartTaskExecution</a>.</p>
+ *       to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>.</p>
  */
 export interface Options {
   /**
    * <p>A value that determines whether a data integrity verification should be performed at
    *       the end of a task execution after all data and metadata have been transferred.
    *       For more information, see
-   *       <a>create-task</a>
-   *          </p>
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html">Configure task settings</a>.
+   *     </p>
    *          <p>Default value: POINT_IN_TIME_CONSISTENT.</p>
    *          <p>ONLY_FILES_TRANSFERRED (recommended): Perform verification only on files that were transferred.
    *     </p>
@@ -1044,7 +1062,9 @@ export interface Options {
    *       preserved when copying files. If set to <code>NEVER</code> a destination file will not be
    *       replaced by a source file, even if the destination file differs from the source file. If you modify files in the destination and you sync the files, you can use this value to
    *       protect against overwriting those changes. </p>
-   *          <p>Some storage classes have specific behaviors that can affect your S3 storage cost. For detailed information, see <a>using-storage-classes</a> in the <i>AWS DataSync
+   *          <p>Some storage classes have specific behaviors that can affect your S3 storage cost. For detailed information, see
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations when working with Amazon S3 storage classes in DataSync </a>
+   *       in the <i>AWS DataSync
    *         User Guide</i>.</p>
    */
   OverwriteMode?: OverwriteMode | string;
@@ -1068,7 +1088,8 @@ export interface Options {
 
   /**
    * <p>A value that indicates the last time that a file was modified (that is, a file was
-   *       written to) before the PREPARING phase. </p>
+   *       written to) before the PREPARING phase. This option is required for cases when you need to run
+   *       the same task more than one time. </p>
    *          <p>Default value: PRESERVE. </p>
    *          <p>PRESERVE: Preserve original <code>Mtime</code> (recommended)</p>
    *          <p> NONE: Ignore <code>Mtime</code>. </p>
@@ -1082,7 +1103,8 @@ export interface Options {
   Mtime?: Mtime | string;
 
   /**
-   * <p>The user ID (UID) of the file's owner. </p>
+   * <p>The POSIX user ID (UID) of the file's owner. This option should only be set for NFS,
+   *       EFS, and S3 locations. To learn more about what metadata is copied by DataSync, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata Copied by DataSync</a>.</p>
    *          <p>Default value: INT_VALUE. This preserves the integer value of the ID.</p>
    *          <p>INT_VALUE: Preserve the integer value of UID and group ID (GID)
    *       (recommended).</p>
@@ -1091,7 +1113,9 @@ export interface Options {
   Uid?: Uid | string;
 
   /**
-   * <p>The group ID (GID) of the file's owners. </p>
+   * <p>The POSIX group ID (GID) of the file's owners. This option should only be set for
+   *       NFS, EFS, and S3 locations. For more information about what metadata is copied by DataSync,
+   *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata Copied by DataSync</a>. </p>
    *          <p>Default value: INT_VALUE. This preserves the integer value of the ID.</p>
    *          <p>INT_VALUE: Preserve the integer value of user ID (UID) and GID (recommended).</p>
    *          <p>NONE: Ignore UID and GID. </p>
@@ -1102,7 +1126,7 @@ export interface Options {
    * <p>A value that specifies whether files in the destination that don't exist in the source
    *       file system should be preserved. This option can affect your storage cost.
    *       If your task deletes objects, you might incur minimum storage duration charges for certain storage classes. For detailed
-   *       information, see <a>using-storage-classes</a> in the <i>AWS DataSync User
+   *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations when working with Amazon S3 storage classes in DataSync </a> in the <i>AWS DataSync User
    *         Guide</i>.</p>
    *          <p>Default value: PRESERVE.</p>
    *          <p>PRESERVE: Ignore such destination files (recommended). </p>
@@ -1112,8 +1136,9 @@ export interface Options {
 
   /**
    * <p>A value that determines whether AWS DataSync should preserve the metadata of block
-   *       and character devices in the source file system, and recreate the files with that device name
-   *       and metadata on the destination.</p>
+   *       and character devices in the source file system, and re-create the files with that device name
+   *       and metadata on the destination. DataSync does not copy the contents of such devices, only the
+   *       name and metadata. </p>
    *          <note>
    *             <p>AWS DataSync can't sync the actual contents of such devices, because they are
    *         nonterminal and don't return an end-of-file (EOF) marker.</p>
@@ -1127,7 +1152,9 @@ export interface Options {
 
   /**
    * <p>A value that determines which users or groups can access a file for a specific purpose
-   *       such as reading, writing, or execution of the file. </p>
+   *       such as reading, writing, or execution of the file. This option should only be set for NFS,
+   *       EFS, and S3 locations. For more information about what metadata is copied by DataSync, see
+   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata Copied by DataSync</a>. </p>
    *          <p>Default value: PRESERVE.</p>
    *          <p>PRESERVE: Preserve POSIX-style permissions (recommended).</p>
    *          <p>NONE: Ignore permissions. </p>
@@ -1148,7 +1175,8 @@ export interface Options {
    * <p>A value that determines whether tasks should be queued before executing the tasks. If set
    *       to <code>ENABLED</code>, the tasks will be queued. The default is <code>ENABLED</code>.</p>
    *          <p>If you use the same agent to run multiple tasks, you can enable the tasks to run in
-   *       series. For more information, see <a>queue-task-execution</a>.</p>
+   *       series. For more information, see
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#queue-task-execution">Queueing task executions</a>.</p>
    */
   TaskQueueing?: TaskQueueing | string;
 
@@ -1172,6 +1200,59 @@ export interface Options {
    *       the destination.</p>
    */
   TransferMode?: TransferMode | string;
+
+  /**
+   * <p>A value that determines which components of the SMB security descriptor are copied from source
+   *       to destination objects.
+   *       </p>
+   *          <p>This value is only used for transfers
+   *       between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File
+   *       Server locations. For more information about how
+   *       DataSync handles metadata, see
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html">How DataSync Handles Metadata and Special Files</a>.
+   *     </p>
+   *          <p>Default value: OWNER_DACL.</p>
+   *
+   *          <p>
+   *             <b>OWNER_DACL</b>: For each copied object, DataSync copies the following metadata:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Object owner.</p>
+   *             </li>
+   *             <li>
+   *                <p>NTFS discretionary access control lists (DACLs), which determine whether to
+   *         grant access to an object.</p>
+   *             </li>
+   *          </ul>
+   *          <p>When choosing this option, DataSync does NOT copy the NTFS system access control lists
+   *       (SACLs), which are used by administrators to log attempts to access a secured object.</p>
+   *
+   *          <p>
+   *             <b>OWNER_DACL_SACL</b>: For each copied object, DataSync copies the following metadata:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Object owner.</p>
+   *             </li>
+   *             <li>
+   *                <p>NTFS discretionary access control lists (DACLs), which determine whether to
+   *           grant access to an object.</p>
+   *             </li>
+   *             <li>
+   *                <p>NTFS system access control lists (SACLs), which are used by administrators
+   *           to log attempts to access a secured object.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Copying SACLs requires granting additional permissions to the Windows user that DataSync
+   *       uses to access your SMB location. For information about choosing a user that ensures
+   *       sufficient permissions to files, folders, and metadata, see <a href="create-smb-location.html#SMBuser">user</a>.</p>
+   *
+   *          <p>
+   *             <b>NONE</b>: None of the SMB security descriptor components
+   *       are copied. Destination objects are owned by the user that was provided for accessing the
+   *       destination location. DACLs and SACLs are set based on the destination server’s configuration.
+   *     </p>
+   */
+  SecurityDescriptorCopyFlags?: SmbSecurityDescriptorCopyFlags | string;
 }
 
 export namespace Options {
@@ -1237,7 +1318,7 @@ export interface CreateTaskRequest {
    *       integrity verification, and so on.</p>
    *          <p>For each individual task execution, you can override these options by specifying the
    *         <code>OverrideOptions</code> before starting the task execution. For more information, see
-   *       the  operation. </p>
+   *       the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a> operation. </p>
    */
   Options?: Options;
 
@@ -1252,7 +1333,7 @@ export interface CreateTaskRequest {
 
   /**
    * <p>Specifies a schedule used to periodically transfer files from a source to a destination
-   *       location. The schedule should be specified in UTC time. For more information, see <a>task-scheduling</a>.</p>
+   *       location. The schedule should be specified in UTC time. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">Scheduling your task</a>.</p>
    */
   Schedule?: TaskSchedule;
 
@@ -1472,7 +1553,7 @@ export interface DescribeAgentResponse {
   Status?: AgentStatus | string;
 
   /**
-   * <p>The time that the agent last connected to DataSyc.</p>
+   * <p>The time that the agent last connected to DataSync.</p>
    */
   LastConnectionTime?: Date;
 
@@ -1788,8 +1869,8 @@ export interface DescribeLocationS3Response {
   /**
    * <p>The Amazon S3 storage class that you chose to store your files in when this location is
    *       used as a task destination. For more information about S3 storage classes, see <a href="http://aws.amazon.com/s3/storage-classes/">Amazon S3 Storage Classes</a>. Some storage
-   *       classes have behaviors that can affect your S3 storage cost. For detailed information, see
-   *         <a>using-storage-classes</a>.</p>
+   *       classes have behaviors that can affect your S3 storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations when
+   *         working with S3 storage classes in DataSync</a>.</p>
    */
   S3StorageClass?: S3StorageClass | string;
 
@@ -1805,7 +1886,7 @@ export interface DescribeLocationS3Response {
   /**
    * <p>If you are using DataSync on an AWS Outpost, the Amazon Resource Name (ARNs) of the EC2
    *       agents deployed on your Outpost. For more information about launching a DataSync agent on an
-   *       AWS Outpost, see <a>outposts-agent</a>.</p>
+   *       AWS Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy your DataSync agent on AWS Outposts</a>.</p>
    */
   AgentArns?: string[];
 
@@ -1853,7 +1934,7 @@ export interface DescribeLocationSmbResponse {
   LocationArn?: string;
 
   /**
-   * <p>The URL of the source SBM location that was described.</p>
+   * <p>The URL of the source SMB location that was described.</p>
    */
   LocationUri?: string;
 
@@ -1987,8 +2068,7 @@ export interface DescribeTaskResponse {
    *       options to preserve metadata such as user ID (UID) and group (GID), file permissions, data
    *       integrity verification, and so on.</p>
    *          <p>For each individual task execution, you can override these options by specifying the
-   *       overriding <code>OverrideOptions</code> value to
-   *       operation. </p>
+   *       overriding <code>OverrideOptions</code> value to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a> operation. </p>
    */
   Options?: Options;
 
@@ -2161,13 +2241,16 @@ export interface DescribeTaskExecutionResponse {
   Status?: TaskExecutionStatus | string;
 
   /**
-   * <p>Represents the options that are available to control the behavior of a <a>StartTaskExecution</a> operation. Behavior includes preserving metadata such as user
+   * <p>Represents the options that are available to control the behavior of a
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>
+   *       operation. Behavior includes preserving metadata such as user
    *       ID (UID), group ID (GID), and file permissions, and also overwriting files in the destination,
    *       data integrity verification, and so on.</p>
    *          <p>A task has a set of default options associated with it. If you don't specify an option
-   *       in <a>StartTaskExecution</a>, the default value is used. You can override the
+   *       in <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>,
+   *       the default value is used. You can override the
    *       defaults options on each task execution by specifying an overriding <code>Options</code> value
-   *       to <a>StartTaskExecution</a>.</p>
+   *       to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>.</p>
    */
   Options?: Options;
 
@@ -2337,7 +2420,8 @@ export interface LocationFilter {
 
   /**
    * <p>The operator that is used to compare filter values (for example, <code>Equals</code> or
-   *       <code>Contains</code>). For more about API filtering operators, see <a>query-resources</a>.</p>
+   *       <code>Contains</code>). For more about API filtering operators, see
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/query-resources.html">API filters for ListTasks and ListLocations</a>.</p>
    */
   Operator: Operator | string | undefined;
 }
@@ -2385,7 +2469,8 @@ export namespace ListLocationsRequest {
 
 /**
  * <p>Represents a single entry in a list of locations. <code>LocationListEntry</code>
- *       returns an array that contains a list of locations when the <a>ListLocations</a>
+ *       returns an array that contains a list of locations when the
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListLocations.html">ListLocations</a>
  *       operation is called.</p>
  */
 export interface LocationListEntry {
@@ -2398,7 +2483,7 @@ export interface LocationListEntry {
 
   /**
    * <p>Represents a list of URLs of a location. <code>LocationUri</code> returns an array that
-   *       contains a list of locations when the <a>ListLocations</a> operation is
+   *       contains a list of locations when the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListLocations.html">ListLocations</a> operation is
    *       called.</p>
    *          <p>Format: <code>TYPE://GLOBAL_ID/SUBDIR</code>.</p>
    *          <p>TYPE designates the type of location. Valid values: NFS | EFS | S3.</p>
@@ -2537,7 +2622,9 @@ export namespace ListTaskExecutionsRequest {
 /**
  * <p>Represents a single entry in a list of task executions.
  *         <code>TaskExecutionListEntry</code> returns an array that contains a list of specific
- *       invocations of a task when <a>ListTaskExecutions</a> operation is called.</p>
+ *       invocations of a task when the
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListTaskExecutions.html">ListTaskExecutions</a>
+ *       operation is called.</p>
  */
 export interface TaskExecutionListEntry {
   /**
@@ -2611,7 +2698,8 @@ export interface TaskFilter {
 
   /**
    * <p>The operator that is used to compare filter values (for example, <code>Equals</code> or
-   *       <code>Contains</code>). For more about API filtering operators, see <a>query-resources</a>.</p>
+   *       <code>Contains</code>). For more about API filtering operators, see
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/query-resources.html">API filters for ListTasks and ListLocations</a>.</p>
    */
   Operator: Operator | string | undefined;
 }
@@ -2660,7 +2748,7 @@ export namespace ListTasksRequest {
 
 /**
  * <p>Represents a single entry in a list of tasks. <code>TaskListEntry</code> returns an
- *       array that contains a list of tasks when the <a>ListTasks</a> operation is called.
+ *       array that contains a list of tasks when the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListTasks.html">ListTasks</a> operation is called.
  *       A task includes the source and destination file systems to sync and the options to use for the
  *       tasks.</p>
  */
@@ -2725,13 +2813,16 @@ export interface StartTaskExecutionRequest {
   TaskArn: string | undefined;
 
   /**
-   * <p>Represents the options that are available to control the behavior of a <a>StartTaskExecution</a> operation. Behavior includes preserving metadata such as user
+   * <p>Represents the options that are available to control the behavior of a
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>
+   *       operation. Behavior includes preserving metadata such as user
    *       ID (UID), group ID (GID), and file permissions, and also overwriting files in the destination,
    *       data integrity verification, and so on.</p>
    *          <p>A task has a set of default options associated with it. If you don't specify an option
-   *       in <a>StartTaskExecution</a>, the default value is used. You can override the
+   *       in <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>,
+   *       the default value is used. You can override the
    *       defaults options on each task execution by specifying an overriding <code>Options</code> value
-   *       to <a>StartTaskExecution</a>.</p>
+   *       to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>.</p>
    */
   OverrideOptions?: Options;
 
@@ -3108,13 +3199,16 @@ export interface UpdateTaskRequest {
   TaskArn: string | undefined;
 
   /**
-   * <p>Represents the options that are available to control the behavior of a <a>StartTaskExecution</a> operation. Behavior includes preserving metadata such as user
+   * <p>Represents the options that are available to control the behavior of a
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>
+   *       operation. Behavior includes preserving metadata such as user
    *       ID (UID), group ID (GID), and file permissions, and also overwriting files in the destination,
    *       data integrity verification, and so on.</p>
    *          <p>A task has a set of default options associated with it. If you don't specify an option
-   *       in <a>StartTaskExecution</a>, the default value is used. You can override the
+   *       in <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>,
+   *       the default value is used. You can override the
    *       defaults options on each task execution by specifying an overriding <code>Options</code> value
-   *       to <a>StartTaskExecution</a>.</p>
+   *       to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>.</p>
    */
   Options?: Options;
 
@@ -3132,7 +3226,7 @@ export interface UpdateTaskRequest {
    * <p>Specifies a schedule used to periodically transfer files from a source to a destination
    *       location. You can configure your task to execute hourly, daily, weekly or on specific days of
    *       the week. You control when in the day or hour you want the task to execute. The time you
-   *       specify is UTC time. For more information, see <a>task-scheduling</a>.</p>
+   *       specify is UTC time. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html">Scheduling your task</a>.</p>
    */
   Schedule?: TaskSchedule;
 
@@ -3175,13 +3269,16 @@ export interface UpdateTaskExecutionRequest {
   TaskExecutionArn: string | undefined;
 
   /**
-   * <p>Represents the options that are available to control the behavior of a <a>StartTaskExecution</a> operation. Behavior includes preserving metadata such as user
+   * <p>Represents the options that are available to control the behavior of a
+   *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>
+   *       operation. Behavior includes preserving metadata such as user
    *       ID (UID), group ID (GID), and file permissions, and also overwriting files in the destination,
    *       data integrity verification, and so on.</p>
    *          <p>A task has a set of default options associated with it. If you don't specify an option
-   *       in <a>StartTaskExecution</a>, the default value is used. You can override the
+   *       in <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>,
+   *       the default value is used. You can override the
    *       defaults options on each task execution by specifying an overriding <code>Options</code> value
-   *       to <a>StartTaskExecution</a>.</p>
+   *       to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>.</p>
    */
   Options: Options | undefined;
 }

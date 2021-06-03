@@ -68,7 +68,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *             <code>x-amz-metadata-directive</code> header. When you grant permissions, you can use
  *          the <code>s3:x-amz-metadata-directive</code> condition key to enforce certain metadata
  *          behavior when objects are uploaded. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/amazon-s3-policy-keys.html">Specifying Conditions in a
- *             Policy</a> in the <i>Amazon S3 Developer Guide</i>. For a complete list of
+ *             Policy</a> in the <i>Amazon S3 User Guide</i>. For a complete list of
  *          Amazon S3-specific condition keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions, Resources, and Condition Keys for
  *             Amazon S3</a>.</p>
  *          <p>
@@ -163,7 +163,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *          <p>You can use the <code>CopyObject</code> action to change the storage class of an
  *          object that is already stored in Amazon S3 using the <code>StorageClass</code> parameter. For
  *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
- *             Classes</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
+ *             Classes</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>
  *             <b>Versioning</b>
  *          </p>

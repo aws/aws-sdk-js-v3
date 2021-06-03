@@ -21,7 +21,7 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentInput {}
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput, __MetadataBearer {}
 
 /**
- * <p>JSON blob that describes the environment to create.</p>
+ * <p>Creates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
