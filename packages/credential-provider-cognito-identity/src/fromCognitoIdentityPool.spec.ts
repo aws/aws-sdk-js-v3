@@ -1,5 +1,5 @@
 import { GetIdCommand } from "@aws-sdk/client-cognito-identity";
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 
 import { fromCognitoIdentityPool } from "./fromCognitoIdentityPool";
 
@@ -127,7 +127,7 @@ describe("fromCognitoIdentityPool", () => {
         client: mockClient,
         identityPoolId,
       })()
-    ).rejects.toMatchObject(new ProviderError("Response from Amazon Cognito contained no identity ID"));
+    ).rejects.toMatchObject(new CredentialsProviderError("Response from Amazon Cognito contained no identity ID"));
   });
 
   it("should allow injecting a custom cache", async () => {

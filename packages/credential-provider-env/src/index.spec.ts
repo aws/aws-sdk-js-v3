@@ -1,4 +1,4 @@
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 
 import { ENV_EXPIRATION, ENV_KEY, ENV_SECRET, ENV_SESSION, fromEnv } from "./";
 
@@ -49,7 +49,7 @@ describe("fromEnv", () => {
 
   it("should reject the promise if no environmental credentials can be found", async () => {
     await expect(fromEnv()()).rejects.toMatchObject(
-      new ProviderError("Unable to find environment variable credentials.")
+      new CredentialsProviderError("Unable to find environment variable credentials.")
     );
   });
 
@@ -59,7 +59,7 @@ describe("fromEnv", () => {
         throw new Error("The promise should have been rejected.");
       },
       (err) => {
-        expect((err as ProviderError).tryNextLink).toBe(true);
+        expect((err as CredentialsProviderError).tryNextLink).toBe(true);
       }
     );
   });

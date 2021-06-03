@@ -1,5 +1,5 @@
 import { getMasterProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/credential-provider-ini";
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { ParsedIniData } from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
 import { exec } from "child_process";
@@ -72,17 +72,17 @@ const resolveProcessCredentials = async (profileName: string, profiles: ParsedIn
           };
         })
         .catch((error: Error) => {
-          throw new ProviderError(error.message);
+          throw new CredentialsProviderError(error.message);
         });
     } else {
-      throw new ProviderError(`Profile ${profileName} did not contain credential_process.`);
+      throw new CredentialsProviderError(`Profile ${profileName} did not contain credential_process.`);
     }
   } else {
     // If the profile cannot be parsed or does not contain the default or
     // specified profile throw an error. This should be considered a terminal
     // resolution error if a profile has been specified by the user (whether via
     // a parameter, anenvironment variable, or another profile's `source_profile` key).
-    throw new ProviderError(`Profile ${profileName} could not be found in shared credentials file.`);
+    throw new CredentialsProviderError(`Profile ${profileName} could not be found in shared credentials file.`);
   }
 };
 

@@ -1,6 +1,6 @@
 import { GetRoleCredentialsCommand, GetRoleCredentialsCommandOutput, SSOClient } from "@aws-sdk/client-sso";
 import { getMasterProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/credential-provider-ini";
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { getHomeDir, ParsedIniData } from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
 import { createHash } from "crypto";
@@ -51,14 +51,14 @@ const resolveSSOCredentials = async (
 ): Promise<Credentials> => {
   const profile = profiles[profileName];
   if (!profile) {
-    throw new ProviderError(`Profile ${profileName} could not be found in shared credentials file.`);
+    throw new CredentialsProviderError(`Profile ${profileName} could not be found in shared credentials file.`);
   }
   const { sso_start_url: startUrl, sso_account_id: accountId, sso_region: region, sso_role_name: roleName } = profile;
   if (!startUrl && !accountId && !region && !roleName) {
-    throw new ProviderError(`Profile ${profileName} is not configured with SSO credentials.`);
+    throw new CredentialsProviderError(`Profile ${profileName} is not configured with SSO credentials.`);
   }
   if (!startUrl || !accountId || !region || !roleName) {
-    throw new ProviderError(
+    throw new CredentialsProviderError(
       `Profile ${profileName} does not have valid SSO credentials. Required parameters "sso_account_id", "sso_region", ` +
         `"sso_role_name", "sso_start_url". Reference: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html`,
       SHOULD_FAIL_CREDENTIAL_CHAIN
@@ -74,7 +74,7 @@ const resolveSSOCredentials = async (
       throw new Error("SSO token is expired.");
     }
   } catch (e) {
-    throw new ProviderError(
+    throw new CredentialsProviderError(
       `The SSO session associated with this profile has expired or is otherwise invalid. To refresh this SSO session ` +
         `run aws sso login with the corresponding profile.`,
       SHOULD_FAIL_CREDENTIAL_CHAIN
@@ -92,11 +92,11 @@ const resolveSSOCredentials = async (
       })
     );
   } catch (e) {
-    throw ProviderError.from(e, SHOULD_FAIL_CREDENTIAL_CHAIN);
+    throw CredentialsProviderError.from(e, SHOULD_FAIL_CREDENTIAL_CHAIN);
   }
   const { roleCredentials: { accessKeyId, secretAccessKey, sessionToken, expiration } = {} } = ssoResp;
   if (!accessKeyId || !secretAccessKey || !sessionToken || !expiration) {
-    throw new ProviderError("SSO returns an invalid temporary credential.", SHOULD_FAIL_CREDENTIAL_CHAIN);
+    throw new CredentialsProviderError("SSO returns an invalid temporary credential.", SHOULD_FAIL_CREDENTIAL_CHAIN);
   }
   return { accessKeyId, secretAccessKey, sessionToken, expiration: new Date(expiration) };
 };
