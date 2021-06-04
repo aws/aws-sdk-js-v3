@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.18.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.17.0...v3.18.0) (2021-06-04)
+
+
+### Features
+
+* **middleware-retry:** add Adaptive Retry Strategy ([#2454](https://github.com/aws/aws-sdk-js-v3/issues/2454)) ([0c9a143](https://github.com/aws/aws-sdk-js-v3/commit/0c9a14391b4a9193cad4fa533a39ff5e0296c1c5))
+* **middleware-retry:** add client side rate limiter for adaptive mode ([#2439](https://github.com/aws/aws-sdk-js-v3/issues/2439)) ([8ef104d](https://github.com/aws/aws-sdk-js-v3/commit/8ef104d00eac33cf1a94c54e2daa2d1bff89a0a4))
+* **middleware-retry:** call retry strategy based on value in retryMode ([#2456](https://github.com/aws/aws-sdk-js-v3/issues/2456)) ([095b990](https://github.com/aws/aws-sdk-js-v3/commit/095b9906889befb2d2ad8e77432f335b10b3f81c))
+
+
+
+
+
 # [3.16.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.15.0...v3.16.0) (2021-05-14)
 
 **Note:** Version bump only for package @aws-sdk/middleware-retry
