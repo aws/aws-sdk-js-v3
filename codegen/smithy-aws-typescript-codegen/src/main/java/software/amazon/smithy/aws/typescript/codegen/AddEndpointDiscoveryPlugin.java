@@ -16,6 +16,7 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -68,7 +69,9 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                         .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
                                 "EndpointDiscovery", RuntimeClientPlugin.Convention.HAS_CONFIG)
                         // ToDo: The Endpoint Discovery Command Name needs to be read from ClientEndpointDiscoveryTrait.
-                        .additionalResolveFunctionParameters("DescribeEndpointsCommand")
+                        .resolveFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
+                            put("DescribeEndpointsCommand", "DescribeEndpointsCommand"); 
+                        }})
                         .servicePredicate((m, s) -> hasClientEndpointDiscovery(s))
                         .build(),
                 // ToDo: The value ClientDiscoveredEndpointTrait.isRequired() needs to be passed to Plugin instead
@@ -76,13 +79,19 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
                                 "EndpointDiscoveryRequired", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
-                        .additionalPluginFunctionParameters(new String[]{"clientStack", "options"})
+                        .pluginFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
+                            put("clientStack", "clientStack");
+                            put("options", "options"); 
+                        }})
                         .operationPredicate((m, s, o) -> isClientDiscoveredEndpointRequired(s, o))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
                                 "EndpointDiscoveryOptional", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
-                        .additionalPluginFunctionParameters(new String[]{"clientStack", "options"})
+                        .pluginFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
+                            put("clientStack", "clientStack");
+                            put("options", "options"); 
+                        }})
                         .operationPredicate((m, s, o) -> isClientDiscoveredEndpointOptional(s, o))
                         .build()
         );
