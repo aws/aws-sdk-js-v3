@@ -1763,7 +1763,11 @@ it("Ec2XmlLists:Response", async () => {
 
       stringSet: ["foo", "bar"],
 
-      integerList: [1, 2],
+      integerList: [
+        1,
+
+        2,
+      ],
 
       booleanList: [true, false],
 
