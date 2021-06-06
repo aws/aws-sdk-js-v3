@@ -208,9 +208,21 @@ it("AllQueryStringTypes:Request", async () => {
 
     queryInteger: 3,
 
-    queryIntegerList: [1, 2, 3],
+    queryIntegerList: [
+      1,
 
-    queryIntegerSet: [1, 2, 3],
+      2,
+
+      3,
+    ],
+
+    queryIntegerSet: [
+      1,
+
+      2,
+
+      3,
+    ],
 
     queryLong: 4,
 
@@ -218,7 +230,13 @@ it("AllQueryStringTypes:Request", async () => {
 
     queryDouble: 1.1,
 
-    queryDoubleList: [1.1, 2.1, 3.1],
+    queryDoubleList: [
+      1.1,
+
+      2.1,
+
+      3.1,
+    ],
 
     queryBoolean: true,
 
@@ -2119,7 +2137,13 @@ it("InputAndOutputWithNumericHeaders:Request", async () => {
 
     headerDouble: 1.1,
 
-    headerIntegerList: [1, 2, 3],
+    headerIntegerList: [
+      1,
+
+      2,
+
+      3,
+    ],
   } as any);
   try {
     await client.send(command);
@@ -2352,7 +2376,13 @@ it("InputAndOutputWithNumericHeaders:Response", async () => {
 
       headerDouble: 1.1,
 
-      headerIntegerList: [1, 2, 3],
+      headerIntegerList: [
+        1,
+
+        2,
+
+        3,
+      ],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -4495,7 +4525,11 @@ it("XmlLists:Request", async () => {
 
     stringSet: ["foo", "bar"],
 
-    integerList: [1, 2],
+    integerList: [
+      1,
+
+      2,
+    ],
 
     booleanList: [true, false],
 
@@ -4728,7 +4762,11 @@ it("XmlLists:Response", async () => {
 
       stringSet: ["foo", "bar"],
 
-      integerList: [1, 2],
+      integerList: [
+        1,
+
+        2,
+      ],
 
       booleanList: [true, false],
 
