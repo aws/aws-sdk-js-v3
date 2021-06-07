@@ -29,6 +29,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
+import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
@@ -106,7 +107,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
                     .withConventions(AwsDependency.STS_MIDDLEWARE.dependency,
                             "StsAuth", HAS_CONFIG)
                     .resolveFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
-                        put("STSClient", "STSClient"); 
+                        put("STSClient", Symbol.builder().name("STSClient").build());
                     }})
                     .servicePredicate((m, s) -> testServiceId(s, "STS"))
                     .build(),
