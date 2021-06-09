@@ -163,13 +163,15 @@ export const resolveSigV4AuthConfig = <T>(
     //if signer is supplied by user, normalize it to a function returning a promise for signer.
     signer = normalizeProvider(input.signer);
   } else {
-    signer = normalizeProvider(new SignatureV4({
-      credentials: normalizedCreds,
-      region: input.region,
-      service: input.signingName,
-      sha256,
-      uriEscapePath: signingEscapePath,
-    }));
+    signer = normalizeProvider(
+      new SignatureV4({
+        credentials: normalizedCreds,
+        region: input.region,
+        service: input.signingName,
+        sha256,
+        uriEscapePath: signingEscapePath,
+      })
+    );
   }
 
   return {
