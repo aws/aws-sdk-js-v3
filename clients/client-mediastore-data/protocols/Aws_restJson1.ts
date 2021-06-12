@@ -389,6 +389,9 @@ export const deserializeAws_restJson1GetObjectCommand = async (
   }
   const data: any = output.body;
   contents.Body = data;
+  if (contents.StatusCode === undefined) {
+    contents.StatusCode = output.statusCode;
+  }
   return Promise.resolve(contents);
 };
 

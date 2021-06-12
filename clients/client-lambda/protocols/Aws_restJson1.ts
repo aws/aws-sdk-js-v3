@@ -5420,6 +5420,9 @@ export const deserializeAws_restJson1InvokeCommand = async (
   }
   const data: any = await collectBody(output.body, context);
   contents.Payload = data;
+  if (contents.StatusCode === undefined) {
+    contents.StatusCode = output.statusCode;
+  }
   return Promise.resolve(contents);
 };
 
