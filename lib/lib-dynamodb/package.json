@@ -40,7 +40,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/lib/lib-dynamodb",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-dynamodb",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
