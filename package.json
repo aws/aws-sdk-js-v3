@@ -95,7 +95,8 @@
       "clients/*",
       "lib/*",
       "packages/*",
-      "protocol_tests/*"
+      "protocol_tests/*",
+      "tests/vite-project"
     ],
     "nohoist": [
       "**/karma*",
