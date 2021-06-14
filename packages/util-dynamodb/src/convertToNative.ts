@@ -72,11 +72,9 @@ const convertList = (list: AttributeValue[], options?: unmarshallOptions): Nativ
 const convertMap = (
   map: { [key: string]: AttributeValue },
   options?: unmarshallOptions
-): { [key: string]: NativeAttributeValue } =>
+): Map<string, NativeAttributeValue> =>
   Object.entries(map).reduce(
-    (acc: { [key: string]: NativeAttributeValue }, [key, value]: [string, AttributeValue]) => ({
-      ...acc,
-      [key]: convertToNative(value, options),
-    }),
-    {}
+    (acc: Map<string, NativeAttributeValue>, [key, value]: [string, AttributeValue]) =>
+      acc.set(key, convertToNative(value, options)),
+    new Map<string, NativeAttributeValue>()
   );

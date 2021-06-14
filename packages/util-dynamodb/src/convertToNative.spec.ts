@@ -128,11 +128,24 @@ describe("convertToNative", () => {
         {
           input: [
             { M: { nullKey: { NULL: true }, boolKey: { BOOL: false } } },
-            { M: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } } },
+            {
+              M: {
+                stringKey: { S: "one" },
+                numberKey: { N: "1.01" },
+                bigintKey: { N: "9007199254740996" },
+              },
+            },
           ],
           output: [
-            { nullKey: null, boolKey: false },
-            { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
+            new Map<string, any>([
+              ["nullKey", null],
+              ["boolKey", false],
+            ]),
+            new Map<string, any>([
+              ["stringKey", "one"],
+              ["numberKey", 1.01],
+              ["bigintKey", BigInt(9007199254740996)],
+            ]),
           ],
         },
         {
@@ -171,22 +184,35 @@ describe("convertToNative", () => {
       [
         {
           input: { nullKey: { NULL: true }, boolKey: { BOOL: false } },
-          output: { nullKey: null, boolKey: false },
+          output: new Map<string, any>([
+            ["nullKey", null],
+            ["boolKey", false],
+          ]),
         },
         {
           input: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } },
-          output: { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
+          output: new Map<string, any>([
+            ["stringKey", "one"],
+            ["numberKey", 1.01],
+            ["bigintKey", BigInt(9007199254740996)],
+          ]),
         },
         {
           input: { uint8Arr1Key: { B: uint8Arr1 }, uint8Arr2Key: { B: uint8Arr2 } },
-          output: { uint8Arr1Key: uint8Arr1, uint8Arr2Key: uint8Arr2 },
+          output: new Map<string, any>([
+            ["uint8Arr1Key", uint8Arr1],
+            ["uint8Arr2Key", uint8Arr2],
+          ]),
         },
         {
           input: {
             list1: { L: [{ NULL: true }, { BOOL: false }] },
             list2: { L: [{ S: "one" }, { N: "1.01" }, { N: "9007199254740996" }] },
           },
-          output: { list1: [null, false], list2: ["one", 1.01, BigInt(9007199254740996)] },
+          output: new Map<string, any>([
+            ["list1", [null, false]],
+            ["list2", ["one", 1.01, BigInt(9007199254740996)]],
+          ]),
         },
         {
           input: {
@@ -195,12 +221,33 @@ describe("convertToNative", () => {
             binarySet: { BS: [uint8Arr1, uint8Arr2] },
             stringSet: { SS: ["one", "two", "three"] },
           },
-          output: {
-            numberSet: new Set([1, 2, 3]),
-            bigintSet: new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
-            binarySet: new Set([uint8Arr1, uint8Arr2]),
-            stringSet: new Set(["one", "two", "three"]),
+          output: new Map<string, any>([
+            ["numberSet", new Set([1, 2, 3])],
+            ["bigintSet", new Set([BigInt(9007199254740996), BigInt(-9007199254740996)])],
+            ["binarySet", new Set([uint8Arr1, uint8Arr2])],
+            ["stringSet", new Set(["one", "two", "three"])],
+          ]),
+        },
+        {
+          input: {
+            map: {
+              M: {
+                stringKey: { S: "one" },
+                numberKey: { N: "1.01" },
+                bigintKey: { N: "9007199254740996" },
+              },
+            },
           },
+          output: new Map<string, any>([
+            [
+              "map",
+              new Map<string, any>([
+                ["stringKey", "one"],
+                ["numberKey", 1.01],
+                ["bigintKey", BigInt(9007199254740996)],
+              ]),
+            ],
+          ]),
         },
       ] as { input: { [key: string]: AttributeValue }; output: { [key: string]: NativeAttributeValue } }[]
     ).forEach(({ input, output }) => {
@@ -211,7 +258,10 @@ describe("convertToNative", () => {
 
     it(`testing map with options.wrapNumbers=true`, () => {
       const input = { numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } };
-      const output = { numberKey: { value: "1.01" }, bigintKey: { value: "9007199254740996" } };
+      const output = new Map<string, any>([
+        ["numberKey", { value: "1.01" }],
+        ["bigintKey", { value: "9007199254740996" }],
+      ]);
       expect(convertToNative({ M: input }, { wrapNumbers: true })).toEqual(output);
     });
   });
