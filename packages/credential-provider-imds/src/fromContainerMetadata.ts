@@ -1,6 +1,6 @@
 import { ProviderError } from "@aws-sdk/property-provider";
 import { CredentialProvider } from "@aws-sdk/types";
-import { RequestOptions } from "http";
+import { RequestOptions } from "stream-http";
 import { parse } from "url";
 
 import { httpRequest } from "./remoteProvider/httpRequest";

@@ -3,7 +3,8 @@
     "declarationDir": "./dist/types",
     "rootDir": "./src",
     "outDir": "./dist/cjs",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "typeRoots": ["./types", "./node_modules/@types"]
   },
   "extends": "../../tsconfig.cjs.json",
   "include": ["src/"]

@@ -1,8 +1,10 @@
 import { ProviderError } from "@aws-sdk/property-provider";
-import { createServer } from "http";
+import http, { createServer } from "http";
 import nock from "nock";
 
 import { httpRequest } from "./httpRequest";
+
+jest.mock("stream-http", () => http);
 
 describe("httpRequest", () => {
   let port: number;
