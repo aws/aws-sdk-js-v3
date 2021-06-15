@@ -12,13 +12,13 @@ jest.mock("@aws-sdk/credential-provider-sso", () => {
 });
 import { fromSSO, FromSSOInit } from "@aws-sdk/credential-provider-sso";
 
-jest.mock("@aws-sdk/credential-provider-web-identity", () => {
+jest.mock("@aws-sdk/credential-provider-node-identity", () => {
   const webIdentityProvider = jest.fn();
   return {
     fromTokenFile: jest.fn().mockReturnValue(webIdentityProvider),
   };
 });
-import { fromTokenFile, FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
+import { fromTokenFile, FromTokenFileInit } from "@aws-sdk/credential-provider-node-identity";
 
 jest.mock("@aws-sdk/credential-provider-ini", () => {
   const iniProvider = jest.fn();

@@ -1,9 +1,10 @@
 import { readFileSync } from "fs";
-jest.mock("./fromWebToken", () => ({
+jest.mock("@aws-sdk/credential-provider-web-identity", () => ({
   fromWebToken: jest.fn().mockReturnValue(() => Promise.resolve(MOCK_CREDS)),
 }));
+import { fromWebToken } from "@aws-sdk/credential-provider-web-identity";
+
 import { fromTokenFile } from "./fromTokenFile";
-import { fromWebToken } from "./fromWebToken";
 
 const ENV_TOKEN_FILE = "AWS_WEB_IDENTITY_TOKEN_FILE";
 const ENV_ROLE_ARN = "AWS_ROLE_ARN";

@@ -1,6 +1,7 @@
 import { fromEnv } from "@aws-sdk/credential-provider-env";
 import { fromContainerMetadata, fromInstanceMetadata } from "@aws-sdk/credential-provider-imds";
-import { AssumeRoleWithWebIdentityParams, fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
+import { fromTokenFile } from "@aws-sdk/credential-provider-node-identity";
+import { AssumeRoleWithWebIdentityParams } from "@aws-sdk/credential-provider-web-identity";
 import { ProviderError } from "@aws-sdk/property-provider";
 import {
   loadSharedConfigFiles,

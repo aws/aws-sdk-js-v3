@@ -1,6 +1,6 @@
 import { fromEnv } from "@aws-sdk/credential-provider-env";
 import { fromContainerMetadata, fromInstanceMetadata } from "@aws-sdk/credential-provider-imds";
-import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
+import { fromTokenFile } from "@aws-sdk/credential-provider-node-identity";
 import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
 import { Credentials } from "@aws-sdk/types";
 import { join, sep } from "path";
@@ -54,7 +54,7 @@ jest.mock("os", () => {
 
 import { homedir } from "os";
 
-jest.mock("@aws-sdk/credential-provider-web-identity");
+jest.mock("@aws-sdk/credential-provider-node-identity");
 
 jest.mock("@aws-sdk/credential-provider-imds");
 
