@@ -1,8 +1,7 @@
+import { fromWebToken, FromWebTokenInit } from "@aws-sdk/credential-provider-web-identity";
 import { ProviderError } from "@aws-sdk/property-provider";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
 import { readFileSync } from "fs";
-
-import { fromWebToken, FromWebTokenInit } from "./fromWebToken";
 
 const ENV_TOKEN_FILE = "AWS_WEB_IDENTITY_TOKEN_FILE";
 const ENV_ROLE_ARN = "AWS_ROLE_ARN";

@@ -101,7 +101,7 @@ A basic example of using fromTokenFile:
 
 ```js
 import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
-import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
+import { fromTokenFile } from "@aws-sdk/credential-provider-node-identity";
 
 const client = new FooClient({
   credentials: fromTokenFile({

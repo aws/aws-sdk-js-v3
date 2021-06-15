@@ -413,7 +413,7 @@ Retrieves credentials using OIDC token from a file on disk. It's commonly used i
 - **v3**: [`fromTokenFile`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_credential_provider_web_identity.html#fromtokenfile-1)
 
   ```javascript
-  import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
+  import { fromTokenFile } from "@aws-sdk/credential-provider-node-identity";
   import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts"; // ES6 import
   // const { fromIni } from("@aws-sdk/credential-provider-ini");
   // const { getDefaultRoleAssumerWithWebIdentity } = require("@aws-sdk/client-sts"); // CommonJS import
