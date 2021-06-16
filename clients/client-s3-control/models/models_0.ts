@@ -235,27 +235,43 @@ export namespace AccountLevel {
 }
 
 /**
- * <p>AWS Lambda function used to transform objects through an Object Lambda Access Point.</p>
+ * <p>Error details for the failed asynchronous operation.</p>
  */
-export interface AwsLambdaTransformation {
+export interface AsyncErrorDetails {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Lambda function.</p>
+   * <p>A string that uniquely identifies the error condition.</p>
    */
-  FunctionArn: string | undefined;
+  Code?: string;
 
   /**
-   * <p>Additional JSON that provides supplemental data to the Lambda function used to transform objects.</p>
+   * <p>A generic descritpion of the error condition in English.</p>
    */
-  FunctionPayload?: string;
+  Message?: string;
+
+  /**
+   * <p>The identifier of the resource associated with the error.</p>
+   */
+  Resource?: string;
+
+  /**
+   * <p>The ID of the request associated with the error.</p>
+   */
+  RequestId?: string;
 }
 
-export namespace AwsLambdaTransformation {
+export namespace AsyncErrorDetails {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AwsLambdaTransformation): any => ({
+  export const filterSensitiveLog = (obj: AsyncErrorDetails): any => ({
     ...obj,
   });
+}
+
+export enum AsyncOperationName {
+  CreateMultiRegionAccessPoint = "CreateMultiRegionAccessPoint",
+  DeleteMultiRegionAccessPoint = "DeleteMultiRegionAccessPoint",
+  PutMultiRegionAccessPointPolicy = "PutMultiRegionAccessPointPolicy",
 }
 
 /**
@@ -320,6 +336,279 @@ export namespace PublicAccessBlockConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: PublicAccessBlockConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A Region that supports a Multi-Region Access Point as well as the associated bucket for the Region.</p>
+ */
+export interface Region {
+  /**
+   * <p>The name of the associated bucket for the Region.</p>
+   */
+  Bucket: string | undefined;
+}
+
+export namespace Region {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Region): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A container for the information associated with a
+ *           <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateMultiRegionAccessPoint.html">CreateMultiRegionAccessPoint</a>
+ *           request.
+ *       </p>
+ */
+export interface CreateMultiRegionAccessPointInput {
+  /**
+   * <p>The name of the Multi-Region Access Point associated with this request.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3 account.
+   *          You can enable the configuration options in any combination. For more information about
+   *          when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>This is not supported for Amazon S3 on Outposts.</p>
+   */
+  PublicAccessBlock: PublicAccessBlockConfiguration | undefined;
+
+  /**
+   * <p>The buckets in different Regions that are associated with the Multi-Region Access Point.</p>
+   */
+  Regions: Region[] | undefined;
+}
+
+export namespace CreateMultiRegionAccessPointInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateMultiRegionAccessPointInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A container for the information associated with a
+ *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteMultiRegionAccessPoint.html">DeleteMultiRegionAccessPoint</a>
+ *          request.</p>
+ */
+export interface DeleteMultiRegionAccessPointInput {
+  /**
+   * <p>The name of the Multi-Region Access Point associated with this request.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DeleteMultiRegionAccessPointInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMultiRegionAccessPointInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A container for the information associated with a
+ *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutMultiRegionAccessPoint.html">PutMultiRegionAccessPoint</a>
+ *          request.</p>
+ */
+export interface PutMultiRegionAccessPointPolicyInput {
+  /**
+   * <p>The name of the Multi-Region Access Point associated with the request.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The policy details for the <code>PutMultiRegionAccessPoint</code> request.</p>
+   */
+  Policy: string | undefined;
+}
+
+export namespace PutMultiRegionAccessPointPolicyInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutMultiRegionAccessPointPolicyInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A container for the request parameters associated with an asynchronous request.</p>
+ */
+export interface AsyncRequestParameters {
+  /**
+   * <p>A container of the parameters for a
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateMultiRegionAccessPoint.html">CreateMultiRegionAccessPoint</a>
+   *          request.</p>
+   */
+  CreateMultiRegionAccessPointRequest?: CreateMultiRegionAccessPointInput;
+
+  /**
+   * <p>A container of the parameters for a
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteMultiRegionAccessPoint.html">DeleteMultiRegionAccessPoint</a>
+   *          request.</p>
+   */
+  DeleteMultiRegionAccessPointRequest?: DeleteMultiRegionAccessPointInput;
+
+  /**
+   * <p>A container of the parameters for a
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutMultiRegionAccessPoint.html">PutMultiRegionAccessPoint</a>
+   *          request.</p>
+   */
+  PutMultiRegionAccessPointPolicyRequest?: PutMultiRegionAccessPointPolicyInput;
+}
+
+export namespace AsyncRequestParameters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AsyncRequestParameters): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Status information for a single Multi-Region Access Point Region.</p>
+ */
+export interface MultiRegionAccessPointRegionalResponse {
+  /**
+   * <p>The name of the Region in the Multi-Region Access Point.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The current status of the Multi-Region Access Point in this Region.</p>
+   */
+  RequestStatus?: string;
+}
+
+export namespace MultiRegionAccessPointRegionalResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MultiRegionAccessPointRegionalResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The Multi-Region Access Point details that are returned when querying about an asynchronous request.</p>
+ */
+export interface MultiRegionAccessPointsAsyncResponse {
+  /**
+   * <p>A collection of status information for the different Regions that a Multi-Region Access Point
+   *             supports.</p>
+   */
+  Regions?: MultiRegionAccessPointRegionalResponse[];
+}
+
+export namespace MultiRegionAccessPointsAsyncResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MultiRegionAccessPointsAsyncResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A container for the response details that are returned when querying about an
+ *             asynchronous request.</p>
+ */
+export interface AsyncResponseDetails {
+  /**
+   * <p>The details for the Multi-Region Access Point.</p>
+   */
+  MultiRegionAccessPointDetails?: MultiRegionAccessPointsAsyncResponse;
+
+  /**
+   * <p>Error details for an asynchronous request.</p>
+   */
+  ErrorDetails?: AsyncErrorDetails;
+}
+
+export namespace AsyncResponseDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AsyncResponseDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A container for the information about an asynchronous operation.</p>
+ */
+export interface AsyncOperation {
+  /**
+   * <p>The time that the request was sent to the service.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The specific operation for the asynchronous request.</p>
+   */
+  Operation?: AsyncOperationName | string;
+
+  /**
+   * <p>The request token associated with the request.</p>
+   */
+  RequestTokenARN?: string;
+
+  /**
+   * <p>The parameters associated with the request.</p>
+   */
+  RequestParameters?: AsyncRequestParameters;
+
+  /**
+   * <p>The current status of the request.</p>
+   */
+  RequestStatus?: string;
+
+  /**
+   * <p>The details of the response.</p>
+   */
+  ResponseDetails?: AsyncResponseDetails;
+}
+
+export namespace AsyncOperation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AsyncOperation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>AWS Lambda function used to transform objects through an Object Lambda Access Point.</p>
+ */
+export interface AwsLambdaTransformation {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Lambda function.</p>
+   */
+  FunctionArn: string | undefined;
+
+  /**
+   * <p>Additional JSON that provides supplemental data to the Lambda function used to transform objects.</p>
+   */
+  FunctionPayload?: string;
+}
+
+export namespace AwsLambdaTransformation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsLambdaTransformation): any => ({
     ...obj,
   });
 }
@@ -1308,13 +1597,6 @@ export interface S3CopyObjectOperation {
    */
   ObjectLockRetainUntilDate?: Date;
 
-  /**
-   * <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with
-   *          server-side encryption using AWS KMS (SSE-KMS). Setting this header to <code>true</code>
-   *          causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</p>
-   *          <p>Specifying this header with an <i>object</i> action doesn’t affect
-   *          <i>bucket-level</i> settings for S3 Bucket Key.</p>
-   */
   BucketKeyEnabled?: boolean;
 }
 
@@ -1704,6 +1986,51 @@ export namespace TooManyRequestsException {
   });
 }
 
+export interface CreateMultiRegionAccessPointRequest {
+  /**
+   * <p>The AWS account ID for the owner of the Multi-Region Access Point. The owner of the Multi-Region Access Point also must own
+   *             the underlying buckets.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>An idempotency token used to identify the request and guarantee that requests are
+   *             unique.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>A container element containing details about the Multi-Region Access Point.</p>
+   */
+  Details: CreateMultiRegionAccessPointInput | undefined;
+}
+
+export namespace CreateMultiRegionAccessPointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateMultiRegionAccessPointRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateMultiRegionAccessPointResult {
+  /**
+   * <p>The request token associated with the request. You can use this token with <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a> to determine the status of
+   *             asynchronous requests.</p>
+   */
+  RequestTokenARN?: string;
+}
+
+export namespace CreateMultiRegionAccessPointResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateMultiRegionAccessPointResult): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteAccessPointRequest {
   /**
    * <p>The account ID for the account that owns the specified access point.</p>
@@ -1930,6 +2257,50 @@ export namespace NotFoundException {
    * @internal
    */
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteMultiRegionAccessPointRequest {
+  /**
+   * <p>The AWS account ID for the owner of the Multi-Region Access Point.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>An idempotency token used to identify the request and guarantee that requests are
+   *             unique.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>A container element containing details about the Multi-Region Access Point.</p>
+   */
+  Details: DeleteMultiRegionAccessPointInput | undefined;
+}
+
+export namespace DeleteMultiRegionAccessPointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMultiRegionAccessPointRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteMultiRegionAccessPointResult {
+  /**
+   * <p>The request token associated with the request. You can use this token with <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a> to determine the status of
+   *             asynchronous requests.</p>
+   */
+  RequestTokenARN?: string;
+}
+
+export namespace DeleteMultiRegionAccessPointResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMultiRegionAccessPointResult): any => ({
     ...obj,
   });
 }
@@ -2208,6 +2579,45 @@ export namespace DescribeJobResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeJobResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeMultiRegionAccessPointOperationRequest {
+  /**
+   * <p>The AWS account ID for the owner of the Multi-Region Access Point.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The request token associated with the request you want to know about. This request token
+   *             is returned as part of the response when you make an asynchronous request. You provide
+   *             this token to query about the status of the asynchronous action.</p>
+   */
+  RequestTokenARN: string | undefined;
+}
+
+export namespace DescribeMultiRegionAccessPointOperationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeMultiRegionAccessPointOperationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeMultiRegionAccessPointOperationResult {
+  /**
+   * <p>A container element containing the details of the asynchronous operation.</p>
+   */
+  AsyncOperation?: AsyncOperation;
+}
+
+export namespace DescribeMultiRegionAccessPointOperationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeMultiRegionAccessPointOperationResult): any => ({
     ...obj,
   });
 }
@@ -2998,6 +3408,291 @@ export namespace GetJobTaggingResult {
   });
 }
 
+export interface GetMultiRegionAccessPointRequest {
+  /**
+   * <p>The AWS account ID for the owner of the Multi-Region Access Point.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The name of the Multi-Region Access Point whose configuration information you want to receive. The name of
+   *             the Multi-Region Access Point is different from the alias. For more information about the distinction
+   *             between the name and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing Multi-Region Access Points</a> in the
+   *                 <i>Amazon S3 User Guide</i>.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace GetMultiRegionAccessPointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMultiRegionAccessPointRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A combination of a bucket and Region that's part of a Multi-Region Access Point.</p>
+ */
+export interface RegionReport {
+  /**
+   * <p>The name of the bucket.</p>
+   */
+  Bucket?: string;
+
+  /**
+   * <p>The name of the Region.</p>
+   */
+  Region?: string;
+}
+
+export namespace RegionReport {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegionReport): any => ({
+    ...obj,
+  });
+}
+
+export enum MultiRegionAccessPointStatus {
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  INCONSISTENT_ACROSS_REGIONS = "INCONSISTENT_ACROSS_REGIONS",
+  PARTIALLY_CREATED = "PARTIALLY_CREATED",
+  PARTIALLY_DELETED = "PARTIALLY_DELETED",
+  READY = "READY",
+}
+
+/**
+ * <p>A collection of statuses for a Multi-Region Access Point in the various Regions it supports.</p>
+ */
+export interface MultiRegionAccessPointReport {
+  /**
+   * <p>The name of the Multi-Region Access Point.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The alias for the Multi-Region Access Point. For more information about the distinction between the
+   *          name and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing
+   *             Multi-Region Access Points</a>.</p>
+   */
+  Alias?: string;
+
+  /**
+   * <p>When the Multi-Region Access Point create request was received.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3 account.
+   *          You can enable the configuration options in any combination. For more information about
+   *          when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>This is not supported for Amazon S3 on Outposts.</p>
+   */
+  PublicAccessBlock?: PublicAccessBlockConfiguration;
+
+  /**
+   * <p>The current status of the Multi-Region Access Point.</p>
+   *          <p>
+   *             <code>CREATING</code> and <code>DELETING</code> are temporary states that exist while
+   *             the request is propogating and being completed. If a Multi-Region Access Point has a status of
+   *                 <code>PARTIALLY_CREATED</code>, you can retry creation or send a request to delete
+   *             the Multi-Region Access Point. If a Multi-Region Access Point has a status of <code>PARTIALLY_DELETED</code>, you can retry a
+   *             delete request to finish the deletion of the Multi-Region Access Point.</p>
+   */
+  Status?: MultiRegionAccessPointStatus | string;
+
+  /**
+   * <p>A collection of the Regions and buckets associated with the Multi-Region Access Point.</p>
+   */
+  Regions?: RegionReport[];
+}
+
+export namespace MultiRegionAccessPointReport {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MultiRegionAccessPointReport): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMultiRegionAccessPointResult {
+  /**
+   * <p>A container element containing the details of the requested Multi-Region Access Point.</p>
+   */
+  AccessPoint?: MultiRegionAccessPointReport;
+}
+
+export namespace GetMultiRegionAccessPointResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMultiRegionAccessPointResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMultiRegionAccessPointPolicyRequest {
+  /**
+   * <p>The AWS account ID for the owner of the Multi-Region Access Point.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>Specifies the Multi-Region Access Point. The name of the Multi-Region Access Point is different from the alias. For more
+   *             information about the distinction between the name and the alias of an Multi-Region Access Point, see
+   *                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing Multi-Region Access Points</a> in the
+   *                 <i>Amazon S3 User Guide</i>.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace GetMultiRegionAccessPointPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMultiRegionAccessPointPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The last established access control policy for a Multi-Region Access Point.</p>
+ *          <p>When you update the policy, the update is first listed as the proposed policy. After the
+ *             update is finished and all Regions have been updated, the proposed policy is listed as
+ *             the established policy. If both policies have the same version number, the proposed
+ *             policy is the established policy.</p>
+ */
+export interface EstablishedMultiRegionAccessPointPolicy {
+  /**
+   * <p>The details of the last established policy.</p>
+   */
+  Policy?: string;
+}
+
+export namespace EstablishedMultiRegionAccessPointPolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EstablishedMultiRegionAccessPointPolicy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The proposed access control policy for the Multi-Region Access Point.</p>
+ *          <p>When you update the policy, the update is first listed as the proposed policy. After the
+ *             update is finished and all Regions have been updated, the proposed policy is listed as
+ *             the established policy. If both policies have the same version number, the proposed
+ *             policy is the established policy.</p>
+ */
+export interface ProposedMultiRegionAccessPointPolicy {
+  /**
+   * <p>The details of the proposed policy.</p>
+   */
+  Policy?: string;
+}
+
+export namespace ProposedMultiRegionAccessPointPolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProposedMultiRegionAccessPointPolicy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The Multi-Region Access Point access control policy.</p>
+ *          <p>When you update the policy, the update is first listed as the proposed policy. After the
+ *             update is finished and all Regions have been updated, the proposed policy is listed as
+ *             the established policy. If both policies have the same version number, the proposed
+ *             policy is the established policy.</p>
+ */
+export interface MultiRegionAccessPointPolicyDocument {
+  /**
+   * <p>The last established policy for the Multi-Region Access Point.</p>
+   */
+  Established?: EstablishedMultiRegionAccessPointPolicy;
+
+  /**
+   * <p>The proposed policy for the Multi-Region Access Point.</p>
+   */
+  Proposed?: ProposedMultiRegionAccessPointPolicy;
+}
+
+export namespace MultiRegionAccessPointPolicyDocument {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MultiRegionAccessPointPolicyDocument): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMultiRegionAccessPointPolicyResult {
+  /**
+   * <p>The policy associated with the specified Multi-Region Access Point.</p>
+   */
+  Policy?: MultiRegionAccessPointPolicyDocument;
+}
+
+export namespace GetMultiRegionAccessPointPolicyResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMultiRegionAccessPointPolicyResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMultiRegionAccessPointPolicyStatusRequest {
+  /**
+   * <p>The AWS account ID for the owner of the Multi-Region Access Point.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>Specifies the Multi-Region Access Point. The name of the Multi-Region Access Point is different from the alias. For more
+   *             information about the distinction between the name and the alias of an Multi-Region Access Point, see
+   *                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing Multi-Region Access Points</a> in the
+   *                 <i>Amazon S3 User Guide</i>.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace GetMultiRegionAccessPointPolicyStatusRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMultiRegionAccessPointPolicyStatusRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMultiRegionAccessPointPolicyStatusResult {
+  /**
+   * <p>Indicates whether this access point policy is public. For more information about how Amazon S3 evaluates policies to determine whether they are public, see
+   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the
+   * 	 <i>Amazon S3 User Guide</i>.
+   *       </p>
+   */
+  Established?: PolicyStatus;
+}
+
+export namespace GetMultiRegionAccessPointPolicyStatusResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMultiRegionAccessPointPolicyStatusResult): any => ({
+    ...obj,
+  });
+}
+
 export interface GetPublicAccessBlockOutput {
   /**
    * <p>The <code>PublicAccessBlock</code> configuration currently in effect for this AWS
@@ -3708,6 +4403,60 @@ export namespace ListJobsResult {
   });
 }
 
+export interface ListMultiRegionAccessPointsRequest {
+  /**
+   * <p>The AWS account ID for the owner of the Multi-Region Access Point.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>A continuation token. If a previous call to <code>ListMultiRegionAccessPoints</code>
+   *          returned a continuation token in the <code>NextToken</code> field, then providing that
+   *          value here causes Amazon S3 to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of Multi-Region Access Points that you want to include in the list. If the specified
+   *             bucket has more than this number of Multi-Region Access Points, the response includes a continuation token
+   *             in the <code>NextToken</code> field. You can use this token to retrieve the next page of
+   *             Multi-Region Access Points.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListMultiRegionAccessPointsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMultiRegionAccessPointsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMultiRegionAccessPointsResult {
+  /**
+   * <p>The list of Multi-Region Access Points associated with the user.</p>
+   */
+  AccessPoints?: MultiRegionAccessPointReport[];
+
+  /**
+   * <p>If the specified bucket has more Multi-Region Access Points than can be returned in one call to this
+   *             action, this field contains a continuation token. You can use this token tin subsequent
+   *             calls to this action to retrieve additional Multi-Region Access Points.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListMultiRegionAccessPointsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMultiRegionAccessPointsResult): any => ({
+    ...obj,
+  });
+}
+
 export interface ListRegionalBucketsRequest {
   /**
    * <p>The AWS account ID of the Outposts bucket.</p>
@@ -4147,6 +4896,50 @@ export namespace TooManyTagsException {
    * @internal
    */
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
+    ...obj,
+  });
+}
+
+export interface PutMultiRegionAccessPointPolicyRequest {
+  /**
+   * <p>The AWS account ID for the owner of the Multi-Region Access Point.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>An idempotency token used to identify the request and guarantee that requests are
+   *             unique.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>A container element containing the details of the policy for the Multi-Region Access Point.</p>
+   */
+  Details: PutMultiRegionAccessPointPolicyInput | undefined;
+}
+
+export namespace PutMultiRegionAccessPointPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutMultiRegionAccessPointPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutMultiRegionAccessPointPolicyResult {
+  /**
+   * <p>The request token associated with the request. You can use this token with <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a> to determine the status of
+   *             asynchronous requests.</p>
+   */
+  RequestTokenARN?: string;
+}
+
+export namespace PutMultiRegionAccessPointPolicyResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutMultiRegionAccessPointPolicyResult): any => ({
     ...obj,
   });
 }
