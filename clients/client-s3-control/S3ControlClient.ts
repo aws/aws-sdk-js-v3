@@ -5,10 +5,6 @@ import {
 } from "./commands/CreateAccessPointForObjectLambdaCommand";
 import { CreateBucketCommandInput, CreateBucketCommandOutput } from "./commands/CreateBucketCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
-import {
-  CreateMultiRegionAccessPointCommandInput,
-  CreateMultiRegionAccessPointCommandOutput,
-} from "./commands/CreateMultiRegionAccessPointCommand";
 import { DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput } from "./commands/DeleteAccessPointCommand";
 import {
   DeleteAccessPointForObjectLambdaCommandInput,
@@ -34,10 +30,6 @@ import {
 } from "./commands/DeleteBucketTaggingCommand";
 import { DeleteJobTaggingCommandInput, DeleteJobTaggingCommandOutput } from "./commands/DeleteJobTaggingCommand";
 import {
-  DeleteMultiRegionAccessPointCommandInput,
-  DeleteMultiRegionAccessPointCommandOutput,
-} from "./commands/DeleteMultiRegionAccessPointCommand";
-import {
   DeletePublicAccessBlockCommandInput,
   DeletePublicAccessBlockCommandOutput,
 } from "./commands/DeletePublicAccessBlockCommand";
@@ -50,10 +42,6 @@ import {
   DeleteStorageLensConfigurationTaggingCommandOutput,
 } from "./commands/DeleteStorageLensConfigurationTaggingCommand";
 import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
-import {
-  DescribeMultiRegionAccessPointOperationCommandInput,
-  DescribeMultiRegionAccessPointOperationCommandOutput,
-} from "./commands/DescribeMultiRegionAccessPointOperationCommand";
 import { GetAccessPointCommandInput, GetAccessPointCommandOutput } from "./commands/GetAccessPointCommand";
 import {
   GetAccessPointConfigurationForObjectLambdaCommandInput,
@@ -88,18 +76,6 @@ import { GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput } from "./com
 import { GetBucketTaggingCommandInput, GetBucketTaggingCommandOutput } from "./commands/GetBucketTaggingCommand";
 import { GetJobTaggingCommandInput, GetJobTaggingCommandOutput } from "./commands/GetJobTaggingCommand";
 import {
-  GetMultiRegionAccessPointCommandInput,
-  GetMultiRegionAccessPointCommandOutput,
-} from "./commands/GetMultiRegionAccessPointCommand";
-import {
-  GetMultiRegionAccessPointPolicyCommandInput,
-  GetMultiRegionAccessPointPolicyCommandOutput,
-} from "./commands/GetMultiRegionAccessPointPolicyCommand";
-import {
-  GetMultiRegionAccessPointPolicyStatusCommandInput,
-  GetMultiRegionAccessPointPolicyStatusCommandOutput,
-} from "./commands/GetMultiRegionAccessPointPolicyStatusCommand";
-import {
   GetPublicAccessBlockCommandInput,
   GetPublicAccessBlockCommandOutput,
 } from "./commands/GetPublicAccessBlockCommand";
@@ -117,10 +93,6 @@ import {
   ListAccessPointsForObjectLambdaCommandOutput,
 } from "./commands/ListAccessPointsForObjectLambdaCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
-import {
-  ListMultiRegionAccessPointsCommandInput,
-  ListMultiRegionAccessPointsCommandOutput,
-} from "./commands/ListMultiRegionAccessPointsCommand";
 import {
   ListRegionalBucketsCommandInput,
   ListRegionalBucketsCommandOutput,
@@ -148,10 +120,6 @@ import {
 import { PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput } from "./commands/PutBucketPolicyCommand";
 import { PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput } from "./commands/PutBucketTaggingCommand";
 import { PutJobTaggingCommandInput, PutJobTaggingCommandOutput } from "./commands/PutJobTaggingCommand";
-import {
-  PutMultiRegionAccessPointPolicyCommandInput,
-  PutMultiRegionAccessPointPolicyCommandOutput,
-} from "./commands/PutMultiRegionAccessPointPolicyCommand";
 import {
   PutPublicAccessBlockCommandInput,
   PutPublicAccessBlockCommandOutput,
@@ -218,18 +186,15 @@ import {
   Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  StreamHasher as __StreamHasher,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
-import { Readable } from "stream";
 
 export type ServiceInputTypes =
   | CreateAccessPointCommandInput
   | CreateAccessPointForObjectLambdaCommandInput
   | CreateBucketCommandInput
   | CreateJobCommandInput
-  | CreateMultiRegionAccessPointCommandInput
   | DeleteAccessPointCommandInput
   | DeleteAccessPointForObjectLambdaCommandInput
   | DeleteAccessPointPolicyCommandInput
@@ -239,12 +204,10 @@ export type ServiceInputTypes =
   | DeleteBucketPolicyCommandInput
   | DeleteBucketTaggingCommandInput
   | DeleteJobTaggingCommandInput
-  | DeleteMultiRegionAccessPointCommandInput
   | DeletePublicAccessBlockCommandInput
   | DeleteStorageLensConfigurationCommandInput
   | DeleteStorageLensConfigurationTaggingCommandInput
   | DescribeJobCommandInput
-  | DescribeMultiRegionAccessPointOperationCommandInput
   | GetAccessPointCommandInput
   | GetAccessPointConfigurationForObjectLambdaCommandInput
   | GetAccessPointForObjectLambdaCommandInput
@@ -257,16 +220,12 @@ export type ServiceInputTypes =
   | GetBucketPolicyCommandInput
   | GetBucketTaggingCommandInput
   | GetJobTaggingCommandInput
-  | GetMultiRegionAccessPointCommandInput
-  | GetMultiRegionAccessPointPolicyCommandInput
-  | GetMultiRegionAccessPointPolicyStatusCommandInput
   | GetPublicAccessBlockCommandInput
   | GetStorageLensConfigurationCommandInput
   | GetStorageLensConfigurationTaggingCommandInput
   | ListAccessPointsCommandInput
   | ListAccessPointsForObjectLambdaCommandInput
   | ListJobsCommandInput
-  | ListMultiRegionAccessPointsCommandInput
   | ListRegionalBucketsCommandInput
   | ListStorageLensConfigurationsCommandInput
   | PutAccessPointConfigurationForObjectLambdaCommandInput
@@ -276,7 +235,6 @@ export type ServiceInputTypes =
   | PutBucketPolicyCommandInput
   | PutBucketTaggingCommandInput
   | PutJobTaggingCommandInput
-  | PutMultiRegionAccessPointPolicyCommandInput
   | PutPublicAccessBlockCommandInput
   | PutStorageLensConfigurationCommandInput
   | PutStorageLensConfigurationTaggingCommandInput
@@ -288,7 +246,6 @@ export type ServiceOutputTypes =
   | CreateAccessPointForObjectLambdaCommandOutput
   | CreateBucketCommandOutput
   | CreateJobCommandOutput
-  | CreateMultiRegionAccessPointCommandOutput
   | DeleteAccessPointCommandOutput
   | DeleteAccessPointForObjectLambdaCommandOutput
   | DeleteAccessPointPolicyCommandOutput
@@ -298,12 +255,10 @@ export type ServiceOutputTypes =
   | DeleteBucketPolicyCommandOutput
   | DeleteBucketTaggingCommandOutput
   | DeleteJobTaggingCommandOutput
-  | DeleteMultiRegionAccessPointCommandOutput
   | DeletePublicAccessBlockCommandOutput
   | DeleteStorageLensConfigurationCommandOutput
   | DeleteStorageLensConfigurationTaggingCommandOutput
   | DescribeJobCommandOutput
-  | DescribeMultiRegionAccessPointOperationCommandOutput
   | GetAccessPointCommandOutput
   | GetAccessPointConfigurationForObjectLambdaCommandOutput
   | GetAccessPointForObjectLambdaCommandOutput
@@ -316,16 +271,12 @@ export type ServiceOutputTypes =
   | GetBucketPolicyCommandOutput
   | GetBucketTaggingCommandOutput
   | GetJobTaggingCommandOutput
-  | GetMultiRegionAccessPointCommandOutput
-  | GetMultiRegionAccessPointPolicyCommandOutput
-  | GetMultiRegionAccessPointPolicyStatusCommandOutput
   | GetPublicAccessBlockCommandOutput
   | GetStorageLensConfigurationCommandOutput
   | GetStorageLensConfigurationTaggingCommandOutput
   | ListAccessPointsCommandOutput
   | ListAccessPointsForObjectLambdaCommandOutput
   | ListJobsCommandOutput
-  | ListMultiRegionAccessPointsCommandOutput
   | ListRegionalBucketsCommandOutput
   | ListStorageLensConfigurationsCommandOutput
   | PutAccessPointConfigurationForObjectLambdaCommandOutput
@@ -335,7 +286,6 @@ export type ServiceOutputTypes =
   | PutBucketPolicyCommandOutput
   | PutBucketTaggingCommandOutput
   | PutJobTaggingCommandOutput
-  | PutMultiRegionAccessPointPolicyCommandOutput
   | PutPublicAccessBlockCommandOutput
   | PutStorageLensConfigurationCommandOutput
   | PutStorageLensConfigurationTaggingCommandOutput
@@ -447,20 +397,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   regionInfoProvider?: RegionInfoProvider;
-
-  /**
-   * A constructor for a class implementing the @aws-sdk/types.Hash interface
-   * that computes MD5 hashes.
-   * @internal
-   */
-  md5?: __HashConstructor;
-
-  /**
-   * A function that, given a hash constructor and a stream, calculates the
-   * hash of the streamed value.
-   * @internal
-   */
-  streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;
 
   /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
