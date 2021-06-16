@@ -1,4 +1,4 @@
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import {
   loadSharedConfigFiles,
   Profile,
@@ -61,7 +61,7 @@ export const fromSharedConfigFiles =
       }
       return configValue;
     } catch (e) {
-      throw new ProviderError(
+      throw new CredentialsProviderError(
         e.message ||
           `Cannot load config for profile ${profile} in SDK configuration files with getter: ${configSelector}`
       );

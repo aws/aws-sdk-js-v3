@@ -1,4 +1,4 @@
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 
 import { fromWebToken } from "./fromWebToken";
 
@@ -29,7 +29,7 @@ describe("fromWebToken", () => {
       fail(`Expected error to be thrown`);
     } catch (error) {
       expect(error).toEqual(
-        new ProviderError(
+        new CredentialsProviderError(
           `Role Arn '${mockRoleArn}' needs to be assumed with web identity, but no role assumption callback was provided.`,
           false
         )

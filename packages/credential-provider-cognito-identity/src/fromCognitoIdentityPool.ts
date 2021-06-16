@@ -1,5 +1,5 @@
 import { GetIdCommand } from "@aws-sdk/client-cognito-identity";
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 
 import { CognitoProviderParameters } from "./CognitoProviderParameters";
 import { CognitoIdentityCredentialProvider, fromCognitoIdentity } from "./fromCognitoIdentity";
@@ -99,5 +99,5 @@ export interface FromCognitoIdentityPoolParameters extends CognitoProviderParame
 }
 
 function throwOnMissingId(): never {
-  throw new ProviderError("Response from Amazon Cognito contained no identity ID");
+  throw new CredentialsProviderError("Response from Amazon Cognito contained no identity ID");
 }

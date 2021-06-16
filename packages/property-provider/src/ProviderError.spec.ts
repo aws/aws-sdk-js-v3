@@ -1,12 +1,16 @@
-import { ProviderError } from "./ProviderError";
+import { CredentialsProviderError } from "./ProviderError";
 
 describe("ProviderError", () => {
+  it("should be named as CredentialsProviderError", () => {
+    expect(new CredentialsProviderError("PANIC").name).toBe("CredentialsProviderError");
+  });
+
   it("should direct the chain to proceed to the next link by default", () => {
-    expect(new ProviderError("PANIC").tryNextLink).toBe(true);
+    expect(new CredentialsProviderError("PANIC").tryNextLink).toBe(true);
   });
 
   it("should allow errors to halt the chain", () => {
-    expect(new ProviderError("PANIC", false).tryNextLink).toBe(false);
+    expect(new CredentialsProviderError("PANIC", false).tryNextLink).toBe(false);
   });
 
   describe("from()", () => {
@@ -14,7 +18,7 @@ describe("ProviderError", () => {
       const error = new Error("PANIC");
       // @ts-expect-error Property 'someValue' does not exist on type 'Error'.
       error.someValue = "foo";
-      const providerError = ProviderError.from(error);
+      const providerError = CredentialsProviderError.from(error);
       // @ts-expect-error Property 'someValue' does not exist on type 'ProviderError'.
       expect(providerError.someValue).toBe("foo");
       expect(providerError.tryNextLink).toBe(true);

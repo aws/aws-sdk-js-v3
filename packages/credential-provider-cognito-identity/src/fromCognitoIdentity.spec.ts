@@ -1,5 +1,5 @@
 import { GetCredentialsForIdentityCommand } from "@aws-sdk/client-cognito-identity";
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 
 import { fromCognitoIdentity } from "./fromCognitoIdentity";
 
@@ -76,7 +76,7 @@ describe("fromCognitoIdentity", () => {
         identityId,
         customRoleArn: "myArn",
       })()
-    ).rejects.toMatchObject(new ProviderError("Response from Amazon Cognito contained no credentials"));
+    ).rejects.toMatchObject(new CredentialsProviderError("Response from Amazon Cognito contained no credentials"));
   });
 
   it("should convert a GetCredentialsForIdentity response without an access key ID to a provider error", async () => {
@@ -93,7 +93,7 @@ describe("fromCognitoIdentity", () => {
         identityId,
         customRoleArn: "myArn",
       })()
-    ).rejects.toMatchObject(new ProviderError("Response from Amazon Cognito contained no access key ID"));
+    ).rejects.toMatchObject(new CredentialsProviderError("Response from Amazon Cognito contained no access key ID"));
   });
 
   it("should convert a GetCredentialsForIdentity response without a secret key to a provider error", async () => {
@@ -110,6 +110,6 @@ describe("fromCognitoIdentity", () => {
         identityId,
         customRoleArn: "myArn",
       })()
-    ).rejects.toMatchObject(new ProviderError("Response from Amazon Cognito contained no secret key"));
+    ).rejects.toMatchObject(new CredentialsProviderError("Response from Amazon Cognito contained no secret key"));
   });
 });

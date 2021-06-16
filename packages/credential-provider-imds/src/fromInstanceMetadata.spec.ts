@@ -1,4 +1,4 @@
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 
 import { fromInstanceMetadata } from "./fromInstanceMetadata";
 import { httpRequest } from "./remoteProvider/httpRequest";
@@ -124,7 +124,7 @@ describe("fromInstanceMetadata", () => {
     expect((retry as jest.Mock).mock.calls[1][1]).toBe(mockMaxRetries);
   });
 
-  it("throws ProviderError if credentials returned are incorrect", async () => {
+  it("throws CredentialsProviderError if credentials returned are incorrect", async () => {
     (httpRequest as jest.Mock)
       .mockResolvedValueOnce(mockToken)
       .mockResolvedValueOnce(mockProfile)
@@ -134,7 +134,7 @@ describe("fromInstanceMetadata", () => {
     (isImdsCredentials as unknown as jest.Mock).mockReturnValueOnce(false);
 
     await expect(fromInstanceMetadata()()).rejects.toEqual(
-      new ProviderError("Invalid response received from instance metadata service.")
+      new CredentialsProviderError("Invalid response received from instance metadata service.")
     );
     expect(retry).toHaveBeenCalledTimes(2);
     expect(httpRequest).toHaveBeenCalledTimes(3);

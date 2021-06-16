@@ -1,4 +1,4 @@
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { loadSharedConfigFiles, ParsedIniData, Profile } from "@aws-sdk/shared-ini-file-loader";
 
 import { ENV_PROFILE, fromSharedConfigFiles, GetterFromConfig, SharedConfigInit } from "./fromSharedConfigFiles";
@@ -20,8 +20,10 @@ describe("fromSharedConfigFiles", () => {
     process.env[ENV_PROFILE] = envProfile;
   });
 
-  const getProviderError = (profile: string, getter: GetterFromConfig<string>) =>
-    new ProviderError(`Cannot load config for profile ${profile} in SDK configuration files with getter: ${getter}`);
+  const getCredentialsProviderError = (profile: string, getter: GetterFromConfig<string>) =>
+    new CredentialsProviderError(
+      `Cannot load config for profile ${profile} in SDK configuration files with getter: ${getter}`
+    );
 
   describe("loadedConfig", () => {
     const mockConfigAnswer = "mockConfigAnswer";
@@ -134,7 +136,7 @@ describe("fromSharedConfigFiles", () => {
             credentialsFile: iniDataInCredentials,
           });
           return expect(fromSharedConfigFiles(configGetter, { profile, preferredFile })()).rejects.toMatchObject(
-            getProviderError(profile ?? "default", configGetter)
+            getCredentialsProviderError(profile ?? "default", configGetter)
           );
         });
       });
@@ -163,7 +165,7 @@ describe("fromSharedConfigFiles", () => {
           });
           return expect(
             fromSharedConfigFiles(configGetter, { loadedConfig, profile, preferredFile })()
-          ).rejects.toMatchObject(getProviderError(profile ?? "default", configGetter));
+          ).rejects.toMatchObject(getCredentialsProviderError(profile ?? "default", configGetter));
         });
       });
     });
@@ -177,7 +179,7 @@ describe("fromSharedConfigFiles", () => {
         configFile: {},
         credentialsFile: {},
       });
-      return expect(fromSharedConfigFiles(failGetter)()).rejects.toMatchObject(new ProviderError(message));
+      return expect(fromSharedConfigFiles(failGetter)()).rejects.toMatchObject(new CredentialsProviderError(message));
     });
   });
 

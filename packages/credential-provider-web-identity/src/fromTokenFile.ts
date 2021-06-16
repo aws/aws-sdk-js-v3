@@ -1,4 +1,4 @@
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
 import { readFileSync } from "fs";
 
@@ -30,7 +30,7 @@ const resolveTokenFile = (init?: FromTokenFileInit): Promise<Credentials> => {
   const roleSessionName = init?.roleSessionName ?? process.env[ENV_ROLE_SESSION_NAME];
 
   if (!webIdentityTokenFile || !roleArn) {
-    throw new ProviderError("Web identity configuration not specified");
+    throw new CredentialsProviderError("Web identity configuration not specified");
   }
 
   return fromWebToken({
