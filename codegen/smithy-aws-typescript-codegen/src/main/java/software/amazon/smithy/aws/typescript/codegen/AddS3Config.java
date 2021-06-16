@@ -46,16 +46,6 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 public final class AddS3Config implements TypeScriptIntegration {
 
-    private static final Set<String> S3_MD5_OPERATIONS = SetUtils.of(
-        "DeleteObjects",
-        "PutBucketCors",
-        "PutBucketLifecycle",
-        "PutBucketLifecycleConfiguration",
-        "PutBucketPolicy",
-        "PutBucketTagging",
-        "PutBucketReplication"
-    );
-
     private static final Set<String> SSEC_OPERATIONS = SetUtils.of("SSECustomerKey", "CopySourceSSECustomerKey");
 
     private static final Set<String> NON_BUCKET_ENDPOINT_OPERATIONS = SetUtils.of(
@@ -161,12 +151,6 @@ public final class AddS3Config implements TypeScriptIntegration {
                         .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
                                          HAS_MIDDLEWARE)
                         .operationPredicate((m, s, o) -> !NON_BUCKET_ENDPOINT_OPERATIONS.contains(o.getId().getName(s))
-                                            && testServiceId(s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.BODY_CHECKSUM.dependency, "ApplyMd5BodyChecksum",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> S3_MD5_OPERATIONS.contains(o.getId().getName(s))
                                             && testServiceId(s))
                         .build()
         );

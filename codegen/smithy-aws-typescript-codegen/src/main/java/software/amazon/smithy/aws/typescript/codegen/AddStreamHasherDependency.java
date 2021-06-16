@@ -85,7 +85,7 @@ public class AddStreamHasherDependency implements TypeScriptIntegration {
 
     private static boolean needsStreamHasher(ServiceShape service) {
         String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
-        if (serviceId.equals("S3")) {
+        if (serviceId.equals("S3") || serviceId.equals("S3 Control") ) {
             return true;
         }
 
