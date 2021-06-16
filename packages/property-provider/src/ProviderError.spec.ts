@@ -1,7 +1,7 @@
 import { CredentialsProviderError } from "./ProviderError";
 
 describe("ProviderError", () => {
-  it("should be named as CredentialsError", () => {
+  it("should be named as CredentialsProviderError", () => {
     expect(new CredentialsProviderError("PANIC").name).toBe("CredentialsProviderError");
   });
 

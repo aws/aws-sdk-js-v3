@@ -32,7 +32,8 @@ export class ProviderError extends Error {
  * to the next provider if the value of the `tryNextLink` property on the error
  * is truthy. This allows individual providers to halt the chain and also
  * ensures the chain will stop if an entirely unexpected error is encountered.
- */ export class CredentialsProviderError extends Error {
+ */
+export class CredentialsProviderError extends Error {
   readonly name = "CredentialsProviderError";
   constructor(message: string, public readonly tryNextLink: boolean = true) {
     super(message);
