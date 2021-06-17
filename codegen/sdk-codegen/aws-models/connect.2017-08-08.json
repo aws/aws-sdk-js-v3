@@ -67,12 +67,24 @@
         }
       }
     },
+    "com.amazonaws.connect#AliasArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
     "com.amazonaws.connect#AmazonConnectService": {
       "type": "service",
       "version": "2017-08-08",
       "operations": [
         {
           "target": "com.amazonaws.connect#AssociateApprovedOrigin"
+        },
+        {
+          "target": "com.amazonaws.connect#AssociateBot"
         },
         {
           "target": "com.amazonaws.connect#AssociateInstanceStorageConfig"
@@ -174,6 +186,9 @@
           "target": "com.amazonaws.connect#DisassociateApprovedOrigin"
         },
         {
+          "target": "com.amazonaws.connect#DisassociateBot"
+        },
+        {
           "target": "com.amazonaws.connect#DisassociateInstanceStorageConfig"
         },
         {
@@ -205,6 +220,9 @@
         },
         {
           "target": "com.amazonaws.connect#ListApprovedOrigins"
+        },
+        {
+          "target": "com.amazonaws.connect#ListBots"
         },
         {
           "target": "com.amazonaws.connect#ListContactFlows"
@@ -428,7 +446,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -438,6 +456,65 @@
           "traits": {
             "smithy.api#documentation": "<p>The domain to add to your allow list.</p>",
             "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#AssociateBot": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#AssociateBotRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceConflictException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>This API is in preview release for Amazon Connect and is subject to change.</p>\n         <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex or Amazon Lex V2 bot.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/instance/{InstanceId}/bot",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#AssociateBotRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "LexBot": {
+          "target": "com.amazonaws.connect#LexBot"
+        },
+        "LexV2Bot": {
+          "target": "com.amazonaws.connect#LexV2Bot",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Lex V2 bot to associate with the instance.</p>"
           }
         }
       }
@@ -485,7 +562,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -560,7 +637,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -617,7 +694,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -625,7 +702,7 @@
         "LexBot": {
           "target": "com.amazonaws.connect#LexBot",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Lex box to associate with the instance.</p>",
+            "smithy.api#documentation": "<p>The Amazon Lex bot to associate with the instance.</p>",
             "smithy.api#required": {}
           }
         }
@@ -671,7 +748,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -730,7 +807,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -798,7 +875,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1478,7 +1555,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1589,7 +1666,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1704,7 +1781,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1800,7 +1877,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1904,7 +1981,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2048,7 +2125,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2130,7 +2207,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2371,7 +2448,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2412,7 +2489,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2464,7 +2541,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2513,7 +2590,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2615,7 +2692,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2628,7 +2705,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2752,7 +2829,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2846,7 +2923,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2878,7 +2955,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2936,7 +3013,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3010,7 +3087,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3076,7 +3153,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3142,7 +3219,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3250,7 +3327,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3308,7 +3385,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3340,7 +3417,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3483,7 +3560,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3494,6 +3571,56 @@
             "smithy.api#documentation": "<p>The domain URL of the integrated application.</p>",
             "smithy.api#httpQuery": "origin",
             "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#DisassociateBot": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#DisassociateBotRequest"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>This API is in preview release for Amazon Connect and is subject to change.</p>\n         <p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2\n   bot. </p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/instance/{InstanceId}/bot",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#DisassociateBotRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "LexBot": {
+          "target": "com.amazonaws.connect#LexBot"
+        },
+        "LexV2Bot": {
+          "target": "com.amazonaws.connect#LexV2Bot",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Lex V2 bot to disassociate from the instance.</p>"
           }
         }
       }
@@ -3535,7 +3662,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3595,7 +3722,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance..</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance..</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3647,7 +3774,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3707,7 +3834,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3766,7 +3893,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3825,7 +3952,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -4038,7 +4165,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -4144,7 +4271,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -4207,7 +4334,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -4236,13 +4363,13 @@
         "Groupings": {
           "target": "com.amazonaws.connect#Groupings",
           "traits": {
-            "smithy.api#documentation": "<p>The grouping applied to the metrics returned. For example, when results are grouped by\n   queue, the metrics returned are grouped by queue. The values returned apply to the metrics for\n   each queue rather than aggregated for all queues.</p>\n  \n         <p>If no grouping is specified, a summary of metrics for all queues is returned.</p>"
+            "smithy.api#documentation": "<p>The grouping applied to the metrics returned. For example, when results are grouped by\n   queue, the metrics returned are grouped by queue. The values returned apply to the metrics for\n   each queue rather than aggregated for all queues.</p>\n\n         <p>If no grouping is specified, a summary of metrics for all queues is returned.</p>"
           }
         },
         "HistoricalMetrics": {
           "target": "com.amazonaws.connect#HistoricalMetrics",
           "traits": {
-            "smithy.api#documentation": "<p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The\n   following historical metrics are available. For a description of each metric, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator\n   Guide</i>.</p>\n         <dl>\n            <dt>ABANDON_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>Statistic: AVG</p>\n            </dd>\n            <dt>AFTER_CONTACT_WORK_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>Statistic: AVG</p>\n            </dd>\n            <dt>API_CONTACTS_HANDLED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CALLBACK_CONTACTS_HANDLED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_ABANDONED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_AGENT_HUNG_UP_FIRST</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_CONSULTED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_HANDLED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_HANDLED_INCOMING</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_HANDLED_OUTBOUND</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_HOLD_ABANDONS</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_MISSED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_QUEUED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_TRANSFERRED_IN</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_TRANSFERRED_IN_FROM_QUEUE</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_TRANSFERRED_OUT</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>HANDLE_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>Statistic: AVG</p>\n            </dd>\n            <dt>HOLD_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>Statistic: AVG</p>\n            </dd>\n            <dt>INTERACTION_AND_HOLD_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>Statistic: AVG</p>\n            </dd>\n            <dt>INTERACTION_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>Statistic: AVG</p>\n            </dd>\n            <dt>OCCUPANCY</dt>\n            <dd>\n               <p>Unit: PERCENT</p>\n               <p>Statistic: AVG</p>\n            </dd>\n            <dt>QUEUE_ANSWER_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>Statistic: AVG</p>\n            </dd>\n            <dt>QUEUED_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>Statistic: MAX</p>\n            </dd>\n            <dt>SERVICE_LEVEL</dt>\n            <dd>\n               <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p>\n               <p>Unit: PERCENT</p>\n               <p>Statistic: AVG</p>\n               <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800\n      (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for\n      \"Less than\"). </p>\n            </dd>\n         </dl>",
+            "smithy.api#documentation": "<p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The\n   following historical metrics are available. For a description of each metric, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator\n   Guide</i>.</p>\n         <note>\n            <p>This API does not support a contacts\n    incoming metric (there's no CONTACTS_INCOMING metric missing from the documented list). </p>\n         </note>\n\n         <dl>\n            <dt>ABANDON_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>Statistic: AVG</p>\n            </dd>\n            <dt>AFTER_CONTACT_WORK_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>Statistic: AVG</p>\n            </dd>\n            <dt>API_CONTACTS_HANDLED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CALLBACK_CONTACTS_HANDLED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_ABANDONED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_AGENT_HUNG_UP_FIRST</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_CONSULTED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_HANDLED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_HANDLED_INCOMING</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_HANDLED_OUTBOUND</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_HOLD_ABANDONS</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_MISSED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_QUEUED</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_TRANSFERRED_IN</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_TRANSFERRED_IN_FROM_QUEUE</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_TRANSFERRED_OUT</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt>\n            <dd>\n               <p>Unit: COUNT</p>\n               <p>Statistic: SUM</p>\n            </dd>\n            <dt>HANDLE_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>Statistic: AVG</p>\n            </dd>\n            <dt>HOLD_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>Statistic: AVG</p>\n            </dd>\n            <dt>INTERACTION_AND_HOLD_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>Statistic: AVG</p>\n            </dd>\n            <dt>INTERACTION_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>Statistic: AVG</p>\n            </dd>\n            <dt>OCCUPANCY</dt>\n            <dd>\n               <p>Unit: PERCENT</p>\n               <p>Statistic: AVG</p>\n            </dd>\n            <dt>QUEUE_ANSWER_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>Statistic: AVG</p>\n            </dd>\n            <dt>QUEUED_TIME</dt>\n            <dd>\n               <p>Unit: SECONDS</p>\n               <p>Statistic: MAX</p>\n            </dd>\n            <dt>SERVICE_LEVEL</dt>\n            <dd>\n               <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p>\n               <p>Unit: PERCENT</p>\n               <p>Statistic: AVG</p>\n               <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800\n      (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for\n      \"Less than\"). </p>\n            </dd>\n         </dl>",
             "smithy.api#required": {}
           }
         },
@@ -4946,7 +5073,7 @@
         "Id": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>"
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>"
           }
         },
         "Arn": {
@@ -5271,7 +5398,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>"
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>"
           }
         },
         "IntegrationType": {
@@ -5478,6 +5605,29 @@
         "smithy.api#documentation": "<p>Configuration information of an Amazon Lex bot.</p>"
       }
     },
+    "com.amazonaws.connect#LexBotConfig": {
+      "type": "structure",
+      "members": {
+        "LexBot": {
+          "target": "com.amazonaws.connect#LexBot"
+        },
+        "LexV2Bot": {
+          "target": "com.amazonaws.connect#LexV2Bot",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration information of an Amazon Lex V2 bot.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration information of an Amazon Lex or Amazon Lex V2 bot.</p>"
+      }
+    },
+    "com.amazonaws.connect#LexBotConfigList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connect#LexBotConfig"
+      }
+    },
     "com.amazonaws.connect#LexBotsList": {
       "type": "list",
       "member": {
@@ -5491,6 +5641,35 @@
           "min": 0,
           "max": 60
         }
+      }
+    },
+    "com.amazonaws.connect#LexV2Bot": {
+      "type": "structure",
+      "members": {
+        "AliasArn": {
+          "target": "com.amazonaws.connect#AliasArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon Lex V2 bot.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration information of an Amazon Lex V2 bot.</p>"
+      }
+    },
+    "com.amazonaws.connect#LexVersion": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "V1",
+            "name": "V1"
+          },
+          {
+            "value": "V2",
+            "name": "V2"
+          }
+        ]
       }
     },
     "com.amazonaws.connect#LimitExceededException": {
@@ -5555,7 +5734,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -5584,6 +5763,96 @@
           "target": "com.amazonaws.connect#OriginsList",
           "traits": {
             "smithy.api#documentation": "<p>The approved origins.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are additional results, this is the token for the next set of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#ListBots": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#ListBotsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#ListBotsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>This API is in preview release for Amazon Connect and is subject to change.</p>\n         <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the\n   instance. </p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/instance/{InstanceId}/bots",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "LexBots",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.connect#ListBotsRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.connect#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results. Use the value returned in the previous \nresponse in the next request to retrieve the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.connect#MaxResult25",
+          "traits": {
+            "smithy.api#box": {},
+            "smithy.api#documentation": "<p>The maximum number of results to return per page.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "LexVersion": {
+          "target": "com.amazonaws.connect#LexVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of Amazon Lex or Amazon Lex V2.</p>",
+            "smithy.api#httpQuery": "lexVersion",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#ListBotsResponse": {
+      "type": "structure",
+      "members": {
+        "LexBots": {
+          "target": "com.amazonaws.connect#LexBotConfigList",
+          "traits": {
+            "smithy.api#documentation": "<p>The names and Regions of the Amazon Lex or Amazon Lex V2 bots associated with the specified\n   instance.</p>"
           }
         },
         "NextToken": {
@@ -5640,7 +5909,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -5731,7 +6000,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -5815,7 +6084,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -5900,7 +6169,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -6058,7 +6327,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -6143,7 +6412,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -6228,7 +6497,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -6313,7 +6582,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -6496,7 +6765,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -6589,7 +6858,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -6680,7 +6949,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -6772,7 +7041,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -6865,7 +7134,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -6950,7 +7219,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -7035,7 +7304,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -7175,7 +7444,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -7271,7 +7540,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -7356,7 +7625,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -7618,7 +7887,7 @@
     "com.amazonaws.connect#Password": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d\\S]{8,64}$/"
+        "smithy.api#pattern": "^/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d\\S]{8,64}$/$"
       }
     },
     "com.amazonaws.connect#PhoneNumber": {
@@ -9377,7 +9646,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#required": {}
           }
         },
@@ -9407,7 +9676,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>"
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>"
           }
         },
         "Name": {
@@ -9831,7 +10100,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#required": {}
           }
         },
@@ -9930,7 +10199,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#required": {}
           }
         },
@@ -10021,14 +10290,14 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#required": {}
           }
         },
         "ClientToken": {
           "target": "com.amazonaws.connect#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n   request. The token is valid for 7 days after creation. If a contact is already started, the\n   contact ID is returned. If the contact is disconnected, a new contact is started.</p>",
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n   request. The token is valid for 7 days after creation. If a contact is already started, the\n   contact ID is returned.\n   </p>",
             "smithy.api#idempotencyToken": {}
           }
         },
@@ -10106,7 +10375,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#required": {}
           }
         },
@@ -10255,7 +10524,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#required": {}
           }
         },
@@ -10292,7 +10561,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#required": {}
           }
         }
@@ -10362,7 +10631,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#required": {}
           }
         },
@@ -10653,7 +10922,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#required": {}
           }
         },
@@ -10836,7 +11105,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -10895,7 +11164,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -10961,7 +11230,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11020,7 +11289,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11082,7 +11351,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11146,7 +11415,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11205,7 +11474,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11264,7 +11533,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11323,7 +11592,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11387,7 +11656,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11446,7 +11715,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11508,7 +11777,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11572,7 +11841,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11680,7 +11949,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11707,7 +11976,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11761,7 +12030,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11820,7 +12089,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11879,7 +12148,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11938,7 +12207,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -11997,7 +12266,7 @@
         "InstanceId": {
           "target": "com.amazonaws.connect#InstanceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance.</p>",
+            "smithy.api#documentation": "<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
