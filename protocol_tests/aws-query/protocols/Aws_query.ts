@@ -50,6 +50,7 @@ import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "../comman
 import {
   ComplexError,
   ComplexNestedErrorData,
+  CustomCodeError,
   EmptyInputAndEmptyOutputInput,
   EmptyInputAndEmptyOutputOutput,
   FlattenedXmlMapOutput,
@@ -839,6 +840,14 @@ const deserializeAws_queryGreetingWithErrorsCommandError = async (
     case "aws.protocoltests.query#ComplexError":
       response = {
         ...(await deserializeAws_queryComplexErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CustomCodeError":
+    case "aws.protocoltests.query#CustomCodeError":
+      response = {
+        ...(await deserializeAws_queryCustomCodeErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1825,6 +1834,21 @@ const deserializeAws_queryComplexErrorResponse = async (
   return contents;
 };
 
+const deserializeAws_queryCustomCodeErrorResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CustomCodeError> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryCustomCodeError(body.Error, context);
+  const contents: CustomCodeError = {
+    name: "CustomCodeError",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryInvalidGreetingResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2167,6 +2191,16 @@ const deserializeAws_queryComplexNestedErrorData = (output: any, context: __Serd
   };
   if (output["Foo"] !== undefined) {
     contents.Foo = output["Foo"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryCustomCodeError = (output: any, context: __SerdeContext): CustomCodeError => {
+  let contents: any = {
+    Message: undefined,
+  };
+  if (output["Message"] !== undefined) {
+    contents.Message = output["Message"];
   }
   return contents;
 };
