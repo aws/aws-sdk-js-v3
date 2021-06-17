@@ -111,4 +111,25 @@ describe("getSignedUrl", () => {
     const commands = [command, command];
     return expect(Promise.all(commands.map((command) => getSignedUrl(client, command)))).resolves.toBeInstanceOf(Array);
   });
+
+  it.each(["amz-sdk-invocation-id", "amz-sdk-request", "x-amz-user-agent"])(
+    "should delete '%s' header",
+    async (header) => {
+      const client = new S3Client(clientParams);
+      const command = new GetObjectCommand({
+        Bucket: "Bucket",
+        Key: "Key",
+      });
+      command.middlewareStack.add(
+        (next) => (args) => {
+          (args.request ?? {})[header] = "foo";
+          return next(args);
+        },
+        { step: "serialize", priority: "low" }
+      );
+      await getSignedUrl(client, command);
+      expect(mockPresign).toBeCalled();
+      expect(mockPresign.mock.calls[0][0].headers[header]).toBeUndefined();
+    }
+  );
 });
