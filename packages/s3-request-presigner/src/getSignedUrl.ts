@@ -24,6 +24,8 @@ export const getSignedUrl = async <
       // Retry information headers are not meaningful in presigned URLs
       delete request.headers["amz-sdk-invocation-id"];
       delete request.headers["amz-sdk-request"];
+      // User agent header would leak sensitive information
+      delete request.headers["x-amz-user-agent"];
 
       const presigned = await s3Presigner.presign(request, {
         ...options,
