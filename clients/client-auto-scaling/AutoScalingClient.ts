@@ -146,6 +146,10 @@ import {
 import { EnterStandbyCommandInput, EnterStandbyCommandOutput } from "./commands/EnterStandbyCommand";
 import { ExecutePolicyCommandInput, ExecutePolicyCommandOutput } from "./commands/ExecutePolicyCommand";
 import { ExitStandbyCommandInput, ExitStandbyCommandOutput } from "./commands/ExitStandbyCommand";
+import {
+  GetPredictiveScalingForecastCommandInput,
+  GetPredictiveScalingForecastCommandOutput,
+} from "./commands/GetPredictiveScalingForecastCommand";
 import { PutLifecycleHookCommandInput, PutLifecycleHookCommandOutput } from "./commands/PutLifecycleHookCommand";
 import {
   PutNotificationConfigurationCommandInput,
@@ -279,6 +283,7 @@ export type ServiceInputTypes =
   | EnterStandbyCommandInput
   | ExecutePolicyCommandInput
   | ExitStandbyCommandInput
+  | GetPredictiveScalingForecastCommandInput
   | PutLifecycleHookCommandInput
   | PutNotificationConfigurationCommandInput
   | PutScalingPolicyCommandInput
@@ -341,6 +346,7 @@ export type ServiceOutputTypes =
   | EnterStandbyCommandOutput
   | ExecutePolicyCommandOutput
   | ExitStandbyCommandOutput
+  | GetPredictiveScalingForecastCommandOutput
   | PutLifecycleHookCommandOutput
   | PutNotificationConfigurationCommandOutput
   | PutScalingPolicyCommandOutput
@@ -430,7 +436,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -438,6 +444,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.
@@ -492,11 +504,17 @@ export interface AutoScalingClientResolvedConfig extends AutoScalingClientResolv
 /**
  * <fullname>Amazon EC2 Auto Scaling</fullname>
  *
- *         <p>Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances based on
- *             user-defined scaling policies, scheduled actions, and health checks. Use this service
- *             with AWS Auto Scaling, Amazon CloudWatch, and Elastic Load Balancing.</p>
- *         <p>For more information, including information about granting IAM users required
- *             permissions for Amazon EC2 Auto Scaling actions, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Amazon EC2 Auto Scaling User Guide</a>.</p>
+ *
+ *
+ *
+ *
+ *
+ *         <p>Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances
+ *             based on user-defined scaling policies, scheduled actions, and health checks.</p>
+ *         <p>For more information about Amazon EC2 Auto Scaling, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Amazon EC2 Auto Scaling User Guide</a>. For information about granting IAM users required
+ *             permissions for calls to Amazon EC2 Auto Scaling, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-permissions.html">Granting
+ *                 IAM users required permissions for Amazon EC2 Auto Scaling resources</a> in the
+ *                 <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
  */
 export class AutoScalingClient extends __Client<
   __HttpHandlerOptions,

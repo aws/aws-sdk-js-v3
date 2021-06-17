@@ -23,12 +23,6 @@ export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBea
 /**
  * <p>Creates a map resource in your AWS account, which provides map tiles of different
  *             styles sourced from global location data providers.</p>
- *         <note>
- *             <p>By using Maps, you agree that AWS may transmit your API queries to your selected
- *                 third party provider for processing, which may be outside the AWS region you are
- *                 currently using. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon
- *                 Location Service. </p>
- *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

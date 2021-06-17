@@ -21,7 +21,7 @@ export interface UntagResourceCommandInput extends UntagResourceInput {}
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Remove a tag from the MWAA environments.</p>
+ * <p>Removes key-value tag pairs associated to your Amazon Managed Workflows for Apache Airflow (MWAA) environment. For example, <code>"Environment": "Staging"</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

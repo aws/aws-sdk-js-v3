@@ -1,9 +1,19 @@
+import {
+  BatchAcknowledgeAlarmCommandInput,
+  BatchAcknowledgeAlarmCommandOutput,
+} from "./commands/BatchAcknowledgeAlarmCommand";
+import { BatchDisableAlarmCommandInput, BatchDisableAlarmCommandOutput } from "./commands/BatchDisableAlarmCommand";
+import { BatchEnableAlarmCommandInput, BatchEnableAlarmCommandOutput } from "./commands/BatchEnableAlarmCommand";
 import { BatchPutMessageCommandInput, BatchPutMessageCommandOutput } from "./commands/BatchPutMessageCommand";
+import { BatchResetAlarmCommandInput, BatchResetAlarmCommandOutput } from "./commands/BatchResetAlarmCommand";
+import { BatchSnoozeAlarmCommandInput, BatchSnoozeAlarmCommandOutput } from "./commands/BatchSnoozeAlarmCommand";
 import {
   BatchUpdateDetectorCommandInput,
   BatchUpdateDetectorCommandOutput,
 } from "./commands/BatchUpdateDetectorCommand";
+import { DescribeAlarmCommandInput, DescribeAlarmCommandOutput } from "./commands/DescribeAlarmCommand";
 import { DescribeDetectorCommandInput, DescribeDetectorCommandOutput } from "./commands/DescribeDetectorCommand";
+import { ListAlarmsCommandInput, ListAlarmsCommandOutput } from "./commands/ListAlarmsCommand";
 import { ListDetectorsCommandInput, ListDetectorsCommandOutput } from "./commands/ListDetectorsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -57,15 +67,29 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | BatchAcknowledgeAlarmCommandInput
+  | BatchDisableAlarmCommandInput
+  | BatchEnableAlarmCommandInput
   | BatchPutMessageCommandInput
+  | BatchResetAlarmCommandInput
+  | BatchSnoozeAlarmCommandInput
   | BatchUpdateDetectorCommandInput
+  | DescribeAlarmCommandInput
   | DescribeDetectorCommandInput
+  | ListAlarmsCommandInput
   | ListDetectorsCommandInput;
 
 export type ServiceOutputTypes =
+  | BatchAcknowledgeAlarmCommandOutput
+  | BatchDisableAlarmCommandOutput
+  | BatchEnableAlarmCommandOutput
   | BatchPutMessageCommandOutput
+  | BatchResetAlarmCommandOutput
+  | BatchSnoozeAlarmCommandOutput
   | BatchUpdateDetectorCommandOutput
+  | DescribeAlarmCommandOutput
   | DescribeDetectorCommandOutput
+  | ListAlarmsCommandOutput
   | ListDetectorsCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -142,7 +166,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -150,6 +174,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.
@@ -202,9 +232,11 @@ type IoTEventsDataClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
 export interface IoTEventsDataClientResolvedConfig extends IoTEventsDataClientResolvedConfigType {}
 
 /**
- * <p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation,
- *         and triggers actions when such events occur. AWS IoT Events Data API commands enable you to send
- *         inputs to detectors, list detectors, and view or update a detector's status.</p>
+ * <p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation, and
+ *       triggers actions when such events occur. You can use AWS IoT Events Data API commands to send inputs to
+ *       detectors, list detectors, and view or update a detector's status.</p>
+ *          <p> For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/what-is-iotevents.html">What is AWS IoT Events?</a> in the
+ *         <i>AWS IoT Events Developer Guide</i>.</p>
  */
 export class IoTEventsDataClient extends __Client<
   __HttpHandlerOptions,

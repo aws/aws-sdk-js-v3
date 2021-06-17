@@ -3,6 +3,10 @@ import {
   AssociateTrackerConsumerCommandOutput,
 } from "./commands/AssociateTrackerConsumerCommand";
 import {
+  BatchDeleteDevicePositionHistoryCommandInput,
+  BatchDeleteDevicePositionHistoryCommandOutput,
+} from "./commands/BatchDeleteDevicePositionHistoryCommand";
+import {
   BatchDeleteGeofenceCommandInput,
   BatchDeleteGeofenceCommandOutput,
 } from "./commands/BatchDeleteGeofenceCommand";
@@ -19,12 +23,17 @@ import {
   BatchUpdateDevicePositionCommandInput,
   BatchUpdateDevicePositionCommandOutput,
 } from "./commands/BatchUpdateDevicePositionCommand";
+import { CalculateRouteCommandInput, CalculateRouteCommandOutput } from "./commands/CalculateRouteCommand";
 import {
   CreateGeofenceCollectionCommandInput,
   CreateGeofenceCollectionCommandOutput,
 } from "./commands/CreateGeofenceCollectionCommand";
 import { CreateMapCommandInput, CreateMapCommandOutput } from "./commands/CreateMapCommand";
 import { CreatePlaceIndexCommandInput, CreatePlaceIndexCommandOutput } from "./commands/CreatePlaceIndexCommand";
+import {
+  CreateRouteCalculatorCommandInput,
+  CreateRouteCalculatorCommandOutput,
+} from "./commands/CreateRouteCalculatorCommand";
 import { CreateTrackerCommandInput, CreateTrackerCommandOutput } from "./commands/CreateTrackerCommand";
 import {
   DeleteGeofenceCollectionCommandInput,
@@ -32,6 +41,10 @@ import {
 } from "./commands/DeleteGeofenceCollectionCommand";
 import { DeleteMapCommandInput, DeleteMapCommandOutput } from "./commands/DeleteMapCommand";
 import { DeletePlaceIndexCommandInput, DeletePlaceIndexCommandOutput } from "./commands/DeletePlaceIndexCommand";
+import {
+  DeleteRouteCalculatorCommandInput,
+  DeleteRouteCalculatorCommandOutput,
+} from "./commands/DeleteRouteCalculatorCommand";
 import { DeleteTrackerCommandInput, DeleteTrackerCommandOutput } from "./commands/DeleteTrackerCommand";
 import {
   DescribeGeofenceCollectionCommandInput,
@@ -39,6 +52,10 @@ import {
 } from "./commands/DescribeGeofenceCollectionCommand";
 import { DescribeMapCommandInput, DescribeMapCommandOutput } from "./commands/DescribeMapCommand";
 import { DescribePlaceIndexCommandInput, DescribePlaceIndexCommandOutput } from "./commands/DescribePlaceIndexCommand";
+import {
+  DescribeRouteCalculatorCommandInput,
+  DescribeRouteCalculatorCommandOutput,
+} from "./commands/DescribeRouteCalculatorCommand";
 import { DescribeTrackerCommandInput, DescribeTrackerCommandOutput } from "./commands/DescribeTrackerCommand";
 import {
   DisassociateTrackerConsumerCommandInput,
@@ -58,12 +75,24 @@ import {
 } from "./commands/GetMapStyleDescriptorCommand";
 import { GetMapTileCommandInput, GetMapTileCommandOutput } from "./commands/GetMapTileCommand";
 import {
+  ListDevicePositionsCommandInput,
+  ListDevicePositionsCommandOutput,
+} from "./commands/ListDevicePositionsCommand";
+import {
   ListGeofenceCollectionsCommandInput,
   ListGeofenceCollectionsCommandOutput,
 } from "./commands/ListGeofenceCollectionsCommand";
 import { ListGeofencesCommandInput, ListGeofencesCommandOutput } from "./commands/ListGeofencesCommand";
 import { ListMapsCommandInput, ListMapsCommandOutput } from "./commands/ListMapsCommand";
 import { ListPlaceIndexesCommandInput, ListPlaceIndexesCommandOutput } from "./commands/ListPlaceIndexesCommand";
+import {
+  ListRouteCalculatorsCommandInput,
+  ListRouteCalculatorsCommandOutput,
+} from "./commands/ListRouteCalculatorsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import {
   ListTrackerConsumersCommandInput,
   ListTrackerConsumersCommandOutput,
@@ -78,6 +107,8 @@ import {
   SearchPlaceIndexForTextCommandInput,
   SearchPlaceIndexForTextCommandOutput,
 } from "./commands/SearchPlaceIndexForTextCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -131,22 +162,27 @@ import {
 
 export type ServiceInputTypes =
   | AssociateTrackerConsumerCommandInput
+  | BatchDeleteDevicePositionHistoryCommandInput
   | BatchDeleteGeofenceCommandInput
   | BatchEvaluateGeofencesCommandInput
   | BatchGetDevicePositionCommandInput
   | BatchPutGeofenceCommandInput
   | BatchUpdateDevicePositionCommandInput
+  | CalculateRouteCommandInput
   | CreateGeofenceCollectionCommandInput
   | CreateMapCommandInput
   | CreatePlaceIndexCommandInput
+  | CreateRouteCalculatorCommandInput
   | CreateTrackerCommandInput
   | DeleteGeofenceCollectionCommandInput
   | DeleteMapCommandInput
   | DeletePlaceIndexCommandInput
+  | DeleteRouteCalculatorCommandInput
   | DeleteTrackerCommandInput
   | DescribeGeofenceCollectionCommandInput
   | DescribeMapCommandInput
   | DescribePlaceIndexCommandInput
+  | DescribeRouteCalculatorCommandInput
   | DescribeTrackerCommandInput
   | DisassociateTrackerConsumerCommandInput
   | GetDevicePositionCommandInput
@@ -156,34 +192,44 @@ export type ServiceInputTypes =
   | GetMapSpritesCommandInput
   | GetMapStyleDescriptorCommandInput
   | GetMapTileCommandInput
+  | ListDevicePositionsCommandInput
   | ListGeofenceCollectionsCommandInput
   | ListGeofencesCommandInput
   | ListMapsCommandInput
   | ListPlaceIndexesCommandInput
+  | ListRouteCalculatorsCommandInput
+  | ListTagsForResourceCommandInput
   | ListTrackerConsumersCommandInput
   | ListTrackersCommandInput
   | PutGeofenceCommandInput
   | SearchPlaceIndexForPositionCommandInput
-  | SearchPlaceIndexForTextCommandInput;
+  | SearchPlaceIndexForTextCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateTrackerConsumerCommandOutput
+  | BatchDeleteDevicePositionHistoryCommandOutput
   | BatchDeleteGeofenceCommandOutput
   | BatchEvaluateGeofencesCommandOutput
   | BatchGetDevicePositionCommandOutput
   | BatchPutGeofenceCommandOutput
   | BatchUpdateDevicePositionCommandOutput
+  | CalculateRouteCommandOutput
   | CreateGeofenceCollectionCommandOutput
   | CreateMapCommandOutput
   | CreatePlaceIndexCommandOutput
+  | CreateRouteCalculatorCommandOutput
   | CreateTrackerCommandOutput
   | DeleteGeofenceCollectionCommandOutput
   | DeleteMapCommandOutput
   | DeletePlaceIndexCommandOutput
+  | DeleteRouteCalculatorCommandOutput
   | DeleteTrackerCommandOutput
   | DescribeGeofenceCollectionCommandOutput
   | DescribeMapCommandOutput
   | DescribePlaceIndexCommandOutput
+  | DescribeRouteCalculatorCommandOutput
   | DescribeTrackerCommandOutput
   | DisassociateTrackerConsumerCommandOutput
   | GetDevicePositionCommandOutput
@@ -193,15 +239,20 @@ export type ServiceOutputTypes =
   | GetMapSpritesCommandOutput
   | GetMapStyleDescriptorCommandOutput
   | GetMapTileCommandOutput
+  | ListDevicePositionsCommandOutput
   | ListGeofenceCollectionsCommandOutput
   | ListGeofencesCommandOutput
   | ListMapsCommandOutput
   | ListPlaceIndexesCommandOutput
+  | ListRouteCalculatorsCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListTrackerConsumersCommandOutput
   | ListTrackersCommandOutput
   | PutGeofenceCommandOutput
   | SearchPlaceIndexForPositionCommandOutput
-  | SearchPlaceIndexForTextCommandOutput;
+  | SearchPlaceIndexForTextCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -277,7 +328,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -285,6 +336,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.
@@ -337,7 +394,7 @@ type LocationClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
 export interface LocationClientResolvedConfig extends LocationClientResolvedConfigType {}
 
 /**
- * Suite of geospatial services including Maps, Places, Tracking, and Geofencing
+ * Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofencing
  */
 export class LocationClient extends __Client<
   __HttpHandlerOptions,

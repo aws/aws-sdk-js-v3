@@ -42,6 +42,11 @@ import {
   DescribeAccessPointsCommandOutput,
 } from "./commands/DescribeAccessPointsCommand";
 import {
+  DescribeAccountPreferencesCommand,
+  DescribeAccountPreferencesCommandInput,
+  DescribeAccountPreferencesCommandOutput,
+} from "./commands/DescribeAccountPreferencesCommand";
+import {
   DescribeBackupPolicyCommand,
   DescribeBackupPolicyCommandInput,
   DescribeBackupPolicyCommandOutput,
@@ -87,6 +92,11 @@ import {
   ModifyMountTargetSecurityGroupsCommandOutput,
 } from "./commands/ModifyMountTargetSecurityGroupsCommand";
 import {
+  PutAccountPreferencesCommand,
+  PutAccountPreferencesCommandInput,
+  PutAccountPreferencesCommandOutput,
+} from "./commands/PutAccountPreferencesCommand";
+import {
   PutBackupPolicyCommand,
   PutBackupPolicyCommandInput,
   PutBackupPolicyCommandOutput,
@@ -119,7 +129,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <p>Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use
  *       with Amazon EC2 instances in the AWS Cloud. With Amazon EFS, storage capacity is elastic,
  *       growing and shrinking automatically as you add and remove files, so your applications have the
- *       storage they need, when they need it. For more information, see the <a href="https://docs.aws.amazon.com/efs/latest/ug/api-reference.html">User Guide</a>.</p>
+ *       storage they need, when they need it. For more information, see the <a href="https://docs.aws.amazon.com/efs/latest/ug/api-reference.html">Amazon Elastic File System API Reference</a> and the <a href="https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html">Amazon Elastic File System User Guide</a>.</p>
  */
 export class EFS extends EFSClient {
   /**
@@ -422,7 +432,11 @@ export class EFS extends EFSClient {
   /**
    * @deprecated
    *
-   * <p>Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If
+   * <note>
+   *             <p>DEPRECATED - CreateTags is deprecated and not maintained. Please use the
+   *        API action to create tags for EFS resources.</p>
+   *          </note>
+   *          <p>Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If
    *       a tag key specified in the request already exists on the file system, this operation
    *       overwrites its value with the value provided in the request. If you add the <code>Name</code>
    *       tag to your file system, Amazon EFS returns it in the response to the <a>DescribeFileSystems</a> operation. </p>
@@ -636,7 +650,11 @@ export class EFS extends EFSClient {
   /**
    * @deprecated
    *
-   * <p>Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
+   * <note>
+   *             <p>DEPRECATED - DeleteTags is deprecated and not maintained. Please use the
+   *        API action to remove tags from EFS resources.</p>
+   *          </note>
+   *          <p>Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
    *       includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an
    *       error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag Restrictions</a> in the
    *         <i>AWS Billing and Cost Management User Guide</i>.</p>
@@ -692,6 +710,35 @@ export class EFS extends EFSClient {
     cb?: (err: any, data?: DescribeAccessPointsCommandOutput) => void
   ): Promise<DescribeAccessPointsCommandOutput> | void {
     const command = new DescribeAccessPointsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public describeAccountPreferences(
+    args: DescribeAccountPreferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAccountPreferencesCommandOutput>;
+  public describeAccountPreferences(
+    args: DescribeAccountPreferencesCommandInput,
+    cb: (err: any, data?: DescribeAccountPreferencesCommandOutput) => void
+  ): void;
+  public describeAccountPreferences(
+    args: DescribeAccountPreferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAccountPreferencesCommandOutput) => void
+  ): void;
+  public describeAccountPreferences(
+    args: DescribeAccountPreferencesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountPreferencesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAccountPreferencesCommandOutput) => void
+  ): Promise<DescribeAccountPreferencesCommandOutput> | void {
+    const command = new DescribeAccountPreferencesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -948,7 +995,11 @@ export class EFS extends EFSClient {
   /**
    * @deprecated
    *
-   * <p>Returns the tags associated with a file system. The order of tags returned in the
+   * <note>
+   *             <p>DEPRECATED - The DeleteTags action is deprecated and not maintained. Please use the
+   *          API action to remove tags from EFS resources.</p>
+   *          </note>
+   *          <p>Returns the tags associated with a file system. The order of tags returned in the
    *       response of one <code>DescribeTags</code> call and the order of tags returned across the
    *       responses of a multiple-call iteration (when using pagination) is unspecified. </p>
    *          <p> This operation requires permissions for the
@@ -1054,6 +1105,35 @@ export class EFS extends EFSClient {
     cb?: (err: any, data?: ModifyMountTargetSecurityGroupsCommandOutput) => void
   ): Promise<ModifyMountTargetSecurityGroupsCommandOutput> | void {
     const command = new ModifyMountTargetSecurityGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public putAccountPreferences(
+    args: PutAccountPreferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccountPreferencesCommandOutput>;
+  public putAccountPreferences(
+    args: PutAccountPreferencesCommandInput,
+    cb: (err: any, data?: PutAccountPreferencesCommandOutput) => void
+  ): void;
+  public putAccountPreferences(
+    args: PutAccountPreferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccountPreferencesCommandOutput) => void
+  ): void;
+  public putAccountPreferences(
+    args: PutAccountPreferencesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAccountPreferencesCommandOutput) => void),
+    cb?: (err: any, data?: PutAccountPreferencesCommandOutput) => void
+  ): Promise<PutAccountPreferencesCommandOutput> | void {
+    const command = new PutAccountPreferencesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -2440,6 +2440,11 @@ export namespace PhysicalTable {
   };
 }
 
+export enum RowLevelPermissionFormatVersion {
+  VERSION_1 = "VERSION_1",
+  VERSION_2 = "VERSION_2",
+}
+
 export enum RowLevelPermissionPolicy {
   DENY_ACCESS = "DENY_ACCESS",
   GRANT_ACCESS = "GRANT_ACCESS",
@@ -2469,6 +2474,12 @@ export interface RowLevelPermissionDataSet {
    *         is included for backward compatibility only.</p>
    */
   PermissionPolicy: RowLevelPermissionPolicy | string | undefined;
+
+  /**
+   * <p>The user or group rules associated with the dataset that contains permissions for RLS.</p>
+   *          <p>By default, <code>FormatVersion</code> is <code>VERSION_1</code>. When <code>FormatVersion</code> is <code>VERSION_1</code>, <code>UserName</code> and <code>GroupName</code> are required. When <code>FormatVersion</code> is <code>VERSION_2</code>, <code>UserARN</code> and <code>GroupARN</code> are required, and <code>Namespace</code> must not exist.</p>
+   */
+  FormatVersion?: RowLevelPermissionFormatVersion | string;
 }
 
 export namespace RowLevelPermissionDataSet {
@@ -8530,6 +8541,32 @@ export interface User {
    * <p>The custom permissions profile associated with this user.</p>
    */
   CustomPermissionsName?: string;
+
+  /**
+   * <p>The type of supported external login provider that provides identity to let the user
+   *             federate into Amazon QuickSight with an associated IAM role. The type can be one of the following.</p>
+   *         <ul>
+   *             <li>
+   *                     <p>
+   *                   <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com.</p>
+   *                 </li>
+   *             <li>
+   *                     <p>
+   *                   <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider.</p>
+   *                 </li>
+   *          </ul>
+   */
+  ExternalLoginFederationProviderType?: string;
+
+  /**
+   * <p>The URL of the external login provider.</p>
+   */
+  ExternalLoginFederationProviderUrl?: string;
+
+  /**
+   * <p>The identity ID for the user in the external login provider.</p>
+   */
+  ExternalLoginId?: string;
 }
 
 export namespace User {
@@ -9510,37 +9547,6 @@ export namespace ListIAMPolicyAssignmentsForUserResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsForUserResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListIngestionsRequest {
-  /**
-   * <p>The ID of the dataset used in the ingestion.</p>
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The AWS account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace ListIngestionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIngestionsRequest): any => ({
     ...obj,
   });
 }

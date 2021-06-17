@@ -7,9 +7,17 @@ import {
   ExportAutoScalingGroupRecommendationsCommandOutput,
 } from "../commands/ExportAutoScalingGroupRecommendationsCommand";
 import {
+  ExportEBSVolumeRecommendationsCommandInput,
+  ExportEBSVolumeRecommendationsCommandOutput,
+} from "../commands/ExportEBSVolumeRecommendationsCommand";
+import {
   ExportEC2InstanceRecommendationsCommandInput,
   ExportEC2InstanceRecommendationsCommandOutput,
 } from "../commands/ExportEC2InstanceRecommendationsCommand";
+import {
+  ExportLambdaFunctionRecommendationsCommandInput,
+  ExportLambdaFunctionRecommendationsCommandOutput,
+} from "../commands/ExportLambdaFunctionRecommendationsCommand";
 import {
   GetAutoScalingGroupRecommendationsCommandInput,
   GetAutoScalingGroupRecommendationsCommandOutput,
@@ -54,10 +62,16 @@ import {
   ExportAutoScalingGroupRecommendationsRequest,
   ExportAutoScalingGroupRecommendationsResponse,
   ExportDestination,
+  ExportEBSVolumeRecommendationsRequest,
+  ExportEBSVolumeRecommendationsResponse,
   ExportEC2InstanceRecommendationsRequest,
   ExportEC2InstanceRecommendationsResponse,
+  ExportLambdaFunctionRecommendationsRequest,
+  ExportLambdaFunctionRecommendationsResponse,
   ExportableAutoScalingGroupField,
   ExportableInstanceField,
+  ExportableLambdaFunctionField,
+  ExportableVolumeField,
   Filter,
   GetAutoScalingGroupRecommendationsRequest,
   GetAutoScalingGroupRecommendationsResponse,
@@ -75,6 +89,7 @@ import {
   GetRecommendationSummariesRequest,
   GetRecommendationSummariesResponse,
   InstanceRecommendation,
+  InstanceRecommendationFindingReasonCode,
   InstanceRecommendationOption,
   InternalServerException,
   InvalidParameterValueException,
@@ -88,6 +103,7 @@ import {
   LimitExceededException,
   MissingAuthenticationToken,
   OptInRequiredException,
+  PlatformDifference,
   ProjectedMetric,
   ReasonCodeSummary,
   RecommendationExportJob,
@@ -143,6 +159,19 @@ export const serializeAws_json1_0ExportAutoScalingGroupRecommendationsCommand = 
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0ExportEBSVolumeRecommendationsCommand = async (
+  input: ExportEBSVolumeRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "ComputeOptimizerService.ExportEBSVolumeRecommendations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ExportEBSVolumeRecommendationsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0ExportEC2InstanceRecommendationsCommand = async (
   input: ExportEC2InstanceRecommendationsCommandInput,
   context: __SerdeContext
@@ -153,6 +182,19 @@ export const serializeAws_json1_0ExportEC2InstanceRecommendationsCommand = async
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ExportEC2InstanceRecommendationsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ExportLambdaFunctionRecommendationsCommand = async (
+  input: ExportLambdaFunctionRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "ComputeOptimizerService.ExportLambdaFunctionRecommendations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ExportLambdaFunctionRecommendationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -480,6 +522,116 @@ const deserializeAws_json1_0ExportAutoScalingGroupRecommendationsCommandError = 
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_0ExportEBSVolumeRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportEBSVolumeRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ExportEBSVolumeRecommendationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ExportEBSVolumeRecommendationsResponse(data, context);
+  const response: ExportEBSVolumeRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ExportEBSVolumeRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportEBSVolumeRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.computeoptimizer#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.computeoptimizer#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.computeoptimizer#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingAuthenticationToken":
+    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
+      response = {
+        ...(await deserializeAws_json1_0MissingAuthenticationTokenResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OptInRequiredException":
+    case "com.amazonaws.computeoptimizer#OptInRequiredException":
+      response = {
+        ...(await deserializeAws_json1_0OptInRequiredExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_0ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.computeoptimizer#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_0ExportEC2InstanceRecommendationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -501,6 +653,116 @@ const deserializeAws_json1_0ExportEC2InstanceRecommendationsCommandError = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportEC2InstanceRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.computeoptimizer#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_0AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.computeoptimizer#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_0InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.computeoptimizer#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingAuthenticationToken":
+    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
+      response = {
+        ...(await deserializeAws_json1_0MissingAuthenticationTokenResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OptInRequiredException":
+    case "com.amazonaws.computeoptimizer#OptInRequiredException":
+      response = {
+        ...(await deserializeAws_json1_0OptInRequiredExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_0ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.computeoptimizer#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0ExportLambdaFunctionRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportLambdaFunctionRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ExportLambdaFunctionRecommendationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ExportLambdaFunctionRecommendationsResponse(data, context);
+  const response: ExportLambdaFunctionRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ExportLambdaFunctionRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportLambdaFunctionRecommendationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1648,6 +1910,34 @@ const serializeAws_json1_0ExportableInstanceFields = (
     });
 };
 
+const serializeAws_json1_0ExportableLambdaFunctionFields = (
+  input: (ExportableLambdaFunctionField | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_0ExportableVolumeFields = (
+  input: (ExportableVolumeField | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_0ExportAutoScalingGroupRecommendationsRequest = (
   input: ExportAutoScalingGroupRecommendationsRequest,
   context: __SerdeContext
@@ -1671,6 +1961,29 @@ const serializeAws_json1_0ExportAutoScalingGroupRecommendationsRequest = (
   };
 };
 
+const serializeAws_json1_0ExportEBSVolumeRecommendationsRequest = (
+  input: ExportEBSVolumeRecommendationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.accountIds !== undefined &&
+      input.accountIds !== null && { accountIds: serializeAws_json1_0AccountIds(input.accountIds, context) }),
+    ...(input.fieldsToExport !== undefined &&
+      input.fieldsToExport !== null && {
+        fieldsToExport: serializeAws_json1_0ExportableVolumeFields(input.fieldsToExport, context),
+      }),
+    ...(input.fileFormat !== undefined && input.fileFormat !== null && { fileFormat: input.fileFormat }),
+    ...(input.filters !== undefined &&
+      input.filters !== null && { filters: serializeAws_json1_0EBSFilters(input.filters, context) }),
+    ...(input.includeMemberAccounts !== undefined &&
+      input.includeMemberAccounts !== null && { includeMemberAccounts: input.includeMemberAccounts }),
+    ...(input.s3DestinationConfig !== undefined &&
+      input.s3DestinationConfig !== null && {
+        s3DestinationConfig: serializeAws_json1_0S3DestinationConfig(input.s3DestinationConfig, context),
+      }),
+  };
+};
+
 const serializeAws_json1_0ExportEC2InstanceRecommendationsRequest = (
   input: ExportEC2InstanceRecommendationsRequest,
   context: __SerdeContext
@@ -1685,6 +1998,31 @@ const serializeAws_json1_0ExportEC2InstanceRecommendationsRequest = (
     ...(input.fileFormat !== undefined && input.fileFormat !== null && { fileFormat: input.fileFormat }),
     ...(input.filters !== undefined &&
       input.filters !== null && { filters: serializeAws_json1_0Filters(input.filters, context) }),
+    ...(input.includeMemberAccounts !== undefined &&
+      input.includeMemberAccounts !== null && { includeMemberAccounts: input.includeMemberAccounts }),
+    ...(input.s3DestinationConfig !== undefined &&
+      input.s3DestinationConfig !== null && {
+        s3DestinationConfig: serializeAws_json1_0S3DestinationConfig(input.s3DestinationConfig, context),
+      }),
+  };
+};
+
+const serializeAws_json1_0ExportLambdaFunctionRecommendationsRequest = (
+  input: ExportLambdaFunctionRecommendationsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.accountIds !== undefined &&
+      input.accountIds !== null && { accountIds: serializeAws_json1_0AccountIds(input.accountIds, context) }),
+    ...(input.fieldsToExport !== undefined &&
+      input.fieldsToExport !== null && {
+        fieldsToExport: serializeAws_json1_0ExportableLambdaFunctionFields(input.fieldsToExport, context),
+      }),
+    ...(input.fileFormat !== undefined && input.fileFormat !== null && { fileFormat: input.fileFormat }),
+    ...(input.filters !== undefined &&
+      input.filters !== null && {
+        filters: serializeAws_json1_0LambdaFunctionRecommendationFilters(input.filters, context),
+      }),
     ...(input.includeMemberAccounts !== undefined &&
       input.includeMemberAccounts !== null && { includeMemberAccounts: input.includeMemberAccounts }),
     ...(input.s3DestinationConfig !== undefined &&
@@ -2090,10 +2428,36 @@ const deserializeAws_json1_0ExportDestination = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_0ExportEBSVolumeRecommendationsResponse = (
+  output: any,
+  context: __SerdeContext
+): ExportEBSVolumeRecommendationsResponse => {
+  return {
+    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    s3Destination:
+      output.s3Destination !== undefined && output.s3Destination !== null
+        ? deserializeAws_json1_0S3Destination(output.s3Destination, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0ExportEC2InstanceRecommendationsResponse = (
   output: any,
   context: __SerdeContext
 ): ExportEC2InstanceRecommendationsResponse => {
+  return {
+    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    s3Destination:
+      output.s3Destination !== undefined && output.s3Destination !== null
+        ? deserializeAws_json1_0S3Destination(output.s3Destination, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0ExportLambdaFunctionRecommendationsResponse = (
+  output: any,
+  context: __SerdeContext
+): ExportLambdaFunctionRecommendationsResponse => {
   return {
     jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
     s3Destination:
@@ -2236,6 +2600,10 @@ const deserializeAws_json1_0InstanceRecommendation = (output: any, context: __Se
         ? output.currentInstanceType
         : undefined,
     finding: output.finding !== undefined && output.finding !== null ? output.finding : undefined,
+    findingReasonCodes:
+      output.findingReasonCodes !== undefined && output.findingReasonCodes !== null
+        ? deserializeAws_json1_0InstanceRecommendationFindingReasonCodes(output.findingReasonCodes, context)
+        : undefined,
     instanceArn: output.instanceArn !== undefined && output.instanceArn !== null ? output.instanceArn : undefined,
     instanceName: output.instanceName !== undefined && output.instanceName !== null ? output.instanceName : undefined,
     lastRefreshTimestamp:
@@ -2261,6 +2629,20 @@ const deserializeAws_json1_0InstanceRecommendation = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_0InstanceRecommendationFindingReasonCodes = (
+  output: any,
+  context: __SerdeContext
+): (InstanceRecommendationFindingReasonCode | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const deserializeAws_json1_0InstanceRecommendationOption = (
   output: any,
   context: __SerdeContext
@@ -2269,6 +2651,10 @@ const deserializeAws_json1_0InstanceRecommendationOption = (
     instanceType: output.instanceType !== undefined && output.instanceType !== null ? output.instanceType : undefined,
     performanceRisk:
       output.performanceRisk !== undefined && output.performanceRisk !== null ? output.performanceRisk : undefined,
+    platformDifferences:
+      output.platformDifferences !== undefined && output.platformDifferences !== null
+        ? deserializeAws_json1_0PlatformDifferences(output.platformDifferences, context)
+        : undefined,
     projectedUtilizationMetrics:
       output.projectedUtilizationMetrics !== undefined && output.projectedUtilizationMetrics !== null
         ? deserializeAws_json1_0ProjectedUtilizationMetrics(output.projectedUtilizationMetrics, context)
@@ -2489,6 +2875,20 @@ const deserializeAws_json1_0OptInRequiredException = (output: any, context: __Se
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
+};
+
+const deserializeAws_json1_0PlatformDifferences = (
+  output: any,
+  context: __SerdeContext
+): (PlatformDifference | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_0ProjectedMetric = (output: any, context: __SerdeContext): ProjectedMetric => {

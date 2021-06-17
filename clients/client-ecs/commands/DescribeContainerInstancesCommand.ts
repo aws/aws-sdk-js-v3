@@ -21,8 +21,8 @@ export interface DescribeContainerInstancesCommandInput extends DescribeContaine
 export interface DescribeContainerInstancesCommandOutput extends DescribeContainerInstancesResponse, __MetadataBearer {}
 
 /**
- * <p>Describes Amazon Elastic Container Service container instances. Returns metadata about registered and
- * 			remaining resources on each container instance requested.</p>
+ * <p>Describes one or more container instances. Returns metadata about each container
+ * 			instance requested.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

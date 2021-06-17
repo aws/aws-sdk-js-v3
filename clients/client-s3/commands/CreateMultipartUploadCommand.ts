@@ -61,11 +61,11 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *          your own encryption key, the request headers you provide in <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a> requests must match the headers you used in the request to
  *          initiate the upload by using <code>CreateMultipartUpload</code>. </p>
  *          <p>To perform a multipart upload with encryption using an AWS KMS CMK, the requester must
- *          have permission to the <code>kms:Encrypt</code>, <code>kms:Decrypt</code>,
- *             <code>kms:ReEncrypt*</code>, <code>kms:GenerateDataKey*</code>, and
- *             <code>kms:DescribeKey</code> actions on the key. These permissions are required because
- *          Amazon S3 must decrypt and read data from the encrypted file parts before it completes the
- *          multipart upload.</p>
+ *          have permission to the <code>kms:Decrypt</code> and <code>kms:GenerateDataKey*</code>
+ *          actions on the key. These permissions are required because Amazon S3 must decrypt and read data
+ *          from the encrypted file parts before it completes the multipart upload. For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html#mpuAndPermissions">Multipart upload API
+ *             and permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
  *
  *          <p>If your AWS Identity and Access Management (IAM) user or role is in the same AWS account
  *          as the AWS KMS CMK, then you must have these permissions on the key policy. If your IAM

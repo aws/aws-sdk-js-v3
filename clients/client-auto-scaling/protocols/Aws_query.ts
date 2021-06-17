@@ -146,6 +146,10 @@ import {
 import { EnterStandbyCommandInput, EnterStandbyCommandOutput } from "../commands/EnterStandbyCommand";
 import { ExecutePolicyCommandInput, ExecutePolicyCommandOutput } from "../commands/ExecutePolicyCommand";
 import { ExitStandbyCommandInput, ExitStandbyCommandOutput } from "../commands/ExitStandbyCommand";
+import {
+  GetPredictiveScalingForecastCommandInput,
+  GetPredictiveScalingForecastCommandOutput,
+} from "../commands/GetPredictiveScalingForecastCommand";
 import { PutLifecycleHookCommandInput, PutLifecycleHookCommandOutput } from "../commands/PutLifecycleHookCommand";
 import {
   PutNotificationConfigurationCommandInput,
@@ -206,6 +210,7 @@ import {
   BlockDeviceMapping,
   CancelInstanceRefreshAnswer,
   CancelInstanceRefreshType,
+  CapacityForecast,
   CompleteLifecycleActionAnswer,
   CompleteLifecycleActionType,
   CreateAutoScalingGroupType,
@@ -261,6 +266,8 @@ import {
   ExitStandbyQuery,
   FailedScheduledUpdateGroupActionRequest,
   Filter,
+  GetPredictiveScalingForecastAnswer,
+  GetPredictiveScalingForecastType,
   Instance,
   InstanceMetadataOptions,
   InstanceMonitoring,
@@ -283,6 +290,7 @@ import {
   LimitExceededFault,
   LoadBalancerState,
   LoadBalancerTargetGroupState,
+  LoadForecast,
   MetricCollectionType,
   MetricDimension,
   MetricGranularityType,
@@ -291,6 +299,11 @@ import {
   PoliciesType,
   PolicyARNType,
   PredefinedMetricSpecification,
+  PredictiveScalingConfiguration,
+  PredictiveScalingMetricSpecification,
+  PredictiveScalingPredefinedLoadMetric,
+  PredictiveScalingPredefinedMetricPair,
+  PredictiveScalingPredefinedScalingMetric,
   ProcessType,
   ProcessesType,
   PutLifecycleHookAnswer,
@@ -1062,6 +1075,22 @@ export const serializeAws_queryExitStandbyCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryExitStandbyQuery(input, context),
     Action: "ExitStandby",
+    Version: "2011-01-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryGetPredictiveScalingForecastCommand = async (
+  input: GetPredictiveScalingForecastCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryGetPredictiveScalingForecastType(input, context),
+    Action: "GetPredictiveScalingForecast",
     Version: "2011-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4045,6 +4074,60 @@ const deserializeAws_queryExitStandbyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryGetPredictiveScalingForecastCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPredictiveScalingForecastCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryGetPredictiveScalingForecastCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryGetPredictiveScalingForecastAnswer(data.GetPredictiveScalingForecastResult, context);
+  const response: GetPredictiveScalingForecastCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryGetPredictiveScalingForecastCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPredictiveScalingForecastCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceContentionFault":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryPutLifecycleHookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5955,6 +6038,9 @@ const serializeAws_queryEbs = (input: Ebs, context: __SerdeContext): any => {
   if (input.Encrypted !== undefined && input.Encrypted !== null) {
     entries["Encrypted"] = input.Encrypted;
   }
+  if (input.Throughput !== undefined && input.Throughput !== null) {
+    entries["Throughput"] = input.Throughput;
+  }
   return entries;
 };
 
@@ -6059,6 +6145,26 @@ const serializeAws_queryFilters = (input: Filter[], context: __SerdeContext): an
       entries[`member.${counter}.${key}`] = value;
     });
     counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryGetPredictiveScalingForecastType = (
+  input: GetPredictiveScalingForecastType,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AutoScalingGroupName !== undefined && input.AutoScalingGroupName !== null) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
+  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+    entries["PolicyName"] = input.PolicyName;
+  }
+  if (input.StartTime !== undefined && input.StartTime !== null) {
+    entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
+  }
+  if (input.EndTime !== undefined && input.EndTime !== null) {
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
   return entries;
 };
@@ -6422,6 +6528,135 @@ const serializeAws_queryPredefinedMetricSpecification = (
   return entries;
 };
 
+const serializeAws_queryPredictiveScalingConfiguration = (
+  input: PredictiveScalingConfiguration,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.MetricSpecifications !== undefined && input.MetricSpecifications !== null) {
+    const memberEntries = serializeAws_queryPredictiveScalingMetricSpecifications(input.MetricSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MetricSpecifications.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Mode !== undefined && input.Mode !== null) {
+    entries["Mode"] = input.Mode;
+  }
+  if (input.SchedulingBufferTime !== undefined && input.SchedulingBufferTime !== null) {
+    entries["SchedulingBufferTime"] = input.SchedulingBufferTime;
+  }
+  if (input.MaxCapacityBreachBehavior !== undefined && input.MaxCapacityBreachBehavior !== null) {
+    entries["MaxCapacityBreachBehavior"] = input.MaxCapacityBreachBehavior;
+  }
+  if (input.MaxCapacityBuffer !== undefined && input.MaxCapacityBuffer !== null) {
+    entries["MaxCapacityBuffer"] = input.MaxCapacityBuffer;
+  }
+  return entries;
+};
+
+const serializeAws_queryPredictiveScalingMetricSpecification = (
+  input: PredictiveScalingMetricSpecification,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TargetValue !== undefined && input.TargetValue !== null) {
+    entries["TargetValue"] = input.TargetValue;
+  }
+  if (input.PredefinedMetricPairSpecification !== undefined && input.PredefinedMetricPairSpecification !== null) {
+    const memberEntries = serializeAws_queryPredictiveScalingPredefinedMetricPair(
+      input.PredefinedMetricPairSpecification,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PredefinedMetricPairSpecification.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.PredefinedScalingMetricSpecification !== undefined && input.PredefinedScalingMetricSpecification !== null) {
+    const memberEntries = serializeAws_queryPredictiveScalingPredefinedScalingMetric(
+      input.PredefinedScalingMetricSpecification,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PredefinedScalingMetricSpecification.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.PredefinedLoadMetricSpecification !== undefined && input.PredefinedLoadMetricSpecification !== null) {
+    const memberEntries = serializeAws_queryPredictiveScalingPredefinedLoadMetric(
+      input.PredefinedLoadMetricSpecification,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PredefinedLoadMetricSpecification.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryPredictiveScalingMetricSpecifications = (
+  input: PredictiveScalingMetricSpecification[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_queryPredictiveScalingMetricSpecification(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryPredictiveScalingPredefinedLoadMetric = (
+  input: PredictiveScalingPredefinedLoadMetric,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.PredefinedMetricType !== undefined && input.PredefinedMetricType !== null) {
+    entries["PredefinedMetricType"] = input.PredefinedMetricType;
+  }
+  if (input.ResourceLabel !== undefined && input.ResourceLabel !== null) {
+    entries["ResourceLabel"] = input.ResourceLabel;
+  }
+  return entries;
+};
+
+const serializeAws_queryPredictiveScalingPredefinedMetricPair = (
+  input: PredictiveScalingPredefinedMetricPair,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.PredefinedMetricType !== undefined && input.PredefinedMetricType !== null) {
+    entries["PredefinedMetricType"] = input.PredefinedMetricType;
+  }
+  if (input.ResourceLabel !== undefined && input.ResourceLabel !== null) {
+    entries["ResourceLabel"] = input.ResourceLabel;
+  }
+  return entries;
+};
+
+const serializeAws_queryPredictiveScalingPredefinedScalingMetric = (
+  input: PredictiveScalingPredefinedScalingMetric,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.PredefinedMetricType !== undefined && input.PredefinedMetricType !== null) {
+    entries["PredefinedMetricType"] = input.PredefinedMetricType;
+  }
+  if (input.ResourceLabel !== undefined && input.ResourceLabel !== null) {
+    entries["ResourceLabel"] = input.ResourceLabel;
+  }
+  return entries;
+};
+
 const serializeAws_queryProcessNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -6533,6 +6768,16 @@ const serializeAws_queryPutScalingPolicyType = (input: PutScalingPolicyType, con
   }
   if (input.Enabled !== undefined && input.Enabled !== null) {
     entries["Enabled"] = input.Enabled;
+  }
+  if (input.PredictiveScalingConfiguration !== undefined && input.PredictiveScalingConfiguration !== null) {
+    const memberEntries = serializeAws_queryPredictiveScalingConfiguration(
+      input.PredictiveScalingConfiguration,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PredictiveScalingConfiguration.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -7207,6 +7452,7 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
     MinSize: undefined,
     MaxSize: undefined,
     DesiredCapacity: undefined,
+    PredictedCapacity: undefined,
     DefaultCooldown: undefined,
     AvailabilityZones: undefined,
     LoadBalancerNames: undefined,
@@ -7252,6 +7498,9 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
   }
   if (output["DesiredCapacity"] !== undefined) {
     contents.DesiredCapacity = parseInt(output["DesiredCapacity"]);
+  }
+  if (output["PredictedCapacity"] !== undefined) {
+    contents.PredictedCapacity = parseInt(output["PredictedCapacity"]);
   }
   if (output["DefaultCooldown"] !== undefined) {
     contents.DefaultCooldown = parseInt(output["DefaultCooldown"]);
@@ -7586,6 +7835,32 @@ const deserializeAws_queryCancelInstanceRefreshAnswer = (
   };
   if (output["InstanceRefreshId"] !== undefined) {
     contents.InstanceRefreshId = output["InstanceRefreshId"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryCapacityForecast = (output: any, context: __SerdeContext): CapacityForecast => {
+  let contents: any = {
+    Timestamps: undefined,
+    Values: undefined,
+  };
+  if (output.Timestamps === "") {
+    contents.Timestamps = [];
+  }
+  if (output["Timestamps"] !== undefined && output["Timestamps"]["member"] !== undefined) {
+    contents.Timestamps = deserializeAws_queryPredictiveScalingForecastTimestamps(
+      __getArrayIfSingleItem(output["Timestamps"]["member"]),
+      context
+    );
+  }
+  if (output.Values === "") {
+    contents.Values = [];
+  }
+  if (output["Values"] !== undefined && output["Values"]["member"] !== undefined) {
+    contents.Values = deserializeAws_queryPredictiveScalingForecastValues(
+      __getArrayIfSingleItem(output["Values"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -7968,6 +8243,7 @@ const deserializeAws_queryEbs = (output: any, context: __SerdeContext): Ebs => {
     DeleteOnTermination: undefined,
     Iops: undefined,
     Encrypted: undefined,
+    Throughput: undefined,
   };
   if (output["SnapshotId"] !== undefined) {
     contents.SnapshotId = output["SnapshotId"];
@@ -7986,6 +8262,9 @@ const deserializeAws_queryEbs = (output: any, context: __SerdeContext): Ebs => {
   }
   if (output["Encrypted"] !== undefined) {
     contents.Encrypted = output["Encrypted"] == "true";
+  }
+  if (output["Throughput"] !== undefined) {
+    contents.Throughput = parseInt(output["Throughput"]);
   }
   return contents;
 };
@@ -8080,6 +8359,33 @@ const deserializeAws_queryFailedScheduledUpdateGroupActionRequests = (
       }
       return deserializeAws_queryFailedScheduledUpdateGroupActionRequest(entry, context);
     });
+};
+
+const deserializeAws_queryGetPredictiveScalingForecastAnswer = (
+  output: any,
+  context: __SerdeContext
+): GetPredictiveScalingForecastAnswer => {
+  let contents: any = {
+    LoadForecast: undefined,
+    CapacityForecast: undefined,
+    UpdateTime: undefined,
+  };
+  if (output.LoadForecast === "") {
+    contents.LoadForecast = [];
+  }
+  if (output["LoadForecast"] !== undefined && output["LoadForecast"]["member"] !== undefined) {
+    contents.LoadForecast = deserializeAws_queryLoadForecasts(
+      __getArrayIfSingleItem(output["LoadForecast"]["member"]),
+      context
+    );
+  }
+  if (output["CapacityForecast"] !== undefined) {
+    contents.CapacityForecast = deserializeAws_queryCapacityForecast(output["CapacityForecast"], context);
+  }
+  if (output["UpdateTime"] !== undefined) {
+    contents.UpdateTime = new Date(output["UpdateTime"]);
+  }
+  return contents;
 };
 
 const deserializeAws_queryInstance = (output: any, context: __SerdeContext): Instance => {
@@ -8659,6 +8965,50 @@ const deserializeAws_queryLoadBalancerTargetGroupStates = (
     });
 };
 
+const deserializeAws_queryLoadForecast = (output: any, context: __SerdeContext): LoadForecast => {
+  let contents: any = {
+    Timestamps: undefined,
+    Values: undefined,
+    MetricSpecification: undefined,
+  };
+  if (output.Timestamps === "") {
+    contents.Timestamps = [];
+  }
+  if (output["Timestamps"] !== undefined && output["Timestamps"]["member"] !== undefined) {
+    contents.Timestamps = deserializeAws_queryPredictiveScalingForecastTimestamps(
+      __getArrayIfSingleItem(output["Timestamps"]["member"]),
+      context
+    );
+  }
+  if (output.Values === "") {
+    contents.Values = [];
+  }
+  if (output["Values"] !== undefined && output["Values"]["member"] !== undefined) {
+    contents.Values = deserializeAws_queryPredictiveScalingForecastValues(
+      __getArrayIfSingleItem(output["Values"]["member"]),
+      context
+    );
+  }
+  if (output["MetricSpecification"] !== undefined) {
+    contents.MetricSpecification = deserializeAws_queryPredictiveScalingMetricSpecification(
+      output["MetricSpecification"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryLoadForecasts = (output: any, context: __SerdeContext): LoadForecast[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryLoadForecast(entry, context);
+    });
+};
+
 const deserializeAws_queryMetricCollectionType = (output: any, context: __SerdeContext): MetricCollectionType => {
   let contents: any = {
     Metric: undefined,
@@ -8843,6 +9193,162 @@ const deserializeAws_queryPredefinedMetricSpecification = (
   return contents;
 };
 
+const deserializeAws_queryPredictiveScalingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): PredictiveScalingConfiguration => {
+  let contents: any = {
+    MetricSpecifications: undefined,
+    Mode: undefined,
+    SchedulingBufferTime: undefined,
+    MaxCapacityBreachBehavior: undefined,
+    MaxCapacityBuffer: undefined,
+  };
+  if (output.MetricSpecifications === "") {
+    contents.MetricSpecifications = [];
+  }
+  if (output["MetricSpecifications"] !== undefined && output["MetricSpecifications"]["member"] !== undefined) {
+    contents.MetricSpecifications = deserializeAws_queryPredictiveScalingMetricSpecifications(
+      __getArrayIfSingleItem(output["MetricSpecifications"]["member"]),
+      context
+    );
+  }
+  if (output["Mode"] !== undefined) {
+    contents.Mode = output["Mode"];
+  }
+  if (output["SchedulingBufferTime"] !== undefined) {
+    contents.SchedulingBufferTime = parseInt(output["SchedulingBufferTime"]);
+  }
+  if (output["MaxCapacityBreachBehavior"] !== undefined) {
+    contents.MaxCapacityBreachBehavior = output["MaxCapacityBreachBehavior"];
+  }
+  if (output["MaxCapacityBuffer"] !== undefined) {
+    contents.MaxCapacityBuffer = parseInt(output["MaxCapacityBuffer"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryPredictiveScalingForecastTimestamps = (output: any, context: __SerdeContext): Date[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return new Date(entry);
+    });
+};
+
+const deserializeAws_queryPredictiveScalingForecastValues = (output: any, context: __SerdeContext): number[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return parseFloat(entry);
+    });
+};
+
+const deserializeAws_queryPredictiveScalingMetricSpecification = (
+  output: any,
+  context: __SerdeContext
+): PredictiveScalingMetricSpecification => {
+  let contents: any = {
+    TargetValue: undefined,
+    PredefinedMetricPairSpecification: undefined,
+    PredefinedScalingMetricSpecification: undefined,
+    PredefinedLoadMetricSpecification: undefined,
+  };
+  if (output["TargetValue"] !== undefined) {
+    contents.TargetValue = parseFloat(output["TargetValue"]);
+  }
+  if (output["PredefinedMetricPairSpecification"] !== undefined) {
+    contents.PredefinedMetricPairSpecification = deserializeAws_queryPredictiveScalingPredefinedMetricPair(
+      output["PredefinedMetricPairSpecification"],
+      context
+    );
+  }
+  if (output["PredefinedScalingMetricSpecification"] !== undefined) {
+    contents.PredefinedScalingMetricSpecification = deserializeAws_queryPredictiveScalingPredefinedScalingMetric(
+      output["PredefinedScalingMetricSpecification"],
+      context
+    );
+  }
+  if (output["PredefinedLoadMetricSpecification"] !== undefined) {
+    contents.PredefinedLoadMetricSpecification = deserializeAws_queryPredictiveScalingPredefinedLoadMetric(
+      output["PredefinedLoadMetricSpecification"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryPredictiveScalingMetricSpecifications = (
+  output: any,
+  context: __SerdeContext
+): PredictiveScalingMetricSpecification[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPredictiveScalingMetricSpecification(entry, context);
+    });
+};
+
+const deserializeAws_queryPredictiveScalingPredefinedLoadMetric = (
+  output: any,
+  context: __SerdeContext
+): PredictiveScalingPredefinedLoadMetric => {
+  let contents: any = {
+    PredefinedMetricType: undefined,
+    ResourceLabel: undefined,
+  };
+  if (output["PredefinedMetricType"] !== undefined) {
+    contents.PredefinedMetricType = output["PredefinedMetricType"];
+  }
+  if (output["ResourceLabel"] !== undefined) {
+    contents.ResourceLabel = output["ResourceLabel"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryPredictiveScalingPredefinedMetricPair = (
+  output: any,
+  context: __SerdeContext
+): PredictiveScalingPredefinedMetricPair => {
+  let contents: any = {
+    PredefinedMetricType: undefined,
+    ResourceLabel: undefined,
+  };
+  if (output["PredefinedMetricType"] !== undefined) {
+    contents.PredefinedMetricType = output["PredefinedMetricType"];
+  }
+  if (output["ResourceLabel"] !== undefined) {
+    contents.ResourceLabel = output["ResourceLabel"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryPredictiveScalingPredefinedScalingMetric = (
+  output: any,
+  context: __SerdeContext
+): PredictiveScalingPredefinedScalingMetric => {
+  let contents: any = {
+    PredefinedMetricType: undefined,
+    ResourceLabel: undefined,
+  };
+  if (output["PredefinedMetricType"] !== undefined) {
+    contents.PredefinedMetricType = output["PredefinedMetricType"];
+  }
+  if (output["ResourceLabel"] !== undefined) {
+    contents.ResourceLabel = output["ResourceLabel"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryProcesses = (output: any, context: __SerdeContext): ProcessType[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -8956,6 +9462,7 @@ const deserializeAws_queryScalingPolicy = (output: any, context: __SerdeContext)
     Alarms: undefined,
     TargetTrackingConfiguration: undefined,
     Enabled: undefined,
+    PredictiveScalingConfiguration: undefined,
   };
   if (output["AutoScalingGroupName"] !== undefined) {
     contents.AutoScalingGroupName = output["AutoScalingGroupName"];
@@ -9013,6 +9520,12 @@ const deserializeAws_queryScalingPolicy = (output: any, context: __SerdeContext)
   }
   if (output["Enabled"] !== undefined) {
     contents.Enabled = output["Enabled"] == "true";
+  }
+  if (output["PredictiveScalingConfiguration"] !== undefined) {
+    contents.PredictiveScalingConfiguration = deserializeAws_queryPredictiveScalingConfiguration(
+      output["PredictiveScalingConfiguration"],
+      context
+    );
   }
   return contents;
 };

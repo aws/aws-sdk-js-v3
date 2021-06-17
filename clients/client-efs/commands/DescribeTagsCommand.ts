@@ -23,7 +23,11 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
 /**
  * @deprecated
  *
- * <p>Returns the tags associated with a file system. The order of tags returned in the
+ * <note>
+ *             <p>DEPRECATED - The DeleteTags action is deprecated and not maintained. Please use the
+ *          API action to remove tags from EFS resources.</p>
+ *          </note>
+ *          <p>Returns the tags associated with a file system. The order of tags returned in the
  *       response of one <code>DescribeTags</code> call and the order of tags returned across the
  *       responses of a multiple-call iteration (when using pagination) is unspecified. </p>
  *          <p> This operation requires permissions for the

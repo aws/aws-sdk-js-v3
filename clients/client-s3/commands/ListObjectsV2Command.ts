@@ -22,11 +22,14 @@ export interface ListObjectsV2CommandInput extends ListObjectsV2Request {}
 export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __MetadataBearer {}
 
 /**
- * <p>Returns some or all (up to 1,000) of the objects in a bucket. You can use the request
- *          parameters as selection criteria to return a subset of the objects in a bucket. A <code>200
- *             OK</code> response can contain valid or invalid XML. Make sure to design your
+ * <p>Returns some or all (up to 1,000) of the objects in a bucket with each request. You can use
+ *          the request parameters as selection criteria to return a subset of the objects in a bucket. A
+ *          <code>200 OK</code> response can contain valid or invalid XML. Make sure to design your
  *          application to parse the contents of the response and handle it appropriately.
- *          Objects are returned sorted in an ascending order of the respective key names in the list.</p>
+ *          Objects are returned sorted in an ascending order of the respective key names in the list.
+ *          For more information about listing objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html">Listing object keys
+ *             programmatically</a>
+ *          </p>
  *
  *          <p>To use this operation, you must have READ access to the bucket.</p>
  *

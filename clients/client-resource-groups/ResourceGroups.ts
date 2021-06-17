@@ -94,11 +94,11 @@ export class ResourceGroups extends ResourceGroupsClient {
    *             constructing a resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create a tag-based group in Resource Groups</a>. For more
    *             information about service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
    *                 groups</a>.</p>
-   *          <p>
+   *         <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>resource-groups:CreateGroup</code>
@@ -136,7 +136,7 @@ export class ResourceGroups extends ResourceGroupsClient {
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>resource-groups:DeleteGroup</code>
@@ -169,11 +169,11 @@ export class ResourceGroups extends ResourceGroupsClient {
 
   /**
    * <p>Returns information about a specified resource group.</p>
-   *          <p>
+   *         <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>resource-groups:GetGroup</code>
@@ -208,11 +208,11 @@ export class ResourceGroups extends ResourceGroupsClient {
    * <p>Returns the service configuration associated with the specified resource group. For
    *             details about the service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
    *                 groups</a>.</p>
-   *          <p>
+   *         <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>resource-groups:GetGroupConfiguration</code>
@@ -253,11 +253,11 @@ export class ResourceGroups extends ResourceGroupsClient {
    * <p>Retrieves the resource query associated with the specified resource group. For more
    *             information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
    *                 a tag-based group in Resource Groups</a>.</p>
-   *          <p>
+   *         <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>resource-groups:GetGroupQuery</code>
@@ -297,11 +297,11 @@ export class ResourceGroups extends ResourceGroupsClient {
   /**
    * <p>Returns a list of tags that are associated with a resource group, specified by an
    *             ARN.</p>
-   *          <p>
+   *         <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>resource-groups:GetTags</code>
@@ -334,11 +334,11 @@ export class ResourceGroups extends ResourceGroupsClient {
 
   /**
    * <p>Adds the specified resources to the specified group.</p>
-   *          <p>
+   *         <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>resource-groups:GroupResources</code>
@@ -378,14 +378,29 @@ export class ResourceGroups extends ResourceGroupsClient {
   /**
    * <p>Returns a list of ARNs of the resources that are members of a specified resource
    *             group.</p>
-   *          <p>
+   *         <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>resource-groups:ListGroupResources</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>cloudformation:DescribeStacks</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>cloudformation:ListStackResources</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>tag:GetResources</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -421,11 +436,11 @@ export class ResourceGroups extends ResourceGroupsClient {
 
   /**
    * <p>Returns a list of existing resource groups in your account.</p>
-   *          <p>
+   *         <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>resource-groups:ListGroups</code>
@@ -460,11 +475,11 @@ export class ResourceGroups extends ResourceGroupsClient {
    * <p>Attaches a service configuration to the specified group. This occurs asynchronously,
    *             and can take time to complete. You can use <a>GetGroupConfiguration</a> to
    *             check the status of the update.</p>
-   *          <p>
+   *         <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>resource-groups:PutGroupConfiguration</code>
@@ -505,14 +520,29 @@ export class ResourceGroups extends ResourceGroupsClient {
    * <p>Returns a list of AWS resource identifiers that matches the specified query. The
    *             query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery
    *             operation.</p>
-   *          <p>
+   *         <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>resource-groups:SearchResources</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>cloudformation:DescribeStacks</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>cloudformation:ListStackResources</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>tag:GetResources</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -555,11 +585,11 @@ export class ResourceGroups extends ResourceGroupsClient {
    *                 administration services. Tags are not intended to be used for private or sensitive
    *                 data.</p>
    *         </important>
-   *          <p>
+   *         <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>resource-groups:Tag</code>
@@ -592,11 +622,11 @@ export class ResourceGroups extends ResourceGroupsClient {
 
   /**
    * <p>Removes the specified resources from the specified group.</p>
-   *          <p>
+   *         <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>resource-groups:UngroupResources</code>
@@ -635,11 +665,11 @@ export class ResourceGroups extends ResourceGroupsClient {
 
   /**
    * <p>Deletes tags from a specified resource group.</p>
-   *          <p>
+   *         <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>resource-groups:Untag</code>
@@ -673,11 +703,11 @@ export class ResourceGroups extends ResourceGroupsClient {
   /**
    * <p>Updates the description for an existing group. You cannot update the name of a
    *             resource group.</p>
-   *          <p>
+   *         <p>
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>resource-groups:UpdateGroup</code>
@@ -715,7 +745,7 @@ export class ResourceGroups extends ResourceGroupsClient {
    *             <b>Minimum permissions</b>
    *          </p>
    *          <p>To run this command, you must have the following permissions:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                 <p>
    *                   <code>resource-groups:UpdateGroupQuery</code>

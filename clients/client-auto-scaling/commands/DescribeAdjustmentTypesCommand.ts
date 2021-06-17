@@ -21,19 +21,24 @@ export interface DescribeAdjustmentTypesCommandInput {}
 export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustmentTypesAnswer, __MetadataBearer {}
 
 /**
- * <p>Describes the available adjustment types for Amazon EC2 Auto Scaling scaling policies. These settings
- *             apply to step scaling policies and simple scaling policies; they do not apply to target
- *             tracking scaling policies.</p>
+ * <p>Describes the available adjustment types for step scaling and simple scaling
+ *             policies.</p>
  *         <p>The following adjustment types are supported:</p>
  *         <ul>
  *             <li>
- *                 <p>ChangeInCapacity</p>
+ *                 <p>
+ *                     <code>ChangeInCapacity</code>
+ *                 </p>
  *             </li>
  *             <li>
- *                 <p>ExactCapacity</p>
+ *                 <p>
+ *                     <code>ExactCapacity</code>
+ *                 </p>
  *             </li>
  *             <li>
- *                 <p>PercentChangeInCapacity</p>
+ *                 <p>
+ *                     <code>PercentChangeInCapacity</code>
+ *                 </p>
  *             </li>
  *          </ul>
  * @example

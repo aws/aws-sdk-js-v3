@@ -117,6 +117,11 @@ import {
 } from "./commands/CreateDynamicThingGroupCommand";
 import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
+  CreateJobTemplateCommand,
+  CreateJobTemplateCommandInput,
+  CreateJobTemplateCommandOutput,
+} from "./commands/CreateJobTemplateCommand";
+import {
   CreateKeysAndCertificateCommand,
   CreateKeysAndCertificateCommandInput,
   CreateKeysAndCertificateCommandOutput,
@@ -253,6 +258,11 @@ import {
   DeleteJobExecutionCommandInput,
   DeleteJobExecutionCommandOutput,
 } from "./commands/DeleteJobExecutionCommand";
+import {
+  DeleteJobTemplateCommand,
+  DeleteJobTemplateCommandInput,
+  DeleteJobTemplateCommandOutput,
+} from "./commands/DeleteJobTemplateCommand";
 import {
   DeleteMitigationActionCommand,
   DeleteMitigationActionCommandInput,
@@ -430,6 +440,11 @@ import {
   DescribeJobExecutionCommandInput,
   DescribeJobExecutionCommandOutput,
 } from "./commands/DescribeJobExecutionCommand";
+import {
+  DescribeJobTemplateCommand,
+  DescribeJobTemplateCommandInput,
+  DescribeJobTemplateCommandOutput,
+} from "./commands/DescribeJobTemplateCommand";
 import {
   DescribeMitigationActionCommand,
   DescribeMitigationActionCommandInput,
@@ -682,6 +697,11 @@ import {
   ListJobExecutionsForThingCommandInput,
   ListJobExecutionsForThingCommandOutput,
 } from "./commands/ListJobExecutionsForThingCommand";
+import {
+  ListJobTemplatesCommand,
+  ListJobTemplatesCommandInput,
+  ListJobTemplatesCommandOutput,
+} from "./commands/ListJobTemplatesCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListMitigationActionsCommand,
@@ -1848,9 +1868,6 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Creates a domain configuration.</p>
-   *          <note>
-   *             <p>The domain configuration feature is in public preview and is subject to change.</p>
-   *          </note>
    */
   public createDomainConfiguration(
     args: CreateDomainConfigurationCommandInput,
@@ -1929,6 +1946,38 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: CreateJobCommandOutput) => void
   ): Promise<CreateJobCommandOutput> | void {
     const command = new CreateJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a job template.</p>
+   */
+  public createJobTemplate(
+    args: CreateJobTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateJobTemplateCommandOutput>;
+  public createJobTemplate(
+    args: CreateJobTemplateCommandInput,
+    cb: (err: any, data?: CreateJobTemplateCommandOutput) => void
+  ): void;
+  public createJobTemplate(
+    args: CreateJobTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateJobTemplateCommandOutput) => void
+  ): void;
+  public createJobTemplate(
+    args: CreateJobTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobTemplateCommandOutput) => void),
+    cb?: (err: any, data?: CreateJobTemplateCommandOutput) => void
+  ): Promise<CreateJobTemplateCommandOutput> | void {
+    const command = new CreateJobTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2775,9 +2824,6 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Deletes the specified domain configuration.</p>
-   *          <note>
-   *             <p>The domain configuration feature is in public preview and is subject to change.</p>
-   *          </note>
    */
   public deleteDomainConfiguration(
     args: DeleteDomainConfigurationCommandInput,
@@ -2895,6 +2941,38 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: DeleteJobExecutionCommandOutput) => void
   ): Promise<DeleteJobExecutionCommandOutput> | void {
     const command = new DeleteJobExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified job template.</p>
+   */
+  public deleteJobTemplate(
+    args: DeleteJobTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteJobTemplateCommandOutput>;
+  public deleteJobTemplate(
+    args: DeleteJobTemplateCommandInput,
+    cb: (err: any, data?: DeleteJobTemplateCommandOutput) => void
+  ): void;
+  public deleteJobTemplate(
+    args: DeleteJobTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteJobTemplateCommandOutput) => void
+  ): void;
+  public deleteJobTemplate(
+    args: DeleteJobTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteJobTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteJobTemplateCommandOutput) => void
+  ): Promise<DeleteJobTemplateCommandOutput> | void {
+    const command = new DeleteJobTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3912,9 +3990,6 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets summary information about a domain configuration.</p>
-   *          <note>
-   *             <p>The domain configuration feature is in public preview and is subject to change.</p>
-   *          </note>
    */
   public describeDomainConfiguration(
     args: DescribeDomainConfigurationCommandInput,
@@ -4089,6 +4164,38 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: DescribeJobExecutionCommandOutput) => void
   ): Promise<DescribeJobExecutionCommandOutput> | void {
     const command = new DescribeJobExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about a job template.</p>
+   */
+  public describeJobTemplate(
+    args: DescribeJobTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeJobTemplateCommandOutput>;
+  public describeJobTemplate(
+    args: DescribeJobTemplateCommandInput,
+    cb: (err: any, data?: DescribeJobTemplateCommandOutput) => void
+  ): void;
+  public describeJobTemplate(
+    args: DescribeJobTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeJobTemplateCommandOutput) => void
+  ): void;
+  public describeJobTemplate(
+    args: DescribeJobTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DescribeJobTemplateCommandOutput) => void
+  ): Promise<DescribeJobTemplateCommandOutput> | void {
+    const command = new DescribeJobTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5665,9 +5772,6 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p>
-   *          <note>
-   *             <p>The domain configuration feature is in public preview and is subject to change.</p>
-   *          </note>
    */
   public listDomainConfigurations(
     args: ListDomainConfigurationsCommandInput,
@@ -5804,6 +5908,38 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of job templates.</p>
+   */
+  public listJobTemplates(
+    args: ListJobTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobTemplatesCommandOutput>;
+  public listJobTemplates(
+    args: ListJobTemplatesCommandInput,
+    cb: (err: any, data?: ListJobTemplatesCommandOutput) => void
+  ): void;
+  public listJobTemplates(
+    args: ListJobTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJobTemplatesCommandOutput) => void
+  ): void;
+  public listJobTemplates(
+    args: ListJobTemplatesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobTemplatesCommandOutput) => void),
+    cb?: (err: any, data?: ListJobTemplatesCommandOutput) => void
+  ): Promise<ListJobTemplatesCommandOutput> | void {
+    const command = new ListJobTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -7893,9 +8029,6 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p>
-   *          <note>
-   *             <p>The domain configuration feature is in public preview and is subject to change.</p>
-   *          </note>
    */
   public updateDomainConfiguration(
     args: UpdateDomainConfigurationCommandInput,

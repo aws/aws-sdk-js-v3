@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/chunked-blob-reader-native",
-  "version": "3.13.1",
+  "version": "3.18.0",
   "scripts": {
     "prepublishOnly": "yarn build && downlevel-dts dist/types dist/types/ts3.4",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -17,7 +17,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/util-base64-browser": "3.13.1",
+    "@aws-sdk/util-base64-browser": "3.18.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {

@@ -71,6 +71,7 @@ import {
   CreateDynamicThingGroupCommandOutput,
 } from "./commands/CreateDynamicThingGroupCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import { CreateJobTemplateCommandInput, CreateJobTemplateCommandOutput } from "./commands/CreateJobTemplateCommand";
 import {
   CreateKeysAndCertificateCommandInput,
   CreateKeysAndCertificateCommandOutput,
@@ -142,6 +143,7 @@ import {
 } from "./commands/DeleteDynamicThingGroupCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import { DeleteJobExecutionCommandInput, DeleteJobExecutionCommandOutput } from "./commands/DeleteJobExecutionCommand";
+import { DeleteJobTemplateCommandInput, DeleteJobTemplateCommandOutput } from "./commands/DeleteJobTemplateCommand";
 import {
   DeleteMitigationActionCommandInput,
   DeleteMitigationActionCommandOutput,
@@ -245,6 +247,10 @@ import {
   DescribeJobExecutionCommandInput,
   DescribeJobExecutionCommandOutput,
 } from "./commands/DescribeJobExecutionCommand";
+import {
+  DescribeJobTemplateCommandInput,
+  DescribeJobTemplateCommandOutput,
+} from "./commands/DescribeJobTemplateCommand";
 import {
   DescribeMitigationActionCommandInput,
   DescribeMitigationActionCommandOutput,
@@ -375,6 +381,7 @@ import {
   ListJobExecutionsForThingCommandInput,
   ListJobExecutionsForThingCommandOutput,
 } from "./commands/ListJobExecutionsForThingCommand";
+import { ListJobTemplatesCommandInput, ListJobTemplatesCommandOutput } from "./commands/ListJobTemplatesCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListMitigationActionsCommandInput,
@@ -694,6 +701,7 @@ export type ServiceInputTypes =
   | CreateDomainConfigurationCommandInput
   | CreateDynamicThingGroupCommandInput
   | CreateJobCommandInput
+  | CreateJobTemplateCommandInput
   | CreateKeysAndCertificateCommandInput
   | CreateMitigationActionCommandInput
   | CreateOTAUpdateCommandInput
@@ -723,6 +731,7 @@ export type ServiceInputTypes =
   | DeleteDynamicThingGroupCommandInput
   | DeleteJobCommandInput
   | DeleteJobExecutionCommandInput
+  | DeleteJobTemplateCommandInput
   | DeleteMitigationActionCommandInput
   | DeleteOTAUpdateCommandInput
   | DeletePolicyCommandInput
@@ -760,6 +769,7 @@ export type ServiceInputTypes =
   | DescribeIndexCommandInput
   | DescribeJobCommandInput
   | DescribeJobExecutionCommandInput
+  | DescribeJobTemplateCommandInput
   | DescribeMitigationActionCommandInput
   | DescribeProvisioningTemplateCommandInput
   | DescribeProvisioningTemplateVersionCommandInput
@@ -812,6 +822,7 @@ export type ServiceInputTypes =
   | ListIndicesCommandInput
   | ListJobExecutionsForJobCommandInput
   | ListJobExecutionsForThingCommandInput
+  | ListJobTemplatesCommandInput
   | ListJobsCommandInput
   | ListMitigationActionsCommandInput
   | ListOTAUpdatesCommandInput
@@ -919,6 +930,7 @@ export type ServiceOutputTypes =
   | CreateDomainConfigurationCommandOutput
   | CreateDynamicThingGroupCommandOutput
   | CreateJobCommandOutput
+  | CreateJobTemplateCommandOutput
   | CreateKeysAndCertificateCommandOutput
   | CreateMitigationActionCommandOutput
   | CreateOTAUpdateCommandOutput
@@ -948,6 +960,7 @@ export type ServiceOutputTypes =
   | DeleteDynamicThingGroupCommandOutput
   | DeleteJobCommandOutput
   | DeleteJobExecutionCommandOutput
+  | DeleteJobTemplateCommandOutput
   | DeleteMitigationActionCommandOutput
   | DeleteOTAUpdateCommandOutput
   | DeletePolicyCommandOutput
@@ -985,6 +998,7 @@ export type ServiceOutputTypes =
   | DescribeIndexCommandOutput
   | DescribeJobCommandOutput
   | DescribeJobExecutionCommandOutput
+  | DescribeJobTemplateCommandOutput
   | DescribeMitigationActionCommandOutput
   | DescribeProvisioningTemplateCommandOutput
   | DescribeProvisioningTemplateVersionCommandOutput
@@ -1037,6 +1051,7 @@ export type ServiceOutputTypes =
   | ListIndicesCommandOutput
   | ListJobExecutionsForJobCommandOutput
   | ListJobExecutionsForThingCommandOutput
+  | ListJobTemplatesCommandOutput
   | ListJobsCommandOutput
   | ListMitigationActionsCommandOutput
   | ListOTAUpdatesCommandOutput
@@ -1192,7 +1207,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -1200,6 +1215,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.

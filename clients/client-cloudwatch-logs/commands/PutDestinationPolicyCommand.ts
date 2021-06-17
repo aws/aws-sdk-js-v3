@@ -24,6 +24,9 @@ export interface PutDestinationPolicyCommandOutput extends __MetadataBearer {}
  * <p>Creates or updates an access policy associated with an existing
  *       destination. An access policy is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">IAM policy document</a> that is used
  *       to authorize claims to register a subscription filter against a given destination.</p>
+ *          <p>If multiple AWS accounts are sending logs to this destination, each sender account must be
+ *     listed separately in the policy. The policy does not support specifying <code>*</code>
+ *     as the Principal or the use of the <code>aws:PrincipalOrgId</code> global key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

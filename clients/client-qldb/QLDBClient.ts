@@ -41,6 +41,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateLedgerCommandInput, UpdateLedgerCommandOutput } from "./commands/UpdateLedgerCommand";
+import {
+  UpdateLedgerPermissionsModeCommandInput,
+  UpdateLedgerPermissionsModeCommandOutput,
+} from "./commands/UpdateLedgerPermissionsModeCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -111,7 +115,8 @@ export type ServiceInputTypes =
   | StreamJournalToKinesisCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateLedgerCommandInput;
+  | UpdateLedgerCommandInput
+  | UpdateLedgerPermissionsModeCommandInput;
 
 export type ServiceOutputTypes =
   | CancelJournalKinesisStreamCommandOutput
@@ -132,7 +137,8 @@ export type ServiceOutputTypes =
   | StreamJournalToKinesisCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateLedgerCommandOutput;
+  | UpdateLedgerCommandOutput
+  | UpdateLedgerPermissionsModeCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -208,7 +214,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -216,6 +222,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.

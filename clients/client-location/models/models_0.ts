@@ -28,11 +28,11 @@ export interface AssociateTrackerConsumerRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker
-   *             resource. Used when you need to specify a resource across all AWS. </p>
+   *             resource. Used when you need to specify a resource across all AWS.</p>
    *          <ul>
    *             <li>
    *                <p>Format example:
-   *                <code>arn:partition:service:region:account-id:resource-type:resource-id</code>
+   *                         <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -193,23 +193,30 @@ export namespace ValidationException {
   });
 }
 
-export interface BatchDeleteGeofenceRequest {
+export interface BatchDeleteDevicePositionHistoryRequest {
   /**
-   * <p>The geofence collection storing the geofences to be deleted.</p>
+   * <p>The name of the tracker resource to delete the device position history from.</p>
    */
-  CollectionName: string | undefined;
+  TrackerName: string | undefined;
 
   /**
-   * <p>The batch of geofences to be deleted.</p>
+   * <p>Devices whose position history you want to delete.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For example, for two devices:
+   *                    <code>“DeviceIds” : [DeviceId1,DeviceId2]</code>
+   *                </p>
+   *            </li>
+   *          </ul>
    */
-  GeofenceIds: string[] | undefined;
+  DeviceIds: string[] | undefined;
 }
 
-export namespace BatchDeleteGeofenceRequest {
+export namespace BatchDeleteDevicePositionHistoryRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: BatchDeleteGeofenceRequest): any => ({
+  export const filterSensitiveLog = (obj: BatchDeleteDevicePositionHistoryRequest): any => ({
     ...obj,
   });
 }
@@ -242,6 +249,67 @@ export namespace BatchItemError {
    * @internal
    */
   export const filterSensitiveLog = (obj: BatchItemError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the tracker resource details.</p>
+ */
+export interface BatchDeleteDevicePositionHistoryError {
+  /**
+   * <p>The ID of the device for this position.</p>
+   */
+  DeviceId: string | undefined;
+
+  /**
+   * <p>Contains the batch request error details associated with the request.</p>
+   */
+  Error: BatchItemError | undefined;
+}
+
+export namespace BatchDeleteDevicePositionHistoryError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDeleteDevicePositionHistoryError): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchDeleteDevicePositionHistoryResponse {
+  /**
+   * <p>Contains error details for each device history that failed to delete.</p>
+   */
+  Errors: BatchDeleteDevicePositionHistoryError[] | undefined;
+}
+
+export namespace BatchDeleteDevicePositionHistoryResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDeleteDevicePositionHistoryResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchDeleteGeofenceRequest {
+  /**
+   * <p>The geofence collection storing the geofences to be deleted.</p>
+   */
+  CollectionName: string | undefined;
+
+  /**
+   * <p>The batch of geofences to be deleted.</p>
+   */
+  GeofenceIds: string[] | undefined;
+}
+
+export namespace BatchDeleteGeofenceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDeleteGeofenceRequest): any => ({
     ...obj,
   });
 }
@@ -513,7 +581,7 @@ export namespace BatchGetDevicePositionResponse {
 /**
  * <p>Contains the geofence geometry details.</p>
  *         <note>
- *             <p>Amazon Location does not currently support polygons with holes, multipolygons, polygons
+ *             <p>Amazon Location doesn't currently support polygons with holes, multipolygons, polygons
  *                 that are wound clockwise, or that cross the antimeridian. </p>
  *         </note>
  */
@@ -741,6 +809,649 @@ export namespace BatchUpdateDevicePositionResponse {
   });
 }
 
+/**
+ * <p>Contains details about additional route preferences for requests that specify
+ *                 <code>TravelMode</code> as <code>Car</code>.</p>
+ */
+export interface CalculateRouteCarModeOptions {
+  /**
+   * <p>Avoids ferries when calculating routes.</p>
+   *         <p>Default Value: <code>false</code>
+   *          </p>
+   *         <p>Valid Values: <code>false</code> | <code>true</code>
+   *          </p>
+   */
+  AvoidFerries?: boolean;
+
+  /**
+   * <p>Avoids tolls when calculating routes.</p>
+   *         <p>Default Value: <code>false</code>
+   *          </p>
+   *         <p>Valid Values: <code>false</code> | <code>true</code>
+   *          </p>
+   */
+  AvoidTolls?: boolean;
+}
+
+export namespace CalculateRouteCarModeOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CalculateRouteCarModeOptions): any => ({
+    ...obj,
+  });
+}
+
+export type DistanceUnit = "Kilometers" | "Miles";
+
+export type TravelMode = "Car" | "Truck" | "Walking";
+
+export type DimensionUnit = "Feet" | "Meters";
+
+/**
+ * <p>Contains details about the truck dimensions in the unit of measurement that you
+ *             specify. Used to filter out roads that can't support or allow the specified dimensions
+ *             for requests that specify <code>TravelMode</code> as <code>Truck</code>.</p>
+ */
+export interface TruckDimensions {
+  /**
+   * <p>The length of the truck.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For example, <code>15.5</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Length?: number;
+
+  /**
+   * <p>The height of the truck.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For example, <code>4.5</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Height?: number;
+
+  /**
+   * <p>The width of the truck.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For example, <code>4.5</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Width?: number;
+
+  /**
+   * <p> Specifies the unit of measurement for the truck dimensions.</p>
+   *         <p>Default Value: <code>Meters</code>
+   *          </p>
+   */
+  Unit?: DimensionUnit | string;
+}
+
+export namespace TruckDimensions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TruckDimensions): any => ({
+    ...obj,
+  });
+}
+
+export type VehicleWeightUnit = "Kilograms" | "Pounds";
+
+/**
+ * <p>Contains details about the truck's weight specifications. Used to avoid roads that
+ *             can't support or allow the total weight for requests that specify
+ *                 <code>TravelMode</code> as <code>Truck</code>.</p>
+ */
+export interface TruckWeight {
+  /**
+   * <p>The total weight of the truck. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>For example, <code>3500</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Total?: number;
+
+  /**
+   * <p>The unit of measurement to use for the truck weight.</p>
+   *         <p>Default Value: <code>Kilograms</code>
+   *          </p>
+   */
+  Unit?: VehicleWeightUnit | string;
+}
+
+export namespace TruckWeight {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TruckWeight): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains details about additional route preferences for requests that specify
+ *                 <code>TravelMode</code> as <code>Truck</code>.</p>
+ */
+export interface CalculateRouteTruckModeOptions {
+  /**
+   * <p>Avoids ferries when calculating routes.</p>
+   *         <p>Default Value: <code>false</code>
+   *          </p>
+   *         <p>Valid Values: <code>false</code> | <code>true</code>
+   *          </p>
+   */
+  AvoidFerries?: boolean;
+
+  /**
+   * <p>Avoids ferries when calculating routes.</p>
+   *         <p>Default Value: <code>false</code>
+   *          </p>
+   *         <p>Valid Values: <code>false</code> | <code>true</code>
+   *          </p>
+   */
+  AvoidTolls?: boolean;
+
+  /**
+   * <p>Specifies the truck's dimension specifications including length, height, width, and
+   *             unit of measurement. Used to avoid roads that can't support the truck's
+   *             dimensions.</p>
+   */
+  Dimensions?: TruckDimensions;
+
+  /**
+   * <p>Specifies the truck's weight specifications including total weight and unit of
+   *             measurement. Used to avoid roads that can't support the truck's weight.</p>
+   */
+  Weight?: TruckWeight;
+}
+
+export namespace CalculateRouteTruckModeOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CalculateRouteTruckModeOptions): any => ({
+    ...obj,
+  });
+}
+
+export interface CalculateRouteRequest {
+  /**
+   * <p>The name of the route calculator resource that you want to use to calculate a route. </p>
+   */
+  CalculatorName: string | undefined;
+
+  /**
+   * <p>The start position for the route. Defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS 84</a> format:
+   *                 <code>[longitude, latitude]</code>.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For example, <code>[-123.115, 49.285]</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <note>
+   *             <p>If you specify a departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">moves the
+   *                 position to the nearest road</a>.</p>
+   *         </note>
+   *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
+   *          </p>
+   */
+  DeparturePosition: number[] | undefined;
+
+  /**
+   * <p>The finish position for the route. Defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS 84</a> format:
+   *                 <code>[longitude, latitude]</code>.</p>
+   *         <ul>
+   *             <li>
+   *                 <p> For example, <code>[-122.339, 47.615]</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <note>
+   *             <p>If you specify a destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">moves the position to the nearest road</a>. </p>
+   *         </note>
+   *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
+   *          </p>
+   */
+  DestinationPosition: number[] | undefined;
+
+  /**
+   * <p>Specifies an ordered list of up to 23 intermediate positions to include along a route
+   *             between the departure position and destination position. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>For example, from the <code>DeparturePosition</code>
+   *                     <code>[-123.115, 49.285]</code>, the route follows the order that the waypoint
+   *                     positions are given <code>[[-122.757, 49.0021],[-122.349, 47.620]]</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <note>
+   *             <p>If you specify a waypoint position that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">moves the position to the nearest road</a>. </p>
+   *             <p>Specifying more than 23 waypoints returns a <code>400 ValidationException</code>
+   *                 error.</p>
+   *         </note>
+   *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
+   *          </p>
+   */
+  WaypointPositions?: number[][];
+
+  /**
+   * <p>Specifies the mode of transport when calculating a route. Used in estimating the speed
+   *             of travel and road compatibility.</p>
+   *         <p>The <code>TravelMode</code> you specify determines how you specify route preferences: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>If traveling by <code>Car</code> use the <code>CarModeOptions</code>
+   *                     parameter.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code>
+   *                     parameter.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Default Value: <code>Car</code>
+   *          </p>
+   */
+  TravelMode?: TravelMode | string;
+
+  /**
+   * <p>Specifies the desired time of departure. Uses the given time to calculate a route.
+   *             Otherwise, the best time of day to travel with the best traffic conditions is used to
+   *             calculate the route.</p>
+   *         <note>
+   *             <p>Setting a departure time in the past returns a <code>400
+   *                     ValidationException</code> error.</p>
+   *         </note>
+   *         <ul>
+   *             <li>
+   *                 <p>In <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
+   *                         8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. For example,
+   *                         <code>2020–07-2T12:15:20.000Z+01:00</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  DepartureTime?: Date;
+
+  /**
+   * <p>Sets the time of departure as the current time. Uses the current time to calculate a
+   *             route. Otherwise, the best time of day to travel with the best traffic conditions is
+   *             used to calculate the route.</p>
+   *         <p>Default Value: <code>false</code>
+   *          </p>
+   *         <p>Valid Values: <code>false</code> | <code>true</code>
+   *          </p>
+   */
+  DepartNow?: boolean;
+
+  /**
+   * <p>Set the unit system to specify the distance.</p>
+   *         <p>Default Value: <code>Kilometers</code>
+   *          </p>
+   */
+  DistanceUnit?: DistanceUnit | string;
+
+  /**
+   * <p>Set to include the geometry details in the result for each path between a pair of
+   *             positions.</p>
+   *         <p>Default Value: <code>false</code>
+   *          </p>
+   *         <p>Valid Values: <code>false</code> | <code>true</code>
+   *          </p>
+   */
+  IncludeLegGeometry?: boolean;
+
+  /**
+   * <p>Specifies route preferences when traveling by <code>Car</code>, such as avoiding
+   *             routes that use ferries or tolls.</p>
+   *         <p>Requirements: <code>TravelMode</code> must be specified as <code>Car</code>.</p>
+   */
+  CarModeOptions?: CalculateRouteCarModeOptions;
+
+  /**
+   * <p>Specifies route preferences when traveling by <code>Truck</code>, such as avoiding
+   *             routes that use ferries or tolls, and truck specifications to consider when choosing an
+   *             optimal road.</p>
+   *         <p>Requirements: <code>TravelMode</code> must be specified as <code>Truck</code>.</p>
+   */
+  TruckModeOptions?: CalculateRouteTruckModeOptions;
+}
+
+export namespace CalculateRouteRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CalculateRouteRequest): any => ({
+    ...obj,
+    ...(obj.DeparturePosition && { DeparturePosition: SENSITIVE_STRING }),
+    ...(obj.DestinationPosition && { DestinationPosition: SENSITIVE_STRING }),
+    ...(obj.WaypointPositions && { WaypointPositions: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>Contains the geometry details for each path between a pair of positions. Used in
+ *             plotting a route leg on a map.</p>
+ */
+export interface LegGeometry {
+  /**
+   * <p>An ordered list of positions used to plot a route on a map. </p>
+   *         <p>The first position is closest to the start position for the leg, and the last position
+   *             is the closest to the end position for the leg.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For example, <code>[[-123.117, 49.284],[-123.115, 49.285],[-123.115,
+   *                         49.285]]</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  LineString?: number[][];
+}
+
+export namespace LegGeometry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LegGeometry): any => ({
+    ...obj,
+    ...(obj.LineString && { LineString: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p> Represents an element of a leg within a route. A step contains instructions for how
+ *             to move to the next step in the leg. </p>
+ */
+export interface Step {
+  /**
+   * <p>The starting position of a step. If the position is the first step in the leg, this
+   *             position is the same as the start position of the leg.</p>
+   */
+  StartPosition: number[] | undefined;
+
+  /**
+   * <p>The end position of a step. If the position the last step in the leg, this position is
+   *             the same as the end position of the leg.</p>
+   */
+  EndPosition: number[] | undefined;
+
+  /**
+   * <p>The travel distance between the step's <code>StartPosition</code> and
+   *                 <code>EndPosition</code>.</p>
+   */
+  Distance: number | undefined;
+
+  /**
+   * <p>The estimated travel time, in seconds, from the step's <code>StartPosition</code> to
+   *             the <code>EndPosition</code>. . The travel mode and departure time that you specify in
+   *             the request determines the calculated time.</p>
+   */
+  DurationSeconds: number | undefined;
+
+  /**
+   * <p>Represents the start position, or index, in a sequence of steps within the leg's line
+   *             string geometry. For example, the index of the first step in a leg geometry is
+   *                 <code>0</code>. </p>
+   *         <p>Included in the response for queries that set <code>IncludeLegGeometry</code> to
+   *                 <code>True</code>. </p>
+   */
+  GeometryOffset?: number;
+}
+
+export namespace Step {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Step): any => ({
+    ...obj,
+    ...(obj.StartPosition && { StartPosition: SENSITIVE_STRING }),
+    ...(obj.EndPosition && { EndPosition: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>Contains the calculated route's details for each path between a pair of positions. The
+ *             number of legs returned corresponds to one less than the total number of positions in
+ *             the request. </p>
+ *         <p>For example, a route with a departure position and destination position returns one
+ *             leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>The <code>StartPosition</code> is the departure position.</p>
+ *             </li>
+ *             <li>
+ *                 <p>The <code>EndPosition</code> is the destination position.</p>
+ *             </li>
+ *          </ul>
+ *         <p>A route with a waypoint between the departure and destination position returns two
+ *             legs with the positions snapped to a nearby road.:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>Leg 1: The <code>StartPosition</code> is the departure position . The
+ *                         <code>EndPosition</code> is the waypoint positon.</p>
+ *             </li>
+ *             <li>
+ *                 <p>Leg 2: The <code>StartPosition</code> is the waypoint position. The
+ *                         <code>EndPosition</code> is the destination position.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface Leg {
+  /**
+   * <p>The starting position of the leg. Follows the format
+   *             <code>[longitude,latitude]</code>.</p>
+   *         <note>
+   *             <p>If the <code>StartPosition</code> isn't located on a road, it's <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>. </p>
+   *         </note>
+   */
+  StartPosition: number[] | undefined;
+
+  /**
+   * <p>The terminating position of the leg. Follows the format
+   *                 <code>[longitude,latitude]</code>.</p>
+   *         <note>
+   *             <p>If the <code>EndPosition</code> isn't located on a road, it's <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>. </p>
+   *         </note>
+   */
+  EndPosition: number[] | undefined;
+
+  /**
+   * <p>The distance between the leg's <code>StartPosition</code> and <code>EndPosition</code>
+   *             along a calculated route. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>The default measurement is <code>Kilometers</code> unless the request
+   *                     specifies a <code>DistanceUnit</code> of <code>Miles</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Distance: number | undefined;
+
+  /**
+   * <p>The estimated travel time between the leg's <code>StartPosition</code> and
+   *                 <code>EndPosition</code>. The travel mode and departure time that you specify in the
+   *             request determines the calculated time.</p>
+   */
+  DurationSeconds: number | undefined;
+
+  /**
+   * <p>Contains the calculated route's path as a linestring geometry.</p>
+   */
+  Geometry?: LegGeometry;
+
+  /**
+   * <p>Contains a list of steps, which represent subsections of a leg. Each step provides
+   *             instructions for how to move to the next step in the leg such as the step's start
+   *             position, end position, travel distance, travel duration, and geometry offset.</p>
+   */
+  Steps: Step[] | undefined;
+}
+
+export namespace Leg {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Leg): any => ({
+    ...obj,
+    ...(obj.StartPosition && { StartPosition: SENSITIVE_STRING }),
+    ...(obj.EndPosition && { EndPosition: SENSITIVE_STRING }),
+    ...(obj.Geometry && { Geometry: LegGeometry.filterSensitiveLog(obj.Geometry) }),
+    ...(obj.Steps && { Steps: obj.Steps.map((item) => Step.filterSensitiveLog(item)) }),
+  });
+}
+
+/**
+ * <p>A summary of the calculated route.</p>
+ */
+export interface CalculateRouteSummary {
+  /**
+   * <p>Specifies a geographical box surrounding a route. Used to zoom into a route when
+   *             displaying it in a map. For example, <code>[min x, min y, max x, max y]</code>
+   *          </p>
+   *         <p>The first 2 <code>bbox</code> parameters describe the lower southwest corner: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>The first <code>bbox</code> position is the X coordinate or longitude of the
+   *                     lower southwest corner. </p>
+   *             </li>
+   *             <li>
+   *                 <p>The second <code>bbox</code> position is the Y coordinate or latitude of the
+   *                     lower southwest corner. </p>
+   *             </li>
+   *          </ul>
+   *         <p>The next 2 <code>bbox</code> parameters describe the upper northeast corner: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>The third <code>bbox</code> position is the X coordinate, or longitude of the
+   *                     upper northeast corner. </p>
+   *             </li>
+   *             <li>
+   *                 <p>The fourth <code>bbox</code> position is the Y coordinate, or longitude of the
+   *                     upper northeast corner. </p>
+   *             </li>
+   *          </ul>
+   */
+  RouteBBox: number[] | undefined;
+
+  /**
+   * <p>The data provider of traffic and road network data used to calculate the route.
+   *             Indicates one of the available providers:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Esri</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Here</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   */
+  DataSource: string | undefined;
+
+  /**
+   * <p>The total distance covered by the route. The sum of the distance travelled between
+   *             every stop on the route.</p>
+   *         <note>
+   *             <p>The route <code>distance</code> can't be greater than 250 km. If the route exceeds
+   *                 250 km, the response returns a <code>400 RoutesValidationException</code>
+   *                 error.</p>
+   *         </note>
+   */
+  Distance: number | undefined;
+
+  /**
+   * <p>The total travel time for the route measured in seconds. The sum of the travel time
+   *             between every stop on the
+   *             route.</p>
+   */
+  DurationSeconds: number | undefined;
+
+  /**
+   * <p>The unit of measurement for the distance.</p>
+   */
+  DistanceUnit: DistanceUnit | string | undefined;
+}
+
+export namespace CalculateRouteSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CalculateRouteSummary): any => ({
+    ...obj,
+    ...(obj.RouteBBox && { RouteBBox: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>Returns the result of the route calculation. Metadata includes legs and route
+ *             summary.</p>
+ */
+export interface CalculateRouteResponse {
+  /**
+   * <p>Contains details about each path between a pair of positions included along a route
+   *             such as: <code>StartPosition</code>, <code>EndPosition</code>, <code>Distance</code>,
+   *                 <code>DurationSeconds</code>, <code>Geometry</code>, and <code>Steps</code>. The
+   *             number of legs returned corresponds to one less than the total number of positions in
+   *             the request. </p>
+   *         <p>For example, a route with a departure position and destination position returns one
+   *             leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>The <code>StartPosition</code> is the departure position.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The <code>EndPosition</code> is the destination position.</p>
+   *             </li>
+   *          </ul>
+   *         <p>A route with a waypoint between the departure and destination position returns two
+   *             legs with the positions snapped to a nearby road.:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Leg 1: The <code>StartPosition</code> is the departure position . The
+   *                         <code>EndPosition</code> is the waypoint positon.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Leg 2: The <code>StartPosition</code> is the waypoint position. The
+   *                         <code>EndPosition</code> is the destination position.</p>
+   *             </li>
+   *          </ul>
+   */
+  Legs: Leg[] | undefined;
+
+  /**
+   * <p>Contains information about the whole route, such as: <code>RouteBBox</code>,
+   *                 <code>DataSource</code>, <code>Distance</code>, <code>DistanceUnit</code>, and
+   *                 <code>DurationSeconds</code>
+   *          </p>
+   */
+  Summary: CalculateRouteSummary | undefined;
+}
+
+export namespace CalculateRouteResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CalculateRouteResponse): any => ({
+    ...obj,
+    ...(obj.Legs && { Legs: obj.Legs.map((item) => Leg.filterSensitiveLog(item)) }),
+    ...(obj.Summary && { Summary: CalculateRouteSummary.filterSensitiveLog(obj.Summary) }),
+  });
+}
+
 export type PricingPlan = "MobileAssetManagement" | "MobileAssetTracking" | "RequestBasedUsage";
 
 export interface CreateGeofenceCollectionRequest {
@@ -749,8 +1460,8 @@ export interface CreateGeofenceCollectionRequest {
    *         <p>Requirements:</p>
    *         <ul>
    *             <li>
-   *                 <p>Contain only alphanumeric characters (A–Z, a–z, 0-9), hyphens (-), periods (.), and
-   *                     underscores (_). </p>
+   *                 <p>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods
+   *                     (.), and underscores (_). </p>
    *             </li>
    *             <li>
    *                 <p>Must be a unique geofence collection name.</p>
@@ -763,19 +1474,28 @@ export interface CreateGeofenceCollectionRequest {
   CollectionName: string | undefined;
 
   /**
-   * <p>Specifies the pricing plan for your geofence collection.</p>
+   * <p>Specifies the pricing plan for the geofence collection.</p>
    *         <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
    *             page</a>.</p>
    */
   PricingPlan: PricingPlan | string | undefined;
 
   /**
-   * <p>Specifies the plan data source. Required if the Mobile Asset Tracking (MAT) or the
-   *             Mobile Asset Management (MAM) pricing plan is selected.</p>
-   *         <p>Billing is determined by the resource usage, the associated pricing plan, and the data
-   *             source that was specified. For more information about each pricing plan option and
-   *             restrictions, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
-   *                 Location Service pricing page</a>.</p>
+   * <p>Specifies the data provider for the geofence collection.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Required value for the following pricing plans: <code>MobileAssetTracking
+   *                     </code>| <code>MobileAssetManagement</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>For more information about <a href="https://aws.amazon.com/location/data-providers/">Data Providers</a>, and <a href="https://aws.amazon.com/location/pricing/">Pricing plans</a>, see the Amazon Location
+   *             Service product page.</p>
+   * 	        <note>
+   * 	           <p>Amazon Location Service only uses <code>PricingPlanDataSource</code> to calculate billing for
+   *                 your geofence collection. Your data won't be shared with the data provider, and will
+   *                 remain in your AWS account or Region unless you move it.</p>
+   * 	        </note>
    *         <p>Valid Values: <code>Esri </code>| <code>Here</code>
    *          </p>
    */
@@ -785,6 +1505,39 @@ export interface CreateGeofenceCollectionRequest {
    * <p>An optional description for the geofence collection.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Applies one or more tags to the geofence collection. A tag is a key-value pair helps
+   *             manage, identify, search, and filter your resources by labelling them.</p>
+   *         <p>Format: <code>"key" : "value"</code>
+   *          </p>
+   *         <p>Restrictions:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Maximum 50 tags per resource</p>
+   *             </li>
+   *             <li>
+   *                 <p>Each resource tag must be unique with a maximum of one value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum key length: 128 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum value length: 256 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                 <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters:
+   *                     + - = . _ : / @. </p>
+   *             </li>
+   *          </ul>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.
+   * 	</p>
+   */
+  KmsKeyId?: string;
 }
 
 export namespace CreateGeofenceCollectionRequest {
@@ -805,6 +1558,13 @@ export interface CreateGeofenceCollectionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the geofence collection resource. Used when you
    *             need to specify a resource across all AWS. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   CollectionArn: string | undefined;
 
@@ -831,13 +1591,14 @@ export namespace CreateGeofenceCollectionResponse {
 export interface MapConfiguration {
   /**
    * <p>Specifies the map style selected from an available data provider.</p>
-   *         <p>Valid styles: <code>VectorEsriStreets</code>, <code>VectorEsriTopographic</code>,
-   *                 <code>VectorEsriNavigation</code>, <code>VectorEsriDarkGrayCanvas</code>,
-   *                 <code>VectorEsriLightGrayCanvas</code>, <code>VectorHereBerlin</code>.</p>
+   *         <p>Valid styles: <code>RasterEsriImagery</code>, <code>VectorEsriStreets</code>,
+   *                 <code>VectorEsriTopographic</code>, <code>VectorEsriNavigation</code>,
+   *                 <code>VectorEsriDarkGrayCanvas</code>, <code>VectorEsriLightGrayCanvas</code>,
+   *                 <code>VectorHereBerlin</code>.</p>
    *         <note>
    *             <p>When using HERE as your data provider, and selecting the Style
    *                     <code>VectorHereBerlin</code>, you may not use HERE Maps for Asset Management.
-   *                 See the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon Location Service. </p>
+   *                 See the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon Location Service.</p>
    *         </note>
    */
   Style: string | undefined;
@@ -886,6 +1647,33 @@ export interface CreateMapRequest {
    * <p>An optional description for the map resource.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Applies one or more tags to the map resource. A tag is a key-value pair helps manage,
+   *             identify, search, and filter your resources by labelling them.</p>
+   *          <p>Format: <code>"key" : "value"</code>
+   *          </p>
+   *          <p>Restrictions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum 50 tags per resource</p>
+   *             </li>
+   *             <li>
+   *                <p>Each resource tag must be unique with a maximum of one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length:  256 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + - = . _ : /
+   *                     @. </p>
+   *             </li>
+   *          </ul>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateMapRequest {
@@ -909,7 +1697,7 @@ export interface CreateMapResponse {
    *         <ul>
    *             <li>
    *                 <p>Format example:
-   *                         <code>arn:partition:service:region:account-id:resource-type:resource-id</code>
+   *                     <code>arn:aws:geo:region:account-id:maps/ExampleMap</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -936,16 +1724,6 @@ export type IntendedUse = "SingleUse" | "Storage";
 
 /**
  * <p>Specifies the data storage option chosen for requesting Places.</p>
- *          <note>
- *             <p>By using Places, you agree that AWS may transmit your API queries to your selected
- *             third party provider for processing, which may be outside the AWS region you are
- *             currently using. </p>
- *             <p>Also, when using HERE as your data provider, you may not (a) use HERE Places for
- *             Asset Management, or (b) select the <code>Storage</code> option for the
- *                <code>IntendedUse</code> parameter when requesting Places in Japan. For more
- *             information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service
- *                Terms</a> for Amazon Location Service.</p>
- *          </note>
  */
 export interface DataSourceConfiguration {
   /**
@@ -959,6 +1737,11 @@ export interface DataSourceConfiguration {
    *             <li>
    *                <p>
    *                   <code>Storage</code> specifies that the result can be cached or stored in a database.</p>
+   *                <important>
+   *                   <p>Place index resources using HERE as a data provider can't be configured to
+   *                   store results for locations in Japan when choosing <code>Storage</code> for the
+   *                      <code>IntendedUse</code> parameter.</p>
+   *                </important>
    *             </li>
    *          </ul>
    *          <p>Default value:  <code>SingleUse</code>
@@ -978,14 +1761,15 @@ export namespace DataSourceConfiguration {
 
 export interface CreatePlaceIndexRequest {
   /**
-   * <p>The name of the Place index resource. </p>
+   * <p>The name of the place index resource. </p>
    *          <p>Requirements:</p>
    *          <ul>
    *             <li>
-   *                <p>Contain only alphanumeric characters (A-Z, a-z, 0-9) , hyphens (-), periods (.), and underscores (_).</p>
+   *                <p>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and
+   *                underscores (_).</p>
    *             </li>
    *             <li>
-   *                <p>Must be a unique Place index resource name.</p>
+   *                <p>Must be a unique place index resource name.</p>
    *             </li>
    *             <li>
    *                <p>No spaces allowed. For example, <code>ExamplePlaceIndex</code>.</p>
@@ -1011,6 +1795,11 @@ export interface CreatePlaceIndexRequest {
    *                <p>
    *                   <code>Here</code>
    *                </p>
+   *                <important>
+   *                   <p>Place index resources using HERE as a data provider can't be used to <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store</a>
+   *                   results for locations in Japan. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for
+   *                   Amazon Location Service.</p>
+   *                </important>
    *             </li>
    *          </ul>
    *          <p>For additional details on data providers, see the <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers page</a>.</p>
@@ -1018,14 +1807,14 @@ export interface CreatePlaceIndexRequest {
   DataSource: string | undefined;
 
   /**
-   * <p>Specifies the pricing plan for your Place index resource.</p>
+   * <p>Specifies the pricing plan for your place index resource.</p>
    *          <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
    *          page</a>.</p>
    */
   PricingPlan: PricingPlan | string | undefined;
 
   /**
-   * <p>The optional description for the Place index resource.</p>
+   * <p>The optional description for the place index resource.</p>
    */
   Description?: string;
 
@@ -1033,6 +1822,33 @@ export interface CreatePlaceIndexRequest {
    * <p>Specifies the data storage option for requesting Places.</p>
    */
   DataSourceConfiguration?: DataSourceConfiguration;
+
+  /**
+   * <p>Applies one or more tags to the place index resource. A tag is a key-value pair helps
+   *          manage, identify, search, and filter your resources by labelling them.</p>
+   *          <p>Format: <code>"key" : "value"</code>
+   *          </p>
+   *          <p>Restrictions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum 50 tags per resource</p>
+   *             </li>
+   *             <li>
+   *                <p>Each resource tag must be unique with a maximum of one value.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum key length: 128 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum value length: 256 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters: + -
+   *                = . _ : / @. </p>
+   *             </li>
+   *          </ul>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreatePlaceIndexRequest {
@@ -1046,18 +1862,25 @@ export namespace CreatePlaceIndexRequest {
 
 export interface CreatePlaceIndexResponse {
   /**
-   * <p>The name for the Place index resource.</p>
+   * <p>The name for the place index resource.</p>
    */
   IndexName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the Place index resource. Used when you need to
-   *          specify a resource across all AWS. </p>
+   * <p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource
+   *          across all AWS. </p>
+   *          <ul>
+   *             <li>
+   *                <p>Format example:
+   *                   <code>arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   IndexArn: string | undefined;
 
   /**
-   * <p>The timestamp for when the Place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
+   * <p>The timestamp for when the place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
    *             <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   CreateTime: Date | undefined;
@@ -1068,6 +1891,137 @@ export namespace CreatePlaceIndexResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreatePlaceIndexResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateRouteCalculatorRequest {
+  /**
+   * <p>The name of the route calculator resource. </p>
+   *         <p>Requirements:</p>
+   *         <ul>
+   *             <li>
+   *                <p>Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores
+   *                     (_).</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be a unique Route calculator resource name.</p>
+   *             </li>
+   *             <li>
+   *                 <p>No spaces allowed. For example, <code>ExampleRouteCalculator</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  CalculatorName: string | undefined;
+
+  /**
+   * <p>Specifies the data provider of traffic and road network data.</p>
+   *         <note>
+   *             <p>This field is case-sensitive. Enter the valid values as shown. For example,
+   *                 entering <code>HERE</code> returns an error.</p>
+   *         </note>
+   *         <p>Valid Values: <code>Esri</code> | <code>Here</code>
+   *          </p>
+   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   */
+  DataSource: string | undefined;
+
+  /**
+   * <p>Specifies the pricing plan for your route calculator resource.</p>
+   *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
+   */
+  PricingPlan: PricingPlan | string | undefined;
+
+  /**
+   * <p>The optional description for the route calculator resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Applies one or more tags to the route calculator resource. A tag is a key-value pair
+   *             helps manage, identify, search, and filter your resources by labelling them.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For example: { <code>"tag1" : "value1"</code>, <code>"tag2" :
+   *                     "value2"</code>}</p>
+   *             </li>
+   *          </ul>
+   *         <p>Format: <code>"key" : "value"</code>
+   *          </p>
+   *         <p>Restrictions:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Maximum 50 tags per resource</p>
+   *             </li>
+   *             <li>
+   *                 <p>Each resource tag must be unique with a maximum of one value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum key length: 128 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum value length: 256 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                 <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters:
+   *                     + - = . _ : / @. </p>
+   *             </li>
+   *          </ul>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreateRouteCalculatorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateRouteCalculatorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateRouteCalculatorResponse {
+  /**
+   * <p>The name of the route calculator resource. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>For example, <code>ExampleRouteCalculator</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  CalculatorName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the route calculator resource. Use the ARN when you
+   *             specify a resource across all AWS.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:route-calculator/ExampleCalculator</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  CalculatorArn: string | undefined;
+
+  /**
+   * <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  CreateTime: Date | undefined;
+}
+
+export namespace CreateRouteCalculatorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateRouteCalculatorResponse): any => ({
     ...obj,
   });
 }
@@ -1091,19 +2045,31 @@ export interface CreateTrackerRequest {
   TrackerName: string | undefined;
 
   /**
-   * <p>Specifies the pricing plan for your tracker resource.</p>
+   * <p>Specifies the pricing plan for the tracker resource.</p>
    *          <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
    *            page</a>.</p>
    */
   PricingPlan: PricingPlan | string | undefined;
 
   /**
-   * <p>Specifies the plan data source. Required if the Mobile Asset Tracking (MAT) or the
-   *             Mobile Asset Management (MAM) pricing plan is selected.</p>
-   *         <p>Billing is determined by the resource usage, the associated pricing plan, and data
-   *             source that was specified. For more information about each pricing plan option and
-   *             restrictions, see the <a href="https://aws.amazon.com/location/pricing/">Amazon
-   *                 Location Service pricing page</a>.</p>
+   * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>Specifies the data provider for the tracker resource.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Required value for the following pricing plans: <code>MobileAssetTracking
+   *                </code>| <code>MobileAssetManagement</code>
+   *                </p>
+   *            </li>
+   *          </ul>
+   *          <p>For more information about <a href="https://aws.amazon.com/location/data-providers/">Data Providers</a>, and <a href="https://aws.amazon.com/location/pricing/">Pricing plans</a>, see the Amazon Location
+   *            Service product page.</p>
+   * 	        <note>
+   * 	           <p>Amazon Location Service only uses <code>PricingPlanDataSource</code> to calculate billing for your tracker resource. Your data will not be shared with the data provider, and will remain in your AWS account or Region unless you move it.</p>
+   * 	        </note>
    *         <p>Valid Values: <code>Esri</code> | <code>Here</code>
    *          </p>
    */
@@ -1113,6 +2079,33 @@ export interface CreateTrackerRequest {
    * <p>An optional description for the tracker resource.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Applies one or more tags to the tracker resource. A tag is a key-value pair helps
+   *             manage, identify, search, and filter your resources by labelling them.</p>
+   *         <p>Format: <code>"key" : "value"</code>
+   *          </p>
+   *         <p>Restrictions:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Maximum 50 tags per resource</p>
+   *             </li>
+   *             <li>
+   *                 <p>Each resource tag must be unique with a maximum of one value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum key length: 128 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum value length: 256 Unicode characters in UTF-8</p>
+   *             </li>
+   *             <li>
+   *                 <p>Can use alphanumeric characters (A–Z, a–z, 0–9), and the following characters:
+   *                     + - = . _ : / @. </p>
+   *             </li>
+   *          </ul>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateTrackerRequest {
@@ -1133,6 +2126,13 @@ export interface CreateTrackerResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify
    *             a resource across all AWS.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:tracker/ExampleTracker</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   TrackerArn: string | undefined;
 
@@ -1208,7 +2208,7 @@ export namespace DeleteMapResponse {
 
 export interface DeletePlaceIndexRequest {
   /**
-   * <p>The name of the Place index resource to be deleted.</p>
+   * <p>The name of the place index resource to be deleted.</p>
    */
   IndexName: string | undefined;
 }
@@ -1229,6 +2229,33 @@ export namespace DeletePlaceIndexResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeletePlaceIndexResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteRouteCalculatorRequest {
+  /**
+   * <p>The name of the route calculator resource to be deleted.</p>
+   */
+  CalculatorName: string | undefined;
+}
+
+export namespace DeleteRouteCalculatorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteRouteCalculatorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteRouteCalculatorResponse {}
+
+export namespace DeleteRouteCalculatorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteRouteCalculatorResponse): any => ({
     ...obj,
   });
 }
@@ -1285,6 +2312,13 @@ export interface DescribeGeofenceCollectionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the geofence collection resource. Used when you
    *             need to specify a resource across all AWS. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   CollectionArn: string | undefined;
 
@@ -1301,10 +2335,19 @@ export interface DescribeGeofenceCollectionResponse {
   PricingPlan: PricingPlan | string | undefined;
 
   /**
-   * <p>The data source selected for the geofence collection and associated pricing
-   *             plan.</p>
+   * <p>The specified data provider for the geofence collection.</p>
    */
   PricingPlanDataSource?: string;
+
+  /**
+   * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS KMS customer managed key</a> assigned to the Amazon Location resource</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>Displays the key, value pairs of tags associated with this resource.</p>
+   */
+  Tags?: { [key: string]: string };
 
   /**
    * <p>The timestamp for when the geofence resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
@@ -1355,6 +2398,13 @@ export interface DescribeMapResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the map resource. Used when you need to specify a
    *             resource across all AWS.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Format example:
+   *                     <code>arn:aws:geo:region:account-id:maps/ExampleMap</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   MapArn: string | undefined;
 
@@ -1382,6 +2432,11 @@ export interface DescribeMapResponse {
   Description: string | undefined;
 
   /**
+   * <p>Tags associated with the map resource.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
    * <p>The timestamp for when the map resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
    */
@@ -1405,7 +2460,7 @@ export namespace DescribeMapResponse {
 
 export interface DescribePlaceIndexRequest {
   /**
-   * <p>The name of the Place index resource.</p>
+   * <p>The name of the place index resource.</p>
    */
   IndexName: string | undefined;
 }
@@ -1421,36 +2476,43 @@ export namespace DescribePlaceIndexRequest {
 
 export interface DescribePlaceIndexResponse {
   /**
-   * <p>The name of the Place index resource being described.</p>
+   * <p>The name of the place index resource being described.</p>
    */
   IndexName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the Place index resource. Used when you need to
-   *          specify a resource across all AWS. </p>
+   * <p>The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource
+   *          across all AWS. </p>
+   *          <ul>
+   *             <li>
+   *                <p>Format example:
+   *                   <code>arn:aws:geo:region:account-id:place-index/ExamplePlaceIndex</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   IndexArn: string | undefined;
 
   /**
-   * <p>The pricing plan selected for the specified Place index resource.</p>
+   * <p>The pricing plan selected for the specified place index resource.</p>
    *          <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
    *             page</a>.</p>
    */
   PricingPlan: PricingPlan | string | undefined;
 
   /**
-   * <p>The optional description for the Place index resource.</p>
+   * <p>The optional description for the place index resource.</p>
    */
   Description: string | undefined;
 
   /**
-   * <p>The timestamp for when the Place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
+   * <p>The timestamp for when the place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
    *             <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   CreateTime: Date | undefined;
 
   /**
-   * <p>The timestamp for when the Place index resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
+   * <p>The timestamp for when the place index resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
    *             <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   UpdateTime: Date | undefined;
@@ -1478,6 +2540,11 @@ export interface DescribePlaceIndexResponse {
    * <p>The specified data storage option for requesting Places.</p>
    */
   DataSourceConfiguration: DataSourceConfiguration | undefined;
+
+  /**
+   * <p>Tags associated with place index resource.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace DescribePlaceIndexResponse {
@@ -1485,6 +2552,110 @@ export namespace DescribePlaceIndexResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribePlaceIndexResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeRouteCalculatorRequest {
+  /**
+   * <p>The name of the route calculator resource.</p>
+   */
+  CalculatorName: string | undefined;
+}
+
+export namespace DescribeRouteCalculatorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeRouteCalculatorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeRouteCalculatorResponse {
+  /**
+   * <p>The name of the route calculator resource being described.</p>
+   */
+  CalculatorName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you
+   *             specify a resource across AWS.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:route-calculator/ExampleCalculator</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  CalculatorArn: string | undefined;
+
+  /**
+   * <p>The pricing plan selected for the specified route calculator resource.</p>
+   *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
+   */
+  PricingPlan: PricingPlan | string | undefined;
+
+  /**
+   * <p>The optional description of the route calculator resource.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  CreateTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the route calculator resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  UpdateTime: Date | undefined;
+
+  /**
+   * <p>The data provider of traffic and road network data. Indicates one of the available
+   *             providers:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Esri</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Here</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   */
+  DataSource: string | undefined;
+
+  /**
+   * <p>Tags associated with route calculator resource.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace DescribeRouteCalculatorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeRouteCalculatorResponse): any => ({
     ...obj,
   });
 }
@@ -1514,6 +2685,13 @@ export interface DescribeTrackerResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify
    *             a resource across all AWS.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Format example:
+   *                         <code>arn:aws:geo:region:account-id:tracker/ExampleTracker</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   TrackerArn: string | undefined;
 
@@ -1530,9 +2708,14 @@ export interface DescribeTrackerResponse {
   PricingPlan: PricingPlan | string | undefined;
 
   /**
-   * <p>The data source selected for the tracker resource and associated pricing plan.</p>
+   * <p>The specified data provider for the tracker resource.</p>
    */
   PricingPlanDataSource?: string;
+
+  /**
+   * <p>The tags associated with the tracker resource.</p>
+   */
+  Tags?: { [key: string]: string };
 
   /**
    * <p>The timestamp for when the tracker resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
@@ -1545,6 +2728,11 @@ export interface DescribeTrackerResponse {
    *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   UpdateTime: Date | undefined;
+
+  /**
+   * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS KMS customer managed key</a> assigned to the Amazon Location resource.</p>
+   */
+  KmsKeyId?: string;
 }
 
 export namespace DescribeTrackerResponse {
@@ -1568,7 +2756,7 @@ export interface DisassociateTrackerConsumerRequest {
    *         <ul>
    *             <li>
    *                 <p>Format example:
-   *                         <code>arn:partition:service:region:account-id:resource-type:resource-id</code>
+   *                         <code>arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollectionConsumer</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -1592,6 +2780,102 @@ export namespace DisassociateTrackerConsumerResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DisassociateTrackerConsumerResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The mapping from tag key to tag value for each tag associated with the specified resource.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to update.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The mapping from tag key to tag value for each tag associated with the specified resource.</p>
+   */
+  Tags: { [key: string]: string } | undefined;
+}
+
+export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource from which you want to remove tags.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The list of tag keys to remove from the resource.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
 }
@@ -1731,8 +3015,7 @@ export interface ListGeofenceCollectionsResponseEntry {
   PricingPlan: PricingPlan | string | undefined;
 
   /**
-   * <p>The data source selected for the geofence collection and associated pricing
-   *             plan.</p>
+   * <p>The specified data provider for the geofence collection.</p>
    */
   PricingPlanDataSource?: string;
 
@@ -2078,7 +3361,7 @@ export interface GetDevicePositionHistoryResponse {
 
   /**
    * <p>A pagination token indicating there are additional pages available. You can use the
-   *             token in a following request to fetch the next set of results. </p>
+   *             token in a following request to fetch the next set of results.</p>
    */
   NextToken?: string;
 }
@@ -2109,7 +3392,7 @@ export interface GetMapGlyphsRequest {
 
   /**
    * <p>A Unicode range of characters to download glyphs for. Each response will contain 256
-   *             characters. For example, 0-255 includes all characters from range <code>U+0000</code> to
+   *             characters. For example, 0–255 includes all characters from range <code>U+0000</code> to
    *                 <code>00FF</code>. Must be aligned to multiples of 256.</p>
    */
   FontUnicodeRange: string | undefined;
@@ -2303,6 +3586,94 @@ export namespace GetMapTileResponse {
   });
 }
 
+export interface ListDevicePositionsRequest {
+  /**
+   * <p>The tracker resource containing the requested devices.</p>
+   */
+  TrackerName: string | undefined;
+
+  /**
+   * <p>An optional limit for the number of entries returned in a single call.</p>
+   *         <p>Default value: <code>100</code>
+   *          </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token specifying which page of results to return in the response. If no
+   *             token is provided, the default page is the first page.</p>
+   *          <p>Default value: <code>null</code>
+   *          </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListDevicePositionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDevicePositionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the tracker resource details.</p>
+ */
+export interface ListDevicePositionsResponseEntry {
+  /**
+   * <p>The ID of the device for this position.</p>
+   */
+  DeviceId: string | undefined;
+
+  /**
+   * <p>The timestamp at which the device position was determined. Uses <a href="https://www.iso.org/iso-8601-date-and-time-format.html"> ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>.</p>
+   */
+  SampleTime: Date | undefined;
+
+  /**
+   * <p>The last known device position. Empty if no positions currently stored.</p>
+   */
+  Position: number[] | undefined;
+}
+
+export namespace ListDevicePositionsResponseEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDevicePositionsResponseEntry): any => ({
+    ...obj,
+    ...(obj.Position && { Position: SENSITIVE_STRING }),
+  });
+}
+
+export interface ListDevicePositionsResponse {
+  /**
+   * <p>Contains details about each device's last known position. These details includes the device ID,
+   *             the time when the position was sampled on the device, the time that the service received the update, and the most recent coordinates.</p>
+   */
+  Entries: ListDevicePositionsResponseEntry[] | undefined;
+
+  /**
+   * <p>A pagination token indicating there are additional pages available. You can use the
+   *             token in a following request to fetch the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListDevicePositionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDevicePositionsResponse): any => ({
+    ...obj,
+    ...(obj.Entries && {
+      Entries: obj.Entries.map((item) => ListDevicePositionsResponseEntry.filterSensitiveLog(item)),
+    }),
+  });
+}
+
 export interface ListMapsRequest {
   /**
    * <p>An optional limit for the number of resources returned in a single call. </p>
@@ -2425,16 +3796,16 @@ export namespace ListPlaceIndexesRequest {
 }
 
 /**
- * <p>A Place index resource listed in your AWS account.</p>
+ * <p>A place index resource listed in your AWS account.</p>
  */
 export interface ListPlaceIndexesResponseEntry {
   /**
-   * <p>The name of the Place index resource.</p>
+   * <p>The name of the place index resource.</p>
    */
   IndexName: string | undefined;
 
   /**
-   * <p>The optional description for the Place index resource.</p>
+   * <p>The optional description for the place index resource.</p>
    */
   Description: string | undefined;
 
@@ -2442,10 +3813,14 @@ export interface ListPlaceIndexesResponseEntry {
    * <p>The data provider of geospatial data. Indicates one of the available providers:</p>
    *          <ul>
    *             <li>
-   *                <p>Esri</p>
+   *                <p>
+   *                   <code>Esri</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>HERE</p>
+   *                <p>
+   *                   <code>Here</code>
+   *                </p>
    *             </li>
    *          </ul>
    *          <p>For additional details on data providers, see the <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers page</a>.</p>
@@ -2453,20 +3828,20 @@ export interface ListPlaceIndexesResponseEntry {
   DataSource: string | undefined;
 
   /**
-   * <p>The pricing plan for the specified Place index resource.</p>
+   * <p>The pricing plan for the specified place index resource.</p>
    *          <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
    *          page</a>.</p>
    */
   PricingPlan: PricingPlan | string | undefined;
 
   /**
-   * <p>The timestamp for when the Place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
+   * <p>The timestamp for when the place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
    *             <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   CreateTime: Date | undefined;
 
   /**
-   * <p>The timestamp for when the Place index resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
+   * <p>The timestamp for when the place index resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
    *             <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
    */
   UpdateTime: Date | undefined;
@@ -2483,7 +3858,7 @@ export namespace ListPlaceIndexesResponseEntry {
 
 export interface ListPlaceIndexesResponse {
   /**
-   * <p>Lists the Place index resources that exist in your AWS account</p>
+   * <p>Lists the place index resources that exist in your AWS account</p>
    */
   Entries: ListPlaceIndexesResponseEntry[] | undefined;
 
@@ -2499,6 +3874,127 @@ export namespace ListPlaceIndexesResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListPlaceIndexesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListRouteCalculatorsRequest {
+  /**
+   * <p>An optional maximum number of results returned in a single call.</p>
+   *         <p>Default Value: <code>100</code>
+   *          </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token specifying which page of results to return in the response. If no
+   *             token is provided, the default page is the first page.</p>
+   *         <p>Default Value: <code>null</code>
+   *          </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListRouteCalculatorsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListRouteCalculatorsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A route calculator resource listed in your AWS account.</p>
+ */
+export interface ListRouteCalculatorsResponseEntry {
+  /**
+   * <p>The name of the route calculator resource.</p>
+   */
+  CalculatorName: string | undefined;
+
+  /**
+   * <p>The optional description of the route calculator resource.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The data provider of traffic and road network data. Indicates one of the available
+   *             providers:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Esri</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Here</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   */
+  DataSource: string | undefined;
+
+  /**
+   * <p>The pricing plan for the specified route calculator resource.</p>
+   *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
+   */
+  PricingPlan: PricingPlan | string | undefined;
+
+  /**
+   * <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  CreateTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the route calculator resource was last updated in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
+   *             format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>For example, <code>2020–07-2T12:15:20.000Z+01:00</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  UpdateTime: Date | undefined;
+}
+
+export namespace ListRouteCalculatorsResponseEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListRouteCalculatorsResponseEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface ListRouteCalculatorsResponse {
+  /**
+   * <p>Lists the route calculator resources that exist in your AWS account</p>
+   */
+  Entries: ListRouteCalculatorsResponseEntry[] | undefined;
+
+  /**
+   * <p>A pagination token indicating there are additional pages available. You can use the
+   *             token in a subsequent request to fetch the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListRouteCalculatorsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListRouteCalculatorsResponse): any => ({
     ...obj,
   });
 }
@@ -2604,7 +4100,7 @@ export interface ListTrackersResponseEntry {
   PricingPlan: PricingPlan | string | undefined;
 
   /**
-   * <p>The data source selected for the tracker resource and associated pricing plan.</p>
+   * <p>The specified data provider for the tracker resource.</p>
    */
   PricingPlanDataSource?: string;
 
@@ -2655,7 +4151,7 @@ export namespace ListTrackersResponse {
 
 export interface SearchPlaceIndexForPositionRequest {
   /**
-   * <p>The name of the Place index resource you want to use for the search.</p>
+   * <p>The name of the place index resource you want to use for the search.</p>
    */
   IndexName: string | undefined;
 
@@ -2797,7 +4293,7 @@ export namespace Place {
 
 /**
  * <p>Specifies a single point of interest, or Place as a result of a search query obtained
- *          from a dataset configured in the Place index Resource.</p>
+ *          from a dataset configured in the place index resource.</p>
  */
 export interface SearchForPositionResult {
   /**
@@ -2883,7 +4379,7 @@ export namespace SearchPlaceIndexForPositionResponse {
 
 export interface SearchPlaceIndexForTextRequest {
   /**
-   * <p>The name of the Place index resource you want to use for the search.</p>
+   * <p>The name of the place index resource you want to use for the search.</p>
    */
   IndexName: string | undefined;
 

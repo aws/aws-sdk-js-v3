@@ -2621,6 +2621,9 @@ export const deserializeAws_restJson1GetJobOutputCommand = async (
   }
   const data: any = output.body;
   contents.body = data;
+  if (contents.status === undefined) {
+    contents.status = output.statusCode;
+  }
   return Promise.resolve(contents);
 };
 

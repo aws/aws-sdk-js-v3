@@ -140,8 +140,7 @@ export namespace RootDirectory {
 
 /**
  * <p>A tag is a key-value pair. Allowed characters are letters, white space, and numbers that
- *       can be represented in UTF-8, and the following characters:<code> + - = . _ : /</code>
- *          </p>
+ *       can be represented in UTF-8, and the following characters:<code> + - = . _ : /</code>.</p>
  */
 export interface Tag {
   /**
@@ -308,7 +307,7 @@ export interface BackupPolicy {
    *                <p>
    *                   <b>
    *                      <code>ENABLED</code>
-   *                   </b> - EFS is automatically backing up the file system.></p>
+   *                   </b> - EFS is automatically backing up the file system.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -521,8 +520,8 @@ export interface CreateFileSystemRequest {
   Encrypted?: boolean;
 
   /**
-   * <p>The ID of the AWS KMS CMK to be used to protect the encrypted file system. This
-   *       parameter is only required if you want to use a non-default CMK. If this parameter is not
+   * <p>The ID of the AWS KMS CMK that you want to use to protect the encrypted file system. This
+   *       parameter is only required if you want to use a non-default KMS key. If this parameter is not
    *       specified, the default CMK for Amazon EFS is used. This ID can be in one of the following
    *       formats:</p>
    *          <ul>
@@ -545,7 +544,7 @@ export interface CreateFileSystemRequest {
    *          </ul>
    *          <p>If <code>KmsKeyId</code> is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be set to true.</p>
    *          <important>
-   *             <p>EFS accepts only symmetric CMKs. You cannot use asymmetric CMKs with EFS file systems.</p>
+   *             <p>EFS accepts only symmetric KMS keys. You cannot use asymmetric KMS keys with EFS file systems.</p>
    *          </important>
    */
   KmsKeyId?: string;
@@ -1368,6 +1367,75 @@ export namespace DescribeAccessPointsResponse {
   });
 }
 
+export interface DescribeAccountPreferencesRequest {
+  /**
+   * Token used for pagination.
+   */
+  NextToken?: string;
+
+  /**
+   * Max results used for pagination.
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeAccountPreferencesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAccountPreferencesRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ResourceIdType {
+  LongId = "LONG_ID",
+  ShortId = "SHORT_ID",
+}
+
+export enum Resource {
+  FileSystem = "FILE_SYSTEM",
+  MountTarget = "MOUNT_TARGET",
+}
+
+export interface ResourceIdPreference {
+  /**
+   * A preference indicating a choice to use 63bit/32bit IDs for all applicable resources.
+   */
+  ResourceIdType?: ResourceIdType | string;
+
+  /**
+   * EFS resources to which a preference applies to.
+   */
+  Resources?: (Resource | string)[];
+}
+
+export namespace ResourceIdPreference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceIdPreference): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAccountPreferencesResponse {
+  ResourceIdPreference?: ResourceIdPreference;
+  /**
+   * Token used for pagination.
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeAccountPreferencesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAccountPreferencesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeBackupPolicyRequest {
   /**
    * <p>Specifies which EFS file system to retrieve the <code>BackupPolicy</code> for.</p>
@@ -1823,7 +1891,7 @@ export interface ListTagsForResourceRequest {
   MaxResults?: number;
 
   /**
-   * <p>You can use <code>NextToken</code> in a subsequent request to fetch the next page of access point descriptions if the response payload was paginated.</p>
+   * <p>(Optional) You can use <code>NextToken</code> in a subsequent request to fetch the next page of access point descriptions if the response payload was paginated.</p>
    */
   NextToken?: string;
 }
@@ -1879,6 +1947,35 @@ export namespace ModifyMountTargetSecurityGroupsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: ModifyMountTargetSecurityGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutAccountPreferencesRequest {
+  /**
+   * A preference indicating a choice to use 63bit/32bit IDs for all applicable resources.
+   */
+  ResourceIdType: ResourceIdType | string | undefined;
+}
+
+export namespace PutAccountPreferencesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutAccountPreferencesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutAccountPreferencesResponse {
+  ResourceIdPreference?: ResourceIdPreference;
+}
+
+export namespace PutAccountPreferencesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutAccountPreferencesResponse): any => ({
     ...obj,
   });
 }
@@ -1966,12 +2063,13 @@ export namespace PutLifecycleConfigurationRequest {
 
 export interface TagResourceRequest {
   /**
-   * <p>The ID specifying the EFS resource that you want to create a tag for. </p>
+   * <p>The ID specifying the EFS resource that you want to create a tag for.</p>
    */
   ResourceId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>An array of <code>Tag</code> objects to add. Each <code>Tag</code> object is a key-value
+   *       pair.</p>
    */
   Tags: Tag[] | undefined;
 }

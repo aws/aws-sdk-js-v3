@@ -15,12 +15,20 @@ import {
   CreatePlatformEndpointCommandInput,
   CreatePlatformEndpointCommandOutput,
 } from "./commands/CreatePlatformEndpointCommand";
+import {
+  CreateSMSSandboxPhoneNumberCommandInput,
+  CreateSMSSandboxPhoneNumberCommandOutput,
+} from "./commands/CreateSMSSandboxPhoneNumberCommand";
 import { CreateTopicCommandInput, CreateTopicCommandOutput } from "./commands/CreateTopicCommand";
 import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
 import {
   DeletePlatformApplicationCommandInput,
   DeletePlatformApplicationCommandOutput,
 } from "./commands/DeletePlatformApplicationCommand";
+import {
+  DeleteSMSSandboxPhoneNumberCommandInput,
+  DeleteSMSSandboxPhoneNumberCommandOutput,
+} from "./commands/DeleteSMSSandboxPhoneNumberCommand";
 import { DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand";
 import {
   GetEndpointAttributesCommandInput,
@@ -32,6 +40,10 @@ import {
 } from "./commands/GetPlatformApplicationAttributesCommand";
 import { GetSMSAttributesCommandInput, GetSMSAttributesCommandOutput } from "./commands/GetSMSAttributesCommand";
 import {
+  GetSMSSandboxAccountStatusCommandInput,
+  GetSMSSandboxAccountStatusCommandOutput,
+} from "./commands/GetSMSSandboxAccountStatusCommand";
+import {
   GetSubscriptionAttributesCommandInput,
   GetSubscriptionAttributesCommandOutput,
 } from "./commands/GetSubscriptionAttributesCommand";
@@ -41,6 +53,10 @@ import {
   ListEndpointsByPlatformApplicationCommandOutput,
 } from "./commands/ListEndpointsByPlatformApplicationCommand";
 import {
+  ListOriginationNumbersCommandInput,
+  ListOriginationNumbersCommandOutput,
+} from "./commands/ListOriginationNumbersCommand";
+import {
   ListPhoneNumbersOptedOutCommandInput,
   ListPhoneNumbersOptedOutCommandOutput,
 } from "./commands/ListPhoneNumbersOptedOutCommand";
@@ -48,6 +64,10 @@ import {
   ListPlatformApplicationsCommandInput,
   ListPlatformApplicationsCommandOutput,
 } from "./commands/ListPlatformApplicationsCommand";
+import {
+  ListSMSSandboxPhoneNumbersCommandInput,
+  ListSMSSandboxPhoneNumbersCommandOutput,
+} from "./commands/ListSMSSandboxPhoneNumbersCommand";
 import {
   ListSubscriptionsByTopicCommandInput,
   ListSubscriptionsByTopicCommandOutput,
@@ -79,6 +99,10 @@ import { SubscribeCommandInput, SubscribeCommandOutput } from "./commands/Subscr
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UnsubscribeCommandInput, UnsubscribeCommandOutput } from "./commands/UnsubscribeCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  VerifySMSSandboxPhoneNumberCommandInput,
+  VerifySMSSandboxPhoneNumberCommandOutput,
+} from "./commands/VerifySMSSandboxPhoneNumberCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -136,18 +160,23 @@ export type ServiceInputTypes =
   | ConfirmSubscriptionCommandInput
   | CreatePlatformApplicationCommandInput
   | CreatePlatformEndpointCommandInput
+  | CreateSMSSandboxPhoneNumberCommandInput
   | CreateTopicCommandInput
   | DeleteEndpointCommandInput
   | DeletePlatformApplicationCommandInput
+  | DeleteSMSSandboxPhoneNumberCommandInput
   | DeleteTopicCommandInput
   | GetEndpointAttributesCommandInput
   | GetPlatformApplicationAttributesCommandInput
   | GetSMSAttributesCommandInput
+  | GetSMSSandboxAccountStatusCommandInput
   | GetSubscriptionAttributesCommandInput
   | GetTopicAttributesCommandInput
   | ListEndpointsByPlatformApplicationCommandInput
+  | ListOriginationNumbersCommandInput
   | ListPhoneNumbersOptedOutCommandInput
   | ListPlatformApplicationsCommandInput
+  | ListSMSSandboxPhoneNumbersCommandInput
   | ListSubscriptionsByTopicCommandInput
   | ListSubscriptionsCommandInput
   | ListTagsForResourceCommandInput
@@ -163,7 +192,8 @@ export type ServiceInputTypes =
   | SubscribeCommandInput
   | TagResourceCommandInput
   | UnsubscribeCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | VerifySMSSandboxPhoneNumberCommandInput;
 
 export type ServiceOutputTypes =
   | AddPermissionCommandOutput
@@ -171,18 +201,23 @@ export type ServiceOutputTypes =
   | ConfirmSubscriptionCommandOutput
   | CreatePlatformApplicationCommandOutput
   | CreatePlatformEndpointCommandOutput
+  | CreateSMSSandboxPhoneNumberCommandOutput
   | CreateTopicCommandOutput
   | DeleteEndpointCommandOutput
   | DeletePlatformApplicationCommandOutput
+  | DeleteSMSSandboxPhoneNumberCommandOutput
   | DeleteTopicCommandOutput
   | GetEndpointAttributesCommandOutput
   | GetPlatformApplicationAttributesCommandOutput
   | GetSMSAttributesCommandOutput
+  | GetSMSSandboxAccountStatusCommandOutput
   | GetSubscriptionAttributesCommandOutput
   | GetTopicAttributesCommandOutput
   | ListEndpointsByPlatformApplicationCommandOutput
+  | ListOriginationNumbersCommandOutput
   | ListPhoneNumbersOptedOutCommandOutput
   | ListPlatformApplicationsCommandOutput
+  | ListSMSSandboxPhoneNumbersCommandOutput
   | ListSubscriptionsByTopicCommandOutput
   | ListSubscriptionsCommandOutput
   | ListTagsForResourceCommandOutput
@@ -198,7 +233,8 @@ export type ServiceOutputTypes =
   | SubscribeCommandOutput
   | TagResourceCommandOutput
   | UnsubscribeCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | VerifySMSSandboxPhoneNumberCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -274,7 +310,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -282,6 +318,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.
@@ -338,11 +380,10 @@ export interface SNSClientResolvedConfig extends SNSClientResolvedConfigType {}
  *         <p>Amazon Simple Notification Service (Amazon SNS) is a web service that enables you to build
  *             distributed web-enabled applications. Applications can use Amazon SNS to easily push
  *             real-time notification messages to interested subscribers over multiple delivery
- *             protocols. For more information about this product see the <a href="http://aws.amazon.com/sns/">Amazon SNS product page</a>. For detailed information about Amazon SNS
- *             features and their associated API calls, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/">Amazon SNS Developer Guide</a>. </p>
- *         <p>For information on the permissions you need to use this API, see
- *             <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-authentication-and-access-control.html">Identity and
- *                 access management in Amazon SNS</a> in the <i>Amazon SNS Developer Guide.</i>
+ *             protocols. For more information about this product see the <a href="http://aws.amazon.com/sns/">Amazon SNS product page</a>. For detailed information about Amazon SNS features
+ *             and their associated API calls, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/">Amazon SNS Developer Guide</a>. </p>
+ *         <p>For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-authentication-and-access-control.html">Identity and access management in Amazon SNS</a> in the <i>Amazon SNS Developer
+ *                 Guide.</i>
  *          </p>
  *         <p>We also provide SDKs that enable you to access Amazon SNS from your preferred programming
  *             language. The SDKs contain functionality that automatically takes care of tasks such as:

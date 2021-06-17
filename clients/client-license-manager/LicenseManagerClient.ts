@@ -13,6 +13,10 @@ import {
   CreateLicenseConfigurationCommandOutput,
 } from "./commands/CreateLicenseConfigurationCommand";
 import {
+  CreateLicenseManagerReportGeneratorCommandInput,
+  CreateLicenseManagerReportGeneratorCommandOutput,
+} from "./commands/CreateLicenseManagerReportGeneratorCommand";
+import {
   CreateLicenseVersionCommandInput,
   CreateLicenseVersionCommandOutput,
 } from "./commands/CreateLicenseVersionCommand";
@@ -23,6 +27,10 @@ import {
   DeleteLicenseConfigurationCommandInput,
   DeleteLicenseConfigurationCommandOutput,
 } from "./commands/DeleteLicenseConfigurationCommand";
+import {
+  DeleteLicenseManagerReportGeneratorCommandInput,
+  DeleteLicenseManagerReportGeneratorCommandOutput,
+} from "./commands/DeleteLicenseManagerReportGeneratorCommand";
 import { DeleteTokenCommandInput, DeleteTokenCommandOutput } from "./commands/DeleteTokenCommand";
 import {
   ExtendLicenseConsumptionCommandInput,
@@ -35,6 +43,10 @@ import {
   GetLicenseConfigurationCommandInput,
   GetLicenseConfigurationCommandOutput,
 } from "./commands/GetLicenseConfigurationCommand";
+import {
+  GetLicenseManagerReportGeneratorCommandInput,
+  GetLicenseManagerReportGeneratorCommandOutput,
+} from "./commands/GetLicenseManagerReportGeneratorCommand";
 import { GetLicenseUsageCommandInput, GetLicenseUsageCommandOutput } from "./commands/GetLicenseUsageCommand";
 import { GetServiceSettingsCommandInput, GetServiceSettingsCommandOutput } from "./commands/GetServiceSettingsCommand";
 import {
@@ -53,6 +65,10 @@ import {
   ListLicenseConfigurationsCommandInput,
   ListLicenseConfigurationsCommandOutput,
 } from "./commands/ListLicenseConfigurationsCommand";
+import {
+  ListLicenseManagerReportGeneratorsCommandInput,
+  ListLicenseManagerReportGeneratorsCommandOutput,
+} from "./commands/ListLicenseManagerReportGeneratorsCommand";
 import {
   ListLicenseSpecificationsForResourceCommandInput,
   ListLicenseSpecificationsForResourceCommandOutput,
@@ -87,6 +103,10 @@ import {
   UpdateLicenseConfigurationCommandInput,
   UpdateLicenseConfigurationCommandOutput,
 } from "./commands/UpdateLicenseConfigurationCommand";
+import {
+  UpdateLicenseManagerReportGeneratorCommandInput,
+  UpdateLicenseManagerReportGeneratorCommandOutput,
+} from "./commands/UpdateLicenseManagerReportGeneratorCommand";
 import {
   UpdateLicenseSpecificationsForResourceCommandInput,
   UpdateLicenseSpecificationsForResourceCommandOutput,
@@ -155,23 +175,27 @@ export type ServiceInputTypes =
   | CreateGrantVersionCommandInput
   | CreateLicenseCommandInput
   | CreateLicenseConfigurationCommandInput
+  | CreateLicenseManagerReportGeneratorCommandInput
   | CreateLicenseVersionCommandInput
   | CreateTokenCommandInput
   | DeleteGrantCommandInput
   | DeleteLicenseCommandInput
   | DeleteLicenseConfigurationCommandInput
+  | DeleteLicenseManagerReportGeneratorCommandInput
   | DeleteTokenCommandInput
   | ExtendLicenseConsumptionCommandInput
   | GetAccessTokenCommandInput
   | GetGrantCommandInput
   | GetLicenseCommandInput
   | GetLicenseConfigurationCommandInput
+  | GetLicenseManagerReportGeneratorCommandInput
   | GetLicenseUsageCommandInput
   | GetServiceSettingsCommandInput
   | ListAssociationsForLicenseConfigurationCommandInput
   | ListDistributedGrantsCommandInput
   | ListFailuresForLicenseConfigurationOperationsCommandInput
   | ListLicenseConfigurationsCommandInput
+  | ListLicenseManagerReportGeneratorsCommandInput
   | ListLicenseSpecificationsForResourceCommandInput
   | ListLicenseVersionsCommandInput
   | ListLicensesCommandInput
@@ -185,6 +209,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateLicenseConfigurationCommandInput
+  | UpdateLicenseManagerReportGeneratorCommandInput
   | UpdateLicenseSpecificationsForResourceCommandInput
   | UpdateServiceSettingsCommandInput;
 
@@ -197,23 +222,27 @@ export type ServiceOutputTypes =
   | CreateGrantVersionCommandOutput
   | CreateLicenseCommandOutput
   | CreateLicenseConfigurationCommandOutput
+  | CreateLicenseManagerReportGeneratorCommandOutput
   | CreateLicenseVersionCommandOutput
   | CreateTokenCommandOutput
   | DeleteGrantCommandOutput
   | DeleteLicenseCommandOutput
   | DeleteLicenseConfigurationCommandOutput
+  | DeleteLicenseManagerReportGeneratorCommandOutput
   | DeleteTokenCommandOutput
   | ExtendLicenseConsumptionCommandOutput
   | GetAccessTokenCommandOutput
   | GetGrantCommandOutput
   | GetLicenseCommandOutput
   | GetLicenseConfigurationCommandOutput
+  | GetLicenseManagerReportGeneratorCommandOutput
   | GetLicenseUsageCommandOutput
   | GetServiceSettingsCommandOutput
   | ListAssociationsForLicenseConfigurationCommandOutput
   | ListDistributedGrantsCommandOutput
   | ListFailuresForLicenseConfigurationOperationsCommandOutput
   | ListLicenseConfigurationsCommandOutput
+  | ListLicenseManagerReportGeneratorsCommandOutput
   | ListLicenseSpecificationsForResourceCommandOutput
   | ListLicenseVersionsCommandOutput
   | ListLicensesCommandOutput
@@ -227,6 +256,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateLicenseConfigurationCommandOutput
+  | UpdateLicenseManagerReportGeneratorCommandOutput
   | UpdateLicenseSpecificationsForResourceCommandOutput
   | UpdateServiceSettingsCommandOutput;
 
@@ -304,7 +334,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -312,6 +342,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.

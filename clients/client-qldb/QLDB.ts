@@ -74,6 +74,11 @@ import {
   UpdateLedgerCommandInput,
   UpdateLedgerCommandOutput,
 } from "./commands/UpdateLedgerCommand";
+import {
+  UpdateLedgerPermissionsModeCommand,
+  UpdateLedgerPermissionsModeCommandInput,
+  UpdateLedgerPermissionsModeCommandOutput,
+} from "./commands/UpdateLedgerPermissionsModeCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -699,6 +704,38 @@ export class QLDB extends QLDBClient {
     cb?: (err: any, data?: UpdateLedgerCommandOutput) => void
   ): Promise<UpdateLedgerCommandOutput> | void {
     const command = new UpdateLedgerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the permissions mode of a ledger.</p>
+   */
+  public updateLedgerPermissionsMode(
+    args: UpdateLedgerPermissionsModeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLedgerPermissionsModeCommandOutput>;
+  public updateLedgerPermissionsMode(
+    args: UpdateLedgerPermissionsModeCommandInput,
+    cb: (err: any, data?: UpdateLedgerPermissionsModeCommandOutput) => void
+  ): void;
+  public updateLedgerPermissionsMode(
+    args: UpdateLedgerPermissionsModeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLedgerPermissionsModeCommandOutput) => void
+  ): void;
+  public updateLedgerPermissionsMode(
+    args: UpdateLedgerPermissionsModeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLedgerPermissionsModeCommandOutput) => void),
+    cb?: (err: any, data?: UpdateLedgerPermissionsModeCommandOutput) => void
+  ): Promise<UpdateLedgerPermissionsModeCommandOutput> | void {
+    const command = new UpdateLedgerPermissionsModeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

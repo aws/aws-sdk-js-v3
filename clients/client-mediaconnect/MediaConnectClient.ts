@@ -1,3 +1,7 @@
+import {
+  AddFlowMediaStreamsCommandInput,
+  AddFlowMediaStreamsCommandOutput,
+} from "./commands/AddFlowMediaStreamsCommand";
 import { AddFlowOutputsCommandInput, AddFlowOutputsCommandOutput } from "./commands/AddFlowOutputsCommand";
 import { AddFlowSourcesCommandInput, AddFlowSourcesCommandOutput } from "./commands/AddFlowSourcesCommand";
 import {
@@ -25,6 +29,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand";
+import {
+  RemoveFlowMediaStreamCommandInput,
+  RemoveFlowMediaStreamCommandOutput,
+} from "./commands/RemoveFlowMediaStreamCommand";
 import { RemoveFlowOutputCommandInput, RemoveFlowOutputCommandOutput } from "./commands/RemoveFlowOutputCommand";
 import { RemoveFlowSourceCommandInput, RemoveFlowSourceCommandOutput } from "./commands/RemoveFlowSourceCommand";
 import {
@@ -44,6 +52,10 @@ import {
   UpdateFlowEntitlementCommandInput,
   UpdateFlowEntitlementCommandOutput,
 } from "./commands/UpdateFlowEntitlementCommand";
+import {
+  UpdateFlowMediaStreamCommandInput,
+  UpdateFlowMediaStreamCommandOutput,
+} from "./commands/UpdateFlowMediaStreamCommand";
 import { UpdateFlowOutputCommandInput, UpdateFlowOutputCommandOutput } from "./commands/UpdateFlowOutputCommand";
 import { UpdateFlowSourceCommandInput, UpdateFlowSourceCommandOutput } from "./commands/UpdateFlowSourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
@@ -98,6 +110,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | AddFlowMediaStreamsCommandInput
   | AddFlowOutputsCommandInput
   | AddFlowSourcesCommandInput
   | AddFlowVpcInterfacesCommandInput
@@ -113,6 +126,7 @@ export type ServiceInputTypes =
   | ListReservationsCommandInput
   | ListTagsForResourceCommandInput
   | PurchaseOfferingCommandInput
+  | RemoveFlowMediaStreamCommandInput
   | RemoveFlowOutputCommandInput
   | RemoveFlowSourceCommandInput
   | RemoveFlowVpcInterfaceCommandInput
@@ -123,10 +137,12 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateFlowCommandInput
   | UpdateFlowEntitlementCommandInput
+  | UpdateFlowMediaStreamCommandInput
   | UpdateFlowOutputCommandInput
   | UpdateFlowSourceCommandInput;
 
 export type ServiceOutputTypes =
+  | AddFlowMediaStreamsCommandOutput
   | AddFlowOutputsCommandOutput
   | AddFlowSourcesCommandOutput
   | AddFlowVpcInterfacesCommandOutput
@@ -142,6 +158,7 @@ export type ServiceOutputTypes =
   | ListReservationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PurchaseOfferingCommandOutput
+  | RemoveFlowMediaStreamCommandOutput
   | RemoveFlowOutputCommandOutput
   | RemoveFlowSourceCommandOutput
   | RemoveFlowVpcInterfaceCommandOutput
@@ -152,6 +169,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateFlowCommandOutput
   | UpdateFlowEntitlementCommandOutput
+  | UpdateFlowMediaStreamCommandOutput
   | UpdateFlowOutputCommandOutput
   | UpdateFlowSourceCommandOutput;
 
@@ -229,7 +247,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -237,6 +255,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.

@@ -1744,6 +1744,172 @@ export namespace GetDeviceProfileResponse {
   });
 }
 
+export interface GetLogLevelsByResourceTypesRequest {}
+
+export namespace GetLogLevelsByResourceTypesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetLogLevelsByResourceTypesRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum LogLevel {
+  DISABLED = "DISABLED",
+  ERROR = "ERROR",
+  INFO = "INFO",
+}
+
+export enum WirelessDeviceEvent {
+  Downlink_Data = "Downlink_Data",
+  Join = "Join",
+  Registration = "Registration",
+  Rejoin = "Rejoin",
+  Uplink_Data = "Uplink_Data",
+}
+
+/**
+ * <p>The log option for a wireless device event. Can be used to set log level for a specific wireless device event. For a LoRaWAN device, the possible events for a log messsage are: Join, Rejoin, Downlink_Data, Uplink_Data. For a Sidewalk device, the possible events for a log message are: Registration, Downlink_Data, Uplink_Data.</p>
+ */
+export interface WirelessDeviceEventLogOption {
+  /**
+   * <p>The event for a log message, if the log message is tied to a wireless device.</p>
+   */
+  Event: WirelessDeviceEvent | string | undefined;
+
+  /**
+   * <p>The log level for a log message.</p>
+   */
+  LogLevel: LogLevel | string | undefined;
+}
+
+export namespace WirelessDeviceEventLogOption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WirelessDeviceEventLogOption): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The log option for wireless devices. Can be used to set log level for a specific type of wireless device.</p>
+ */
+export interface WirelessDeviceLogOption {
+  /**
+   * <p>The wireless device type.</p>
+   */
+  Type: WirelessDeviceType | string | undefined;
+
+  /**
+   * <p>The log level for a log message.</p>
+   */
+  LogLevel: LogLevel | string | undefined;
+
+  /**
+   * <p>The list of wireless device event log options.</p>
+   */
+  Events?: WirelessDeviceEventLogOption[];
+}
+
+export namespace WirelessDeviceLogOption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WirelessDeviceLogOption): any => ({
+    ...obj,
+  });
+}
+
+export enum WirelessGatewayEvent {
+  CUPS_Request = "CUPS_Request",
+  Certificate = "Certificate",
+}
+
+/**
+ * <p>The log option for a wireless gateway event. Can be used to set log level for a specific wireless gateway event. For a LoRaWAN gateway, the possible events for a log message are: CUPS_Request, Certificate.</p>
+ */
+export interface WirelessGatewayEventLogOption {
+  /**
+   * <p>The event for a log message, if the log message is tied to a wireless gateway.</p>
+   */
+  Event: WirelessGatewayEvent | string | undefined;
+
+  /**
+   * <p>The log level for a log message.</p>
+   */
+  LogLevel: LogLevel | string | undefined;
+}
+
+export namespace WirelessGatewayEventLogOption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WirelessGatewayEventLogOption): any => ({
+    ...obj,
+  });
+}
+
+export enum WirelessGatewayType {
+  LoRaWAN = "LoRaWAN",
+}
+
+/**
+ * <p>The log option for wireless gateways. Can be used to set log level for a specific type of wireless gateway.</p>
+ */
+export interface WirelessGatewayLogOption {
+  /**
+   * <p>The wireless gateway type.</p>
+   */
+  Type: WirelessGatewayType | string | undefined;
+
+  /**
+   * <p>The log level for a log message.</p>
+   */
+  LogLevel: LogLevel | string | undefined;
+
+  /**
+   * <p>The list of wireless gateway event log options.</p>
+   */
+  Events?: WirelessGatewayEventLogOption[];
+}
+
+export namespace WirelessGatewayLogOption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WirelessGatewayLogOption): any => ({
+    ...obj,
+  });
+}
+
+export interface GetLogLevelsByResourceTypesResponse {
+  /**
+   * <p>The log level for a log message.</p>
+   */
+  DefaultLogLevel?: LogLevel | string;
+
+  /**
+   * <p>The list of wireless gateway log options.</p>
+   */
+  WirelessGatewayLogOptions?: WirelessGatewayLogOption[];
+
+  /**
+   * <p>The list of wireless device log options.</p>
+   */
+  WirelessDeviceLogOptions?: WirelessDeviceLogOption[];
+}
+
+export namespace GetLogLevelsByResourceTypesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetLogLevelsByResourceTypesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetPartnerAccountRequest {
   /**
    * <p>The partner account ID to disassociate from the AWS account.</p>
@@ -1814,6 +1980,43 @@ export namespace GetPartnerAccountResponse {
   export const filterSensitiveLog = (obj: GetPartnerAccountResponse): any => ({
     ...obj,
     ...(obj.Sidewalk && { Sidewalk: SidewalkAccountInfoWithFingerprint.filterSensitiveLog(obj.Sidewalk) }),
+  });
+}
+
+export interface GetResourceLogLevelRequest {
+  /**
+   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device id. For a wireless gateway, it is the wireless gateway id.</p>
+   */
+  ResourceIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the resource, currently support WirelessDevice and WirelessGateway.</p>
+   */
+  ResourceType: string | undefined;
+}
+
+export namespace GetResourceLogLevelRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetResourceLogLevelRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetResourceLogLevelResponse {
+  /**
+   * <p>The log level for a log message.</p>
+   */
+  LogLevel?: LogLevel | string;
+}
+
+export namespace GetResourceLogLevelResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetResourceLogLevelResponse): any => ({
+    ...obj,
   });
 }
 
@@ -3184,6 +3387,97 @@ export namespace ListWirelessGatewayTaskDefinitionsResponse {
   });
 }
 
+export interface PutResourceLogLevelRequest {
+  /**
+   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device id. For a wireless gateway, it is the wireless gateway id.</p>
+   */
+  ResourceIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the resource, currently support WirelessDevice and WirelessGateway.</p>
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>The log level for a log message.</p>
+   */
+  LogLevel: LogLevel | string | undefined;
+}
+
+export namespace PutResourceLogLevelRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutResourceLogLevelRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutResourceLogLevelResponse {}
+
+export namespace PutResourceLogLevelResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutResourceLogLevelResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetAllResourceLogLevelsRequest {}
+
+export namespace ResetAllResourceLogLevelsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetAllResourceLogLevelsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetAllResourceLogLevelsResponse {}
+
+export namespace ResetAllResourceLogLevelsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetAllResourceLogLevelsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetResourceLogLevelRequest {
+  /**
+   * <p>The identifier of the resource. For a Wireless Device, it is the wireless device id. For a wireless gateway, it is the wireless gateway id.</p>
+   */
+  ResourceIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the resource, currently support WirelessDevice and WirelessGateway.</p>
+   */
+  ResourceType: string | undefined;
+}
+
+export namespace ResetResourceLogLevelRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetResourceLogLevelRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetResourceLogLevelResponse {}
+
+export namespace ResetResourceLogLevelResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetResourceLogLevelResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>LoRaWAN router info.</p>
  */
@@ -3466,6 +3760,43 @@ export namespace UpdateDestinationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateDestinationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateLogLevelsByResourceTypesRequest {
+  /**
+   * <p>The log level for a log message.</p>
+   */
+  DefaultLogLevel?: LogLevel | string;
+
+  /**
+   * <p>The list of wireless device log options.</p>
+   */
+  WirelessDeviceLogOptions?: WirelessDeviceLogOption[];
+
+  /**
+   * <p>The list of wireless gateway log options.</p>
+   */
+  WirelessGatewayLogOptions?: WirelessGatewayLogOption[];
+}
+
+export namespace UpdateLogLevelsByResourceTypesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateLogLevelsByResourceTypesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateLogLevelsByResourceTypesResponse {}
+
+export namespace UpdateLogLevelsByResourceTypesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateLogLevelsByResourceTypesResponse): any => ({
     ...obj,
   });
 }

@@ -97,22 +97,22 @@ export enum IsMonitoredByJob {
  */
 export interface JobDetails {
   /**
-   * <p>Specifies whether any one-time or recurring jobs are configured to analyze data in the bucket. Possible values are:</p> <ul><li><p>TRUE - One or more jobs is configured to analyze data in the bucket, and at least one of those jobs has a status other than CANCELLED.</p></li> <li><p>FALSE - No jobs are configured to analyze data in the bucket, or all the jobs that are configured to analyze data in the bucket have a status of CANCELLED.</p></li> <li><p>UNKNOWN - An exception occurred when Amazon Macie attempted to retrieve job data for the bucket.</p></li></ul> <p></p>
+   * <p>Specifies whether any one-time or recurring jobs are configured to analyze data in the bucket. Possible values are:</p> <ul><li><p>TRUE - The bucket is explicitly included in the bucket definition (S3BucketDefinitionForJob) for one or more jobs and at least one of those jobs has a status other than CANCELLED. Or the bucket matched the bucket criteria (S3BucketCriteriaForJob) for at least one job that previously ran.</p></li> <li><p>FALSE - The bucket isn't explicitly included in the bucket definition (S3BucketDefinitionForJob) for any jobs, all the jobs that explicitly include the bucket in their bucket definitions have a status of CANCELLED, or the bucket didn't match the bucket criteria (S3BucketCriteriaForJob) for any jobs that previously ran.</p></li> <li><p>UNKNOWN - An exception occurred when Amazon Macie attempted to retrieve job data for the bucket.</p></li></ul> <p></p>
    */
   isDefinedInJob?: IsDefinedInJob | string;
 
   /**
-   * <p>Specifies whether any recurring jobs are configured to analyze data in the bucket. Possible values are:</p> <ul><li><p>TRUE - One or more recurring jobs is configured to analyze data in the bucket, and at least one of those jobs has a status other than CANCELLED.</p></li> <li><p>FALSE - No recurring jobs are configured to analyze data in the bucket, or all the recurring jobs that are configured to analyze data in the bucket have a status of CANCELLED.</p></li> <li><p>UNKNOWN - An exception occurred when Amazon Macie attempted to retrieve job data for the bucket.</p></li></ul>
+   * <p>Specifies whether any recurring jobs are configured to analyze data in the bucket. Possible values are:</p> <ul><li><p>TRUE - The bucket is explicitly included in the bucket definition (S3BucketDefinitionForJob) for one or more recurring jobs or the bucket matches the bucket criteria (S3BucketCriteriaForJob) for one or more recurring jobs. At least one of those jobs has a status other than CANCELLED.</p></li> <li><p>FALSE - The bucket isn't explicitly included in the bucket definition (S3BucketDefinitionForJob) for any recurring jobs, the bucket doesn't match the bucket criteria (S3BucketCriteriaForJob) for any recurring jobs, or all the recurring jobs that are configured to analyze data in the bucket have a status of CANCELLED.</p></li> <li><p>UNKNOWN - An exception occurred when Amazon Macie attempted to retrieve job data for the bucket.</p></li></ul>
    */
   isMonitoredByJob?: IsMonitoredByJob | string;
 
   /**
-   * <p>The unique identifier for the job that ran most recently (either the latest run of a recurring job or the only run of a one-time job) and is configured to analyze data in the bucket.</p> <p>This value is null if the value for the isDefinedInJob property is FALSE or UNKNOWN.</p>
+   * <p>The unique identifier for the job that ran most recently and is configured to analyze data in the bucket, either the latest run of a recurring job or the only run of a one-time job.</p> <p>This value is typically null if the value for the isDefinedInJob property is FALSE or UNKNOWN.</p>
    */
   lastJobId?: string;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when the job (lastJobId) started. If the job is a recurring job, this value indicates when the most recent run started.</p> <p>This value is null if the value for the isDefinedInJob property is FALSE or UNKNOWN.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the job (lastJobId) started. If the job is a recurring job, this value indicates when the most recent run started.</p> <p>This value is typically null if the value for the isDefinedInJob property is FALSE or UNKNOWN.</p>
    */
   lastJobRunTime?: Date;
 }
@@ -131,17 +131,17 @@ export namespace JobDetails {
  */
 export interface ObjectCountByEncryptionType {
   /**
-   * <p>The total number of objects that are encrypted using a customer-managed key. The objects use customer-provided server-side encryption (SSE-C).</p>
+   * <p>The total number of objects that are encrypted with a customer-managed key. The objects use customer-provided server-side encryption (SSE-C).</p>
    */
   customerManaged?: number;
 
   /**
-   * <p>The total number of objects that are encrypted using an AWS Key Management Service (AWS KMS) customer master key (CMK). The objects use AWS managed AWS KMS encryption (AWS-KMS) or customer managed AWS KMS encryption (SSE-KMS).</p>
+   * <p>The total number of objects that are encrypted with an AWS Key Management Service (AWS KMS) customer master key (CMK). The objects use AWS managed AWS KMS encryption (AWS-KMS) or customer managed AWS KMS encryption (SSE-KMS).</p>
    */
   kmsManaged?: number;
 
   /**
-   * <p>The total number of objects that are encrypted using an Amazon S3 managed key. The objects use Amazon S3 managed encryption (SSE-S3).</p>
+   * <p>The total number of objects that are encrypted with an Amazon S3 managed key. The objects use Amazon S3 managed encryption (SSE-S3).</p>
    */
   s3Managed?: number;
 
@@ -440,7 +440,7 @@ export namespace KeyValuePair {
 }
 
 /**
- * <p>Provides information about the total storage size (in bytes) or number of objects that Amazon Macie can't analyze in one or more S3 buckets. In a BucketMetadata object, this data is for a specific bucket. In a GetBucketStatisticsResponse object, this data is aggregated for all the buckets in the query results. If versioning is enabled for a bucket, total storage size values are based on the size of the latest version of each applicable object in the bucket.</p>
+ * <p>Provides information about the total storage size (in bytes) or number of objects that Amazon Macie can't analyze in one or more S3 buckets. In a BucketMetadata or MatchingBucket object, this data is for a specific bucket. In a GetBucketStatisticsResponse object, this data is aggregated for all the buckets in the query results. If versioning is enabled for a bucket, total storage size values are based on the size of the latest version of each applicable object in the bucket.</p>
  */
 export interface ObjectLevelStatistics {
   /**
@@ -558,7 +558,7 @@ export interface BucketMetadata {
   sizeInBytes?: number;
 
   /**
-   * <p>The total compressed storage size, in bytes, of the bucket.</p> <p>If versioning is enabled for the bucket, Macie calculates this value based on the size of the latest version of each object in the bucket. This value doesn't reflect the storage size of all versions of each object in the bucket.</p>
+   * <p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the bucket.</p> <p>If versioning is enabled for the bucket, Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>
    */
   sizeInBytesCompressed?: number;
 
@@ -588,6 +588,125 @@ export namespace BucketMetadata {
    * @internal
    */
   export const filterSensitiveLog = (obj: BucketMetadata): any => ({
+    ...obj,
+  });
+}
+
+export enum JobComparator {
+  CONTAINS = "CONTAINS",
+  EQ = "EQ",
+  GT = "GT",
+  GTE = "GTE",
+  LT = "LT",
+  LTE = "LTE",
+  NE = "NE",
+  STARTS_WITH = "STARTS_WITH",
+}
+
+export enum SimpleCriterionKeyForJob {
+  ACCOUNT_ID = "ACCOUNT_ID",
+  S3_BUCKET_EFFECTIVE_PERMISSION = "S3_BUCKET_EFFECTIVE_PERMISSION",
+  S3_BUCKET_NAME = "S3_BUCKET_NAME",
+  S3_BUCKET_SHARED_ACCESS = "S3_BUCKET_SHARED_ACCESS",
+}
+
+/**
+ * <p>Specifies a property-based condition that determines whether an S3 bucket is included or excluded from a classification job.</p>
+ */
+export interface SimpleCriterionForJob {
+  /**
+   * <p>The operator to use in the condition. Valid values are EQ (equals) and NE (not equals).</p>
+   */
+  comparator?: JobComparator | string;
+
+  /**
+   * <p>The property to use in the condition.</p>
+   */
+  key?: SimpleCriterionKeyForJob | string;
+
+  /**
+   * <p>An array that lists one or more values to use in the condition. If you specify multiple values, Amazon Macie uses OR logic to join the values. Valid values for each supported property (key) are:</p> <ul><li><p>ACCOUNT_ID - A string that represents the unique identifier for the AWS account that owns the bucket.</p></li> <li><p>S3_BUCKET_EFFECTIVE_PERMISSION - A string that represents an enumerated value that Macie defines for the <a href="https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html#datasources-s3-prop-bucketpublicaccess-effectivepermission">BucketPublicAccess.effectivePermission</a> property of a bucket.</p></li> <li><p>S3_BUCKET_NAME - A string that represents the name of a bucket.</p></li> <li><p>S3_BUCKET_SHARED_ACCESS - A string that represents an enumerated value that Macie defines for the <a href="https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html#datasources-s3-prop-bucketmetadata-sharedaccess">BucketMetadata.sharedAccess</a> property of a bucket.</p></li></ul> <p>Values are case sensitive. Also, Macie doesn't support use of partial values or wildcard characters in these values.</p>
+   */
+  values?: string[];
+}
+
+export namespace SimpleCriterionForJob {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SimpleCriterionForJob): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a tag key, a tag value, or a tag key and value (as a pair) to use in a tag-based condition that determines whether an S3 bucket is included or excluded from a classification job. Tag keys and values are case sensitive. Also, Amazon Macie doesn't support use of partial values or wildcard characters in tag-based conditions.</p>
+ */
+export interface TagCriterionPairForJob {
+  /**
+   * <p>The value for the tag key to use in the condition.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>The tag value to use in the condition.</p>
+   */
+  value?: string;
+}
+
+export namespace TagCriterionPairForJob {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagCriterionPairForJob): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a tag-based condition that determines whether an S3 bucket is included or excluded from a classification job.</p>
+ */
+export interface TagCriterionForJob {
+  /**
+   * <p>The operator to use in the condition. Valid values are EQ (equals) and NE (not equals).</p>
+   */
+  comparator?: JobComparator | string;
+
+  /**
+   * <p>The tag keys, tag values, or tag key and value pairs to use in the condition.</p>
+   */
+  tagValues?: TagCriterionPairForJob[];
+}
+
+export namespace TagCriterionForJob {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagCriterionForJob): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a property- or tag-based condition that defines criteria for including or excluding S3 buckets from a classification job.</p>
+ */
+export interface CriteriaForJob {
+  /**
+   * <p>A property-based condition that defines a property, operator, and one or more values for including or excluding buckets from the job.</p>
+   */
+  simpleCriterion?: SimpleCriterionForJob;
+
+  /**
+   * <p>A tag-based condition that defines an operator and tag keys, tag values, or tag key and value pairs for including or excluding buckets from the job.</p>
+   */
+  tagCriterion?: TagCriterionForJob;
+}
+
+export namespace CriteriaForJob {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CriteriaForJob): any => ({
     ...obj,
   });
 }
@@ -2098,17 +2217,6 @@ export namespace Invitation {
   });
 }
 
-export enum JobComparator {
-  CONTAINS = "CONTAINS",
-  EQ = "EQ",
-  GT = "GT",
-  GTE = "GTE",
-  LT = "LT",
-  LTE = "LTE",
-  NE = "NE",
-  STARTS_WITH = "STARTS_WITH",
-}
-
 export enum ScopeFilterKey {
   BUCKET_CREATION_DATE = "BUCKET_CREATION_DATE",
   OBJECT_EXTENSION = "OBJECT_EXTENSION",
@@ -2119,7 +2227,7 @@ export enum ScopeFilterKey {
 }
 
 /**
- * <p>Specifies a property-based condition that determines whether an object is included or excluded from a classification job.</p>
+ * <p>Specifies a property-based condition that determines whether an S3 object is included or excluded from a classification job.</p>
  */
 export interface SimpleScopeTerm {
   /**
@@ -2133,7 +2241,7 @@ export interface SimpleScopeTerm {
   key?: ScopeFilterKey | string;
 
   /**
-   * <p>An array that lists the values to use in the condition. If the value for the key property is OBJECT_EXTENSION or OBJECT_KEY, this array can specify multiple values and Amazon Macie uses an OR operator to join the values. Otherwise, this array can specify only one value.</p> <p>Valid values for each supported property (key) are:</p> <ul><li><p>OBJECT_EXTENSION - A string that represents the file name extension of an object. For example: docx or pdf</p></li> <li><p>OBJECT_KEY - A string that represents the key prefix (folder name or path) of an object. For example: logs or awslogs/eventlogs. This value applies a condition to objects whose keys (names) begin with the specified value.</p></li> <li><p>OBJECT_LAST_MODIFIED_DATE - The date and time (in UTC and extended ISO 8601 format) when an object was created or last changed, whichever is latest. For example: 2020-09-28T14:31:13Z</p></li> <li><p>OBJECT_SIZE - An integer that represents the storage size (in bytes) of an object.</p></li> <li><p>TAG - A string that represents a tag key for an object. For advanced options, use a TagScopeTerm object, instead of a SimpleScopeTerm object, to define a tag-based condition for the job.</p></li></ul> <p>Macie doesn't support use of wildcard characters in values. Also, string values are case sensitive.</p>
+   * <p>An array that lists the values to use in the condition. If the value for the key property is OBJECT_EXTENSION or OBJECT_KEY, this array can specify multiple values and Amazon Macie uses an OR operator to join the values. Otherwise, this array can specify only one value.</p> <p>Valid values for each supported property (key) are:</p> <ul><li><p>OBJECT_EXTENSION - A string that represents the file name extension of an object. For example: docx or pdf</p></li> <li><p>OBJECT_KEY - A string that represents the key prefix (folder name or path) of an object. For example: logs or awslogs/eventlogs. This value applies a condition to objects whose keys (names) begin with the specified value.</p></li> <li><p>OBJECT_LAST_MODIFIED_DATE - The date and time (in UTC and extended ISO 8601 format) when an object was created or last changed, whichever is latest. For example: 2020-09-28T14:31:13Z</p></li> <li><p>OBJECT_SIZE - An integer that represents the storage size (in bytes) of an object.</p></li> <li><p>TAG - A string that represents a tag key for an object. For advanced options, use a TagScopeTerm object instead of a SimpleScopeTerm object to define a tag-based condition for the job.</p></li></ul> <p>Macie doesn't support use of wildcard characters in these values. Also, string values are case sensitive.</p>
    */
   values?: string[];
 }
@@ -2148,7 +2256,7 @@ export namespace SimpleScopeTerm {
 }
 
 /**
- * <p>Specifies a tag key or tag key and value pair to use in a tag-based condition for a classification job.</p>
+ * <p>Specifies a tag key or tag key and value pair to use in a tag-based condition that determines whether an S3 object is included or excluded from a classification job. Tag keys and values are case sensitive. Also, Amazon Macie doesn't support use of partial values or wildcard characters in tag-based conditions.</p>
  */
 export interface TagValuePair {
   /**
@@ -2176,7 +2284,7 @@ export enum TagTarget {
 }
 
 /**
- * <p>Specifies a tag-based condition that determines whether an object is included or excluded from a classification job.</p>
+ * <p>Specifies a tag-based condition that determines whether an S3 object is included or excluded from a classification job. Tag keys and values are case sensitive. Also, Amazon Macie doesn't support use of partial values or wildcard characters in tag-based conditions.</p>
  */
 export interface TagScopeTerm {
   /**
@@ -2210,16 +2318,16 @@ export namespace TagScopeTerm {
 }
 
 /**
- * <p>Specifies a property- or tag-based condition that defines criteria for including or excluding objects from a classification job.</p>
+ * <p>Specifies a property- or tag-based condition that defines criteria for including or excluding S3 objects from a classification job.</p>
  */
 export interface JobScopeTerm {
   /**
-   * <p>A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job.</p>
+   * <p>A property-based condition that defines a property, operator, and one or more values for including or excluding objects from the job.</p>
    */
   simpleScopeTerm?: SimpleScopeTerm;
 
   /**
-   * <p>A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job.</p>
+   * <p>A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding objects from the job.</p>
    */
   tagScopeTerm?: TagScopeTerm;
 }
@@ -2234,7 +2342,50 @@ export namespace JobScopeTerm {
 }
 
 /**
- * <p>Specifies which AWS account owns the S3 buckets that a classification job analyzes, and the buckets to analyze for the account.</p>
+ * <p>Specifies one or more property- and tag-based conditions that define criteria for including or excluding S3 buckets from a classification job.</p>
+ */
+export interface CriteriaBlockForJob {
+  /**
+   * <p>An array of conditions, one for each condition that determines which buckets to include or exclude from the job. If you specify more than one condition, Amazon Macie uses AND logic to join the conditions.</p>
+   */
+  and?: CriteriaForJob[];
+}
+
+export namespace CriteriaBlockForJob {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CriteriaBlockForJob): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies property- and tag-based conditions that define criteria for including or excluding S3 buckets from a classification job. Exclude conditions take precedence over include conditions.</p>
+ */
+export interface S3BucketCriteriaForJob {
+  /**
+   * <p>The property- and tag-based conditions that determine which buckets to exclude from the job.</p>
+   */
+  excludes?: CriteriaBlockForJob;
+
+  /**
+   * <p>The property- and tag-based conditions that determine which buckets to include in the job.</p>
+   */
+  includes?: CriteriaBlockForJob;
+}
+
+export namespace S3BucketCriteriaForJob {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3BucketCriteriaForJob): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies an AWS account that owns S3 buckets for a classification job to analyze, and one or more specific buckets to analyze for that account.</p>
  */
 export interface S3BucketDefinitionForJob {
   /**
@@ -2277,7 +2428,7 @@ export enum LastRunErrorStatusCode {
 }
 
 /**
- * <p>Specifies whether any account- or bucket-level access errors occurred when a classification job ran. For example, the job is configured to analyze data for a member account that was suspended, or the job is configured to analyze an S3 bucket that Amazon Macie isn't allowed to access.</p>
+ * <p>Specifies whether any account- or bucket-level access errors occurred when a classification job ran. For information about using logging data to investigate these errors, see <a href="https://docs.aws.amazon.com/macie/latest/user/discovery-jobs-monitor-cw-logs.html">Monitoring sensitive data discovery jobs</a> in the <i>Amazon Macie User Guide</i>.</p>
  */
 export interface LastRunErrorStatus {
   /**
@@ -2329,7 +2480,7 @@ export namespace UserPausedDetails {
  */
 export interface JobSummary {
   /**
-   * <p>The S3 buckets that the job is configured to analyze.</p>
+   * <p>An array of objects, one for each AWS account that owns specific S3 buckets for the job to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for that account. A job's definition can contain a bucketDefinitions array or a bucketCriteria object, not both.</p>
    */
   bucketDefinitions?: S3BucketDefinitionForJob[];
 
@@ -2367,6 +2518,11 @@ export interface JobSummary {
    * <p>If the current status of the job is USER_PAUSED, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for jobStatus is USER_PAUSED.</p>
    */
   userPausedDetails?: UserPausedDetails;
+
+  /**
+   * <p>The property- and tag-based conditions that determine which S3 buckets are included or excluded from the job's analysis. Each time the job runs, the job uses these criteria to determine which buckets to analyze. A job's definition can contain a bucketCriteria object or a bucketDefinitions array, not both.</p>
+   */
+  bucketCriteria?: S3BucketCriteriaForJob;
 }
 
 export namespace JobSummary {
@@ -2410,6 +2566,94 @@ export namespace ListJobsFilterTerm {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListJobsFilterTerm): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides statistical data and other information about an S3 bucket that Amazon Macie monitors and analyzes.</p>
+ */
+export interface MatchingBucket {
+  /**
+   * <p>The unique identifier for the AWS account that owns the bucket.</p>
+   */
+  accountId?: string;
+
+  /**
+   * <p>The name of the bucket.</p>
+   */
+  bucketName?: string;
+
+  /**
+   * <p>The total number of objects that Amazon Macie can analyze in the bucket. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p>
+   */
+  classifiableObjectCount?: number;
+
+  /**
+   * <p>The total storage size, in bytes, of the objects that Amazon Macie can analyze in the bucket. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p><p>If versioning is enabled for the bucket, Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>
+   */
+  classifiableSizeInBytes?: number;
+
+  /**
+   * <p>Specifies whether any one-time or recurring classification jobs are configured to analyze objects in the bucket, and, if so, the details of the job that ran most recently.</p>
+   */
+  jobDetails?: JobDetails;
+
+  /**
+   * <p>The total number of objects in the bucket.</p>
+   */
+  objectCount?: number;
+
+  /**
+   * <p>The total number of objects that are in the bucket, grouped by server-side encryption type. This includes a grouping that reports the total number of objects that aren't encrypted or use client-side encryption.</p>
+   */
+  objectCountByEncryptionType?: ObjectCountByEncryptionType;
+
+  /**
+   * <p>The total storage size, in bytes, of the bucket.</p><p>If versioning is enabled for the bucket, Amazon Macie calculates this value based on the size of the latest version of each object in the bucket. This value doesn't reflect the storage size of all versions of each object in the bucket.</p>
+   */
+  sizeInBytes?: number;
+
+  /**
+   * <p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the bucket.</p><p>If versioning is enabled for the bucket, Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>
+   */
+  sizeInBytesCompressed?: number;
+
+  /**
+   * <p>The total number of objects that Amazon Macie can't analyze in the bucket. These objects don't use a supported storage class or don't have a file name extension for a supported file or storage format.</p>
+   */
+  unclassifiableObjectCount?: ObjectLevelStatistics;
+
+  /**
+   * <p>The total storage size, in bytes, of the objects that Amazon Macie can't analyze in the bucket. These objects don't use a supported storage class or don't have a file name extension for a supported file or storage format.</p>
+   */
+  unclassifiableObjectSizeInBytes?: ObjectLevelStatistics;
+}
+
+export namespace MatchingBucket {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MatchingBucket): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides statistical data and other information about an AWS resource that Amazon Macie monitors and analyzes.</p>
+ */
+export interface MatchingResource {
+  /**
+   * <p>The details of an S3 bucket that Amazon Macie monitors and analyzes.</p>
+   */
+  matchingBucket?: MatchingBucket;
+}
+
+export namespace MatchingResource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MatchingResource): any => ({
     ...obj,
   });
 }
@@ -2469,6 +2713,119 @@ export namespace Member {
    * @internal
    */
   export const filterSensitiveLog = (obj: Member): any => ({
+    ...obj,
+  });
+}
+
+export enum SearchResourcesComparator {
+  EQ = "EQ",
+  NE = "NE",
+}
+
+export enum SearchResourcesSimpleCriterionKey {
+  ACCOUNT_ID = "ACCOUNT_ID",
+  S3_BUCKET_EFFECTIVE_PERMISSION = "S3_BUCKET_EFFECTIVE_PERMISSION",
+  S3_BUCKET_NAME = "S3_BUCKET_NAME",
+  S3_BUCKET_SHARED_ACCESS = "S3_BUCKET_SHARED_ACCESS",
+}
+
+/**
+ * <p>Specifies a property-based filter condition that determines which AWS resources are included or excluded from the query results.</p>
+ */
+export interface SearchResourcesSimpleCriterion {
+  /**
+   * <p>The operator to use in the condition. Valid values are EQ (equals) and NE (not equals).</p>
+   */
+  comparator?: SearchResourcesComparator | string;
+
+  /**
+   * <p>The property to use in the condition.</p>
+   */
+  key?: SearchResourcesSimpleCriterionKey | string;
+
+  /**
+   * <p>An array that lists one or more values to use in the condition. If you specify multiple values, Amazon Macie uses OR logic to join the values. Valid values for each supported property (key) are:</p> <ul><li><p>ACCOUNT_ID - A string that represents the unique identifier for the AWS account that owns the resource.</p></li> <li><p>S3_BUCKET_EFFECTIVE_PERMISSION - A string that represents an enumerated value that Macie defines for the <a href="https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html#datasources-s3-prop-bucketpublicaccess-effectivepermission">BucketPublicAccess.effectivePermission</a> property of an S3 bucket.</p></li> <li><p>S3_BUCKET_NAME - A string that represents the name of an S3 bucket.</p></li> <li><p>S3_BUCKET_SHARED_ACCESS - A string that represents an enumerated value that Macie defines for the <a href="https://docs.aws.amazon.com/macie/latest/APIReference/datasources-s3.html#datasources-s3-prop-bucketmetadata-sharedaccess">BucketMetadata.sharedAccess</a> property of an S3 bucket.</p></li></ul> <p>Values are case sensitive. Also, Macie doesn't support use of partial values or wildcard characters in values.</p>
+   */
+  values?: string[];
+}
+
+export namespace SearchResourcesSimpleCriterion {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchResourcesSimpleCriterion): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a tag key, a tag value, or a tag key and value (as a pair) to use in a tag-based filter condition for a query. Tag keys and values are case sensitive. Also, Amazon Macie doesn't support use of partial values or wildcard characters in tag-based filter conditions.</p>
+ */
+export interface SearchResourcesTagCriterionPair {
+  /**
+   * <p>The value for the tag key to use in the condition.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>The tag value to use in the condition.</p>
+   */
+  value?: string;
+}
+
+export namespace SearchResourcesTagCriterionPair {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchResourcesTagCriterionPair): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a tag-based filter condition that determines which AWS resources are included or excluded from the query results.</p>
+ */
+export interface SearchResourcesTagCriterion {
+  /**
+   * <p>The operator to use in the condition. Valid values are EQ (equals) and NE (not equals).</p>
+   */
+  comparator?: SearchResourcesComparator | string;
+
+  /**
+   * <p>The tag keys, tag values, or tag key and value pairs to use in the condition.</p>
+   */
+  tagValues?: SearchResourcesTagCriterionPair[];
+}
+
+export namespace SearchResourcesTagCriterion {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchResourcesTagCriterion): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a property- or tag-based filter condition for including or excluding AWS resources from the query results.</p>
+ */
+export interface SearchResourcesCriteria {
+  /**
+   * <p>A property-based condition that defines a property, operator, and one or more values for including or excluding resources from the results.</p>
+   */
+  simpleCriterion?: SearchResourcesSimpleCriterion;
+
+  /**
+   * <p>A tag-based condition that defines an operator and tag keys, tag values, or tag key and value pairs for including or excluding resources from the results.</p>
+   */
+  tagCriterion?: SearchResourcesTagCriterion;
+}
+
+export namespace SearchResourcesCriteria {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchResourcesCriteria): any => ({
     ...obj,
   });
 }
@@ -3001,7 +3358,7 @@ export namespace BucketCountByEncryptionType {
 }
 
 /**
- * <p>Provides information about the number of S3 buckets that are and aren't shared with other AWS accounts.</p>
+ * <p>Provides information about the number of S3 buckets that are or aren't shared with other AWS accounts.</p>
  */
 export interface BucketCountBySharedAccessType {
   /**
@@ -3035,7 +3392,7 @@ export namespace BucketCountBySharedAccessType {
 }
 
 /**
- * <p>Provides information about the number of S3 buckets whose bucket policies do and don't require server-side encryption of objects when objects are uploaded to the buckets.</p>
+ * <p>Provides information about the number of S3 buckets whose bucket policies do or don't require server-side encryption of objects when objects are uploaded to the buckets.</p>
  */
 export interface BucketCountPolicyAllowsUnencryptedObjectUploads {
   /**
@@ -3190,11 +3547,11 @@ export namespace ClassificationExportConfiguration {
 }
 
 /**
- * <p>Specifies one or more property- and tag-based conditions that define criteria for including or excluding objects from a classification job. If you specify more than one condition, Amazon Macie uses an AND operator to join the conditions.</p>
+ * <p>Specifies one or more property- and tag-based conditions that define criteria for including or excluding S3 objects from a classification job.</p>
  */
 export interface JobScopingBlock {
   /**
-   * <p>An array of conditions, one for each condition that determines which objects to include or exclude from the job.</p>
+   * <p>An array of conditions, one for each condition that determines which objects to include or exclude from the job. If you specify more than one condition, Amazon Macie uses AND logic to join the conditions.</p>
    */
   and?: JobScopeTerm[];
 }
@@ -3209,7 +3566,7 @@ export namespace JobScopingBlock {
 }
 
 /**
- * <p>Specifies one or more property- and tag-based conditions that refine the scope of a classification job. These conditions define criteria that determine which objects a job analyzes. Exclude conditions take precedence over include conditions.</p>
+ * <p>Specifies one or more property- and tag-based conditions that define criteria for including or excluding S3 objects from a classification job. Exclude conditions take precedence over include conditions.</p>
  */
 export interface Scoping {
   /**
@@ -3233,18 +3590,23 @@ export namespace Scoping {
 }
 
 /**
- * <p>Specifies which S3 buckets contain the objects that a classification job analyzes, and the scope of that analysis.</p>
+ * <p>Specifies which S3 buckets contain the objects that a classification job analyzes, and the scope of that analysis. The bucket specification can be static (bucketDefinitions) or dynamic (bucketCriteria). If it's static, the job analyzes objects in the same predefined set of buckets each time the job runs. If it's dynamic, the job analyzes objects in any buckets that match the specified criteria each time the job starts to run.</p>
  */
 export interface S3JobDefinition {
   /**
-   * <p>An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account.</p>
+   * <p>An array of objects, one for each AWS account that owns specific S3 buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for that account. A job's definition can contain a bucketDefinitions array or a bucketCriteria object, not both.</p>
    */
   bucketDefinitions?: S3BucketDefinitionForJob[];
 
   /**
-   * <p>The property- and tag-based conditions that determine which objects to include or exclude from the analysis.</p>
+   * <p>The property- and tag-based conditions that determine which S3 objects to include or exclude from the analysis. Each time the job runs, the job uses these criteria to determine which objects to analyze.</p>
    */
   scoping?: Scoping;
+
+  /**
+   * <p>The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Each time the job runs, the job uses these criteria to determine which buckets contain objects to analyze. A job's definition can contain a bucketCriteria object or a bucketDefinitions array, not both.</p>
+   */
+  bucketCriteria?: S3BucketCriteriaForJob;
 }
 
 export namespace S3JobDefinition {
@@ -4036,7 +4398,7 @@ export interface DescribeClassificationJobResponse {
   name?: string;
 
   /**
-   * <p>The S3 buckets that the job is configured to analyze, and the scope of that analysis.</p>
+   * <p>The S3 buckets that contain the objects to analyze, and the scope of that analysis.</p>
    */
   s3JobDefinition?: S3JobDefinition;
 
@@ -4396,12 +4758,12 @@ export interface GetBucketStatisticsResponse {
   bucketCountByEncryptionType?: BucketCountByEncryptionType;
 
   /**
-   * <p>The total number of buckets whose bucket policies do and don't require server-side encryption of objects when objects are uploaded to the buckets.</p>
+   * <p>The total number of buckets whose bucket policies do or don't require server-side encryption of objects when objects are uploaded to the buckets.</p>
    */
   bucketCountByObjectEncryptionRequirement?: BucketCountPolicyAllowsUnencryptedObjectUploads;
 
   /**
-   * <p>The total number of buckets that are and aren't shared with another AWS account.</p>
+   * <p>The total number of buckets that are or aren't shared with another AWS account.</p>
    */
   bucketCountBySharedAccessType?: BucketCountBySharedAccessType;
 
@@ -4431,7 +4793,7 @@ export interface GetBucketStatisticsResponse {
   sizeInBytes?: number;
 
   /**
-   * <p>The total compressed storage size, in bytes, of the buckets.</p> <p>If versioning is enabled for any of the buckets, Macie calculates this value based on the size of the latest version of each object in those buckets. This value doesn't reflect the storage size of all versions of the objects in the buckets.</p>
+   * <p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the buckets.</p> <p>If versioning is enabled for any of the buckets, Macie calculates this value based on the size of the latest version of each applicable object in those buckets. This value doesn't reflect the storage size of all versions of the applicable objects in the buckets.</p>
    */
   sizeInBytesCompressed?: number;
 
@@ -5571,6 +5933,132 @@ export namespace PutFindingsPublicationConfigurationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: PutFindingsPublicationConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies property- and tag-based conditions that define filter criteria for including or excluding AWS resources from the query results.</p>
+ */
+export interface SearchResourcesCriteriaBlock {
+  /**
+   * <p>An array of objects, one for each property- or tag-based condition that includes or excludes resources from the query results. If you specify more than one condition, Amazon Macie uses AND logic to join the conditions.</p>
+   */
+  and?: SearchResourcesCriteria[];
+}
+
+export namespace SearchResourcesCriteriaBlock {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchResourcesCriteriaBlock): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies property- and tag-based conditions that define filter criteria for including or excluding S3 buckets from the query results. Exclude conditions take precedence over include conditions.</p>
+ */
+export interface SearchResourcesBucketCriteria {
+  /**
+   * <p>The property- and tag-based conditions that determine which buckets to exclude from the results.</p>
+   */
+  excludes?: SearchResourcesCriteriaBlock;
+
+  /**
+   * <p>The property- and tag-based conditions that determine which buckets to include in the results.</p>
+   */
+  includes?: SearchResourcesCriteriaBlock;
+}
+
+export namespace SearchResourcesBucketCriteria {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchResourcesBucketCriteria): any => ({
+    ...obj,
+  });
+}
+
+export enum SearchResourcesSortAttributeName {
+  ACCOUNT_ID = "ACCOUNT_ID",
+  RESOURCE_NAME = "RESOURCE_NAME",
+  S3_CLASSIFIABLE_OBJECT_COUNT = "S3_CLASSIFIABLE_OBJECT_COUNT",
+  S3_CLASSIFIABLE_SIZE_IN_BYTES = "S3_CLASSIFIABLE_SIZE_IN_BYTES",
+}
+
+/**
+ * <p>Specifies criteria for sorting the results of a query for information about AWS resources that Amazon Macie monitors and analyzes.</p>
+ */
+export interface SearchResourcesSortCriteria {
+  /**
+   * <p>The property to sort the results by.</p>
+   */
+  attributeName?: SearchResourcesSortAttributeName | string;
+
+  /**
+   * <p>The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>
+   */
+  orderBy?: OrderBy | string;
+}
+
+export namespace SearchResourcesSortCriteria {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchResourcesSortCriteria): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchResourcesRequest {
+  /**
+   * <p>The filter conditions that determine which S3 buckets to include or exclude from the query results.</p>
+   */
+  bucketCriteria?: SearchResourcesBucketCriteria;
+
+  /**
+   * <p>The maximum number of items to include in each page of the response. The default value is 50.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The criteria to use to sort the results.</p>
+   */
+  sortCriteria?: SearchResourcesSortCriteria;
+}
+
+export namespace SearchResourcesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchResourcesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchResourcesResponse {
+  /**
+   * <p>An array of objects, one for each resource that meets the filter criteria specified in the request.</p>
+   */
+  matchingResources?: MatchingResource[];
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace SearchResourcesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchResourcesResponse): any => ({
     ...obj,
   });
 }

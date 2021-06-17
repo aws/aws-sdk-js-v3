@@ -25,7 +25,8 @@ export interface DescribeHumanLoopCommandInput extends DescribeHumanLoopRequest 
 export interface DescribeHumanLoopCommandOutput extends DescribeHumanLoopResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the specified human loop.</p>
+ * <p>Returns information about the specified human loop. If the human loop was deleted, this
+ *       operation will return a <code>ResourceNotFoundException</code> error. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

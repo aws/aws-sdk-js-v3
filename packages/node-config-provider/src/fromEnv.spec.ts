@@ -1,4 +1,4 @@
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 
 import { fromEnv, GetterFromEnv } from "./fromEnv";
 
@@ -9,8 +9,8 @@ describe("fromEnv", () => {
     const envVarValue = process.env[envVarName];
     const mockEnvVarValue = "mockEnvVarValue";
 
-    const getProviderError = (getter: GetterFromEnv<string>) =>
-      new ProviderError(`Cannot load config from environment variables with getter: ${getter}`);
+    const getCredentialsProviderError = (getter: GetterFromEnv<string>) =>
+      new CredentialsProviderError(`Cannot load config from environment variables with getter: ${getter}`);
 
     beforeEach(() => {
       delete process.env[envVarName];
@@ -35,7 +35,7 @@ describe("fromEnv", () => {
 
     it(`throws when '${envVarName}' env var is not set`, () => {
       expect.assertions(1);
-      return expect(fromEnv(envVarGetter)()).rejects.toMatchObject(getProviderError(envVarGetter));
+      return expect(fromEnv(envVarGetter)()).rejects.toMatchObject(getCredentialsProviderError(envVarGetter));
     });
 
     it("throws when the getter function throws", () => {

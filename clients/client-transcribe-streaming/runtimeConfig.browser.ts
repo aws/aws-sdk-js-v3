@@ -4,7 +4,7 @@ import { Sha256 } from "@aws-crypto/sha256-browser";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
 import { streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidProvider } from "@aws-sdk/invalid-dependency";
-import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/middleware-retry";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/middleware-retry";
 import { WebSocketHandler, eventStreamPayloadHandler } from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
@@ -32,6 +32,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   maxAttempts: DEFAULT_MAX_ATTEMPTS,
   region: invalidProvider("Region is missing"),
   requestHandler: new WebSocketHandler(),
+  retryModeProvider: () => Promise.resolve(DEFAULT_RETRY_MODE),
   sha256: Sha256,
   streamCollector,
   utf8Decoder: fromUtf8,

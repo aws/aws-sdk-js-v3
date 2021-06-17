@@ -196,7 +196,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -204,6 +204,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.
@@ -257,19 +263,19 @@ export interface SupportClientResolvedConfig extends SupportClientResolvedConfig
 
 /**
  * <fullname>AWS Support</fullname>
- *         <p>The AWS Support API reference is intended for programmers who need detailed information
- *             about the AWS Support operations and data types. This service enables you to manage your AWS
- *             Support cases programmatically. It uses HTTP methods that return results in JSON
- *             format.</p>
+ *         <p>The <i>AWS Support API Reference</i> is intended for programmers who need detailed
+ *             information about the AWS Support operations and data types. You can use the API to manage
+ *             your support cases programmatically. The AWS Support API uses HTTP methods that return
+ *             results in JSON format.</p>
  *         <note>
  *             <ul>
  *                <li>
- *                     <p>You must have a Business or Enterprise support plan to use the AWS Support
+ *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
  *                         API. </p>
  *                 </li>
  *                <li>
  *                     <p>If you call the AWS Support API from an account that does not have a
- *                         Business or Enterprise support plan, the
+ *                         Business or Enterprise Support plan, the
  *                             <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
  *                 </li>
@@ -281,22 +287,19 @@ export interface SupportClientResolvedConfig extends SupportClientResolvedConfig
  *         <p>The following list describes the AWS Support case management operations:</p>
  *         <ul>
  *             <li>
- *                 <p>
- *                     <b>Service names, issue categories, and available severity
- *                         levels. </b>The <a>DescribeServices</a> and <a>DescribeSeverityLevels</a> operations return AWS service names,
+ *                 <p> Service names, issue categories, and available severity levels  - The
+ *                         <a>DescribeServices</a> and <a>DescribeSeverityLevels</a> operations return AWS service names,
  *                     service codes, service categories, and problem severity levels. You use these
  *                     values when you call the <a>CreateCase</a> operation.</p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>Case creation, case details, and case
- *                         resolution.</b> The <a>CreateCase</a>, <a>DescribeCases</a>, <a>DescribeAttachment</a>, and <a>ResolveCase</a> operations create AWS Support cases, retrieve information
- *                     about cases, and resolve cases.</p>
+ *                 <p> Case creation, case details, and case resolution - The <a>CreateCase</a>, <a>DescribeCases</a>, <a>DescribeAttachment</a>, and <a>ResolveCase</a> operations
+ *                     create AWS Support cases, retrieve information about cases, and resolve cases.</p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>Case communication.</b> The <a>DescribeCommunications</a>, <a>AddCommunicationToCase</a>, and <a>AddAttachmentsToSet</a> operations retrieve and add
- *                     communications and attachments to AWS Support cases.</p>
+ *                 <p> Case communication - The <a>DescribeCommunications</a>,
+ *                         <a>AddCommunicationToCase</a>, and <a>AddAttachmentsToSet</a> operations retrieve and add communications
+ *                     and attachments to AWS Support cases.</p>
  *             </li>
  *          </ul>
  *         <p>The following list describes the operations available from the AWS Support service for
@@ -330,7 +333,7 @@ export interface SupportClientResolvedConfig extends SupportClientResolvedConfig
  *         <p>For authentication of requests, AWS Support uses <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing
  *                 Process</a>.</p>
  *         <p>See <a href="https://docs.aws.amazon.com/awssupport/latest/user/Welcome.html">About the
- *                 AWS Support API</a> in the <i>AWS Support User Guide</i> for
+ *             AWS Support API</a> in the <i>AWS Support User Guide</i> for
  *             information about how to use this service to create and manage your support cases, and
  *             how to call Trusted Advisor for results of checks on your resources.</p>
  */

@@ -24,11 +24,11 @@ export interface GetGroupConfigurationCommandOutput extends GetGroupConfiguratio
  * <p>Returns the service configuration associated with the specified resource group. For
  *             details about the service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for resource
  *                 groups</a>.</p>
- *          <p>
+ *         <p>
  *             <b>Minimum permissions</b>
  *          </p>
  *          <p>To run this command, you must have the following permissions:</p>
- *          <ul>
+ *         <ul>
  *             <li>
  *                 <p>
  *                   <code>resource-groups:GetGroupConfiguration</code>

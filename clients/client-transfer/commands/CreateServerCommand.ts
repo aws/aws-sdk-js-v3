@@ -21,10 +21,10 @@ export interface CreateServerCommandInput extends CreateServerRequest {}
 export interface CreateServerCommandOutput extends CreateServerResponse, __MetadataBearer {}
 
 /**
- * <p>Instantiates an autoscaling virtual server based on the selected file transfer protocol in
- *       AWS. When you make updates to your file transfer protocol-enabled server or when you work with
- *       users, use the service-generated <code>ServerId</code> property that is assigned to the newly
- *       created server.</p>
+ * <p>Instantiates an auto-scaling virtual server based on the selected file transfer protocol
+ *       in AWS. When you make updates to your file transfer protocol-enabled server or when you work
+ *       with users, use the service-generated <code>ServerId</code> property that is assigned to the
+ *       newly created server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

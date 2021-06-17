@@ -6,7 +6,7 @@ import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
 import { blobHasher as streamHasher } from "@aws-sdk/hash-blob-browser";
 import { invalidProvider } from "@aws-sdk/invalid-dependency";
 import { Md5 } from "@aws-sdk/md5-js";
-import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/middleware-retry";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/middleware-retry";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
@@ -33,6 +33,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   md5: Md5,
   region: invalidProvider("Region is missing"),
   requestHandler: new FetchHttpHandler(),
+  retryModeProvider: () => Promise.resolve(DEFAULT_RETRY_MODE),
   sha256: Sha256,
   streamCollector,
   streamHasher,

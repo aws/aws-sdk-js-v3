@@ -1,4 +1,4 @@
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
 import { RequestOptions } from "http";
 
@@ -103,7 +103,7 @@ const getCredentialsFromProfile = async (profile: string, options: RequestOption
   );
 
   if (!isImdsCredentials(credsResponse)) {
-    throw new ProviderError("Invalid response received from instance metadata service.");
+    throw new CredentialsProviderError("Invalid response received from instance metadata service.");
   }
 
   return fromImdsCredentials(credsResponse);

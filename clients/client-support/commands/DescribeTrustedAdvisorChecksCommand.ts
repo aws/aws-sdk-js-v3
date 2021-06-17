@@ -27,17 +27,23 @@ export interface DescribeTrustedAdvisorChecksCommandOutput
  *             category, description, and metadata. You must specify a language code. The AWS Support API
  *             currently supports English ("en") and Japanese ("ja"). The response contains a <a>TrustedAdvisorCheckDescription</a> object for each check. You must set the
  *             AWS Region to us-east-1.</p>
+ *
+ *
  *         <note>
  *             <ul>
  *                <li>
- *                     <p>You must have a Business or Enterprise support plan to use the AWS Support
+ *                     <p>You must have a Business or Enterprise Support plan to use the AWS Support
  *                         API. </p>
  *                 </li>
  *                <li>
  *                     <p>If you call the AWS Support API from an account that does not have a
- *                         Business or Enterprise support plan, the
- *                             <code>SubscriptionRequiredException</code> error message appears. For
+ *                         Business or Enterprise Support plan, the
+ *                         <code>SubscriptionRequiredException</code> error message appears. For
  *                         information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS Support</a>.</p>
+ *                 </li>
+ *                <li>
+ *                     <p>The names and descriptions for Trusted Advisor checks are subject to change. We recommend
+ *                         that you specify the check ID in your code to uniquely identify a check.</p>
  *                 </li>
  *             </ul>
  *         </note>

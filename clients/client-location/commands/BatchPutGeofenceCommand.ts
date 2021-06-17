@@ -21,8 +21,8 @@ export interface BatchPutGeofenceCommandInput extends BatchPutGeofenceRequest {}
 export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse, __MetadataBearer {}
 
 /**
- * <p>A batch request for storing geofence geometries into a given geofence
- *             collection.</p>
+ * <p>A batch request for storing geofence geometries into a given geofence collection, or
+ *             updates the geometry of an existing geofence if a geofence ID is included in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -3530,9 +3530,17 @@ export const serializeAws_restJson1RegisterUserCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.CustomFederationProviderUrl !== undefined &&
+      input.CustomFederationProviderUrl !== null && { CustomFederationProviderUrl: input.CustomFederationProviderUrl }),
     ...(input.CustomPermissionsName !== undefined &&
       input.CustomPermissionsName !== null && { CustomPermissionsName: input.CustomPermissionsName }),
     ...(input.Email !== undefined && input.Email !== null && { Email: input.Email }),
+    ...(input.ExternalLoginFederationProviderType !== undefined &&
+      input.ExternalLoginFederationProviderType !== null && {
+        ExternalLoginFederationProviderType: input.ExternalLoginFederationProviderType,
+      }),
+    ...(input.ExternalLoginId !== undefined &&
+      input.ExternalLoginId !== null && { ExternalLoginId: input.ExternalLoginId }),
     ...(input.IamArn !== undefined && input.IamArn !== null && { IamArn: input.IamArn }),
     ...(input.IdentityType !== undefined && input.IdentityType !== null && { IdentityType: input.IdentityType }),
     ...(input.SessionName !== undefined && input.SessionName !== null && { SessionName: input.SessionName }),
@@ -4721,9 +4729,17 @@ export const serializeAws_restJson1UpdateUserCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.CustomFederationProviderUrl !== undefined &&
+      input.CustomFederationProviderUrl !== null && { CustomFederationProviderUrl: input.CustomFederationProviderUrl }),
     ...(input.CustomPermissionsName !== undefined &&
       input.CustomPermissionsName !== null && { CustomPermissionsName: input.CustomPermissionsName }),
     ...(input.Email !== undefined && input.Email !== null && { Email: input.Email }),
+    ...(input.ExternalLoginFederationProviderType !== undefined &&
+      input.ExternalLoginFederationProviderType !== null && {
+        ExternalLoginFederationProviderType: input.ExternalLoginFederationProviderType,
+      }),
+    ...(input.ExternalLoginId !== undefined &&
+      input.ExternalLoginId !== null && { ExternalLoginId: input.ExternalLoginId }),
     ...(input.Role !== undefined && input.Role !== null && { Role: input.Role }),
     ...(input.UnapplyCustomPermissions !== undefined &&
       input.UnapplyCustomPermissions !== null && { UnapplyCustomPermissions: input.UnapplyCustomPermissions }),
@@ -17086,6 +17102,7 @@ const serializeAws_restJson1RowLevelPermissionDataSet = (
 ): any => {
   return {
     ...(input.Arn !== undefined && input.Arn !== null && { Arn: input.Arn }),
+    ...(input.FormatVersion !== undefined && input.FormatVersion !== null && { FormatVersion: input.FormatVersion }),
     ...(input.Namespace !== undefined && input.Namespace !== null && { Namespace: input.Namespace }),
     ...(input.PermissionPolicy !== undefined &&
       input.PermissionPolicy !== null && { PermissionPolicy: input.PermissionPolicy }),
@@ -18847,6 +18864,8 @@ const deserializeAws_restJson1RowLevelPermissionDataSet = (
 ): RowLevelPermissionDataSet => {
   return {
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    FormatVersion:
+      output.FormatVersion !== undefined && output.FormatVersion !== null ? output.FormatVersion : undefined,
     Namespace: output.Namespace !== undefined && output.Namespace !== null ? output.Namespace : undefined,
     PermissionPolicy:
       output.PermissionPolicy !== undefined && output.PermissionPolicy !== null ? output.PermissionPolicy : undefined,
@@ -19431,6 +19450,16 @@ const deserializeAws_restJson1User = (output: any, context: __SerdeContext): Use
         ? output.CustomPermissionsName
         : undefined,
     Email: output.Email !== undefined && output.Email !== null ? output.Email : undefined,
+    ExternalLoginFederationProviderType:
+      output.ExternalLoginFederationProviderType !== undefined && output.ExternalLoginFederationProviderType !== null
+        ? output.ExternalLoginFederationProviderType
+        : undefined,
+    ExternalLoginFederationProviderUrl:
+      output.ExternalLoginFederationProviderUrl !== undefined && output.ExternalLoginFederationProviderUrl !== null
+        ? output.ExternalLoginFederationProviderUrl
+        : undefined,
+    ExternalLoginId:
+      output.ExternalLoginId !== undefined && output.ExternalLoginId !== null ? output.ExternalLoginId : undefined,
     IdentityType: output.IdentityType !== undefined && output.IdentityType !== null ? output.IdentityType : undefined,
     PrincipalId: output.PrincipalId !== undefined && output.PrincipalId !== null ? output.PrincipalId : undefined,
     Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,

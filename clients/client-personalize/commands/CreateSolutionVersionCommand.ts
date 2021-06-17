@@ -30,7 +30,22 @@ export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersio
  *          <p>A solution version can be in one of the following states:</p>
  *          <ul>
  *             <li>
- *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+ *                <p>CREATE PENDING</p>
+ *             </li>
+ *             <li>
+ *                <p>CREATE IN_PROGRESS</p>
+ *             </li>
+ *             <li>
+ *                <p>ACTIVE</p>
+ *             </li>
+ *             <li>
+ *                <p>CREATE FAILED</p>
+ *             </li>
+ *             <li>
+ *                <p>CREATE STOPPING</p>
+ *             </li>
+ *             <li>
+ *                <p>CREATE STOPPED</p>
  *             </li>
  *          </ul>
  *          <p>To get the status of the version, call <a>DescribeSolutionVersion</a>. Wait

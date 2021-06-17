@@ -21,7 +21,7 @@ export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentInput {}
 export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput, __MetadataBearer {}
 
 /**
- * <p>Delete an existing environment.</p>
+ * <p>Deletes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

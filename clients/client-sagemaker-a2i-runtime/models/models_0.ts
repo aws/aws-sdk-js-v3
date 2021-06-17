@@ -48,9 +48,8 @@ export namespace InternalServerException {
 }
 
 /**
- * <p>We couldn't find
- *       the
- *       requested resource.</p>
+ * <p>We couldn't find the requested resource. Check that your resources exists and were created
+ *       in the same AWS Region as your request, and try your request again. </p>
  */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
@@ -162,9 +161,10 @@ export interface DescribeHumanLoopResponse {
   FailureReason?: string;
 
   /**
-   * <p>A failure code that identifies
-   *       the
-   *       type of failure.</p>
+   * <p>A failure code that identifies the type of failure.</p>
+   *          <p>Possible values: <code>ValidationError</code>, <code>Expired</code>,
+   *         <code>InternalError</code>
+   *          </p>
    */
   FailureCode?: string;
 
@@ -335,11 +335,12 @@ export namespace ConflictException {
 }
 
 /**
- * <p>You exceeded your
- *       service
- *       quota. Delete some resources or request an increase in your
- *       service
- *       quota.</p>
+ * <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
+ *       maximum number of service resources or operations for your AWS account. For a list of
+ *       Amazon A2I service quotes, see <a href="https://docs.aws.amazon.com/general/latest/gr/a2i.html">Amazon Augmented AI Service Quotes</a>. Delete some resources or request an increase in your
+ *       service quota. You can request a quota increase using Service Quotas or the AWS Support
+ *       Center. To request an increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Quotas</a> in the
+ *         <i>AWS General Reference</i>.</p>
  */
 export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";

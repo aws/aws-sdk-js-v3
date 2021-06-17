@@ -21,8 +21,8 @@ export interface BatchUpdateDetectorCommandInput extends BatchUpdateDetectorRequ
 export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the state, variable values, and timer settings of one or more detectors (instances)
- *         of a specified detector model.</p>
+ * <p>Updates the state, variable values, and timer settings of one or more detectors
+ *       (instances) of a specified detector model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

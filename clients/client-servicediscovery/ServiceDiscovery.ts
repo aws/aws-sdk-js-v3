@@ -113,8 +113,8 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class ServiceDiscovery extends ServiceDiscoveryClient {
   /**
-   * <p>Creates an HTTP namespace. Service instances that you register using an HTTP namespace can be discovered using a
-   *     <code>DiscoverInstances</code> request but can't be discovered using DNS. </p>
+   * <p>Creates an HTTP namespace. Service instances registered using an HTTP namespace can be discovered using a
+   *     <code>DiscoverInstances</code> request but can't be discovered using DNS.</p>
    *          <p>For the current quota on the number of namespaces that you can create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map quotas</a> in the
    *     <i>AWS Cloud Map Developer Guide</i>.</p>
    */
@@ -149,10 +149,11 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
 
   /**
    * <p>Creates a private namespace based on DNS, which is visible only inside a specified Amazon VPC. The namespace
-   *    defines your service naming scheme. For example, if you name your namespace <code>example.com</code> and
-   *    name your service <code>backend</code>, the resulting DNS name for the service is <code>backend.example.com</code>. For the current quota on the number of namespaces that you can create using the
-   *    same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map
-   *     Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>
+   *    defines your service naming scheme. For example, if you name your namespace <code>example.com</code> and name your
+   *    service <code>backend</code>, the resulting DNS name for the service is <code>backend.example.com</code>. Service
+   *    instances that are registered using a private DNS namespace can be discovered using either a
+   *     <code>DiscoverInstances</code> request or using DNS. For the current quota on the number of namespaces that you can
+   *    create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>
    */
   public createPrivateDnsNamespace(
     args: CreatePrivateDnsNamespaceCommandInput,
@@ -186,8 +187,10 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   /**
    * <p>Creates a public namespace based on DNS, which is visible on the internet. The namespace defines your service
    *    naming scheme. For example, if you name your namespace <code>example.com</code> and name your service
-   *     <code>backend</code>, the resulting DNS name for the service is <code>backend.example.com</code>. For the
-   *    current quota on the number of namespaces that you can create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
+   *     <code>backend</code>, the resulting DNS name for the service is <code>backend.example.com</code>. You can discover
+   *    instances that were registered with a public DNS namespace by using either a <code>DiscoverInstances</code> request
+   *    or using DNS. For the current quota on the number of namespaces that you can create using the same AWS account, see
+   *     <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Quotas</a>in the
    *     <i>AWS Cloud Map Developer Guide</i>.</p>
    */
   public createPublicDnsNamespace(
@@ -220,7 +223,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   * <p>Creates a service, which defines the configuration for the following entities:</p>
+   * <p>Creates a service. This action defines the configuration for the following entities:</p>
    *          <ul>
    *             <li>
    *                <p>For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:</p>
@@ -454,7 +457,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    * <p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or <code>Unknown</code>) of one or
    *    more instances that are associated with a specified service.</p>
    *          <note>
-   *             <p>There is a brief delay between when you register an instance and when the health status for the instance is
+   *             <p>There's a brief delay between when you register an instance and when the health status for the instance is
    *     available. </p>
    *          </note>
    */
@@ -737,8 +740,8 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    *    specified service. When you submit a <code>RegisterInstance</code> request, the following occurs:</p>
    *          <ul>
    *             <li>
-   *                <p>For each DNS record that you define in the service that is specified by <code>ServiceId</code>, a record is
-   *      created or updated in the hosted zone that is associated with the corresponding namespace.</p>
+   *                <p>For each DNS record that you define in the service that's specified by <code>ServiceId</code>, a record is
+   *      created or updated in the hosted zone that's associated with the corresponding namespace.</p>
    *             </li>
    *             <li>
    *                <p>If the service includes <code>HealthCheckConfig</code>, a health check is created based on the settings in the

@@ -1,4 +1,4 @@
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
 
 export interface AssumeRoleWithWebIdentityParams {
@@ -142,7 +142,7 @@ export const fromWebToken =
     } = init;
 
     if (!roleAssumerWithWebIdentity) {
-      throw new ProviderError(
+      throw new CredentialsProviderError(
         `Role Arn '${roleArn}' needs to be assumed with web identity,` +
           ` but no role assumption callback was provided.`,
         false

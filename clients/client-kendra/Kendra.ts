@@ -10,12 +10,22 @@ import {
   BatchPutDocumentCommandOutput,
 } from "./commands/BatchPutDocumentCommand";
 import {
+  ClearQuerySuggestionsCommand,
+  ClearQuerySuggestionsCommandInput,
+  ClearQuerySuggestionsCommandOutput,
+} from "./commands/ClearQuerySuggestionsCommand";
+import {
   CreateDataSourceCommand,
   CreateDataSourceCommandInput,
   CreateDataSourceCommandOutput,
 } from "./commands/CreateDataSourceCommand";
 import { CreateFaqCommand, CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
 import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import {
+  CreateQuerySuggestionsBlockListCommand,
+  CreateQuerySuggestionsBlockListCommandInput,
+  CreateQuerySuggestionsBlockListCommandOutput,
+} from "./commands/CreateQuerySuggestionsBlockListCommand";
 import {
   CreateThesaurusCommand,
   CreateThesaurusCommandInput,
@@ -28,6 +38,11 @@ import {
 } from "./commands/DeleteDataSourceCommand";
 import { DeleteFaqCommand, DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
 import { DeleteIndexCommand, DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
+import {
+  DeleteQuerySuggestionsBlockListCommand,
+  DeleteQuerySuggestionsBlockListCommandInput,
+  DeleteQuerySuggestionsBlockListCommandOutput,
+} from "./commands/DeleteQuerySuggestionsBlockListCommand";
 import {
   DeleteThesaurusCommand,
   DeleteThesaurusCommandInput,
@@ -45,10 +60,25 @@ import {
   DescribeIndexCommandOutput,
 } from "./commands/DescribeIndexCommand";
 import {
+  DescribeQuerySuggestionsBlockListCommand,
+  DescribeQuerySuggestionsBlockListCommandInput,
+  DescribeQuerySuggestionsBlockListCommandOutput,
+} from "./commands/DescribeQuerySuggestionsBlockListCommand";
+import {
+  DescribeQuerySuggestionsConfigCommand,
+  DescribeQuerySuggestionsConfigCommandInput,
+  DescribeQuerySuggestionsConfigCommandOutput,
+} from "./commands/DescribeQuerySuggestionsConfigCommand";
+import {
   DescribeThesaurusCommand,
   DescribeThesaurusCommandInput,
   DescribeThesaurusCommandOutput,
 } from "./commands/DescribeThesaurusCommand";
+import {
+  GetQuerySuggestionsCommand,
+  GetQuerySuggestionsCommandInput,
+  GetQuerySuggestionsCommandOutput,
+} from "./commands/GetQuerySuggestionsCommand";
 import {
   ListDataSourceSyncJobsCommand,
   ListDataSourceSyncJobsCommandInput,
@@ -61,6 +91,11 @@ import {
 } from "./commands/ListDataSourcesCommand";
 import { ListFaqsCommand, ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
 import { ListIndicesCommand, ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
+import {
+  ListQuerySuggestionsBlockListsCommand,
+  ListQuerySuggestionsBlockListsCommandInput,
+  ListQuerySuggestionsBlockListsCommandOutput,
+} from "./commands/ListQuerySuggestionsBlockListsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -99,6 +134,16 @@ import {
   UpdateDataSourceCommandOutput,
 } from "./commands/UpdateDataSourceCommand";
 import { UpdateIndexCommand, UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
+import {
+  UpdateQuerySuggestionsBlockListCommand,
+  UpdateQuerySuggestionsBlockListCommandInput,
+  UpdateQuerySuggestionsBlockListCommandOutput,
+} from "./commands/UpdateQuerySuggestionsBlockListCommand";
+import {
+  UpdateQuerySuggestionsConfigCommand,
+  UpdateQuerySuggestionsConfigCommandInput,
+  UpdateQuerySuggestionsConfigCommandOutput,
+} from "./commands/UpdateQuerySuggestionsConfigCommand";
 import {
   UpdateThesaurusCommand,
   UpdateThesaurusCommandInput,
@@ -176,6 +221,44 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: BatchPutDocumentCommandOutput) => void
   ): Promise<BatchPutDocumentCommandOutput> | void {
     const command = new BatchPutDocumentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Clears existing query suggestions from an index.</p>
+   *         <p>This deletes existing suggestions only, not the queries
+   *             in the query log. After you clear suggestions, Amazon Kendra learns
+   *             new suggestions based on new queries added to the query log
+   *             from the time you cleared suggestions. If you do not see any
+   *             new suggestions, then please allow Amazon Kendra to collect
+   *             enough queries to learn new suggestions.</p>
+   */
+  public clearQuerySuggestions(
+    args: ClearQuerySuggestionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ClearQuerySuggestionsCommandOutput>;
+  public clearQuerySuggestions(
+    args: ClearQuerySuggestionsCommandInput,
+    cb: (err: any, data?: ClearQuerySuggestionsCommandOutput) => void
+  ): void;
+  public clearQuerySuggestions(
+    args: ClearQuerySuggestionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ClearQuerySuggestionsCommandOutput) => void
+  ): void;
+  public clearQuerySuggestions(
+    args: ClearQuerySuggestionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ClearQuerySuggestionsCommandOutput) => void),
+    cb?: (err: any, data?: ClearQuerySuggestionsCommandOutput) => void
+  ): Promise<ClearQuerySuggestionsCommandOutput> | void {
+    const command = new ClearQuerySuggestionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -275,6 +358,46 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: CreateIndexCommandOutput) => void
   ): Promise<CreateIndexCommandOutput> | void {
     const command = new CreateIndexCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a block list to exlcude certain queries from suggestions.</p>
+   *         <p>Any query that contains words or phrases specified in the block
+   *             list is blocked or filtered out from being shown as a suggestion.</p>
+   *         <p>You need to provide the file location of your block list text file
+   *             in your S3 bucket. In your text file, enter each block word or phrase
+   *             on a separate line.</p>
+   *         <p>For information on the current quota limits for block lists, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
+   *                 for Amazon Kendra</a>.</p>
+   */
+  public createQuerySuggestionsBlockList(
+    args: CreateQuerySuggestionsBlockListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateQuerySuggestionsBlockListCommandOutput>;
+  public createQuerySuggestionsBlockList(
+    args: CreateQuerySuggestionsBlockListCommandInput,
+    cb: (err: any, data?: CreateQuerySuggestionsBlockListCommandOutput) => void
+  ): void;
+  public createQuerySuggestionsBlockList(
+    args: CreateQuerySuggestionsBlockListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateQuerySuggestionsBlockListCommandOutput) => void
+  ): void;
+  public createQuerySuggestionsBlockList(
+    args: CreateQuerySuggestionsBlockListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateQuerySuggestionsBlockListCommandOutput) => void),
+    cb?: (err: any, data?: CreateQuerySuggestionsBlockListCommandOutput) => void
+  ): Promise<CreateQuerySuggestionsBlockListCommandOutput> | void {
+    const command = new CreateQuerySuggestionsBlockListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -411,6 +534,41 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * <p>Deletes a block list used for query suggestions for an index.</p>
+   *         <p>A deleted block list might not take effect right away. Amazon Kendra
+   *             needs to refresh the entire suggestions list to add back the
+   *             queries that were previously blocked.</p>
+   */
+  public deleteQuerySuggestionsBlockList(
+    args: DeleteQuerySuggestionsBlockListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteQuerySuggestionsBlockListCommandOutput>;
+  public deleteQuerySuggestionsBlockList(
+    args: DeleteQuerySuggestionsBlockListCommandInput,
+    cb: (err: any, data?: DeleteQuerySuggestionsBlockListCommandOutput) => void
+  ): void;
+  public deleteQuerySuggestionsBlockList(
+    args: DeleteQuerySuggestionsBlockListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteQuerySuggestionsBlockListCommandOutput) => void
+  ): void;
+  public deleteQuerySuggestionsBlockList(
+    args: DeleteQuerySuggestionsBlockListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteQuerySuggestionsBlockListCommandOutput) => void),
+    cb?: (err: any, data?: DeleteQuerySuggestionsBlockListCommandOutput) => void
+  ): Promise<DeleteQuerySuggestionsBlockListCommandOutput> | void {
+    const command = new DeleteQuerySuggestionsBlockListCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes an existing Amazon Kendra thesaurus.
    *       </p>
    */
@@ -534,6 +692,74 @@ export class Kendra extends KendraClient {
   }
 
   /**
+   * <p>Describes a block list used for query suggestions for an index.</p>
+   *         <p>This is used to check the current settings that are applied to a
+   *             block list.</p>
+   */
+  public describeQuerySuggestionsBlockList(
+    args: DescribeQuerySuggestionsBlockListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeQuerySuggestionsBlockListCommandOutput>;
+  public describeQuerySuggestionsBlockList(
+    args: DescribeQuerySuggestionsBlockListCommandInput,
+    cb: (err: any, data?: DescribeQuerySuggestionsBlockListCommandOutput) => void
+  ): void;
+  public describeQuerySuggestionsBlockList(
+    args: DescribeQuerySuggestionsBlockListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeQuerySuggestionsBlockListCommandOutput) => void
+  ): void;
+  public describeQuerySuggestionsBlockList(
+    args: DescribeQuerySuggestionsBlockListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeQuerySuggestionsBlockListCommandOutput) => void),
+    cb?: (err: any, data?: DescribeQuerySuggestionsBlockListCommandOutput) => void
+  ): Promise<DescribeQuerySuggestionsBlockListCommandOutput> | void {
+    const command = new DescribeQuerySuggestionsBlockListCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the settings of query suggestions for an index.</p>
+   *         <p>This is used to check the current settings applied
+   *             to query suggestions.</p>
+   */
+  public describeQuerySuggestionsConfig(
+    args: DescribeQuerySuggestionsConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeQuerySuggestionsConfigCommandOutput>;
+  public describeQuerySuggestionsConfig(
+    args: DescribeQuerySuggestionsConfigCommandInput,
+    cb: (err: any, data?: DescribeQuerySuggestionsConfigCommandOutput) => void
+  ): void;
+  public describeQuerySuggestionsConfig(
+    args: DescribeQuerySuggestionsConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeQuerySuggestionsConfigCommandOutput) => void
+  ): void;
+  public describeQuerySuggestionsConfig(
+    args: DescribeQuerySuggestionsConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeQuerySuggestionsConfigCommandOutput) => void),
+    cb?: (err: any, data?: DescribeQuerySuggestionsConfigCommandOutput) => void
+  ): Promise<DescribeQuerySuggestionsConfigCommandOutput> | void {
+    const command = new DescribeQuerySuggestionsConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes an existing Amazon Kendra thesaurus.</p>
    */
   public describeThesaurus(
@@ -555,6 +781,38 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: DescribeThesaurusCommandOutput) => void
   ): Promise<DescribeThesaurusCommandOutput> | void {
     const command = new DescribeThesaurusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Fetches the queries that are suggested to your users.</p>
+   */
+  public getQuerySuggestions(
+    args: GetQuerySuggestionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQuerySuggestionsCommandOutput>;
+  public getQuerySuggestions(
+    args: GetQuerySuggestionsCommandInput,
+    cb: (err: any, data?: GetQuerySuggestionsCommandOutput) => void
+  ): void;
+  public getQuerySuggestions(
+    args: GetQuerySuggestionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQuerySuggestionsCommandOutput) => void
+  ): void;
+  public getQuerySuggestions(
+    args: GetQuerySuggestionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQuerySuggestionsCommandOutput) => void),
+    cb?: (err: any, data?: GetQuerySuggestionsCommandOutput) => void
+  ): Promise<GetQuerySuggestionsCommandOutput> | void {
+    const command = new GetQuerySuggestionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -672,6 +930,41 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: ListIndicesCommandOutput) => void
   ): Promise<ListIndicesCommandOutput> | void {
     const command = new ListIndicesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the block lists used for query suggestions for an index.</p>
+   *         <p>For information on the current quota limits for block lists, see
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
+   *                 for Amazon Kendra</a>.</p>
+   */
+  public listQuerySuggestionsBlockLists(
+    args: ListQuerySuggestionsBlockListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQuerySuggestionsBlockListsCommandOutput>;
+  public listQuerySuggestionsBlockLists(
+    args: ListQuerySuggestionsBlockListsCommandInput,
+    cb: (err: any, data?: ListQuerySuggestionsBlockListsCommandOutput) => void
+  ): void;
+  public listQuerySuggestionsBlockLists(
+    args: ListQuerySuggestionsBlockListsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListQuerySuggestionsBlockListsCommandOutput) => void
+  ): void;
+  public listQuerySuggestionsBlockLists(
+    args: ListQuerySuggestionsBlockListsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQuerySuggestionsBlockListsCommandOutput) => void),
+    cb?: (err: any, data?: ListQuerySuggestionsBlockListsCommandOutput) => void
+  ): Promise<ListQuerySuggestionsBlockListsCommandOutput> | void {
+    const command = new ListQuerySuggestionsBlockListsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -999,6 +1292,85 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: UpdateIndexCommandOutput) => void
   ): Promise<UpdateIndexCommandOutput> | void {
     const command = new UpdateIndexCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a block list used for query suggestions for an index.</p>
+   *         <p>Updates to a block list might not take effect right away. Amazon Kendra
+   *             needs to refresh the entire suggestions list to apply any updates to the
+   *             block list. Other changes not related to the block list apply immediately.</p>
+   *         <p>If a block list is updating, then you need to wait for the first update to
+   *             finish before submitting another update.</p>
+   *         <p>Amazon Kendra supports partial updates, so you only need to provide the fields
+   *             you want to update.</p>
+   */
+  public updateQuerySuggestionsBlockList(
+    args: UpdateQuerySuggestionsBlockListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQuerySuggestionsBlockListCommandOutput>;
+  public updateQuerySuggestionsBlockList(
+    args: UpdateQuerySuggestionsBlockListCommandInput,
+    cb: (err: any, data?: UpdateQuerySuggestionsBlockListCommandOutput) => void
+  ): void;
+  public updateQuerySuggestionsBlockList(
+    args: UpdateQuerySuggestionsBlockListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQuerySuggestionsBlockListCommandOutput) => void
+  ): void;
+  public updateQuerySuggestionsBlockList(
+    args: UpdateQuerySuggestionsBlockListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateQuerySuggestionsBlockListCommandOutput) => void),
+    cb?: (err: any, data?: UpdateQuerySuggestionsBlockListCommandOutput) => void
+  ): Promise<UpdateQuerySuggestionsBlockListCommandOutput> | void {
+    const command = new UpdateQuerySuggestionsBlockListCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the settings of query suggestions for an index.</p>
+   *         <p>Amazon Kendra supports partial updates, so you only need to provide
+   *             the fields you want to update.</p>
+   *         <p>If an update is currently processing (i.e. 'happening'), you
+   *             need to wait for the update to finish before making another update.</p>
+   *         <p>Updates to query suggestions settings might not take effect right away.
+   *             The time for your updated settings to take effect depends on the updates
+   *             made and the number of search queries in your index.</p>
+   *         <p>You can still enable/disable query suggestions at any time.</p>
+   */
+  public updateQuerySuggestionsConfig(
+    args: UpdateQuerySuggestionsConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQuerySuggestionsConfigCommandOutput>;
+  public updateQuerySuggestionsConfig(
+    args: UpdateQuerySuggestionsConfigCommandInput,
+    cb: (err: any, data?: UpdateQuerySuggestionsConfigCommandOutput) => void
+  ): void;
+  public updateQuerySuggestionsConfig(
+    args: UpdateQuerySuggestionsConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQuerySuggestionsConfigCommandOutput) => void
+  ): void;
+  public updateQuerySuggestionsConfig(
+    args: UpdateQuerySuggestionsConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateQuerySuggestionsConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateQuerySuggestionsConfigCommandOutput) => void
+  ): Promise<UpdateQuerySuggestionsConfigCommandOutput> | void {
+    const command = new UpdateQuerySuggestionsConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -21,7 +21,7 @@ export interface DescribePoliciesCommandInput extends DescribePoliciesType {}
 export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataBearer {}
 
 /**
- * <p>Describes the policies for the specified Auto Scaling group.</p>
+ * <p>Gets information about the scaling policies in the account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

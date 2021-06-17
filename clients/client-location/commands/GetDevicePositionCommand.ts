@@ -23,7 +23,7 @@ export interface GetDevicePositionCommandOutput extends GetDevicePositionRespons
 /**
  * <p>Retrieves a device's most recent position according to its sample time.</p>
  *          <note>
- *             <p>Device positions are deleted after one year.</p>
+ *             <p>Device positions are deleted after 30 days.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

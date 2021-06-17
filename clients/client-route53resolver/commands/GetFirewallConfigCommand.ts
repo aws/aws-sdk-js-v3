@@ -21,7 +21,8 @@ export interface GetFirewallConfigCommandInput extends GetFirewallConfigRequest 
 export interface GetFirewallConfigCommandOutput extends GetFirewallConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the configuration of the firewall behavior provided by DNS Firewall for a single Amazon virtual private cloud (VPC). </p>
+ * <p>Retrieves the configuration of the firewall behavior provided by DNS Firewall for a
+ * 			single VPC from Amazon Virtual Private Cloud (Amazon VPC). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

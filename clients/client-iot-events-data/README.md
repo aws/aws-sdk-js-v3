@@ -7,9 +7,11 @@
 
 AWS SDK for JavaScript IoTEventsData Client for Node.js, Browser and React Native.
 
-<p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation,
-and triggers actions when such events occur. AWS IoT Events Data API commands enable you to send
-inputs to detectors, list detectors, and view or update a detector's status.</p>
+<p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation, and
+triggers actions when such events occur. You can use AWS IoT Events Data API commands to send inputs to
+detectors, list detectors, and view or update a detector's status.</p>
+<p> For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/what-is-iotevents.html">What is AWS IoT Events?</a> in the
+<i>AWS IoT Events Developer Guide</i>.</p>
 
 ## Installing
 
@@ -26,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTEventsDataClient` and
-the commands you need, for example `BatchPutMessageCommand`:
+the commands you need, for example `BatchAcknowledgeAlarmCommand`:
 
 ```js
 // ES5 example
-const { IoTEventsDataClient, BatchPutMessageCommand } = require("@aws-sdk/client-iot-events-data");
+const { IoTEventsDataClient, BatchAcknowledgeAlarmCommand } = require("@aws-sdk/client-iot-events-data");
 ```
 
 ```ts
 // ES6+ example
-import { IoTEventsDataClient, BatchPutMessageCommand } from "@aws-sdk/client-iot-events-data";
+import { IoTEventsDataClient, BatchAcknowledgeAlarmCommand } from "@aws-sdk/client-iot-events-data";
 ```
 
 ### Usage
@@ -54,7 +56,7 @@ const client = new IoTEventsDataClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchPutMessageCommand(params);
+const command = new BatchAcknowledgeAlarmCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +135,7 @@ const client = new AWS.IoTEventsData({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchPutMessage(params);
+  const data = await client.batchAcknowledgeAlarm(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +143,7 @@ try {
 
 // Promises.
 client
-  .batchPutMessage(params)
+  .batchAcknowledgeAlarm(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +152,7 @@ client
   });
 
 // callbacks.
-client.batchPutMessage(params, (err, data) => {
+client.batchAcknowledgeAlarm(params, (err, data) => {
   // proccess err and data.
 });
 ```

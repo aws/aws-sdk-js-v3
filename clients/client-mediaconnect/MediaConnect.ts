@@ -1,5 +1,10 @@
 import { MediaConnectClient } from "./MediaConnectClient";
 import {
+  AddFlowMediaStreamsCommand,
+  AddFlowMediaStreamsCommandInput,
+  AddFlowMediaStreamsCommandOutput,
+} from "./commands/AddFlowMediaStreamsCommand";
+import {
   AddFlowOutputsCommand,
   AddFlowOutputsCommandInput,
   AddFlowOutputsCommandOutput,
@@ -63,6 +68,11 @@ import {
   PurchaseOfferingCommandOutput,
 } from "./commands/PurchaseOfferingCommand";
 import {
+  RemoveFlowMediaStreamCommand,
+  RemoveFlowMediaStreamCommandInput,
+  RemoveFlowMediaStreamCommandOutput,
+} from "./commands/RemoveFlowMediaStreamCommand";
+import {
   RemoveFlowOutputCommand,
   RemoveFlowOutputCommandInput,
   RemoveFlowOutputCommandOutput,
@@ -97,6 +107,11 @@ import {
   UpdateFlowEntitlementCommandOutput,
 } from "./commands/UpdateFlowEntitlementCommand";
 import {
+  UpdateFlowMediaStreamCommand,
+  UpdateFlowMediaStreamCommandInput,
+  UpdateFlowMediaStreamCommandOutput,
+} from "./commands/UpdateFlowMediaStreamCommand";
+import {
   UpdateFlowOutputCommand,
   UpdateFlowOutputCommandInput,
   UpdateFlowOutputCommandOutput,
@@ -112,6 +127,38 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * API for AWS Elemental MediaConnect
  */
 export class MediaConnect extends MediaConnectClient {
+  /**
+   * Adds media streams to an existing flow. After you add a media stream to a flow, you can associate it with a source and/or an output that uses the ST 2110 JPEG XS or CDI protocol.
+   */
+  public addFlowMediaStreams(
+    args: AddFlowMediaStreamsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddFlowMediaStreamsCommandOutput>;
+  public addFlowMediaStreams(
+    args: AddFlowMediaStreamsCommandInput,
+    cb: (err: any, data?: AddFlowMediaStreamsCommandOutput) => void
+  ): void;
+  public addFlowMediaStreams(
+    args: AddFlowMediaStreamsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddFlowMediaStreamsCommandOutput) => void
+  ): void;
+  public addFlowMediaStreams(
+    args: AddFlowMediaStreamsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddFlowMediaStreamsCommandOutput) => void),
+    cb?: (err: any, data?: AddFlowMediaStreamsCommandOutput) => void
+  ): Promise<AddFlowMediaStreamsCommandOutput> | void {
+    const command = new AddFlowMediaStreamsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * Adds outputs to an existing flow. You can create up to 50 outputs per flow.
    */
@@ -572,6 +619,38 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * Removes a media stream from a flow. This action is only available if the media stream is not associated with a source or output.
+   */
+  public removeFlowMediaStream(
+    args: RemoveFlowMediaStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RemoveFlowMediaStreamCommandOutput>;
+  public removeFlowMediaStream(
+    args: RemoveFlowMediaStreamCommandInput,
+    cb: (err: any, data?: RemoveFlowMediaStreamCommandOutput) => void
+  ): void;
+  public removeFlowMediaStream(
+    args: RemoveFlowMediaStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RemoveFlowMediaStreamCommandOutput) => void
+  ): void;
+  public removeFlowMediaStream(
+    args: RemoveFlowMediaStreamCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveFlowMediaStreamCommandOutput) => void),
+    cb?: (err: any, data?: RemoveFlowMediaStreamCommandOutput) => void
+  ): Promise<RemoveFlowMediaStreamCommandOutput> | void {
+    const command = new RemoveFlowMediaStreamCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * Removes an output from an existing flow. This request can be made only on an output that does not have an entitlement associated with it. If the output has an entitlement, you must revoke the entitlement instead. When an entitlement is revoked from a flow, the service automatically removes the associated output.
    */
   public removeFlowOutput(
@@ -857,6 +936,38 @@ export class MediaConnect extends MediaConnectClient {
     cb?: (err: any, data?: UpdateFlowEntitlementCommandOutput) => void
   ): Promise<UpdateFlowEntitlementCommandOutput> | void {
     const command = new UpdateFlowEntitlementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Updates an existing media stream.
+   */
+  public updateFlowMediaStream(
+    args: UpdateFlowMediaStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFlowMediaStreamCommandOutput>;
+  public updateFlowMediaStream(
+    args: UpdateFlowMediaStreamCommandInput,
+    cb: (err: any, data?: UpdateFlowMediaStreamCommandOutput) => void
+  ): void;
+  public updateFlowMediaStream(
+    args: UpdateFlowMediaStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFlowMediaStreamCommandOutput) => void
+  ): void;
+  public updateFlowMediaStream(
+    args: UpdateFlowMediaStreamCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFlowMediaStreamCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFlowMediaStreamCommandOutput) => void
+  ): Promise<UpdateFlowMediaStreamCommandOutput> | void {
+    const command = new UpdateFlowMediaStreamCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -3,18 +3,42 @@ import {
   BatchDeleteDocumentCommandOutput,
 } from "./commands/BatchDeleteDocumentCommand";
 import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "./commands/BatchPutDocumentCommand";
+import {
+  ClearQuerySuggestionsCommandInput,
+  ClearQuerySuggestionsCommandOutput,
+} from "./commands/ClearQuerySuggestionsCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
 import { CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand";
 import { CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand";
+import {
+  CreateQuerySuggestionsBlockListCommandInput,
+  CreateQuerySuggestionsBlockListCommandOutput,
+} from "./commands/CreateQuerySuggestionsBlockListCommand";
 import { CreateThesaurusCommandInput, CreateThesaurusCommandOutput } from "./commands/CreateThesaurusCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand";
 import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand";
+import {
+  DeleteQuerySuggestionsBlockListCommandInput,
+  DeleteQuerySuggestionsBlockListCommandOutput,
+} from "./commands/DeleteQuerySuggestionsBlockListCommand";
 import { DeleteThesaurusCommandInput, DeleteThesaurusCommandOutput } from "./commands/DeleteThesaurusCommand";
 import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand";
 import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand";
 import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand";
+import {
+  DescribeQuerySuggestionsBlockListCommandInput,
+  DescribeQuerySuggestionsBlockListCommandOutput,
+} from "./commands/DescribeQuerySuggestionsBlockListCommand";
+import {
+  DescribeQuerySuggestionsConfigCommandInput,
+  DescribeQuerySuggestionsConfigCommandOutput,
+} from "./commands/DescribeQuerySuggestionsConfigCommand";
 import { DescribeThesaurusCommandInput, DescribeThesaurusCommandOutput } from "./commands/DescribeThesaurusCommand";
+import {
+  GetQuerySuggestionsCommandInput,
+  GetQuerySuggestionsCommandOutput,
+} from "./commands/GetQuerySuggestionsCommand";
 import {
   ListDataSourceSyncJobsCommandInput,
   ListDataSourceSyncJobsCommandOutput,
@@ -22,6 +46,10 @@ import {
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import { ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand";
 import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
+import {
+  ListQuerySuggestionsBlockListsCommandInput,
+  ListQuerySuggestionsBlockListsCommandOutput,
+} from "./commands/ListQuerySuggestionsBlockListsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -41,6 +69,14 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand";
+import {
+  UpdateQuerySuggestionsBlockListCommandInput,
+  UpdateQuerySuggestionsBlockListCommandOutput,
+} from "./commands/UpdateQuerySuggestionsBlockListCommand";
+import {
+  UpdateQuerySuggestionsConfigCommandInput,
+  UpdateQuerySuggestionsConfigCommandOutput,
+} from "./commands/UpdateQuerySuggestionsConfigCommand";
 import { UpdateThesaurusCommandInput, UpdateThesaurusCommandOutput } from "./commands/UpdateThesaurusCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -96,22 +132,29 @@ import {
 export type ServiceInputTypes =
   | BatchDeleteDocumentCommandInput
   | BatchPutDocumentCommandInput
+  | ClearQuerySuggestionsCommandInput
   | CreateDataSourceCommandInput
   | CreateFaqCommandInput
   | CreateIndexCommandInput
+  | CreateQuerySuggestionsBlockListCommandInput
   | CreateThesaurusCommandInput
   | DeleteDataSourceCommandInput
   | DeleteFaqCommandInput
   | DeleteIndexCommandInput
+  | DeleteQuerySuggestionsBlockListCommandInput
   | DeleteThesaurusCommandInput
   | DescribeDataSourceCommandInput
   | DescribeFaqCommandInput
   | DescribeIndexCommandInput
+  | DescribeQuerySuggestionsBlockListCommandInput
+  | DescribeQuerySuggestionsConfigCommandInput
   | DescribeThesaurusCommandInput
+  | GetQuerySuggestionsCommandInput
   | ListDataSourceSyncJobsCommandInput
   | ListDataSourcesCommandInput
   | ListFaqsCommandInput
   | ListIndicesCommandInput
+  | ListQuerySuggestionsBlockListsCommandInput
   | ListTagsForResourceCommandInput
   | ListThesauriCommandInput
   | QueryCommandInput
@@ -122,27 +165,36 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateDataSourceCommandInput
   | UpdateIndexCommandInput
+  | UpdateQuerySuggestionsBlockListCommandInput
+  | UpdateQuerySuggestionsConfigCommandInput
   | UpdateThesaurusCommandInput;
 
 export type ServiceOutputTypes =
   | BatchDeleteDocumentCommandOutput
   | BatchPutDocumentCommandOutput
+  | ClearQuerySuggestionsCommandOutput
   | CreateDataSourceCommandOutput
   | CreateFaqCommandOutput
   | CreateIndexCommandOutput
+  | CreateQuerySuggestionsBlockListCommandOutput
   | CreateThesaurusCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteFaqCommandOutput
   | DeleteIndexCommandOutput
+  | DeleteQuerySuggestionsBlockListCommandOutput
   | DeleteThesaurusCommandOutput
   | DescribeDataSourceCommandOutput
   | DescribeFaqCommandOutput
   | DescribeIndexCommandOutput
+  | DescribeQuerySuggestionsBlockListCommandOutput
+  | DescribeQuerySuggestionsConfigCommandOutput
   | DescribeThesaurusCommandOutput
+  | GetQuerySuggestionsCommandOutput
   | ListDataSourceSyncJobsCommandOutput
   | ListDataSourcesCommandOutput
   | ListFaqsCommandOutput
   | ListIndicesCommandOutput
+  | ListQuerySuggestionsBlockListsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListThesauriCommandOutput
   | QueryCommandOutput
@@ -153,6 +205,8 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateDataSourceCommandOutput
   | UpdateIndexCommandOutput
+  | UpdateQuerySuggestionsBlockListCommandOutput
+  | UpdateQuerySuggestionsConfigCommandOutput
   | UpdateThesaurusCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -229,7 +283,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -237,6 +291,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.

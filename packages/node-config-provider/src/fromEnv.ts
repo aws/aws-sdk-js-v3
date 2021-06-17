@@ -1,4 +1,4 @@
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { Provider } from "@aws-sdk/types";
 
 export type GetterFromEnv<T> = (env: NodeJS.ProcessEnv) => T | undefined;
@@ -17,7 +17,7 @@ export const fromEnv =
       }
       return config as T;
     } catch (e) {
-      throw new ProviderError(
+      throw new CredentialsProviderError(
         e.message || `Cannot load config from environment variables with getter: ${envVarSelector}`
       );
     }

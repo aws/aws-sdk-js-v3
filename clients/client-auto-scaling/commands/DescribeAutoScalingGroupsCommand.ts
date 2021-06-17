@@ -21,7 +21,9 @@ export interface DescribeAutoScalingGroupsCommandInput extends AutoScalingGroupN
 export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroupsType, __MetadataBearer {}
 
 /**
- * <p>Describes one or more Auto Scaling groups.</p>
+ * <p>Gets information about the Auto Scaling groups in the account and Region.</p>
+ *         <p>This operation returns information about instances in Auto Scaling groups. To retrieve
+ *             information about the instances in a warm pool, you must call the <a>DescribeWarmPool</a> API. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

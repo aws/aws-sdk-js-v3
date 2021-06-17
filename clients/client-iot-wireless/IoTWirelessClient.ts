@@ -82,7 +82,15 @@ import {
 } from "./commands/DisassociateWirelessGatewayFromThingCommand";
 import { GetDestinationCommandInput, GetDestinationCommandOutput } from "./commands/GetDestinationCommand";
 import { GetDeviceProfileCommandInput, GetDeviceProfileCommandOutput } from "./commands/GetDeviceProfileCommand";
+import {
+  GetLogLevelsByResourceTypesCommandInput,
+  GetLogLevelsByResourceTypesCommandOutput,
+} from "./commands/GetLogLevelsByResourceTypesCommand";
 import { GetPartnerAccountCommandInput, GetPartnerAccountCommandOutput } from "./commands/GetPartnerAccountCommand";
+import {
+  GetResourceLogLevelCommandInput,
+  GetResourceLogLevelCommandOutput,
+} from "./commands/GetResourceLogLevelCommand";
 import { GetServiceEndpointCommandInput, GetServiceEndpointCommandOutput } from "./commands/GetServiceEndpointCommand";
 import { GetServiceProfileCommandInput, GetServiceProfileCommandOutput } from "./commands/GetServiceProfileCommand";
 import { GetWirelessDeviceCommandInput, GetWirelessDeviceCommandOutput } from "./commands/GetWirelessDeviceCommand";
@@ -138,6 +146,18 @@ import {
   ListWirelessGatewaysCommandOutput,
 } from "./commands/ListWirelessGatewaysCommand";
 import {
+  PutResourceLogLevelCommandInput,
+  PutResourceLogLevelCommandOutput,
+} from "./commands/PutResourceLogLevelCommand";
+import {
+  ResetAllResourceLogLevelsCommandInput,
+  ResetAllResourceLogLevelsCommandOutput,
+} from "./commands/ResetAllResourceLogLevelsCommand";
+import {
+  ResetResourceLogLevelCommandInput,
+  ResetResourceLogLevelCommandOutput,
+} from "./commands/ResetResourceLogLevelCommand";
+import {
   SendDataToWirelessDeviceCommandInput,
   SendDataToWirelessDeviceCommandOutput,
 } from "./commands/SendDataToWirelessDeviceCommand";
@@ -145,6 +165,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { TestWirelessDeviceCommandInput, TestWirelessDeviceCommandOutput } from "./commands/TestWirelessDeviceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDestinationCommandInput, UpdateDestinationCommandOutput } from "./commands/UpdateDestinationCommand";
+import {
+  UpdateLogLevelsByResourceTypesCommandInput,
+  UpdateLogLevelsByResourceTypesCommandOutput,
+} from "./commands/UpdateLogLevelsByResourceTypesCommand";
 import {
   UpdatePartnerAccountCommandInput,
   UpdatePartnerAccountCommandOutput,
@@ -233,7 +257,9 @@ export type ServiceInputTypes =
   | DisassociateWirelessGatewayFromThingCommandInput
   | GetDestinationCommandInput
   | GetDeviceProfileCommandInput
+  | GetLogLevelsByResourceTypesCommandInput
   | GetPartnerAccountCommandInput
+  | GetResourceLogLevelCommandInput
   | GetServiceEndpointCommandInput
   | GetServiceProfileCommandInput
   | GetWirelessDeviceCommandInput
@@ -252,11 +278,15 @@ export type ServiceInputTypes =
   | ListWirelessDevicesCommandInput
   | ListWirelessGatewayTaskDefinitionsCommandInput
   | ListWirelessGatewaysCommandInput
+  | PutResourceLogLevelCommandInput
+  | ResetAllResourceLogLevelsCommandInput
+  | ResetResourceLogLevelCommandInput
   | SendDataToWirelessDeviceCommandInput
   | TagResourceCommandInput
   | TestWirelessDeviceCommandInput
   | UntagResourceCommandInput
   | UpdateDestinationCommandInput
+  | UpdateLogLevelsByResourceTypesCommandInput
   | UpdatePartnerAccountCommandInput
   | UpdateWirelessDeviceCommandInput
   | UpdateWirelessGatewayCommandInput;
@@ -286,7 +316,9 @@ export type ServiceOutputTypes =
   | DisassociateWirelessGatewayFromThingCommandOutput
   | GetDestinationCommandOutput
   | GetDeviceProfileCommandOutput
+  | GetLogLevelsByResourceTypesCommandOutput
   | GetPartnerAccountCommandOutput
+  | GetResourceLogLevelCommandOutput
   | GetServiceEndpointCommandOutput
   | GetServiceProfileCommandOutput
   | GetWirelessDeviceCommandOutput
@@ -305,11 +337,15 @@ export type ServiceOutputTypes =
   | ListWirelessDevicesCommandOutput
   | ListWirelessGatewayTaskDefinitionsCommandOutput
   | ListWirelessGatewaysCommandOutput
+  | PutResourceLogLevelCommandOutput
+  | ResetAllResourceLogLevelsCommandOutput
+  | ResetResourceLogLevelCommandOutput
   | SendDataToWirelessDeviceCommandOutput
   | TagResourceCommandOutput
   | TestWirelessDeviceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDestinationCommandOutput
+  | UpdateLogLevelsByResourceTypesCommandOutput
   | UpdatePartnerAccountCommandOutput
   | UpdateWirelessDeviceCommandOutput
   | UpdateWirelessGatewayCommandOutput;
@@ -388,7 +424,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -396,6 +432,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.

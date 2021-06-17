@@ -26,8 +26,7 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *          valid AWS Access Key ID to authenticate requests. Anonymous requests are never allowed to
  *          create buckets. By creating the bucket, you become the bucket owner.</p>
  *          <p>Not every string is an acceptable bucket name. For information about bucket naming
- *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html">Working with Amazon S3
- *             buckets</a>. </p>
+ *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Bucket naming rules</a>.</p>
  *          <p>If you want to create an Amazon S3 on Outposts bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html">Create Bucket</a>. </p>
  *          <p>By default, the bucket is created in the US East (N. Virginia) Region. You can
  *          optionally specify a Region in the request body. You might choose a Region to optimize

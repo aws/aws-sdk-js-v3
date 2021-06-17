@@ -2,7 +2,7 @@ import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>A custom key-value pair associated with a resource.</p>
+ * <p>A custom key-value pair that's associated with a resource.</p>
  */
 export interface Tag {
   /**
@@ -11,8 +11,8 @@ export interface Tag {
   Key: string | undefined;
 
   /**
-   * <p>The string value associated with the key of the tag. You can set the value of a tag to an empty string, but you
-   *    can't set the value of a tag to null.</p>
+   * <p>The string value that's associated with the key of the tag. You can set the value of a tag to an empty string,
+   *    but you can't set the value of a tag to null.</p>
    */
   Value: string | undefined;
 }
@@ -34,8 +34,8 @@ export interface CreateHttpNamespaceRequest {
 
   /**
    * <p>A unique string that identifies the request and that allows failed <code>CreateHttpNamespace</code> requests to
-   *    be retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string,
-   *    for example, a date/time stamp.</p>
+   *    be retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string
+   *    (for example, a date/time stamp).</p>
    */
   CreatorRequestId?: string;
 
@@ -86,7 +86,7 @@ export interface DuplicateRequest extends __SmithyException, $MetadataBearer {
   $fault: "client";
   Message?: string;
   /**
-   * <p>The ID of the operation that is already in progress.</p>
+   * <p>The ID of the operation that's already in progress.</p>
    */
   DuplicateOperationId?: string;
 }
@@ -197,7 +197,7 @@ export interface CreatePrivateDnsNamespaceRequest {
   /**
    * <p>A unique string that identifies the request and that allows failed <code>CreatePrivateDnsNamespace</code>
    *    requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any
-   *    unique string, for example, a date/timestamp.</p>
+   *    unique string (for example, a date/timestamp).</p>
    */
   CreatorRequestId?: string;
 
@@ -254,7 +254,7 @@ export interface CreatePublicDnsNamespaceRequest {
   /**
    * <p>A unique string that identifies the request and that allows failed <code>CreatePublicDnsNamespace</code>
    *    requests to be retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any
-   *    unique string, for example, a date/timestamp.</p>
+   *    unique string (for example, a date/timestamp).</p>
    */
   CreatorRequestId?: string;
 
@@ -492,8 +492,8 @@ export interface DnsConfig {
    *                <p>If you define a health check for the service and the health check is healthy, Route 53 returns the applicable
    *       value for up to eight instances.</p>
    *                <p>For example, suppose that the service includes configurations for one <code>A</code> record and a health
-   *       check. You use the service to register 10 instances. Route 53 responds to DNS queries with IP addresses for up to eight
-   *       healthy instances. If fewer than eight instances are healthy, Route 53 responds to every DNS query with the IP
+   *       check. You use the service to register 10 instances. Route 53 responds to DNS queries with IP addresses for up to
+   *       eight healthy instances. If fewer than eight instances are healthy, Route 53 responds to every DNS query with the IP
    *       addresses for all of the healthy instances.</p>
    *                <p>If you don't define a health check for the service, Route 53 assumes that all instances are healthy and returns
    *       the values for up to eight instances.</p>
@@ -557,7 +557,7 @@ export enum HealthCheckType {
  *             <dd>
  *                <p>If <code>DnsConfig</code> includes configurations for both <code>A</code> and <code>AAAA</code> records,
  *       AWS Cloud Map creates a health check that uses the IPv4 address to check the health of the resource. If the endpoint
- *       that is specified by the IPv4 address is unhealthy, Route 53 considers both the <code>A</code> and <code>AAAA</code>
+ *       tthat's specified by the IPv4 address is unhealthy, Route 53 considers both the <code>A</code> and <code>AAAA</code>
  *       records to be unhealthy. </p>
  *             </dd>
  *             <dt>CNAME records</dt>
@@ -568,14 +568,14 @@ export enum HealthCheckType {
  *             </dd>
  *             <dt>Request interval</dt>
  *             <dd>
- *                <p>A Route 53 health checker in each health-checking region sends a health check request to an endpoint every 30
- *       seconds. On average, your endpoint receives a health check request about every two seconds. However, health
- *       checkers don't coordinate with one another, so you'll sometimes see several requests per second followed by a few
- *       seconds with no health checks at all.</p>
+ *                <p>A Route 53 health checker in each health-checking AWS Region sends a health check request to an endpoint every
+ *       30 seconds. On average, your endpoint receives a health check request about every two seconds. However, health
+ *       checkers don't coordinate with one another. Therefore, you might sometimes see several requests in one second
+ *       that's followed by a few seconds with no health checks at all.</p>
  *             </dd>
  *             <dt>Health checking regions</dt>
  *             <dd>
- *                <p>Health checkers perform checks from all Route 53 health-checking regions. For a list of the current regions, see
+ *                <p>Health checkers perform checks from all Route 53 health-checking Regions. For a list of the current Regions, see
  *        <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html#Route53-Type-HealthCheckConfig-Regions">Regions</a>.</p>
  *             </dd>
  *             <dt>Alias records</dt>
@@ -585,8 +585,8 @@ export enum HealthCheckType {
  *                <ul>
  *                   <li>
  *                      <p>Route 53 automatically sets <code>EvaluateTargetHealth</code> to true for alias records. When
- *          <code>EvaluateTargetHealth</code> is true, the alias record inherits the health of the referenced AWS resource.
- *         such as an ELB load balancer. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html#Route53-Type-AliasTarget-EvaluateTargetHealth">EvaluateTargetHealth</a>.</p>
+ *          <code>EvaluateTargetHealth</code> is true, the alias record inherits the health of the referenced AWS
+ *         resource. such as an ELB load balancer. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html#Route53-Type-AliasTarget-EvaluateTargetHealth">EvaluateTargetHealth</a>.</p>
  *                   </li>
  *                   <li>
  *                      <p>If you include <code>HealthCheckConfig</code> and then use the service to register an instance that creates
@@ -636,8 +636,8 @@ export interface HealthCheckConfig {
   Type: HealthCheckType | string | undefined;
 
   /**
-   * <p>The path that you want Route 53 to request when performing health checks. The path can be any value for which your
-   *    endpoint returns an HTTP status code of a 2xx or 3xx format when the endpoint is healthy, such as the file
+   * <p>The path that you want Route 53 to request when performing health checks. The path can be any value that your
+   *    endpoint returns an HTTP status code of a 2xx or 3xx format for when the endpoint is healthy. An example file is
    *     <code>/docs/route53-health-check.html</code>. Route 53 automatically adds the DNS name for the service. If you don't
    *    specify a value for <code>ResourcePath</code>, the default value is <code>/</code>.</p>
    *          <p>If you specify <code>TCP</code> for <code>Type</code>, you must <i>not</i> specify a value for
@@ -647,8 +647,8 @@ export interface HealthCheckConfig {
 
   /**
    * <p>The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current
-   *    status of the endpoint from unhealthy to healthy or the other way around. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How Route 53 Determines Whether
-   *     an Endpoint Is Healthy</a> in the <i>Route 53 Developer Guide</i>.</p>
+   *    status of the endpoint from unhealthy to healthy or the other way around. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How Route 53
+   *     Determines Whether an Endpoint Is Healthy</a> in the <i>Route 53 Developer Guide</i>.</p>
    */
   FailureThreshold?: number;
 }
@@ -668,12 +668,12 @@ export namespace HealthCheckConfig {
  *    following circumstances:</p>
  *          <ul>
  *             <li>
- *                <p>You can't use a health check that is defined by <code>HealthCheckConfig</code> because the resource isn't
+ *                <p>You can't use a health check that's defined by <code>HealthCheckConfig</code> because the resource isn't
  *      available over the internet. For example, you can use a custom health check when the instance is in an Amazon VPC.
  *      (To check the health of resources in a VPC, the health checker must also be in the VPC.)</p>
  *             </li>
  *             <li>
- *                <p>You want to use a third-party health checker regardless of where your resources are.</p>
+ *                <p>You want to use a third-party health checker regardless of where your resources are located.</p>
  *             </li>
  *          </ul>
  *          <important>
@@ -686,16 +686,13 @@ export namespace HealthCheckConfig {
  *          <p>Here's how custom health checks work:</p>
  *          <ol>
  *             <li>
- *                <p>You create a service and specify a value for <code>FailureThreshold</code>. </p>
- *                <p>The failure threshold indicates the number of 30-second intervals you want AWS Cloud Map to wait between the time
- *      that your application sends an <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_UpdateInstanceCustomHealthStatus.html">UpdateInstanceCustomHealthStatus</a>
- *      request and the time that AWS Cloud Map stops routing internet traffic to the corresponding resource.</p>
+ *                <p>You create a service.</p>
  *             </li>
  *             <li>
  *                <p>You register an instance.</p>
  *             </li>
  *             <li>
- *                <p>You configure a third-party health checker to monitor the resource that is associated with the new instance. </p>
+ *                <p>You configure a third-party health checker to monitor the resource that's associated with the new instance. </p>
  *                <note>
  *                   <p>AWS Cloud Map doesn't check the health of the resource directly. </p>
  *                </note>
@@ -707,7 +704,7 @@ export namespace HealthCheckConfig {
  *                <p>Your application submits an <code>UpdateInstanceCustomHealthStatus</code> request.</p>
  *             </li>
  *             <li>
- *                <p>AWS Cloud Map waits for (<code>FailureThreshold</code> x 30) seconds.</p>
+ *                <p>AWS Cloud Map waits for 30 seconds.</p>
  *             </li>
  *             <li>
  *                <p>If another <code>UpdateInstanceCustomHealthStatus</code> request doesn't arrive during that time to change the
@@ -720,7 +717,7 @@ export interface HealthCheckCustomConfig {
    * @deprecated
    *
    * <important>
-   *             <p>This parameter has been deprecated and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after
+   *             <p>This parameter is no longer supported and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after
    *     receiving an <code>UpdateInstanceCustomHealthStatus</code> request before changing the status of the service
    *     instance.</p>
    *          </important>
@@ -761,10 +758,9 @@ export interface CreateServiceRequest {
    *             </li>
    *          </ul>
    *          <p>When you register an instance, AWS Cloud Map creates an <code>SRV</code> record and assigns a name to the record by
-   *    concatenating the service name and the namespace name, for example:</p>
+   *    concatenating the service name and the namespace name (for example,</p>
    *          <p>
-   *             <code>_exampleservice._tcp.example.com</code>
-   *          </p>
+   *             <code>_exampleservice._tcp.example.com</code>).</p>
    *          <note>
    *             <p>For services that are accessible by DNS queries, you can't create multiple services with names that differ only
    *     by case (such as EXAMPLE and example). Otherwise, these services have the same DNS name and can't be distinguished.
@@ -775,16 +771,15 @@ export interface CreateServiceRequest {
   Name: string | undefined;
 
   /**
-   * <p>The ID of the namespace that you want to use to create the
-   *    service. The namespace ID must be specified,
-   *    but it can be specified either here or in the <code>DnsConfig</code> object.</p>
+   * <p>The ID of the namespace that you want to use to create the service. The namespace ID must be specified, but it
+   *    can be specified either here or in the <code>DnsConfig</code> object.</p>
    */
   NamespaceId?: string;
 
   /**
    * <p>A unique string that identifies the request and that allows failed <code>CreateService</code> requests to be
-   *    retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string, for
-   *    example, a date/timestamp.</p>
+   *    retried without the risk of running the operation twice. <code>CreatorRequestId</code> can be any unique string (for
+   *    example, a date/timestamp).</p>
    */
   CreatorRequestId?: string;
 
@@ -831,9 +826,9 @@ export interface CreateServiceRequest {
   Tags?: Tag[];
 
   /**
-   * <p>If present, specifies that the service
-   *    instances are only discoverable using the <code>DiscoverInstances</code> API operation. No DNS records will be
-   *    registered for the service instances. The only valid value is <code>HTTP</code>.</p>
+   * <p>If present, specifies that the service instances are only discoverable using the <code>DiscoverInstances</code>
+   *    API operation. No DNS records is registered for the service instances. The only valid value is
+   *    <code>HTTP</code>.</p>
    */
   Type?: ServiceTypeOption | string;
 }
@@ -884,8 +879,8 @@ export interface Service {
 
   /**
    * <p>The number of instances that are currently associated with the service. Instances that were previously
-   *    associated with the service but that have been deleted are not included in the count. The count might not reflect
-   *    pending registrations and deregistrations.</p>
+   *    associated with the service but that are deleted aren't included in the count. The count might not reflect pending
+   *    registrations and deregistrations.</p>
    */
   InstanceCount?: number;
 
@@ -896,9 +891,7 @@ export interface Service {
   DnsConfig?: DnsConfig;
 
   /**
-   * <p>Describes the systems that can be used to
-   *    discover the service instances.</p>
-   *
+   * <p>Describes the systems that can be used to discover the service instances.</p>
    *          <dl>
    *             <dt>DNS_HTTP</dt>
    *             <dd>
@@ -944,8 +937,8 @@ export interface Service {
 
   /**
    * <p>A unique string that identifies the request and that allows failed requests to be retried without the risk of
-   *    running the operation twice. <code>CreatorRequestId</code> can be any unique string, for example, a
-   *    date/timestamp.</p>
+   *    running the operation twice. <code>CreatorRequestId</code> can be any unique string (for example, a
+   *    date/timestamp).</p>
    */
   CreatorRequestId?: string;
 }
@@ -1201,12 +1194,13 @@ export namespace InstanceNotFound {
 export enum HealthStatusFilter {
   ALL = "ALL",
   HEALTHY = "HEALTHY",
+  HEALTHY_OR_ELSE_ALL = "HEALTHY_OR_ELSE_ALL",
   UNHEALTHY = "UNHEALTHY",
 }
 
 export interface DiscoverInstancesRequest {
   /**
-   * <p>The <code>HttpName</code> name of the namespace, found in the <code>HttpProperties</code> member of the
+   * <p>The <code>HttpName</code> name of the namespace. It's found in the <code>HttpProperties</code> member of the
    *     <code>Properties</code> member of the namespace.</p>
    */
   NamespaceName: string | undefined;
@@ -1224,21 +1218,43 @@ export interface DiscoverInstancesRequest {
   MaxResults?: number;
 
   /**
-   * <p>Filters to scope the results based on custom attributes for the instance. For example, <code>{version=v1,
-   *          az=1a}</code>. Only instances that match all the specified key-value pairs are returned.</p>
+   * <p>Filters to scope the results based on custom attributes for the instance (for example, <code>{version=v1,
+   *     az=1a}</code>). Only instances that match all the specified key-value pairs are returned.</p>
    */
   QueryParameters?: { [key: string]: string };
 
   /**
-   * <p>Opportunistic filters to scope the results based on custom attributes. If there are instances that match
-   *          both the filters specified in both the <code>QueryParameters</code> parameter and this parameter, they are
-   *          returned. Otherwise, these filters are ignored and only instances that match the filters specified in the
-   *          <code>QueryParameters</code> parameter are returned.</p>
+   * <p>Opportunistic filters to scope the results based on custom attributes. If there are instances that match both
+   *    the filters specified in both the <code>QueryParameters</code> parameter and this parameter, all of these instances
+   *    are returned. Otherwise, the filters are ignored, and only instances that match the filters that are specified in the
+   *     <code>QueryParameters</code> parameter are returned.</p>
    */
   OptionalParameters?: { [key: string]: string };
 
   /**
-   * <p>The health status of the instances that you want to discover.</p>
+   * <p>The health status of the instances that you want to discover. This parameter is ignored for services that don't
+   *    have a health check configured, and
+   *    all
+   *    instances are returned.</p>
+   *          <dl>
+   *             <dt>HEALTHY</dt>
+   *             <dd>
+   *                <p>Returns healthy instances.</p>
+   *             </dd>
+   *             <dt>UNHEALTHY</dt>
+   *             <dd>
+   *                <p>Returns unhealthy instances.</p>
+   *             </dd>
+   *             <dt>ALL</dt>
+   *             <dd>
+   *                <p>Returns all instances.</p>
+   *             </dd>
+   *             <dt>HEALTHY_OR_ELSE_ALL</dt>
+   *             <dd>
+   *                <p>Returns healthy instances, unless none are reporting a healthy state. In that case, return all instances.
+   *       This is also called failing open.</p>
+   *             </dd>
+   *          </dl>
    */
   HealthStatus?: HealthStatusFilter | string;
 }
@@ -1274,8 +1290,7 @@ export interface HttpInstanceSummary {
    *             <code></code>
    *             <code></code>
    *          </p>
-   *
-   *          <p>The <code>HttpName</code> name of the namespace, found in the <code>HttpProperties</code> member of the
+   *          <p>The <code>HttpName</code> name of the namespace. It's found in the <code>HttpProperties</code> member of the
    *     <code>Properties</code> member of the namespace.</p>
    */
   NamespaceName?: string;
@@ -1418,7 +1433,7 @@ export interface Instance {
    * <p>An identifier that you want to associate with the instance. Note the following:</p>
    *          <ul>
    *             <li>
-   *                <p>If the service that is specified by <code>ServiceId</code> includes settings for an <code>SRV</code> record,
+   *                <p>If the service that's specified by <code>ServiceId</code> includes settings for an <code>SRV</code> record,
    *      the value of <code>InstanceId</code> is automatically included as part of the value for the <code>SRV</code>
    *      record. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DnsRecord.html#cloudmap-Type-DnsRecord-Type">DnsRecord > Type</a>.</p>
    *             </li>
@@ -1426,7 +1441,7 @@ export interface Instance {
    *                <p>You can use this value to update an existing instance.</p>
    *             </li>
    *             <li>
-   *                <p>To register a new instance, you must specify a value that is unique among instances that you register by using
+   *                <p>To register a new instance, you must specify a value that's unique among instances that you register by using
    *      the same service. </p>
    *             </li>
    *             <li>
@@ -1446,7 +1461,8 @@ export interface Instance {
    * <p>A unique string that identifies the request and that allows failed <code>RegisterInstance</code> requests to be
    *    retried without the risk of executing the operation twice. You must use a unique <code>CreatorRequestId</code> string
    *    every time you submit a <code>RegisterInstance</code> request if you're registering additional instances for the same
-   *    namespace and service. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp.</p>
+   *    namespace and service. <code>CreatorRequestId</code> can be any unique string (for example, a date/time
+   *    stamp).</p>
    */
   CreatorRequestId?: string;
 
@@ -1466,25 +1482,24 @@ export interface Instance {
    *             <dt>AWS_ALIAS_DNS_NAME</dt>
    *             <dd>
    *                <p>If you want AWS Cloud Map to create a Route 53 alias record that routes traffic to an Elastic Load Balancing load balancer, specify
-   *       the DNS name that is associated with the load balancer. For information about how to get the DNS name, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html#Route53-Type-AliasTarget-DNSName">AliasTarget->DNSName</a> in the <i>Route 53 API Reference</i>.</p>
+   *       the DNS name that's associated with the load balancer. For information about how to get the DNS name, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html#Route53-Type-AliasTarget-DNSName">AliasTarget->DNSName</a> in the <i>Route 53 API Reference</i>.</p>
    *                <p>Note the following:</p>
    *                <ul>
    *                   <li>
-   *                      <p>The configuration for the service that is specified by <code>ServiceId</code> must include settings for an
+   *                      <p>The configuration for the service that's specified by <code>ServiceId</code> must include settings for an
    *          <code>A</code> record, an <code>AAAA</code> record, or both.</p>
    *                   </li>
    *                   <li>
-   *                      <p>In the service that is specified by <code>ServiceId</code>, the value of <code>RoutingPolicy</code> must be
+   *                      <p>In the service that's specified by <code>ServiceId</code>, the value of <code>RoutingPolicy</code> must be
    *          <code>WEIGHTED</code>.</p>
    *                   </li>
    *                   <li>
-   *                      <p>If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code>
-   *         settings, AWS Cloud Map creates the health check, but it won't associate the health check with the alias
-   *         record.</p>
+   *                      <p>If the service that's specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings,
+   *         AWS Cloud Map creates the health check, but it won't associate the health check with the alias record.</p>
    *                   </li>
    *                   <li>
-   *                      <p>Auto naming currently doesn't support creating alias records that route traffic to AWS resources other than
-   *         ELB load balancers.</p>
+   *                      <p>Auto naming currently doesn't support creating alias records that route traffic to AWS resources other
+   *         than ELB load balancers.</p>
    *                   </li>
    *                   <li>
    *                      <p>If you specify a value for <code>AWS_ALIAS_DNS_NAME</code>, don't specify values for any of the
@@ -1501,21 +1516,21 @@ export interface Instance {
    *             <dt>AWS_INIT_HEALTH_STATUS</dt>
    *             <dd>
    *                <p>If the service configuration includes <code>HealthCheckCustomConfig</code>, you can optionally use
-   *       <code>AWS_INIT_HEALTH_STATUS</code> to specify the initial status of the custom health check,
-   *       <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don't specify a value for
-   *       <code>AWS_INIT_HEALTH_STATUS</code>, the initial status is <code>HEALTHY</code>.</p>
+   *        <code>AWS_INIT_HEALTH_STATUS</code> to specify the initial status of the custom health check,
+   *        <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don't specify a value for
+   *        <code>AWS_INIT_HEALTH_STATUS</code>, the initial status is <code>HEALTHY</code>.</p>
    *             </dd>
    *             <dt>AWS_INSTANCE_CNAME</dt>
    *             <dd>
    *                <p>If the service configuration includes a <code>CNAME</code> record, the domain name that you want Route 53 to
-   *       return in response to DNS queries, for example, <code>example.com</code>.</p>
+   *       return in response to DNS queries (for example, <code>example.com</code>).</p>
    *                <p>This value is required if the service specified by <code>ServiceId</code> includes settings for an
    *        <code>CNAME</code> record.</p>
    *             </dd>
    *             <dt>AWS_INSTANCE_IPV4</dt>
    *             <dd>
    *                <p>If the service configuration includes an <code>A</code> record, the IPv4 address that you want Route 53 to
-   *       return in response to DNS queries, for example, <code>192.0.2.44</code>.</p>
+   *       return in response to DNS queries (for example, <code>192.0.2.44</code>).</p>
    *                <p>This value is required if the service specified by <code>ServiceId</code> includes settings for an
    *        <code>A</code> record. If the service includes settings for an <code>SRV</code> record, you must specify a value
    *       for <code>AWS_INSTANCE_IPV4</code>, <code>AWS_INSTANCE_IPV6</code>, or both.</p>
@@ -1523,7 +1538,7 @@ export interface Instance {
    *             <dt>AWS_INSTANCE_IPV6</dt>
    *             <dd>
    *                <p>If the service configuration includes an <code>AAAA</code> record, the IPv6 address that you want Route 53 to
-   *       return in response to DNS queries, for example, <code>2001:0db8:85a3:0000:0000:abcd:0001:2345</code>.</p>
+   *       return in response to DNS queries (for example, <code>2001:0db8:85a3:0000:0000:abcd:0001:2345</code>).</p>
    *                <p>This value is required if the service specified by <code>ServiceId</code> includes settings for an
    *        <code>AAAA</code> record. If the service includes settings for an <code>SRV</code> record, you must specify a
    *       value for <code>AWS_INSTANCE_IPV4</code>, <code>AWS_INSTANCE_IPV6</code>, or both.</p>
@@ -1668,7 +1683,7 @@ export namespace HttpProperties {
 }
 
 /**
- * <p>A complex type that contains information that is specific to the namespace type.</p>
+ * <p>A complex type that contains information that's specific to the namespace type.</p>
  */
 export interface NamespaceProperties {
   /**
@@ -1839,7 +1854,7 @@ export interface Operation {
   Id?: string;
 
   /**
-   * <p>The name of the operation that is associated with the specified ID.</p>
+   * <p>The name of the operation that's associated with the specified ID.</p>
    */
   Type?: OperationType | string;
 
@@ -1848,7 +1863,7 @@ export interface Operation {
    *          <dl>
    *             <dt>SUBMITTED</dt>
    *             <dd>
-   *                <p>This is the initial state immediately after you submit a request.</p>
+   *                <p>This is the initial state that occurs immediately after you submit a request.</p>
    *             </dd>
    *             <dt>PENDING</dt>
    *             <dd>
@@ -1929,7 +1944,7 @@ export interface Operation {
   UpdateDate?: Date;
 
   /**
-   * <p>The name of the target entity that is associated with the operation:</p>
+   * <p>The name of the target entity that's associated with the operation:</p>
    *          <dl>
    *             <dt>NAMESPACE</dt>
    *             <dd>
@@ -2037,7 +2052,7 @@ export interface InstanceSummary {
    * <p>A string map that contains the following information:</p>
    *          <ul>
    *             <li>
-   *                <p>The attributes that are associate with the instance. </p>
+   *                <p>The attributes that are associated with the instance. </p>
    *             </li>
    *             <li>
    *                <p>For each attribute, the applicable value.</p>
@@ -2047,7 +2062,7 @@ export interface InstanceSummary {
    *          <dl>
    *             <dt>AWS_ALIAS_DNS_NAME</dt>
    *             <dd>
-   *                <p>For an alias record that routes traffic to an Elastic Load Balancing load balancer, the DNS name that is associated with the
+   *                <p>For an alias record that routes traffic to an Elastic Load Balancing load balancer, the DNS name that's associated with the
    *       load balancer. </p>
    *             </dd>
    *             <dt>AWS_EC2_INSTANCE_ID (HTTP namespaces only)</dt>
@@ -2058,24 +2073,24 @@ export interface InstanceSummary {
    *             <dt>AWS_INIT_HEALTH_STATUS</dt>
    *             <dd>
    *                <p>If the service configuration includes <code>HealthCheckCustomConfig</code>, you can optionally use
-   *       <code>AWS_INIT_HEALTH_STATUS</code> to specify the initial status of the custom health check,
-   *       <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don't specify a value for
-   *       <code>AWS_INIT_HEALTH_STATUS</code>, the initial status is <code>HEALTHY</code>.</p>
+   *        <code>AWS_INIT_HEALTH_STATUS</code> to specify the initial status of the custom health check,
+   *        <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don't specify a value for
+   *        <code>AWS_INIT_HEALTH_STATUS</code>, the initial status is <code>HEALTHY</code>.</p>
    *             </dd>
    *             <dt>AWS_INSTANCE_CNAME</dt>
    *             <dd>
-   *                <p>For a <code>CNAME</code> record, the domain name that Route 53 returns in response to DNS queries, for example,
-   *        <code>example.com</code>.</p>
+   *                <p>For a <code>CNAME</code> record, the domain name that Route 53 returns in response to DNS queries (for example,
+   *        <code>example.com</code>).</p>
    *             </dd>
    *             <dt>AWS_INSTANCE_IPV4</dt>
    *             <dd>
-   *                <p>For an <code>A</code> record, the IPv4 address that Route 53 returns in response to DNS queries, for example,
-   *        <code>192.0.2.44</code>.</p>
+   *                <p>For an <code>A</code> record, the IPv4 address that Route 53 returns in response to DNS queries (for example,
+   *        <code>192.0.2.44</code>).</p>
    *             </dd>
    *             <dt>AWS_INSTANCE_IPV6</dt>
    *             <dd>
-   *                <p>For an <code>AAAA</code> record, the IPv6 address that Route 53 returns in response to DNS queries, for example,
-   *        <code>2001:0db8:85a3:0000:0000:abcd:0001:2345</code>.</p>
+   *                <p>For an <code>AAAA</code> record, the IPv6 address that Route 53 returns in response to DNS queries (for example,
+   *        <code>2001:0db8:85a3:0000:0000:abcd:0001:2345</code>).</p>
    *             </dd>
    *             <dt>AWS_INSTANCE_PORT</dt>
    *             <dd>
@@ -2680,8 +2695,8 @@ export interface ServiceSummary {
 
   /**
    * <p>The number of instances that are currently associated with the service. Instances that were previously
-   *    associated with the service but that have been deleted are not included in the count. The count might not reflect
-   *    pending registrations and deregistrations.</p>
+   *    associated with the service but that are deleted aren't included in the count. The count might not reflect pending
+   *    registrations and deregistrations.</p>
    */
   InstanceCount?: number;
 
@@ -2694,7 +2709,7 @@ export interface ServiceSummary {
    * <p>
    *             <i>Public DNS and HTTP namespaces only.</i> Settings for an optional health check. If you specify
    *    settings for a health check, AWS Cloud Map associates the health check with the records that you specify in
-   *    <code>DnsConfig</code>.</p>
+   *     <code>DnsConfig</code>.</p>
    */
   HealthCheckConfig?: HealthCheckConfig;
 
@@ -2703,17 +2718,17 @@ export interface ServiceSummary {
    *    third-party health checker to evaluate the health of your resources, is useful in the following circumstances:</p>
    *          <ul>
    *             <li>
-   *                <p>You can't use a health check that is defined by <code>HealthCheckConfig</code> because the resource isn't
+   *                <p>You can't use a health check that's defined by <code>HealthCheckConfig</code> because the resource isn't
    *      available over the internet. For example, you can use a custom health check when the instance is in an Amazon VPC.
    *      (To check the health of resources in a VPC, the health checker must also be in the VPC.)</p>
    *             </li>
    *             <li>
-   *                <p>You want to use a third-party health checker regardless of where your resources are.</p>
+   *                <p>You want to use a third-party health checker regardless of where your resources are located.</p>
    *             </li>
    *          </ul>
    *          <important>
    *             <p>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code> or
-   *     <code>HealthCheckConfig</code> but not both.</p>
+   *      <code>HealthCheckConfig</code> but not both.</p>
    *          </important>
    */
   HealthCheckCustomConfig?: HealthCheckCustomConfig;
@@ -2822,7 +2837,7 @@ export interface RegisterInstanceRequest {
    * <p>An identifier that you want to associate with the instance. Note the following:</p>
    *          <ul>
    *             <li>
-   *                <p>If the service that is specified by <code>ServiceId</code> includes settings for an <code>SRV</code> record,
+   *                <p>If the service that's specified by <code>ServiceId</code> includes settings for an <code>SRV</code> record,
    *      the value of <code>InstanceId</code> is automatically included as part of the value for the <code>SRV</code>
    *      record. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DnsRecord.html#cloudmap-Type-DnsRecord-Type">DnsRecord > Type</a>.</p>
    *             </li>
@@ -2830,7 +2845,7 @@ export interface RegisterInstanceRequest {
    *                <p>You can use this value to update an existing instance.</p>
    *             </li>
    *             <li>
-   *                <p>To register a new instance, you must specify a value that is unique among instances that you register by using
+   *                <p>To register a new instance, you must specify a value that's unique among instances that you register by using
    *      the same service. </p>
    *             </li>
    *             <li>
@@ -2850,7 +2865,8 @@ export interface RegisterInstanceRequest {
    * <p>A unique string that identifies the request and that allows failed <code>RegisterInstance</code> requests to be
    *    retried without the risk of executing the operation twice. You must use a unique <code>CreatorRequestId</code> string
    *    every time you submit a <code>RegisterInstance</code> request if you're registering additional instances for the same
-   *    namespace and service. <code>CreatorRequestId</code> can be any unique string, for example, a date/time stamp.</p>
+   *    namespace and service. <code>CreatorRequestId</code> can be any unique string (for example, a date/time
+   *    stamp).</p>
    */
   CreatorRequestId?: string;
 
@@ -2870,22 +2886,22 @@ export interface RegisterInstanceRequest {
    *             <dt>AWS_ALIAS_DNS_NAME</dt>
    *             <dd>
    *                <p>If you want AWS Cloud Map to create an Amazon Route 53 alias record that routes traffic to an Elastic Load Balancing load balancer,
-   *       specify the DNS name that is associated with the load balancer. For information about how to get the DNS name, see
+   *       specify the DNS name that's associated with the load balancer. For information about how to get the DNS name, see
    *       "DNSName" in the topic <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a> in the <i>Route 53 API Reference</i>.</p>
    *                <p>Note the following:</p>
    *                <ul>
    *                   <li>
-   *                      <p>The configuration for the service that is specified by <code>ServiceId</code> must include settings for an
+   *                      <p>The configuration for the service that's specified by <code>ServiceId</code> must include settings for an
    *          <code>A</code> record, an <code>AAAA</code> record, or both.</p>
    *                   </li>
    *                   <li>
-   *                      <p>In the service that is specified by <code>ServiceId</code>, the value of <code>RoutingPolicy</code> must be
+   *                      <p>In the service that's specified by <code>ServiceId</code>, the value of <code>RoutingPolicy</code> must be
    *          <code>WEIGHTED</code>.</p>
    *                   </li>
    *                   <li>
-   *                      <p>If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code>
-   *         settings, AWS Cloud Map will create the Route 53 health check, but it doesn't associate the health check with the
-   *         alias record.</p>
+   *                      <p>If the service that's specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code> settings,
+   *         AWS Cloud Map will create the Route 53 health check, but it doesn't associate the health check with the alias
+   *         record.</p>
    *                   </li>
    *                   <li>
    *                      <p>Auto naming currently doesn't support creating alias records that route traffic to AWS resources other than
@@ -2915,14 +2931,14 @@ export interface RegisterInstanceRequest {
    *             <dt>AWS_INSTANCE_CNAME</dt>
    *             <dd>
    *                <p>If the service configuration includes a <code>CNAME</code> record, the domain name that you want Route 53 to
-   *       return in response to DNS queries, for example, <code>example.com</code>.</p>
+   *       return in response to DNS queries (for example, <code>example.com</code>).</p>
    *                <p>This value is required if the service specified by <code>ServiceId</code> includes settings for an
    *        <code>CNAME</code> record.</p>
    *             </dd>
    *             <dt>AWS_INSTANCE_IPV4</dt>
    *             <dd>
    *                <p>If the service configuration includes an <code>A</code> record, the IPv4 address that you want Route 53 to
-   *       return in response to DNS queries, for example, <code>192.0.2.44</code>.</p>
+   *       return in response to DNS queries (for example, <code>192.0.2.44</code>).</p>
    *                <p>This value is required if the service specified by <code>ServiceId</code> includes settings for an
    *        <code>A</code> record. If the service includes settings for an <code>SRV</code> record, you must specify a value
    *       for <code>AWS_INSTANCE_IPV4</code>, <code>AWS_INSTANCE_IPV6</code>, or both.</p>
@@ -2930,7 +2946,7 @@ export interface RegisterInstanceRequest {
    *             <dt>AWS_INSTANCE_IPV6</dt>
    *             <dd>
    *                <p>If the service configuration includes an <code>AAAA</code> record, the IPv6 address that you want Route 53 to
-   *       return in response to DNS queries, for example, <code>2001:0db8:85a3:0000:0000:abcd:0001:2345</code>.</p>
+   *       return in response to DNS queries (for example, <code>2001:0db8:85a3:0000:0000:abcd:0001:2345</code>).</p>
    *                <p>This value is required if the service specified by <code>ServiceId</code> includes settings for an
    *        <code>AAAA</code> record. If the service includes settings for an <code>SRV</code> record, you must specify a
    *       value for <code>AWS_INSTANCE_IPV4</code>, <code>AWS_INSTANCE_IPV6</code>, or both.</p>

@@ -14,6 +14,7 @@ import {
   AccessDeniedException,
   ConflictException,
   DeviceOfflineException,
+  DeviceRetiredException,
   DeviceSummary,
   InternalServiceException,
   QuantumTaskSummary,
@@ -560,6 +561,22 @@ const deserializeAws_restJson1GetDeviceCommandError = async (
     case "com.amazonaws.braket#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DeviceOfflineException":
+    case "com.amazonaws.braket#DeviceOfflineException":
+      response = {
+        ...(await deserializeAws_restJson1DeviceOfflineExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DeviceRetiredException":
+    case "com.amazonaws.braket#DeviceRetiredException":
+      response = {
+        ...(await deserializeAws_restJson1DeviceRetiredExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1151,6 +1168,23 @@ const deserializeAws_restJson1DeviceOfflineExceptionResponse = async (
 ): Promise<DeviceOfflineException> => {
   const contents: DeviceOfflineException = {
     name: "DeviceOfflineException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = data.message;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DeviceRetiredExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DeviceRetiredException> => {
+  const contents: DeviceRetiredException = {
+    name: "DeviceRetiredException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     message: undefined,

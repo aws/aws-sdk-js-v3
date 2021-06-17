@@ -160,7 +160,7 @@ export namespace AddSourceIdentifierToSubscriptionMessage {
  */
 export interface EventSubscription {
   /**
-   * <p>The AWS customer account associated with the event notification subscription.</p>
+   * <p>The Amazon customer account associated with the event notification subscription.</p>
    */
   CustomerAwsId?: string;
 
@@ -554,12 +554,12 @@ export interface CopyDBClusterParameterGroupMessage {
    *                <p>Must specify a valid DB cluster parameter group.</p>
    *             </li>
    *             <li>
-   *                <p>If the source DB cluster parameter group is in the same AWS Region as the copy,
+   *                <p>If the source DB cluster parameter group is in the same Amazon Region as the copy,
    *           specify a valid DB parameter group identifier, for example
    *           <code>my-db-cluster-param-group</code>, or a valid ARN.</p>
    *             </li>
    *             <li>
-   *                <p>If the source DB parameter group is in a different AWS Region than the copy, specify a
+   *                <p>If the source DB parameter group is in a different Amazon Region than the copy, specify a
    *           valid DB cluster parameter group ARN, for example
    *           <code>arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1</code>.</p>
    *             </li>
@@ -731,7 +731,6 @@ export interface CopyDBClusterSnapshotMessage {
   /**
    * <p>The identifier of the DB cluster snapshot to copy. This parameter is not
    *       case-sensitive.</p>
-   *          <p>You can't copy from one AWS Region to another.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -767,18 +766,18 @@ export interface CopyDBClusterSnapshotMessage {
   TargetDBClusterSnapshotIdentifier: string | undefined;
 
   /**
-   * <p>The AWS AWS KMS key ID for an encrypted DB cluster snapshot. The KMS key ID is the Amazon
+   * <p>The Amazon Amazon KMS key ID for an encrypted DB cluster snapshot. The KMS key ID is the Amazon
    *       Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.</p>
    *
-   *          <p>If you copy an encrypted DB cluster snapshot from your AWS account, you can specify a
+   *          <p>If you copy an encrypted DB cluster snapshot from your Amazon account, you can specify a
    *       value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. If you
    *       don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster snapshot is
    *       encrypted with the same KMS key as the source DB cluster snapshot.</p>
    *
-   *          <p>If you copy an encrypted DB cluster snapshot that is shared from another AWS account, then
+   *          <p>If you copy an encrypted DB cluster snapshot that is shared from another Amazon account, then
    *       you must specify a value for <code>KmsKeyId</code>.</p>
-   *          <p> KMS encryption keys are specific to the AWS Region that they are created in, and you
-   *       can't use encryption keys from one AWS Region in another AWS Region.</p>
+   *          <p> KMS encryption keys are specific to the Amazon Region that they are created in, and you
+   *       can't use encryption keys from one Amazon Region in another Amazon Region.</p>
    *
    *          <p>You cannot encrypt an unencrypted DB cluster snapshot when you copy it. If you try to
    *       copy an unencrypted DB cluster snapshot and specify a value for the KmsKeyId parameter, an
@@ -885,7 +884,7 @@ export interface DBClusterSnapshot {
   ClusterCreateTime?: Date;
 
   /**
-   * <p>Provides the master username for the DB cluster snapshot.</p>
+   * <p>Not supported by Neptune.</p>
    */
   MasterUsername?: string;
 
@@ -915,7 +914,7 @@ export interface DBClusterSnapshot {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the encrypted DB
+   * <p>If <code>StorageEncrypted</code> is true, the Amazon KMS key identifier for the encrypted DB
    *       cluster snapshot.</p>
    */
   KmsKeyId?: string;
@@ -932,7 +931,7 @@ export interface DBClusterSnapshot {
   SourceDBClusterSnapshotArn?: string;
 
   /**
-   * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts
+   * <p>True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts
    *       is enabled, and otherwise false.</p>
    */
   IAMDatabaseAuthenticationEnabled?: boolean;
@@ -1215,6 +1214,14 @@ export interface CreateDBClusterMessage {
   CharacterSetName?: string;
 
   /**
+   * <p>
+   *             <i>If set to <code>true</code>, tags are copied to any snapshot of
+   *       the DB cluster that is created.</i>
+   *          </p>
+   */
+  CopyTagsToSnapshot?: boolean;
+
+  /**
    * <p>The name for your database of up to 64 alpha-numeric characters. If you do not provide a
    *       name, Amazon Neptune will not create a database in the DB cluster you are creating.</p>
    */
@@ -1286,26 +1293,12 @@ export interface CreateDBClusterMessage {
   Port?: number;
 
   /**
-   * <p>The name of the master user for the DB cluster.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must be 1 to 16 letters or numbers.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot be a reserved word for the chosen database engine.</p>
-   *             </li>
-   *          </ul>
+   * <p>Not supported by Neptune.</p>
    */
   MasterUsername?: string;
 
   /**
-   * <p>The password for the master database user. This password can contain any printable ASCII
-   *       character except "/", """, or "@".</p>
-   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
+   * <p>Not supported by Neptune.</p>
    */
   MasterUserPassword?: string;
 
@@ -1320,7 +1313,7 @@ export interface CreateDBClusterMessage {
    * <p>The daily time range during which automated backups are created if automated backups are
    *       enabled using the <code>BackupRetentionPeriod</code> parameter.</p>
    *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
-   *       AWS Region. To see the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting the Preferred
+   *       Amazon Region. To see the time blocks available, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting the Preferred
    *       Maintenance Window</a> in the <i>Amazon Neptune User Guide.</i>
    *          </p>
    *          <p>Constraints:</p>
@@ -1347,7 +1340,7 @@ export interface CreateDBClusterMessage {
    *          <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *          </p>
    *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
-   *       AWS Region, occurring on a random day of the week. To see the time blocks available, see
+   *       Amazon Region, occurring on a random day of the week. To see the time blocks available, see
    *       <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting the Preferred
    *       Maintenance Window</a> in the <i>Amazon Neptune User Guide.</i>
    *          </p>
@@ -1373,9 +1366,9 @@ export interface CreateDBClusterMessage {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for an encrypted DB cluster.</p>
+   * <p>The Amazon KMS key identifier for an encrypted DB cluster.</p>
    *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If
-   *       you are creating a DB cluster with the same AWS account that owns the KMS encryption key used
+   *       you are creating a DB cluster with the same Amazon account that owns the KMS encryption key used
    *       to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the
    *       KMS encryption key.</p>
    *          <p>If an encryption key is not specified in <code>KmsKeyId</code>:</p>
@@ -1391,11 +1384,11 @@ export interface CreateDBClusterMessage {
    *           your default encryption key.</p>
    *             </li>
    *          </ul>
-   *          <p>AWS KMS creates the default encryption key for your AWS account. Your AWS account has a
-   *       different default encryption key for each AWS Region.</p>
-   *          <p>If you create a Read Replica of an encrypted DB cluster in another AWS Region, you must
-   *       set <code>KmsKeyId</code> to a KMS key ID that is valid in the destination AWS Region. This
-   *       key is used to encrypt the Read Replica in that AWS Region.</p>
+   *          <p>Amazon KMS creates the default encryption key for your Amazon account. Your Amazon account has a
+   *       different default encryption key for each Amazon Region.</p>
+   *          <p>If you create a Read Replica of an encrypted DB cluster in another Amazon Region, you must
+   *       set <code>KmsKeyId</code> to a KMS key ID that is valid in the destination Amazon Region. This
+   *       key is used to encrypt the Read Replica in that Amazon Region.</p>
    */
   KmsKeyId?: string;
 
@@ -1405,7 +1398,10 @@ export interface CreateDBClusterMessage {
   PreSignedUrl?: string;
 
   /**
-   * <p>Not supported by Neptune.</p>
+   * <p>If set to <code>true</code>, enables Amazon Identity and Access Management
+   *       (IAM) authentication for the entire DB cluster (this cannot be set at an
+   *       instance level).</p>
+   *          <p>Default: <code>false</code>.</p>
    */
   EnableIAMDatabaseAuthentication?: boolean;
 
@@ -1432,7 +1428,7 @@ export namespace CreateDBClusterMessage {
 }
 
 /**
- * <p>Describes an AWS Identity and Access Management (IAM) role that is associated with a DB
+ * <p>Describes an Amazon Identity and Access Management (IAM) role that is associated with a DB
  *       cluster.</p>
  */
 export interface DBClusterRole {
@@ -1449,7 +1445,7 @@ export interface DBClusterRole {
    *             <li>
    *                <p>
    *                   <code>ACTIVE</code> - the IAM role ARN is associated with the DB cluster and can be
-   *           used to access other AWS services on your behalf.</p>
+   *           used to access other Amazon services on your behalf.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1459,7 +1455,7 @@ export interface DBClusterRole {
    *             <li>
    *                <p>
    *                   <code>INVALID</code> - the IAM role ARN is associated with the DB cluster, but the DB
-   *           cluster is unable to assume the IAM role in order to access other AWS services on your
+   *           cluster is unable to assume the IAM role in order to access other Amazon services on your
    *           behalf.</p>
    *             </li>
    *          </ul>
@@ -1467,7 +1463,7 @@ export interface DBClusterRole {
   Status?: string;
 
   /**
-   * <p>The name of the feature associated with the AWS Identity and Access Management (IAM) role.
+   * <p>The name of the feature associated with the Amazon Identity and Access Management (IAM) role.
    *       For the list of supported feature names, see <a>DBEngineVersion</a>.
    *     </p>
    */
@@ -1521,16 +1517,16 @@ export namespace DBClusterMember {
 }
 
 /**
- * <p>Contains status information for a DB cluster option group.</p>
+ * <p>Not supported by Neptune.</p>
  */
 export interface DBClusterOptionGroupStatus {
   /**
-   * <p>Specifies the name of the DB cluster option group.</p>
+   * <p>Not supported by Neptune.</p>
    */
   DBClusterOptionGroupName?: string;
 
   /**
-   * <p>Specifies the status of the DB cluster option group.</p>
+   * <p>Not supported by Neptune.</p>
    */
   Status?: string;
 }
@@ -1593,9 +1589,7 @@ export interface DBCluster {
   BackupRetentionPeriod?: number;
 
   /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
-   *          </p>
+   * <p>Not supported by Neptune.</p>
    */
   CharacterSetName?: string;
 
@@ -1683,14 +1677,12 @@ export interface DBCluster {
   Port?: number;
 
   /**
-   * <p>Contains the master username for the DB cluster.</p>
+   * <p>Not supported by Neptune.</p>
    */
   MasterUsername?: string;
 
   /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
-   *          </p>
+   * <p>Not supported by Neptune.</p>
    */
   DBClusterOptionGroupMemberships?: DBClusterOptionGroupStatus[];
 
@@ -1738,14 +1730,14 @@ export interface DBCluster {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
+   * <p>If <code>StorageEncrypted</code> is true, the Amazon KMS key identifier for the
    *       encrypted DB cluster.</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The AWS Region-unique, immutable identifier for the DB cluster. This identifier is found
-   *       in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.</p>
+   * <p>The Amazon Region-unique, immutable identifier for the DB cluster. This identifier is found
+   *       in Amazon CloudTrail log entries whenever the Amazon KMS key for the DB cluster is accessed.</p>
    */
   DbClusterResourceId?: string;
 
@@ -1755,14 +1747,14 @@ export interface DBCluster {
   DBClusterArn?: string;
 
   /**
-   * <p>Provides a list of the AWS Identity and Access Management (IAM) roles that are associated
+   * <p>Provides a list of the Amazon Identity and Access Management (IAM) roles that are associated
    *       with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the
-   *       DB cluster to access other AWS services on your behalf.</p>
+   *       DB cluster to access other Amazon services on your behalf.</p>
    */
   AssociatedRoles?: DBClusterRole[];
 
   /**
-   * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts
+   * <p>True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts
    *       is enabled, and otherwise false.</p>
    */
   IAMDatabaseAuthenticationEnabled?: boolean;
@@ -1779,6 +1771,14 @@ export interface DBCluster {
   ClusterCreateTime?: Date;
 
   /**
+   * <p>
+   *             <i>If set to <code>true</code>, tags are copied to any snapshot of
+   *       the DB cluster that is created.</i>
+   *          </p>
+   */
+  CopyTagsToSnapshot?: boolean;
+
+  /**
    * <p>A list of log types that this DB cluster is configured to export to CloudWatch Logs.</p>
    */
   EnabledCloudwatchLogsExports?: string[];
@@ -1788,6 +1788,16 @@ export interface DBCluster {
    *       The database can't be deleted when deletion protection is enabled.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>If set to <code>true</code>, the DB cluster can be cloned across accounts.</p>
+   */
+  CrossAccountClone?: boolean;
+
+  /**
+   * <p>Time at which the DB cluster will be automatically restarted.</p>
+   */
+  AutomaticRestartTime?: Date;
 }
 
 export namespace DBCluster {
@@ -2411,17 +2421,13 @@ export interface CreateDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
-   * <p>The amount of storage (in gibibytes) to allocate for the DB instance.</p>
-   *          <p>Type: Integer</p>
-   *          <p>Not applicable. Neptune cluster volumes automatically grow as the amount of data in your
-   *       database increases, though you are only charged for the space that you use in a Neptune
-   *       cluster volume.</p>
+   * <p>Not supported by Neptune.</p>
    */
   AllocatedStorage?: number;
 
   /**
    * <p>The compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
-   *       Not all DB instance classes are available in all AWS Regions.</p>
+   *       Not all DB instance classes are available in all Amazon Regions.</p>
    */
   DBInstanceClass: string | undefined;
 
@@ -2433,14 +2439,12 @@ export interface CreateDBInstanceMessage {
   Engine: string | undefined;
 
   /**
-   * <p>The name for the master user. Not used.</p>
+   * <p>Not supported by Neptune.</p>
    */
   MasterUsername?: string;
 
   /**
-   * <p>The password for the master user. The password can include any printable ASCII character
-   *       except "/", """, or "@".</p>
-   *          <p> Not used.</p>
+   * <p>Not supported by Neptune.</p>
    */
   MasterUserPassword?: string;
 
@@ -2460,11 +2464,11 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p> The EC2 Availability Zone that the DB instance is created in</p>
-   *          <p>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</p>
+   *          <p>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Region.</p>
    *          <p> Example: <code>us-east-1d</code>
    *          </p>
    *          <p> Constraint: The AvailabilityZone parameter can't be specified if the MultiAZ parameter is
-   *       set to <code>true</code>. The specified Availability Zone must be in the same AWS Region as
+   *       set to <code>true</code>. The specified Availability Zone must be in the same Amazon Region as
    *       the current endpoint.</p>
    */
   AvailabilityZone?: string;
@@ -2481,7 +2485,7 @@ export interface CreateDBInstanceMessage {
    *          <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *          </p>
    *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
-   *       AWS Region, occurring on a random day of the week.</p>
+   *       Amazon Region, occurring on a random day of the week.</p>
    *          <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
    *          <p>Constraints: Minimum 30-minute window.</p>
    */
@@ -2631,17 +2635,17 @@ export interface CreateDBInstanceMessage {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for an encrypted DB instance.</p>
+   * <p>The Amazon KMS key identifier for an encrypted DB instance.</p>
    *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If
-   *       you are creating a DB instance with the same AWS account that owns the KMS encryption key used
+   *       you are creating a DB instance with the same Amazon account that owns the KMS encryption key used
    *       to encrypt the new DB instance, then you can use the KMS key alias instead of the ARN for the
    *       KM encryption key.</p>
    *          <p>Not applicable. The KMS key identifier is managed by the DB cluster. For more information,
    *       see <a>CreateDBCluster</a>.</p>
    *          <p>If the <code>StorageEncrypted</code> parameter is true, and you do not specify a value for
    *       the <code>KmsKeyId</code> parameter, then Amazon Neptune will use your default encryption key.
-   *       AWS KMS creates the default encryption key for your AWS account. Your AWS account has a
-   *       different default encryption key for each AWS Region.</p>
+   *       Amazon KMS creates the default encryption key for your Amazon account. Your Amazon account has a
+   *       different default encryption key for each Amazon Region.</p>
    */
   KmsKeyId?: string;
 
@@ -2697,9 +2701,7 @@ export interface CreateDBInstanceMessage {
   Timezone?: string;
 
   /**
-   * <p>True to enable AWS Identity and Access Management (IAM) authentication for Neptune.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
+   * <p>Not supported by Neptune (ignored).</p>
    */
   EnableIAMDatabaseAuthentication?: boolean;
 
@@ -2976,19 +2978,16 @@ export namespace Endpoint {
 }
 
 /**
- * <p>Provides information on the option groups the DB instance is a member of.</p>
+ * <p>Not supported by Neptune.</p>
  */
 export interface OptionGroupMembership {
   /**
-   * <p>The name of the option group that the instance belongs to.</p>
+   * <p>Not supported by Neptune.</p>
    */
   OptionGroupName?: string;
 
   /**
-   * <p>The status of the DB instance's option group membership. Valid values are:
-   *       <code>in-sync</code>, <code>pending-apply</code>, <code>pending-removal</code>,
-   *       <code>pending-maintenance-apply</code>, <code>pending-maintenance-removal</code>,
-   *       <code>applying</code>, <code>removing</code>, and <code>failed</code>.</p>
+   * <p>Not supported by Neptune.</p>
    */
   Status?: string;
 }
@@ -3047,8 +3046,7 @@ export interface PendingModifiedValues {
   AllocatedStorage?: number;
 
   /**
-   * <p>Contains the pending or currently-in-progress change of the master credentials for the DB
-   *       instance.</p>
+   * <p>Not supported by Neptune.</p>
    */
   MasterUserPassword?: string;
 
@@ -3073,10 +3071,7 @@ export interface PendingModifiedValues {
   EngineVersion?: string;
 
   /**
-   * <p>The license model for the DB instance.</p>
-   *          <p>Valid values: <code>license-included</code> | <code>bring-your-own-license</code> |
-   *       <code>general-public-license</code>
-   *          </p>
+   * <p>Not supported by Neptune.</p>
    */
   LicenseModel?: string;
 
@@ -3187,7 +3182,7 @@ export interface DBInstance {
   DBInstanceStatus?: string;
 
   /**
-   * <p>Contains the master username for the DB instance.</p>
+   * <p>Not supported by Neptune.</p>
    */
   MasterUsername?: string;
 
@@ -3202,7 +3197,7 @@ export interface DBInstance {
   Endpoint?: Endpoint;
 
   /**
-   * <p>Specifies the allocated storage size specified in gibibytes.</p>
+   * <p>Not supported by Neptune.</p>
    */
   AllocatedStorage?: number;
 
@@ -3376,8 +3371,8 @@ export interface DBInstance {
   KmsKeyId?: string;
 
   /**
-   * <p>The AWS Region-unique, immutable identifier for the DB instance. This identifier is found
-   *       in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.</p>
+   * <p>The Amazon Region-unique, immutable identifier for the DB instance. This identifier is found
+   *       in Amazon CloudTrail log entries whenever the Amazon KMS key for the DB instance is accessed.</p>
    */
   DbiResourceId?: string;
 
@@ -3433,7 +3428,7 @@ export interface DBInstance {
   Timezone?: string;
 
   /**
-   * <p>True if AWS Identity and Access Management (IAM) authentication is enabled, and otherwise
+   * <p>True if Amazon Identity and Access Management (IAM) authentication is enabled, and otherwise
    *       false.</p>
    */
   IAMDatabaseAuthenticationEnabled?: boolean;
@@ -5071,7 +5066,7 @@ export interface DescribeDBClustersMessage {
    *             </li>
    *          </ul>
    *
-   *          <p>For example, to invoke this API from the AWS CLI and filter so that only
+   *          <p>For example, to invoke this API from the Amazon CLI and filter so that only
    *       Neptune DB clusters are returned, you could use the following command:</p>
    */
   Filters?: Filter[];
@@ -5120,13 +5115,13 @@ export namespace DescribeDBClusterSnapshotAttributesMessage {
 
 /**
  * <p>Contains the name and values of a manual DB cluster snapshot attribute.</p>
- *          <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts to restore
+ *          <p>Manual DB cluster snapshot attributes are used to authorize other Amazon accounts to restore
  *       a manual DB cluster snapshot. For more information, see the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
  */
 export interface DBClusterSnapshotAttribute {
   /**
    * <p>The name of the manual DB cluster snapshot attribute.</p>
-   *          <p>The attribute named <code>restore</code> refers to the list of AWS accounts that have
+   *          <p>The attribute named <code>restore</code> refers to the list of Amazon accounts that have
    *       permission to copy or restore the manual DB cluster snapshot. For more information, see the
    *       <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
    */
@@ -5135,9 +5130,9 @@ export interface DBClusterSnapshotAttribute {
   /**
    * <p>The value(s) for the manual DB cluster snapshot attribute.</p>
    *          <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element
-   *       returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual DB
+   *       returns a list of IDs of the Amazon accounts that are authorized to copy or restore the manual DB
    *       cluster snapshot. If a value of <code>all</code> is in the list, then the manual DB cluster
-   *       snapshot is public and available for any AWS account to copy or restore.</p>
+   *       snapshot is public and available for any Amazon account to copy or restore.</p>
    */
   AttributeValues?: string[];
 }
@@ -5153,7 +5148,7 @@ export namespace DBClusterSnapshotAttribute {
 
 /**
  * <p>Contains the results of a successful call to the <a>DescribeDBClusterSnapshotAttributes</a> API action.</p>
- *          <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts to copy or
+ *          <p>Manual DB cluster snapshot attributes are used to authorize other Amazon accounts to copy or
  *       restore a manual DB cluster snapshot. For more information, see the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
  */
 export interface DBClusterSnapshotAttributesResult {
@@ -5180,7 +5175,7 @@ export namespace DBClusterSnapshotAttributesResult {
 export interface DescribeDBClusterSnapshotAttributesResult {
   /**
    * <p>Contains the results of a successful call to the <a>DescribeDBClusterSnapshotAttributes</a> API action.</p>
-   *          <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts to copy or
+   *          <p>Manual DB cluster snapshot attributes are used to authorize other Amazon accounts to copy or
    *       restore a manual DB cluster snapshot. For more information, see the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
    */
   DBClusterSnapshotAttributesResult?: DBClusterSnapshotAttributesResult;
@@ -5256,7 +5251,7 @@ export interface DescribeDBClusterSnapshotsMessage {
    *             <li>
    *                <p>
    *                   <code>automated</code> - Return all DB cluster snapshots that have been automatically
-   *           taken by Amazon Neptune for my AWS account.</p>
+   *           taken by Amazon Neptune for my Amazon account.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5266,7 +5261,7 @@ export interface DescribeDBClusterSnapshotsMessage {
    *             <li>
    *                <p>
    *                   <code>shared</code> - Return all manual DB cluster snapshots that have been shared to
-   *           my AWS account.</p>
+   *           my Amazon account.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5310,18 +5305,18 @@ export interface DescribeDBClusterSnapshotsMessage {
   Marker?: string;
 
   /**
-   * <p>True to include shared manual DB cluster snapshots from other AWS accounts that this AWS
+   * <p>True to include shared manual DB cluster snapshots from other Amazon accounts that this AWS
    *       account has been given permission to copy or restore, and otherwise false. The default is
    *       <code>false</code>.</p>
-   *          <p>You can give an AWS account permission to restore a manual DB cluster snapshot from
-   *       another AWS account by the <a>ModifyDBClusterSnapshotAttribute</a> API
+   *          <p>You can give an Amazon account permission to restore a manual DB cluster snapshot from
+   *       another Amazon account by the <a>ModifyDBClusterSnapshotAttribute</a> API
    *       action.</p>
    */
   IncludeShared?: boolean;
 
   /**
    * <p>True to include manual DB cluster snapshots that are public and can be copied or restored
-   *       by any AWS account, and otherwise false. The default is <code>false</code>. The default is
+   *       by any Amazon account, and otherwise false. The default is <code>false</code>. The default is
    *       false.</p>
    *          <p>You can share a manual DB cluster snapshot as public by using the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
    */
@@ -5652,7 +5647,7 @@ export interface DescribeDBInstancesMessage {
    *             </li>
    *          </ul>
    *
-   *          <p>For example, to invoke this API from the AWS CLI and filter so that only
+   *          <p>For example, to invoke this API from the Amazon CLI and filter so that only
    *       Neptune DB instances are returned, you could use the following command:</p>
    */
   Filters?: Filter[];
@@ -6924,12 +6919,11 @@ export interface ModifyDBClusterMessage {
    *       <code>PreferredMaintenanceWindow</code> setting for the DB cluster. If this parameter is set
    *       to <code>false</code>, changes to the DB cluster are applied during the next maintenance
    *       window.</p>
-   *          <p>The <code>ApplyImmediately</code> parameter only affects the
-   *       <code>NewDBClusterIdentifier</code> and <code>MasterUserPassword</code> values. If you set the
-   *       <code>ApplyImmediately</code> parameter value to false, then changes to the
-   *       <code>NewDBClusterIdentifier</code> and <code>MasterUserPassword</code> values are applied
-   *       during the next maintenance window. All other changes are applied immediately, regardless of
-   *       the value of the <code>ApplyImmediately</code> parameter.</p>
+   *          <p>The <code>ApplyImmediately</code> parameter only affects <code>NewDBClusterIdentifier</code>
+   *       values. If you set the <code>ApplyImmediately</code> parameter value to false, then changes to
+   *       <code>NewDBClusterIdentifier</code> values are applied during the next maintenance window.
+   *       All other changes are applied immediately, regardless of the value of the
+   *       <code>ApplyImmediately</code> parameter.</p>
    *          <p>Default: <code>false</code>
    *          </p>
    */
@@ -6967,15 +6961,13 @@ export interface ModifyDBClusterMessage {
   Port?: number;
 
   /**
-   * <p>The new password for the master database user. This password can contain any printable
-   *       ASCII character except "/", """, or "@".</p>
-   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
+   * <p>Not supported by Neptune.</p>
    */
   MasterUserPassword?: string;
 
   /**
    * <p>
-   *             <i>(Not supported by Neptune)</i>
+   *             <i>Not supported by Neptune.</i>
    *          </p>
    */
   OptionGroupName?: string;
@@ -6984,7 +6976,7 @@ export interface ModifyDBClusterMessage {
    * <p>The daily time range during which automated backups are created if automated backups are
    *       enabled, using the <code>BackupRetentionPeriod</code> parameter.</p>
    *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
-   *       AWS Region.</p>
+   *       Amazon Region.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -7009,7 +7001,7 @@ export interface ModifyDBClusterMessage {
    *          <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *          </p>
    *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
-   *       AWS Region, occurring on a random day of the
+   *       Amazon Region, occurring on a random day of the
    *       week.</p>
    *          <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
    *          <p>Constraints: Minimum 30-minute window.</p>
@@ -7017,7 +7009,7 @@ export interface ModifyDBClusterMessage {
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
+   * <p>True to enable mapping of Amazon Identity and Access Management (IAM) accounts to database
    *       accounts, and otherwise false.</p>
    *          <p>Default: <code>false</code>
    *          </p>
@@ -7045,6 +7037,14 @@ export interface ModifyDBClusterMessage {
    *       deletion protection is disabled.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>
+   *             <i>If set to <code>true</code>, tags are copied to any snapshot of
+   *       the DB cluster that is created.</i>
+   *          </p>
+   */
+  CopyTagsToSnapshot?: boolean;
 }
 
 export namespace ModifyDBClusterMessage {
@@ -7260,7 +7260,7 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
 
   /**
    * <p>The name of the DB cluster snapshot attribute to modify.</p>
-   *          <p>To manage authorization for other AWS accounts to copy or restore a manual DB cluster
+   *          <p>To manage authorization for other Amazon accounts to copy or restore a manual DB cluster
    *       snapshot, set this value to <code>restore</code>.</p>
    */
   AttributeName: string | undefined;
@@ -7268,9 +7268,9 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
   /**
    * <p>A list of DB cluster snapshot attributes to add to the attribute specified by
    *       <code>AttributeName</code>.</p>
-   *          <p>To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set this
-   *       list to include one or more AWS account IDs, or <code>all</code> to make the manual DB cluster
-   *       snapshot restorable by any AWS account. Do not add the <code>all</code> value for any manual
+   *          <p>To authorize other Amazon accounts to copy or restore a manual DB cluster snapshot, set this
+   *       list to include one or more Amazon account IDs, or <code>all</code> to make the manual DB cluster
+   *       snapshot restorable by any Amazon account. Do not add the <code>all</code> value for any manual
    *       DB cluster snapshots that contain private information that you don't want available to all AWS
    *       accounts.</p>
    */
@@ -7279,10 +7279,10 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
   /**
    * <p>A list of DB cluster snapshot attributes to remove from the attribute specified by
    *       <code>AttributeName</code>.</p>
-   *          <p>To remove authorization for other AWS accounts to copy or restore a manual DB cluster
-   *       snapshot, set this list to include one or more AWS account identifiers, or <code>all</code> to
-   *       remove authorization for any AWS account to copy or restore the DB cluster snapshot. If you
-   *       specify <code>all</code>, an AWS account whose account ID is explicitly added to the
+   *          <p>To remove authorization for other Amazon accounts to copy or restore a manual DB cluster
+   *       snapshot, set this list to include one or more Amazon account identifiers, or <code>all</code> to
+   *       remove authorization for any Amazon account to copy or restore the DB cluster snapshot. If you
+   *       specify <code>all</code>, an Amazon account whose account ID is explicitly added to the
    *       <code>restore</code> attribute can still copy or restore a manual DB cluster snapshot.</p>
    */
   ValuesToRemove?: string[];
@@ -7300,7 +7300,7 @@ export namespace ModifyDBClusterSnapshotAttributeMessage {
 export interface ModifyDBClusterSnapshotAttributeResult {
   /**
    * <p>Contains the results of a successful call to the <a>DescribeDBClusterSnapshotAttributes</a> API action.</p>
-   *          <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts to copy or
+   *          <p>Manual DB cluster snapshot attributes are used to authorize other Amazon accounts to copy or
    *       restore a manual DB cluster snapshot. For more information, see the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
    */
   DBClusterSnapshotAttributesResult?: DBClusterSnapshotAttributesResult;
@@ -7392,8 +7392,7 @@ export interface ModifyDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
-   * <p>The new amount of storage (in gibibytes) to allocate for the DB instance.</p>
-   *          <p>Not applicable. Storage is managed by the DB Cluster.</p>
+   * <p>Not supported by Neptune.</p>
    */
   AllocatedStorage?: number;
 
@@ -7461,7 +7460,7 @@ export interface ModifyDBInstanceMessage {
   ApplyImmediately?: boolean;
 
   /**
-   * <p>Not applicable.</p>
+   * <p>Not supported by Neptune.</p>
    */
   MasterUserPassword?: string;
 
@@ -7553,7 +7552,7 @@ export interface ModifyDBInstanceMessage {
   AutoMinorVersionUpgrade?: boolean;
 
   /**
-   * <p>Not supported.</p>
+   * <p>Not supported by Neptune.</p>
    */
   LicenseModel?: string;
 
@@ -7677,10 +7676,10 @@ export interface ModifyDBInstanceMessage {
   PromotionTier?: number;
 
   /**
-   * <p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
+   * <p>True to enable mapping of Amazon Identity and Access Management (IAM) accounts to database
    *       accounts, and otherwise false.</p>
    *          <p>You can enable IAM database authentication for the following database engines</p>
-   *          <p>Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB
+   *          <p>Not applicable. Mapping Amazon IAM accounts to database accounts is managed by the DB
    *       cluster. For more information, see <a>ModifyDBCluster</a>.</p>
    *          <p>Default: <code>false</code>
    *          </p>
@@ -8337,10 +8336,10 @@ export interface RestoreDBClusterFromSnapshotMessage {
   Tags?: Tag[];
 
   /**
-   * <p>The AWS KMS key identifier to use when restoring an encrypted DB cluster from a DB
+   * <p>The Amazon KMS key identifier to use when restoring an encrypted DB cluster from a DB
    *       snapshot or DB cluster snapshot.</p>
    *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If
-   *       you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used
+   *       you are restoring a DB cluster with the same Amazon account that owns the KMS encryption key used
    *       to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the
    *       KMS encryption key.</p>
    *          <p>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
@@ -8360,7 +8359,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
   KmsKeyId?: string;
 
   /**
-   * <p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
+   * <p>True to enable mapping of Amazon Identity and Access Management (IAM) accounts to database
    *       accounts, and otherwise false.</p>
    *          <p>Default: <code>false</code>
    *          </p>
@@ -8390,6 +8389,14 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *     </p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>
+   *             <i>If set to <code>true</code>, tags are copied to any snapshot of
+   *       the restored DB cluster that is created.</i>
+   *          </p>
+   */
+  CopyTagsToSnapshot?: boolean;
 }
 
 export namespace RestoreDBClusterFromSnapshotMessage {
@@ -8536,10 +8543,10 @@ export interface RestoreDBClusterToPointInTimeMessage {
   Tags?: Tag[];
 
   /**
-   * <p>The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted
+   * <p>The Amazon KMS key identifier to use when restoring an encrypted DB cluster from an encrypted
    *       DB cluster.</p>
    *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If
-   *       you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used
+   *       you are restoring a DB cluster with the same Amazon account that owns the KMS encryption key used
    *       to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the
    *       KMS encryption key.</p>
    *          <p>You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key that is
@@ -8563,7 +8570,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
   KmsKeyId?: string;
 
   /**
-   * <p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
+   * <p>True to enable mapping of Amazon Identity and Access Management (IAM) accounts to database
    *       accounts, and otherwise false.</p>
    *          <p>Default: <code>false</code>
    *          </p>

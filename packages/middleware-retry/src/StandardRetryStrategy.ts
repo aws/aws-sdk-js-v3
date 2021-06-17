@@ -4,7 +4,7 @@ import { SdkError } from "@aws-sdk/smithy-client";
 import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "@aws-sdk/types";
 import { v4 } from "uuid";
 
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "./configurations";
+import { DEFAULT_MAX_ATTEMPTS, RETRY_MODES } from "./config";
 import {
   DEFAULT_RETRY_DELAY_BASE,
   INITIAL_RETRY_TOKENS,
@@ -30,7 +30,7 @@ export class StandardRetryStrategy implements RetryStrategy {
   private retryDecider: RetryDecider;
   private delayDecider: DelayDecider;
   private retryQuota: RetryQuota;
-  public readonly mode = DEFAULT_RETRY_MODE;
+  public mode: string = RETRY_MODES.STANDARD;
 
   constructor(private readonly maxAttemptsProvider: Provider<number>, options?: StandardRetryStrategyOptions) {
     this.retryDecider = options?.retryDecider ?? defaultRetryDecider;
@@ -54,7 +54,11 @@ export class StandardRetryStrategy implements RetryStrategy {
 
   async retry<Input extends object, Ouput extends MetadataBearer>(
     next: FinalizeHandler<Input, Ouput>,
-    args: FinalizeHandlerArguments<Input>
+    args: FinalizeHandlerArguments<Input>,
+    options?: {
+      beforeRequest: Function;
+      afterRequest: Function;
+    }
   ) {
     let retryTokenAmount;
     let attempts = 0;
@@ -72,7 +76,14 @@ export class StandardRetryStrategy implements RetryStrategy {
         if (HttpRequest.isInstance(request)) {
           request.headers[REQUEST_HEADER] = `attempt=${attempts + 1}; max=${maxAttempts}`;
         }
+
+        if (options?.beforeRequest) {
+          await options.beforeRequest();
+        }
         const { response, output } = await next(args);
+        if (options?.afterRequest) {
+          options.afterRequest(response);
+        }
 
         this.retryQuota.releaseRetryTokens(retryTokenAmount);
         output.$metadata.attempts = attempts + 1;

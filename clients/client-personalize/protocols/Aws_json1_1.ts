@@ -88,6 +88,10 @@ import {
   ListSolutionVersionsCommandOutput,
 } from "../commands/ListSolutionVersionsCommand";
 import { ListSolutionsCommandInput, ListSolutionsCommandOutput } from "../commands/ListSolutionsCommand";
+import {
+  StopSolutionVersionCreationCommandInput,
+  StopSolutionVersionCreationCommandOutput,
+} from "../commands/StopSolutionVersionCreationCommand";
 import { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "../commands/UpdateCampaignCommand";
 import {
   Algorithm,
@@ -217,6 +221,7 @@ import {
   ListSolutionVersionsResponse,
   ListSolutionsRequest,
   ListSolutionsResponse,
+  OptimizationObjective,
   Recipe,
   RecipeSummary,
   ResourceAlreadyExistsException,
@@ -228,6 +233,7 @@ import {
   SolutionSummary,
   SolutionVersion,
   SolutionVersionSummary,
+  StopSolutionVersionCreationRequest,
   TunedHPOParams,
   UpdateCampaignRequest,
   UpdateCampaignResponse,
@@ -824,6 +830,19 @@ export const serializeAws_json1_1ListSolutionVersionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSolutionVersionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StopSolutionVersionCreationCommand = async (
+  input: StopSolutionVersionCreationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.StopSolutionVersionCreation",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopSolutionVersionCreationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3873,6 +3892,73 @@ const deserializeAws_json1_1ListSolutionVersionsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1StopSolutionVersionCreationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopSolutionVersionCreationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StopSolutionVersionCreationCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: StopSolutionVersionCreationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopSolutionVersionCreationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopSolutionVersionCreationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4706,6 +4792,14 @@ const serializeAws_json1_1ListSolutionVersionsRequest = (
   };
 };
 
+const serializeAws_json1_1OptimizationObjective = (input: OptimizationObjective, context: __SerdeContext): any => {
+  return {
+    ...(input.itemAttribute !== undefined && input.itemAttribute !== null && { itemAttribute: input.itemAttribute }),
+    ...(input.objectiveSensitivity !== undefined &&
+      input.objectiveSensitivity !== null && { objectiveSensitivity: input.objectiveSensitivity }),
+  };
+};
+
 const serializeAws_json1_1S3DataConfig = (input: S3DataConfig, context: __SerdeContext): any => {
   return {
     ...(input.kmsKeyArn !== undefined && input.kmsKeyArn !== null && { kmsKeyArn: input.kmsKeyArn }),
@@ -4732,6 +4826,20 @@ const serializeAws_json1_1SolutionConfig = (input: SolutionConfig, context: __Se
       }),
     ...(input.hpoConfig !== undefined &&
       input.hpoConfig !== null && { hpoConfig: serializeAws_json1_1HPOConfig(input.hpoConfig, context) }),
+    ...(input.optimizationObjective !== undefined &&
+      input.optimizationObjective !== null && {
+        optimizationObjective: serializeAws_json1_1OptimizationObjective(input.optimizationObjective, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1StopSolutionVersionCreationRequest = (
+  input: StopSolutionVersionCreationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.solutionVersionArn !== undefined &&
+      input.solutionVersionArn !== null && { solutionVersionArn: input.solutionVersionArn }),
   };
 };
 
@@ -6158,6 +6266,17 @@ const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): { 
   }, {});
 };
 
+const deserializeAws_json1_1OptimizationObjective = (output: any, context: __SerdeContext): OptimizationObjective => {
+  return {
+    itemAttribute:
+      output.itemAttribute !== undefined && output.itemAttribute !== null ? output.itemAttribute : undefined,
+    objectiveSensitivity:
+      output.objectiveSensitivity !== undefined && output.objectiveSensitivity !== null
+        ? output.objectiveSensitivity
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Recipe = (output: any, context: __SerdeContext): Recipe => {
   return {
     algorithmArn: output.algorithmArn !== undefined && output.algorithmArn !== null ? output.algorithmArn : undefined,
@@ -6318,6 +6437,10 @@ const deserializeAws_json1_1SolutionConfig = (output: any, context: __SerdeConte
     hpoConfig:
       output.hpoConfig !== undefined && output.hpoConfig !== null
         ? deserializeAws_json1_1HPOConfig(output.hpoConfig, context)
+        : undefined,
+    optimizationObjective:
+      output.optimizationObjective !== undefined && output.optimizationObjective !== null
+        ? deserializeAws_json1_1OptimizationObjective(output.optimizationObjective, context)
         : undefined,
   } as any;
 };

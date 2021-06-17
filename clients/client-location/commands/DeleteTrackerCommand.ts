@@ -23,7 +23,9 @@ export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __Met
 /**
  * <p>Deletes a tracker resource from your AWS account.</p>
  *          <note>
- *             <p>This action deletes the resource permanently. You can't undo this action. If the tracker resource is in use, you may encounter an error. Make sure that the target resource is not a dependency for your applications.</p>
+ *             <p>This operation deletes the resource permanently. If the tracker resource is in use, you may
+ *                 encounter an error. Make sure that the target resource isn't a dependency for your
+ *                 applications.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

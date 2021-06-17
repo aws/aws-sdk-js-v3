@@ -25,7 +25,7 @@ export interface UpdateLocationObjectStorageCommandOutput
 /**
  * <p>Updates some of the parameters of a previously created location for self-managed object
  *       storage server access. For information about creating a self-managed object storage location,
- *       see <a>create-object-location</a>.</p>
+ *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating a location for object storage</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

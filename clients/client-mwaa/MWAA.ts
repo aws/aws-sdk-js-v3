@@ -90,7 +90,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
-   * <p>JSON blob that describes the environment to create.</p>
+   * <p>Creates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
    */
   public createEnvironment(
     args: CreateEnvironmentCommandInput,
@@ -154,7 +154,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
-   * <p>Delete an existing environment.</p>
+   * <p>Deletes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
    */
   public deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
@@ -186,7 +186,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
-   * <p>Get details of an existing environment.</p>
+   * <p>Retrieves the details of an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
    */
   public getEnvironment(
     args: GetEnvironmentCommandInput,
@@ -218,7 +218,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
-   * <p>List Amazon MWAA Environments.</p>
+   * <p>Lists the Amazon Managed Workflows for Apache Airflow (MWAA) environments.</p>
    */
   public listEnvironments(
     args: ListEnvironmentsCommandInput,
@@ -250,7 +250,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
-   * <p>List the tags for MWAA environments.</p>
+   * <p>Lists the key-value tag pairs associated to the Amazon Managed Workflows for Apache Airflow (MWAA) environment. For example, <code>"Environment": "Staging"</code>. </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -314,7 +314,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
-   * <p>Add tag to the MWAA environments.</p>
+   * <p>Associates key-value tag pairs to your Amazon Managed Workflows for Apache Airflow (MWAA) environment. </p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -340,7 +340,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
-   * <p>Remove a tag from the MWAA environments.</p>
+   * <p>Removes key-value tag pairs associated to your Amazon Managed Workflows for Apache Airflow (MWAA) environment. For example, <code>"Environment": "Staging"</code>.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -372,7 +372,7 @@ export class MWAA extends MWAAClient {
   }
 
   /**
-   * <p>Update an MWAA environment.</p>
+   * <p>Updates an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
    */
   public updateEnvironment(
     args: UpdateEnvironmentCommandInput,

@@ -15,6 +15,10 @@ import {
   DescribeAccessPointsCommandOutput,
 } from "../commands/DescribeAccessPointsCommand";
 import {
+  DescribeAccountPreferencesCommandInput,
+  DescribeAccountPreferencesCommandOutput,
+} from "../commands/DescribeAccountPreferencesCommand";
+import {
   DescribeBackupPolicyCommandInput,
   DescribeBackupPolicyCommandOutput,
 } from "../commands/DescribeBackupPolicyCommand";
@@ -47,6 +51,10 @@ import {
   ModifyMountTargetSecurityGroupsCommandInput,
   ModifyMountTargetSecurityGroupsCommandOutput,
 } from "../commands/ModifyMountTargetSecurityGroupsCommand";
+import {
+  PutAccountPreferencesCommandInput,
+  PutAccountPreferencesCommandOutput,
+} from "../commands/PutAccountPreferencesCommand";
 import { PutBackupPolicyCommandInput, PutBackupPolicyCommandOutput } from "../commands/PutBackupPolicyCommand";
 import {
   PutFileSystemPolicyCommandInput,
@@ -89,6 +97,8 @@ import {
   NoFreeAddressesInSubnet,
   PolicyNotFound,
   PosixUser,
+  Resource,
+  ResourceIdPreference,
   RootDirectory,
   SecurityGroupLimitExceeded,
   SecurityGroupNotFound,
@@ -417,6 +427,31 @@ export const serializeAws_restJson1DescribeAccessPointsCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeAccountPreferencesCommand = async (
+  input: DescribeAccountPreferencesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/2015-02-01/account-preferences";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeBackupPolicyCommand = async (
   input: DescribeBackupPolicyCommandInput,
   context: __SerdeContext
@@ -671,6 +706,31 @@ export const serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand = asyn
       input.SecurityGroups !== null && {
         SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
       }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutAccountPreferencesCommand = async (
+  input: PutAccountPreferencesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/2015-02-01/account-preferences";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceIdType !== undefined &&
+      input.ResourceIdType !== null && { ResourceIdType: input.ResourceIdType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1880,6 +1940,65 @@ const deserializeAws_restJson1DescribeAccessPointsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeAccountPreferencesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccountPreferencesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeAccountPreferencesCommandError(output, context);
+  }
+  const contents: DescribeAccountPreferencesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    ResourceIdPreference: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  if (data.ResourceIdPreference !== undefined && data.ResourceIdPreference !== null) {
+    contents.ResourceIdPreference = deserializeAws_restJson1ResourceIdPreference(data.ResourceIdPreference, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeAccountPreferencesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccountPreferencesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.efs#InternalServerError":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeBackupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2598,6 +2717,61 @@ const deserializeAws_restJson1ModifyMountTargetSecurityGroupsCommandError = asyn
     case "com.amazonaws.efs#SecurityGroupNotFound":
       response = {
         ...(await deserializeAws_restJson1SecurityGroupNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PutAccountPreferencesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccountPreferencesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutAccountPreferencesCommandError(output, context);
+  }
+  const contents: PutAccountPreferencesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ResourceIdPreference: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ResourceIdPreference !== undefined && data.ResourceIdPreference !== null) {
+    contents.ResourceIdPreference = deserializeAws_restJson1ResourceIdPreference(data.ResourceIdPreference, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutAccountPreferencesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccountPreferencesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.efs#InternalServerError":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4086,6 +4260,28 @@ const deserializeAws_restJson1PosixUser = (output: any, context: __SerdeContext)
         : undefined,
     Uid: output.Uid !== undefined && output.Uid !== null ? output.Uid : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1ResourceIdPreference = (output: any, context: __SerdeContext): ResourceIdPreference => {
+  return {
+    ResourceIdType:
+      output.ResourceIdType !== undefined && output.ResourceIdType !== null ? output.ResourceIdType : undefined,
+    Resources:
+      output.Resources !== undefined && output.Resources !== null
+        ? deserializeAws_restJson1Resources(output.Resources, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext): (Resource | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1RootDirectory = (output: any, context: __SerdeContext): RootDirectory => {

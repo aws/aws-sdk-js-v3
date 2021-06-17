@@ -16,6 +16,7 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   AccessDeniedException,
+  ConflictException,
   InstanceTypeItem,
   InternalServerException,
   NotFoundException,
@@ -363,6 +364,14 @@ const deserializeAws_restJson1CreateOutpostCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConflictException":
+    case "com.amazonaws.outposts#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.outposts#InternalServerException":
       response = {
@@ -446,6 +455,14 @@ const deserializeAws_restJson1DeleteOutpostCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConflictException":
+    case "com.amazonaws.outposts#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.outposts#InternalServerException":
       response = {
@@ -517,6 +534,14 @@ const deserializeAws_restJson1DeleteSiteCommandError = async (
     case "com.amazonaws.outposts#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.outposts#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1104,6 +1129,31 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const contents: ConflictException = {
+    name: "ConflictException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+    ResourceId: undefined,
+    ResourceType: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  if (data.ResourceId !== undefined && data.ResourceId !== null) {
+    contents.ResourceId = data.ResourceId;
+  }
+  if (data.ResourceType !== undefined && data.ResourceType !== null) {
+    contents.ResourceType = data.ResourceType;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1InternalServerExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1219,6 +1269,7 @@ const deserializeAws_restJson1Outpost = (output: any, context: __SerdeContext): 
     OutpostArn: output.OutpostArn !== undefined && output.OutpostArn !== null ? output.OutpostArn : undefined,
     OutpostId: output.OutpostId !== undefined && output.OutpostId !== null ? output.OutpostId : undefined,
     OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
+    SiteArn: output.SiteArn !== undefined && output.SiteArn !== null ? output.SiteArn : undefined,
     SiteId: output.SiteId !== undefined && output.SiteId !== null ? output.SiteId : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -1243,6 +1294,7 @@ const deserializeAws_restJson1Site = (output: any, context: __SerdeContext): Sit
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    SiteArn: output.SiteArn !== undefined && output.SiteArn !== null ? output.SiteArn : undefined,
     SiteId: output.SiteId !== undefined && output.SiteId !== null ? output.SiteId : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null

@@ -23,8 +23,10 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
 /**
  * <p>Creates a public namespace based on DNS, which is visible on the internet. The namespace defines your service
  *    naming scheme. For example, if you name your namespace <code>example.com</code> and name your service
- *     <code>backend</code>, the resulting DNS name for the service is <code>backend.example.com</code>. For the
- *    current quota on the number of namespaces that you can create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
+ *     <code>backend</code>, the resulting DNS name for the service is <code>backend.example.com</code>. You can discover
+ *    instances that were registered with a public DNS namespace by using either a <code>DiscoverInstances</code> request
+ *    or using DNS. For the current quota on the number of namespaces that you can create using the same AWS account, see
+ *     <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Quotas</a>in the
  *     <i>AWS Cloud Map Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

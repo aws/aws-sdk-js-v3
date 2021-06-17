@@ -1262,6 +1262,7 @@ export namespace DeploymentController {
 
 export enum LaunchType {
   EC2 = "EC2",
+  EXTERNAL = "EXTERNAL",
   FARGATE = "FARGATE",
 }
 
@@ -1630,15 +1631,21 @@ export interface CreateServiceRequest {
   clientToken?: string;
 
   /**
-   * <p>The launch type on which to run your service. The accepted values are
-   * 				<code>FARGATE</code> and <code>EC2</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
+   * <p>The infrastructure on which to run your service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
    * 				launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * 		       <p>When a value of <code>FARGATE</code> is specified, your tasks are launched on
-   * 			AWS Fargate On-Demand infrastructure. To use Fargate Spot, you must use a capacity
-   * 			provider strategy with the <code>FARGATE_SPOT</code> capacity provider.</p>
-   * 		       <p>When a value of <code>EC2</code> is specified, your tasks are launched on Amazon EC2
-   * 			instances registered to your cluster.</p>
-   * 		       <p>If a <code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
+   * 		       <p>The <code>FARGATE</code> launch type runs your tasks on AWS Fargate On-Demand
+   * 			infrastructure.</p>
+   * 		       <note>
+   * 			         <p>Fargate Spot infrastructure is available for use but a capacity provider
+   * 				strategy must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">AWS Fargate capacity providers</a> in the
+   * 					<i>Amazon ECS User Guide for AWS Fargate</i>.</p>
+   * 		       </note>
+   * 		       <p>The <code>EC2</code> launch type runs your tasks on Amazon EC2 instances registered to your
+   * 			cluster.</p>
+   * 		       <p>The <code>EXTERNAL</code> launch type runs your tasks on your on-premise server or
+   * 			virtual machine (VM) capacity registered to your cluster.</p>
+   * 		       <p>A service can use either a launch type or a capacity provider strategy. If a
+   * 				<code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
    * 			parameter must be omitted.</p>
    */
   launchType?: LaunchType | string;
@@ -2320,10 +2327,8 @@ export interface Service {
   pendingCount?: number;
 
   /**
-   * <p>The launch type on which your service is running. If no value is specified, it will
-   * 			default to <code>EC2</code>. Valid values include <code>EC2</code> and
-   * 				<code>FARGATE</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
-   * 				Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * <p>The infrastructure on which your service is running. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
+   * 				launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   launchType?: LaunchType | string;
 
@@ -3348,7 +3353,8 @@ export interface ContainerInstance {
   containerInstanceArn?: string;
 
   /**
-   * <p>The EC2 instance ID of the container instance.</p>
+   * <p>The ID of the container instance. For Amazon EC2 instances, this value is the Amazon EC2
+   * 			instance ID. For external instances, this value is the AWS Systems Manager managed instance ID.</p>
    */
   ec2InstanceId?: string;
 
@@ -3549,6 +3555,7 @@ export namespace DeregisterTaskDefinitionRequest {
 
 export enum Compatibility {
   EC2 = "EC2",
+  EXTERNAL = "EXTERNAL",
   FARGATE = "FARGATE",
 }
 
@@ -6173,40 +6180,14 @@ export interface DescribeClustersRequest {
   clusters?: string[];
 
   /**
-   * <p>Whether to include additional information about your clusters in the response. If this
-   * 			field is omitted, the attachments, statistics, and tags are not included.</p>
+   * <p>Whether to include additional information about the clusters in the response. If this
+   * 			field is omitted, this information isn't included.</p>
    * 		       <p>If <code>ATTACHMENTS</code> is specified, the attachments for the container instances
    * 			or tasks within the cluster are included.</p>
    * 		       <p>If <code>SETTINGS</code> is specified, the settings for the cluster are
    * 			included.</p>
-   * 		       <p>If <code>STATISTICS</code> is specified, the following additional information,
-   * 			separated by launch type, is included:</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>runningEC2TasksCount</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>runningFargateTasksCount</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>pendingEC2TasksCount</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>pendingFargateTasksCount</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>activeEC2ServiceCount</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>activeFargateServiceCount</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>drainingEC2ServiceCount</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>drainingFargateServiceCount</p>
-   * 			         </li>
-   *          </ul>
+   * 		       <p>If <code>STATISTICS</code> is specified, the task and service count is included,
+   * 			separated by launch type.</p>
    * 		       <p>If <code>TAGS</code> is specified, the metadata tags associated with the cluster are
    * 			included.</p>
    */
@@ -6995,8 +6976,8 @@ export interface Task {
   lastStatus?: string;
 
   /**
-   * <p>The launch type on which your task is running. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
-   * 				Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * <p>The infrastructure on which your task is running. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
+   * 				launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   launchType?: LaunchType | string;
 
@@ -7750,8 +7731,8 @@ export namespace ListContainerInstancesResponse {
 
 export interface ListServicesRequest {
   /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the services to list.
-   * 			If you do not specify a cluster, the default cluster is assumed.</p>
+   * <p>The short name or full Amazon Resource Name (ARN) of the cluster to use when filtering the
+   * 				<code>ListServices</code> results. If you do not specify a cluster, the default cluster is assumed.</p>
    */
   cluster?: string;
 
@@ -7781,12 +7762,13 @@ export interface ListServicesRequest {
   maxResults?: number;
 
   /**
-   * <p>The launch type for the services to list.</p>
+   * <p>The launch type to use when filtering the <code>ListServices</code> results.</p>
    */
   launchType?: LaunchType | string;
 
   /**
-   * <p>The scheduling strategy for services to list.</p>
+   * <p>The scheduling strategy to use when filtering the <code>ListServices</code>
+   * 			results.</p>
    */
   schedulingStrategy?: SchedulingStrategy | string;
 }
@@ -8053,22 +8035,23 @@ export enum DesiredStatus {
 
 export interface ListTasksRequest {
   /**
-   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the tasks to list.
-   * 			If you do not specify a cluster, the default cluster is assumed.</p>
+   * <p>The short name or full Amazon Resource Name (ARN) of the cluster to use when filtering the
+   * 				<code>ListTasks</code> results. If you do not specify a cluster, the default cluster is assumed.</p>
    */
   cluster?: string;
 
   /**
-   * <p>The container instance ID or full ARN of the container instance with which to filter
-   * 			the <code>ListTasks</code> results. Specifying a <code>containerInstance</code> limits
-   * 			the results to tasks that belong to that container instance.</p>
+   * <p>The container instance ID or full ARN of the container instance to use when
+   * 			filtering the <code>ListTasks</code> results. Specifying a
+   * 				<code>containerInstance</code> limits the results to tasks that belong to that
+   * 			container instance.</p>
    */
   containerInstance?: string;
 
   /**
-   * <p>The name of the family with which to filter the <code>ListTasks</code> results.
-   * 			Specifying a <code>family</code> limits the results to tasks that belong to that
-   * 			family.</p>
+   * <p>The name of the task definition family to use when filtering the
+   * 				<code>ListTasks</code> results. Specifying a <code>family</code> limits the results
+   * 			to tasks that belong to that family.</p>
    */
   family?: string;
 
@@ -8104,14 +8087,14 @@ export interface ListTasksRequest {
   startedBy?: string;
 
   /**
-   * <p>The name of the service with which to filter the <code>ListTasks</code> results.
+   * <p>The name of the service to use when filtering the <code>ListTasks</code> results.
    * 			Specifying a <code>serviceName</code> limits the results to tasks that belong to that
    * 			service.</p>
    */
   serviceName?: string;
 
   /**
-   * <p>The task desired status with which to filter the <code>ListTasks</code> results.
+   * <p>The task desired status to use when filtering the <code>ListTasks</code> results.
    * 			Specifying a <code>desiredStatus</code> of <code>STOPPED</code> limits the results to
    * 			tasks that Amazon ECS has set the desired status to <code>STOPPED</code>. This can be useful
    * 			for debugging tasks that are not starting properly or have died or finished. The default
@@ -8127,7 +8110,7 @@ export interface ListTasksRequest {
   desiredStatus?: DesiredStatus | string;
 
   /**
-   * <p>The launch type for services to list.</p>
+   * <p>The launch type to use when filtering the <code>ListTasks</code> results.</p>
    */
   launchType?: LaunchType | string;
 }
@@ -8933,15 +8916,21 @@ export interface RunTaskRequest {
   group?: string;
 
   /**
-   * <p>The launch type on which to run your task. The accepted values are
-   * 				<code>FARGATE</code> and <code>EC2</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS
-   * 				Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * 		       <p>When a value of <code>FARGATE</code> is specified, your tasks are launched on
-   * 			AWS Fargate On-Demand infrastructure. To use Fargate Spot, you must use a capacity
-   * 			provider strategy with the <code>FARGATE_SPOT</code> capacity provider.</p>
-   * 		       <p>When a value of <code>EC2</code> is specified, your tasks are launched on Amazon EC2
-   * 			instances registered to your cluster.</p>
-   * 		       <p>If a <code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
+   * <p>The infrastructure on which to run your standalone task. For more information, see
+   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon ECS launch types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 		       <p>The <code>FARGATE</code> launch type runs your tasks on AWS Fargate On-Demand
+   * 			infrastructure.</p>
+   * 		       <note>
+   * 			         <p>Fargate Spot infrastructure is available for use but a capacity provider
+   * 				strategy must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">AWS Fargate capacity providers</a> in the
+   * 					<i>Amazon ECS User Guide for AWS Fargate</i>.</p>
+   * 		       </note>
+   * 		       <p>The <code>EC2</code> launch type runs your tasks on Amazon EC2 instances registered to your
+   * 			cluster.</p>
+   * 		       <p>The <code>EXTERNAL</code> launch type runs your tasks on your on-premise server or
+   * 			virtual machine (VM) capacity registered to your cluster.</p>
+   * 		       <p>A task can use either a launch type or a capacity provider strategy. If a
+   * 				<code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
    * 			parameter must be omitted.</p>
    */
   launchType?: LaunchType | string;

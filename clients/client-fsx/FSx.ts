@@ -192,9 +192,9 @@ export class FSx extends FSxClient {
    *          to make a cross-Region copy. If you don't specify a Region, the backup copy is
    *          created in the same Region where the request is sent from (in-Region copy).</p>
    *          <p>For more information on creating backup copies, see
-   *          <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/copy-backups.html">
+   *          <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html#copy-backups">
    *             Copying backups</a> in the <i>Amazon FSx for Windows User Guide</i> and
-   *          <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/copy-backups.html">Copying backups</a>
+   *          <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html#copy-backups">Copying backups</a>
    *          in the <i>Amazon FSx for Lustre User Guide</i>.</p>
    */
   public copyBackup(args: CopyBackupCommandInput, options?: __HttpHandlerOptions): Promise<CopyBackupCommandOutput>;
@@ -949,6 +949,9 @@ export class FSx extends FSxClient {
    *             </li>
    *             <li>
    *                <p>DailyAutomaticBackupStartTime</p>
+   *             </li>
+   *             <li>
+   *                <p>DataCompressionType</p>
    *             </li>
    *             <li>
    *                <p>StorageCapacity</p>

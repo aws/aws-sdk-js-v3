@@ -608,7 +608,8 @@ export interface CreateServerRequest {
 
   /**
    * <p>
-   *         The major release version of the engine that you want to use. For a Chef server, the valid value for EngineVersion is currently <code>2</code>. For a Puppet server, the valid value is <code>2017</code>.
+   *         The major release version of the engine that you want to use. For a Chef server, the valid value for EngineVersion
+   *         is currently <code>2</code>. For a Puppet server, valid values are <code>2019</code> or <code>2017</code>.
    *       </p>
    */
   EngineVersion?: string;
@@ -957,7 +958,8 @@ export interface Server {
   EngineAttributes?: EngineAttribute[];
 
   /**
-   * <p>The engine version of the server. For a Chef server, the valid value for EngineVersion is currently <code>2</code>. For a Puppet server, the valid value is <code>2017</code>.
+   * <p>The engine version of the server. For a Chef server, the valid value for EngineVersion is
+   *       currently <code>2</code>. For a Puppet server, specify either <code>2019</code> or <code>2017</code>.
    *     </p>
    */
   EngineVersion?: string;
@@ -1474,10 +1476,22 @@ export interface DescribeServersResponse {
    *       CHEF_MAJOR_UPGRADE_AVAILABLE, you can upgrade the Chef Automate server to Chef Automate 2. To be eligible for upgrade, a server running
    *       Chef Automate 1 must have had at least one successful maintenance run after November 1, 2019.</p>
    *          <p>
-   *             <i>For Puppet Server:</i>
+   *             <i>For Puppet servers:</i>
    *             <code>DescribeServersResponse$Servers$EngineAttributes</code> contains
-   *       PUPPET_API_CA_CERT. This is the PEM-encoded CA certificate that is used by the Puppet API over TCP port number 8140.
-   *       The CA certificate is also used to sign node certificates.</p>
+   *       the following two responses:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PUPPET_API_CA_CERT</code>, the PEM-encoded CA certificate that is used by the Puppet API over TCP port number 8140.
+   *         The CA certificate is also used to sign node certificates.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PUPPET_API_CRL</code>, a certificate revocation list. The certificate revocation list is for internal
+   *         maintenance purposes only. For more information about the Puppet certificate revocation list, see
+   *         <a href="https://puppet.com/docs/puppet/5.5/man/certificate_revocation_list.html">Man Page: puppet certificate_revocation_list</a> in the Puppet documentation.</p>
+   *             </li>
+   *          </ul>
    */
   Servers?: Server[];
 
@@ -1732,7 +1746,13 @@ export namespace RestoreServerRequest {
   });
 }
 
-export interface RestoreServerResponse {}
+export interface RestoreServerResponse {
+  /**
+   * <p>Describes a configuration management server.
+   *     </p>
+   */
+  Server?: Server;
+}
 
 export namespace RestoreServerResponse {
   /**
@@ -1740,6 +1760,7 @@ export namespace RestoreServerResponse {
    */
   export const filterSensitiveLog = (obj: RestoreServerResponse): any => ({
     ...obj,
+    ...(obj.Server && { Server: Server.filterSensitiveLog(obj.Server) }),
   });
 }
 

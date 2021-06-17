@@ -1,4 +1,4 @@
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { CredentialProvider } from "@aws-sdk/types";
 import { RequestOptions } from "http";
 import { parse } from "url";
@@ -23,7 +23,7 @@ export const fromContainerMetadata = (init: RemoteProviderInit = {}): Credential
       const requestOptions = await getCmdsUri();
       const credsResponse = JSON.parse(await requestFromEcsImds(timeout, requestOptions));
       if (!isImdsCredentials(credsResponse)) {
-        throw new ProviderError("Invalid response received from instance metadata service.");
+        throw new CredentialsProviderError("Invalid response received from instance metadata service.");
       }
       return fromImdsCredentials(credsResponse);
     }, maxRetries);
@@ -65,11 +65,17 @@ const getCmdsUri = async (): Promise<RequestOptions> => {
   if (process.env[ENV_CMDS_FULL_URI]) {
     const parsed = parse(process.env[ENV_CMDS_FULL_URI]!);
     if (!parsed.hostname || !(parsed.hostname in GREENGRASS_HOSTS)) {
-      throw new ProviderError(`${parsed.hostname} is not a valid container metadata service hostname`, false);
+      throw new CredentialsProviderError(
+        `${parsed.hostname} is not a valid container metadata service hostname`,
+        false
+      );
     }
 
     if (!parsed.protocol || !(parsed.protocol in GREENGRASS_PROTOCOLS)) {
-      throw new ProviderError(`${parsed.protocol} is not a valid container metadata service protocol`, false);
+      throw new CredentialsProviderError(
+        `${parsed.protocol} is not a valid container metadata service protocol`,
+        false
+      );
     }
 
     return {
@@ -78,7 +84,7 @@ const getCmdsUri = async (): Promise<RequestOptions> => {
     };
   }
 
-  throw new ProviderError(
+  throw new CredentialsProviderError(
     "The container metadata credential provider cannot be used unless" +
       ` the ${ENV_CMDS_RELATIVE_URI} or ${ENV_CMDS_FULL_URI} environment` +
       " variable is set",

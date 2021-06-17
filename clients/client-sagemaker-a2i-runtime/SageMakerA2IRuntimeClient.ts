@@ -142,7 +142,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -150,6 +150,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.
@@ -202,11 +208,7 @@ type SageMakerA2IRuntimeClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface SageMakerA2IRuntimeClientResolvedConfig extends SageMakerA2IRuntimeClientResolvedConfigType {}
 
 /**
- * <important>
- *             <p>Amazon Augmented AI is in preview release and is subject to change. We do not recommend using this
- *         product in production environments.</p>
- *          </important>
- *          <p>Amazon Augmented AI (Amazon A2I) adds the benefit of human judgment to any machine learning
+ * <p>Amazon Augmented AI (Amazon A2I) adds the benefit of human judgment to any machine learning
  *       application. When an AI application can't evaluate data with a high degree of confidence,
  *       human reviewers can take over. This human review is called a human review workflow. To create
  *       and start a human review workflow, you need three resources: a <i>worker task

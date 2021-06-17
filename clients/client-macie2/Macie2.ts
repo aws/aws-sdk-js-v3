@@ -218,6 +218,11 @@ import {
   PutFindingsPublicationConfigurationCommandInput,
   PutFindingsPublicationConfigurationCommandOutput,
 } from "./commands/PutFindingsPublicationConfigurationCommand";
+import {
+  SearchResourcesCommand,
+  SearchResourcesCommandInput,
+  SearchResourcesCommandOutput,
+} from "./commands/SearchResourcesCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestCustomDataIdentifierCommand,
@@ -1718,6 +1723,38 @@ export class Macie2 extends Macie2Client {
     cb?: (err: any, data?: PutFindingsPublicationConfigurationCommandOutput) => void
   ): Promise<PutFindingsPublicationConfigurationCommandOutput> | void {
     const command = new PutFindingsPublicationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves (queries) statistical data and other information about AWS resources that Amazon Macie monitors and analyzes.</p>
+   */
+  public searchResources(
+    args: SearchResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchResourcesCommandOutput>;
+  public searchResources(
+    args: SearchResourcesCommandInput,
+    cb: (err: any, data?: SearchResourcesCommandOutput) => void
+  ): void;
+  public searchResources(
+    args: SearchResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchResourcesCommandOutput) => void
+  ): void;
+  public searchResources(
+    args: SearchResourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchResourcesCommandOutput) => void),
+    cb?: (err: any, data?: SearchResourcesCommandOutput) => void
+  ): Promise<SearchResourcesCommandOutput> | void {
+    const command = new SearchResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

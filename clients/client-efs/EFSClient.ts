@@ -15,6 +15,10 @@ import {
   DescribeAccessPointsCommandOutput,
 } from "./commands/DescribeAccessPointsCommand";
 import {
+  DescribeAccountPreferencesCommandInput,
+  DescribeAccountPreferencesCommandOutput,
+} from "./commands/DescribeAccountPreferencesCommand";
+import {
   DescribeBackupPolicyCommandInput,
   DescribeBackupPolicyCommandOutput,
 } from "./commands/DescribeBackupPolicyCommand";
@@ -47,6 +51,10 @@ import {
   ModifyMountTargetSecurityGroupsCommandInput,
   ModifyMountTargetSecurityGroupsCommandOutput,
 } from "./commands/ModifyMountTargetSecurityGroupsCommand";
+import {
+  PutAccountPreferencesCommandInput,
+  PutAccountPreferencesCommandOutput,
+} from "./commands/PutAccountPreferencesCommand";
 import { PutBackupPolicyCommandInput, PutBackupPolicyCommandOutput } from "./commands/PutBackupPolicyCommand";
 import {
   PutFileSystemPolicyCommandInput,
@@ -121,6 +129,7 @@ export type ServiceInputTypes =
   | DeleteMountTargetCommandInput
   | DeleteTagsCommandInput
   | DescribeAccessPointsCommandInput
+  | DescribeAccountPreferencesCommandInput
   | DescribeBackupPolicyCommandInput
   | DescribeFileSystemPolicyCommandInput
   | DescribeFileSystemsCommandInput
@@ -130,6 +139,7 @@ export type ServiceInputTypes =
   | DescribeTagsCommandInput
   | ListTagsForResourceCommandInput
   | ModifyMountTargetSecurityGroupsCommandInput
+  | PutAccountPreferencesCommandInput
   | PutBackupPolicyCommandInput
   | PutFileSystemPolicyCommandInput
   | PutLifecycleConfigurationCommandInput
@@ -148,6 +158,7 @@ export type ServiceOutputTypes =
   | DeleteMountTargetCommandOutput
   | DeleteTagsCommandOutput
   | DescribeAccessPointsCommandOutput
+  | DescribeAccountPreferencesCommandOutput
   | DescribeBackupPolicyCommandOutput
   | DescribeFileSystemPolicyCommandOutput
   | DescribeFileSystemsCommandOutput
@@ -157,6 +168,7 @@ export type ServiceOutputTypes =
   | DescribeTagsCommandOutput
   | ListTagsForResourceCommandOutput
   | ModifyMountTargetSecurityGroupsCommandOutput
+  | PutAccountPreferencesCommandOutput
   | PutBackupPolicyCommandOutput
   | PutFileSystemPolicyCommandOutput
   | PutLifecycleConfigurationCommandOutput
@@ -238,7 +250,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests or use as signingRegion
+   * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
@@ -246,6 +258,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
+
+  /**
+   * Specifies provider for retry algorithm to use.
+   * @internal
+   */
+  retryModeProvider?: __Provider<string>;
 
   /**
    * Optional logger for logging debug/info/warn/error.
@@ -302,7 +320,7 @@ export interface EFSClientResolvedConfig extends EFSClientResolvedConfigType {}
  *          <p>Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use
  *       with Amazon EC2 instances in the AWS Cloud. With Amazon EFS, storage capacity is elastic,
  *       growing and shrinking automatically as you add and remove files, so your applications have the
- *       storage they need, when they need it. For more information, see the <a href="https://docs.aws.amazon.com/efs/latest/ug/api-reference.html">User Guide</a>.</p>
+ *       storage they need, when they need it. For more information, see the <a href="https://docs.aws.amazon.com/efs/latest/ug/api-reference.html">Amazon Elastic File System API Reference</a> and the <a href="https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html">Amazon Elastic File System User Guide</a>.</p>
  */
 export class EFSClient extends __Client<
   __HttpHandlerOptions,

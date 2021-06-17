@@ -2852,6 +2852,11 @@ export interface CreateNetworkInterfaceRequest {
    * <p>The tags to apply to the new network interface.</p>
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
 }
 
 export namespace CreateNetworkInterfaceRequest {
@@ -3178,6 +3183,11 @@ export interface CreateNetworkInterfaceResult {
    * <p>Information about the network interface.</p>
    */
   NetworkInterface?: NetworkInterface;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  ClientToken?: string;
 }
 
 export namespace CreateNetworkInterfaceResult {
@@ -4720,6 +4730,11 @@ export interface CreateSubnetRequest {
   AvailabilityZoneId?: string;
 
   /**
+   * <p>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   */
+  CidrBlock: string | undefined;
+
+  /**
    * <p>The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a
    *             /64 prefix length.</p>
    */
@@ -4742,11 +4757,6 @@ export interface CreateSubnetRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
-   */
-  CidrBlock: string | undefined;
 }
 
 export namespace CreateSubnetRequest {

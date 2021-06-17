@@ -2,6 +2,29 @@ import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
+ * <p>Specifies whether to get notified for alarm state changes.</p>
+ */
+export interface AcknowledgeFlow {
+  /**
+   * <p>The value must be <code>TRUE</code> or <code>FALSE</code>. If <code>TRUE</code>, you
+   *       receive a notification when the alarm state changes. You must choose to acknowledge the
+   *       notification before the alarm state can return to <code>NORMAL</code>. If <code>FALSE</code>,
+   *       you won't receive notifications. The alarm automatically changes to the <code>NORMAL</code>
+   *       state when the input property value returns to the specified range.</p>
+   */
+  enabled: boolean | undefined;
+}
+
+export namespace AcknowledgeFlow {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AcknowledgeFlow): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information needed to clear the timer.</p>
  */
 export interface ClearTimerAction {
@@ -513,7 +536,7 @@ export interface AssetPropertyValue {
   /**
    * <p>The value to send to an asset property.</p>
    */
-  value: AssetPropertyVariant | undefined;
+  value?: AssetPropertyVariant;
 
   /**
    * <p>The timestamp associated with the asset property value. The default is the current event
@@ -601,7 +624,7 @@ export interface IotSiteWiseAction {
    * <p>The value to send to the asset property. This value contains timestamp, quality, and value
    *       (TQV) information. </p>
    */
-  propertyValue: AssetPropertyValue | undefined;
+  propertyValue?: AssetPropertyValue;
 }
 
 export namespace IotSiteWiseAction {
@@ -897,6 +920,667 @@ export namespace Action {
   });
 }
 
+/**
+ * <p>Specifies one of the following actions to receive notifications when the alarm state
+ *       changes.</p>
+ */
+export interface AlarmAction {
+  /**
+   * <p>Information required to publish the Amazon SNS message.</p>
+   */
+  sns?: SNSTopicPublishAction;
+
+  /**
+   * <p>Information required to publish the MQTT message through the AWS IoT message broker.</p>
+   */
+  iotTopicPublish?: IotTopicPublishAction;
+
+  /**
+   * <p>Calls a Lambda function, passing in information about the detector model instance and the
+   *       event that triggered the action.</p>
+   */
+  lambda?: LambdaAction;
+
+  /**
+   * <p>Sends an AWS IoT Events input, passing in information about the detector model instance and the
+   *       event that triggered the action.</p>
+   */
+  iotEvents?: IotEventsAction;
+
+  /**
+   * <p>Sends information about the detector model instance and the event that triggered the
+   *       action to an Amazon SQS queue.</p>
+   */
+  sqs?: SqsAction;
+
+  /**
+   * <p>Sends information about the detector model instance and the event that triggered the
+   *       action to an Amazon Kinesis Data Firehose delivery stream.</p>
+   */
+  firehose?: FirehoseAction;
+
+  /**
+   * <p>Defines an action to write to the Amazon DynamoDB table that you created. The standard action
+   *       payload contains all the information about the detector model instance and the event that
+   *       triggered the action. You can customize the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html">payload</a>. One column of the
+   *       DynamoDB table receives all attribute-value pairs in the payload that you specify.</p>
+   *          <p>You must use expressions for all parameters in <code>DynamoDBAction</code>. The expressions
+   *       accept literals, operators, functions, references, and substitution templates.</p>
+   *          <p class="title">
+   *             <b>Examples</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>For literal values, the expressions must contain single quotes. For example, the value
+   *           for the <code>hashKeyType</code> parameter can be <code>'STRING'</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For references, you must specify either variables or input values. For example, the
+   *           value for the <code>hashKeyField</code> parameter can be
+   *             <code>$input.GreenhouseInput.name</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+   *           in single quotes. A substitution template can also contain a combination of literals,
+   *           operators, functions, references, and substitution templates.</p>
+   *                <p>In the following example, the value for the <code>hashKeyValue</code> parameter uses a
+   *           substitution template. </p>
+   *                <p>
+   *                   <code>'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For a string concatenation, you must use <code>+</code>. A string concatenation can
+   *           also contain a combination of literals, operators, functions, references, and substitution
+   *           templates.</p>
+   *                <p>In the following example, the value for the <code>tableName</code> parameter uses a
+   *           string concatenation. </p>
+   *                <p>
+   *                   <code>'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information,
+   *         see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html">Expressions</a>
+   *         in the <i>AWS IoT Events Developer Guide</i>.</p>
+   *          <p>If the defined payload type is a string, <code>DynamoDBAction</code> writes non-JSON data to
+   *       the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text.
+   *       The value for the <code>payloadField</code> parameter is
+   *         <code><payload-field>_raw</code>.</p>
+   */
+  dynamoDB?: DynamoDBAction;
+
+  /**
+   * <p>Defines an action to write to the Amazon DynamoDB table that you created. The default action
+   *       payload contains all the information about the detector model instance and the event that
+   *       triggered the action. You can customize the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html">payload</a>. A separate column of
+   *       the DynamoDB table receives one attribute-value pair in the payload that you specify.</p>
+   *          <p>You must use expressions for all parameters in <code>DynamoDBv2Action</code>. The expressions
+   *       accept literals, operators, functions, references, and substitution templates.</p>
+   *          <p class="title">
+   *             <b>Examples</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>For literal values, the expressions must contain single quotes. For example, the value
+   *           for the <code>tableName</code> parameter can be
+   *           <code>'GreenhouseTemperatureTable'</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For references, you must specify either variables or input values. For example, the
+   *           value for the <code>tableName</code> parameter can be
+   *           <code>$variable.ddbtableName</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+   *           in single quotes. A substitution template can also contain a combination of literals,
+   *           operators, functions, references, and substitution templates.</p>
+   *                <p>In the following example, the value for the <code>contentExpression</code> parameter
+   *           in <code>Payload</code> uses a substitution template. </p>
+   *                <p>
+   *                   <code>'{\"sensorID\": \"${$input.GreenhouseInput.sensor_id}\", \"temperature\":
+   *             \"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\"}'</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>For a string concatenation, you must use <code>+</code>. A string concatenation can
+   *           also contain a combination of literals, operators, functions, references, and substitution
+   *           templates.</p>
+   *                <p>In the following example, the value for the <code>tableName</code> parameter uses a
+   *           string concatenation. </p>
+   *                <p>
+   *                   <code>'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information,
+   *         see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html">Expressions</a>
+   *         in the <i>AWS IoT Events Developer Guide</i>.</p>
+   *          <p>The value for the <code>type</code> parameter in <code>Payload</code> must be
+   *         <code>JSON</code>.</p>
+   */
+  dynamoDBv2?: DynamoDBv2Action;
+
+  /**
+   * <p>Sends information about the detector model instance and the event that triggered the
+   *       action to a specified asset property in AWS IoT SiteWise.</p>
+   *          <p>You must use expressions for all parameters in <code>IotSiteWiseAction</code>. The
+   *       expressions accept literals, operators, functions, references, and substitutions
+   *       templates.</p>
+   *          <p class="title">
+   *             <b>Examples</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>For literal values, the expressions must contain single quotes. For example, the value
+   *           for the <code>propertyAlias</code> parameter can be
+   *             <code>'/company/windfarm/3/turbine/7/temperature'</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For references, you must specify either variables or input values. For example, the
+   *           value for the <code>assetId</code> parameter can be
+   *             <code>$input.TurbineInput.assetId1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For a substitution template, you must use <code>${}</code>, and the template must be
+   *           in single quotes. A substitution template can also contain a combination of literals,
+   *           operators, functions, references, and substitution templates.</p>
+   *                <p>In the following example, the value for the <code>propertyAlias</code> parameter uses
+   *           a substitution template. </p>
+   *                <p>
+   *                   <code>'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/
+   *             ${$input.TemperatureInput.sensorData.turbineID}/temperature'</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>You must specify either <code>propertyAlias</code> or both <code>assetId</code> and
+   *         <code>propertyId</code> to identify the target asset property in AWS IoT SiteWise.</p>
+   *          <p>For more information,
+   *         see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html">Expressions</a>
+   *         in the <i>AWS IoT Events Developer Guide</i>.</p>
+   */
+  iotSiteWise?: IotSiteWiseAction;
+}
+
+export namespace AlarmAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AlarmAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the default alarm state.
+ * The configuration applies to all alarms that were created based on this alarm model.</p>
+ */
+export interface InitializationConfiguration {
+  /**
+   * <p>The value must be <code>TRUE</code> or <code>FALSE</code>. If <code>FALSE</code>, all
+   *       alarm instances created based on the alarm model are activated. The default value is
+   *         <code>TRUE</code>.</p>
+   */
+  disabledOnInitialization: boolean | undefined;
+}
+
+export namespace InitializationConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InitializationConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the configuration information of alarm state changes.</p>
+ */
+export interface AlarmCapabilities {
+  /**
+   * <p>Specifies the default alarm state.
+   * The configuration applies to all alarms that were created based on this alarm model.</p>
+   */
+  initializationConfiguration?: InitializationConfiguration;
+
+  /**
+   * <p>Specifies whether to get notified for alarm state changes.</p>
+   */
+  acknowledgeFlow?: AcknowledgeFlow;
+}
+
+export namespace AlarmCapabilities {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AlarmCapabilities): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about one or more alarm actions.</p>
+ */
+export interface AlarmEventActions {
+  /**
+   * <p>Specifies one or more supported actions to receive notifications when the alarm state
+   *       changes.</p>
+   */
+  alarmActions?: AlarmAction[];
+}
+
+export namespace AlarmEventActions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AlarmEventActions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains a summary of an alarm model.</p>
+ */
+export interface AlarmModelSummary {
+  /**
+   * <p>The time the alarm model was created, in the Unix epoch format.</p>
+   */
+  creationTime?: Date;
+
+  /**
+   * <p>The description of the alarm model.</p>
+   */
+  alarmModelDescription?: string;
+
+  /**
+   * <p>The name of the alarm model.</p>
+   */
+  alarmModelName?: string;
+}
+
+export namespace AlarmModelSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AlarmModelSummary): any => ({
+    ...obj,
+  });
+}
+
+export enum AlarmModelVersionStatus {
+  ACTIVATING = "ACTIVATING",
+  ACTIVE = "ACTIVE",
+  FAILED = "FAILED",
+  INACTIVE = "INACTIVE",
+}
+
+/**
+ * <p>Contains a summary of an alarm model version.</p>
+ */
+export interface AlarmModelVersionSummary {
+  /**
+   * <p>The name of the alarm model.</p>
+   */
+  alarmModelName?: string;
+
+  /**
+   * <p>The ARN of the alarm model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  alarmModelArn?: string;
+
+  /**
+   * <p>The version of the alarm model.</p>
+   */
+  alarmModelVersion?: string;
+
+  /**
+   * <p>The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * <p>The time the alarm model was created, in the Unix epoch format.</p>
+   */
+  creationTime?: Date;
+
+  /**
+   * <p>The time the alarm model was last updated, in the Unix epoch format.</p>
+   */
+  lastUpdateTime?: Date;
+
+  /**
+   * <p>The status of the alarm model. The status can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> - The alarm model is active and it's ready to evaluate data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVATING</code> - AWS IoT Events is activating your alarm model.
+   *         Activating an alarm model can take up to a few minutes.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INACTIVE</code> - The alarm model is inactive, so it isn't ready to evaluate data.
+   * 	  Check your alarm model information and update the alarm model.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - You couldn't create or update the alarm model. Check your alarm model information
+   *         and try again.</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: AlarmModelVersionStatus | string;
+
+  /**
+   * <p>
+   *       Contains information about the status of the alarm model version.
+   *     </p>
+   */
+  statusMessage?: string;
+}
+
+export namespace AlarmModelVersionSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AlarmModelVersionSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies an AWS Lambda function to manage alarm notifications.
+ * You can create one or use the <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html">AWS Lambda function provided by AWS IoT Events</a>.</p>
+ */
+export interface NotificationTargetActions {
+  /**
+   * <p>Calls a Lambda function, passing in information about the detector model instance and the
+   *       event that triggered the action.</p>
+   */
+  lambdaAction?: LambdaAction;
+}
+
+export namespace NotificationTargetActions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NotificationTargetActions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the subject and message of an email.</p>
+ */
+export interface EmailContent {
+  /**
+   * <p>The subject of the email.</p>
+   */
+  subject?: string;
+
+  /**
+   * <p>The message that you want to send. The message can be up to 200 characters.</p>
+   */
+  additionalMessage?: string;
+}
+
+export namespace EmailContent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EmailContent): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about your identity source in AWS Single Sign-On. For more information, see
+ *       the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">AWS Single Sign-On
+ *         User Guide</a>.</p>
+ */
+export interface SSOIdentity {
+  /**
+   * <p>The ID of the AWS SSO identity store.</p>
+   */
+  identityStoreId: string | undefined;
+
+  /**
+   * <p>The user ID.</p>
+   */
+  userId?: string;
+}
+
+export namespace SSOIdentity {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SSOIdentity): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The information that identifies the recipient.</p>
+ */
+export interface RecipientDetail {
+  /**
+   * <p>The AWS Single Sign-On (AWS SSO) authentication information.</p>
+   */
+  ssoIdentity?: SSOIdentity;
+}
+
+export namespace RecipientDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RecipientDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the information of one or more recipients who receive the emails.</p>
+ *          <important>
+ *             <p>You must <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/addusers.html">add the users that receive emails to your AWS SSO store</a>.</p>
+ *          </important>
+ */
+export interface EmailRecipients {
+  /**
+   * <p>Specifies one or more recipients who receive the email.</p>
+   */
+  to?: RecipientDetail[];
+}
+
+export namespace EmailRecipients {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EmailRecipients): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the configuration information of email notifications.</p>
+ */
+export interface EmailConfiguration {
+  /**
+   * <p>The email address that sends emails.</p>
+   *          <important>
+   *             <p>If you use the AWS IoT Events managed AWS Lambda function to manage your emails, you must <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">verify
+   *           the email address that sends emails in Amazon SES</a>.</p>
+   *          </important>
+   */
+  from: string | undefined;
+
+  /**
+   * <p>Contains the subject and message of an email.</p>
+   */
+  content?: EmailContent;
+
+  /**
+   * <p>Contains the information of one or more recipients who receive the emails.</p>
+   *          <important>
+   *             <p>You must <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/addusers.html">add the users that receive emails to your AWS SSO store</a>.</p>
+   *          </important>
+   */
+  recipients: EmailRecipients | undefined;
+}
+
+export namespace EmailConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EmailConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the configuration information of SMS notifications.</p>
+ */
+export interface SMSConfiguration {
+  /**
+   * <p>The sender ID.</p>
+   */
+  senderId?: string;
+
+  /**
+   * <p>The message that you want to send. The message can be up to 200 characters.</p>
+   */
+  additionalMessage?: string;
+
+  /**
+   * <p>Specifies one or more recipients who receive the message.</p>
+   *          <important>
+   *             <p>You must <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/addusers.html">add the users that receive SMS messages to your AWS SSO store</a>.</p>
+   *          </important>
+   */
+  recipients: RecipientDetail[] | undefined;
+}
+
+export namespace SMSConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SMSConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the notification settings of an alarm model.
+ * The settings apply to all alarms that were created based on this alarm model.</p>
+ */
+export interface NotificationAction {
+  /**
+   * <p>Specifies an AWS Lambda function to manage alarm notifications.
+   * You can create one or use the <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html">AWS Lambda function provided by AWS IoT Events</a>.</p>
+   */
+  action: NotificationTargetActions | undefined;
+
+  /**
+   * <p>Contains the configuration information of SMS notifications.</p>
+   */
+  smsConfigurations?: SMSConfiguration[];
+
+  /**
+   * <p>Contains the configuration information of email notifications.</p>
+   */
+  emailConfigurations?: EmailConfiguration[];
+}
+
+export namespace NotificationAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NotificationAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about one or more notification actions.</p>
+ */
+export interface AlarmNotification {
+  /**
+   * <p>Contains the notification settings of an alarm model.
+   * The settings apply to all alarms that were created based on this alarm model.</p>
+   */
+  notificationActions?: NotificationAction[];
+}
+
+export namespace AlarmNotification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AlarmNotification): any => ({
+    ...obj,
+  });
+}
+
+export enum ComparisonOperator {
+  EQUAL = "EQUAL",
+  GREATER = "GREATER",
+  GREATER_OR_EQUAL = "GREATER_OR_EQUAL",
+  LESS = "LESS",
+  LESS_OR_EQUAL = "LESS_OR_EQUAL",
+  NOT_EQUAL = "NOT_EQUAL",
+}
+
+/**
+ * <p>A rule that compares an input property value to a threshold value with a comparison operator.</p>
+ */
+export interface SimpleRule {
+  /**
+   * <p>The value on the left side of the comparison operator. You can specify an AWS IoT Events input
+   *       attribute as an input property.</p>
+   */
+  inputProperty: string | undefined;
+
+  /**
+   * <p>The comparison operator.</p>
+   */
+  comparisonOperator: ComparisonOperator | string | undefined;
+
+  /**
+   * <p>The value on the right side of the comparison operator. You can enter a number or specify
+   *       an AWS IoT Events input attribute.</p>
+   */
+  threshold: string | undefined;
+}
+
+export namespace SimpleRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SimpleRule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines when your alarm is invoked.</p>
+ */
+export interface AlarmRule {
+  /**
+   * <p>A rule that compares an input property value to a threshold value with a comparison operator.</p>
+   */
+  simpleRule?: SimpleRule;
+}
+
+export namespace AlarmRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AlarmRule): any => ({
+    ...obj,
+  });
+}
+
 export enum AnalysisResultLevel {
   ERROR = "ERROR",
   INFO = "INFO",
@@ -904,12 +1588,13 @@ export enum AnalysisResultLevel {
 }
 
 /**
- * <p>Contains information that you can use to locate the field in your detector model that the analysis result references.</p>
+ * <p>Contains information that you can use to locate the field in your detector model that the
+ *       analysis result references.</p>
  */
 export interface AnalysisResultLocation {
   /**
-   * <p>A <a href="https://github.com/json-path/JsonPath">JsonPath</a> expression
-   *       that identifies the error field in your detector model.</p>
+   * <p>A <a href="https://github.com/json-path/JsonPath">JsonPath</a> expression that
+   *       identifies the error field in your detector model.</p>
    */
   path?: string;
 }
@@ -928,65 +1613,71 @@ export namespace AnalysisResultLocation {
  */
 export interface AnalysisResult {
   /**
-   * <p>The type of the analysis result. Analyses fall into the following types based on the validators used to generate the analysis result:</p>
+   * <p>The type of the analysis result. Analyses fall into the following types based on the
+   *       validators used to generate the analysis result:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>supported-actions</code> - You must specify AWS IoT Events supported actions that work with other AWS services in a supported AWS Region.</p>
+   *                   <code>supported-actions</code> - You must specify AWS IoT Events supported actions that work
+   *           with other AWS services in a supported AWS Region.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>service-limits</code> - Resources or operations can't exceed service limits. Update your detector model or request a limit adjust.</p>
+   *                   <code>service-limits</code> - Resources or API operations can't exceed service
+   *           quotas (also known as limits). Update your detector model or request a quota
+   *           increase.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>structure</code> - The detector model must follow a structure that AWS IoT Events supports. </p>
+   *                   <code>structure</code> - The detector model must follow a structure that AWS IoT Events
+   *           supports. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>expression-syntax</code> - Your expression must follow the required syntax.</p>
+   *                   <code>expression-syntax</code> - Your expression must follow the required
+   *           syntax.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>data-type</code> - Data types referenced in the detector model must be compatible.</p>
+   *                   <code>data-type</code> - Data types referenced in the detector model must be
+   *           compatible.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>referenced-data</code> - You must define the data referenced in your detector model before you can use the data.</p>
+   *                   <code>referenced-data</code> - You must define the data referenced in your detector
+   *           model before you can use the data.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>referenced-resource</code> - Resources that the detector model uses must be available.</p>
+   *                   <code>referenced-resource</code> - Resources that the detector model uses must be
+   *           available.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html">Running detector model analyses</a>
-   *       in the <i>AWS IoT Events Developer Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-analyze-api.html">Running detector model
+   *         analyses</a> in the <i>AWS IoT Events Developer Guide</i>.</p>
    */
   type?: string;
 
   /**
-   * <p>The severity level of the analysis result. Analysis results fall into three general categories based on the severity level:</p>
+   * <p>The severity level of the analysis result. Based on the severity level, analysis results
+   *       fall into three general categories:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>INFO</code> -
-   *           An information result informs you about a significant field
-   *           in your detector model. This type of result usually doesn't require immediate action.</p>
+   *                   <code>INFO</code> - An information result tells you about a significant field in your
+   *           detector model. This type of result usually doesn't require immediate action.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>WARNING</code> -
-   *           A warning result draws special attention to fields
-   *           that are potentially damaging to your detector model.
+   *                   <code>WARNING</code> - A warning result draws special attention to fields that might cause issues for your detector model.
    *           We recommend that you review warnings and take necessary actions
-   *           before you use your detetor model in production environments.
-   *           Otherwise, the detector model may not fully function as expected.</p>
+   *           before you use your detector model in production environments. Otherwise, the detector
+   *           model might not work as expected.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ERROR</code> -
-   *           An error result notifies you about a problem found in your detector model.
-   *           You must fix all errors before you can publish your detector model.</p>
+   *                   <code>ERROR</code> - An error result notifies you about a problem found in your
+   *           detector model. You must fix all errors before you can publish your detector model.</p>
    *             </li>
    *          </ul>
    */
@@ -998,7 +1689,8 @@ export interface AnalysisResult {
   message?: string;
 
   /**
-   * <p>Contains one or more locations that you can use to locate the fields in your detector model that the analysis result references.</p>
+   * <p>Contains one or more locations that you can use to locate the fields in your detector
+   *       model that the analysis result references.</p>
    */
   locations?: AnalysisResultLocation[];
 }
@@ -1042,6 +1734,311 @@ export namespace Attribute {
    * @internal
    */
   export const filterSensitiveLog = (obj: Attribute): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Metadata that can be used to manage the resource.</p>
+ */
+export interface Tag {
+  /**
+   * <p>The tag's key.</p>
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The tag's value.</p>
+   */
+  value: string | undefined;
+}
+
+export namespace Tag {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateAlarmModelRequest {
+  /**
+   * <p>A unique name that helps you identify the alarm model. You can't change this name after
+   *       you create the alarm model.</p>
+   */
+  alarmModelName: string | undefined;
+
+  /**
+   * <p>A description that tells you what the alarm model detects.</p>
+   */
+  alarmModelDescription?: string;
+
+  /**
+   * <p>The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>A list of key-value pairs that contain metadata for the alarm model. The tags help you
+   *       manage the alarm model. For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html">Tagging your AWS IoT Events
+   *         resources</a> in the <i>AWS IoT Events Developer Guide</i>.</p>
+   *          <p>You can create up to 50 tags for one alarm model.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>An input attribute used as a key to create an alarm.
+   * AWS IoT Events routes <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html">inputs</a>
+   * associated with this key to the alarm.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>A non-negative integer that reflects the severity level of the alarm.</p>
+   */
+  severity?: number;
+
+  /**
+   * <p>Defines when your alarm is invoked.</p>
+   */
+  alarmRule: AlarmRule | undefined;
+
+  /**
+   * <p>Contains information about one or more notification actions.</p>
+   */
+  alarmNotification?: AlarmNotification;
+
+  /**
+   * <p>Contains information about one or more alarm actions.</p>
+   */
+  alarmEventActions?: AlarmEventActions;
+
+  /**
+   * <p>Contains the configuration information of alarm state changes.</p>
+   */
+  alarmCapabilities?: AlarmCapabilities;
+}
+
+export namespace CreateAlarmModelRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAlarmModelRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateAlarmModelResponse {
+  /**
+   * <p>The time the alarm model was created, in the Unix epoch format.</p>
+   */
+  creationTime?: Date;
+
+  /**
+   * <p>The ARN of the alarm model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  alarmModelArn?: string;
+
+  /**
+   * <p>The version of the alarm model.</p>
+   */
+  alarmModelVersion?: string;
+
+  /**
+   * <p>The time the alarm model was last updated, in the Unix epoch format.</p>
+   */
+  lastUpdateTime?: Date;
+
+  /**
+   * <p>The status of the alarm model. The status can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> - The alarm model is active and it's ready to evaluate data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVATING</code> - AWS IoT Events is activating your alarm model.
+   *         Activating an alarm model can take up to a few minutes.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INACTIVE</code> - The alarm model is inactive, so it isn't ready to evaluate data.
+   * 	  Check your alarm model information and update the alarm model.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - You couldn't create or update the alarm model. Check your alarm model information
+   *         and try again.</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: AlarmModelVersionStatus | string;
+}
+
+export namespace CreateAlarmModelResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateAlarmModelResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An internal failure occurred.</p>
+ */
+export interface InternalFailureException extends __SmithyException, $MetadataBearer {
+  name: "InternalFailureException";
+  $fault: "server";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace InternalFailureException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request was invalid.</p>
+ */
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
+  name: "InvalidRequestException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A limit was exceeded.</p>
+ */
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace LimitExceededException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource already exists.</p>
+ */
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
+  name: "ResourceAlreadyExistsException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  resourceId?: string;
+
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  resourceArn?: string;
+}
+
+export namespace ResourceAlreadyExistsException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource is in use.</p>
+ */
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
+  name: "ResourceInUseException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ResourceInUseException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The service is currently unavailable.</p>
+ */
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request could not be completed due to throttling.</p>
+ */
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ThrottlingException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
 }
@@ -1247,30 +2244,6 @@ export enum EvaluationMethod {
   SERIAL = "SERIAL",
 }
 
-/**
- * <p>Metadata that can be used to manage the resource.</p>
- */
-export interface Tag {
-  /**
-   * <p>The tag's key.</p>
-   */
-  key: string | undefined;
-
-  /**
-   * <p>The tag's value.</p>
-   */
-  value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDetectorModelRequest {
   /**
    * <p>The name of the detector model.</p>
@@ -1420,163 +2393,6 @@ export namespace CreateDetectorModelResponse {
 }
 
 /**
- * <p>An internal failure occurred.</p>
- */
-export interface InternalFailureException extends __SmithyException, $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request was invalid.</p>
- */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A limit was exceeded.</p>
- */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The resource already exists.</p>
- */
-export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  resourceId?: string;
-
-  /**
-   * <p>The ARN of the resource.</p>
-   */
-  resourceArn?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The resource is in use.</p>
- */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The service is currently unavailable.</p>
- */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request could not be completed due to throttling.</p>
- */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>The definition of the input.</p>
  */
 export interface InputDefinition {
@@ -1697,6 +2513,54 @@ export namespace CreateInputResponse {
   });
 }
 
+export interface DeleteAlarmModelRequest {
+  /**
+   * <p>The name of the alarm model.</p>
+   */
+  alarmModelName: string | undefined;
+}
+
+export namespace DeleteAlarmModelRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteAlarmModelRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteAlarmModelResponse {}
+
+export namespace DeleteAlarmModelResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteAlarmModelResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource was not found.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteDetectorModelRequest {
   /**
    * <p>The name of the detector model to be deleted.</p>
@@ -1724,27 +2588,6 @@ export namespace DeleteDetectorModelResponse {
   });
 }
 
-/**
- * <p>The resource was not found.</p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   * <p>The message for the exception.</p>
-   */
-  message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteInputRequest {
   /**
    * <p>The name of the input to delete.</p>
@@ -1768,6 +2611,138 @@ export namespace DeleteInputResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteInputResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAlarmModelRequest {
+  /**
+   * <p>The name of the alarm model.</p>
+   */
+  alarmModelName: string | undefined;
+
+  /**
+   * <p>The version of the alarm model.</p>
+   */
+  alarmModelVersion?: string;
+}
+
+export namespace DescribeAlarmModelRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAlarmModelRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAlarmModelResponse {
+  /**
+   * <p>The time the alarm model was created, in the Unix epoch format.</p>
+   */
+  creationTime?: Date;
+
+  /**
+   * <p>The ARN of the alarm model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  alarmModelArn?: string;
+
+  /**
+   * <p>The version of the alarm model.</p>
+   */
+  alarmModelVersion?: string;
+
+  /**
+   * <p>The time the alarm model was last updated, in the Unix epoch format.</p>
+   */
+  lastUpdateTime?: Date;
+
+  /**
+   * <p>The status of the alarm model. The status can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> - The alarm model is active and it's ready to evaluate data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVATING</code> - AWS IoT Events is activating your alarm model.
+   *         Activating an alarm model can take up to a few minutes.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INACTIVE</code> - The alarm model is inactive, so it isn't ready to evaluate data.
+   * 	  Check your alarm model information and update the alarm model.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - You couldn't create or update the alarm model. Check your alarm model information
+   *         and try again.</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: AlarmModelVersionStatus | string;
+
+  /**
+   * <p>
+   *       Contains information about the status of the alarm model.
+   *     </p>
+   */
+  statusMessage?: string;
+
+  /**
+   * <p>The name of the alarm model.</p>
+   */
+  alarmModelName?: string;
+
+  /**
+   * <p>The description of the alarm model.</p>
+   */
+  alarmModelDescription?: string;
+
+  /**
+   * <p>The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * <p>An input attribute used as a key to create an alarm.
+   * AWS IoT Events routes <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html">inputs</a>
+   * associated with this key to the alarm.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>A non-negative integer that reflects the severity level of the alarm.</p>
+   */
+  severity?: number;
+
+  /**
+   * <p>Defines when your alarm is invoked.</p>
+   */
+  alarmRule?: AlarmRule;
+
+  /**
+   * <p>Contains information about one or more notification actions.</p>
+   */
+  alarmNotification?: AlarmNotification;
+
+  /**
+   * <p>Contains information about one or more alarm actions.</p>
+   */
+  alarmEventActions?: AlarmEventActions;
+
+  /**
+   * <p>Contains the configuration information of alarm state changes.</p>
+   */
+  alarmCapabilities?: AlarmCapabilities;
+}
+
+export namespace DescribeAlarmModelResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAlarmModelResponse): any => ({
     ...obj,
   });
 }
@@ -1855,15 +2830,17 @@ export interface DescribeDetectorModelAnalysisResponse {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>RUNNING</code> - AWS IoT Events is analyzing your detector model. This process can take several minutes to complete.</p>
+   *                   <code>RUNNING</code> - AWS IoT Events is analyzing your detector model. This process can take
+   *           several minutes to complete.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>COMPLETE</code> - AWS IoT Events finished analyzing your detector model .</p>
+   *                   <code>COMPLETE</code> - AWS IoT Events finished analyzing your detector model.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FAILED</code> - AWS IoT Events couldn't analyze your detector model. Try again later.</p>
+   *                   <code>FAILED</code> - AWS IoT Events couldn't analyze your detector model. Try again
+   *           later.</p>
    *             </li>
    *          </ul>
    */
@@ -2183,6 +3160,112 @@ export namespace GetDetectorModelAnalysisResultsResponse {
 }
 
 /**
+ * <p>
+ *       The identifier of the input routed to AWS IoT Events.
+ *     </p>
+ */
+export interface IotEventsInputIdentifier {
+  /**
+   * <p>
+   *       The name of the input routed to AWS IoT Events.
+   *     </p>
+   */
+  inputName: string | undefined;
+}
+
+export namespace IotEventsInputIdentifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IotEventsInputIdentifier): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       The asset model property identifer of the input routed from AWS IoT SiteWise.
+ *     </p>
+ */
+export interface IotSiteWiseAssetModelPropertyIdentifier {
+  /**
+   * <p>
+   *       The ID of the AWS IoT SiteWise asset model.
+   *     </p>
+   */
+  assetModelId: string | undefined;
+
+  /**
+   * <p>
+   *       The ID of the AWS IoT SiteWise asset property.
+   *     </p>
+   */
+  propertyId: string | undefined;
+}
+
+export namespace IotSiteWiseAssetModelPropertyIdentifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IotSiteWiseAssetModelPropertyIdentifier): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       The identifer of the input routed from AWS IoT SiteWise.
+ *     </p>
+ */
+export interface IotSiteWiseInputIdentifier {
+  /**
+   * <p>
+   *       The identifier of the AWS IoT SiteWise asset model property.
+   *     </p>
+   */
+  iotSiteWiseAssetModelPropertyIdentifier?: IotSiteWiseAssetModelPropertyIdentifier;
+}
+
+export namespace IotSiteWiseInputIdentifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IotSiteWiseInputIdentifier): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       The identifer of the input.
+ *     </p>
+ */
+export interface InputIdentifier {
+  /**
+   * <p>
+   *       The identifier of the input routed to AWS IoT Events.
+   *     </p>
+   */
+  iotEventsInputIdentifier?: IotEventsInputIdentifier;
+
+  /**
+   * <p>
+   *       The identifer of the input routed from AWS IoT SiteWise.
+   *     </p>
+   */
+  iotSiteWiseInputIdentifier?: IotSiteWiseInputIdentifier;
+}
+
+export namespace InputIdentifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InputIdentifier): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information about the input.</p>
  */
 export interface InputSummary {
@@ -2222,6 +3305,97 @@ export namespace InputSummary {
    * @internal
    */
   export const filterSensitiveLog = (obj: InputSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAlarmModelsRequest {
+  /**
+   * <p>The token that you can use to return the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListAlarmModelsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAlarmModelsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAlarmModelsResponse {
+  /**
+   * <p>A list that summarizes each alarm model.</p>
+   */
+  alarmModelSummaries?: AlarmModelSummary[];
+
+  /**
+   * <p>The token that you can use to return the next set of results,
+   * or <code>null</code> if there are no more results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListAlarmModelsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAlarmModelsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAlarmModelVersionsRequest {
+  /**
+   * <p>The name of the alarm model.</p>
+   */
+  alarmModelName: string | undefined;
+
+  /**
+   * <p>The token that you can use to return the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListAlarmModelVersionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAlarmModelVersionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAlarmModelVersionsResponse {
+  /**
+   * <p>A list that summarizes each alarm model version.</p>
+   */
+  alarmModelVersionSummaries?: AlarmModelVersionSummary[];
+
+  /**
+   * <p>The token that you can use to return the next set of results,
+   * or <code>null</code> if there are no more results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListAlarmModelVersionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAlarmModelVersionsResponse): any => ({
     ...obj,
   });
 }
@@ -2313,6 +3487,94 @@ export namespace ListDetectorModelVersionsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListDetectorModelVersionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListInputRoutingsRequest {
+  /**
+   * <p>
+   *       The identifer of the routed input.
+   *     </p>
+   */
+  inputIdentifier: InputIdentifier | undefined;
+
+  /**
+   * <p>
+   *       The maximum number of results to be returned per request.
+   *     </p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
+   *       The token that you can use to return the next set of results.
+   *     </p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListInputRoutingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListInputRoutingsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       Contains information about the routed resource.
+ *     </p>
+ */
+export interface RoutedResource {
+  /**
+   * <p>
+   *       The name of the routed resource.
+   *     </p>
+   */
+  name?: string;
+
+  /**
+   * <p>
+   *       The ARN of the routed resource. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.
+   *     </p>
+   */
+  arn?: string;
+}
+
+export namespace RoutedResource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RoutedResource): any => ({
+    ...obj,
+  });
+}
+
+export interface ListInputRoutingsResponse {
+  /**
+   * <p>
+   *       Summary information about the routed resources.
+   *     </p>
+   */
+  routedResources?: RoutedResource[];
+
+  /**
+   * <p>
+   *       The token that you can use to return the next set of results,
+   * or <code>null</code> if there are no more results.
+   *     </p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListInputRoutingsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListInputRoutingsResponse): any => ({
     ...obj,
   });
 }
@@ -2500,6 +3762,114 @@ export namespace UntagResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAlarmModelRequest {
+  /**
+   * <p>The name of the alarm model.</p>
+   */
+  alarmModelName: string | undefined;
+
+  /**
+   * <p>The description of the alarm model.</p>
+   */
+  alarmModelDescription?: string;
+
+  /**
+   * <p>The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>A non-negative integer that reflects the severity level of the alarm.</p>
+   */
+  severity?: number;
+
+  /**
+   * <p>Defines when your alarm is invoked.</p>
+   */
+  alarmRule: AlarmRule | undefined;
+
+  /**
+   * <p>Contains information about one or more notification actions.</p>
+   */
+  alarmNotification?: AlarmNotification;
+
+  /**
+   * <p>Contains information about one or more alarm actions.</p>
+   */
+  alarmEventActions?: AlarmEventActions;
+
+  /**
+   * <p>Contains the configuration information of alarm state changes.</p>
+   */
+  alarmCapabilities?: AlarmCapabilities;
+}
+
+export namespace UpdateAlarmModelRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAlarmModelRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAlarmModelResponse {
+  /**
+   * <p>The time the alarm model was created, in the Unix epoch format.</p>
+   */
+  creationTime?: Date;
+
+  /**
+   * <p>The ARN of the alarm model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
+   */
+  alarmModelArn?: string;
+
+  /**
+   * <p>The version of the alarm model.</p>
+   */
+  alarmModelVersion?: string;
+
+  /**
+   * <p>The time the alarm model was last updated, in the Unix epoch format.</p>
+   */
+  lastUpdateTime?: Date;
+
+  /**
+   * <p>The status of the alarm model. The status can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> - The alarm model is active and it's ready to evaluate data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVATING</code> - AWS IoT Events is activating your alarm model.
+   *         Activating an alarm model can take up to a few minutes.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INACTIVE</code> - The alarm model is inactive, so it isn't ready to evaluate data.
+   * 	  Check your alarm model information and update the alarm model.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - You couldn't create or update the alarm model. Check your alarm model information
+   *         and try again.</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: AlarmModelVersionStatus | string;
+}
+
+export namespace UpdateAlarmModelResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAlarmModelResponse): any => ({
     ...obj,
   });
 }

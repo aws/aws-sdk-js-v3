@@ -134,6 +134,7 @@ export * from "./pagination/ListUserPoliciesPaginator";
 export * from "./commands/ListUsersCommand";
 export * from "./pagination/ListUsersPaginator";
 export * from "./commands/ListUserTagsCommand";
+export * from "./pagination/ListUserTagsPaginator";
 export * from "./commands/ListVirtualMFADevicesCommand";
 export * from "./pagination/ListVirtualMFADevicesPaginator";
 export * from "./commands/PutGroupPolicyCommand";

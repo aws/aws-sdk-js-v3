@@ -33,8 +33,7 @@ export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {
  *             propagate.</p>
  *          </note>
  *
- *          <p> For information about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a> in the <i>Amazon S3 Developer
- *             Guide</i>. </p>
+ *          <p> For information about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a> in the <i>Amazon S3 User Guide</i>.</p>
  *
  *          <p>The following operations are related to <code>DeleteBucketReplication</code>:</p>
  *          <ul>

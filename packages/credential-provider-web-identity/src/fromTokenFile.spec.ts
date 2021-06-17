@@ -9,7 +9,7 @@ const ENV_TOKEN_FILE = "AWS_WEB_IDENTITY_TOKEN_FILE";
 const ENV_ROLE_ARN = "AWS_ROLE_ARN";
 const ENV_ROLE_SESSION_NAME = "AWS_ROLE_SESSION_NAME";
 
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 
 jest.mock("fs");
 
@@ -123,7 +123,7 @@ describe(fromTokenFile.name, () => {
         await fromTokenFile()();
         fail(`Expected error to be thrown`);
       } catch (error) {
-        expect(error).toBeInstanceOf(ProviderError);
+        expect(error).toBeInstanceOf(CredentialsProviderError);
         expect(error.tryNextLink).toBe(true);
       }
     });
@@ -134,7 +134,7 @@ describe(fromTokenFile.name, () => {
         await fromTokenFile()();
         fail(`Expected error to be thrown`);
       } catch (error) {
-        expect(error).toBeInstanceOf(ProviderError);
+        expect(error).toBeInstanceOf(CredentialsProviderError);
         expect(error.tryNextLink).toBe(true);
       }
     });

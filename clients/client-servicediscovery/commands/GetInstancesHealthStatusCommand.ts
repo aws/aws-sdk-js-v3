@@ -24,7 +24,7 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  * <p>Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or <code>Unknown</code>) of one or
  *    more instances that are associated with a specified service.</p>
  *          <note>
- *             <p>There is a brief delay between when you register an instance and when the health status for the instance is
+ *             <p>There's a brief delay between when you register an instance and when the health status for the instance is
  *     available. </p>
  *          </note>
  * @example

@@ -1,7 +1,7 @@
 import { fromEnv } from "@aws-sdk/credential-provider-env";
 import { fromContainerMetadata, fromInstanceMetadata } from "@aws-sdk/credential-provider-imds";
 import { AssumeRoleWithWebIdentityParams, fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
-import { ProviderError } from "@aws-sdk/property-provider";
+import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import {
   loadSharedConfigFiles,
   ParsedIniData,
@@ -203,14 +203,14 @@ const resolveProfileData = async (
     } = data;
 
     if (!options.roleAssumer) {
-      throw new ProviderError(
+      throw new CredentialsProviderError(
         `Profile ${profileName} requires a role to be assumed, but no` + ` role assumption callback was provided.`,
         false
       );
     }
 
     if (source_profile && source_profile in visitedProfiles) {
-      throw new ProviderError(
+      throw new CredentialsProviderError(
         `Detected a cycle attempting to resolve credentials for profile` +
           ` ${getMasterProfileName(options)}. Profiles visited: ` +
           Object.keys(visitedProfiles).join(", "),
@@ -228,7 +228,7 @@ const resolveProfileData = async (
     const params: AssumeRoleParams = { RoleArn, RoleSessionName, ExternalId };
     if (mfa_serial) {
       if (!options.mfaCodeProvider) {
-        throw new ProviderError(
+        throw new CredentialsProviderError(
           `Profile ${profileName} requires multi-factor authentication,` + ` but no MFA code callback was provided.`,
           false
         );
@@ -257,7 +257,9 @@ const resolveProfileData = async (
   // terminal resolution error if a profile has been specified by the user
   // (whether via a parameter, an environment variable, or another profile's
   // `source_profile` key).
-  throw new ProviderError(`Profile ${profileName} could not be found or parsed in shared` + ` credentials file.`);
+  throw new CredentialsProviderError(
+    `Profile ${profileName} could not be found or parsed in shared` + ` credentials file.`
+  );
 };
 
 /**
@@ -276,7 +278,7 @@ const resolveCredentialSource = (credentialSource: string, profileName: string):
   if (credentialSource in sourceProvidersMap) {
     return sourceProvidersMap[credentialSource]();
   } else {
-    throw new ProviderError(
+    throw new CredentialsProviderError(
       `Unsupported credential source in profile ${profileName}. Got ${credentialSource}, ` +
         `expected EcsContainer or Ec2InstanceMetadata or Environment.`
     );

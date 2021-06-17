@@ -21,9 +21,9 @@ export interface DeletePlaceIndexCommandInput extends DeletePlaceIndexRequest {}
 export interface DeletePlaceIndexCommandOutput extends DeletePlaceIndexResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a Place index resource from your AWS account.</p>
+ * <p>Deletes a place index resource from your AWS account.</p>
  *          <note>
- *             <p>This action deletes the resource permanently. You cannot undo this action.</p>
+ *             <p>This operation deletes the resource permanently.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
