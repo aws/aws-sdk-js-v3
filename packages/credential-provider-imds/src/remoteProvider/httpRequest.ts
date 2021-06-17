@@ -11,10 +11,12 @@ export function httpRequest(options: RequestOptions): Promise<Buffer> {
 
     req.on("error", (err) => {
       reject(Object.assign(new ProviderError("Unable to connect to instance metadata service"), err));
+      req.destroy();
     });
 
     req.on("timeout", () => {
       reject(new ProviderError("TimeoutError from instance metadata service"));
+      req.destroy();
     });
 
     req.on("response", (res: IncomingMessage) => {
@@ -23,6 +25,7 @@ export function httpRequest(options: RequestOptions): Promise<Buffer> {
         reject(
           Object.assign(new ProviderError("Error response received from instance metadata service"), { statusCode })
         );
+        req.destroy();
       }
 
       const chunks: Array<Buffer> = [];
@@ -31,6 +34,7 @@ export function httpRequest(options: RequestOptions): Promise<Buffer> {
       });
       res.on("end", () => {
         resolve(Buffer.concat(chunks));
+        req.destroy();
       });
     });
 
