@@ -21,33 +21,42 @@ export interface ScheduleKeyDeletionCommandInput extends ScheduleKeyDeletionRequ
 export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionResponse, __MetadataBearer {}
 
 /**
- * <p>Schedules the deletion of a customer master key (CMK). You may provide a waiting period,
- *       specified in days, before deletion occurs. If you do not provide a waiting period, the default
- *       period of 30 days is used. When this operation is successful, the key state of the CMK changes
- *       to <code>PendingDeletion</code>. Before the waiting period ends, you can use <a>CancelKeyDeletion</a> to cancel the deletion of the CMK. After the waiting period
- *       ends, AWS KMS deletes the CMK and all AWS KMS data associated with it, including all aliases that
- *       refer to it.</p>
+ * <p>Schedules the deletion of a customer master key (CMK). By default, AWS KMS applies a waiting
+ *       period of 30 days, but you can specify a waiting period of 7-30 days. When this operation is
+ *       successful, the key state of the CMK changes to <code>PendingDeletion</code> and the key can't
+ *       be used in any cryptographic operations. It remains in this state for the duration of the
+ *       waiting period. Before the waiting period ends, you can use <a>CancelKeyDeletion</a> to cancel the deletion of the CMK. After the waiting period ends, AWS KMS deletes the CMK,
+ *       its key material, and all AWS KMS data associated with it, including all aliases that refer to
+ *       it.</p>
  *          <important>
  *             <p>Deleting a CMK is a destructive and potentially dangerous operation. When a CMK is
- *         deleted, all data that was encrypted under the CMK is unrecoverable. To prevent the use of a
- *         CMK without deleting it, use <a>DisableKey</a>.</p>
+ *         deleted, all data that was encrypted under the CMK is unrecoverable. (The only exception is
+ *         a multi-Region replica key.) To prevent the use of a CMK without deleting it, use <a>DisableKey</a>. </p>
  *          </important>
  *          <p>If you schedule deletion of a CMK from a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>, when the waiting period
  *       expires, <code>ScheduleKeyDeletion</code> deletes the CMK from AWS KMS. Then AWS KMS makes a best
  *       effort to delete the key material from the associated AWS CloudHSM cluster. However, you might need
  *       to manually <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key">delete the orphaned key
  *         material</a> from the cluster and its backups.</p>
+ *          <p>You can schedule the deletion of a multi-Region primary key and its replica keys at any
+ *       time. However, AWS KMS will not delete a multi-Region primary key with existing replica keys. If
+ *       you schedule the deletion of a primary key with replicas, its key state changes to
+ *         <code>PendingReplicaDeletion</code> and it cannot be replicated or used in cryptographic
+ *       operations. This status can continue indefinitely. When the last of its replicas keys is
+ *       deleted (not just scheduled), the key state of the primary key changes to
+ *         <code>PendingDeletion</code> and its waiting period (<code>PendingWindowInDays</code>)
+ *       begins. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html">Deleting multi-Region keys</a> in the <i>AWS Key Management Service Developer Guide</i>. </p>
  *          <p>For more information about scheduling a CMK for deletion, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting Customer Master Keys</a> in the
  *       <i>AWS Key Management Service Developer Guide</i>.</p>
  *          <p>The CMK that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
- * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different AWS account.</p>
  *
  *
  *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ScheduleKeyDeletion</a> (key policy)</p>
+ *             <b>Required permissions</b>: kms:ScheduleKeyDeletion (key policy)</p>
  *          <p>
  *             <b>Related operations</b>
  *          </p>

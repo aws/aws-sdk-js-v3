@@ -1,8 +1,6 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import {
-  CreateModelExplainabilityJobDefinitionRequest,
-  CreateModelExplainabilityJobDefinitionResponse,
-} from "../models/models_0";
+import { CreateModelExplainabilityJobDefinitionRequest } from "../models/models_0";
+import { CreateModelExplainabilityJobDefinitionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateModelExplainabilityJobDefinitionCommand,
   serializeAws_json1_1CreateModelExplainabilityJobDefinitionCommand,

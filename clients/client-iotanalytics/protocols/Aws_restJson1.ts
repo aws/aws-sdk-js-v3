@@ -85,6 +85,8 @@ import {
   DatasetTrigger,
   Datastore,
   DatastoreActivity,
+  DatastorePartition,
+  DatastorePartitions,
   DatastoreStatistics,
   DatastoreStorage,
   DatastoreStorageSummary,
@@ -110,6 +112,7 @@ import {
   Message,
   OutputFileUriValue,
   ParquetConfiguration,
+  Partition,
   Pipeline,
   PipelineActivity,
   PipelineSummary,
@@ -132,6 +135,7 @@ import {
   SqlQueryDatasetAction,
   Tag,
   ThrottlingException,
+  TimestampPartition,
   TriggeringDataset,
   Variable,
   VersioningConfiguration,
@@ -335,6 +339,10 @@ export const serializeAws_restJson1CreateDatastoreCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.datastoreName !== undefined && input.datastoreName !== null && { datastoreName: input.datastoreName }),
+    ...(input.datastorePartitions !== undefined &&
+      input.datastorePartitions !== null && {
+        datastorePartitions: serializeAws_restJson1DatastorePartitions(input.datastorePartitions, context),
+      }),
     ...(input.datastoreStorage !== undefined &&
       input.datastoreStorage !== null && {
         datastoreStorage: serializeAws_restJson1DatastoreStorage(input.datastoreStorage, context),
@@ -4580,6 +4588,26 @@ const serializeAws_restJson1DatastoreActivity = (input: DatastoreActivity, conte
   };
 };
 
+const serializeAws_restJson1DatastorePartition = (input: DatastorePartition, context: __SerdeContext): any => {
+  return {
+    ...(input.attributePartition !== undefined &&
+      input.attributePartition !== null && {
+        attributePartition: serializeAws_restJson1Partition(input.attributePartition, context),
+      }),
+    ...(input.timestampPartition !== undefined &&
+      input.timestampPartition !== null && {
+        timestampPartition: serializeAws_restJson1TimestampPartition(input.timestampPartition, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1DatastorePartitions = (input: DatastorePartitions, context: __SerdeContext): any => {
+  return {
+    ...(input.partitions !== undefined &&
+      input.partitions !== null && { partitions: serializeAws_restJson1Partitions(input.partitions, context) }),
+  };
+};
+
 const serializeAws_restJson1DatastoreStorage = (input: DatastoreStorage, context: __SerdeContext): any => {
   return DatastoreStorage.visit(input, {
     customerManagedS3: (value) => ({
@@ -4787,6 +4815,23 @@ const serializeAws_restJson1ParquetConfiguration = (input: ParquetConfiguration,
   };
 };
 
+const serializeAws_restJson1Partition = (input: Partition, context: __SerdeContext): any => {
+  return {
+    ...(input.attributeName !== undefined && input.attributeName !== null && { attributeName: input.attributeName }),
+  };
+};
+
+const serializeAws_restJson1Partitions = (input: DatastorePartition[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1DatastorePartition(entry, context);
+    });
+};
+
 const serializeAws_restJson1PipelineActivities = (input: PipelineActivity[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -4967,6 +5012,14 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
       }
       return serializeAws_restJson1Tag(entry, context);
     });
+};
+
+const serializeAws_restJson1TimestampPartition = (input: TimestampPartition, context: __SerdeContext): any => {
+  return {
+    ...(input.attributeName !== undefined && input.attributeName !== null && { attributeName: input.attributeName }),
+    ...(input.timestampFormat !== undefined &&
+      input.timestampFormat !== null && { timestampFormat: input.timestampFormat }),
+  };
 };
 
 const serializeAws_restJson1TriggeringDataset = (input: TriggeringDataset, context: __SerdeContext): any => {
@@ -5527,6 +5580,10 @@ const deserializeAws_restJson1Datastore = (output: any, context: __SerdeContext)
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
+    datastorePartitions:
+      output.datastorePartitions !== undefined && output.datastorePartitions !== null
+        ? deserializeAws_restJson1DatastorePartitions(output.datastorePartitions, context)
+        : undefined,
     fileFormatConfiguration:
       output.fileFormatConfiguration !== undefined && output.fileFormatConfiguration !== null
         ? deserializeAws_restJson1FileFormatConfiguration(output.fileFormatConfiguration, context)
@@ -5557,6 +5614,28 @@ const deserializeAws_restJson1DatastoreActivity = (output: any, context: __Serde
     datastoreName:
       output.datastoreName !== undefined && output.datastoreName !== null ? output.datastoreName : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DatastorePartition = (output: any, context: __SerdeContext): DatastorePartition => {
+  return {
+    attributePartition:
+      output.attributePartition !== undefined && output.attributePartition !== null
+        ? deserializeAws_restJson1Partition(output.attributePartition, context)
+        : undefined,
+    timestampPartition:
+      output.timestampPartition !== undefined && output.timestampPartition !== null
+        ? deserializeAws_restJson1TimestampPartition(output.timestampPartition, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DatastorePartitions = (output: any, context: __SerdeContext): DatastorePartitions => {
+  return {
+    partitions:
+      output.partitions !== undefined && output.partitions !== null
+        ? deserializeAws_restJson1Partitions(output.partitions, context)
+        : undefined,
   } as any;
 };
 
@@ -5618,6 +5697,10 @@ const deserializeAws_restJson1DatastoreSummary = (output: any, context: __SerdeC
         : undefined,
     datastoreName:
       output.datastoreName !== undefined && output.datastoreName !== null ? output.datastoreName : undefined,
+    datastorePartitions:
+      output.datastorePartitions !== undefined && output.datastorePartitions !== null
+        ? deserializeAws_restJson1DatastorePartitions(output.datastorePartitions, context)
+        : undefined,
     datastoreStorage:
       output.datastoreStorage !== undefined && output.datastoreStorage !== null
         ? deserializeAws_restJson1DatastoreStorageSummary(output.datastoreStorage, context)
@@ -5825,6 +5908,24 @@ const deserializeAws_restJson1ParquetConfiguration = (output: any, context: __Se
         ? deserializeAws_restJson1SchemaDefinition(output.schemaDefinition, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1Partition = (output: any, context: __SerdeContext): Partition => {
+  return {
+    attributeName:
+      output.attributeName !== undefined && output.attributeName !== null ? output.attributeName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Partitions = (output: any, context: __SerdeContext): DatastorePartition[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DatastorePartition(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Pipeline = (output: any, context: __SerdeContext): Pipeline => {
@@ -6104,6 +6205,15 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_restJson1Tag(entry, context);
     });
+};
+
+const deserializeAws_restJson1TimestampPartition = (output: any, context: __SerdeContext): TimestampPartition => {
+  return {
+    attributeName:
+      output.attributeName !== undefined && output.attributeName !== null ? output.attributeName : undefined,
+    timestampFormat:
+      output.timestampFormat !== undefined && output.timestampFormat !== null ? output.timestampFormat : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1TriggeringDataset = (output: any, context: __SerdeContext): TriggeringDataset => {

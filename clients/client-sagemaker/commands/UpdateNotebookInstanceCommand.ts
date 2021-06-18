@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateNotebookInstanceInput, UpdateNotebookInstanceOutput } from "../models/models_2";
+import { UpdateNotebookInstanceInput, UpdateNotebookInstanceOutput } from "../models/models_3";
 import {
   deserializeAws_json1_1UpdateNotebookInstanceCommand,
   serializeAws_json1_1UpdateNotebookInstanceCommand,

@@ -1,3 +1,11 @@
+import {
+  BatchAssociateClientDeviceWithCoreDeviceCommandInput,
+  BatchAssociateClientDeviceWithCoreDeviceCommandOutput,
+} from "./commands/BatchAssociateClientDeviceWithCoreDeviceCommand";
+import {
+  BatchDisassociateClientDeviceFromCoreDeviceCommandInput,
+  BatchDisassociateClientDeviceFromCoreDeviceCommandOutput,
+} from "./commands/BatchDisassociateClientDeviceFromCoreDeviceCommand";
 import { CancelDeploymentCommandInput, CancelDeploymentCommandOutput } from "./commands/CancelDeploymentCommand";
 import {
   CreateComponentVersionCommandInput,
@@ -14,6 +22,10 @@ import {
 } from "./commands/GetComponentVersionArtifactCommand";
 import { GetCoreDeviceCommandInput, GetCoreDeviceCommandOutput } from "./commands/GetCoreDeviceCommand";
 import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
+import {
+  ListClientDevicesAssociatedWithCoreDeviceCommandInput,
+  ListClientDevicesAssociatedWithCoreDeviceCommandOutput,
+} from "./commands/ListClientDevicesAssociatedWithCoreDeviceCommand";
 import {
   ListComponentVersionsCommandInput,
   ListComponentVersionsCommandOutput,
@@ -91,6 +103,8 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | BatchAssociateClientDeviceWithCoreDeviceCommandInput
+  | BatchDisassociateClientDeviceFromCoreDeviceCommandInput
   | CancelDeploymentCommandInput
   | CreateComponentVersionCommandInput
   | CreateDeploymentCommandInput
@@ -101,6 +115,7 @@ export type ServiceInputTypes =
   | GetComponentVersionArtifactCommandInput
   | GetCoreDeviceCommandInput
   | GetDeploymentCommandInput
+  | ListClientDevicesAssociatedWithCoreDeviceCommandInput
   | ListComponentVersionsCommandInput
   | ListComponentsCommandInput
   | ListCoreDevicesCommandInput
@@ -113,6 +128,8 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
+  | BatchAssociateClientDeviceWithCoreDeviceCommandOutput
+  | BatchDisassociateClientDeviceFromCoreDeviceCommandOutput
   | CancelDeploymentCommandOutput
   | CreateComponentVersionCommandOutput
   | CreateDeploymentCommandOutput
@@ -123,6 +140,7 @@ export type ServiceOutputTypes =
   | GetComponentVersionArtifactCommandOutput
   | GetCoreDeviceCommandOutput
   | GetDeploymentCommandOutput
+  | ListClientDevicesAssociatedWithCoreDeviceCommandOutput
   | ListComponentVersionsCommandOutput
   | ListComponentsCommandOutput
   | ListCoreDevicesCommandOutput

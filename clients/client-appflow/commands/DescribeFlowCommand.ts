@@ -21,10 +21,7 @@ export interface DescribeFlowCommandInput extends DescribeFlowRequest {}
 export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __MetadataBearer {}
 
 /**
- * <p>
- *   Provides a description of the specified flow.
- *
- * </p>
+ * <p> Provides a description of the specified flow. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

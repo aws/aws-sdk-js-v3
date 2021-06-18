@@ -21,9 +21,9 @@ export interface StopFlowCommandInput extends StopFlowRequest {}
 export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBearer {}
 
 /**
- * <p>
- * Deactivates the existing flow. For on-demand flows, this operation returns an <code>unsupportedOperationException</code> error message. For schedule and event-triggered flows, this operation deactivates the flow.
- * </p>
+ * <p> Deactivates the existing flow. For on-demand flows, this operation returns an
+ *         <code>unsupportedOperationException</code> error message. For schedule and event-triggered
+ *       flows, this operation deactivates the flow. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

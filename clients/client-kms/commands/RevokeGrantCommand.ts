@@ -21,14 +21,21 @@ export interface RevokeGrantCommandInput extends RevokeGrantRequest {}
 export interface RevokeGrantCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Revokes the specified grant for the specified customer master key (CMK). You can revoke a
- *       grant to actively deny operations that depend on it.</p>
+ * <p>Deletes the specified grant. You revoke a grant to terminate the permissions that the
+ *       grant allows. For more
+ *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/managing-grants.html#grant-delete">Retiring and revoking grants</a> in
+ *       the <i>
+ *                <i>AWS Key Management Service Developer Guide</i>
+ *             </i>.</p>
+ *          <p>When you create, retire, or revoke a grant, there might be a brief delay, usually less than five minutes, until the grant is available throughout AWS KMS. This state is known as <i>eventual consistency</i>. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency">Eventual consistency</a> in
+ *       the <i>
+ *                <i>AWS Key Management Service Developer Guide</i>
+ *             </i>. </p>
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different AWS account, specify the key
  *   ARN in the value of the <code>KeyId</code> parameter.</p>
- *
  *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:RevokeGrant</a> (key policy)</p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:RevokeGrant</a> (key policy).</p>
  *          <p>
  *             <b>Related operations:</b>
  *          </p>

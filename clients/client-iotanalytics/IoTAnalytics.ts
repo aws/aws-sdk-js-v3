@@ -356,7 +356,8 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   * <p>Creates a data store, which is a repository for messages.</p>
+   * <p>Creates a data store, which is a repository for messages.
+   *       Only data stores that are used to save pipeline data can be configured with <code>ParquetConfiguration</code>.</p>
    */
   public createDatastore(
     args: CreateDatastoreCommandInput,

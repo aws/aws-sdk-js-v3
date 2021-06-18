@@ -19,6 +19,7 @@ import {
   ResourceServerType,
   SmsConfigurationType,
   TokenValidityUnitsType,
+  UserImportJobType,
   UserPoolAddOnsType,
   UserPoolClientType,
   UserPoolMfaType,
@@ -28,6 +29,102 @@ import {
 } from "./models_0";
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+/**
+ * <p>Represents the response from the server to the request to start the user import
+ *             job.</p>
+ */
+export interface StartUserImportJobResponse {
+  /**
+   * <p>The job object that represents the user import job.</p>
+   */
+  UserImportJob?: UserImportJobType;
+}
+
+export namespace StartUserImportJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartUserImportJobResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the request to stop the user import job.</p>
+ */
+export interface StopUserImportJobRequest {
+  /**
+   * <p>The user pool ID for the user pool that the users are being imported into.</p>
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The job ID for the user import job.</p>
+   */
+  JobId: string | undefined;
+}
+
+export namespace StopUserImportJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopUserImportJobRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents the response from the server to the request to stop the user import
+ *             job.</p>
+ */
+export interface StopUserImportJobResponse {
+  /**
+   * <p>The job object that represents the user import job.</p>
+   */
+  UserImportJob?: UserImportJobType;
+}
+
+export namespace StopUserImportJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopUserImportJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user pool to assign the tags to.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The tags to assign to the user pool.</p>
+   */
+  Tags: { [key: string]: string } | undefined;
+}
+
+export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface UntagResourceRequest {
   /**
@@ -754,6 +851,12 @@ export interface UpdateUserPoolClientRequest {
    *         </note>
    */
   PreventUserExistenceErrors?: PreventUserExistenceErrorTypes | string;
+
+  /**
+   * <p>Enables or disables token revocation. For more information
+   *             about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
+   */
+  EnableTokenRevocation?: boolean;
 }
 
 export namespace UpdateUserPoolClientRequest {

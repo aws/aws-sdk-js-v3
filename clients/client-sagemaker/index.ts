@@ -250,6 +250,8 @@ export * from "./commands/RegisterDevicesCommand";
 export * from "./commands/RenderUiTemplateCommand";
 export * from "./commands/SearchCommand";
 export * from "./pagination/SearchPaginator";
+export * from "./commands/SendPipelineExecutionStepFailureCommand";
+export * from "./commands/SendPipelineExecutionStepSuccessCommand";
 export * from "./commands/StartMonitoringScheduleCommand";
 export * from "./commands/StartNotebookInstanceCommand";
 export * from "./commands/StartPipelineExecutionCommand";

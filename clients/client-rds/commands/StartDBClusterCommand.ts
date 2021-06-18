@@ -21,8 +21,8 @@ export interface StartDBClusterCommandInput extends StartDBClusterMessage {}
 export interface StartDBClusterCommandOutput extends StartDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>Starts an Amazon Aurora DB cluster that was stopped using the AWS console, the stop-db-cluster
- *        AWS CLI command, or the StopDBCluster action.</p>
+ * <p>Starts an Amazon Aurora DB cluster that was stopped using the Amazon Web Services console, the stop-db-cluster
+ *        CLI command, or the StopDBCluster action.</p>
  *
  *          <p>For more information, see
  *            <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html">

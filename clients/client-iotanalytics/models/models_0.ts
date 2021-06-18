@@ -1244,6 +1244,112 @@ export namespace CreateDatasetContentResponse {
 }
 
 /**
+ * <p>
+ *       A single partition.
+ *     </p>
+ */
+export interface Partition {
+  /**
+   * <p>
+   *       The attribute name of the partition.
+   *     </p>
+   */
+  attributeName: string | undefined;
+}
+
+export namespace Partition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Partition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       A partition defined by a timestamp.
+ *     </p>
+ */
+export interface TimestampPartition {
+  /**
+   * <p>
+   *       The attribute name of the partition defined by a timestamp.
+   *     </p>
+   */
+  attributeName: string | undefined;
+
+  /**
+   * <p>
+   *       The timestamp format of a partition defined by a timestamp.
+   *     </p>
+   */
+  timestampFormat?: string;
+}
+
+export namespace TimestampPartition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TimestampPartition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       A single partition in a data store.
+ *     </p>
+ */
+export interface DatastorePartition {
+  /**
+   * <p>
+   *       A partition defined by an <code>attributeName</code>.
+   *     </p>
+   */
+  attributePartition?: Partition;
+
+  /**
+   * <p>
+   *       A partition defined by an <code>attributeName</code> and a timestamp format.
+   *     </p>
+   */
+  timestampPartition?: TimestampPartition;
+}
+
+export namespace DatastorePartition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DatastorePartition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *       Contains information about partitions in a data store.
+ *     </p>
+ */
+export interface DatastorePartitions {
+  /**
+   * <p>
+   *       A list of partitions in a data store.
+   *     </p>
+   */
+  partitions?: DatastorePartition[];
+}
+
+export namespace DatastorePartitions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DatastorePartitions): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Use this to store data store data in an S3 bucket that you manage. When customer-managed
  *       storage is selected, the <code>retentionPeriod</code> parameter is ignored. You cannot change
  *       the choice of service-managed or customer-managed S3 storage after the data store is
@@ -1404,7 +1510,7 @@ export namespace Column {
 export interface SchemaDefinition {
   /**
    * <p>Specifies one or more columns that store your data.</p>
-   *          <p>Each schema can have up to 100 columns. Each column can have up to 100 nested types</p>
+   *          <p>Each schema can have up to 100 columns. Each column can have up to 100 nested types.</p>
    */
   columns?: Column[];
 }
@@ -1496,6 +1602,13 @@ export interface CreateDatastoreRequest {
    *          <p>You can't change the file format after you create the data store.</p>
    */
   fileFormatConfiguration?: FileFormatConfiguration;
+
+  /**
+   * <p>
+   *       Contains information about the partitions in a data store.
+   *     </p>
+   */
+  datastorePartitions?: DatastorePartitions;
 }
 
 export namespace CreateDatastoreRequest {
@@ -2407,6 +2520,13 @@ export interface Datastore {
    *          <p>You can't change the file format after you create the data store.</p>
    */
   fileFormatConfiguration?: FileFormatConfiguration;
+
+  /**
+   * <p>
+   *       Contains information about the partitions in a data store.
+   *     </p>
+   */
+  datastorePartitions?: DatastorePartitions;
 }
 
 export namespace Datastore {
@@ -3256,6 +3376,13 @@ export interface DatastoreSummary {
    * <p>The file format of the data in the data store.</p>
    */
   fileFormatType?: FileFormatType | string;
+
+  /**
+   * <p>
+   *       Contains information about the partitions in a data store.
+   *     </p>
+   */
+  datastorePartitions?: DatastorePartitions;
 }
 
 export namespace DatastoreSummary {
@@ -3519,6 +3646,9 @@ export interface ChannelMessages {
   /**
    * <p>Specifies one or more keys that identify the Amazon Simple Storage Service (Amazon S3) objects that save your
    *       channel messages.</p>
+   *          <p>You must use the full path for the key.</p>
+   *          <p>Example path: <code>channel/mychannel/__dt=2020-02-29 00:00:00/1582940490000_1582940520000_123456789012_mychannel_0_2118.0.json.gz</code>
+   *          </p>
    */
   s3Paths?: string[];
 }

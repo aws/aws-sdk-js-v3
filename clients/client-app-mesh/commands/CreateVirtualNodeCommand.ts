@@ -40,10 +40,9 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  *                <code>APPMESH_RESOURCE_ARN</code> when Envoy is referring to itself in metrics and
  *             traces. You can override this behavior by setting the
  *                <code>APPMESH_RESOURCE_CLUSTER</code> environment variable with your own name.</p>
- *             <p>AWS Cloud Map is not available in the eu-south-1 Region.</p>
  *          </note>
  *          <p>For more information about virtual nodes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html">Virtual nodes</a>. You must be using <code>1.15.0</code> or later of the Envoy image when
- *          setting these variables. For more information about App Mesh Envoy variables, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html">Envoy image</a> in
+ *          setting these variables. For more information aboutApp Mesh Envoy variables, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html">Envoy image</a> in
  *          the AWS App Mesh User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

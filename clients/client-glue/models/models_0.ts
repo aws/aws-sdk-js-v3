@@ -1249,6 +1249,11 @@ export interface S3Target {
    * <p>The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).</p>
    */
   ConnectionName?: string;
+
+  /**
+   * <p>Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.</p>
+   */
+  SampleSize?: number;
 }
 
 export namespace S3Target {
@@ -1395,9 +1400,9 @@ export interface Crawler {
   Version?: number;
 
   /**
-   * <p>Crawler configuration information. This versioned JSON string allows users
-   *         to specify aspects of a crawler's behavior.
-   *         For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.</p>
+   * <p>Crawler configuration information. This versioned JSON string allows users to specify
+   *       aspects of a crawler's behavior. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/define-crawler.html#crawler-data-stores-exclude">Include and Exclude
+   *         Patterns</a>.</p>
    */
   Configuration?: string;
 

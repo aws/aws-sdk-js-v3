@@ -29,6 +29,9 @@ export interface ListJournalKinesisStreamsForLedgerCommandOutput
  * <p>Returns an array of all Amazon QLDB journal stream descriptors for a given ledger. The
  *          output of each stream descriptor includes the same details that are returned by
  *             <code>DescribeJournalKinesisStream</code>.</p>
+ *          <p>This action does not return any expired journal streams. For more information, see
+ *             <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration">Expiration for terminal streams</a> in the <i>Amazon QLDB Developer
+ *             Guide</i>.</p>
  *          <p>This action returns a maximum of <code>MaxResults</code> items. It is paginated so that
  *          you can retrieve all the items by calling <code>ListJournalKinesisStreamsForLedger</code>
  *          multiple times.</p>

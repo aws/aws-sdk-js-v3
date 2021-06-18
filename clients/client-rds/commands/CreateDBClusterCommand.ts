@@ -24,7 +24,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
 /**
  * <p>Creates a new Amazon Aurora DB cluster.</p>
  *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
- *             cluster as a read replica of another DB cluster or Amazon RDS MySQL DB instance. For
+ *             cluster as a read replica of another DB cluster or Amazon RDS MySQL or PostgreSQL DB instance. For
  *             cross-region replication where the DB cluster identified by
  *                 <code>ReplicationSourceIdentifier</code> is encrypted, you must also specify the
  *                 <code>PreSignedUrl</code> parameter.</p>

@@ -2,6 +2,10 @@ import {
   BatchDeleteDocumentCommandInput,
   BatchDeleteDocumentCommandOutput,
 } from "../commands/BatchDeleteDocumentCommand";
+import {
+  BatchGetDocumentStatusCommandInput,
+  BatchGetDocumentStatusCommandOutput,
+} from "../commands/BatchGetDocumentStatusCommand";
 import { BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput } from "../commands/BatchPutDocumentCommand";
 import {
   ClearQuerySuggestionsCommandInput,
@@ -85,9 +89,14 @@ import {
   AdditionalResultAttribute,
   AdditionalResultAttributeValue,
   AttributeFilter,
+  AuthenticationConfiguration,
+  BasicAuthenticationConfiguration,
   BatchDeleteDocumentRequest,
   BatchDeleteDocumentResponse,
   BatchDeleteDocumentResponseFailedDocument,
+  BatchGetDocumentStatusRequest,
+  BatchGetDocumentStatusResponse,
+  BatchGetDocumentStatusResponseError,
   BatchPutDocumentRequest,
   BatchPutDocumentResponse,
   BatchPutDocumentResponseFailedDocument,
@@ -145,6 +154,7 @@ import {
   DocumentAttribute,
   DocumentAttributeValue,
   DocumentAttributeValueCountPair,
+  DocumentInfo,
   DocumentMetadataConfiguration,
   DocumentRelevanceConfiguration,
   DocumentsMetadataConfiguration,
@@ -178,6 +188,7 @@ import {
   OneDriveConfiguration,
   OneDriveUsers,
   Principal,
+  ProxyConfiguration,
   QueryRequest,
   QueryResult,
   QueryResultItem,
@@ -201,16 +212,19 @@ import {
   SalesforceStandardObjectConfiguration,
   ScoreAttributes,
   Search,
+  SeedUrlConfiguration,
   ServerSideEncryptionConfiguration,
   ServiceNowConfiguration,
   ServiceNowKnowledgeArticleConfiguration,
   ServiceNowServiceCatalogConfiguration,
   ServiceQuotaExceededException,
   SharePointConfiguration,
+  SiteMapsConfiguration,
   SortingConfiguration,
   SqlConfiguration,
   StartDataSourceSyncJobRequest,
   StartDataSourceSyncJobResponse,
+  Status,
   StopDataSourceSyncJobRequest,
   SubmitFeedbackRequest,
   Suggestion,
@@ -232,9 +246,11 @@ import {
   UpdateQuerySuggestionsBlockListRequest,
   UpdateQuerySuggestionsConfigRequest,
   UpdateThesaurusRequest,
+  Urls,
   UserContext,
   UserTokenConfiguration,
   ValidationException,
+  WebCrawlerConfiguration,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
@@ -257,6 +273,19 @@ export const serializeAws_json1_1BatchDeleteDocumentCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchDeleteDocumentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1BatchGetDocumentStatusCommand = async (
+  input: BatchGetDocumentStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSKendraFrontendService.BatchGetDocumentStatus",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1BatchGetDocumentStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -762,6 +791,100 @@ const deserializeAws_json1_1BatchDeleteDocumentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDeleteDocumentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kendra#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.kendra#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.kendra#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kendra#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.kendra#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.kendra#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1BatchGetDocumentStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetDocumentStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1BatchGetDocumentStatusCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1BatchGetDocumentStatusResponse(data, context);
+  const response: BatchGetDocumentStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1BatchGetDocumentStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetDocumentStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4444,6 +4567,46 @@ const serializeAws_json1_1AttributeFilterList = (input: AttributeFilter[], conte
     });
 };
 
+const serializeAws_json1_1AuthenticationConfiguration = (
+  input: AuthenticationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BasicAuthentication !== undefined &&
+      input.BasicAuthentication !== null && {
+        BasicAuthentication: serializeAws_json1_1BasicAuthenticationConfigurationList(
+          input.BasicAuthentication,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_json1_1BasicAuthenticationConfiguration = (
+  input: BasicAuthenticationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Credentials !== undefined && input.Credentials !== null && { Credentials: input.Credentials }),
+    ...(input.Host !== undefined && input.Host !== null && { Host: input.Host }),
+    ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
+  };
+};
+
+const serializeAws_json1_1BasicAuthenticationConfigurationList = (
+  input: BasicAuthenticationConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1BasicAuthenticationConfiguration(entry, context);
+    });
+};
+
 const serializeAws_json1_1BatchDeleteDocumentRequest = (
   input: BatchDeleteDocumentRequest,
   context: __SerdeContext
@@ -4459,6 +4622,19 @@ const serializeAws_json1_1BatchDeleteDocumentRequest = (
     ...(input.DocumentIdList !== undefined &&
       input.DocumentIdList !== null && {
         DocumentIdList: serializeAws_json1_1DocumentIdList(input.DocumentIdList, context),
+      }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+  };
+};
+
+const serializeAws_json1_1BatchGetDocumentStatusRequest = (
+  input: BatchGetDocumentStatusRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DocumentInfoList !== undefined &&
+      input.DocumentInfoList !== null && {
+        DocumentInfoList: serializeAws_json1_1DocumentInfoList(input.DocumentInfoList, context),
       }),
     ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
   };
@@ -4925,6 +5101,10 @@ const serializeAws_json1_1DataSourceConfiguration = (input: DataSourceConfigurat
       input.SharePointConfiguration !== null && {
         SharePointConfiguration: serializeAws_json1_1SharePointConfiguration(input.SharePointConfiguration, context),
       }),
+    ...(input.WebCrawlerConfiguration !== undefined &&
+      input.WebCrawlerConfiguration !== null && {
+        WebCrawlerConfiguration: serializeAws_json1_1WebCrawlerConfiguration(input.WebCrawlerConfiguration, context),
+      }),
   };
 };
 
@@ -5161,6 +5341,27 @@ const serializeAws_json1_1DocumentIdList = (input: string[], context: __SerdeCon
         return null as any;
       }
       return entry;
+    });
+};
+
+const serializeAws_json1_1DocumentInfo = (input: DocumentInfo, context: __SerdeContext): any => {
+  return {
+    ...(input.Attributes !== undefined &&
+      input.Attributes !== null && {
+        Attributes: serializeAws_json1_1DocumentAttributeList(input.Attributes, context),
+      }),
+    ...(input.DocumentId !== undefined && input.DocumentId !== null && { DocumentId: input.DocumentId }),
+  };
+};
+
+const serializeAws_json1_1DocumentInfoList = (input: DocumentInfo[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1DocumentInfo(entry, context);
     });
 };
 
@@ -5497,6 +5698,14 @@ const serializeAws_json1_1PrincipalList = (input: Principal[], context: __SerdeC
       }
       return serializeAws_json1_1Principal(entry, context);
     });
+};
+
+const serializeAws_json1_1ProxyConfiguration = (input: ProxyConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.Credentials !== undefined && input.Credentials !== null && { Credentials: input.Credentials }),
+    ...(input.Host !== undefined && input.Host !== null && { Host: input.Host }),
+    ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
+  };
 };
 
 const serializeAws_json1_1QueryRequest = (input: QueryRequest, context: __SerdeContext): any => {
@@ -5853,6 +6062,26 @@ const serializeAws_json1_1SecurityGroupIdList = (input: string[], context: __Ser
     });
 };
 
+const serializeAws_json1_1SeedUrlConfiguration = (input: SeedUrlConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.SeedUrls !== undefined &&
+      input.SeedUrls !== null && { SeedUrls: serializeAws_json1_1SeedUrlList(input.SeedUrls, context) }),
+    ...(input.WebCrawlerMode !== undefined &&
+      input.WebCrawlerMode !== null && { WebCrawlerMode: input.WebCrawlerMode }),
+  };
+};
+
+const serializeAws_json1_1SeedUrlList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1ServerSideEncryptionConfiguration = (
   input: ServerSideEncryptionConfiguration,
   context: __SerdeContext
@@ -5986,6 +6215,24 @@ const serializeAws_json1_1SharePointConfiguration = (input: SharePointConfigurat
 };
 
 const serializeAws_json1_1SharePointUrlList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1SiteMapsConfiguration = (input: SiteMapsConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.SiteMaps !== undefined &&
+      input.SiteMaps !== null && { SiteMaps: serializeAws_json1_1SiteMapsList(input.SiteMaps, context) }),
+  };
+};
+
+const serializeAws_json1_1SiteMapsList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6204,6 +6451,19 @@ const serializeAws_json1_1UpdateThesaurusRequest = (input: UpdateThesaurusReques
   };
 };
 
+const serializeAws_json1_1Urls = (input: Urls, context: __SerdeContext): any => {
+  return {
+    ...(input.SeedUrlConfiguration !== undefined &&
+      input.SeedUrlConfiguration !== null && {
+        SeedUrlConfiguration: serializeAws_json1_1SeedUrlConfiguration(input.SeedUrlConfiguration, context),
+      }),
+    ...(input.SiteMapsConfiguration !== undefined &&
+      input.SiteMapsConfiguration !== null && {
+        SiteMapsConfiguration: serializeAws_json1_1SiteMapsConfiguration(input.SiteMapsConfiguration, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1UserContext = (input: UserContext, context: __SerdeContext): any => {
   return {
     ...(input.Token !== undefined && input.Token !== null && { Token: input.Token }),
@@ -6253,6 +6513,46 @@ const serializeAws_json1_1ValueImportanceMap = (input: { [key: string]: number }
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_json1_1WebCrawlerConfiguration = (input: WebCrawlerConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.AuthenticationConfiguration !== undefined &&
+      input.AuthenticationConfiguration !== null && {
+        AuthenticationConfiguration: serializeAws_json1_1AuthenticationConfiguration(
+          input.AuthenticationConfiguration,
+          context
+        ),
+      }),
+    ...(input.CrawlDepth !== undefined && input.CrawlDepth !== null && { CrawlDepth: input.CrawlDepth }),
+    ...(input.MaxContentSizePerPageInMegaBytes !== undefined &&
+      input.MaxContentSizePerPageInMegaBytes !== null && {
+        MaxContentSizePerPageInMegaBytes: input.MaxContentSizePerPageInMegaBytes,
+      }),
+    ...(input.MaxLinksPerPage !== undefined &&
+      input.MaxLinksPerPage !== null && { MaxLinksPerPage: input.MaxLinksPerPage }),
+    ...(input.MaxUrlsPerMinuteCrawlRate !== undefined &&
+      input.MaxUrlsPerMinuteCrawlRate !== null && { MaxUrlsPerMinuteCrawlRate: input.MaxUrlsPerMinuteCrawlRate }),
+    ...(input.ProxyConfiguration !== undefined &&
+      input.ProxyConfiguration !== null && {
+        ProxyConfiguration: serializeAws_json1_1ProxyConfiguration(input.ProxyConfiguration, context),
+      }),
+    ...(input.UrlExclusionPatterns !== undefined &&
+      input.UrlExclusionPatterns !== null && {
+        UrlExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
+          input.UrlExclusionPatterns,
+          context
+        ),
+      }),
+    ...(input.UrlInclusionPatterns !== undefined &&
+      input.UrlInclusionPatterns !== null && {
+        UrlInclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
+          input.UrlInclusionPatterns,
+          context
+        ),
+      }),
+    ...(input.Urls !== undefined && input.Urls !== null && { Urls: serializeAws_json1_1Urls(input.Urls, context) }),
+  };
 };
 
 const deserializeAws_json1_1AccessControlListConfiguration = (
@@ -6319,6 +6619,43 @@ const deserializeAws_json1_1AdditionalResultAttributeValue = (
   } as any;
 };
 
+const deserializeAws_json1_1AuthenticationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): AuthenticationConfiguration => {
+  return {
+    BasicAuthentication:
+      output.BasicAuthentication !== undefined && output.BasicAuthentication !== null
+        ? deserializeAws_json1_1BasicAuthenticationConfigurationList(output.BasicAuthentication, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1BasicAuthenticationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): BasicAuthenticationConfiguration => {
+  return {
+    Credentials: output.Credentials !== undefined && output.Credentials !== null ? output.Credentials : undefined,
+    Host: output.Host !== undefined && output.Host !== null ? output.Host : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1BasicAuthenticationConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): BasicAuthenticationConfiguration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BasicAuthenticationConfiguration(entry, context);
+    });
+};
+
 const deserializeAws_json1_1BatchDeleteDocumentResponse = (
   output: any,
   context: __SerdeContext
@@ -6353,6 +6690,47 @@ const deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocuments = (
         return null as any;
       }
       return deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocument(entry, context);
+    });
+};
+
+const deserializeAws_json1_1BatchGetDocumentStatusResponse = (
+  output: any,
+  context: __SerdeContext
+): BatchGetDocumentStatusResponse => {
+  return {
+    DocumentStatusList:
+      output.DocumentStatusList !== undefined && output.DocumentStatusList !== null
+        ? deserializeAws_json1_1DocumentStatusList(output.DocumentStatusList, context)
+        : undefined,
+    Errors:
+      output.Errors !== undefined && output.Errors !== null
+        ? deserializeAws_json1_1BatchGetDocumentStatusResponseErrors(output.Errors, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1BatchGetDocumentStatusResponseError = (
+  output: any,
+  context: __SerdeContext
+): BatchGetDocumentStatusResponseError => {
+  return {
+    DocumentId: output.DocumentId !== undefined && output.DocumentId !== null ? output.DocumentId : undefined,
+    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1BatchGetDocumentStatusResponseErrors = (
+  output: any,
+  context: __SerdeContext
+): BatchGetDocumentStatusResponseError[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BatchGetDocumentStatusResponseError(entry, context);
     });
 };
 
@@ -6804,6 +7182,10 @@ const deserializeAws_json1_1DataSourceConfiguration = (
     SharePointConfiguration:
       output.SharePointConfiguration !== undefined && output.SharePointConfiguration !== null
         ? deserializeAws_json1_1SharePointConfiguration(output.SharePointConfiguration, context)
+        : undefined,
+    WebCrawlerConfiguration:
+      output.WebCrawlerConfiguration !== undefined && output.WebCrawlerConfiguration !== null
+        ? deserializeAws_json1_1WebCrawlerConfiguration(output.WebCrawlerConfiguration, context)
         : undefined,
   } as any;
 };
@@ -7275,6 +7657,17 @@ const deserializeAws_json1_1DocumentsMetadataConfiguration = (
   } as any;
 };
 
+const deserializeAws_json1_1DocumentStatusList = (output: any, context: __SerdeContext): Status[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Status(entry, context);
+    });
+};
+
 const deserializeAws_json1_1ExcludeMimeTypesList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -7665,6 +8058,14 @@ const deserializeAws_json1_1OneDriveUsers = (output: any, context: __SerdeContex
       output.OneDriveUserS3Path !== undefined && output.OneDriveUserS3Path !== null
         ? deserializeAws_json1_1S3Path(output.OneDriveUserS3Path, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ProxyConfiguration = (output: any, context: __SerdeContext): ProxyConfiguration => {
+  return {
+    Credentials: output.Credentials !== undefined && output.Credentials !== null ? output.Credentials : undefined,
+    Host: output.Host !== undefined && output.Host !== null ? output.Host : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
   } as any;
 };
 
@@ -8097,6 +8498,28 @@ const deserializeAws_json1_1SecurityGroupIdList = (output: any, context: __Serde
     });
 };
 
+const deserializeAws_json1_1SeedUrlConfiguration = (output: any, context: __SerdeContext): SeedUrlConfiguration => {
+  return {
+    SeedUrls:
+      output.SeedUrls !== undefined && output.SeedUrls !== null
+        ? deserializeAws_json1_1SeedUrlList(output.SeedUrls, context)
+        : undefined,
+    WebCrawlerMode:
+      output.WebCrawlerMode !== undefined && output.WebCrawlerMode !== null ? output.WebCrawlerMode : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SeedUrlList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const deserializeAws_json1_1ServerSideEncryptionConfiguration = (
   output: any,
   context: __SerdeContext
@@ -8257,6 +8680,26 @@ const deserializeAws_json1_1SharePointUrlList = (output: any, context: __SerdeCo
     });
 };
 
+const deserializeAws_json1_1SiteMapsConfiguration = (output: any, context: __SerdeContext): SiteMapsConfiguration => {
+  return {
+    SiteMaps:
+      output.SiteMaps !== undefined && output.SiteMaps !== null
+        ? deserializeAws_json1_1SiteMapsList(output.SiteMaps, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SiteMapsList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const deserializeAws_json1_1SqlConfiguration = (output: any, context: __SerdeContext): SqlConfiguration => {
   return {
     QueryIdentifiersEnclosingOption:
@@ -8272,6 +8715,17 @@ const deserializeAws_json1_1StartDataSourceSyncJobResponse = (
 ): StartDataSourceSyncJobResponse => {
   return {
     ExecutionId: output.ExecutionId !== undefined && output.ExecutionId !== null ? output.ExecutionId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1Status = (output: any, context: __SerdeContext): Status => {
+  return {
+    DocumentId: output.DocumentId !== undefined && output.DocumentId !== null ? output.DocumentId : undefined,
+    DocumentStatus:
+      output.DocumentStatus !== undefined && output.DocumentStatus !== null ? output.DocumentStatus : undefined,
+    FailureCode: output.FailureCode !== undefined && output.FailureCode !== null ? output.FailureCode : undefined,
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
   } as any;
 };
 
@@ -8427,6 +8881,19 @@ const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __Ser
   return {} as any;
 };
 
+const deserializeAws_json1_1Urls = (output: any, context: __SerdeContext): Urls => {
+  return {
+    SeedUrlConfiguration:
+      output.SeedUrlConfiguration !== undefined && output.SeedUrlConfiguration !== null
+        ? deserializeAws_json1_1SeedUrlConfiguration(output.SeedUrlConfiguration, context)
+        : undefined,
+    SiteMapsConfiguration:
+      output.SiteMapsConfiguration !== undefined && output.SiteMapsConfiguration !== null
+        ? deserializeAws_json1_1SiteMapsConfiguration(output.SiteMapsConfiguration, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1UserTokenConfiguration = (output: any, context: __SerdeContext): UserTokenConfiguration => {
   return {
     JsonTokenTypeConfiguration:
@@ -8470,6 +8937,43 @@ const deserializeAws_json1_1ValueImportanceMap = (output: any, context: __SerdeC
       [key]: value,
     };
   }, {});
+};
+
+const deserializeAws_json1_1WebCrawlerConfiguration = (
+  output: any,
+  context: __SerdeContext
+): WebCrawlerConfiguration => {
+  return {
+    AuthenticationConfiguration:
+      output.AuthenticationConfiguration !== undefined && output.AuthenticationConfiguration !== null
+        ? deserializeAws_json1_1AuthenticationConfiguration(output.AuthenticationConfiguration, context)
+        : undefined,
+    CrawlDepth: output.CrawlDepth !== undefined && output.CrawlDepth !== null ? output.CrawlDepth : undefined,
+    MaxContentSizePerPageInMegaBytes:
+      output.MaxContentSizePerPageInMegaBytes !== undefined && output.MaxContentSizePerPageInMegaBytes !== null
+        ? output.MaxContentSizePerPageInMegaBytes
+        : undefined,
+    MaxLinksPerPage:
+      output.MaxLinksPerPage !== undefined && output.MaxLinksPerPage !== null ? output.MaxLinksPerPage : undefined,
+    MaxUrlsPerMinuteCrawlRate:
+      output.MaxUrlsPerMinuteCrawlRate !== undefined && output.MaxUrlsPerMinuteCrawlRate !== null
+        ? output.MaxUrlsPerMinuteCrawlRate
+        : undefined,
+    ProxyConfiguration:
+      output.ProxyConfiguration !== undefined && output.ProxyConfiguration !== null
+        ? deserializeAws_json1_1ProxyConfiguration(output.ProxyConfiguration, context)
+        : undefined,
+    UrlExclusionPatterns:
+      output.UrlExclusionPatterns !== undefined && output.UrlExclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.UrlExclusionPatterns, context)
+        : undefined,
+    UrlInclusionPatterns:
+      output.UrlInclusionPatterns !== undefined && output.UrlInclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.UrlInclusionPatterns, context)
+        : undefined,
+    Urls:
+      output.Urls !== undefined && output.Urls !== null ? deserializeAws_json1_1Urls(output.Urls, context) : undefined,
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

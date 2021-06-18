@@ -590,6 +590,36 @@ export namespace ScheduleEntry {
 
 export enum AccessType {
   S3_SIGV4 = "S3_SIGV4",
+  SECRETS_MANAGER_ACCESS_TOKEN = "SECRETS_MANAGER_ACCESS_TOKEN",
+}
+
+/**
+ * <p>AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html">Working with AWS Secrets Manager access token authentication</a>.</p>
+ */
+export interface SecretsManagerAccessTokenConfiguration {
+  /**
+   * <p>The name of the HTTP header used to supply the access token in requests to the source location.</p>
+   */
+  HeaderName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
+   */
+  SecretArn?: string;
+
+  /**
+   * <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
+   */
+  SecretStringKey?: string;
+}
+
+export namespace SecretsManagerAccessTokenConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SecretsManagerAccessTokenConfiguration): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -600,6 +630,11 @@ export interface AccessConfiguration {
    * <p>The type of authentication used to access content from HttpConfiguration::BaseUrl on your source location. Accepted value: S3_SIGV4.</p> <p>S3_SIGV4 - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the bucket where your source content is stored. Your MediaTailor source location baseURL must follow the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.</p> <p>Before you can use S3_SIGV4, you must meet these requirements:</p> <p>• You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com principal access in IAM. For information about configuring access in IAM, see Access management in the IAM User Guide.</p> <p>• The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.</p> <p>• The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.</p>
    */
   AccessType?: AccessType | string;
+
+  /**
+   * <p>AWS Secrets Manager access token configuration parameters.</p>
+   */
+  SecretsManagerAccessTokenConfiguration?: SecretsManagerAccessTokenConfiguration;
 }
 
 export namespace AccessConfiguration {

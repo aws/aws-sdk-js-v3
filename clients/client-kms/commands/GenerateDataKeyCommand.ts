@@ -46,13 +46,14 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
  *       <i>AWS Key Management Service Developer Guide</i>.</p>
  *          <p>The CMK that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
- * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>How to use your data key</b>
+ *             <b>How to use your
+ *         data key</b>
  *          </p>
- *          <p>We recommend that you use the following pattern to encrypt data locally in your application.
- *       You can write your own code or use a client-side encryption library, such as the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">AWS Encryption SDK</a>, the <a href="https://docs.aws.amazon.com/dynamodb-encryption-client/latest/devguide/">Amazon DynamoDB Encryption Client</a>, or
+ *          <p>We recommend that you use the following pattern to encrypt data locally in your
+ *       application. You can write your own code or use a client-side encryption library, such as the
+ *         <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">AWS Encryption SDK</a>, the <a href="https://docs.aws.amazon.com/dynamodb-encryption-client/latest/devguide/">Amazon DynamoDB Encryption Client</a>, or
  *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3
  *         client-side encryption</a> to do these tasks for you.</p>
  *          <p>To encrypt data outside of AWS KMS:</p>

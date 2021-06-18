@@ -49,8 +49,7 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
  *       <i>AWS Key Management Service Developer Guide</i>.</p>
  *          <p>The CMK that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
- * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation with a CMK in a different AWS account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>

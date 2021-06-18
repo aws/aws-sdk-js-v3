@@ -21,7 +21,7 @@ export interface CreateDBSubnetGroupCommandInput extends CreateDBSubnetGroupMess
 export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the AWS Region.</p>
+ * <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

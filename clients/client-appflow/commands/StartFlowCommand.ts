@@ -21,10 +21,8 @@ export interface StartFlowCommandInput extends StartFlowRequest {}
 export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBearer {}
 
 /**
- * <p>
- * Activates an existing flow. For on-demand flows, this operation runs the flow immediately. For schedule and event-triggered flows, this operation activates the flow.
- *
- * </p>
+ * <p> Activates an existing flow. For on-demand flows, this operation runs the flow
+ *       immediately. For schedule and event-triggered flows, this operation activates the flow. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

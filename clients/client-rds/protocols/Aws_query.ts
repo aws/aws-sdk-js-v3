@@ -19345,6 +19345,16 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
   if (input.DomainIAMRoleName !== undefined && input.DomainIAMRoleName !== null) {
     entries["DomainIAMRoleName"] = input.DomainIAMRoleName;
   }
+  if (input.ScalingConfiguration !== undefined && input.ScalingConfiguration !== null) {
+    const memberEntries = serializeAws_queryScalingConfiguration(input.ScalingConfiguration, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ScalingConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.EngineMode !== undefined && input.EngineMode !== null) {
+    entries["EngineMode"] = input.EngineMode;
+  }
   return entries;
 };
 
@@ -19818,6 +19828,9 @@ const serializeAws_queryStartActivityStreamRequest = (
   if (input.ApplyImmediately !== undefined && input.ApplyImmediately !== null) {
     entries["ApplyImmediately"] = input.ApplyImmediately;
   }
+  if (input.EngineNativeAuditFieldsIncluded !== undefined && input.EngineNativeAuditFieldsIncluded !== null) {
+    entries["EngineNativeAuditFieldsIncluded"] = input.EngineNativeAuditFieldsIncluded;
+  }
   return entries;
 };
 
@@ -20078,6 +20091,17 @@ const deserializeAws_queryAccountQuotaList = (output: any, context: __SerdeConte
         return null as any;
       }
       return deserializeAws_queryAccountQuota(entry, context);
+    });
+};
+
+const deserializeAws_queryActivityStreamModeList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 
@@ -22069,6 +22093,11 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     DBInstanceAutomatedBackupsReplications: undefined,
     CustomerOwnedIpEnabled: undefined,
     AwsBackupRecoveryPointArn: undefined,
+    ActivityStreamStatus: undefined,
+    ActivityStreamKmsKeyId: undefined,
+    ActivityStreamKinesisStreamName: undefined,
+    ActivityStreamMode: undefined,
+    ActivityStreamEngineNativeAuditFieldsIncluded: undefined,
   };
   if (output["DBInstanceIdentifier"] !== undefined) {
     contents.DBInstanceIdentifier = output["DBInstanceIdentifier"];
@@ -22357,6 +22386,22 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
   }
   if (output["AwsBackupRecoveryPointArn"] !== undefined) {
     contents.AwsBackupRecoveryPointArn = output["AwsBackupRecoveryPointArn"];
+  }
+  if (output["ActivityStreamStatus"] !== undefined) {
+    contents.ActivityStreamStatus = output["ActivityStreamStatus"];
+  }
+  if (output["ActivityStreamKmsKeyId"] !== undefined) {
+    contents.ActivityStreamKmsKeyId = output["ActivityStreamKmsKeyId"];
+  }
+  if (output["ActivityStreamKinesisStreamName"] !== undefined) {
+    contents.ActivityStreamKinesisStreamName = output["ActivityStreamKinesisStreamName"];
+  }
+  if (output["ActivityStreamMode"] !== undefined) {
+    contents.ActivityStreamMode = output["ActivityStreamMode"];
+  }
+  if (output["ActivityStreamEngineNativeAuditFieldsIncluded"] !== undefined) {
+    contents.ActivityStreamEngineNativeAuditFieldsIncluded =
+      output["ActivityStreamEngineNativeAuditFieldsIncluded"] == "true";
   }
   return contents;
 };
@@ -26206,6 +26251,7 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     SupportsStorageAutoscaling: undefined,
     SupportsKerberosAuthentication: undefined,
     OutpostCapable: undefined,
+    SupportedActivityStreamModes: undefined,
     SupportsGlobalDatabases: undefined,
   };
   if (output["Engine"] !== undefined) {
@@ -26306,6 +26352,18 @@ const deserializeAws_queryOrderableDBInstanceOption = (
   }
   if (output["OutpostCapable"] !== undefined) {
     contents.OutpostCapable = output["OutpostCapable"] == "true";
+  }
+  if (output.SupportedActivityStreamModes === "") {
+    contents.SupportedActivityStreamModes = [];
+  }
+  if (
+    output["SupportedActivityStreamModes"] !== undefined &&
+    output["SupportedActivityStreamModes"]["member"] !== undefined
+  ) {
+    contents.SupportedActivityStreamModes = deserializeAws_queryActivityStreamModeList(
+      __getArrayIfSingleItem(output["SupportedActivityStreamModes"]["member"]),
+      context
+    );
   }
   if (output["SupportsGlobalDatabases"] !== undefined) {
     contents.SupportsGlobalDatabases = output["SupportsGlobalDatabases"] == "true";
@@ -27442,6 +27500,7 @@ const deserializeAws_queryStartActivityStreamResponse = (
     Status: undefined,
     Mode: undefined,
     ApplyImmediately: undefined,
+    EngineNativeAuditFieldsIncluded: undefined,
   };
   if (output["KmsKeyId"] !== undefined) {
     contents.KmsKeyId = output["KmsKeyId"];
@@ -27457,6 +27516,9 @@ const deserializeAws_queryStartActivityStreamResponse = (
   }
   if (output["ApplyImmediately"] !== undefined) {
     contents.ApplyImmediately = output["ApplyImmediately"] == "true";
+  }
+  if (output["EngineNativeAuditFieldsIncluded"] !== undefined) {
+    contents.EngineNativeAuditFieldsIncluded = output["EngineNativeAuditFieldsIncluded"] == "true";
   }
   return contents;
 };

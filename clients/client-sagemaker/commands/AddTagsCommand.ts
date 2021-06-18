@@ -36,12 +36,13 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *             </p>
  *         </note>
  *         <note>
- *             <p>Tags that you add to a SageMaker Studio Domain or User Profile by calling this API are also
- *                 added to any Apps that the Domain or User Profile launches after you
- *                 call this API, but not to Apps that the Domain or User Profile launched
- *                 before you called this API. To make sure that the tags associated with a
- *                 Domain or User Profile are also added to all Apps that the
- *                 Domain or User Profile launches, add the tags when you first create the Domain or User Profile by specifying them in the <code>Tags</code> parameter of <a>CreateDomain</a> or <a>CreateUserProfile</a>.</p>
+ *             <p>Tags that you add to a SageMaker Studio Domain or User Profile by calling this API
+ *                 are also added to any Apps that the Domain or User Profile launches after you call
+ *                 this API, but not to Apps that the Domain or User Profile launched before you called
+ *                 this API. To make sure that the tags associated with a Domain or User Profile are
+ *                 also added to all Apps that the Domain or User Profile launches, add the tags when
+ *                 you first create the Domain or User Profile by specifying them in the
+ *                     <code>Tags</code> parameter of <a>CreateDomain</a> or <a>CreateUserProfile</a>.</p>
  *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

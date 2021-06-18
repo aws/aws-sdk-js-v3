@@ -25,7 +25,10 @@ export interface DescribeJournalKinesisStreamCommandOutput
 /**
  * <p>Returns detailed information about a given Amazon QLDB journal stream. The output
  *          includes the Amazon Resource Name (ARN), stream name, current status, creation time, and
- *          the parameters of your original stream creation request.</p>
+ *          the parameters of the original stream creation request.</p>
+ *          <p>This action does not return any expired journal streams. For more information, see
+ *             <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration">Expiration for terminal streams</a> in the <i>Amazon QLDB Developer
+ *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

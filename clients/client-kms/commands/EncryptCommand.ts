@@ -27,11 +27,11 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *             </li>
  *             <li>
  *                <p>You can use the <code>Encrypt</code> operation to move encrypted data from one AWS
- *           Region to another. For example, in Region A, generate a data key and use the plaintext key to encrypt
- *           your data. Then, in Region A, use the <code>Encrypt</code> operation to encrypt the
- *           plaintext data key under a CMK in Region B. Now, you can move the encrypted data and the
- *           encrypted data key to Region B. When necessary, you can decrypt the encrypted data key and
- *           the encrypted data entirely within in Region B.</p>
+ *           Region to another. For example, in Region A, generate a data key and use the plaintext key
+ *           to encrypt your data. Then, in Region A, use the <code>Encrypt</code> operation to encrypt
+ *           the plaintext data key under a CMK in Region B. Now, you can move the encrypted data and
+ *           the encrypted data key to Region B. When necessary, you can decrypt the encrypted data key
+ *           and the encrypted data entirely within in Region B.</p>
  *             </li>
  *          </ul>
  *
@@ -115,8 +115,7 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *             </li>
  *          </ul>
  *          <p>The CMK that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
- * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation with a CMK in a different AWS account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>

@@ -1097,7 +1097,7 @@ export interface BatchCreateChannelMembershipError {
   ErrorCode?: ErrorCode | string;
 
   /**
-   * <p>The error message. </p>
+   * <p>The error message.</p>
    */
   ErrorMessage?: string;
 }
@@ -5062,8 +5062,7 @@ export namespace DescribeChannelBanRequest {
 
 export interface DescribeChannelBanResponse {
   /**
-   * <p>The details of
-   *             the ban.</p>
+   * <p>The details of the ban.</p>
    */
   ChannelBan?: ChannelBan;
 }

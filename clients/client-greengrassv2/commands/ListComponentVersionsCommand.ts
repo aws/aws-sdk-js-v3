@@ -21,7 +21,7 @@ export interface ListComponentVersionsCommandInput extends ListComponentVersions
 export interface ListComponentVersionsCommandOutput extends ListComponentVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of all versions for a component.</p>
+ * <p>Retrieves a paginated list of all versions for a component. Greater versions are listed first.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

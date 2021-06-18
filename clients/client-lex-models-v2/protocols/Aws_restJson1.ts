@@ -131,6 +131,7 @@ import {
   LambdaCodeHook,
   Message,
   MessageGroup,
+  MultipleValuesSetting,
   ObfuscationSetting,
   OutputContext,
   PlainTextMessage,
@@ -644,6 +645,10 @@ export const serializeAws_restJson1CreateSlotCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.multipleValuesSetting !== undefined &&
+      input.multipleValuesSetting !== null && {
+        multipleValuesSetting: serializeAws_restJson1MultipleValuesSetting(input.multipleValuesSetting, context),
+      }),
     ...(input.obfuscationSetting !== undefined &&
       input.obfuscationSetting !== null && {
         obfuscationSetting: serializeAws_restJson1ObfuscationSetting(input.obfuscationSetting, context),
@@ -2600,6 +2605,10 @@ export const serializeAws_restJson1UpdateSlotCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.multipleValuesSetting !== undefined &&
+      input.multipleValuesSetting !== null && {
+        multipleValuesSetting: serializeAws_restJson1MultipleValuesSetting(input.multipleValuesSetting, context),
+      }),
     ...(input.obfuscationSetting !== undefined &&
       input.obfuscationSetting !== null && {
         obfuscationSetting: serializeAws_restJson1ObfuscationSetting(input.obfuscationSetting, context),
@@ -3824,6 +3833,7 @@ export const deserializeAws_restJson1CreateSlotCommand = async (
     description: undefined,
     intentId: undefined,
     localeId: undefined,
+    multipleValuesSetting: undefined,
     obfuscationSetting: undefined,
     slotId: undefined,
     slotName: undefined,
@@ -3848,6 +3858,9 @@ export const deserializeAws_restJson1CreateSlotCommand = async (
   }
   if (data.localeId !== undefined && data.localeId !== null) {
     contents.localeId = data.localeId;
+  }
+  if (data.multipleValuesSetting !== undefined && data.multipleValuesSetting !== null) {
+    contents.multipleValuesSetting = deserializeAws_restJson1MultipleValuesSetting(data.multipleValuesSetting, context);
   }
   if (data.obfuscationSetting !== undefined && data.obfuscationSetting !== null) {
     contents.obfuscationSetting = deserializeAws_restJson1ObfuscationSetting(data.obfuscationSetting, context);
@@ -6216,6 +6229,7 @@ export const deserializeAws_restJson1DescribeSlotCommand = async (
     intentId: undefined,
     lastUpdatedDateTime: undefined,
     localeId: undefined,
+    multipleValuesSetting: undefined,
     obfuscationSetting: undefined,
     slotId: undefined,
     slotName: undefined,
@@ -6243,6 +6257,9 @@ export const deserializeAws_restJson1DescribeSlotCommand = async (
   }
   if (data.localeId !== undefined && data.localeId !== null) {
     contents.localeId = data.localeId;
+  }
+  if (data.multipleValuesSetting !== undefined && data.multipleValuesSetting !== null) {
+    contents.multipleValuesSetting = deserializeAws_restJson1MultipleValuesSetting(data.multipleValuesSetting, context);
   }
   if (data.obfuscationSetting !== undefined && data.obfuscationSetting !== null) {
     contents.obfuscationSetting = deserializeAws_restJson1ObfuscationSetting(data.obfuscationSetting, context);
@@ -8598,6 +8615,7 @@ export const deserializeAws_restJson1UpdateSlotCommand = async (
     intentId: undefined,
     lastUpdatedDateTime: undefined,
     localeId: undefined,
+    multipleValuesSetting: undefined,
     obfuscationSetting: undefined,
     slotId: undefined,
     slotName: undefined,
@@ -8625,6 +8643,9 @@ export const deserializeAws_restJson1UpdateSlotCommand = async (
   }
   if (data.localeId !== undefined && data.localeId !== null) {
     contents.localeId = data.localeId;
+  }
+  if (data.multipleValuesSetting !== undefined && data.multipleValuesSetting !== null) {
+    contents.multipleValuesSetting = deserializeAws_restJson1MultipleValuesSetting(data.multipleValuesSetting, context);
   }
   if (data.obfuscationSetting !== undefined && data.obfuscationSetting !== null) {
     contents.obfuscationSetting = deserializeAws_restJson1ObfuscationSetting(data.obfuscationSetting, context);
@@ -9556,6 +9577,13 @@ const serializeAws_restJson1MessageVariationsList = (input: Message[], context: 
       }
       return serializeAws_restJson1Message(entry, context);
     });
+};
+
+const serializeAws_restJson1MultipleValuesSetting = (input: MultipleValuesSetting, context: __SerdeContext): any => {
+  return {
+    ...(input.allowMultipleValues !== undefined &&
+      input.allowMultipleValues !== null && { allowMultipleValues: input.allowMultipleValues }),
+  };
 };
 
 const serializeAws_restJson1ObfuscationSetting = (input: ObfuscationSetting, context: __SerdeContext): any => {
@@ -10690,6 +10718,15 @@ const deserializeAws_restJson1MessageVariationsList = (output: any, context: __S
       }
       return deserializeAws_restJson1Message(entry, context);
     });
+};
+
+const deserializeAws_restJson1MultipleValuesSetting = (output: any, context: __SerdeContext): MultipleValuesSetting => {
+  return {
+    allowMultipleValues:
+      output.allowMultipleValues !== undefined && output.allowMultipleValues !== null
+        ? output.allowMultipleValues
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1ObfuscationSetting = (output: any, context: __SerdeContext): ObfuscationSetting => {

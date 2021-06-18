@@ -55,9 +55,12 @@ import {
 } from "./models_0";
 import {
   CapacityReservationTargetResponse,
+  DeleteLaunchTemplateVersionsResponseSuccessItem,
   FleetStateCode,
   GroupIdentifier,
   InstanceIpv6Address,
+  LaunchTemplateErrorCode,
+  LocalGatewayRoute,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
   NetworkInterfaceStatus,
@@ -69,6 +72,131 @@ import {
   TransitGatewayRoute,
   TransitGatewayRouteTable,
 } from "./models_1";
+
+/**
+ * <p>Describes the error that's returned when you cannot delete a launch template
+ *             version.</p>
+ */
+export interface ResponseError {
+  /**
+   * <p>The error code.</p>
+   */
+  Code?: LaunchTemplateErrorCode | string;
+
+  /**
+   * <p>The error message, if applicable.</p>
+   */
+  Message?: string;
+}
+
+export namespace ResponseError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a launch template version that could not be deleted.</p>
+ */
+export interface DeleteLaunchTemplateVersionsResponseErrorItem {
+  /**
+   * <p>The ID of the launch template.</p>
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template.</p>
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>The version number of the launch template.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>Information about the error.</p>
+   */
+  ResponseError?: ResponseError;
+}
+
+export namespace DeleteLaunchTemplateVersionsResponseErrorItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLaunchTemplateVersionsResponseErrorItem): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteLaunchTemplateVersionsResult {
+  /**
+   * <p>Information about the launch template versions that were successfully
+   *             deleted.</p>
+   */
+  SuccessfullyDeletedLaunchTemplateVersions?: DeleteLaunchTemplateVersionsResponseSuccessItem[];
+
+  /**
+   * <p>Information about the launch template versions that could not be deleted.</p>
+   */
+  UnsuccessfullyDeletedLaunchTemplateVersions?: DeleteLaunchTemplateVersionsResponseErrorItem[];
+}
+
+export namespace DeleteLaunchTemplateVersionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLaunchTemplateVersionsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteLocalGatewayRouteRequest {
+  /**
+   * <p>The CIDR range for the route. This must match the CIDR for the route exactly.</p>
+   */
+  DestinationCidrBlock: string | undefined;
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   */
+  LocalGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteLocalGatewayRouteRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLocalGatewayRouteRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteLocalGatewayRouteResult {
+  /**
+   * <p>Information about the route.</p>
+   */
+  Route?: LocalGatewayRoute;
+}
+
+export namespace DeleteLocalGatewayRouteResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteLocalGatewayRouteResult): any => ({
+    ...obj,
+  });
+}
 
 export interface DeleteLocalGatewayRouteTableVpcAssociationRequest {
   /**
@@ -1933,7 +2061,7 @@ export interface DescribeAddressesRequest {
    *             <li>
    *                <p>
    *                   <code>network-border-group</code> -  A unique set of Availability Zones, Local Zones,
-   *           or Wavelength Zones from where AWS advertises IP addresses. </p>
+   *            or Wavelength Zones from where Amazon Web Services advertises IP addresses. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -1941,7 +2069,7 @@ export interface DescribeAddressesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-interface-owner-id</code> - The AWS account ID of the owner.</p>
+   *                   <code>network-interface-owner-id</code> - The account ID of the owner.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7598,6 +7726,16 @@ export interface DescribeImagesRequest {
   Owners?: string[];
 
   /**
+   * <p>If <code>true</code>, all deprecated AMIs are included in the response. If
+   *         <code>false</code>, no deprecated AMIs are included in the response. If no value is
+   *       specified, the default value is <code>false</code>.</p>
+   *          <note>
+   *             <p>If you are the AMI owner, all deprecated AMIs appear in the response regardless of the value (<code>true</code> or <code>false</code>) that you set for this parameter.</p>
+   *          </note>
+   */
+  IncludeDeprecated?: boolean;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -7866,6 +8004,14 @@ export interface Image {
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   BootMode?: BootModeValues | string;
+
+  /**
+   * <p>The date and time to deprecate the AMI, in UTC, in the following format:
+   *      <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
+   *       If you specified a value for seconds, Amazon EC2 rounds the seconds to the
+   *       nearest minute.</p>
+   */
+  DeprecationTime?: string;
 }
 
 export namespace Image {
@@ -9628,7 +9774,7 @@ export interface InstanceNetworkInterface {
   NetworkInterfaceId?: string;
 
   /**
-   * <p>The ID of the AWS account that created the network interface.</p>
+   * <p>The ID of the account that created the network interface.</p>
    */
   OwnerId?: string;
 
@@ -9669,7 +9815,7 @@ export interface InstanceNetworkInterface {
 
   /**
    * <p>Describes the type of network interface.</p>
-   * 		       <p>Valid values: <code>interface</code> | <code>efa</code>
+   * 	        <p>Valid values: <code>interface</code> | <code>efa</code> | <code>trunk</code>
    *          </p>
    */
   InterfaceType?: string;
@@ -10312,154 +10458,3 @@ export namespace InstanceStatusDetails {
 }
 
 export type SummaryStatus = "impaired" | "initializing" | "insufficient-data" | "not-applicable" | "ok";
-
-/**
- * <p>Describes the status of an instance.</p>
- */
-export interface InstanceStatusSummary {
-  /**
-   * <p>The system instance health or application instance health.</p>
-   */
-  Details?: InstanceStatusDetails[];
-
-  /**
-   * <p>The status.</p>
-   */
-  Status?: SummaryStatus | string;
-}
-
-export namespace InstanceStatusSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceStatusSummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the status of an instance.</p>
- */
-export interface InstanceStatus {
-  /**
-   * <p>The Availability Zone of the instance.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>Any scheduled events associated with the instance.</p>
-   */
-  Events?: InstanceStatusEvent[];
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The intended state of the instance. <a>DescribeInstanceStatus</a> requires
-   *             that an instance be in the <code>running</code> state.</p>
-   */
-  InstanceState?: InstanceState;
-
-  /**
-   * <p>Reports impaired functionality that stems from issues internal to the instance, such
-   *             as impaired reachability.</p>
-   */
-  InstanceStatus?: InstanceStatusSummary;
-
-  /**
-   * <p>Reports impaired functionality that stems from issues related to the systems that
-   *             support an instance, such as hardware failures and network connectivity problems.</p>
-   */
-  SystemStatus?: InstanceStatusSummary;
-}
-
-export namespace InstanceStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceStatus): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeInstanceStatusResult {
-  /**
-   * <p>Information about the status of the instances.</p>
-   */
-  InstanceStatuses?: InstanceStatus[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceStatusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceStatusResult): any => ({
-    ...obj,
-  });
-}
-
-export type LocationType = "availability-zone" | "availability-zone-id" | "region";
-
-export interface DescribeInstanceTypeOfferingsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *          and provides an error response. If you have the required permissions, the error response is
-   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The location type.</p>
-   */
-  LocationType?: LocationType | string;
-
-  /**
-   * <p>One or more filters. Filter names and values are case-sensitive.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>location</code> - This depends on the location type. For example, if the location type is
-   *       <code>region</code> (default), the location is the Region code (for example, <code>us-east-2</code>.)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type. For example,
-   *      <code>c5.2xlarge</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results
-   *          can be seen by sending another request with the next token value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeInstanceTypeOfferingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceTypeOfferingsRequest): any => ({
-    ...obj,
-  });
-}

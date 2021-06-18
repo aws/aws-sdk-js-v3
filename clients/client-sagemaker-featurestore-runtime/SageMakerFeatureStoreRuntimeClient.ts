@@ -1,3 +1,4 @@
+import { BatchGetRecordCommandInput, BatchGetRecordCommandOutput } from "./commands/BatchGetRecordCommand";
 import { DeleteRecordCommandInput, DeleteRecordCommandOutput } from "./commands/DeleteRecordCommand";
 import { GetRecordCommandInput, GetRecordCommandOutput } from "./commands/GetRecordCommand";
 import { PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
@@ -52,9 +53,17 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = DeleteRecordCommandInput | GetRecordCommandInput | PutRecordCommandInput;
+export type ServiceInputTypes =
+  | BatchGetRecordCommandInput
+  | DeleteRecordCommandInput
+  | GetRecordCommandInput
+  | PutRecordCommandInput;
 
-export type ServiceOutputTypes = DeleteRecordCommandOutput | GetRecordCommandOutput | PutRecordCommandOutput;
+export type ServiceOutputTypes =
+  | BatchGetRecordCommandOutput
+  | DeleteRecordCommandOutput
+  | GetRecordCommandOutput
+  | PutRecordCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

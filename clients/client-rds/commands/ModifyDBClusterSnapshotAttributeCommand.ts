@@ -24,22 +24,22 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
 
 /**
  * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.</p>
- *         <p>To share a manual DB cluster snapshot with other AWS accounts, specify
+ *         <p>To share a manual DB cluster snapshot with other Amazon Web Services accounts, specify
  *                 <code>restore</code> as the <code>AttributeName</code> and use the
- *                 <code>ValuesToAdd</code> parameter to add a list of IDs of the AWS accounts that are
+ *                 <code>ValuesToAdd</code> parameter to add a list of IDs of the Amazon Web Services accounts that are
  *             authorized to restore the manual DB cluster snapshot. Use the value <code>all</code> to
  *             make the manual DB cluster snapshot public, which means that it can be copied or
- *             restored by all AWS accounts.</p>
+ *             restored by all Amazon Web Services accounts.</p>
  *         <note>
  *             <p>Don't add the <code>all</code> value for any manual DB cluster snapshots
- *                 that contain private information that you don't want available to all AWS
+ *                 that contain private information that you don't want available to all Amazon Web Services
  *                 accounts.</p>
  *         </note>
  *         <p>If a manual DB cluster snapshot is encrypted, it can be shared, but only by
- *             specifying a list of authorized AWS account IDs for the <code>ValuesToAdd</code>
+ *             specifying a list of authorized Amazon Web Services account IDs for the <code>ValuesToAdd</code>
  *             parameter. You can't use <code>all</code> as a value for that parameter in this
  *             case.</p>
- *         <p>To view which AWS accounts have access to copy or restore a manual DB cluster
+ *         <p>To view which Amazon Web Services accounts have access to copy or restore a manual DB cluster
  *             snapshot, or whether a manual DB cluster snapshot is public or private, use the <a>DescribeDBClusterSnapshotAttributes</a> API action. The accounts are
  *             returned as values for the <code>restore</code> attribute.</p>
  *         <note>

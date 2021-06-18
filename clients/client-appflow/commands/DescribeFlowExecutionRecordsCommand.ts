@@ -23,9 +23,7 @@ export interface DescribeFlowExecutionRecordsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- * Fetches the execution history of the flow.
- * </p>
+ * <p> Fetches the execution history of the flow. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

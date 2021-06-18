@@ -19,62 +19,116 @@ export namespace AccessDeniedException {
   });
 }
 
-export interface CancelDeploymentRequest {
+/**
+ * <p>Contains a request to associate a client device with a core device. The <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchAssociateClientDeviceWithCoreDevice.html">BatchAssociateClientDeviceWithCoreDevice</a> operation consumes a list of these
+ *       requests.</p>
+ */
+export interface AssociateClientDeviceWithCoreDeviceEntry {
   /**
-   * <p>The ID of the deployment.</p>
+   * <p>The name of the AWS IoT thing that represents the client device to associate.</p>
    */
-  deploymentId: string | undefined;
+  thingName: string | undefined;
 }
 
-export namespace CancelDeploymentRequest {
+export namespace AssociateClientDeviceWithCoreDeviceEntry {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CancelDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CancelDeploymentResponse {
-  /**
-   * <p>A message that communicates if the cancel was successful.</p>
-   */
-  message?: string;
-}
-
-export namespace CancelDeploymentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelDeploymentResponse): any => ({
+  export const filterSensitiveLog = (obj: AssociateClientDeviceWithCoreDeviceEntry): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *       than one operation on the same resource at the same time.</p>
+ * <p>Contains an error that occurs from a request to associate a client device with a core
+ *       device. The <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchAssociateClientDeviceWithCoreDevice.html">BatchAssociateClientDeviceWithCoreDevice</a> operation returns a list of these
+ *       errors.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  message: string | undefined;
+export interface AssociateClientDeviceWithCoreDeviceErrorEntry {
   /**
-   * <p>The ID of the resource that conflicts with the request.</p>
+   * <p>The name of the AWS IoT thing whose associate request failed.</p>
    */
-  resourceId: string | undefined;
+  thingName?: string;
 
   /**
-   * <p>The type of the resource that conflicts with the request.</p>
+   * <p>The error code for the request.</p>
    */
-  resourceType: string | undefined;
+  code?: string;
+
+  /**
+   * <p>A message that provides additional information about the error.</p>
+   */
+  message?: string;
 }
 
-export namespace ConflictException {
+export namespace AssociateClientDeviceWithCoreDeviceErrorEntry {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
+  export const filterSensitiveLog = (obj: AssociateClientDeviceWithCoreDeviceErrorEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a client device that is associated to a core device for cloud
+ *       discovery.</p>
+ */
+export interface AssociatedClientDevice {
+  /**
+   * <p>The name of the AWS IoT thing that represents the associated client device.</p>
+   */
+  thingName?: string;
+
+  /**
+   * <p>The time that the client device was associated, expressed in ISO 8601 format.</p>
+   */
+  associationTimestamp?: Date;
+}
+
+export namespace AssociatedClientDevice {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociatedClientDevice): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchAssociateClientDeviceWithCoreDeviceRequest {
+  /**
+   * <p>The list of client devices to associate.</p>
+   */
+  entries?: AssociateClientDeviceWithCoreDeviceEntry[];
+
+  /**
+   * <p>The name of the core device. This is also the name of the AWS IoT thing.</p>
+   */
+  coreDeviceThingName: string | undefined;
+}
+
+export namespace BatchAssociateClientDeviceWithCoreDeviceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchAssociateClientDeviceWithCoreDeviceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchAssociateClientDeviceWithCoreDeviceResponse {
+  /**
+   * <p>The list of any errors for the entries in the request. Each error entry contains the name
+   *       of the AWS IoT thing that failed to associate.</p>
+   */
+  errorEntries?: AssociateClientDeviceWithCoreDeviceErrorEntry[];
+}
+
+export namespace BatchAssociateClientDeviceWithCoreDeviceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchAssociateClientDeviceWithCoreDeviceResponse): any => ({
     ...obj,
   });
 }
@@ -216,6 +270,155 @@ export namespace ValidationException {
    * @internal
    */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains a request to disassociate a client device from a core device. The <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchDisassociateClientDeviceWithCoreDevice.html">BatchDisassociateClientDeviceWithCoreDevice</a> operation consumes a list of these
+ *       requests.</p>
+ */
+export interface DisassociateClientDeviceFromCoreDeviceEntry {
+  /**
+   * <p>The name of the AWS IoT thing that represents the client device to disassociate.</p>
+   */
+  thingName: string | undefined;
+}
+
+export namespace DisassociateClientDeviceFromCoreDeviceEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateClientDeviceFromCoreDeviceEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchDisassociateClientDeviceFromCoreDeviceRequest {
+  /**
+   * <p>The list of client devices to disassociate.</p>
+   */
+  entries?: DisassociateClientDeviceFromCoreDeviceEntry[];
+
+  /**
+   * <p>The name of the core device. This is also the name of the AWS IoT thing.</p>
+   */
+  coreDeviceThingName: string | undefined;
+}
+
+export namespace BatchDisassociateClientDeviceFromCoreDeviceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDisassociateClientDeviceFromCoreDeviceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains an error that occurs from a request to disassociate a client device from a core
+ *       device. The <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchDisassociateClientDeviceWithCoreDevice.html">BatchDisassociateClientDeviceWithCoreDevice</a> operation returns a list of these
+ *       errors.</p>
+ */
+export interface DisassociateClientDeviceFromCoreDeviceErrorEntry {
+  /**
+   * <p>The name of the AWS IoT thing whose disassociate request failed.</p>
+   */
+  thingName?: string;
+
+  /**
+   * <p>The error code for the request.</p>
+   */
+  code?: string;
+
+  /**
+   * <p>A message that provides additional information about the error.</p>
+   */
+  message?: string;
+}
+
+export namespace DisassociateClientDeviceFromCoreDeviceErrorEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateClientDeviceFromCoreDeviceErrorEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchDisassociateClientDeviceFromCoreDeviceResponse {
+  /**
+   * <p>The list of errors (if any) for the entries in the request. Each error entry contains the
+   *       name of the AWS IoT thing that failed to disassociate.</p>
+   */
+  errorEntries?: DisassociateClientDeviceFromCoreDeviceErrorEntry[];
+}
+
+export namespace BatchDisassociateClientDeviceFromCoreDeviceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDisassociateClientDeviceFromCoreDeviceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface CancelDeploymentRequest {
+  /**
+   * <p>The ID of the deployment.</p>
+   */
+  deploymentId: string | undefined;
+}
+
+export namespace CancelDeploymentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CancelDeploymentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CancelDeploymentResponse {
+  /**
+   * <p>A message that communicates if the cancel was successful.</p>
+   */
+  message?: string;
+}
+
+export namespace CancelDeploymentResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CancelDeploymentResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Your request has conflicting operations. This can occur if you're trying to perform more
+ *       than one operation on the same resource at the same time.</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  message: string | undefined;
+  /**
+   * <p>The ID of the resource that conflicts with the request.</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource that conflicts with the request.</p>
+   */
+  resourceType: string | undefined;
+}
+
+export namespace ConflictException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
 }
@@ -2007,6 +2210,53 @@ export namespace GetDeploymentResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetDeploymentResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListClientDevicesAssociatedWithCoreDeviceRequest {
+  /**
+   * <p>The name of the core device. This is also the name of the AWS IoT thing.</p>
+   */
+  coreDeviceThingName: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per paginated request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListClientDevicesAssociatedWithCoreDeviceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListClientDevicesAssociatedWithCoreDeviceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListClientDevicesAssociatedWithCoreDeviceResponse {
+  /**
+   * <p>A list that describes the client devices that are associated with the core device.</p>
+   */
+  associatedClientDevices?: AssociatedClientDevice[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListClientDevicesAssociatedWithCoreDeviceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListClientDevicesAssociatedWithCoreDeviceResponse): any => ({
     ...obj,
   });
 }

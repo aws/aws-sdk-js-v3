@@ -26,7 +26,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  *          <p>For example, you can use this operation to retrieve session
  *          information for a user that has left a long-running session in
  *          use.</p>
- *          <p>If the bot, alias, or session identifier doesn't exist, Amazon Lex
+ *          <p>If the bot, alias, or session identifier doesn't exist, Amazon Lex V2
  *          returns a <code>BadRequestException</code>. If the locale doesn't exist
  *          or is not enabled for the alias, you receive a
  *             <code>BadRequestException</code>.</p>

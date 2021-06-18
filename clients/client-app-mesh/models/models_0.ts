@@ -308,7 +308,7 @@ export interface EgressFilter {
   /**
    * <p>The egress filter type. By default, the type is <code>DROP_ALL</code>, which allows
    *          egress only from virtual nodes to other defined resources in the service mesh (and any
-   *          traffic to <code>*.amazonaws.com</code> for AWS API calls). You can set the egress filter
+   *          traffic to <code>*.amazonaws.com</code> for Amazon Web Services API calls). You can set the egress filter
    *          type to <code>ALLOW_ALL</code> to allow egress to any endpoint inside or outside of the
    *          service mesh.</p>
    */
@@ -824,7 +824,7 @@ export namespace VirtualGatewayListenerTlsFileCertificate {
 /**
  * <p>An object that represents the virtual gateway's listener's Secret Discovery Service
  *          certificate.The proxy must be configured with a local SDS provider via a Unix Domain
- *          Socket. See App Mesh <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
+ *          Socket. See App Mesh<a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
  *             documentation</a> for more info. </p>
  */
 export interface VirtualGatewayListenerTlsSdsCertificate {
@@ -855,8 +855,10 @@ export type VirtualGatewayClientTlsCertificate =
 
 export namespace VirtualGatewayClientTlsCertificate {
   /**
-   * <p>An object that represents a local file certificate.
-   *          The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
+   * <p>An object that represents a local file certificate. The certificate must meet specific
+   *          requirements and you must have proxy authorization enabled. For more information, see
+   *             <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html"> Transport Layer Security (TLS)
+   *          </a>.</p>
    */
   export interface FileMember {
     file: VirtualGatewayListenerTlsFileCertificate;
@@ -943,7 +945,7 @@ export namespace SubjectAlternativeNames {
 }
 
 /**
- * <p>An object that represents a Transport Layer Security (TLS) validation context trust for an AWS Certicate Manager (ACM)
+ * <p>An object that represents a Transport Layer Security (TLS) validation context trust for an Certificate Manager
  *          certificate.</p>
  */
 export interface VirtualGatewayTlsValidationContextAcmTrust {
@@ -985,8 +987,7 @@ export namespace VirtualGatewayTlsValidationContextFileTrust {
 /**
  * <p>An object that represents a virtual gateway's listener's Transport Layer Security (TLS) Secret Discovery Service
  *          validation context trust. The proxy must be configured with a local SDS provider via a Unix
- *          Domain Socket. See App Mesh <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
- *             documentation</a> for more info.</p>
+ *          Domain Socket. See App Mesh <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS documentation</a> for more info.</p>
  */
 export interface VirtualGatewayTlsValidationContextSdsTrust {
   /**
@@ -1017,7 +1018,7 @@ export type VirtualGatewayTlsValidationContextTrust =
 export namespace VirtualGatewayTlsValidationContextTrust {
   /**
    * <p>A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an
-   *          AWS Certicate Manager (ACM) certificate.</p>
+   *          Certificate Manager certificate.</p>
    */
   export interface AcmMember {
     acm: VirtualGatewayTlsValidationContextAcmTrust;
@@ -1415,7 +1416,7 @@ export namespace VirtualGatewayPortMapping {
 }
 
 /**
- * <p>An object that represents an AWS Certicate Manager (ACM) certificate.</p>
+ * <p>An object that represents an Certificate Manager certificate.</p>
  */
 export interface VirtualGatewayListenerTlsAcmCertificate {
   /**
@@ -1444,7 +1445,7 @@ export type VirtualGatewayListenerTlsCertificate =
 
 export namespace VirtualGatewayListenerTlsCertificate {
   /**
-   * <p>A reference to an object that represents an AWS Certicate Manager (ACM) certificate.</p>
+   * <p>A reference to an object that represents an Certificate Manager certificate.</p>
    */
   export interface AcmMember {
     acm: VirtualGatewayListenerTlsAcmCertificate;
@@ -2019,6 +2020,49 @@ export namespace DescribeVirtualGatewayOutput {
   });
 }
 
+export enum DefaultGatewayRouteRewrite {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>An object representing the gateway route host name to rewrite.</p>
+ */
+export interface GatewayRouteHostnameRewrite {
+  /**
+   * <p>The default target host name to write to.</p>
+   */
+  defaultTargetHostname?: DefaultGatewayRouteRewrite | string;
+}
+
+export namespace GatewayRouteHostnameRewrite {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GatewayRouteHostnameRewrite): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents the gateway route to rewrite.</p>
+ */
+export interface GrpcGatewayRouteRewrite {
+  /**
+   * <p>The host name of the gateway route to rewrite.</p>
+   */
+  hostname?: GatewayRouteHostnameRewrite;
+}
+
+export namespace GrpcGatewayRouteRewrite {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GrpcGatewayRouteRewrite): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>An object that represents the virtual service that traffic is routed to.</p>
  */
@@ -2065,6 +2109,11 @@ export interface GrpcGatewayRouteAction {
    * <p>An object that represents the target that traffic is routed to when a request matches the gateway route.</p>
    */
   target: GatewayRouteTarget | undefined;
+
+  /**
+   * <p>The gateway route action to rewrite.</p>
+   */
+  rewrite?: GrpcGatewayRouteRewrite;
 }
 
 export namespace GrpcGatewayRouteAction {
@@ -2077,6 +2126,196 @@ export namespace GrpcGatewayRouteAction {
 }
 
 /**
+ * <p>An object representing the gateway route host name to match.</p>
+ */
+export interface GatewayRouteHostnameMatch {
+  /**
+   * <p>The exact host name to match on.</p>
+   */
+  exact?: string;
+
+  /**
+   * <p>The specified ending characters of the host name to match on.</p>
+   */
+  suffix?: string;
+}
+
+export namespace GatewayRouteHostnameMatch {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GatewayRouteHostnameMatch): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents the range of values to match on. The first character of the range is included in the range, though the last character is not. For example, if the range specified were 1-100, only values 1-99 would be matched.</p>
+ */
+export interface MatchRange {
+  /**
+   * <p>The start of the range.</p>
+   */
+  start: number | undefined;
+
+  /**
+   * <p>The end of the range.</p>
+   */
+  end: number | undefined;
+}
+
+export namespace MatchRange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MatchRange): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object representing the method header to be matched.</p>
+ */
+export type GrpcMetadataMatchMethod =
+  | GrpcMetadataMatchMethod.ExactMember
+  | GrpcMetadataMatchMethod.PrefixMember
+  | GrpcMetadataMatchMethod.RangeMember
+  | GrpcMetadataMatchMethod.RegexMember
+  | GrpcMetadataMatchMethod.SuffixMember
+  | GrpcMetadataMatchMethod.$UnknownMember;
+
+export namespace GrpcMetadataMatchMethod {
+  /**
+   * <p>The exact method header to be matched on.</p>
+   */
+  export interface ExactMember {
+    exact: string;
+    regex?: never;
+    range?: never;
+    prefix?: never;
+    suffix?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The regex used to match the method header.</p>
+   */
+  export interface RegexMember {
+    exact?: never;
+    regex: string;
+    range?: never;
+    prefix?: never;
+    suffix?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that represents the range of values to match on. The first character of the range is included in the range, though the last character is not. For example, if the range specified were 1-100, only values 1-99 would be matched.</p>
+   */
+  export interface RangeMember {
+    exact?: never;
+    regex?: never;
+    range: MatchRange;
+    prefix?: never;
+    suffix?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The specified beginning characters of the method header to be matched on.</p>
+   */
+  export interface PrefixMember {
+    exact?: never;
+    regex?: never;
+    range?: never;
+    prefix: string;
+    suffix?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The specified ending characters of the method header to match on.</p>
+   */
+  export interface SuffixMember {
+    exact?: never;
+    regex?: never;
+    range?: never;
+    prefix?: never;
+    suffix: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    exact?: never;
+    regex?: never;
+    range?: never;
+    prefix?: never;
+    suffix?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    exact: (value: string) => T;
+    regex: (value: string) => T;
+    range: (value: MatchRange) => T;
+    prefix: (value: string) => T;
+    suffix: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: GrpcMetadataMatchMethod, visitor: Visitor<T>): T => {
+    if (value.exact !== undefined) return visitor.exact(value.exact);
+    if (value.regex !== undefined) return visitor.regex(value.regex);
+    if (value.range !== undefined) return visitor.range(value.range);
+    if (value.prefix !== undefined) return visitor.prefix(value.prefix);
+    if (value.suffix !== undefined) return visitor.suffix(value.suffix);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GrpcMetadataMatchMethod): any => {
+    if (obj.exact !== undefined) return { exact: obj.exact };
+    if (obj.regex !== undefined) return { regex: obj.regex };
+    if (obj.range !== undefined) return { range: MatchRange.filterSensitiveLog(obj.range) };
+    if (obj.prefix !== undefined) return { prefix: obj.prefix };
+    if (obj.suffix !== undefined) return { suffix: obj.suffix };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+/**
+ * <p>An object representing the metadata of the gateway route.</p>
+ */
+export interface GrpcGatewayRouteMetadata {
+  /**
+   * <p>A name for the gateway route metadata.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Specify <code>True</code> to match anything except the match criteria. The default value is <code>False</code>.</p>
+   */
+  invert?: boolean;
+
+  /**
+   * <p>The criteria for determining a metadata match.</p>
+   */
+  match?: GrpcMetadataMatchMethod;
+}
+
+export namespace GrpcGatewayRouteMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GrpcGatewayRouteMetadata): any => ({
+    ...obj,
+    ...(obj.match && { match: GrpcMetadataMatchMethod.filterSensitiveLog(obj.match) }),
+  });
+}
+
+/**
  * <p>An object that represents the criteria for determining a request match.</p>
  */
 export interface GrpcGatewayRouteMatch {
@@ -2084,6 +2323,16 @@ export interface GrpcGatewayRouteMatch {
    * <p>The fully qualified domain name for the service to match from the request.</p>
    */
   serviceName?: string;
+
+  /**
+   * <p>The gateway route host name to be matched on.</p>
+   */
+  hostname?: GatewayRouteHostnameMatch;
+
+  /**
+   * <p>The gateway route metadata to be matched on.</p>
+   */
+  metadata?: GrpcGatewayRouteMetadata[];
 }
 
 export namespace GrpcGatewayRouteMatch {
@@ -2092,6 +2341,7 @@ export namespace GrpcGatewayRouteMatch {
    */
   export const filterSensitiveLog = (obj: GrpcGatewayRouteMatch): any => ({
     ...obj,
+    ...(obj.metadata && { metadata: obj.metadata.map((item) => GrpcGatewayRouteMetadata.filterSensitiveLog(item)) }),
   });
 }
 
@@ -2120,6 +2370,78 @@ export namespace GrpcGatewayRoute {
 }
 
 /**
+ * <p>An object that represents the path to rewrite.</p>
+ */
+export interface HttpGatewayRoutePathRewrite {
+  /**
+   * <p>The exact path to rewrite.</p>
+   */
+  exact?: string;
+}
+
+export namespace HttpGatewayRoutePathRewrite {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HttpGatewayRoutePathRewrite): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object representing the beginning characters of the route to rewrite.</p>
+ */
+export interface HttpGatewayRoutePrefixRewrite {
+  /**
+   * <p>The default prefix used to replace the incoming route prefix when rewritten.</p>
+   */
+  defaultPrefix?: DefaultGatewayRouteRewrite | string;
+
+  /**
+   * <p>The value used to replace the incoming route prefix when rewritten.</p>
+   */
+  value?: string;
+}
+
+export namespace HttpGatewayRoutePrefixRewrite {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HttpGatewayRoutePrefixRewrite): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object representing the gateway route to rewrite.</p>
+ */
+export interface HttpGatewayRouteRewrite {
+  /**
+   * <p>The specified beginning characters to rewrite.</p>
+   */
+  prefix?: HttpGatewayRoutePrefixRewrite;
+
+  /**
+   * <p>The path to rewrite.</p>
+   */
+  path?: HttpGatewayRoutePathRewrite;
+
+  /**
+   * <p>The host name to rewrite.</p>
+   */
+  hostname?: GatewayRouteHostnameRewrite;
+}
+
+export namespace HttpGatewayRouteRewrite {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HttpGatewayRouteRewrite): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>An object that represents the action to take if a match is determined.</p>
  */
 export interface HttpGatewayRouteAction {
@@ -2127,6 +2449,11 @@ export interface HttpGatewayRouteAction {
    * <p>An object that represents the target that traffic is routed to when a request matches the gateway route.</p>
    */
   target: GatewayRouteTarget | undefined;
+
+  /**
+   * <p>The gateway route action to rewrite.</p>
+   */
+  rewrite?: HttpGatewayRouteRewrite;
 }
 
 export namespace HttpGatewayRouteAction {
@@ -2134,6 +2461,229 @@ export namespace HttpGatewayRouteAction {
    * @internal
    */
   export const filterSensitiveLog = (obj: HttpGatewayRouteAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents the method and value to match with the header value sent in a
+ *          request. Specify one match method.</p>
+ */
+export type HeaderMatchMethod =
+  | HeaderMatchMethod.ExactMember
+  | HeaderMatchMethod.PrefixMember
+  | HeaderMatchMethod.RangeMember
+  | HeaderMatchMethod.RegexMember
+  | HeaderMatchMethod.SuffixMember
+  | HeaderMatchMethod.$UnknownMember;
+
+export namespace HeaderMatchMethod {
+  /**
+   * <p>The value sent by the client must match the specified value exactly.</p>
+   */
+  export interface ExactMember {
+    exact: string;
+    regex?: never;
+    range?: never;
+    prefix?: never;
+    suffix?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The value sent by the client must include the specified characters.</p>
+   */
+  export interface RegexMember {
+    exact?: never;
+    regex: string;
+    range?: never;
+    prefix?: never;
+    suffix?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that represents the range of values to match on.</p>
+   */
+  export interface RangeMember {
+    exact?: never;
+    regex?: never;
+    range: MatchRange;
+    prefix?: never;
+    suffix?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The value sent by the client must begin with the specified characters.</p>
+   */
+  export interface PrefixMember {
+    exact?: never;
+    regex?: never;
+    range?: never;
+    prefix: string;
+    suffix?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The value sent by the client must end with the specified characters.</p>
+   */
+  export interface SuffixMember {
+    exact?: never;
+    regex?: never;
+    range?: never;
+    prefix?: never;
+    suffix: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    exact?: never;
+    regex?: never;
+    range?: never;
+    prefix?: never;
+    suffix?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    exact: (value: string) => T;
+    regex: (value: string) => T;
+    range: (value: MatchRange) => T;
+    prefix: (value: string) => T;
+    suffix: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: HeaderMatchMethod, visitor: Visitor<T>): T => {
+    if (value.exact !== undefined) return visitor.exact(value.exact);
+    if (value.regex !== undefined) return visitor.regex(value.regex);
+    if (value.range !== undefined) return visitor.range(value.range);
+    if (value.prefix !== undefined) return visitor.prefix(value.prefix);
+    if (value.suffix !== undefined) return visitor.suffix(value.suffix);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HeaderMatchMethod): any => {
+    if (obj.exact !== undefined) return { exact: obj.exact };
+    if (obj.regex !== undefined) return { regex: obj.regex };
+    if (obj.range !== undefined) return { range: MatchRange.filterSensitiveLog(obj.range) };
+    if (obj.prefix !== undefined) return { prefix: obj.prefix };
+    if (obj.suffix !== undefined) return { suffix: obj.suffix };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+/**
+ * <p>An object that represents the HTTP header in the gateway route.</p>
+ */
+export interface HttpGatewayRouteHeader {
+  /**
+   * <p>A name for the HTTP header in the gateway route that will be matched on.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Specify <code>True</code> to match anything except the match criteria. The default value is <code>False</code>.</p>
+   */
+  invert?: boolean;
+
+  /**
+   * <p>An object that represents the method and value to match with the header value sent in a
+   *          request. Specify one match method.</p>
+   */
+  match?: HeaderMatchMethod;
+}
+
+export namespace HttpGatewayRouteHeader {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HttpGatewayRouteHeader): any => ({
+    ...obj,
+    ...(obj.match && { match: HeaderMatchMethod.filterSensitiveLog(obj.match) }),
+  });
+}
+
+export enum HttpMethod {
+  CONNECT = "CONNECT",
+  DELETE = "DELETE",
+  GET = "GET",
+  HEAD = "HEAD",
+  OPTIONS = "OPTIONS",
+  PATCH = "PATCH",
+  POST = "POST",
+  PUT = "PUT",
+  TRACE = "TRACE",
+}
+
+/**
+ * <p>An object representing the path to match in the request.</p>
+ */
+export interface HttpPathMatch {
+  /**
+   * <p>The exact path to match on.</p>
+   */
+  exact?: string;
+
+  /**
+   * <p>The regex used to match the path.</p>
+   */
+  regex?: string;
+}
+
+export namespace HttpPathMatch {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HttpPathMatch): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object representing the query parameter to match.</p>
+ */
+export interface QueryParameterMatch {
+  /**
+   * <p>The exact query parameter to match on.</p>
+   */
+  exact?: string;
+}
+
+export namespace QueryParameterMatch {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueryParameterMatch): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that represents the query parameter in the request.</p>
+ */
+export interface HttpQueryParameter {
+  /**
+   * <p>A name for the query parameter that will be matched on.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The query parameter to match on.</p>
+   */
+  match?: QueryParameterMatch;
+}
+
+export namespace HttpQueryParameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HttpQueryParameter): any => ({
     ...obj,
   });
 }
@@ -2150,7 +2700,32 @@ export interface HttpGatewayRouteMatch {
    *             <code>my-service.local/metrics</code>, your prefix should be
    *          <code>/metrics</code>.</p>
    */
-  prefix: string | undefined;
+  prefix?: string;
+
+  /**
+   * <p>The path to match on.</p>
+   */
+  path?: HttpPathMatch;
+
+  /**
+   * <p>The query parameter to match on.</p>
+   */
+  queryParameters?: HttpQueryParameter[];
+
+  /**
+   * <p>The method to match on.</p>
+   */
+  method?: HttpMethod | string;
+
+  /**
+   * <p>The host name to match on.</p>
+   */
+  hostname?: GatewayRouteHostnameMatch;
+
+  /**
+   * <p>The client request headers to match on.</p>
+   */
+  headers?: HttpGatewayRouteHeader[];
 }
 
 export namespace HttpGatewayRouteMatch {
@@ -2159,6 +2734,7 @@ export namespace HttpGatewayRouteMatch {
    */
   export const filterSensitiveLog = (obj: HttpGatewayRouteMatch): any => ({
     ...obj,
+    ...(obj.headers && { headers: obj.headers.map((item) => HttpGatewayRouteHeader.filterSensitiveLog(item)) }),
   });
 }
 
@@ -2191,6 +2767,11 @@ export namespace HttpGatewayRoute {
  *          type.</p>
  */
 export interface GatewayRouteSpec {
+  /**
+   * <p>The ordering of the gateway routes spec.</p>
+   */
+  priority?: number;
+
   /**
    * <p>An object that represents the specification of an HTTP gateway route.</p>
    */
@@ -2850,8 +3431,8 @@ export namespace ListenerTlsFileCertificate {
 
 /**
  * <p>An object that represents the listener's Secret Discovery Service certificate. The proxy
- *          must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS
- *             documentation</a> for more info.</p>
+ *          must be configured with a local SDS provider via a Unix Domain Socket. See App Mesh <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">TLS documentation</a>
+ *          for more info.</p>
  */
 export interface ListenerTlsSdsCertificate {
   /**
@@ -2881,8 +3462,9 @@ export type ClientTlsCertificate =
 
 export namespace ClientTlsCertificate {
   /**
-   * <p>An object that represents a local file certificate.
-   *          The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites">Transport Layer Security (TLS)</a>.</p>
+   * <p>An object that represents a local file certificate. The certificate must meet specific
+   *          requirements and you must have proxy authorization enabled. For more information, see
+   *             <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html">Transport Layer Security (TLS)</a>.</p>
    */
   export interface FileMember {
     file: ListenerTlsFileCertificate;
@@ -2929,7 +3511,7 @@ export namespace ClientTlsCertificate {
 }
 
 /**
- * <p>An object that represents a Transport Layer Security (TLS) validation context trust for an AWS Certicate Manager (ACM)
+ * <p>An object that represents a Transport Layer Security (TLS) validation context trust for an Certificate Manager
  *          certificate.</p>
  */
 export interface TlsValidationContextAcmTrust {
@@ -3003,7 +3585,7 @@ export type TlsValidationContextTrust =
 export namespace TlsValidationContextTrust {
   /**
    * <p>A reference to an object that represents a Transport Layer Security (TLS) validation context trust for an
-   *          AWS Certicate Manager (ACM) certificate.</p>
+   *          Certificate Manager certificate.</p>
    */
   export interface AcmMember {
     acm: TlsValidationContextAcmTrust;
@@ -4025,7 +4607,7 @@ export namespace Logging {
 }
 
 /**
- * <p>An object that represents the AWS Cloud Map attribute information for your virtual
+ * <p>An object that represents the Cloud Map attribute information for your virtual
  *          node.</p>
  *          <note>
  *             <p>AWS Cloud Map is not available in the eu-south-1 Region.</p>
@@ -4033,13 +4615,13 @@ export namespace Logging {
  */
 export interface AwsCloudMapInstanceAttribute {
   /**
-   * <p>The name of an AWS Cloud Map service instance attribute key. Any AWS Cloud Map service
+   * <p>The name of an Cloud Map service instance attribute key. Any Cloud Map service
    *          instance that contains the specified key and value is returned.</p>
    */
   key: string | undefined;
 
   /**
-   * <p>The value of an AWS Cloud Map service instance attribute key. Any AWS Cloud Map service
+   * <p>The value of an Cloud Map service instance attribute key. Any Cloud Map service
    *          instance that contains the specified key and value is returned.</p>
    */
   value: string | undefined;
@@ -4055,20 +4637,20 @@ export namespace AwsCloudMapInstanceAttribute {
 }
 
 /**
- * <p>An object that represents the AWS Cloud Map service discovery information for your virtual
+ * <p>An object that represents the Cloud Map service discovery information for your virtual
  *          node.</p>
  *          <note>
- *             <p>AWS Cloud Map is not available in the eu-south-1 Region.</p>
+ *             <p>Cloud Map is not available in the eu-south-1 Region.</p>
  *          </note>
  */
 export interface AwsCloudMapServiceDiscovery {
   /**
-   * <p>The name of the AWS Cloud Map namespace to use.</p>
+   * <p>The name of the Cloud Map namespace to use.</p>
    */
   namespaceName: string | undefined;
 
   /**
-   * <p>The name of the AWS Cloud Map service to use.</p>
+   * <p>The name of the Cloud Map service to use.</p>
    */
   serviceName: string | undefined;
 
@@ -4089,6 +4671,11 @@ export namespace AwsCloudMapServiceDiscovery {
   });
 }
 
+export enum DnsResponseType {
+  ENDPOINTS = "ENDPOINTS",
+  LOADBALANCER = "LOADBALANCER",
+}
+
 /**
  * <p>An object that represents the DNS service discovery information for your virtual
  *          node.</p>
@@ -4098,6 +4685,11 @@ export interface DnsServiceDiscovery {
    * <p>Specifies the DNS service discovery hostname for the virtual node. </p>
    */
   hostname: string | undefined;
+
+  /**
+   * <p>Specifies the DNS response type for the virtual node.</p>
+   */
+  responseType?: DnsResponseType | string;
 }
 
 export namespace DnsServiceDiscovery {
@@ -4128,7 +4720,7 @@ export namespace ServiceDiscovery {
   }
 
   /**
-   * <p>Specifies any AWS Cloud Map information for the virtual node.</p>
+   * <p>Specifies any Cloud Map information for the virtual node.</p>
    */
   export interface AwsCloudMapMember {
     dns?: never;
@@ -4349,7 +4941,7 @@ export namespace CreateVirtualNodeOutput {
 }
 
 /**
- *
+ * <p>Deletes a virtual node input.</p>
  */
 export interface DeleteVirtualNodeInput {
   /**
@@ -5083,30 +5675,6 @@ export namespace GrpcRouteAction {
 }
 
 /**
- * <p>An object that represents the range of values to match on. The first character of the range is included in the range, though the last character is not. For example, if the range specified were 1-100, only values 1-99 would be matched.</p>
- */
-export interface MatchRange {
-  /**
-   * <p>The start of the range.</p>
-   */
-  start: number | undefined;
-
-  /**
-   * <p>The end of the range.</p>
-   */
-  end: number | undefined;
-}
-
-export namespace MatchRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MatchRange): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>An object that represents the match method. Specify one of the match values.</p>
  */
 export type GrpcRouteMetadataMatchMethod =
@@ -5292,7 +5860,9 @@ export enum TcpRetryPolicyEvent {
 }
 
 /**
- * <p>An object that represents a retry policy. Specify at least one value for at least one of the types of <code>RetryEvents</code>, a value for <code>maxRetries</code>, and a value for <code>perRetryTimeout</code>.</p>
+ * <p>An object that represents a retry policy. Specify at least one value for at least one of the types of <code>RetryEvents</code>, a value for <code>maxRetries</code>, and a value for <code>perRetryTimeout</code>.
+ *                Both <code>server-error</code> and <code>gateway-error</code> under <code>httpRetryEvents</code> include the Envoy <code>reset</code> policy. For more information on the
+ *                <code>reset</code> policy, see the <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#x-envoy-retry-on">Envoy documentation</a>.</p>
  */
 export interface GrpcRetryPolicy {
   /**
@@ -5405,119 +5975,6 @@ export namespace HttpRouteAction {
 }
 
 /**
- * <p>An object that represents the method and value to match with the header value sent in a
- *          request. Specify one match method.</p>
- */
-export type HeaderMatchMethod =
-  | HeaderMatchMethod.ExactMember
-  | HeaderMatchMethod.PrefixMember
-  | HeaderMatchMethod.RangeMember
-  | HeaderMatchMethod.RegexMember
-  | HeaderMatchMethod.SuffixMember
-  | HeaderMatchMethod.$UnknownMember;
-
-export namespace HeaderMatchMethod {
-  /**
-   * <p>The value sent by the client must match the specified value exactly.</p>
-   */
-  export interface ExactMember {
-    exact: string;
-    regex?: never;
-    range?: never;
-    prefix?: never;
-    suffix?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The value sent by the client must include the specified characters.</p>
-   */
-  export interface RegexMember {
-    exact?: never;
-    regex: string;
-    range?: never;
-    prefix?: never;
-    suffix?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An object that represents the range of values to match on.</p>
-   */
-  export interface RangeMember {
-    exact?: never;
-    regex?: never;
-    range: MatchRange;
-    prefix?: never;
-    suffix?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The value sent by the client must begin with the specified characters.</p>
-   */
-  export interface PrefixMember {
-    exact?: never;
-    regex?: never;
-    range?: never;
-    prefix: string;
-    suffix?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The value sent by the client must end with the specified characters.</p>
-   */
-  export interface SuffixMember {
-    exact?: never;
-    regex?: never;
-    range?: never;
-    prefix?: never;
-    suffix: string;
-    $unknown?: never;
-  }
-
-  export interface $UnknownMember {
-    exact?: never;
-    regex?: never;
-    range?: never;
-    prefix?: never;
-    suffix?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    exact: (value: string) => T;
-    regex: (value: string) => T;
-    range: (value: MatchRange) => T;
-    prefix: (value: string) => T;
-    suffix: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: HeaderMatchMethod, visitor: Visitor<T>): T => {
-    if (value.exact !== undefined) return visitor.exact(value.exact);
-    if (value.regex !== undefined) return visitor.regex(value.regex);
-    if (value.range !== undefined) return visitor.range(value.range);
-    if (value.prefix !== undefined) return visitor.prefix(value.prefix);
-    if (value.suffix !== undefined) return visitor.suffix(value.suffix);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HeaderMatchMethod): any => {
-    if (obj.exact !== undefined) return { exact: obj.exact };
-    if (obj.regex !== undefined) return { regex: obj.regex };
-    if (obj.range !== undefined) return { range: MatchRange.filterSensitiveLog(obj.range) };
-    if (obj.prefix !== undefined) return { prefix: obj.prefix };
-    if (obj.suffix !== undefined) return { suffix: obj.suffix };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
-}
-
-/**
  * <p>An object that represents the HTTP header in the request.</p>
  */
 export interface HttpRouteHeader {
@@ -5547,18 +6004,6 @@ export namespace HttpRouteHeader {
   });
 }
 
-export enum HttpMethod {
-  CONNECT = "CONNECT",
-  DELETE = "DELETE",
-  GET = "GET",
-  HEAD = "HEAD",
-  OPTIONS = "OPTIONS",
-  PATCH = "PATCH",
-  POST = "POST",
-  PUT = "PUT",
-  TRACE = "TRACE",
-}
-
 export enum HttpScheme {
   HTTP = "http",
   HTTPS = "https",
@@ -5577,7 +6022,17 @@ export interface HttpRouteMatch {
    *             <code>my-service.local/metrics</code>, your prefix should be
    *          <code>/metrics</code>.</p>
    */
-  prefix: string | undefined;
+  prefix?: string;
+
+  /**
+   * <p>The client request path to match on.</p>
+   */
+  path?: HttpPathMatch;
+
+  /**
+   * <p>The client request query parameters to match on.</p>
+   */
+  queryParameters?: HttpQueryParameter[];
 
   /**
    * <p>The client request method to match on. Specify only one.</p>
@@ -5585,12 +6040,13 @@ export interface HttpRouteMatch {
   method?: HttpMethod | string;
 
   /**
-   * <p>The client request scheme to match on. Specify only one.</p>
+   * <p>The client request scheme to match on. Specify only one. Applicable only for HTTP2
+   *          routes.</p>
    */
   scheme?: HttpScheme | string;
 
   /**
-   * <p>An object that represents the client request headers to match on.</p>
+   * <p>The client request headers to match on.</p>
    */
   headers?: HttpRouteHeader[];
 }
@@ -5606,7 +6062,9 @@ export namespace HttpRouteMatch {
 }
 
 /**
- * <p>An object that represents a retry policy. Specify at least one value for at least one of the types of <code>RetryEvents</code>, a value for <code>maxRetries</code>, and a value for <code>perRetryTimeout</code>.</p>
+ * <p>An object that represents a retry policy. Specify at least one value for at least one of the types of <code>RetryEvents</code>, a value for <code>maxRetries</code>, and a value for <code>perRetryTimeout</code>.
+ *                Both <code>server-error</code> and <code>gateway-error</code> under <code>httpRetryEvents</code> include the Envoy <code>reset</code> policy. For more information on the
+ *                <code>reset</code> policy, see the <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/router_filter#x-envoy-retry-on">Envoy documentation</a>.</p>
  */
 export interface HttpRetryPolicy {
   /**

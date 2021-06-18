@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReleaseAddressRequest } from "../models/models_4";
+import { ReleaseAddressRequest } from "../models/models_5";
 import { deserializeAws_ec2ReleaseAddressCommand, serializeAws_ec2ReleaseAddressCommand } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -27,7 +27,7 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
  *          <p>After releasing an Elastic IP address, it is released to the IP address pool.
  *         Be sure to update your DNS records and any servers or devices that communicate with the address.
  *         If you attempt to release an Elastic IP address that you already released, you'll get an
- *         <code>AuthFailure</code> error if the address is already allocated to another AWS account.</p>
+ *        <code>AuthFailure</code> error if the address is already allocated to another account.</p>
  *          <p>[EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it.
  *         For more information, see <a>AllocateAddress</a>.</p>
  * @example

@@ -28,9 +28,9 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Enables replication of automated backups to a different AWS Region.</p>
+ * <p>Enables replication of automated backups to a different Amazon Web Services Region.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
- *             Replicating Automated Backups to Another AWS Region</a> in the <i>Amazon RDS User Guide.</i>
+ *             Replicating Automated Backups to Another Amazon Web Services Region</a> in the <i>Amazon RDS User Guide.</i>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

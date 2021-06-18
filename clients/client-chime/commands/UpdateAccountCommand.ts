@@ -21,8 +21,7 @@ export interface UpdateAccountCommandInput extends UpdateAccountRequest {}
 export interface UpdateAccountCommandOutput extends UpdateAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Updates account details for the specified Amazon Chime account. Currently, only account name
- *             updates are supported for this action.</p>
+ * <p>Updates account details for the specified Amazon Chime account. Currently, only account name and default license updates are supported for this action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

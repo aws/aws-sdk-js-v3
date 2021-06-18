@@ -1729,6 +1729,7 @@ export const serializeAws_restJson1UpdateFindingsFilterCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.action !== undefined && input.action !== null && { action: input.action }),
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.findingCriteria !== undefined &&
       input.findingCriteria !== null && {

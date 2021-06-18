@@ -30,10 +30,43 @@ export interface RecognizeUtteranceCommandInput extends RecognizeUtteranceComman
 export interface RecognizeUtteranceCommandOutput extends RecognizeUtteranceResponse, __MetadataBearer {}
 
 /**
- * <p>Sends user input to Amazon Lex. You can send text or speech. Clients use
- *          this API to send text and audio requests to Amazon Lex at runtime. Amazon Lex
+ * <p>Sends user input to Amazon Lex V2. You can send text or speech. Clients use
+ *          this API to send text and audio requests to Amazon Lex V2 at runtime. Amazon Lex V2
  *          interprets the user input using the machine learning model built for
  *          the bot.</p>
+ *          <p>The following request fields must be compressed with gzip and then
+ *          base64 encoded before you send them to Amazon Lex V2. </p>
+ *          <ul>
+ *             <li>
+ *                <p>requestAttributes</p>
+ *             </li>
+ *             <li>
+ *                <p>sessionState</p>
+ *             </li>
+ *          </ul>
+ *          <p>The following response fields are compressed using gzip and then
+ *          base64 encoded by Amazon Lex V2. Before you can use these fields, you must
+ *          decode and decompress them. </p>
+ *          <ul>
+ *             <li>
+ *                <p>inputTranscript</p>
+ *             </li>
+ *             <li>
+ *                <p>interpretations</p>
+ *             </li>
+ *             <li>
+ *                <p>messages</p>
+ *             </li>
+ *             <li>
+ *                <p>requestAttributes</p>
+ *             </li>
+ *             <li>
+ *                <p>sessionState</p>
+ *             </li>
+ *          </ul>
+ *          <p>The example contains a Java application that compresses and encodes
+ *          a Java object to send to Amazon Lex V2, and a second that decodes and
+ *          decompresses a response from Amazon Lex V2.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

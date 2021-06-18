@@ -19,30 +19,165 @@ export namespace AccessForbidden {
   });
 }
 
-export interface DeleteRecordRequest {
+/**
+ * <p>The identifier that identifies the batch of Records you are retrieving in a batch.</p>
+ */
+export interface BatchGetRecordIdentifier {
   /**
-   * <p>The name of the feature group to delete the record from. </p>
+   * <p>A <code>FeatureGroupName</code> containing Records you are retrieving in a batch.</p>
    */
   FeatureGroupName: string | undefined;
 
   /**
-   * <p>The value for the <code>RecordIdentifier</code> that uniquely identifies the record, in
-   *          string format. </p>
+   * <p>The value for a list of record identifiers in string format.</p>
+   */
+  RecordIdentifiersValueAsString: string[] | undefined;
+
+  /**
+   * <p>List of names of Features to be retrieved. If not specified, the latest value for all
+   *          the Features are returned.</p>
+   */
+  FeatureNames?: string[];
+}
+
+export namespace BatchGetRecordIdentifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetRecordIdentifier): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchGetRecordRequest {
+  /**
+   * <p>A list of <code>FeatureGroup</code> names, with their corresponding <code>RecordIdentifier</code> value, and Feature name
+   *       that have been requested to be retrieved in batch.</p>
+   */
+  Identifiers: BatchGetRecordIdentifier[] | undefined;
+}
+
+export namespace BatchGetRecordRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetRecordRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The error that has occurred when attempting to retrieve a batch of Records.</p>
+ */
+export interface BatchGetRecordError {
+  /**
+   * <p>The name of the feature group that the record belongs to.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The value for the <code>RecordIdentifier</code> in string format of a Record from a <code>FeatureGroup</code> that is causing
+   *       an error when attempting to be retrieved.</p>
    */
   RecordIdentifierValueAsString: string | undefined;
 
   /**
-   * <p>Timestamp indicating when the deletion event occurred. <code>EventTime</code> can be
-   *          used to query data at a certain point in time.</p>
+   * <p>The error code of an error that has occured when attempting to retrieve a batch of Records. For more information on errors, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_GetRecord.html#API_feature_store_GetRecord_Errors"> Errors</a>.</p>
    */
-  EventTime: string | undefined;
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message of an error that has occured when attempting to retrieve a record in the batch.</p>
+   */
+  ErrorMessage: string | undefined;
 }
 
-export namespace DeleteRecordRequest {
+export namespace BatchGetRecordError {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: DeleteRecordRequest): any => ({
+  export const filterSensitiveLog = (obj: BatchGetRecordError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The value associated with a feature.</p>
+ */
+export interface FeatureValue {
+  /**
+   * <p>The name of a feature that a feature value corresponds to.</p>
+   */
+  FeatureName: string | undefined;
+
+  /**
+   * <p>The value associated with a feature, in string format. Note that features types can be
+   *          String, Integral, or Fractional. This value represents all three types as a string.</p>
+   */
+  ValueAsString: string | undefined;
+}
+
+export namespace FeatureValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FeatureValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output of Records that have been retrieved in a batch.</p>
+ */
+export interface BatchGetRecordResultDetail {
+  /**
+   * <p>The <code>FeatureGroupName</code> containing Records you retrieved in a batch.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The value of the record identifer in string format.</p>
+   */
+  RecordIdentifierValueAsString: string | undefined;
+
+  /**
+   * <p>The <code>Record</code> retrieved.</p>
+   */
+  Record: FeatureValue[] | undefined;
+}
+
+export namespace BatchGetRecordResultDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetRecordResultDetail): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchGetRecordResponse {
+  /**
+   * <p>A list of Records you requested to be retrieved in batch.</p>
+   */
+  Records: BatchGetRecordResultDetail[] | undefined;
+
+  /**
+   * <p>A list of errors that have occured when retrieving a batch of Records.</p>
+   */
+  Errors: BatchGetRecordError[] | undefined;
+
+  /**
+   * <p>A unprocessed list of <code>FeatureGroup</code> names, with their corresponding <code>RecordIdentifier</code> value,
+   *        and Feature name.</p>
+   */
+  UnprocessedIdentifiers: BatchGetRecordIdentifier[] | undefined;
+}
+
+export namespace BatchGetRecordResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetRecordResponse): any => ({
     ...obj,
   });
 }
@@ -102,6 +237,34 @@ export namespace ValidationError {
   });
 }
 
+export interface DeleteRecordRequest {
+  /**
+   * <p>The name of the feature group to delete the record from. </p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The value for the <code>RecordIdentifier</code> that uniquely identifies the record, in
+   *          string format. </p>
+   */
+  RecordIdentifierValueAsString: string | undefined;
+
+  /**
+   * <p>Timestamp indicating when the deletion event occurred. <code>EventTime</code> can be
+   *          used to query data at a certain point in time.</p>
+   */
+  EventTime: string | undefined;
+}
+
+export namespace DeleteRecordRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteRecordRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface GetRecordRequest {
   /**
    * <p>The name of the feature group in which you want to put the records.</p>
@@ -126,31 +289,6 @@ export namespace GetRecordRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetRecordRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The value associated with a feature.</p>
- */
-export interface FeatureValue {
-  /**
-   * <p>The name of a feature that a feature value corresponds to.</p>
-   */
-  FeatureName: string | undefined;
-
-  /**
-   * <p>The value associated with a feature, in string format. Note that features types can be
-   *          String, Integral, or Fractional. This value represents all three types as a string.</p>
-   */
-  ValueAsString: string | undefined;
-}
-
-export namespace FeatureValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FeatureValue): any => ({
     ...obj,
   });
 }

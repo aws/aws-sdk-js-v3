@@ -29,8 +29,8 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *       AWS KMS by calling the <a>Encrypt</a>, <a>ReEncrypt</a>, or <a>Verify</a> operations with the identifier of an asymmetric CMK. When you use the
  *       public key within AWS KMS, you benefit from the authentication, authorization, and logging that
  *       are part of every AWS KMS operation. You also reduce of risk of encrypting data that cannot be
- *       decrypted. These features are not effective outside of AWS KMS. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/download-public-key.html#download-public-key-considerations">Special Considerations
- *         for Downloading Public Keys</a>.</p>
+ *       decrypted. These features are not effective outside of AWS KMS. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/download-public-key.html#download-public-key-considerations">Special
+ *         Considerations for Downloading Public Keys</a>.</p>
  *          <p>To help you use the public key safely outside of AWS KMS, <code>GetPublicKey</code> returns
  *       important information about the public key in the response, including:</p>
  *          <ul>
@@ -56,8 +56,7 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *       can also avoid errors, such as using the wrong signing algorithm in a verification
  *       operation.</p>
  *          <p>The CMK that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
- * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation with a CMK in a different AWS account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>

@@ -3,7 +3,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AssociateApprovedOriginRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -156,6 +156,96 @@ export namespace ThrottlingException {
    * @internal
    */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration information of an Amazon Lex bot.</p>
+ */
+export interface LexBot {
+  /**
+   * <p>The name of the Amazon Lex bot.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Region that the Amazon Lex bot was created in.</p>
+   */
+  LexRegion?: string;
+}
+
+export namespace LexBot {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LexBot): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration information of an Amazon Lex V2 bot.</p>
+ */
+export interface LexV2Bot {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Lex V2 bot.</p>
+   */
+  AliasArn?: string;
+}
+
+export namespace LexV2Bot {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LexV2Bot): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateBotRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Configuration information of an Amazon Lex bot.</p>
+   */
+  LexBot?: LexBot;
+
+  /**
+   * <p>The Amazon Lex V2 bot to associate with the instance.</p>
+   */
+  LexV2Bot?: LexV2Bot;
+}
+
+export namespace AssociateBotRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateBotRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The allowed limit for the resource has been exceeded.</p>
+ */
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  /**
+   * <p>The message about the limit.</p>
+   */
+  Message?: string;
+}
+
+export namespace LimitExceededException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
 }
@@ -349,7 +439,7 @@ export namespace InstanceStorageConfig {
 
 export interface AssociateInstanceStorageConfigRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -391,7 +481,7 @@ export namespace AssociateInstanceStorageConfigResponse {
 
 export interface AssociateLambdaFunctionRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -411,38 +501,14 @@ export namespace AssociateLambdaFunctionRequest {
   });
 }
 
-/**
- * <p>Configuration information of an Amazon Lex bot.</p>
- */
-export interface LexBot {
-  /**
-   * <p>The name of the Amazon Lex bot.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The Region that the Amazon Lex bot was created in.</p>
-   */
-  LexRegion?: string;
-}
-
-export namespace LexBot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LexBot): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateLexBotRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
-   * <p>The Amazon Lex box to associate with the instance.</p>
+   * <p>The Amazon Lex bot to associate with the instance.</p>
    */
   LexBot: LexBot | undefined;
 }
@@ -458,7 +524,7 @@ export namespace AssociateLexBotRequest {
 
 export interface AssociateQueueQuickConnectsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -478,27 +544,6 @@ export namespace AssociateQueueQuickConnectsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: AssociateQueueQuickConnectsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The allowed limit for the resource has been exceeded.</p>
- */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  /**
-   * <p>The message about the limit.</p>
-   */
-  Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
 }
@@ -570,7 +615,7 @@ export namespace RoutingProfileQueueConfig {
 
 export interface AssociateRoutingProfileQueuesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -596,7 +641,7 @@ export namespace AssociateRoutingProfileQueuesRequest {
 
 export interface AssociateSecurityKeyRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -844,7 +889,7 @@ export enum SourceType {
 
 export interface CreateIntegrationAssociationRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -940,7 +985,7 @@ export namespace OutboundCallerConfig {
 
 export interface CreateQueueRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -1122,7 +1167,7 @@ export namespace QuickConnectConfig {
 
 export interface CreateQuickConnectRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -1207,7 +1252,7 @@ export namespace MediaConcurrency {
 
 export interface CreateRoutingProfileRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -1280,7 +1325,7 @@ export enum UseCaseType {
 
 export interface CreateUseCaseRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -1453,7 +1498,7 @@ export interface CreateUserRequest {
   HierarchyGroupId?: string;
 
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -1506,7 +1551,7 @@ export interface CreateUserHierarchyGroupRequest {
   ParentGroupId?: string;
 
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 }
@@ -1543,7 +1588,7 @@ export namespace CreateUserHierarchyGroupResponse {
 
 export interface DeleteInstanceRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 }
@@ -1559,7 +1604,7 @@ export namespace DeleteInstanceRequest {
 
 export interface DeleteIntegrationAssociationRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -1580,7 +1625,7 @@ export namespace DeleteIntegrationAssociationRequest {
 
 export interface DeleteQuickConnectRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -1601,7 +1646,7 @@ export namespace DeleteQuickConnectRequest {
 
 export interface DeleteUseCaseRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -1627,7 +1672,7 @@ export namespace DeleteUseCaseRequest {
 
 export interface DeleteUserRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -1653,7 +1698,7 @@ export interface DeleteUserHierarchyGroupRequest {
   HierarchyGroupId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 }
@@ -1811,7 +1856,7 @@ export namespace DescribeContactFlowResponse {
 
 export interface DescribeHoursOfOperationRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -1960,7 +2005,7 @@ export namespace DescribeHoursOfOperationResponse {
 
 export interface DescribeInstanceRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 }
@@ -2005,7 +2050,7 @@ export namespace InstanceStatusReason {
  */
 export interface Instance {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   Id?: string;
 
@@ -2095,7 +2140,7 @@ export enum InstanceAttributeType {
 
 export interface DescribeInstanceAttributeRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -2158,7 +2203,7 @@ export namespace DescribeInstanceAttributeResponse {
 
 export interface DescribeInstanceStorageConfigRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -2200,7 +2245,7 @@ export namespace DescribeInstanceStorageConfigResponse {
 
 export interface DescribeQueueRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -2301,7 +2346,7 @@ export namespace DescribeQueueResponse {
 
 export interface DescribeQuickConnectRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -2382,7 +2427,7 @@ export namespace DescribeQuickConnectResponse {
 
 export interface DescribeRoutingProfileRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -2406,7 +2451,7 @@ export namespace DescribeRoutingProfileRequest {
  */
 export interface RoutingProfile {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId?: string;
 
@@ -2479,7 +2524,7 @@ export interface DescribeUserRequest {
   UserId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 }
@@ -2581,7 +2626,7 @@ export interface DescribeUserHierarchyGroupRequest {
   HierarchyGroupId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 }
@@ -2720,7 +2765,7 @@ export namespace DescribeUserHierarchyGroupResponse {
 
 export interface DescribeUserHierarchyStructureRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 }
@@ -2820,7 +2865,7 @@ export namespace DescribeUserHierarchyStructureResponse {
 
 export interface DisassociateApprovedOriginRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -2839,9 +2884,35 @@ export namespace DisassociateApprovedOriginRequest {
   });
 }
 
+export interface DisassociateBotRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Configuration information of an Amazon Lex bot.</p>
+   */
+  LexBot?: LexBot;
+
+  /**
+   * <p>The Amazon Lex V2 bot to disassociate from the instance.</p>
+   */
+  LexV2Bot?: LexV2Bot;
+}
+
+export namespace DisassociateBotRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateBotRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DisassociateInstanceStorageConfigRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -2867,7 +2938,7 @@ export namespace DisassociateInstanceStorageConfigRequest {
 
 export interface DisassociateLambdaFunctionRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance..</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance..</p>
    */
   InstanceId: string | undefined;
 
@@ -2888,7 +2959,7 @@ export namespace DisassociateLambdaFunctionRequest {
 
 export interface DisassociateLexBotRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -2914,7 +2985,7 @@ export namespace DisassociateLexBotRequest {
 
 export interface DisassociateQueueQuickConnectsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -2940,7 +3011,7 @@ export namespace DisassociateQueueQuickConnectsRequest {
 
 export interface DisassociateRoutingProfileQueuesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -2966,7 +3037,7 @@ export namespace DisassociateRoutingProfileQueuesRequest {
 
 export interface DisassociateSecurityKeyRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -3101,7 +3172,7 @@ export enum Grouping {
 
 export interface GetCurrentMetricDataRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -3369,7 +3440,7 @@ export namespace GetCurrentMetricDataResponse {
 
 export interface GetFederationTokenRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 }
@@ -3554,7 +3625,7 @@ export namespace HistoricalMetric {
 
 export interface GetMetricDataRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -3599,6 +3670,11 @@ export interface GetMetricDataRequest {
    * <p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The
    *    following historical metrics are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator
    *    Guide</i>.</p>
+   *          <note>
+   *             <p>This API does not support a contacts
+   *     incoming metric (there's no CONTACTS_INCOMING metric missing from the documented list). </p>
+   *          </note>
+   *
    *          <dl>
    *             <dt>ABANDON_TIME</dt>
    *             <dd>
@@ -3828,7 +3904,7 @@ export namespace GetMetricDataResponse {
 
 export interface ListApprovedOriginsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -3874,9 +3950,92 @@ export namespace ListApprovedOriginsResponse {
   });
 }
 
+export enum LexVersion {
+  V1 = "V1",
+  V2 = "V2",
+}
+
+export interface ListBotsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The version of Amazon Lex or Amazon Lex V2.</p>
+   */
+  LexVersion: LexVersion | string | undefined;
+}
+
+export namespace ListBotsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListBotsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration information of an Amazon Lex or Amazon Lex V2 bot.</p>
+ */
+export interface LexBotConfig {
+  /**
+   * <p>Configuration information of an Amazon Lex bot.</p>
+   */
+  LexBot?: LexBot;
+
+  /**
+   * <p>Configuration information of an Amazon Lex V2 bot.</p>
+   */
+  LexV2Bot?: LexV2Bot;
+}
+
+export namespace LexBotConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LexBotConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface ListBotsResponse {
+  /**
+   * <p>The names and Regions of the Amazon Lex or Amazon Lex V2 bots associated with the specified
+   *    instance.</p>
+   */
+  LexBots?: LexBotConfig[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListBotsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListBotsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListContactFlowsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -3965,7 +4124,7 @@ export namespace ListContactFlowsResponse {
 
 export interface ListHoursOfOperationsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -4042,7 +4201,7 @@ export namespace ListHoursOfOperationsResponse {
 
 export interface ListInstanceAttributesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -4196,7 +4355,7 @@ export namespace ListInstancesResponse {
 
 export interface ListInstanceStorageConfigsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -4249,7 +4408,7 @@ export namespace ListInstanceStorageConfigsResponse {
 
 export interface ListIntegrationAssociationsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -4289,7 +4448,7 @@ export interface IntegrationAssociationSummary {
   IntegrationAssociationArn?: string;
 
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId?: string;
 
@@ -4351,7 +4510,7 @@ export namespace ListIntegrationAssociationsResponse {
 
 export interface ListLambdaFunctionsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -4399,7 +4558,7 @@ export namespace ListLambdaFunctionsResponse {
 
 export interface ListLexBotsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -4692,7 +4851,7 @@ export enum PhoneNumberType {
 
 export interface ListPhoneNumbersRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -4866,7 +5025,7 @@ export namespace ListPromptsResponse {
 
 export interface ListQueueQuickConnectsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -4959,7 +5118,7 @@ export enum QueueType {
 
 export interface ListQueuesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -5046,7 +5205,7 @@ export namespace ListQueuesResponse {
 
 export interface ListQuickConnectsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -5100,7 +5259,7 @@ export namespace ListQuickConnectsResponse {
 
 export interface ListRoutingProfileQueuesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -5201,7 +5360,7 @@ export namespace ListRoutingProfileQueuesResponse {
 
 export interface ListRoutingProfilesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -5278,7 +5437,7 @@ export namespace ListRoutingProfilesResponse {
 
 export interface ListSecurityKeysRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -5355,7 +5514,7 @@ export namespace ListSecurityKeysResponse {
 
 export interface ListSecurityProfilesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -5468,7 +5627,7 @@ export namespace ListTagsForResourceResponse {
  */
 export interface ListUseCasesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -5553,7 +5712,7 @@ export namespace ListUseCasesResponse {
 
 export interface ListUserHierarchyGroupsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -5601,7 +5760,7 @@ export namespace ListUserHierarchyGroupsResponse {
 
 export interface ListUsersRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -5678,7 +5837,7 @@ export namespace ListUsersResponse {
 
 export interface ResumeContactRecordingRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -5759,7 +5918,7 @@ export namespace ParticipantDetails {
 
 export interface StartChatContactRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -5863,7 +6022,7 @@ export namespace VoiceRecordingConfiguration {
 
 export interface StartContactRecordingRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -5965,14 +6124,15 @@ export interface StartOutboundVoiceContactRequest {
   ContactFlowId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *    request. The token is valid for 7 days after creation. If a contact is already started, the
-   *    contact ID is returned. If the contact is disconnected, a new contact is started.</p>
+   *    contact ID is returned.
+   *    </p>
    */
   ClientToken?: string;
 
@@ -6056,7 +6216,7 @@ export namespace Reference {
 
 export interface StartTaskContactRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6160,7 +6320,7 @@ export interface StopContactRequest {
   ContactId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 }
@@ -6187,7 +6347,7 @@ export namespace StopContactResponse {
 
 export interface StopContactRecordingRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6225,7 +6385,7 @@ export namespace StopContactRecordingResponse {
 
 export interface SuspendContactRecordingRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6311,7 +6471,7 @@ export interface UpdateContactAttributesRequest {
   InitialContactId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6405,7 +6565,7 @@ export namespace UpdateContactFlowNameRequest {
 
 export interface UpdateInstanceAttributeRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6431,7 +6591,7 @@ export namespace UpdateInstanceAttributeRequest {
 
 export interface UpdateInstanceStorageConfigRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6462,7 +6622,7 @@ export namespace UpdateInstanceStorageConfigRequest {
 
 export interface UpdateQueueHoursOfOperationRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6488,7 +6648,7 @@ export namespace UpdateQueueHoursOfOperationRequest {
 
 export interface UpdateQueueMaxContactsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6514,7 +6674,7 @@ export namespace UpdateQueueMaxContactsRequest {
 
 export interface UpdateQueueNameRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6545,7 +6705,7 @@ export namespace UpdateQueueNameRequest {
 
 export interface UpdateQueueOutboundCallerConfigRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6571,7 +6731,7 @@ export namespace UpdateQueueOutboundCallerConfigRequest {
 
 export interface UpdateQueueStatusRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6597,7 +6757,7 @@ export namespace UpdateQueueStatusRequest {
 
 export interface UpdateQuickConnectConfigRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6623,7 +6783,7 @@ export namespace UpdateQuickConnectConfigRequest {
 
 export interface UpdateQuickConnectNameRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6654,7 +6814,7 @@ export namespace UpdateQuickConnectNameRequest {
 
 export interface UpdateRoutingProfileConcurrencyRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6680,7 +6840,7 @@ export namespace UpdateRoutingProfileConcurrencyRequest {
 
 export interface UpdateRoutingProfileDefaultOutboundQueueRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6706,7 +6866,7 @@ export namespace UpdateRoutingProfileDefaultOutboundQueueRequest {
 
 export interface UpdateRoutingProfileNameRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6737,7 +6897,7 @@ export namespace UpdateRoutingProfileNameRequest {
 
 export interface UpdateRoutingProfileQueuesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -6775,7 +6935,7 @@ export interface UpdateUserHierarchyRequest {
   UserId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 }
@@ -6801,7 +6961,7 @@ export interface UpdateUserHierarchyGroupNameRequest {
   HierarchyGroupId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 }
@@ -6882,7 +7042,7 @@ export interface UpdateUserHierarchyStructureRequest {
   HierarchyStructure: HierarchyStructureUpdate | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 }
@@ -6908,7 +7068,7 @@ export interface UpdateUserIdentityInfoRequest {
   UserId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 }
@@ -6934,7 +7094,7 @@ export interface UpdateUserPhoneConfigRequest {
   UserId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 }
@@ -6960,7 +7120,7 @@ export interface UpdateUserRoutingProfileRequest {
   UserId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 }
@@ -6986,7 +7146,7 @@ export interface UpdateUserSecurityProfilesRequest {
   UserId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
 }

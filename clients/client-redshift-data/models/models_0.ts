@@ -195,6 +195,33 @@ export namespace DescribeStatementRequest {
   });
 }
 
+/**
+ * <p>A parameter used in a SQL statement.</p>
+ */
+export interface SqlParameter {
+  /**
+   * <p>The name of the parameter.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The value of the parameter.
+   *     Amazon Redshift implicitly converts to the proper data type. For more inforation, see
+   *       <a href="https://docs.aws.amazon.com/redshift/latest/dg/c_Supported_data_types.html">Data types</a> in the
+   *       <i>Amazon Redshift Database Developer Guide</i>. </p>
+   */
+  value: string | undefined;
+}
+
+export namespace SqlParameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SqlParameter): any => ({
+    ...obj,
+  });
+}
+
 export enum StatusString {
   ABORTED = "ABORTED",
   ALL = "ALL",
@@ -311,6 +338,11 @@ export interface DescribeStatementResponse {
    * <p>A value that indicates whether the statement has a result set. The result set can be empty. </p>
    */
   HasResultSet?: boolean;
+
+  /**
+   * <p>The parameters for the SQL statement.</p>
+   */
+  QueryParameters?: SqlParameter[];
 }
 
 export namespace DescribeStatementResponse {
@@ -489,6 +521,11 @@ export interface ExecuteStatementInput {
    * <p>The name of the SQL statement. You can name the SQL statement when you create it to identify the query. </p>
    */
   StatementName?: string;
+
+  /**
+   * <p>The parameters for the SQL statement.</p>
+   */
+  Parameters?: SqlParameter[];
 }
 
 export namespace ExecuteStatementInput {
@@ -974,6 +1011,11 @@ export interface StatementData {
    * <p>The date and time (UTC) that the statement metadata was last updated.</p>
    */
   UpdatedAt?: Date;
+
+  /**
+   * <p>The parameters used in a SQL statement.</p>
+   */
+  QueryParameters?: SqlParameter[];
 }
 
 export namespace StatementData {

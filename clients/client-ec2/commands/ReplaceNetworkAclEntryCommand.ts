@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReplaceNetworkAclEntryRequest } from "../models/models_4";
+import { ReplaceNetworkAclEntryRequest } from "../models/models_5";
 import {
   deserializeAws_ec2ReplaceNetworkAclEntryCommand,
   serializeAws_ec2ReplaceNetworkAclEntryCommand,

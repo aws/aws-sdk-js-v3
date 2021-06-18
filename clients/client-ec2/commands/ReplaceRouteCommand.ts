@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReplaceRouteRequest } from "../models/models_4";
+import { ReplaceRouteRequest } from "../models/models_5";
 import { deserializeAws_ec2ReplaceRouteCommand, serializeAws_ec2ReplaceRouteCommand } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";

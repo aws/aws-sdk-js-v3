@@ -21,9 +21,7 @@ export interface DeleteConnectorProfileCommandInput extends DeleteConnectorProfi
 export interface DeleteConnectorProfileCommandOutput extends DeleteConnectorProfileResponse, __MetadataBearer {}
 
 /**
- * <p>
- *  Enables you to delete an existing connector profile.
- * </p>
+ * <p> Enables you to delete an existing connector profile. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

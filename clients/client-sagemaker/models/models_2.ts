@@ -20,6 +20,7 @@ import {
   AutoMLSortOrder,
   BatchStrategy,
   CacheHitResult,
+  CallbackStepMetadata,
   CandidateSortBy,
   CandidateStatus,
   Channel,
@@ -27,6 +28,7 @@ import {
   CodeRepositorySortBy,
   CodeRepositorySortOrder,
   CodeRepositorySummary,
+  CognitoConfig,
   CompilationJobStatus,
   CompilationJobSummary,
   ConditionStepMetadata,
@@ -38,10 +40,10 @@ import {
   KernelGatewayImageConfig,
   LabelingJobInputConfig,
   MetadataProperties,
-  ModelApprovalStatus,
   OfflineStoreConfig,
   OnlineStoreConfig,
   OutputDataConfig,
+  OutputParameter,
   ResourceConfig,
   ResourceLimits,
   RetryStrategy,
@@ -79,6 +81,7 @@ import {
   LabelingJobStatus,
   MemberDefinition,
   MetricData,
+  ModelApprovalStatus,
   ModelArtifacts,
   ModelClientConfig,
   ModelMetrics,
@@ -90,14 +93,13 @@ import {
   MonitoringScheduleConfig,
   MonitoringType,
   NetworkConfig,
-  NotebookInstanceAcceleratorType,
-  NotebookInstanceLifecycleHook,
   NotebookInstanceStatus,
   NotificationConfiguration,
   ObjectiveStatusCounters,
   OfflineStoreStatus,
   OfflineStoreStatusValue,
   PipelineExecutionStatus,
+  PipelineExperimentConfig,
   PipelineStatus,
   ProcessingInput,
   ProcessingJobStatus,
@@ -106,11 +108,11 @@ import {
   ProcessingStoppingCondition,
   ProductionVariantSummary,
   ProjectStatus,
-  RootAccess,
   ScheduleStatus,
   SecondaryStatus,
   SecondaryStatusTransition,
   SourceAlgorithmSpecification,
+  SourceIpConfig,
   SubscribedWorkteam,
   TensorBoardOutputConfig,
   TrainingJobStatus,
@@ -122,10 +124,235 @@ import {
   TrialComponentSource,
   TrialComponentStatus,
   TrialSource,
-  UserProfileStatus,
-  Workforce,
   _InstanceType,
 } from "./models_1";
+
+export interface DescribeUserProfileRequest {
+  /**
+   * <p>The domain ID.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The user profile name. This value is not case sensitive.</p>
+   */
+  UserProfileName: string | undefined;
+}
+
+export namespace DescribeUserProfileRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeUserProfileRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum UserProfileStatus {
+  Delete_Failed = "Delete_Failed",
+  Deleting = "Deleting",
+  Failed = "Failed",
+  InService = "InService",
+  Pending = "Pending",
+  Update_Failed = "Update_Failed",
+  Updating = "Updating",
+}
+
+export interface DescribeUserProfileResponse {
+  /**
+   * <p>The ID of the domain that contains the profile.</p>
+   */
+  DomainId?: string;
+
+  /**
+   * <p>The user profile Amazon Resource Name (ARN).</p>
+   */
+  UserProfileArn?: string;
+
+  /**
+   * <p>The user profile name.</p>
+   */
+  UserProfileName?: string;
+
+  /**
+   * <p>The ID of the user's profile in the Amazon Elastic File System (EFS) volume.</p>
+   */
+  HomeEfsFileSystemUid?: string;
+
+  /**
+   * <p>The status.</p>
+   */
+  Status?: UserProfileStatus | string;
+
+  /**
+   * <p>The last modified time.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The failure reason.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The SSO user identifier.</p>
+   */
+  SingleSignOnUserIdentifier?: string;
+
+  /**
+   * <p>The SSO user value.</p>
+   */
+  SingleSignOnUserValue?: string;
+
+  /**
+   * <p>A collection of settings.</p>
+   */
+  UserSettings?: UserSettings;
+}
+
+export namespace DescribeUserProfileResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeUserProfileResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeWorkforceRequest {
+  /**
+   * <p>The name of the private workforce whose access you want to restrict.
+   *                 <code>WorkforceName</code> is automatically set to <code>default</code> when a
+   *             workforce is created and cannot be modified. </p>
+   */
+  WorkforceName: string | undefined;
+}
+
+export namespace DescribeWorkforceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeWorkforceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Your OIDC IdP workforce configuration.</p>
+ */
+export interface OidcConfigForResponse {
+  /**
+   * <p>The OIDC IdP client ID used to configure your private workforce.</p>
+   */
+  ClientId?: string;
+
+  /**
+   * <p>The OIDC IdP issuer used to configure your private workforce.</p>
+   */
+  Issuer?: string;
+
+  /**
+   * <p>The OIDC IdP authorization endpoint used to configure your private workforce.</p>
+   */
+  AuthorizationEndpoint?: string;
+
+  /**
+   * <p>The OIDC IdP token endpoint used to configure your private workforce.</p>
+   */
+  TokenEndpoint?: string;
+
+  /**
+   * <p>The OIDC IdP user information endpoint used to configure your private workforce.</p>
+   */
+  UserInfoEndpoint?: string;
+
+  /**
+   * <p>The OIDC IdP logout endpoint used to configure your private workforce.</p>
+   */
+  LogoutEndpoint?: string;
+
+  /**
+   * <p>The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.</p>
+   */
+  JwksUri?: string;
+}
+
+export namespace OidcConfigForResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OidcConfigForResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A single private workforce, which is automatically created when you create your first
+ *             private work team. You can create one private work force in each AWS Region. By default,
+ *             any workforce-related API operation used in a specific region will apply to the
+ *             workforce created in that region. To learn how to create a private workforce, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">Create a Private Workforce</a>.</p>
+ */
+export interface Workforce {
+  /**
+   * <p>The name of the private workforce.</p>
+   */
+  WorkforceName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the private workforce.</p>
+   */
+  WorkforceArn: string | undefined;
+
+  /**
+   * <p>The most recent date that  was used to
+   *             successfully add one or more IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) to a private workforce's
+   *             allow list.</p>
+   */
+  LastUpdatedDate?: Date;
+
+  /**
+   * <p>A list of one to ten IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) to be added to the
+   *             workforce allow list. By default, a workforce isn't restricted to specific IP addresses.</p>
+   */
+  SourceIpConfig?: SourceIpConfig;
+
+  /**
+   * <p>The subdomain for your OIDC Identity Provider.</p>
+   */
+  SubDomain?: string;
+
+  /**
+   * <p>The configuration of an Amazon Cognito workforce.
+   *       A single Cognito workforce is created using and corresponds to a single
+   *       <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">
+   *       Amazon Cognito user pool</a>.</p>
+   */
+  CognitoConfig?: CognitoConfig;
+
+  /**
+   * <p>The configuration of an OIDC Identity Provider (IdP) private workforce.</p>
+   */
+  OidcConfig?: OidcConfigForResponse;
+
+  /**
+   * <p>The date that the workforce is created.</p>
+   */
+  CreateDate?: Date;
+}
+
+export namespace Workforce {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Workforce): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeWorkforceResponse {
   /**
@@ -3584,7 +3811,8 @@ export interface ListEndpointsInput {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of endpoints to return in the response. This value defaults to 10.</p>
+   * <p>The maximum number of endpoints to return in the response. This value defaults to
+   *             10.</p>
    */
   MaxResults?: number;
 
@@ -5902,6 +6130,11 @@ export interface PipelineExecutionStepMetadata {
    * <p>If this is a Condition step metadata object, details on the condition.</p>
    */
   Condition?: ConditionStepMetadata;
+
+  /**
+   * <p>Metadata about a callback step.</p>
+   */
+  Callback?: CallbackStepMetadata;
 }
 
 export namespace PipelineExecutionStepMetadata {
@@ -5957,7 +6190,7 @@ export interface PipelineExecutionStep {
   FailureReason?: string;
 
   /**
-   * <p>The metadata for the step execution.</p>
+   * <p>Metadata for the step execution.</p>
    */
   Metadata?: PipelineExecutionStepMetadata;
 }
@@ -7889,6 +8122,16 @@ export interface PipelineExecution {
   PipelineExecutionDescription?: string;
 
   /**
+   * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
+   */
+  PipelineExperimentConfig?: PipelineExperimentConfig;
+
+  /**
+   * <p>If the execution failed, a message describing why.</p>
+   */
+  FailureReason?: string;
+
+  /**
    * <p>The creation time of the pipeline execution.</p>
    */
   CreationTime?: Date;
@@ -8506,10 +8749,9 @@ export interface TrainingJob {
   VpcConfig?: VpcConfig;
 
   /**
-   * <p>Specifies a limit to how long a model training job can run.
-   *             It also specifies how long a managed Spot training job has to complete.
-   *             When the job reaches the time limit, Amazon SageMaker ends
-   *             the training job. Use this API to cap model training costs.</p>
+   * <p>Specifies a limit to how long a model training job can run. It also specifies how long
+   *             a managed Spot training job has to complete. When the job reaches the time limit, Amazon SageMaker
+   *             ends the training job. Use this API to cap model training costs.</p>
    *         <p>To stop a job, Amazon SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
    *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
    *             model artifacts, so the results of training are not lost. </p>
@@ -8646,7 +8888,7 @@ export interface TrainingJob {
 
   /**
    * <p>The number of times to retry the job when the job fails due to an
-   *             <code>InternalServerError</code>.</p>
+   *                 <code>InternalServerError</code>.</p>
    */
   RetryStrategy?: RetryStrategy;
 
@@ -9226,6 +9468,92 @@ export namespace SearchResponse {
   });
 }
 
+export interface SendPipelineExecutionStepFailureRequest {
+  /**
+   * <p>The pipeline generated token from the Amazon SQS queue.</p>
+   */
+  CallbackToken: string | undefined;
+
+  /**
+   * <p>A message describing why the step failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          operation. An idempotent operation completes no more than one time.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+export namespace SendPipelineExecutionStepFailureRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendPipelineExecutionStepFailureRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SendPipelineExecutionStepFailureResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+}
+
+export namespace SendPipelineExecutionStepFailureResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendPipelineExecutionStepFailureResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface SendPipelineExecutionStepSuccessRequest {
+  /**
+   * <p>The pipeline generated token from the Amazon SQS queue.</p>
+   */
+  CallbackToken: string | undefined;
+
+  /**
+   * <p>A list of the output parameters of the callback step.</p>
+   */
+  OutputParameters?: OutputParameter[];
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          operation. An idempotent operation completes no more than one time.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+export namespace SendPipelineExecutionStepSuccessRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendPipelineExecutionStepSuccessRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SendPipelineExecutionStepSuccessResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+}
+
+export namespace SendPipelineExecutionStepSuccessResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendPipelineExecutionStepSuccessResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface StartMonitoringScheduleRequest {
   /**
    * <p>The name of the schedule to start.</p>
@@ -9756,6 +10084,15 @@ export interface UpdateDeviceFleetRequest {
    * <p>Output configuration  for storing sample data collected by the fleet.</p>
    */
   OutputConfig: EdgeOutputConfig | undefined;
+
+  /**
+   * <p>Whether to create an AWS IoT Role Alias during device fleet creation.
+   *       The name of the role alias generated will match this pattern:
+   *       "SageMakerEdge-{DeviceFleetName}".</p>
+   *          <p>For example, if your device fleet is called "demo-fleet", the name of
+   *       the role alias will be "SageMakerEdge-demo-fleet".</p>
+   */
+  EnableIotRoleAlias?: boolean;
 }
 
 export namespace UpdateDeviceFleetRequest {
@@ -10103,308 +10440,6 @@ export namespace UpdateModelPackageOutput {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateModelPackageOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateMonitoringScheduleRequest {
-  /**
-   * <p>The name of the monitoring schedule. The name must be unique within an AWS Region within
-   *          an AWS account.</p>
-   */
-  MonitoringScheduleName: string | undefined;
-
-  /**
-   * <p>The configuration object that specifies the monitoring schedule and defines the
-   *          monitoring job.</p>
-   */
-  MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
-}
-
-export namespace UpdateMonitoringScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMonitoringScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateMonitoringScheduleResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
-   */
-  MonitoringScheduleArn: string | undefined;
-}
-
-export namespace UpdateMonitoringScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMonitoringScheduleResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateNotebookInstanceInput {
-  /**
-   * <p>The name of the notebook instance to update.</p>
-   */
-  NotebookInstanceName: string | undefined;
-
-  /**
-   * <p>The Amazon ML compute instance type.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access the
-   *             notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker Roles</a>. </p>
-   *         <note>
-   *             <p>To be able to pass this role to Amazon SageMaker, the caller of this API must have the
-   *                     <code>iam:PassRole</code> permission.</p>
-   *         </note>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The name of a lifecycle configuration to associate with the notebook instance. For
-   *             information about lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional)
-   *                 Customize a Notebook Instance</a>.</p>
-   */
-  LifecycleConfigName?: string;
-
-  /**
-   * <p>Set to <code>true</code> to remove the notebook instance lifecycle configuration
-   *             currently associated with the notebook instance. This operation is idempotent. If you
-   *             specify a lifecycle configuration that is not associated with the notebook instance when
-   *             you call this method, it does not throw an error.</p>
-   */
-  DisassociateLifecycleConfig?: boolean;
-
-  /**
-   * <p>The size, in GB, of the ML storage volume to attach to the notebook instance. The
-   *             default value is 5 GB. ML storage volumes are encrypted, so Amazon SageMaker can't determine the
-   *             amount of available free space on the volume. Because of this, you can increase the
-   *             volume size when you update a notebook instance, but you can't decrease the volume size.
-   *             If you want to decrease the size of the ML storage volume in use, create a new notebook
-   *             instance with the desired size.</p>
-   */
-  VolumeSizeInGB?: number;
-
-  /**
-   * <p>The Git repository to associate with the notebook instance as its default code
-   *             repository. This can be either the name of a Git repository stored as a resource in your
-   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
-   *             other Git repository. When you open a notebook instance, it opens in the directory that
-   *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with Amazon SageMaker
-   *                 Notebook Instances</a>.</p>
-   */
-  DefaultCodeRepository?: string;
-
-  /**
-   * <p>An array of up to three Git repositories to associate with the notebook instance.
-   *             These can be either the names of Git repositories stored as resources in your account,
-   *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
-   *             other Git repository. These repositories are cloned at the same level as the default
-   *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
-   *                 Repositories with Amazon SageMaker Notebook Instances</a>.</p>
-   */
-  AdditionalCodeRepositories?: string[];
-
-  /**
-   * <p>A list of the Elastic Inference (EI) instance types to associate with this notebook
-   *             instance. Currently only one EI instance type can be associated with a notebook
-   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
-   *                 SageMaker</a>.</p>
-   */
-  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
-
-  /**
-   * <p>A list of the Elastic Inference (EI) instance types to remove from this notebook
-   *             instance. This operation is idempotent. If you specify an accelerator type that is not
-   *             associated with the notebook instance when you call this method, it does not throw an
-   *             error.</p>
-   */
-  DisassociateAcceleratorTypes?: boolean;
-
-  /**
-   * <p>The name or URL of the default Git repository to remove from this notebook instance.
-   *             This operation is idempotent. If you specify a Git repository that is not associated
-   *             with the notebook instance when you call this method, it does not throw an error.</p>
-   */
-  DisassociateDefaultCodeRepository?: boolean;
-
-  /**
-   * <p>A list of names or URLs of the default Git repositories to remove from this notebook
-   *             instance. This operation is idempotent. If you specify a Git repository that is not
-   *             associated with the notebook instance when you call this method, it does not throw an
-   *             error.</p>
-   */
-  DisassociateAdditionalCodeRepositories?: boolean;
-
-  /**
-   * <p>Whether root access is enabled or disabled for users of the notebook instance. The
-   *             default value is <code>Enabled</code>.</p>
-   *         <note>
-   *             <p>If you set this to <code>Disabled</code>, users don't have root access on the
-   *                 notebook instance, but lifecycle configuration scripts still run with root
-   *                 permissions.</p>
-   *         </note>
-   */
-  RootAccess?: RootAccess | string;
-}
-
-export namespace UpdateNotebookInstanceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNotebookInstanceInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateNotebookInstanceOutput {}
-
-export namespace UpdateNotebookInstanceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNotebookInstanceOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateNotebookInstanceLifecycleConfigInput {
-  /**
-   * <p>The name of the lifecycle configuration.</p>
-   */
-  NotebookInstanceLifecycleConfigName: string | undefined;
-
-  /**
-   * <p>The shell script that runs only once, when you create a notebook instance. The shell
-   *             script must be a base64-encoded string.</p>
-   */
-  OnCreate?: NotebookInstanceLifecycleHook[];
-
-  /**
-   * <p>The shell script that runs every time you start a notebook instance, including when
-   *             you create the notebook instance. The shell script must be a base64-encoded
-   *             string.</p>
-   */
-  OnStart?: NotebookInstanceLifecycleHook[];
-}
-
-export namespace UpdateNotebookInstanceLifecycleConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNotebookInstanceLifecycleConfigInput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateNotebookInstanceLifecycleConfigOutput {}
-
-export namespace UpdateNotebookInstanceLifecycleConfigOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNotebookInstanceLifecycleConfigOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePipelineRequest {
-  /**
-   * <p>The name of the pipeline to update.</p>
-   */
-  PipelineName: string | undefined;
-
-  /**
-   * <p>The display name of the pipeline.</p>
-   */
-  PipelineDisplayName?: string;
-
-  /**
-   * <p>The JSON pipeline definition.</p>
-   */
-  PipelineDefinition?: string;
-
-  /**
-   * <p>The description of the pipeline.</p>
-   */
-  PipelineDescription?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that the pipeline uses to execute.</p>
-   */
-  RoleArn?: string;
-}
-
-export namespace UpdatePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePipelineRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePipelineResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the updated pipeline.</p>
-   */
-  PipelineArn?: string;
-}
-
-export namespace UpdatePipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePipelineResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePipelineExecutionRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   */
-  PipelineExecutionArn: string | undefined;
-
-  /**
-   * <p>The description of the pipeline execution.</p>
-   */
-  PipelineExecutionDescription?: string;
-
-  /**
-   * <p>The display name of the pipeline execution.</p>
-   */
-  PipelineExecutionDisplayName?: string;
-}
-
-export namespace UpdatePipelineExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePipelineExecutionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePipelineExecutionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the updated pipeline execution.</p>
-   */
-  PipelineExecutionArn?: string;
-}
-
-export namespace UpdatePipelineExecutionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePipelineExecutionResponse): any => ({
     ...obj,
   });
 }

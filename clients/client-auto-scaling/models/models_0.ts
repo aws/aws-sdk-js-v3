@@ -1340,8 +1340,7 @@ export interface Ebs {
   Encrypted?: boolean;
 
   /**
-   * <p>The throughput to provision for a <code>gp3</code> volume.</p>
-   *         <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   * <p>The throughput (MiBps) to provision for a <code>gp3</code> volume.</p>
    */
   Throughput?: number;
 }

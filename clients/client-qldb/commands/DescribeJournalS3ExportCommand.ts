@@ -22,8 +22,9 @@ export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3E
 
 /**
  * <p>Returns information about a journal export job, including the ledger name, export ID,
- *          when it was created, current status, and its start and end time export parameters.</p>
- *          <p>This action does not return any expired export jobs. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export Job Expiration</a> in the <i>Amazon QLDB Developer
+ *          creation time, current status, and the parameters of the original export creation
+ *          request.</p>
+ *          <p>This action does not return any expired export jobs. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export job expiration</a> in the <i>Amazon QLDB Developer
  *          Guide</i>.</p>
  *          <p>If the export job with the given <code>ExportId</code> doesn't exist, then throws
  *             <code>ResourceNotFoundException</code>.</p>

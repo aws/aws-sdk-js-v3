@@ -21,7 +21,11 @@ export interface UpdateExportCommandInput extends UpdateExportRequest {}
 export interface UpdateExportCommandOutput extends UpdateExportResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the password used to encrypt an export zip archive.</p>
+ * <p>Updates the password used to protect an export zip archive.</p>
+ *          <p>The password is not required. If you don't supply a password, Amazon Lex
+ *          generates a zip file that is not protected by a password. This is the
+ *          archive that is available at the pre-signed S3 URL provided by the
+ *              operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -107,6 +107,7 @@ import {
   NodegroupHealth,
   NodegroupResources,
   NodegroupScalingConfig,
+  NodegroupUpdateConfig,
   NotFoundException,
   OIDC,
   OidcIdentityProviderConfig,
@@ -392,6 +393,10 @@ export const serializeAws_restJson1CreateNodegroupCommand = async (
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.taints !== undefined &&
       input.taints !== null && { taints: serializeAws_restJson1taintsList(input.taints, context) }),
+    ...(input.updateConfig !== undefined &&
+      input.updateConfig !== null && {
+        updateConfig: serializeAws_restJson1NodegroupUpdateConfig(input.updateConfig, context),
+      }),
     ...(input.version !== undefined && input.version !== null && { version: input.version }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1266,6 +1271,10 @@ export const serializeAws_restJson1UpdateNodegroupConfigCommand = async (
       }),
     ...(input.taints !== undefined &&
       input.taints !== null && { taints: serializeAws_restJson1UpdateTaintsPayload(input.taints, context) }),
+    ...(input.updateConfig !== undefined &&
+      input.updateConfig !== null && {
+        updateConfig: serializeAws_restJson1NodegroupUpdateConfig(input.updateConfig, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4558,6 +4567,15 @@ const serializeAws_restJson1NodegroupScalingConfig = (input: NodegroupScalingCon
   };
 };
 
+const serializeAws_restJson1NodegroupUpdateConfig = (input: NodegroupUpdateConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.maxUnavailable !== undefined &&
+      input.maxUnavailable !== null && { maxUnavailable: input.maxUnavailable }),
+    ...(input.maxUnavailablePercentage !== undefined &&
+      input.maxUnavailablePercentage !== null && { maxUnavailablePercentage: input.maxUnavailablePercentage }),
+  };
+};
+
 const serializeAws_restJson1OidcIdentityProviderConfigRequest = (
   input: OidcIdentityProviderConfigRequest,
   context: __SerdeContext
@@ -5221,6 +5239,10 @@ const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext)
       output.taints !== undefined && output.taints !== null
         ? deserializeAws_restJson1taintsList(output.taints, context)
         : undefined,
+    updateConfig:
+      output.updateConfig !== undefined && output.updateConfig !== null
+        ? deserializeAws_restJson1NodegroupUpdateConfig(output.updateConfig, context)
+        : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
 };
@@ -5255,6 +5277,17 @@ const deserializeAws_restJson1NodegroupScalingConfig = (
     desiredSize: output.desiredSize !== undefined && output.desiredSize !== null ? output.desiredSize : undefined,
     maxSize: output.maxSize !== undefined && output.maxSize !== null ? output.maxSize : undefined,
     minSize: output.minSize !== undefined && output.minSize !== null ? output.minSize : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1NodegroupUpdateConfig = (output: any, context: __SerdeContext): NodegroupUpdateConfig => {
+  return {
+    maxUnavailable:
+      output.maxUnavailable !== undefined && output.maxUnavailable !== null ? output.maxUnavailable : undefined,
+    maxUnavailablePercentage:
+      output.maxUnavailablePercentage !== undefined && output.maxUnavailablePercentage !== null
+        ? output.maxUnavailablePercentage
+        : undefined,
   } as any;
 };
 

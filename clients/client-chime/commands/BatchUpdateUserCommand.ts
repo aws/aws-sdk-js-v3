@@ -21,13 +21,7 @@ export interface BatchUpdateUserCommandInput extends BatchUpdateUserRequest {}
 export interface BatchUpdateUserCommandOutput extends BatchUpdateUserResponse, __MetadataBearer {}
 
 /**
- * <p>
- * Updates user details within the
- * <a>UpdateUserRequestItem</a>
- * object for up to 20 users for the specified Amazon Chime account.
- * Currently, only <code>LicenseType</code>
- * updates are supported for this action.
- * </p>
+ * <p>Updates user details within the <a>UpdateUserRequestItem</a> object for up to 20 users for the specified Amazon Chime account. Currently, only <code>LicenseType</code> updates are supported for this action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

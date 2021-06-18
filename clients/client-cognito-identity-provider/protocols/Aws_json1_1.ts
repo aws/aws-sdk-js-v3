@@ -212,6 +212,7 @@ import {
   RespondToAuthChallengeCommandInput,
   RespondToAuthChallengeCommandOutput,
 } from "../commands/RespondToAuthChallengeCommand";
+import { RevokeTokenCommandInput, RevokeTokenCommandOutput } from "../commands/RevokeTokenCommand";
 import {
   SetRiskConfigurationCommandInput,
   SetRiskConfigurationCommandOutput,
@@ -483,6 +484,8 @@ import {
   ResourceServerType,
   RespondToAuthChallengeRequest,
   RespondToAuthChallengeResponse,
+  RevokeTokenRequest,
+  RevokeTokenResponse,
   RiskConfigurationType,
   RiskExceptionConfigurationType,
   SMSMfaSettingsType,
@@ -506,18 +509,16 @@ import {
   SoftwareTokenMfaConfigType,
   SoftwareTokenMfaSettingsType,
   StartUserImportJobRequest,
-  StartUserImportJobResponse,
-  StopUserImportJobRequest,
-  StopUserImportJobResponse,
   StringAttributeConstraintsType,
-  TagResourceRequest,
-  TagResourceResponse,
   TokenValidityUnitsType,
   TooManyFailedAttemptsException,
   TooManyRequestsException,
   UICustomizationType,
+  UnauthorizedException,
   UnexpectedLambdaException,
   UnsupportedIdentityProviderException,
+  UnsupportedOperationException,
+  UnsupportedTokenTypeException,
   UnsupportedUserStateException,
   UserContextDataType,
   UserImportInProgressException,
@@ -542,6 +543,11 @@ import {
 } from "../models/models_0";
 import {
   EnableSoftwareTokenMFAException,
+  StartUserImportJobResponse,
+  StopUserImportJobRequest,
+  StopUserImportJobResponse,
+  TagResourceRequest,
+  TagResourceResponse,
   UntagResourceRequest,
   UntagResourceResponse,
   UpdateAuthEventFeedbackRequest,
@@ -1601,6 +1607,19 @@ export const serializeAws_json1_1RespondToAuthChallengeCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RespondToAuthChallengeRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RevokeTokenCommand = async (
+  input: RevokeTokenCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSCognitoIdentityProviderService.RevokeToken",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RevokeTokenRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -10310,6 +10329,100 @@ const deserializeAws_json1_1RespondToAuthChallengeCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1RevokeTokenCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RevokeTokenCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RevokeTokenCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RevokeTokenResponse(data, context);
+  const response: RevokeTokenCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RevokeTokenCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RevokeTokenCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.cognitoidentityprovider#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cognitoidentityprovider#UnsupportedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedTokenTypeException":
+    case "com.amazonaws.cognitoidentityprovider#UnsupportedTokenTypeException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedTokenTypeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1SetRiskConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -13017,6 +13130,21 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1UnauthorizedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnauthorizedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1UnauthorizedException(body, context);
+  const contents: UnauthorizedException = {
+    name: "UnauthorizedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1UnexpectedLambdaExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -13040,6 +13168,36 @@ const deserializeAws_json1_1UnsupportedIdentityProviderExceptionResponse = async
   const deserialized: any = deserializeAws_json1_1UnsupportedIdentityProviderException(body, context);
   const contents: UnsupportedIdentityProviderException = {
     name: "UnsupportedIdentityProviderException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnsupportedOperationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1UnsupportedOperationException(body, context);
+  const contents: UnsupportedOperationException = {
+    name: "UnsupportedOperationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1UnsupportedTokenTypeExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnsupportedTokenTypeException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1UnsupportedTokenTypeException(body, context);
+  const contents: UnsupportedTokenTypeException = {
+    name: "UnsupportedTokenTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -13955,6 +14113,8 @@ const serializeAws_json1_1CreateUserPoolClientRequest = (
     ...(input.ClientName !== undefined && input.ClientName !== null && { ClientName: input.ClientName }),
     ...(input.DefaultRedirectURI !== undefined &&
       input.DefaultRedirectURI !== null && { DefaultRedirectURI: input.DefaultRedirectURI }),
+    ...(input.EnableTokenRevocation !== undefined &&
+      input.EnableTokenRevocation !== null && { EnableTokenRevocation: input.EnableTokenRevocation }),
     ...(input.ExplicitAuthFlows !== undefined &&
       input.ExplicitAuthFlows !== null && {
         ExplicitAuthFlows: serializeAws_json1_1ExplicitAuthFlowsListType(input.ExplicitAuthFlows, context),
@@ -14843,6 +15003,14 @@ const serializeAws_json1_1RespondToAuthChallengeRequest = (
   };
 };
 
+const serializeAws_json1_1RevokeTokenRequest = (input: RevokeTokenRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ClientId !== undefined && input.ClientId !== null && { ClientId: input.ClientId }),
+    ...(input.ClientSecret !== undefined && input.ClientSecret !== null && { ClientSecret: input.ClientSecret }),
+    ...(input.Token !== undefined && input.Token !== null && { Token: input.Token }),
+  };
+};
+
 const serializeAws_json1_1RiskExceptionConfigurationType = (
   input: RiskExceptionConfigurationType,
   context: __SerdeContext
@@ -15279,6 +15447,8 @@ const serializeAws_json1_1UpdateUserPoolClientRequest = (
     ...(input.ClientName !== undefined && input.ClientName !== null && { ClientName: input.ClientName }),
     ...(input.DefaultRedirectURI !== undefined &&
       input.DefaultRedirectURI !== null && { DefaultRedirectURI: input.DefaultRedirectURI }),
+    ...(input.EnableTokenRevocation !== undefined &&
+      input.EnableTokenRevocation !== null && { EnableTokenRevocation: input.EnableTokenRevocation }),
     ...(input.ExplicitAuthFlows !== undefined &&
       input.ExplicitAuthFlows !== null && {
         ExplicitAuthFlows: serializeAws_json1_1ExplicitAuthFlowsListType(input.ExplicitAuthFlows, context),
@@ -17276,6 +17446,10 @@ const deserializeAws_json1_1RespondToAuthChallengeResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1RevokeTokenResponse = (output: any, context: __SerdeContext): RevokeTokenResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1RiskConfigurationType = (output: any, context: __SerdeContext): RiskConfigurationType => {
   return {
     AccountTakeoverRiskConfiguration:
@@ -17587,6 +17761,12 @@ const deserializeAws_json1_1UICustomizationType = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1UnauthorizedException = (output: any, context: __SerdeContext): UnauthorizedException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1UnexpectedLambdaException = (
   output: any,
   context: __SerdeContext
@@ -17600,6 +17780,24 @@ const deserializeAws_json1_1UnsupportedIdentityProviderException = (
   output: any,
   context: __SerdeContext
 ): UnsupportedIdentityProviderException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UnsupportedOperationException = (
+  output: any,
+  context: __SerdeContext
+): UnsupportedOperationException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UnsupportedTokenTypeException = (
+  output: any,
+  context: __SerdeContext
+): UnsupportedTokenTypeException => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
@@ -17904,6 +18102,10 @@ const deserializeAws_json1_1UserPoolClientType = (output: any, context: __SerdeC
     DefaultRedirectURI:
       output.DefaultRedirectURI !== undefined && output.DefaultRedirectURI !== null
         ? output.DefaultRedirectURI
+        : undefined,
+    EnableTokenRevocation:
+      output.EnableTokenRevocation !== undefined && output.EnableTokenRevocation !== null
+        ? output.EnableTokenRevocation
         : undefined,
     ExplicitAuthFlows:
       output.ExplicitAuthFlows !== undefined && output.ExplicitAuthFlows !== null

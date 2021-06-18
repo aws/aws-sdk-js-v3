@@ -3,7 +3,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1TagResourceCommand,
   serializeAws_json1_1TagResourceCommand,

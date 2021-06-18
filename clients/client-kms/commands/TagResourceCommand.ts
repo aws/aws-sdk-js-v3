@@ -22,20 +22,23 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds or edits tags on a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed CMK</a>.</p>
+ *          <note>
+ *             <p>Tagging or untagging a CMK can allow or deny permission to the
+ *                 CMK. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using ABAC in AWS KMS</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          </note>
  *          <p>Each tag consists of a tag key and a tag value, both of which are case-sensitive strings.
- *       The tag value can be an empty (null) string. </p>
- *          <p>To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing
- *       tag key and a new tag value.</p>
+ *       The tag value can be an empty (null) string. To add a tag, specify a new tag key and a tag
+ *       value. To edit a tag, specify an existing tag key and a new tag value.</p>
  *          <p>You can use this operation to tag a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed CMK</a>, but you cannot
  *       tag an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">AWS
- *         managed CMK</a>, an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">AWS owned CMK</a>, or an alias.</p>
- *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS resources</a> in
- *       the <i>Amazon Web Services General Reference</i>. For information about using
- *       tags in AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging
- *         keys</a>.</p>
+ *         managed CMK</a>, an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">AWS owned CMK</a>, a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#keystore-concept">custom key store</a>, or
+ *       an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#alias-concept">alias</a>.</p>
+ *          <p>You can also add tags to a CMK while creating it (<a>CreateKey</a>) or replicating it (<a>ReplicateKey</a>).</p>
+ *          <p>For information about using tags in AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging keys</a>. For general information about
+ *       tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS resources</a> in the <i>Amazon
+ *         Web Services General Reference</i>. </p>
  *          <p>The CMK that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
- * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No.  You cannot perform this operation on a CMK in a different AWS account. </p>
  *
@@ -47,12 +50,22 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *          <ul>
  *             <li>
  *                <p>
- *                   <a>UntagResource</a>
+ *                   <a>CreateKey</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a>ListResourceTags</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ReplicateKey</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>UntagResource</a>
  *                </p>
  *             </li>
  *          </ul>

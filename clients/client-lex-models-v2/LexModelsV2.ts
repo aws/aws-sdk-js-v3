@@ -538,8 +538,8 @@ export class LexModelsV2 extends LexModelsV2Client {
    * <p>Adds a new resource policy statement to a bot or bot alias. If a
    *          resource policy exists, the statement is added to the current resource
    *          policy. If a policy doesn't exist, a new policy is created.</p>
-   *          <p>You can create a resource policy statement that allows cross-account
-   *          access.</p>
+   *          <p>You can't create a resource policy statement that allows
+   *          cross-account access.</p>
    */
   public createResourcePolicyStatement(
     args: CreateResourcePolicyStatementCommandInput,
@@ -1536,8 +1536,8 @@ export class LexModelsV2 extends LexModelsV2Client {
   }
 
   /**
-   * <p>Lists the exports for a bot or bot locale. Exports are kept in the list for 7
-   *          days.</p>
+   * <p>Lists the exports for a bot or bot locale. Exports are kept in the
+   *          list for 7 days.</p>
    */
   public listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
   public listExports(args: ListExportsCommandInput, cb: (err: any, data?: ListExportsCommandOutput) => void): void;
@@ -1563,8 +1563,8 @@ export class LexModelsV2 extends LexModelsV2Client {
   }
 
   /**
-   * <p>Lists the imports for a bot or bot locale. Imports are kept in the list for 7
-   *          days.</p>
+   * <p>Lists the imports for a bot or bot locale. Imports are kept in the
+   *          list for 7 days.</p>
    */
   public listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
   public listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
@@ -1884,7 +1884,11 @@ export class LexModelsV2 extends LexModelsV2Client {
   }
 
   /**
-   * <p>Updates the password used to encrypt an export zip archive.</p>
+   * <p>Updates the password used to protect an export zip archive.</p>
+   *          <p>The password is not required. If you don't supply a password, Amazon Lex
+   *          generates a zip file that is not protected by a password. This is the
+   *          archive that is available at the pre-signed S3 URL provided by the
+   *              operation.</p>
    */
   public updateExport(
     args: UpdateExportCommandInput,

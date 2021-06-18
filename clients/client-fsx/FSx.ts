@@ -920,6 +920,9 @@ export class FSx extends FSxClient {
    *     properties:</p>
    *          <ul>
    *             <li>
+   *                <p>AuditLogConfiguration</p>
+   *             </li>
+   *             <li>
    *                <p>AutomaticBackupRetentionDays</p>
    *             </li>
    *             <li>

@@ -1,5 +1,15 @@
 import { GreengrassV2Client } from "./GreengrassV2Client";
 import {
+  BatchAssociateClientDeviceWithCoreDeviceCommand,
+  BatchAssociateClientDeviceWithCoreDeviceCommandInput,
+  BatchAssociateClientDeviceWithCoreDeviceCommandOutput,
+} from "./commands/BatchAssociateClientDeviceWithCoreDeviceCommand";
+import {
+  BatchDisassociateClientDeviceFromCoreDeviceCommand,
+  BatchDisassociateClientDeviceFromCoreDeviceCommandInput,
+  BatchDisassociateClientDeviceFromCoreDeviceCommandOutput,
+} from "./commands/BatchDisassociateClientDeviceFromCoreDeviceCommand";
+import {
   CancelDeploymentCommand,
   CancelDeploymentCommandInput,
   CancelDeploymentCommandOutput,
@@ -49,6 +59,11 @@ import {
   GetDeploymentCommandInput,
   GetDeploymentCommandOutput,
 } from "./commands/GetDeploymentCommand";
+import {
+  ListClientDevicesAssociatedWithCoreDeviceCommand,
+  ListClientDevicesAssociatedWithCoreDeviceCommandInput,
+  ListClientDevicesAssociatedWithCoreDeviceCommandOutput,
+} from "./commands/ListClientDevicesAssociatedWithCoreDeviceCommand";
 import {
   ListComponentVersionsCommand,
   ListComponentVersionsCommandInput,
@@ -111,6 +126,88 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *       the <i>AWS IoT Greengrass V2 Developer Guide</i>.</p>
  */
 export class GreengrassV2 extends GreengrassV2Client {
+  /**
+   * <p>Associate a list of client devices with a core device. Use this API operation to specify
+   *       which client devices can discover a core device through cloud discovery. With cloud discovery,
+   *       client devices connect to AWS IoT Greengrass to retrieve associated core devices' connectivity information
+   *       and certificates. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-cloud-discovery.html">Configure cloud
+   *         discovery</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</p>
+   *
+   *          <note>
+   *             <p>Client devices are local IoT devices that connect to and communicate with an AWS IoT Greengrass core
+   *         device over MQTT. You can connect client devices to a core device to sync MQTT messages and
+   *         data to AWS IoT Core and interact with client devices in AWS IoT Greengrass components. For more information,
+   *         see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interact-with-local-iot-devices.html">Interact with
+   *           local IoT devices</a> in the <i>AWS IoT Greengrass V2 Developer Guide</i>.</p>
+   *          </note>
+   */
+  public batchAssociateClientDeviceWithCoreDevice(
+    args: BatchAssociateClientDeviceWithCoreDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchAssociateClientDeviceWithCoreDeviceCommandOutput>;
+  public batchAssociateClientDeviceWithCoreDevice(
+    args: BatchAssociateClientDeviceWithCoreDeviceCommandInput,
+    cb: (err: any, data?: BatchAssociateClientDeviceWithCoreDeviceCommandOutput) => void
+  ): void;
+  public batchAssociateClientDeviceWithCoreDevice(
+    args: BatchAssociateClientDeviceWithCoreDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchAssociateClientDeviceWithCoreDeviceCommandOutput) => void
+  ): void;
+  public batchAssociateClientDeviceWithCoreDevice(
+    args: BatchAssociateClientDeviceWithCoreDeviceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchAssociateClientDeviceWithCoreDeviceCommandOutput) => void),
+    cb?: (err: any, data?: BatchAssociateClientDeviceWithCoreDeviceCommandOutput) => void
+  ): Promise<BatchAssociateClientDeviceWithCoreDeviceCommandOutput> | void {
+    const command = new BatchAssociateClientDeviceWithCoreDeviceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociate a list of client devices from a core device. After you disassociate a client
+   *       device from a core device, the client device won't be able to use cloud discovery to retrieve
+   *       the core device's connectivity information and certificates.</p>
+   */
+  public batchDisassociateClientDeviceFromCoreDevice(
+    args: BatchDisassociateClientDeviceFromCoreDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDisassociateClientDeviceFromCoreDeviceCommandOutput>;
+  public batchDisassociateClientDeviceFromCoreDevice(
+    args: BatchDisassociateClientDeviceFromCoreDeviceCommandInput,
+    cb: (err: any, data?: BatchDisassociateClientDeviceFromCoreDeviceCommandOutput) => void
+  ): void;
+  public batchDisassociateClientDeviceFromCoreDevice(
+    args: BatchDisassociateClientDeviceFromCoreDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDisassociateClientDeviceFromCoreDeviceCommandOutput) => void
+  ): void;
+  public batchDisassociateClientDeviceFromCoreDevice(
+    args: BatchDisassociateClientDeviceFromCoreDeviceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchDisassociateClientDeviceFromCoreDeviceCommandOutput) => void),
+    cb?: (err: any, data?: BatchDisassociateClientDeviceFromCoreDeviceCommandOutput) => void
+  ): Promise<BatchDisassociateClientDeviceFromCoreDeviceCommandOutput> | void {
+    const command = new BatchDisassociateClientDeviceFromCoreDeviceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Cancels a deployment. This operation cancels the deployment for devices that haven't yet
    *       received it. If a device already received the deployment, this operation doesn't change
@@ -505,6 +602,41 @@ export class GreengrassV2 extends GreengrassV2Client {
   }
 
   /**
+   * <p>Retrieves a paginated list of client devices that are associated with a core
+   *       device.</p>
+   */
+  public listClientDevicesAssociatedWithCoreDevice(
+    args: ListClientDevicesAssociatedWithCoreDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClientDevicesAssociatedWithCoreDeviceCommandOutput>;
+  public listClientDevicesAssociatedWithCoreDevice(
+    args: ListClientDevicesAssociatedWithCoreDeviceCommandInput,
+    cb: (err: any, data?: ListClientDevicesAssociatedWithCoreDeviceCommandOutput) => void
+  ): void;
+  public listClientDevicesAssociatedWithCoreDevice(
+    args: ListClientDevicesAssociatedWithCoreDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListClientDevicesAssociatedWithCoreDeviceCommandOutput) => void
+  ): void;
+  public listClientDevicesAssociatedWithCoreDevice(
+    args: ListClientDevicesAssociatedWithCoreDeviceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListClientDevicesAssociatedWithCoreDeviceCommandOutput) => void),
+    cb?: (err: any, data?: ListClientDevicesAssociatedWithCoreDeviceCommandOutput) => void
+  ): Promise<ListClientDevicesAssociatedWithCoreDeviceCommandOutput> | void {
+    const command = new ListClientDevicesAssociatedWithCoreDeviceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves a paginated list of component summaries. This list includes components that you
    *       have permission to view.</p>
    */
@@ -538,7 +670,7 @@ export class GreengrassV2 extends GreengrassV2Client {
   }
 
   /**
-   * <p>Retrieves a paginated list of all versions for a component.</p>
+   * <p>Retrieves a paginated list of all versions for a component. Greater versions are listed first.</p>
    */
   public listComponentVersions(
     args: ListComponentVersionsCommandInput,

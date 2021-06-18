@@ -21,8 +21,8 @@ export interface ListImportsCommandInput extends ListImportsRequest {}
 export interface ListImportsCommandOutput extends ListImportsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the imports for a bot or bot locale. Imports are kept in the list for 7
- *          days.</p>
+ * <p>Lists the imports for a bot or bot locale. Imports are kept in the
+ *          list for 7 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

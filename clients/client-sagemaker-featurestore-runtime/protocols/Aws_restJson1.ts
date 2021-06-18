@@ -1,8 +1,12 @@
+import { BatchGetRecordCommandInput, BatchGetRecordCommandOutput } from "../commands/BatchGetRecordCommand";
 import { DeleteRecordCommandInput, DeleteRecordCommandOutput } from "../commands/DeleteRecordCommand";
 import { GetRecordCommandInput, GetRecordCommandOutput } from "../commands/GetRecordCommand";
 import { PutRecordCommandInput, PutRecordCommandOutput } from "../commands/PutRecordCommand";
 import {
   AccessForbidden,
+  BatchGetRecordError,
+  BatchGetRecordIdentifier,
+  BatchGetRecordResultDetail,
   FeatureValue,
   InternalFailure,
   ResourceNotFound,
@@ -20,6 +24,33 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+export const serializeAws_restJson1BatchGetRecordCommand = async (
+  input: BatchGetRecordCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/BatchGetRecord";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Identifiers !== undefined &&
+      input.Identifiers !== null && {
+        Identifiers: serializeAws_restJson1BatchGetRecordIdentifiers(input.Identifiers, context),
+      }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1DeleteRecordCommand = async (
   input: DeleteRecordCommandInput,
@@ -123,6 +154,96 @@ export const serializeAws_restJson1PutRecordCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+export const deserializeAws_restJson1BatchGetRecordCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetRecordCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchGetRecordCommandError(output, context);
+  }
+  const contents: BatchGetRecordCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Errors: undefined,
+    Records: undefined,
+    UnprocessedIdentifiers: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Errors !== undefined && data.Errors !== null) {
+    contents.Errors = deserializeAws_restJson1BatchGetRecordErrors(data.Errors, context);
+  }
+  if (data.Records !== undefined && data.Records !== null) {
+    contents.Records = deserializeAws_restJson1BatchGetRecordResultDetails(data.Records, context);
+  }
+  if (data.UnprocessedIdentifiers !== undefined && data.UnprocessedIdentifiers !== null) {
+    contents.UnprocessedIdentifiers = deserializeAws_restJson1UnprocessedIdentifiers(
+      data.UnprocessedIdentifiers,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1BatchGetRecordCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetRecordCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessForbidden":
+    case "com.amazonaws.sagemakerfeaturestoreruntime#AccessForbidden":
+      response = {
+        ...(await deserializeAws_restJson1AccessForbiddenResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailure":
+    case "com.amazonaws.sagemakerfeaturestoreruntime#InternalFailure":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailable":
+    case "com.amazonaws.sagemakerfeaturestoreruntime#ServiceUnavailable":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationError":
+    case "com.amazonaws.sagemakerfeaturestoreruntime#ValidationError":
+      response = {
+        ...(await deserializeAws_restJson1ValidationErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteRecordCommand = async (
@@ -447,6 +568,50 @@ const deserializeAws_restJson1ValidationErrorResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1BatchGetRecordIdentifier = (
+  input: BatchGetRecordIdentifier,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FeatureGroupName !== undefined &&
+      input.FeatureGroupName !== null && { FeatureGroupName: input.FeatureGroupName }),
+    ...(input.FeatureNames !== undefined &&
+      input.FeatureNames !== null && { FeatureNames: serializeAws_restJson1FeatureNames(input.FeatureNames, context) }),
+    ...(input.RecordIdentifiersValueAsString !== undefined &&
+      input.RecordIdentifiersValueAsString !== null && {
+        RecordIdentifiersValueAsString: serializeAws_restJson1RecordIdentifiers(
+          input.RecordIdentifiersValueAsString,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_restJson1BatchGetRecordIdentifiers = (
+  input: BatchGetRecordIdentifier[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1BatchGetRecordIdentifier(entry, context);
+    });
+};
+
+const serializeAws_restJson1FeatureNames = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1FeatureValue = (input: FeatureValue, context: __SerdeContext): any => {
   return {
     ...(input.FeatureName !== undefined && input.FeatureName !== null && { FeatureName: input.FeatureName }),
@@ -462,6 +627,102 @@ const serializeAws_restJson1Record = (input: FeatureValue[], context: __SerdeCon
         return null as any;
       }
       return serializeAws_restJson1FeatureValue(entry, context);
+    });
+};
+
+const serializeAws_restJson1RecordIdentifiers = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_restJson1BatchGetRecordError = (output: any, context: __SerdeContext): BatchGetRecordError => {
+  return {
+    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    FeatureGroupName:
+      output.FeatureGroupName !== undefined && output.FeatureGroupName !== null ? output.FeatureGroupName : undefined,
+    RecordIdentifierValueAsString:
+      output.RecordIdentifierValueAsString !== undefined && output.RecordIdentifierValueAsString !== null
+        ? output.RecordIdentifierValueAsString
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BatchGetRecordErrors = (output: any, context: __SerdeContext): BatchGetRecordError[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchGetRecordError(entry, context);
+    });
+};
+
+const deserializeAws_restJson1BatchGetRecordIdentifier = (
+  output: any,
+  context: __SerdeContext
+): BatchGetRecordIdentifier => {
+  return {
+    FeatureGroupName:
+      output.FeatureGroupName !== undefined && output.FeatureGroupName !== null ? output.FeatureGroupName : undefined,
+    FeatureNames:
+      output.FeatureNames !== undefined && output.FeatureNames !== null
+        ? deserializeAws_restJson1FeatureNames(output.FeatureNames, context)
+        : undefined,
+    RecordIdentifiersValueAsString:
+      output.RecordIdentifiersValueAsString !== undefined && output.RecordIdentifiersValueAsString !== null
+        ? deserializeAws_restJson1RecordIdentifiers(output.RecordIdentifiersValueAsString, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BatchGetRecordResultDetail = (
+  output: any,
+  context: __SerdeContext
+): BatchGetRecordResultDetail => {
+  return {
+    FeatureGroupName:
+      output.FeatureGroupName !== undefined && output.FeatureGroupName !== null ? output.FeatureGroupName : undefined,
+    Record:
+      output.Record !== undefined && output.Record !== null
+        ? deserializeAws_restJson1Record(output.Record, context)
+        : undefined,
+    RecordIdentifierValueAsString:
+      output.RecordIdentifierValueAsString !== undefined && output.RecordIdentifierValueAsString !== null
+        ? output.RecordIdentifierValueAsString
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BatchGetRecordResultDetails = (
+  output: any,
+  context: __SerdeContext
+): BatchGetRecordResultDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchGetRecordResultDetail(entry, context);
+    });
+};
+
+const deserializeAws_restJson1FeatureNames = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 
@@ -481,6 +742,31 @@ const deserializeAws_restJson1Record = (output: any, context: __SerdeContext): F
         return null as any;
       }
       return deserializeAws_restJson1FeatureValue(entry, context);
+    });
+};
+
+const deserializeAws_restJson1RecordIdentifiers = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const deserializeAws_restJson1UnprocessedIdentifiers = (
+  output: any,
+  context: __SerdeContext
+): BatchGetRecordIdentifier[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchGetRecordIdentifier(entry, context);
     });
 };
 

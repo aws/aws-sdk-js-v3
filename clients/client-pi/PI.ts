@@ -5,6 +5,11 @@ import {
   DescribeDimensionKeysCommandOutput,
 } from "./commands/DescribeDimensionKeysCommand";
 import {
+  GetDimensionKeyDetailsCommand,
+  GetDimensionKeyDetailsCommandInput,
+  GetDimensionKeyDetailsCommandOutput,
+} from "./commands/GetDimensionKeyDetailsCommand";
+import {
   GetResourceMetricsCommand,
   GetResourceMetricsCommandInput,
   GetResourceMetricsCommandOutput,
@@ -63,6 +68,41 @@ export class PI extends PIClient {
     cb?: (err: any, data?: DescribeDimensionKeysCommandOutput) => void
   ): Promise<DescribeDimensionKeysCommandOutput> | void {
     const command = new DescribeDimensionKeysCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get the attributes of the specified dimension group for a DB instance or data source. For example, if you specify a
+   *       SQL ID, <code>GetDimensionKeyDetails</code> retrieves the full text of the dimension <code>db.sql.statement</code>
+   *       associated with this ID. This operation is useful because <code>GetResourceMetrics</code> and
+   *         <code>DescribeDimensionKeys</code> don't support retrieval of large SQL statement text.</p>
+   */
+  public getDimensionKeyDetails(
+    args: GetDimensionKeyDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDimensionKeyDetailsCommandOutput>;
+  public getDimensionKeyDetails(
+    args: GetDimensionKeyDetailsCommandInput,
+    cb: (err: any, data?: GetDimensionKeyDetailsCommandOutput) => void
+  ): void;
+  public getDimensionKeyDetails(
+    args: GetDimensionKeyDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDimensionKeyDetailsCommandOutput) => void
+  ): void;
+  public getDimensionKeyDetails(
+    args: GetDimensionKeyDetailsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDimensionKeyDetailsCommandOutput) => void),
+    cb?: (err: any, data?: GetDimensionKeyDetailsCommandOutput) => void
+  ): Promise<GetDimensionKeyDetailsCommandOutput> | void {
+    const command = new GetDimensionKeyDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

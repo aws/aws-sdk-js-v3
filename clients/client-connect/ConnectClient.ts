@@ -2,6 +2,7 @@ import {
   AssociateApprovedOriginCommandInput,
   AssociateApprovedOriginCommandOutput,
 } from "./commands/AssociateApprovedOriginCommand";
+import { AssociateBotCommandInput, AssociateBotCommandOutput } from "./commands/AssociateBotCommand";
 import {
   AssociateInstanceStorageConfigCommandInput,
   AssociateInstanceStorageConfigCommandOutput,
@@ -92,6 +93,7 @@ import {
   DisassociateApprovedOriginCommandInput,
   DisassociateApprovedOriginCommandOutput,
 } from "./commands/DisassociateApprovedOriginCommand";
+import { DisassociateBotCommandInput, DisassociateBotCommandOutput } from "./commands/DisassociateBotCommand";
 import {
   DisassociateInstanceStorageConfigCommandInput,
   DisassociateInstanceStorageConfigCommandOutput,
@@ -127,6 +129,7 @@ import {
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
 } from "./commands/ListApprovedOriginsCommand";
+import { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
 import { ListContactFlowsCommandInput, ListContactFlowsCommandOutput } from "./commands/ListContactFlowsCommand";
 import {
   ListHoursOfOperationsCommandInput,
@@ -345,6 +348,7 @@ import {
 
 export type ServiceInputTypes =
   | AssociateApprovedOriginCommandInput
+  | AssociateBotCommandInput
   | AssociateInstanceStorageConfigCommandInput
   | AssociateLambdaFunctionCommandInput
   | AssociateLexBotCommandInput
@@ -378,6 +382,7 @@ export type ServiceInputTypes =
   | DescribeUserHierarchyGroupCommandInput
   | DescribeUserHierarchyStructureCommandInput
   | DisassociateApprovedOriginCommandInput
+  | DisassociateBotCommandInput
   | DisassociateInstanceStorageConfigCommandInput
   | DisassociateLambdaFunctionCommandInput
   | DisassociateLexBotCommandInput
@@ -389,6 +394,7 @@ export type ServiceInputTypes =
   | GetFederationTokenCommandInput
   | GetMetricDataCommandInput
   | ListApprovedOriginsCommandInput
+  | ListBotsCommandInput
   | ListContactFlowsCommandInput
   | ListHoursOfOperationsCommandInput
   | ListInstanceAttributesCommandInput
@@ -446,6 +452,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AssociateApprovedOriginCommandOutput
+  | AssociateBotCommandOutput
   | AssociateInstanceStorageConfigCommandOutput
   | AssociateLambdaFunctionCommandOutput
   | AssociateLexBotCommandOutput
@@ -479,6 +486,7 @@ export type ServiceOutputTypes =
   | DescribeUserHierarchyGroupCommandOutput
   | DescribeUserHierarchyStructureCommandOutput
   | DisassociateApprovedOriginCommandOutput
+  | DisassociateBotCommandOutput
   | DisassociateInstanceStorageConfigCommandOutput
   | DisassociateLambdaFunctionCommandOutput
   | DisassociateLexBotCommandOutput
@@ -490,6 +498,7 @@ export type ServiceOutputTypes =
   | GetFederationTokenCommandOutput
   | GetMetricDataCommandOutput
   | ListApprovedOriginsCommandOutput
+  | ListBotsCommandOutput
   | ListContactFlowsCommandOutput
   | ListHoursOfOperationsCommandOutput
   | ListInstanceAttributesCommandOutput

@@ -510,6 +510,96 @@ export namespace Alias {
   });
 }
 
+export enum WindowsAccessAuditLogLevel {
+  DISABLED = "DISABLED",
+  FAILURE_ONLY = "FAILURE_ONLY",
+  SUCCESS_AND_FAILURE = "SUCCESS_AND_FAILURE",
+  SUCCESS_ONLY = "SUCCESS_ONLY",
+}
+
+/**
+ * <p>The configuration that Amazon FSx for Windows File Server uses to audit and log
+ *             user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server
+ *             file system. For more information,
+ *             see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/file-access-auditing.html">
+ *                 File access auditing</a>.</p>
+ */
+export interface WindowsAuditLogConfiguration {
+  /**
+   * <p>Sets which attempt type is logged by Amazon FSx for file and folder accesses.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>SUCCESS_ONLY</code> - only successful attempts to access files
+   *                     or folders are logged.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>FAILURE_ONLY</code> - only failed attempts to access files
+   *                     or folders are logged.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SUCCESS_AND_FAILURE</code> - both successful attempts and
+   *                     failed attempts to access files or folders are logged.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DISABLED</code> - access auditing of files and folders is turned off.</p>
+   *             </li>
+   *          </ul>
+   */
+  FileAccessAuditLogLevel: WindowsAccessAuditLogLevel | string | undefined;
+
+  /**
+   * <p>Sets which attempt type is logged by Amazon FSx for file share accesses.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>SUCCESS_ONLY</code> - only successful attempts to access file
+   *                     shares are logged.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>FAILURE_ONLY</code> - only failed attempts to access file
+   *                     shares are logged.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SUCCESS_AND_FAILURE</code> - both successful attempts and
+   *                     failed attempts to access file shares are logged.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DISABLED</code> - access auditing of file shares is turned off.</p>
+   *             </li>
+   *          </ul>
+   */
+  FileShareAccessAuditLogLevel: WindowsAccessAuditLogLevel | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the destination of the audit logs.
+   *             The destination can be any Amazon CloudWatch Logs log group ARN or
+   *             Amazon Kinesis Data Firehose delivery stream ARN.</p>
+   *         <p>The name of the Amazon CloudWatch Logs log group must begin with
+   *             the <code>/aws/fsx</code> prefix. The name of the Amazon Kinesis Data
+   *             Firehouse delivery stream must begin with the <code>aws-fsx</code> prefix.</p>
+   *         <p>The destination ARN (either CloudWatch Logs log group or Kinesis
+   *             Data Firehose delivery stream) must be in the same AWS partition,
+   *             AWS region, and AWS account as your Amazon FSx file system.</p>
+   */
+  AuditLogDestination?: string;
+}
+
+export namespace WindowsAuditLogConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WindowsAuditLogConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export enum WindowsDeploymentType {
   MULTI_AZ_1 = "MULTI_AZ_1",
   SINGLE_AZ_1 = "SINGLE_AZ_1",
@@ -684,6 +774,13 @@ export interface WindowsFileSystemConfiguration {
    *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html">DNS aliases</a>.</p>
    */
   Aliases?: Alias[];
+
+  /**
+   * <p>The configuration that Amazon FSx for Windows File Server uses to audit and log
+   *             user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server
+   *             file system.</p>
+   */
+  AuditLogConfiguration?: WindowsAuditLogConfiguration;
 }
 
 export namespace WindowsFileSystemConfiguration {
@@ -1834,6 +1931,106 @@ export namespace CreateFileSystemLustreConfiguration {
 }
 
 /**
+ * <p>The Windows file access auditing configuration used when creating
+ *             or updating an Amazon FSx for Windows File Server file system.</p>
+ */
+export interface WindowsAuditLogCreateConfiguration {
+  /**
+   * <p>Sets which attempt type is logged by Amazon FSx for file and folder accesses.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>SUCCESS_ONLY</code> - only successful attempts to access files
+   *                     or folders are logged.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>FAILURE_ONLY</code> - only failed attempts to access files
+   *                     or folders are logged.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SUCCESS_AND_FAILURE</code> - both successful attempts and
+   *                     failed attempts to access files or folders are logged.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DISABLED</code> - access auditing of files and folders is turned off.</p>
+   *             </li>
+   *          </ul>
+   */
+  FileAccessAuditLogLevel: WindowsAccessAuditLogLevel | string | undefined;
+
+  /**
+   * <p>Sets which attempt type is logged by Amazon FSx for file share accesses.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>SUCCESS_ONLY</code> - only successful attempts to access file
+   *                     shares are logged.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>FAILURE_ONLY</code> - only failed attempts to access file
+   *                     shares are logged.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SUCCESS_AND_FAILURE</code> - both successful attempts and
+   *                     failed attempts to access file shares are logged.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DISABLED</code> - access auditing of file shares is turned off.</p>
+   *             </li>
+   *          </ul>
+   */
+  FileShareAccessAuditLogLevel: WindowsAccessAuditLogLevel | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that specifies the destination of the audit logs.</p>
+   *         <p>The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis
+   *             Data Firehose delivery stream ARN, with the following requirements:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>The destination ARN that you provide (either CloudWatch Logs log group
+   *                     or Kinesis Data Firehose delivery stream) must be in the same AWS partition,
+   *                     AWS region, and AWS account as your Amazon FSx file system.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The name of the Amazon CloudWatch Logs log group must begin with
+   *                     the <code>/aws/fsx</code> prefix. The name of the Amazon Kinesis Data
+   *                     Firehouse delivery stream must begin with the <code>aws-fsx</code> prefix.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If you do not provide a destination in <code>AuditLogDestination</code>,
+   *                     Amazon FSx will create and use a log stream in the CloudWatch Logs
+   *                     <code>/aws/fsx/windows</code> log group.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If <code>AuditLogDestination</code> is provided and the resource does not
+   *                     exist, the request will fail with a <code>BadRequest</code> error.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If <code>FileAccessAuditLogLevel</code> and <code>FileShareAccessAuditLogLevel</code>
+   *                     are both set to <code>DISABLED</code>, you cannot specify a destination in
+   *                     <code>AuditLogDestination</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  AuditLogDestination?: string;
+}
+
+export namespace WindowsAuditLogCreateConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WindowsAuditLogCreateConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The configuration that Amazon FSx uses to join the Windows File Server instance to
  *             your self-managed (including on-premises) Microsoft Active Directory (AD)
  *             directory. For more information, see
@@ -2021,6 +2218,13 @@ export interface CreateFileSystemWindowsConfiguration {
    *             as uppercase letters, lowercase letters, or the corresponding letters in escape codes.</p>
    */
   Aliases?: string[];
+
+  /**
+   * <p>The configuration that Amazon FSx for Windows File Server uses to audit and log
+   *             user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server
+   *             file system.</p>
+   */
+  AuditLogConfiguration?: WindowsAuditLogCreateConfiguration;
 }
 
 export namespace CreateFileSystemWindowsConfiguration {
@@ -3388,6 +3592,13 @@ export interface UpdateFileSystemWindowsConfiguration {
    *             self-managed Microsoft AD directory. You cannot make a self-managed Microsoft AD update request if there is an existing self-managed Microsoft AD update request in progress.</p>
    */
   SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryConfigurationUpdates;
+
+  /**
+   * <p>The configuration that Amazon FSx for Windows File Server uses to audit and log
+   *             user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server
+   *             file system..</p>
+   */
+  AuditLogConfiguration?: WindowsAuditLogCreateConfiguration;
 }
 
 export namespace UpdateFileSystemWindowsConfiguration {

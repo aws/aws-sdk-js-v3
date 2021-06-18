@@ -26,8 +26,8 @@ export interface CreateResourcePolicyStatementCommandOutput
  * <p>Adds a new resource policy statement to a bot or bot alias. If a
  *          resource policy exists, the statement is added to the current resource
  *          policy. If a policy doesn't exist, a new policy is created.</p>
- *          <p>You can create a resource policy statement that allows cross-account
- *          access.</p>
+ *          <p>You can't create a resource policy statement that allows
+ *          cross-account access.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

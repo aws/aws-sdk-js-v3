@@ -21,9 +21,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *  Applies a tag to the specified flow.
- * </p>
+ * <p> Applies a tag to the specified flow. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

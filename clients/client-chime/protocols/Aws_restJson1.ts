@@ -488,6 +488,10 @@ import {
   UpdateRoomMembershipCommandOutput,
 } from "../commands/UpdateRoomMembershipCommand";
 import {
+  UpdateSipMediaApplicationCallCommandInput,
+  UpdateSipMediaApplicationCallCommandOutput,
+} from "../commands/UpdateSipMediaApplicationCallCommand";
+import {
   UpdateSipMediaApplicationCommandInput,
   UpdateSipMediaApplicationCommandOutput,
 } from "../commands/UpdateSipMediaApplicationCommand";
@@ -6418,6 +6422,8 @@ export const serializeAws_restJson1UpdateAccountCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.DefaultLicense !== undefined &&
+      input.DefaultLicense !== null && { DefaultLicense: input.DefaultLicense }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -6982,6 +6988,51 @@ export const serializeAws_restJson1UpdateSipMediaApplicationCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateSipMediaApplicationCallCommand = async (
+  input: UpdateSipMediaApplicationCallCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/sip-media-applications/{SipMediaApplicationId}/calls/{TransactionId}";
+  if (input.SipMediaApplicationId !== undefined) {
+    const labelValue: string = input.SipMediaApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: SipMediaApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{SipMediaApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: SipMediaApplicationId.");
+  }
+  if (input.TransactionId !== undefined) {
+    const labelValue: string = input.TransactionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: TransactionId.");
+    }
+    resolvedPath = resolvedPath.replace("{TransactionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: TransactionId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Arguments !== undefined &&
+      input.Arguments !== null && {
+        Arguments: serializeAws_restJson1SMAUpdateCallArgumentsMap(input.Arguments, context),
+      }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -25579,6 +25630,120 @@ const deserializeAws_restJson1UpdateSipMediaApplicationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateSipMediaApplicationCallCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSipMediaApplicationCallCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateSipMediaApplicationCallCommandError(output, context);
+  }
+  const contents: UpdateSipMediaApplicationCallCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    SipMediaApplicationCall: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.SipMediaApplicationCall !== undefined && data.SipMediaApplicationCall !== null) {
+    contents.SipMediaApplicationCall = deserializeAws_restJson1SipMediaApplicationCall(
+      data.SipMediaApplicationCall,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateSipMediaApplicationCallCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSipMediaApplicationCallCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chime#ResourceLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateSipRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -26830,6 +26995,21 @@ const serializeAws_restJson1SipRuleTargetApplicationList = (
       }
       return serializeAws_restJson1SipRuleTargetApplication(entry, context);
     });
+};
+
+const serializeAws_restJson1SMAUpdateCallArgumentsMap = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_restJson1StreamingConfiguration = (input: StreamingConfiguration, context: __SerdeContext): any => {

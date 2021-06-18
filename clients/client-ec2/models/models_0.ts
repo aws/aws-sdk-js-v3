@@ -1011,7 +1011,7 @@ export interface Address {
   NetworkInterfaceId?: string;
 
   /**
-   * <p>The ID of the AWS account that owns the network interface.</p>
+   * <p>The ID of the account that owns the network interface.</p>
    */
   NetworkInterfaceOwnerId?: string;
 
@@ -1162,7 +1162,7 @@ export type ByoipCidrState =
   | "provisioned-not-publicly-advertisable";
 
 /**
- * <p>Information about an address range that is provisioned for use with your AWS resources
+ * <p>Information about an address range that is provisioned for use with your Amazon Web Services resources
  *          through bring your own IP addresses (BYOIP).</p>
  */
 export interface ByoipCidr {
@@ -1374,7 +1374,7 @@ export interface AllocateAddressResult {
   PublicIp?: string;
 
   /**
-   * <p>[EC2-VPC] The ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.</p>
+   * <p>[EC2-VPC] The ID that Amazon Web Services assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.</p>
    */
   AllocationId?: string;
 
@@ -2457,6 +2457,128 @@ export namespace AssociateTransitGatewayRouteTableResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: AssociateTransitGatewayRouteTableResult): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateTrunkInterfaceRequest {
+  /**
+   * <p>The ID of the branch network interface.</p>
+   */
+  BranchInterfaceId: string | undefined;
+
+  /**
+   * <p>The ID of the trunk network interface.</p>
+   */
+  TrunkInterfaceId: string | undefined;
+
+  /**
+   * <p>The ID of the VLAN. This applies to the VLAN protocol.</p>
+   */
+  VlanId?: number;
+
+  /**
+   * <p>The application key. This applies to the GRE protocol.</p>
+   */
+  GreKey?: number;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
+   *                 Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace AssociateTrunkInterfaceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateTrunkInterfaceRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum InterfaceProtocolType {
+  GRE = "GRE",
+  VLAN = "VLAN",
+}
+
+/**
+ * <p>Information about an association between a branch network interface with a trunk network interface.</p>
+ */
+export interface TrunkInterfaceAssociation {
+  /**
+   * <p>The ID of the association.</p>
+   */
+  AssociationId?: string;
+
+  /**
+   * <p>The ID of the branch network interface.</p>
+   */
+  BranchInterfaceId?: string;
+
+  /**
+   * <p>The ID of the trunk network interface.</p>
+   */
+  TrunkInterfaceId?: string;
+
+  /**
+   * <p>The interface protocol. Valid values are <code>VLAN</code> and <code>GRE</code>.</p>
+   */
+  InterfaceProtocol?: InterfaceProtocolType | string;
+
+  /**
+   * <p>The ID of the VLAN when you use the VLAN protocol.</p>
+   */
+  VlanId?: number;
+
+  /**
+   * <p>The application key when you use the GRE protocol.</p>
+   */
+  GreKey?: number;
+
+  /**
+   * <p> The tags.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace TrunkInterfaceAssociation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TrunkInterfaceAssociation): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateTrunkInterfaceResult {
+  /**
+   * <p>Information about the association between the trunk network interface and branch network interface.</p>
+   */
+  InterfaceAssociation?: TrunkInterfaceAssociation;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
+   *                 Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace AssociateTrunkInterfaceResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateTrunkInterfaceResult): any => ({
     ...obj,
   });
 }
@@ -6288,6 +6410,7 @@ export type _InstanceType =
   | "m5dn.4xlarge"
   | "m5dn.8xlarge"
   | "m5dn.large"
+  | "m5dn.metal"
   | "m5dn.xlarge"
   | "m5n.12xlarge"
   | "m5n.16xlarge"
@@ -6296,6 +6419,7 @@ export type _InstanceType =
   | "m5n.4xlarge"
   | "m5n.8xlarge"
   | "m5n.large"
+  | "m5n.metal"
   | "m5n.xlarge"
   | "m5zn.12xlarge"
   | "m5zn.2xlarge"
@@ -6392,6 +6516,7 @@ export type _InstanceType =
   | "r5dn.4xlarge"
   | "r5dn.8xlarge"
   | "r5dn.large"
+  | "r5dn.metal"
   | "r5dn.xlarge"
   | "r5n.12xlarge"
   | "r5n.16xlarge"
@@ -6400,6 +6525,7 @@ export type _InstanceType =
   | "r5n.4xlarge"
   | "r5n.8xlarge"
   | "r5n.large"
+  | "r5n.metal"
   | "r5n.xlarge"
   | "r6g.12xlarge"
   | "r6g.16xlarge"
@@ -8503,11 +8629,3 @@ export namespace LaunchTemplateIamInstanceProfileSpecificationRequest {
     ...obj,
   });
 }
-
-export type ShutdownBehavior = "stop" | "terminate";
-
-export type MarketType = "spot";
-
-export type InstanceInterruptionBehavior = "hibernate" | "stop" | "terminate";
-
-export type SpotInstanceType = "one-time" | "persistent";

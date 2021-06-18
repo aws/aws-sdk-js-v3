@@ -801,6 +801,11 @@ import {
   UpdateRoomMembershipCommandOutput,
 } from "./commands/UpdateRoomMembershipCommand";
 import {
+  UpdateSipMediaApplicationCallCommand,
+  UpdateSipMediaApplicationCallCommandInput,
+  UpdateSipMediaApplicationCallCommandOutput,
+} from "./commands/UpdateSipMediaApplicationCallCommand";
+import {
   UpdateSipMediaApplicationCommand,
   UpdateSipMediaApplicationCommandInput,
   UpdateSipMediaApplicationCommandOutput,
@@ -1239,16 +1244,9 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Updates phone number product types or calling names. You can update one attribute at a time for each
-   *         <code>UpdatePhoneNumberRequestItem</code>. For example, you can update the product type or the calling name.</p>
-   *
-   *          <p>For toll-free numbers, you cannot use the Amazon Chime Business Calling product type. For
-   *             numbers outside the
-   *             US,
-   *             you must use the Amazon Chime SIP Media Application Dial-In product type.</p>
-   *
-   *          <p>Updates to outbound calling names can take 72 hours to complete. Pending updates to outbound calling names must be complete before you
-   *             can request another update.</p>
+   * <p>Updates phone number product types or calling names. You can update one attribute at a time for each <code>UpdatePhoneNumberRequestItem</code>. For example, you can update the product type or the calling name.</p>
+   *          <p>For toll-free numbers, you cannot use the Amazon Chime Business Calling product type. For numbers outside the U.S., you must use the Amazon Chime SIP Media Application Dial-In product type.</p>
+   *          <p>Updates to outbound calling names can take up to 72 hours to complete. Pending updates to outbound calling names must be complete before you can request another update.</p>
    */
   public batchUpdatePhoneNumber(
     args: BatchUpdatePhoneNumberCommandInput,
@@ -1280,13 +1278,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>
-   * Updates user details within the
-   * <a>UpdateUserRequestItem</a>
-   * object for up to 20 users for the specified Amazon Chime account.
-   * Currently, only <code>LicenseType</code>
-   * updates are supported for this action.
-   * </p>
+   * <p>Updates user details within the <a>UpdateUserRequestItem</a> object for up to 20 users for the specified Amazon Chime account. Currently, only <code>LicenseType</code> updates are supported for this action.</p>
    */
   public batchUpdateUser(
     args: BatchUpdateUserCommandInput,
@@ -1851,10 +1843,8 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Creates an order for phone numbers to be provisioned. For toll-free numbers, you cannot
-   *             use the Amazon Chime Business Calling product type. For numbers outside the
-   *             US,
-   *             you must use the Amazon Chime SIP Media Application Dial-In product type.</p>
+   * <p>Creates an order for phone numbers to be provisioned. For toll-free numbers, you cannot use the Amazon Chime Business Calling product type.
+   *         For numbers outside the U.S., you must use the Amazon Chime SIP Media Application Dial-In product type.</p>
    */
   public createPhoneNumberOrder(
     args: CreatePhoneNumberOrderCommandInput,
@@ -2637,9 +2627,9 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Moves the specified phone number into the <b>Deletion
-   *                 queue</b>. A phone number must be disassociated from any
-   *             users or Amazon Chime Voice Connectors before it can be deleted.</p>
+   * <p>Moves the specified phone number into the <b>Deletion queue</b>. A
+   *             phone number must be disassociated from any users or Amazon Chime Voice Connectors
+   *             before it can be deleted.</p>
    *
    *          <p>Deleted phone numbers remain in the
    * <b>Deletion queue</b>
@@ -4337,9 +4327,7 @@ export class Chime extends ChimeClient {
   /**
    * <p>
    * Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,name, and associated
-   * <code>VoiceConnectorItems</code>
-   * .
-   * </p>
+   * <code>VoiceConnectorItems</code>.</p>
    */
   public getVoiceConnectorGroup(
     args: GetVoiceConnectorGroupCommandInput,
@@ -4943,8 +4931,7 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>List all the messages in a channel. Returns a paginated list of <code>ChannelMessages</code>.
-   *             By default, sorted by creation timestamp in descending
-   *             order.</p>
+   *             By default, sorted by creation timestamp in descending order.</p>
    *
    *          <note>
    *             <p>Redacted messages appear in the results as empty, since they are only redacted, not deleted.
@@ -5112,9 +5099,7 @@ export class Chime extends ChimeClient {
    * Lists up to 100 active Amazon Chime SDK meetings. For more information about the Amazon Chime SDK, see
    * <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
    * in the
-   * <i>Amazon Chime Developer Guide</i>
-   * .
-   * </p>
+   * <i>Amazon Chime Developer Guide</i>.</p>
    */
   public listMeetings(
     args: ListMeetingsCommandInput,
@@ -5710,9 +5695,7 @@ export class Chime extends ChimeClient {
    * Puts retention settings for the specified Amazon Chime Enterprise account. We recommend using AWS CloudTrail to monitor usage of this API for your account. For more information, see
    * <a href="https://docs.aws.amazon.com/chime/latest/ag/cloudtrail.html">Logging Amazon Chime API Calls with AWS CloudTrail</a>
    * in the
-   * <i>Amazon Chime Administration Guide</i>
-   * .
-   * </p>
+   * <i>Amazon Chime Administration Guide</i>.</p>
    *
    *          <p>
    * To turn off existing retention settings, remove the number of days from the corresponding
@@ -5722,9 +5705,7 @@ export class Chime extends ChimeClient {
    * object. For more information about retention settings, see
    * <a href="https://docs.aws.amazon.com/chime/latest/ag/chat-retention.html">Managing Chat Retention Policies</a>
    * in the
-   * <i>Amazon Chime Administration Guide</i>
-   * .
-   * </p>
+   * <i>Amazon Chime Administration Guide</i>.</p>
    */
   public putRetentionSettings(
     args: PutRetentionSettingsCommandInput,
@@ -6231,13 +6212,11 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Searches for phone numbers that can be ordered. For
-   *             US
-   *             numbers, provide at least one of the following search filters: <code>AreaCode</code>,
-   *                 <code>City</code>, <code>State</code>, or <code>TollFreePrefix</code>. If you
-   *             provide <code>City</code>, you must also provide <code>State</code>. Numbers outside the
-   *             US
-   *             only support the <code>PhoneNumberType</code> filter, which you must use.</p>
+   * <p>Searches for phone numbers that can be ordered. For US numbers, provide at least one of
+   *             the following search filters: <code>AreaCode</code>, <code>City</code>,
+   *                 <code>State</code>, or <code>TollFreePrefix</code>. If you provide
+   *             <code>City</code>, you must also provide <code>State</code>. Numbers outside the US only
+   *             support the <code>PhoneNumberType</code> filter, which you must use.</p>
    */
   public searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
@@ -6480,8 +6459,7 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Updates account details for the specified Amazon Chime account. Currently, only account name
-   *             updates are supported for this action.</p>
+   * <p>Updates account details for the specified Amazon Chime account. Currently, only account name and default license updates are supported for this action.</p>
    */
   public updateAccount(
     args: UpdateAccountCommandInput,
@@ -6785,14 +6763,9 @@ export class Chime extends ChimeClient {
   }
 
   /**
-   * <p>Updates phone number details, such as product type or calling name, for the specified phone number ID. You can update one phone number
-   *         detail at a time. For example, you can update either the product type or the calling name in one action.</p>
-   *
-   *          <p>For toll-free numbers, you cannot use the Amazon Chime Business Calling product type. For numbers outside the U.S., you must use the
-   *         Amazon Chime SIP Media Application Dial-In product type.</p>
-   *
-   *          <p>Updates to outbound calling names can take 72 hours to complete. Pending updates to outbound calling names must be complete before you
-   *          can request another update.</p>
+   * <p>Updates phone number details, such as product type or calling name, for the specified phone number ID. You can update one phone number detail at a time. For example, you can update either the product type or the calling name in one action.</p>
+   *          <p>For toll-free numbers, you cannot use the Amazon Chime Business Calling product type. For numbers outside the U.S., you must use the Amazon Chime SIP Media Application Dial-In product type.</p>
+   *          <p>Updates to outbound calling names can take 72 hours to complete. Pending updates to outbound calling names must be complete before you can request another update.</p>
    */
   public updatePhoneNumber(
     args: UpdatePhoneNumberCommandInput,
@@ -6972,6 +6945,38 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: UpdateSipMediaApplicationCommandOutput) => void
   ): Promise<UpdateSipMediaApplicationCommandOutput> | void {
     const command = new UpdateSipMediaApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Allows you to trigger a Lambda function at any time while a call is active, and replace the current actions with new actions returned by the invocation.</p>
+   */
+  public updateSipMediaApplicationCall(
+    args: UpdateSipMediaApplicationCallCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSipMediaApplicationCallCommandOutput>;
+  public updateSipMediaApplicationCall(
+    args: UpdateSipMediaApplicationCallCommandInput,
+    cb: (err: any, data?: UpdateSipMediaApplicationCallCommandOutput) => void
+  ): void;
+  public updateSipMediaApplicationCall(
+    args: UpdateSipMediaApplicationCallCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSipMediaApplicationCallCommandOutput) => void
+  ): void;
+  public updateSipMediaApplicationCall(
+    args: UpdateSipMediaApplicationCallCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSipMediaApplicationCallCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSipMediaApplicationCallCommandOutput) => void
+  ): Promise<UpdateSipMediaApplicationCallCommandOutput> | void {
+    const command = new UpdateSipMediaApplicationCallCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

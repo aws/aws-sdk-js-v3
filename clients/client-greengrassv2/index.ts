@@ -1,5 +1,7 @@
 export * from "./GreengrassV2Client";
 export * from "./GreengrassV2";
+export * from "./commands/BatchAssociateClientDeviceWithCoreDeviceCommand";
+export * from "./commands/BatchDisassociateClientDeviceFromCoreDeviceCommand";
 export * from "./commands/CancelDeploymentCommand";
 export * from "./commands/CreateComponentVersionCommand";
 export * from "./commands/CreateDeploymentCommand";
@@ -10,6 +12,8 @@ export * from "./commands/GetComponentCommand";
 export * from "./commands/GetComponentVersionArtifactCommand";
 export * from "./commands/GetCoreDeviceCommand";
 export * from "./commands/GetDeploymentCommand";
+export * from "./commands/ListClientDevicesAssociatedWithCoreDeviceCommand";
+export * from "./pagination/ListClientDevicesAssociatedWithCoreDevicePaginator";
 export * from "./commands/ListComponentsCommand";
 export * from "./pagination/ListComponentsPaginator";
 export * from "./commands/ListComponentVersionsCommand";

@@ -21,7 +21,7 @@ export interface RemoveRoleFromDBInstanceCommandInput extends RemoveRoleFromDBIn
 export interface RemoveRoleFromDBInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disassociates an AWS Identity and Access Management (IAM) role from a DB instance.</p>
+ * <p>Disassociates an Amazon Web Services Identity and Access Management (IAM) role from a DB instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

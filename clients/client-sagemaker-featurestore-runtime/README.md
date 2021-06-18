@@ -50,13 +50,13 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SageMakerFeatureStoreRuntimeClient` and
-the commands you need, for example `DeleteRecordCommand`:
+the commands you need, for example `BatchGetRecordCommand`:
 
 ```js
 // ES5 example
 const {
   SageMakerFeatureStoreRuntimeClient,
-  DeleteRecordCommand,
+  BatchGetRecordCommand,
 } = require("@aws-sdk/client-sagemaker-featurestore-runtime");
 ```
 
@@ -64,7 +64,7 @@ const {
 // ES6+ example
 import {
   SageMakerFeatureStoreRuntimeClient,
-  DeleteRecordCommand,
+  BatchGetRecordCommand,
 } from "@aws-sdk/client-sagemaker-featurestore-runtime";
 ```
 
@@ -84,7 +84,7 @@ const client = new SageMakerFeatureStoreRuntimeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteRecordCommand(params);
+const command = new BatchGetRecordCommand(params);
 ```
 
 #### Async/await
@@ -163,7 +163,7 @@ const client = new AWS.SageMakerFeatureStoreRuntime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteRecord(params);
+  const data = await client.batchGetRecord(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -171,7 +171,7 @@ try {
 
 // Promises.
 client
-  .deleteRecord(params)
+  .batchGetRecord(params)
   .then((data) => {
     // process data.
   })
@@ -180,7 +180,7 @@ client
   });
 
 // callbacks.
-client.deleteRecord(params, (err, data) => {
+client.batchGetRecord(params, (err, data) => {
   // proccess err and data.
 });
 ```

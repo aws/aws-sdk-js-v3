@@ -27,7 +27,6 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *             resulting model artifacts as part of the model. You can also use the artifacts in a
  *             machine learning service other than Amazon SageMaker, provided that you know how to use them for
  *             inference.
- *
  *         </p>
  *         <p>In the request body, you provide the following: </p>
  *         <ul>
@@ -80,17 +79,18 @@ export interface CreateTrainingJobCommandOutput extends CreateTrainingJobRespons
  *                 <p>
  *                   <code>StoppingCondition</code> - To help cap training costs, use
  *                         <code>MaxRuntimeInSeconds</code> to set a time limit for training. Use
- *                         <code>MaxWaitTimeInSeconds</code> to specify how long
- *                         a managed spot training job has to complete. </p>
+ *                         <code>MaxWaitTimeInSeconds</code> to specify how long a managed spot
+ *                     training job has to complete. </p>
  *             </li>
  *             <li>
  *                 <p>
- *                   <code>Environment</code> - The environment variables to set in the Docker container.</p>
+ *                   <code>Environment</code> - The environment variables to set in the Docker
+ *                     container.</p>
  *             </li>
  *             <li>
  *                 <p>
- *                   <code>RetryStrategy</code> - The number of times to retry the job when the
- *                     job fails due to an <code>InternalServerError</code>.</p>
+ *                   <code>RetryStrategy</code> - The number of times to retry the job when the job
+ *                     fails due to an <code>InternalServerError</code>.</p>
  *             </li>
  *          </ul>
  *         <p> For more information about Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>

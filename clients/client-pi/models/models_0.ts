@@ -211,10 +211,10 @@ export interface DescribeDimensionKeysRequest {
 
   /**
    * <p>The date and time specifying the end of the requested time series data. The value specified is
-   *         <i>exclusive</i>, which means that data points less than (but not equal to) <code>EndTime</code> are
+   *       <i>exclusive</i>, which means that data points less than (but not equal to) <code>EndTime</code> are
    *       returned.</p>
    *          <p>The value for <code>EndTime</code> must be later than the value for
-   *         <code>StartTime</code>.</p>
+   *       <code>StartTime</code>.</p>
    */
   EndTime: Date | undefined;
 
@@ -469,6 +469,118 @@ export namespace NotAuthorizedException {
    * @internal
    */
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
+    ...obj,
+  });
+}
+
+export enum DetailStatus {
+  AVAILABLE = "AVAILABLE",
+  PROCESSING = "PROCESSING",
+  UNAVAILABLE = "UNAVAILABLE",
+}
+
+/**
+ * <p>An object that describes the details for a specified dimension.</p>
+ */
+export interface DimensionKeyDetail {
+  /**
+   * <p>The value of the dimension detail data. For the <code>db.sql.statement</code> dimension, this value is either the
+   *       full or truncated SQL query, depending on the return status.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>The full name of the dimension. The full name includes the group name and key name. The only valid value is
+   *         <code>db.sql.statement</code>. </p>
+   */
+  Dimension?: string;
+
+  /**
+   * <p>The status of the dimension detail data. Possible values include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AVAILABLE</code> - The dimension detail data is ready to be retrieved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PROCESSING</code> - The dimension detail data isn't ready to be retrieved because more processing time is
+   *           required. If the requested detail data for <code>db.sql.statement</code> has the status <code>PROCESSING</code>,
+   *           Performance Insights returns the truncated query.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNAVAILABLE</code> - The dimension detail data could not be collected successfully.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: DetailStatus | string;
+}
+
+export namespace DimensionKeyDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DimensionKeyDetail): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDimensionKeyDetailsRequest {
+  /**
+   * <p>The AWS service for which Performance Insights returns data. The only valid value is <code>RDS</code>.</p>
+   */
+  ServiceType: ServiceType | string | undefined;
+
+  /**
+   * <p>The ID for a data source from which to gather dimension data. This ID must be immutable and unique within an AWS
+   *       Region. When a DB instance is the data source, specify its <code>DbiResourceId</code> value. For example, specify
+   *         <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>. </p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The name of the dimension group. The only valid value is <code>db.sql</code>. Performance Insights searches the
+   *       specified group for the dimension group ID.</p>
+   */
+  Group: string | undefined;
+
+  /**
+   * <p>The ID of the dimension group from which to retrieve dimension details. For dimension group <code>db.sql</code>,
+   *       the group ID is <code>db.sql.id</code>.</p>
+   */
+  GroupIdentifier: string | undefined;
+
+  /**
+   * <p>A list of dimensions to retrieve the detail data for within the given dimension group. For the dimension group
+   *                 <code>db.sql</code>, specify either the full dimension name <code>db.sql.statement</code> or the short
+   *             dimension name <code>statement</code>. If you don't specify this parameter, Performance Insights returns all
+   *             dimension data within the specified dimension group.</p>
+   */
+  RequestedDimensions?: string[];
+}
+
+export namespace GetDimensionKeyDetailsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDimensionKeyDetailsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDimensionKeyDetailsResponse {
+  /**
+   * <p>The details for the requested dimensions.</p>
+   */
+  Dimensions?: DimensionKeyDetail[];
+}
+
+export namespace GetDimensionKeyDetailsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDimensionKeyDetailsResponse): any => ({
     ...obj,
   });
 }

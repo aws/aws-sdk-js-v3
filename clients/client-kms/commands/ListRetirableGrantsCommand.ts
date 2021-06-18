@@ -21,8 +21,11 @@ export interface ListRetirableGrantsCommandInput extends ListRetirableGrantsRequ
 export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns all grants in which the specified principal is the <code>RetiringPrincipal</code>
- *       in the grant. </p>
+ * <p>Returns information about all grants in the AWS account and Region that have the specified
+ *       retiring principal. For more information about grants, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants</a> in the
+ *       <i>
+ *                <i>AWS Key Management Service Developer Guide</i>
+ *             </i>.</p>
  *          <p>You can specify any principal in your AWS account. The grants that are returned include
  *       grants for CMKs in your AWS account and other AWS accounts.</p>
  *          <p>You might use this operation to determine which grants you may retire. To retire a grant,
