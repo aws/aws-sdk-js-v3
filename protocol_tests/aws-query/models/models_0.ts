@@ -115,6 +115,21 @@ export namespace ComplexError {
   });
 }
 
+export interface CustomCodeError extends __SmithyException, $MetadataBearer {
+  name: "CustomCodeError";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace CustomCodeError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomCodeError): any => ({
+    ...obj,
+  });
+}
+
 export interface GreetingWithErrorsOutput {
   greeting?: string;
 }

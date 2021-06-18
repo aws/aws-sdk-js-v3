@@ -27,7 +27,7 @@ import { XmlMapsCommand } from "../../commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommand } from "../../commands/XmlMapsXmlNameCommand";
 import { XmlNamespacesCommand } from "../../commands/XmlNamespacesCommand";
 import { XmlTimestampsCommand } from "../../commands/XmlTimestampsCommand";
-import { ComplexError, InvalidGreeting } from "../../models/models_0";
+import { ComplexError, CustomCodeError, InvalidGreeting } from "../../models/models_0";
 import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { Readable } from "stream";
@@ -545,6 +545,59 @@ it("QueryInvalidGreetingError:Error:GreetingWithErrors", async () => {
   fail("Expected an exception to be thrown from response");
 });
 
+/**
+ * Parses customized XML errors
+ */
+// Manually skipping to unblock smithy-1.8.x update.
+// TODO: Consume AWSQueryError trait as a follow-up.
+it.skip("QueryCustomizedError:Error:GreetingWithErrors", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      402,
+      {
+        "content-type": "text/xml",
+      },
+      `<ErrorResponse>
+         <Error>
+            <Type>Sender</Type>
+            <Code>Customized</Code>
+            <Message>Hi</Message>
+         </Error>
+         <RequestId>foo-id</RequestId>
+      </ErrorResponse>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "CustomCodeError") {
+      console.log(err);
+      fail(`Expected a CustomCodeError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(402);
+    const paramsToValidate: any = [
+      {
+        message: "Hi",
+      },
+    ][0];
+    Object.keys(paramsToValidate).forEach((param) => {
+      expect(r[param]).toBeDefined();
+      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    });
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
 it("QueryComplexError:Error:GreetingWithErrors", async () => {
   const client = new QueryProtocolClient({
     ...clientParams,
@@ -613,7 +666,7 @@ it("QueryIgnoresWrappingXmlName:Response", async () => {
       {
         "content-type": "text/xml",
       },
-      `<IgnoresWrappingXmlNameResponse xmlns="http://foo.com" xmlns="https://example.com/">
+      `<IgnoresWrappingXmlNameResponse xmlns="https://example.com/">
           <IgnoresWrappingXmlNameResult>
               <foo>bar</foo>
           </IgnoresWrappingXmlNameResult>
@@ -2528,7 +2581,7 @@ it("QueryXmlNamespaces:Response", async () => {
       {
         "content-type": "text/xml",
       },
-      `<XmlNamespacesResponse xmlns="http://foo.com" xmlns="https://example.com/">
+      `<XmlNamespacesResponse xmlns="https://example.com/">
           <XmlNamespacesResult>
               <nested>
                   <foo xmlns:baz="http://baz.com">Foo</foo>
