@@ -133,14 +133,14 @@ export namespace DescribeDBSnapshotAttributesMessage {
 
 /**
  * <p>Contains the name and values of a manual DB snapshot attribute</p>
- *          <p>Manual DB snapshot attributes are used to authorize other AWS accounts
+ *          <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
  *     to restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
  *     API.</p>
  */
 export interface DBSnapshotAttribute {
   /**
    * <p>The name of the manual DB snapshot attribute.</p>
-   *          <p>The attribute named <code>restore</code> refers to the list of AWS accounts that
+   *          <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that
    *           have permission to copy or restore the manual DB cluster snapshot. For more information,
    *           see the <code>ModifyDBSnapshotAttribute</code>
    *           API action.</p>
@@ -150,9 +150,9 @@ export interface DBSnapshotAttribute {
   /**
    * <p>The value or values for the manual DB snapshot attribute.</p>
    *          <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element
-   *       returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual
+   *       returns a list of IDs of the Amazon Web Services accounts that are authorized to copy or restore the manual
    *       DB snapshot. If a value of <code>all</code> is in the list, then the manual DB snapshot
-   *       is public and available for any AWS account to copy or restore.</p>
+   *       is public and available for any Amazon Web Services account to copy or restore.</p>
    */
   AttributeValues?: string[];
 }
@@ -169,7 +169,7 @@ export namespace DBSnapshotAttribute {
 /**
  * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
  *     API action.</p>
- *          <p>Manual DB snapshot attributes are used to authorize other AWS accounts
+ *          <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
  *       to copy or restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
  *       API action.</p>
  */
@@ -198,7 +198,7 @@ export interface DescribeDBSnapshotAttributesResult {
   /**
    * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
    *     API action.</p>
-   *          <p>Manual DB snapshot attributes are used to authorize other AWS accounts
+   *          <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
    *       to copy or restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
    *       API action.</p>
    */
@@ -288,15 +288,15 @@ export interface DescribeDBSnapshotsMessage {
    *             <li>
    *                <p>
    *                   <code>automated</code> - Return all DB snapshots that have been automatically taken by
-   *       Amazon RDS for my AWS account.</p>
+   *       Amazon RDS for my Amazon Web Services account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>manual</code> - Return all DB snapshots that have been taken by my AWS account.</p>
+   *                   <code>manual</code> - Return all DB snapshots that have been taken by my Amazon Web Services account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>shared</code> - Return all manual DB snapshots that have been shared to my AWS account.</p>
+   *                   <code>shared</code> - Return all manual DB snapshots that have been shared to my Amazon Web Services account.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -304,10 +304,10 @@ export interface DescribeDBSnapshotsMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>awsbackup</code> - Return the DB snapshots managed by the AWS Backup service.</p>
-   *               <p>For information about AWS Backup, see the
+   *                   <code>awsbackup</code> - Return the DB snapshots managed by the Amazon Web Services Backup service.</p>
+   *               <p>For information about Amazon Web Services Backup, see the
    *                   <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html">
-   *                       <i>AWS Backup Developer Guide.</i>
+   *                       <i>Amazon Web Services Backup Developer Guide.</i>
    *                   </a>
    *                </p>
    *               <p>The <code>awsbackup</code> type does not apply to Aurora.</p>
@@ -379,16 +379,16 @@ export interface DescribeDBSnapshotsMessage {
 
   /**
    * <p>A value that indicates whether to include shared manual DB cluster snapshots
-   *           from other AWS accounts that this AWS account has been given
+   *           from other Amazon Web Services accounts that this Amazon Web Services account has been given
    *           permission to copy or restore. By default, these snapshots are not included.</p>
-   *          <p>You can give an AWS account permission to restore a manual DB snapshot from
-   *     another AWS account by using the <code>ModifyDBSnapshotAttribute</code> API action.</p>
+   *          <p>You can give an Amazon Web Services account permission to restore a manual DB snapshot from
+   *     another Amazon Web Services account by using the <code>ModifyDBSnapshotAttribute</code> API action.</p>
    */
   IncludeShared?: boolean;
 
   /**
    * <p>A value that indicates whether to include manual DB cluster snapshots that are public and can be copied
-   *           or restored by any AWS account. By default, the public snapshots are not included.</p>
+   *           or restored by any Amazon Web Services account. By default, the public snapshots are not included.</p>
    *          <p>You can share a manual DB snapshot as public by using the <a>ModifyDBSnapshotAttribute</a> API.</p>
    */
   IncludePublic?: boolean;
@@ -1233,7 +1233,7 @@ export interface InstallationMediaMessage {
   Marker?: string;
 
   /**
-   * <p>The list of <a>InstallationMedia</a> objects for the AWS account.</p>
+   * <p>The list of <a>InstallationMedia</a> objects for the Amazon Web Services account.</p>
    */
   InstallationMedia?: InstallationMedia[];
 }
@@ -1273,17 +1273,17 @@ export interface DescribeOptionGroupOptionsMessage {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>oracle-se2</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>oracle-se1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>oracle-se</code>
+   *                   <code>oracle-se2-cdb</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1644,17 +1644,17 @@ export interface DescribeOptionGroupsMessage {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>oracle-se2</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>oracle-se1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>oracle-se</code>
+   *                   <code>oracle-se2-cdb</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1768,17 +1768,17 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>oracle-se2</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>oracle-se1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>oracle-se</code>
+   *                   <code>oracle-se2-cdb</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1827,7 +1827,7 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
 
   /**
    * <p>The Availability Zone group associated with a Local Zone. Specify this parameter to retrieve available offerings for the Local Zones in the group.</p>
-   *         <p>Omit this parameter to show the available offerings in the specified AWS Region.</p>
+   *         <p>Omit this parameter to show the available offerings in the specified Amazon Web Services Region.</p>
    */
   AvailabilityZoneGroup?: string;
 
@@ -2042,11 +2042,18 @@ export interface OrderableDBInstanceOption {
 
   /**
    * <p>Whether a DB instance supports RDS on Outposts.</p>
-   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Amazon RDS on AWS Outposts</a>
+   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Amazon RDS on Amazon Web Services Outposts</a>
    *             in the <i>Amazon RDS User Guide.</i>
    *          </p>
    */
   OutpostCapable?: boolean;
+
+  /**
+   * <p>The list of supported modes for Database Activity Streams. Aurora PostgreSQL returns the value <code>[sync,
+   *           async]</code>. Aurora MySQL and RDS for Oracle return <code>[async]</code> only. If Database Activity Streams
+   *           isn't supported, the return value is an empty list.</p>
+   */
+  SupportedActivityStreamModes?: string[];
 
   /**
    * <p>A value that indicates whether you can use Aurora global databases with a specific combination of other DB engine attributes.</p>
@@ -2233,7 +2240,7 @@ export interface DescribeReservedDBInstancesMessage {
   /**
    * <p>The lease identifier filter value. Specify this parameter to show only the reservation that matches the specified lease ID.</p>
    *          <note>
-   *             <p>AWS Support might request the lease ID for an issue related to a reserved DB instance.</p>
+   *             <p>Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.</p>
    *          </note>
    */
   LeaseId?: string;
@@ -2387,7 +2394,7 @@ export interface ReservedDBInstance {
   /**
    * <p>The unique identifier for the lease associated with the reserved DB instance.</p>
    *          <note>
-   *             <p>AWS Support might request the lease ID for an issue related to a reserved DB instance.</p>
+   *             <p>Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.</p>
    *          </note>
    */
   LeaseId?: string;
@@ -2650,11 +2657,11 @@ export namespace ReservedDBInstancesOfferingNotFoundFault {
  */
 export interface DescribeSourceRegionsMessage {
   /**
-   * <p>The source AWS Region name. For example, <code>us-east-1</code>.</p>
+   * <p>The source Amazon Web Services Region name. For example, <code>us-east-1</code>.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
-   *                 <p>Must specify a valid AWS Region name.</p>
+   *                 <p>Must specify a valid Amazon Web Services Region name.</p>
    *             </li>
    *          </ul>
    */
@@ -2692,26 +2699,26 @@ export namespace DescribeSourceRegionsMessage {
 }
 
 /**
- * <p>Contains an AWS Region name as the result of a successful call to the <code>DescribeSourceRegions</code> action.</p>
+ * <p>Contains an Amazon Web Services Region name as the result of a successful call to the <code>DescribeSourceRegions</code> action.</p>
  */
 export interface SourceRegion {
   /**
-   * <p>The name of the source AWS Region.</p>
+   * <p>The name of the source Amazon Web Services Region.</p>
    */
   RegionName?: string;
 
   /**
-   * <p>The endpoint for the source AWS Region endpoint.</p>
+   * <p>The endpoint for the source Amazon Web Services Region endpoint.</p>
    */
   Endpoint?: string;
 
   /**
-   * <p>The status of the source AWS Region.</p>
+   * <p>The status of the source Amazon Web Services Region.</p>
    */
   Status?: string;
 
   /**
-   * <p>Whether the source AWS Region supports replicating automated backups to the current AWS Region.</p>
+   * <p>Whether the source Amazon Web Services Region supports replicating automated backups to the current Amazon Web Services Region.</p>
    */
   SupportsDBInstanceAutomatedBackupsReplication?: boolean;
 }
@@ -2740,8 +2747,8 @@ export interface SourceRegionMessage {
   Marker?: string;
 
   /**
-   * <p>A list of SourceRegion instances that contains each source AWS Region that the
-   *             current AWS Region can get a read replica or a DB snapshot from.</p>
+   * <p>A list of SourceRegion instances that contains each source Amazon Web Services Region that the
+   *             current Amazon Web Services Region can get a read replica or a DB snapshot from.</p>
    */
   SourceRegions?: SourceRegion[];
 }
@@ -3121,7 +3128,7 @@ export interface FailoverGlobalClusterMessage {
   /**
    * <p>Identifier of the secondary Aurora DB cluster that you want to promote to primary for the Aurora
    *        global database (<a>GlobalCluster</a>.) Use the Amazon Resource Name (ARN) for the identifier so that
-   *        Aurora can locate the cluster in its AWS Region.
+   *        Aurora can locate the cluster in its Amazon Web Services Region.
    *  </p>
    */
   TargetDbClusterIdentifier: string | undefined;
@@ -3301,7 +3308,7 @@ export namespace TagListMessage {
 export interface ModifyCertificatesMessage {
   /**
    * <p>The new default certificate identifier to override the current one with.</p>
-   *          <p>To determine the valid values, use the <code>describe-certificates</code> AWS CLI
+   *          <p>To determine the valid values, use the <code>describe-certificates</code> CLI
    *             command or the <code>DescribeCertificates</code> API operation.</p>
    */
   CertificateIdentifier?: string;
@@ -3325,7 +3332,7 @@ export namespace ModifyCertificatesMessage {
 
 export interface ModifyCertificatesResult {
   /**
-   * <p>A CA certificate for an AWS account.</p>
+   * <p>A CA certificate for an Amazon Web Services account.</p>
    */
   Certificate?: Certificate;
 }
@@ -3586,7 +3593,7 @@ export interface ModifyDBClusterMessage {
    *             using the <code>BackupRetentionPeriod</code> parameter.
    *         </p>
    *          <p>The default is a 30-minute window selected at random from an
-   *             8-hour block of time for each AWS Region.
+   *             8-hour block of time for each Amazon Web Services Region.
    *             To view the time blocks available, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow">
    *                 Backup window</a> in the <i>Amazon Aurora User Guide.</i>
@@ -3614,7 +3621,7 @@ export interface ModifyDBClusterMessage {
    *          <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *          </p>
    *          <p>The default is a 30-minute window selected at random from an
-   *             8-hour block of time for each AWS Region, occurring on a random day of the
+   *             8-hour block of time for each Amazon Web Services Region, occurring on a random day of the
    *             week. To see the time blocks available, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
    *                 Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
@@ -3625,7 +3632,7 @@ export interface ModifyDBClusterMessage {
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
    *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
    *
    *         <p>For more information, see
@@ -3870,6 +3877,16 @@ export interface ModifyDBClusterParameterGroupMessage {
 
   /**
    * <p>A list of parameters in the DB cluster parameter group to modify.</p>
+   *          <p>Valid Values (for the application method): <code>immediate | pending-reboot</code>
+   *          </p>
+   *          <note>
+   *             <p>You can use the <code>immediate</code> value with dynamic parameters only. You can use the
+   *               <code>pending-reboot</code> value for both dynamic and static parameters.</p>
+   *             <p>When the application method is <code>immediate</code>, changes to dynamic parameters are applied immediately
+   *           to the DB clusters associated with the parameter group. When the application method is <code>pending-reboot</code>,
+   *           changes to dynamic and static parameters are applied after a reboot without failover to the DB clusters associated with the
+   *           parameter group.</p>
+   *          </note>
    */
   Parameters: Parameter[] | undefined;
 }
@@ -3894,7 +3911,7 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
 
   /**
    * <p>The name of the DB cluster snapshot attribute to modify.</p>
-   *         <p>To manage authorization for other AWS accounts to copy or restore a manual DB cluster snapshot,
+   *         <p>To manage authorization for other Amazon Web Services accounts to copy or restore a manual DB cluster snapshot,
    *             set this value to <code>restore</code>.</p>
    *         <note>
    *             <p>To view the list of attributes available to modify, use the
@@ -3905,20 +3922,20 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
 
   /**
    * <p>A list of DB cluster snapshot attributes to add to the attribute specified by <code>AttributeName</code>.</p>
-   *         <p>To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account
+   *         <p>To authorize other Amazon Web Services accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more Amazon Web Services account
    *             IDs, or <code>all</code> to make the manual DB cluster snapshot restorable by
-   *             any AWS account. Do not add the <code>all</code> value for any
+   *             any Amazon Web Services account. Do not add the <code>all</code> value for any
    *             manual DB cluster snapshots that contain private information that you don't want available
-   *             to all AWS accounts.</p>
+   *             to all Amazon Web Services accounts.</p>
    */
   ValuesToAdd?: string[];
 
   /**
    * <p>A list of DB cluster snapshot attributes to remove from the attribute specified by <code>AttributeName</code>.</p>
-   *         <p>To remove authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include
-   *             one or more AWS account
-   *             identifiers, or <code>all</code> to remove authorization for any AWS account to copy or
-   *             restore the DB cluster snapshot. If you specify <code>all</code>, an AWS account whose account ID is
+   *         <p>To remove authorization for other Amazon Web Services accounts to copy or restore a manual DB cluster snapshot, set this list to include
+   *             one or more Amazon Web Services account
+   *             identifiers, or <code>all</code> to remove authorization for any Amazon Web Services account to copy or
+   *             restore the DB cluster snapshot. If you specify <code>all</code>, an Amazon Web Services account whose account ID is
    *             explicitly added to the <code>restore</code> attribute
    *             can still copy or restore a manual DB cluster snapshot.</p>
    */
@@ -3938,7 +3955,7 @@ export interface ModifyDBClusterSnapshotAttributeResult {
   /**
    * <p>Contains the results of a successful call to the <code>DescribeDBClusterSnapshotAttributes</code>
    *             API action.</p>
-   *         <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts
+   *         <p>Manual DB cluster snapshot attributes are used to authorize other Amazon Web Services accounts
    *             to copy or restore a manual DB cluster snapshot. For more information, see the <code>ModifyDBClusterSnapshotAttribute</code>
    *             API action.</p>
    */
@@ -4024,7 +4041,7 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>The new compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
-   *           Not all DB instance classes are available in all AWS Regions, or for all database engines.
+   *           Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.
    *           For the full list of DB instance classes,
    *           and availability for your engine, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
@@ -4205,7 +4222,7 @@ export interface ModifyDBInstanceMessage {
    *         as determined by the <code>BackupRetentionPeriod</code> parameter.
    *         Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
    *         The default is a 30-minute window selected at random from an
-   *         8-hour block of time for each AWS Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Backup window</a> in the <i>Amazon RDS User Guide.</i>
+   *         8-hour block of time for each Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Backup window</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
    *
    *          <p>
@@ -4546,10 +4563,10 @@ export interface ModifyDBInstanceMessage {
   PromotionTier?: number;
 
   /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
    *           Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
    *
-   *          <p>This setting doesn't apply to Amazon Aurora. Mapping AWS IAM accounts to database accounts is managed by the DB
+   *          <p>This setting doesn't apply to Amazon Aurora. Mapping Amazon Web Services IAM accounts to database accounts is managed by the DB
    *           cluster.</p>
    *
    *          <p>For more information about IAM database authentication, see
@@ -4569,11 +4586,11 @@ export interface ModifyDBInstanceMessage {
   EnablePerformanceInsights?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for encryption of Performance Insights data.</p>
-   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
+   * <p>The Amazon Web Services KMS key identifier for encryption of Performance Insights data.</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
    *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
-   *             uses your default CMK. There is a default CMK for your AWS account.
-   *             Your AWS account has a different default CMK for each AWS Region.</p>
+   *             uses your default CMK. There is a default CMK for your Amazon Web Services account.
+   *             Your Amazon Web Services account has a different default CMK for each Amazon Web Services Region.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
@@ -4666,15 +4683,15 @@ export interface ModifyDBInstanceMessage {
    *             your Outpost subnets through your on-premises network. For some use cases, a CoIP can
    *             provide lower latency for connections to the DB instance from outside of its virtual
    *             private cloud (VPC) on your local network.</p>
-   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on AWS Outposts</a>
+   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on Amazon Web Services Outposts</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned IP addresses</a>
-   *             in the <i>AWS Outposts User Guide</i>.</p>
+   *             in the <i>Amazon Web Services Outposts User Guide</i>.</p>
    */
   EnableCustomerOwnedIp?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the recovery point in AWS Backup.</p>
+   * <p>The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup.</p>
    */
   AwsBackupRecoveryPointArn?: string;
 }
@@ -4745,11 +4762,17 @@ export interface ModifyDBParameterGroupMessage {
   DBParameterGroupName: string | undefined;
 
   /**
-   * <p>An array of parameter names, values, and the apply method for the parameter update. At least one parameter name, value, and apply method must be supplied; later arguments are optional. A maximum of 20 parameters can be modified in a single request.</p>
+   * <p>An array of parameter names, values, and the application methods for the parameter update. At least one parameter name, value, and
+   *           application method method must be supplied; later arguments are optional. A maximum of 20 parameters can be modified in a single request.</p>
    *          <p>Valid Values (for the application method): <code>immediate | pending-reboot</code>
    *          </p>
    *          <note>
-   *             <p>You can use the immediate value with dynamic parameters only. You can use the pending-reboot value for both dynamic and static parameters, and changes are applied when you reboot the DB instance without failover.</p>
+   *             <p>You can use the <code>immediate</code> value with dynamic parameters only. You can use the
+   *               <code>pending-reboot</code> value for both dynamic and static parameters.</p>
+   *             <p>When the application method is <code>immediate</code>, changes to dynamic parameters are applied immediately
+   *           to the DB instances associated with the parameter group. When the application method is <code>pending-reboot</code>,
+   *           changes to dynamic and static parameters are applied after a reboot without failover to the DB instances associated with the
+   *           parameter group.</p>
    *          </note>
    */
   Parameters: Parameter[] | undefined;
@@ -4804,7 +4827,7 @@ export interface ModifyDBProxyRequest {
   DebugLogging?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in Amazon Web Services Secrets Manager.</p>
    */
   RoleArn?: string;
 
@@ -5103,7 +5126,7 @@ export interface ModifyDBSnapshotAttributeMessage {
 
   /**
    * <p>The name of the DB snapshot attribute to modify.</p>
-   *          <p>To manage authorization for other AWS accounts to copy or restore a manual DB snapshot,
+   *          <p>To manage authorization for other Amazon Web Services accounts to copy or restore a manual DB snapshot,
    *       set this value to <code>restore</code>.</p>
    *          <note>
    *             <p>To view the list of attributes available to modify, use the
@@ -5114,20 +5137,20 @@ export interface ModifyDBSnapshotAttributeMessage {
 
   /**
    * <p>A list of DB snapshot attributes to add to the attribute specified by <code>AttributeName</code>.</p>
-   *          <p>To authorize other AWS accounts to copy or restore a manual snapshot, set this list to include one or more AWS account
+   *          <p>To authorize other Amazon Web Services accounts to copy or restore a manual snapshot, set this list to include one or more Amazon Web Services account
    *       IDs, or <code>all</code> to make the manual DB snapshot restorable by
-   *       any AWS account. Do not add the <code>all</code> value for any
+   *       any Amazon Web Services account. Do not add the <code>all</code> value for any
    *       manual DB snapshots that contain private information that you don't want available
-   *       to all AWS accounts.</p>
+   *       to all Amazon Web Services accounts.</p>
    */
   ValuesToAdd?: string[];
 
   /**
    * <p>A list of DB snapshot attributes to remove from the attribute specified by <code>AttributeName</code>.</p>
-   *          <p>To remove authorization for other AWS accounts to copy or restore a manual snapshot, set this list to include
-   *       one or more AWS account
-   *       identifiers, or <code>all</code> to remove authorization for any AWS account to copy or
-   *       restore the DB snapshot. If you specify <code>all</code>, an AWS account whose
+   *          <p>To remove authorization for other Amazon Web Services accounts to copy or restore a manual snapshot, set this list to include
+   *       one or more Amazon Web Services account
+   *       identifiers, or <code>all</code> to remove authorization for any Amazon Web Services account to copy or
+   *       restore the DB snapshot. If you specify <code>all</code>, an Amazon Web Services account whose
    *       account ID is explicitly added to the <code>restore</code> attribute
    *       can still copy or restore the manual DB snapshot.</p>
    */
@@ -5147,7 +5170,7 @@ export interface ModifyDBSnapshotAttributeResult {
   /**
    * <p>Contains the results of a successful call to the <code>DescribeDBSnapshotAttributes</code>
    *     API action.</p>
-   *          <p>Manual DB snapshot attributes are used to authorize other AWS accounts
+   *          <p>Manual DB snapshot attributes are used to authorize other Amazon Web Services accounts
    *       to copy or restore a manual DB snapshot. For more information, see the <code>ModifyDBSnapshotAttribute</code>
    *       API action.</p>
    */
@@ -5534,7 +5557,7 @@ export interface PromoteReadReplicaMessage {
    *         </p>
    *          <p>
    *             The default is a 30-minute window selected at random from an
-   *             8-hour block of time for each AWS Region.
+   *             8-hour block of time for each Amazon Web Services Region.
    *             To see the time blocks available, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
    *             Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i>
@@ -6339,7 +6362,7 @@ export interface RestoreDBClusterFromS3Message {
    *             using the <code>BackupRetentionPeriod</code> parameter.
    *         </p>
    *         <p>The default is a 30-minute window selected at random from an
-   *             8-hour block of time for each AWS Region.
+   *             8-hour block of time for each Amazon Web Services Region.
    *             To view the time blocks available, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow">
    *                 Backup window</a> in the <i>Amazon Aurora User Guide.</i>
@@ -6367,7 +6390,7 @@ export interface RestoreDBClusterFromS3Message {
    *         <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *         </p>
    *         <p>The default is a 30-minute window selected at random from an
-   *             8-hour block of time for each AWS Region, occurring on a random day of the
+   *             8-hour block of time for each Amazon Web Services Region, occurring on a random day of the
    *             week. To see the time blocks available, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
    *                 Adjusting the Preferred Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
@@ -6390,19 +6413,19 @@ export interface RestoreDBClusterFromS3Message {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for an encrypted DB cluster.</p>
-   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
-   *             To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>
+   * <p>The Amazon Web Services KMS key identifier for an encrypted DB cluster.</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).
+   *             To use a CMK in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
    *         <p>If the StorageEncrypted parameter is enabled, and you do
    *             not specify a value for the <code>KmsKeyId</code> parameter, then
    *             Amazon RDS will use your default CMK. There is a
-   *             default CMK for your AWS account. Your AWS account has a different
-   *             default CMK for each AWS Region.</p>
+   *             default CMK for your Amazon Web Services account. Your Amazon Web Services account has a different
+   *             default CMK for each Amazon Web Services Region.</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
    *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
    *
    *         <p>For more information, see
@@ -6443,7 +6466,7 @@ export interface RestoreDBClusterFromS3Message {
   S3Prefix?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that authorizes
    *         Amazon RDS to access the Amazon S3 bucket on your behalf.</p>
    */
   S3IngestionRoleArn: string | undefined;
@@ -6684,17 +6707,17 @@ export interface RestoreDBClusterFromSnapshotMessage {
   Tags?: Tag[];
 
   /**
-   * <p>The AWS KMS key identifier to use when restoring an encrypted DB cluster from a DB
+   * <p>The Amazon Web Services KMS key identifier to use when restoring an encrypted DB cluster from a DB
    *             snapshot or DB cluster snapshot.</p>
-   *          <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
-   *           To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).
+   *           To use a CMK in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
    *         <p>When you don't specify a value for the <code>KmsKeyId</code> parameter, then the
    *             following occurs:</p>
    *         <ul>
    *             <li>
    *                 <p>If the DB snapshot or DB cluster snapshot in
    *                         <code>SnapshotIdentifier</code> is encrypted, then the restored DB cluster
-   *                     is encrypted using the AWS KMS CMK that was used to encrypt the DB snapshot or DB
+   *                     is encrypted using the Amazon Web Services KMS CMK that was used to encrypt the DB snapshot or DB
    *                     cluster snapshot.</p>
    *             </li>
    *             <li>
@@ -6707,7 +6730,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
   KmsKeyId?: string;
 
   /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
    *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
    *
    *         <p>For more information, see
@@ -6953,16 +6976,16 @@ export interface RestoreDBClusterToPointInTimeMessage {
   Tags?: Tag[];
 
   /**
-   * <p>The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster.</p>
-   *          <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
-   *           To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>
-   *          <p>You can restore to a new DB cluster and encrypt the new DB cluster with a AWS KMS CMK that is different than the
-   *       AWS KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the AWS KMS CMK
+   * <p>The Amazon Web Services KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster.</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).
+   *           To use a CMK in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
+   *          <p>You can restore to a new DB cluster and encrypt the new DB cluster with a Amazon Web Services KMS CMK that is different than the
+   *       Amazon Web Services KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the Amazon Web Services KMS CMK
    *       identified by the <code>KmsKeyId</code> parameter.</p>
    *          <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the following occurs:</p>
    *          <ul>
    *             <li>
-   *                <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the AWS KMS CMK that was used to encrypt the source DB cluster.</p>
+   *                <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the Amazon Web Services KMS CMK that was used to encrypt the source DB cluster.</p>
    *             </li>
    *             <li>
    *                <p>If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.</p>
@@ -6975,7 +6998,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
   KmsKeyId?: string;
 
   /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
    *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
    *
    *         <p>For more information, see
@@ -7058,6 +7081,20 @@ export interface RestoreDBClusterToPointInTimeMessage {
    * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
    */
   DomainIAMRoleName?: string;
+
+  /**
+   * <p>For DB clusters in <code>serverless</code> DB engine mode, the scaling properties of the DB cluster.</p>
+   */
+  ScalingConfiguration?: ScalingConfiguration;
+
+  /**
+   * <p>The engine mode of the new cluster. Specify <code>provisioned</code> or <code>serverless</code>,
+   *       depending on the type of the cluster you are creating. You can create an Aurora Serverless clone
+   *       from a provisioned cluster, or a provisioned clone from an Aurora Serverless cluster. To create a clone
+   *       that is an Aurora Serverless cluster, the original cluster must be an Aurora Serverless cluster or
+   *       an encrypted provisioned cluster.</p>
+   */
+  EngineMode?: string;
 }
 
 export namespace RestoreDBClusterToPointInTimeMessage {
@@ -7129,7 +7166,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
 
   /**
    * <p>The compute and memory capacity of the Amazon RDS DB instance, for example, <code>db.m4.large</code>.
-   *           Not all DB instance classes are available in all AWS Regions, or for all database engines.
+   *           Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.
    *           For the full list of DB instance classes,
    *           and availability for your engine, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
@@ -7226,17 +7263,17 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>oracle-se2</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>oracle-se1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>oracle-se</code>
+   *                   <code>oracle-se2-cdb</code>
    *                </p>
    *             </li>
    *             <li>
@@ -7353,7 +7390,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   DomainIAMRoleName?: string;
 
   /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
    *           Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
    *
    *          <p>For more information about IAM database authentication, see
@@ -7419,10 +7456,10 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *             your Outpost subnets through your on-premises network. For some use cases, a CoIP can
    *             provide lower latency for connections to the DB instance from outside of its virtual
    *             private cloud (VPC) on your local network.</p>
-   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on AWS Outposts</a>
+   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on Amazon Web Services Outposts</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned IP addresses</a>
-   *             in the <i>AWS Outposts User Guide</i>.</p>
+   *             in the <i>Amazon Web Services Outposts User Guide</i>.</p>
    */
   EnableCustomerOwnedIp?: boolean;
 }
@@ -7503,7 +7540,7 @@ export interface RestoreDBInstanceFromS3Message {
   /**
    * <p>The compute and memory capacity of the DB instance,
    *             for example, <code>db.m4.large</code>.
-   *             Not all DB instance classes are available in all AWS Regions,
+   *             Not all DB instance classes are available in all Amazon Web Services Regions,
    *             or for all database engines.
    *             For the full list of DB instance classes,
    *             and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
@@ -7565,15 +7602,15 @@ export interface RestoreDBInstanceFromS3Message {
 
   /**
    * <p>The Availability Zone that the DB instance is created in.
-   *             For information about AWS Regions and Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions and Availability Zones</a> in the <i>Amazon RDS User Guide.</i>
+   *             For information about Amazon Web Services Regions and Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions and Availability Zones</a> in the <i>Amazon RDS User Guide.</i>
    *         </p>
-   *         <p>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.
+   *         <p>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services Region.
    *         </p>
    *         <p>
    *             Example: <code>us-east-1d</code>
    *         </p>
    *         <p>Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the DB instance is a Multi-AZ deployment.
-   *             The specified Availability Zone must be in the same AWS Region as the current endpoint.
+   *             The specified Availability Zone must be in the same Amazon Web Services Region as the current endpoint.
    *         </p>
    */
   AvailabilityZone?: string;
@@ -7747,15 +7784,15 @@ export interface RestoreDBInstanceFromS3Message {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for an encrypted DB instance.
+   * <p>The Amazon Web Services KMS key identifier for an encrypted DB instance.
    *         </p>
-   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
-   *             To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).
+   *             To use a CMK in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
    *         <p>If the <code>StorageEncrypted</code> parameter is enabled,
    *             and you do not specify a value for the <code>KmsKeyId</code> parameter,
    *             then Amazon RDS will use your default CMK.
-   *             There is a default CMK for your AWS account.
-   *             Your AWS account has a different default CMK for each AWS Region.
+   *             There is a default CMK for your Amazon Web Services account.
+   *             Your Amazon Web Services account has a different default CMK for each Amazon Web Services Region.
    *         </p>
    */
   KmsKeyId?: string;
@@ -7797,7 +7834,7 @@ export interface RestoreDBInstanceFromS3Message {
   MonitoringRoleArn?: string;
 
   /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
    *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
    *
    *          <p>For more information about IAM database authentication, see
@@ -7839,7 +7876,7 @@ export interface RestoreDBInstanceFromS3Message {
   S3Prefix?: string;
 
   /**
-   * <p>An AWS Identity and Access Management (IAM) role to allow Amazon RDS to access your Amazon S3 bucket.
+   * <p>An Amazon Web Services Identity and Access Management (IAM) role to allow Amazon RDS to access your Amazon S3 bucket.
    *         </p>
    */
   S3IngestionRoleArn: string | undefined;
@@ -7855,11 +7892,11 @@ export interface RestoreDBInstanceFromS3Message {
   EnablePerformanceInsights?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for encryption of Performance Insights data.</p>
-   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
+   * <p>The Amazon Web Services KMS key identifier for encryption of Performance Insights data.</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
    *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
-   *             uses your default CMK. There is a default CMK for your AWS account.
-   *             Your AWS account has a different default CMK for each AWS Region.</p>
+   *             uses your default CMK. There is a default CMK for your Amazon Web Services account.
+   *             Your Amazon Web Services account has a different default CMK for each Amazon Web Services Region.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
@@ -8016,7 +8053,7 @@ export interface RestoreDBInstanceToPointInTimeMessage {
 
   /**
    * <p>The compute and memory capacity of the Amazon RDS DB instance, for example, <code>db.m4.large</code>.
-   *           Not all DB instance classes are available in all AWS Regions, or for all database engines.
+   *           Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.
    *           For the full list of DB instance classes,
    *           and availability for your engine, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
@@ -8113,17 +8150,17 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>oracle-se2</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>oracle-se1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>oracle-se</code>
+   *                   <code>oracle-se2-cdb</code>
    *                </p>
    *             </li>
    *             <li>
@@ -8235,7 +8272,7 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   DomainIAMRoleName?: string;
 
   /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
    *           Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
    *
    *          <p>For more information about IAM database authentication, see
@@ -8320,10 +8357,10 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    *             your Outpost subnets through your on-premises network. For some use cases, a CoIP can
    *             provide lower latency for connections to the DB instance from outside of its virtual
    *             private cloud (VPC) on your local network.</p>
-   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on AWS Outposts</a>
+   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on Amazon Web Services Outposts</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned IP addresses</a>
-   *             in the <i>AWS Outposts User Guide</i>.</p>
+   *             in the <i>Amazon Web Services Outposts User Guide</i>.</p>
    */
   EnableCustomerOwnedIp?: boolean;
 }
@@ -8395,9 +8432,9 @@ export interface RevokeDBSecurityGroupIngressMessage {
 
   /**
    * <p>
-   *         The AWS account number of the owner of the EC2 security group
+   *         The Amazon Web Services account number of the owner of the EC2 security group
    *         specified in the <code>EC2SecurityGroupName</code> parameter.
-   *         The AWS access key ID isn't an acceptable value.
+   *         The Amazon Web Services access key ID isn't an acceptable value.
    *         For VPC DB security groups, <code>EC2SecurityGroupId</code> must be provided.
    *         Otherwise, EC2SecurityGroupOwnerId and either <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must be provided.
    *         </p>
@@ -8450,8 +8487,8 @@ export interface StartActivityStreamRequest {
   Mode: ActivityStreamMode | string | undefined;
 
   /**
-   * <p>The AWS KMS key identifier for encrypting messages in the database activity stream.
-   *             The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
+   * <p>The Amazon Web Services KMS key identifier for encrypting messages in the database activity stream.
+   *             The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
    */
   KmsKeyId: string | undefined;
 
@@ -8460,6 +8497,12 @@ export interface StartActivityStreamRequest {
    *             regardless of the maintenance window for the database.</p>
    */
   ApplyImmediately?: boolean;
+
+  /**
+   * <p>Specifies whether the database activity stream includes engine-native audit fields. This option only applies
+   *         to an Oracle DB instance. By default, no engine-native audit fields are included.</p>
+   */
+  EngineNativeAuditFieldsIncluded?: boolean;
 }
 
 export namespace StartActivityStreamRequest {
@@ -8473,7 +8516,7 @@ export namespace StartActivityStreamRequest {
 
 export interface StartActivityStreamResponse {
   /**
-   * <p>The AWS KMS key identifier for encryption of messages in the database activity stream.</p>
+   * <p>The Amazon Web Services KMS key identifier for encryption of messages in the database activity stream.</p>
    */
   KmsKeyId?: string;
 
@@ -8497,6 +8540,11 @@ export interface StartActivityStreamResponse {
    *             regardless of the maintenance window for the database.</p>
    */
   ApplyImmediately?: boolean;
+
+  /**
+   * <p>Indicates whether engine-native audit fields are included in the database activity stream.</p>
+   */
+  EngineNativeAuditFieldsIncluded?: boolean;
 }
 
 export namespace StartActivityStreamResponse {
@@ -8595,16 +8643,16 @@ export interface StartDBInstanceAutomatedBackupsReplicationMessage {
   BackupRetentionPeriod?: number;
 
   /**
-   * <p>The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the
-   *             Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example,
+   * <p>The Amazon Web Services KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the
+   *             Amazon Resource Name (ARN) for the KMS encryption key in the destination Amazon Web Services Region, for example,
    *             <code>arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE</code>.</p>
    */
   KmsKeyId?: string;
 
   /**
    * <p>A URL that contains a Signature Version 4 signed request for the StartDBInstanceAutomatedBackupsReplication action to be
-   *             called in the AWS Region of the source DB instance. The presigned URL must be a valid request for the
-   *             StartDBInstanceAutomatedBackupsReplication API action that can be executed in the AWS Region that contains
+   *             called in the Amazon Web Services Region of the source DB instance. The presigned URL must be a valid request for the
+   *             StartDBInstanceAutomatedBackupsReplication API action that can be executed in the Amazon Web Services Region that contains
    *             the source DB instance.</p>
    */
   PreSignedUrl?: string;
@@ -8750,10 +8798,10 @@ export interface StartExportTaskMessage {
   IamRoleArn: string | undefined;
 
   /**
-   * <p>The ID of the AWS KMS customer master key (CMK) to use to encrypt the snapshot exported to Amazon S3. The AWS KMS
-   *             key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
+   * <p>The ID of the Amazon Web Services KMS customer master key (CMK) to use to encrypt the snapshot exported to Amazon S3. The Amazon Web Services KMS
+   *             key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).
    *             The caller of this operation must be authorized to
-   *             execute the following operations. These can be set in the AWS KMS key policy: </p>
+   *             execute the following operations. These can be set in the Amazon Web Services KMS key policy: </p>
    *         <ul>
    *             <li>
    *                <p>GrantOperation.Encrypt</p>
@@ -8858,8 +8906,8 @@ export namespace StopActivityStreamRequest {
 
 export interface StopActivityStreamResponse {
   /**
-   * <p>The AWS KMS key identifier used for encrypting messages in the database activity stream.</p>
-   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
+   * <p>The Amazon Web Services KMS key identifier used for encrypting messages in the database activity stream.</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
    */
   KmsKeyId?: string;
 

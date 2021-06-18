@@ -21,9 +21,10 @@ export interface ListConnectorEntitiesCommandInput extends ListConnectorEntities
 export interface ListConnectorEntitiesCommandOutput extends ListConnectorEntitiesResponse, __MetadataBearer {}
 
 /**
- * <p>
- *   Returns the list of available connector entities supported by Amazon AppFlow. For example, you can query Salesforce for <i>Account</i> and <i>Opportunity</i> entities, or query ServiceNow for the <i>Incident</i> entity.
- * </p>
+ * <p> Returns the list of available connector entities supported by Amazon AppFlow. For
+ *       example, you can query Salesforce for <i>Account</i> and
+ *         <i>Opportunity</i> entities, or query ServiceNow for the
+ *         <i>Incident</i> entity. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

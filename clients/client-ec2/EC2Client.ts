@@ -71,6 +71,10 @@ import {
   AssociateTransitGatewayRouteTableCommandOutput,
 } from "./commands/AssociateTransitGatewayRouteTableCommand";
 import {
+  AssociateTrunkInterfaceCommandInput,
+  AssociateTrunkInterfaceCommandOutput,
+} from "./commands/AssociateTrunkInterfaceCommand";
+import {
   AssociateVpcCidrBlockCommandInput,
   AssociateVpcCidrBlockCommandOutput,
 } from "./commands/AssociateVpcCidrBlockCommand";
@@ -880,6 +884,10 @@ import {
   DescribeTransitGatewaysCommandOutput,
 } from "./commands/DescribeTransitGatewaysCommand";
 import {
+  DescribeTrunkInterfaceAssociationsCommandInput,
+  DescribeTrunkInterfaceAssociationsCommandOutput,
+} from "./commands/DescribeTrunkInterfaceAssociationsCommand";
+import {
   DescribeVolumeAttributeCommandInput,
   DescribeVolumeAttributeCommandOutput,
 } from "./commands/DescribeVolumeAttributeCommand";
@@ -964,6 +972,10 @@ import {
   DisableFastSnapshotRestoresCommandOutput,
 } from "./commands/DisableFastSnapshotRestoresCommand";
 import {
+  DisableImageDeprecationCommandInput,
+  DisableImageDeprecationCommandOutput,
+} from "./commands/DisableImageDeprecationCommand";
+import {
   DisableSerialConsoleAccessCommandInput,
   DisableSerialConsoleAccessCommandOutput,
 } from "./commands/DisableSerialConsoleAccessCommand";
@@ -1016,6 +1028,10 @@ import {
   DisassociateTransitGatewayRouteTableCommandOutput,
 } from "./commands/DisassociateTransitGatewayRouteTableCommand";
 import {
+  DisassociateTrunkInterfaceCommandInput,
+  DisassociateTrunkInterfaceCommandOutput,
+} from "./commands/DisassociateTrunkInterfaceCommand";
+import {
   DisassociateVpcCidrBlockCommandInput,
   DisassociateVpcCidrBlockCommandOutput,
 } from "./commands/DisassociateVpcCidrBlockCommand";
@@ -1027,6 +1043,10 @@ import {
   EnableFastSnapshotRestoresCommandInput,
   EnableFastSnapshotRestoresCommandOutput,
 } from "./commands/EnableFastSnapshotRestoresCommand";
+import {
+  EnableImageDeprecationCommandInput,
+  EnableImageDeprecationCommandOutput,
+} from "./commands/EnableImageDeprecationCommand";
 import {
   EnableSerialConsoleAccessCommandInput,
   EnableSerialConsoleAccessCommandOutput,
@@ -1564,6 +1584,7 @@ export type ServiceInputTypes =
   | AssociateSubnetCidrBlockCommandInput
   | AssociateTransitGatewayMulticastDomainCommandInput
   | AssociateTransitGatewayRouteTableCommandInput
+  | AssociateTrunkInterfaceCommandInput
   | AssociateVpcCidrBlockCommandInput
   | AttachClassicLinkVpcCommandInput
   | AttachInternetGatewayCommandInput
@@ -1812,6 +1833,7 @@ export type ServiceInputTypes =
   | DescribeTransitGatewayRouteTablesCommandInput
   | DescribeTransitGatewayVpcAttachmentsCommandInput
   | DescribeTransitGatewaysCommandInput
+  | DescribeTrunkInterfaceAssociationsCommandInput
   | DescribeVolumeAttributeCommandInput
   | DescribeVolumeStatusCommandInput
   | DescribeVolumesCommandInput
@@ -1836,6 +1858,7 @@ export type ServiceInputTypes =
   | DetachVpnGatewayCommandInput
   | DisableEbsEncryptionByDefaultCommandInput
   | DisableFastSnapshotRestoresCommandInput
+  | DisableImageDeprecationCommandInput
   | DisableSerialConsoleAccessCommandInput
   | DisableTransitGatewayRouteTablePropagationCommandInput
   | DisableVgwRoutePropagationCommandInput
@@ -1849,9 +1872,11 @@ export type ServiceInputTypes =
   | DisassociateSubnetCidrBlockCommandInput
   | DisassociateTransitGatewayMulticastDomainCommandInput
   | DisassociateTransitGatewayRouteTableCommandInput
+  | DisassociateTrunkInterfaceCommandInput
   | DisassociateVpcCidrBlockCommandInput
   | EnableEbsEncryptionByDefaultCommandInput
   | EnableFastSnapshotRestoresCommandInput
+  | EnableImageDeprecationCommandInput
   | EnableSerialConsoleAccessCommandInput
   | EnableTransitGatewayRouteTablePropagationCommandInput
   | EnableVgwRoutePropagationCommandInput
@@ -2015,6 +2040,7 @@ export type ServiceOutputTypes =
   | AssociateSubnetCidrBlockCommandOutput
   | AssociateTransitGatewayMulticastDomainCommandOutput
   | AssociateTransitGatewayRouteTableCommandOutput
+  | AssociateTrunkInterfaceCommandOutput
   | AssociateVpcCidrBlockCommandOutput
   | AttachClassicLinkVpcCommandOutput
   | AttachInternetGatewayCommandOutput
@@ -2263,6 +2289,7 @@ export type ServiceOutputTypes =
   | DescribeTransitGatewayRouteTablesCommandOutput
   | DescribeTransitGatewayVpcAttachmentsCommandOutput
   | DescribeTransitGatewaysCommandOutput
+  | DescribeTrunkInterfaceAssociationsCommandOutput
   | DescribeVolumeAttributeCommandOutput
   | DescribeVolumeStatusCommandOutput
   | DescribeVolumesCommandOutput
@@ -2287,6 +2314,7 @@ export type ServiceOutputTypes =
   | DetachVpnGatewayCommandOutput
   | DisableEbsEncryptionByDefaultCommandOutput
   | DisableFastSnapshotRestoresCommandOutput
+  | DisableImageDeprecationCommandOutput
   | DisableSerialConsoleAccessCommandOutput
   | DisableTransitGatewayRouteTablePropagationCommandOutput
   | DisableVgwRoutePropagationCommandOutput
@@ -2300,9 +2328,11 @@ export type ServiceOutputTypes =
   | DisassociateSubnetCidrBlockCommandOutput
   | DisassociateTransitGatewayMulticastDomainCommandOutput
   | DisassociateTransitGatewayRouteTableCommandOutput
+  | DisassociateTrunkInterfaceCommandOutput
   | DisassociateVpcCidrBlockCommandOutput
   | EnableEbsEncryptionByDefaultCommandOutput
   | EnableFastSnapshotRestoresCommandOutput
+  | EnableImageDeprecationCommandOutput
   | EnableSerialConsoleAccessCommandOutput
   | EnableTransitGatewayRouteTablePropagationCommandOutput
   | EnableVgwRoutePropagationCommandOutput

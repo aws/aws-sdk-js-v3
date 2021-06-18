@@ -46,6 +46,7 @@ import {
   RoomMembership,
   RoomMembershipRole,
   SipMediaApplication,
+  SipMediaApplicationCall,
   SipMediaApplicationEndpoint,
   SipMediaApplicationLoggingConfiguration,
   SipRule,
@@ -2597,41 +2598,33 @@ export namespace RestorePhoneNumberResponse {
 
 export interface SearchAvailablePhoneNumbersRequest {
   /**
-   * <p>The area code used to filter results. Only applies to the
-   *             US.</p>
+   * <p>The area code used to filter results. Only applies to the US.</p>
    */
   AreaCode?: string;
 
   /**
-   * <p>The city used to filter results. Only applies to the
-   *             US.</p>
+   * <p>The city used to filter results. Only applies to the US.</p>
    */
   City?: string;
 
   /**
-   * <p>The country used to filter results. Defaults to the
-   *             US
-   *             Format: ISO 3166-1 alpha-2.</p>
+   * <p>The country used to filter results. Defaults to the US Format: ISO 3166-1 alpha-2.</p>
    */
   Country?: string;
 
   /**
    * <p>The state used to filter results. Required only if you provide <code>City</code>. Only
-   *             applies to the
-   *             US.</p>
+   *             applies to the US.</p>
    */
   State?: string;
 
   /**
-   * <p>The toll-free prefix that you use to filter results. Only applies to the
-   *             US.</p>
+   * <p>The toll-free prefix that you use to filter results. Only applies to the US.</p>
    */
   TollFreePrefix?: string;
 
   /**
-   * <p>The phone number type used to filter results. Required for
-   *             non-US
-   *             numbers.</p>
+   * <p>The phone number type used to filter results. Required for non-US numbers.</p>
    */
   PhoneNumberType?: PhoneNumberType | string;
 
@@ -2901,6 +2894,11 @@ export interface UpdateAccountRequest {
    * <p>The new name for the specified Amazon Chime account.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The default license applied when you add users to an Amazon Chime account.</p>
+   */
+  DefaultLicense?: License | string;
 }
 
 export namespace UpdateAccountRequest {
@@ -3508,6 +3506,49 @@ export namespace UpdateSipMediaApplicationResponse {
     ...(obj.SipMediaApplication && {
       SipMediaApplication: SipMediaApplication.filterSensitiveLog(obj.SipMediaApplication),
     }),
+  });
+}
+
+export interface UpdateSipMediaApplicationCallRequest {
+  /**
+   * <p>The ID of the SIP media application handling the call.</p>
+   */
+  SipMediaApplicationId: string | undefined;
+
+  /**
+   * <p>The ID of the call transaction.</p>
+   */
+  TransactionId: string | undefined;
+
+  /**
+   * <p>Arguments made available to the Lambda function as part of the <code>CALL_UPDATE_REQUESTED</code> event. Can contain 0-20 key-value pairs.</p>
+   */
+  Arguments: { [key: string]: string } | undefined;
+}
+
+export namespace UpdateSipMediaApplicationCallRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSipMediaApplicationCallRequest): any => ({
+    ...obj,
+    ...(obj.Arguments && { Arguments: SENSITIVE_STRING }),
+  });
+}
+
+export interface UpdateSipMediaApplicationCallResponse {
+  /**
+   * <p>A <code>Call</code> instance for a SIP media application.</p>
+   */
+  SipMediaApplicationCall?: SipMediaApplicationCall;
+}
+
+export namespace UpdateSipMediaApplicationCallResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSipMediaApplicationCallResponse): any => ({
+    ...obj,
   });
 }
 

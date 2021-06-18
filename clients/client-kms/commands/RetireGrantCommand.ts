@@ -21,34 +21,26 @@ export interface RetireGrantCommandInput extends RetireGrantRequest {}
 export interface RetireGrantCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Retires a grant. To clean up, you can retire a grant when you're done using it. You should
- *       revoke a grant when you intend to actively deny operations that depend on it. The following
- *       are permitted to call this API:</p>
- *          <ul>
- *             <li>
- *                <p>The AWS account (root user) under which the grant was created</p>
- *             </li>
- *             <li>
- *                <p>The <code>RetiringPrincipal</code>, if present in the grant</p>
- *             </li>
- *             <li>
- *                <p>The <code>GranteePrincipal</code>, if <code>RetireGrant</code> is an operation
- *           specified in the grant</p>
- *             </li>
- *          </ul>
- *          <p>You must identify the grant to retire by its grant token or by a combination of the grant
- *       ID and the Amazon Resource Name (ARN) of the customer master key (CMK). A grant token is a
- *       unique variable-length base64-encoded string. A grant ID is a 64 character unique identifier
- *       of a grant. The <a>CreateGrant</a> operation returns both.</p>
- *
+ * <p>Deletes a grant. Typically, you retire a grant when you no longer need its permissions. To
+ *       identify the grant to retire, use a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">grant token</a>, or both the grant ID and a
+ *       key identifier (key ID or key ARN) of the customer master key (CMK). The <a>CreateGrant</a> operation returns both values.</p>
+ *          <p>This operation can be called by the <i>retiring principal</i> for a grant,
+ *       by the <i>grantee principal</i> if the grant allows the <code>RetireGrant</code>
+ *       operation, and by the AWS account (root user) in which the grant is created. It can also be
+ *       called by principals to whom permission for retiring a grant is delegated. For details, see
+ *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring and
+ *         revoking grants</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using grants</a> in the
+ *         <i>
+ *                <i>AWS Key Management Service Developer Guide</i>
+ *             </i>. For examples of working with grants in several
+ *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming grants</a>.</p>
  *          <p>
  *             <b>Cross-account use</b>: Yes. You can retire a grant on a CMK
  *       in a different AWS account.</p>
  *          <p>
- *             <b>Required permissions:</b>: Permission to retire a grant is
- *       specified in the grant. You cannot control access to this operation in a policy. For more
- *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using
- *         grants</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *             <b>Required permissions:</b>:Permission to retire a grant is
+ *       determined primarily by the grant. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring and revoking grants</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Related operations:</b>
  *          </p>

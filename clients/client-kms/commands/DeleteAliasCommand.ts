@@ -22,6 +22,9 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified alias.  </p>
+ *          <note>
+ *             <p>Adding, deleting, or updating an alias can allow or deny permission to the CMK. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using ABAC in AWS KMS</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          </note>
  *          <p>Because an alias is not a property of a CMK, you can delete and change the aliases of a
  *       CMK without affecting the CMK. Also, aliases do not appear in the response from the <a>DescribeKey</a> operation. To get the aliases of all CMKs, use the <a>ListAliases</a> operation. </p>
  *          <p>Each CMK can have multiple aliases. To change the alias of a CMK, use <a>DeleteAlias</a> to delete the current alias and <a>CreateAlias</a> to

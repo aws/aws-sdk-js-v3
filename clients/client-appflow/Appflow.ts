@@ -64,9 +64,12 @@ import { UpdateFlowCommand, UpdateFlowCommandInput, UpdateFlowCommandOutput } fr
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>Welcome to the Amazon AppFlow API reference. This guide is for developers who need detailed information about the Amazon AppFlow API operations, data types, and errors. </p>
+ * <p>Welcome to the Amazon AppFlow API reference. This guide is for developers who need
+ *       detailed information about the Amazon AppFlow API operations, data types, and errors. </p>
  *
- *          <p>Amazon AppFlow is a fully managed integration service that enables you to securely transfer data between software as a service (SaaS) applications like Salesforce, Marketo, Slack, and ServiceNow, and AWS services like Amazon S3 and Amazon Redshift. </p>
+ *          <p>Amazon AppFlow is a fully managed integration service that enables you to securely
+ *       transfer data between software as a service (SaaS) applications like Salesforce, Marketo,
+ *       Slack, and ServiceNow, and AWS services like Amazon S3 and Amazon Redshift. </p>
  *
  *
  *
@@ -79,7 +82,8 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/appflow/1.0/APIReference/API_Types.html">Data types</a>: An alphabetical list of all Amazon AppFlow data types.</p>
+ *                   <a href="https://docs.aws.amazon.com/appflow/1.0/APIReference/API_Types.html">Data
+ *             types</a>: An alphabetical list of all Amazon AppFlow data types.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -87,20 +91,27 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/appflow/1.0/APIReference/CommonErrors.html">Common errors</a>: Client and server errors that all operations can return.</p>
+ *                   <a href="https://docs.aws.amazon.com/appflow/1.0/APIReference/CommonErrors.html">Common
+ *             errors</a>: Client and server errors that all operations can return.</p>
  *             </li>
  *          </ul>
  *
- *          <p>If you're new to Amazon AppFlow, we recommend that you review the <a href="https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html">Amazon AppFlow User Guide</a>.</p>
- *          <p>Amazon AppFlow API users can use vendor-specific mechanisms for OAuth, and include applicable OAuth attributes (such as <code>auth-code</code> and <code>redirecturi</code>) with the connector-specific <code>ConnectorProfileProperties</code> when creating a new connector profile using Amazon AppFlow API operations. For example, Salesforce users can refer to the <a href="https://help.salesforce.com/articleView?id=remoteaccess_authenticate.htm">
+ *          <p>If you're new to Amazon AppFlow, we recommend that you review the <a href="https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html">Amazon AppFlow User
+ *         Guide</a>.</p>
+ *          <p>Amazon AppFlow API users can use vendor-specific mechanisms for OAuth, and include
+ *       applicable OAuth attributes (such as <code>auth-code</code> and <code>redirecturi</code>) with
+ *       the connector-specific <code>ConnectorProfileProperties</code> when creating a new connector
+ *       profile using Amazon AppFlow API operations. For example, Salesforce users can refer to the
+ *         <a href="https://help.salesforce.com/articleView?id=remoteaccess_authenticate.htm">
  *                <i>Authorize Apps with OAuth</i>
  *             </a> documentation.</p>
  */
 export class Appflow extends AppflowClient {
   /**
-   * <p>
-   *   Creates a new connector profile associated with your AWS account. There is a soft quota of 100 connector profiles per AWS account. If you need more connector profiles than this quota allows, you can submit a request to the Amazon AppFlow team through the Amazon AppFlow support channel.
-   * </p>
+   * <p> Creates a new connector profile associated with your AWS account. There is a soft quota
+   *       of 100 connector profiles per AWS account. If you need more connector profiles than this quota
+   *       allows, you can submit a request to the Amazon AppFlow team through the Amazon AppFlow support
+   *       channel. </p>
    */
   public createConnectorProfile(
     args: CreateConnectorProfileCommandInput,
@@ -132,10 +143,10 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   * Enables your application to create a new flow using Amazon AppFlow. You must create a connector profile before calling this API. Please note that the Request Syntax below shows syntax for multiple destinations, however, you can only transfer data to one item in this list at a time. Amazon AppFlow does not currently support flows to multiple destinations at once.
-   *
-   * </p>
+   * <p> Enables your application to create a new flow using Amazon AppFlow. You must create a
+   *       connector profile before calling this API. Please note that the Request Syntax below shows
+   *       syntax for multiple destinations, however, you can only transfer data to one item in this list
+   *       at a time. Amazon AppFlow does not currently support flows to multiple destinations at once. </p>
    */
   public createFlow(args: CreateFlowCommandInput, options?: __HttpHandlerOptions): Promise<CreateFlowCommandOutput>;
   public createFlow(args: CreateFlowCommandInput, cb: (err: any, data?: CreateFlowCommandOutput) => void): void;
@@ -161,9 +172,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   *  Enables you to delete an existing connector profile.
-   * </p>
+   * <p> Enables you to delete an existing connector profile. </p>
    */
   public deleteConnectorProfile(
     args: DeleteConnectorProfileCommandInput,
@@ -195,10 +204,9 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   *   Enables your application to delete an existing flow. Before deleting the flow, Amazon AppFlow validates the request by checking the flow configuration and status. You can delete flows one at a time.
-   *
-   * </p>
+   * <p> Enables your application to delete an existing flow. Before deleting the flow, Amazon
+   *       AppFlow validates the request by checking the flow configuration and status. You can delete
+   *       flows one at a time. </p>
    */
   public deleteFlow(args: DeleteFlowCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFlowCommandOutput>;
   public deleteFlow(args: DeleteFlowCommandInput, cb: (err: any, data?: DeleteFlowCommandOutput) => void): void;
@@ -224,9 +232,8 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   * Provides details regarding the entity used with the connector, with a description of the data model for each entity.
-   * </p>
+   * <p> Provides details regarding the entity used with the connector, with a description of the
+   *       data model for each entity. </p>
    */
   public describeConnectorEntity(
     args: DescribeConnectorEntityCommandInput,
@@ -258,9 +265,11 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   *   Returns a list of <code>connector-profile</code> details matching the provided <code>connector-profile</code> names and <code>connector-types</code>. Both input lists are optional, and you can use them to filter the result. </p>
-   *          <p>If no names or <code>connector-types</code> are provided, returns all connector profiles in a paginated form. If there is no match, this operation returns an empty list.</p>
+   * <p> Returns a list of <code>connector-profile</code> details matching the provided
+   *         <code>connector-profile</code> names and <code>connector-types</code>. Both input lists are
+   *       optional, and you can use them to filter the result. </p>
+   *          <p>If no names or <code>connector-types</code> are provided, returns all connector profiles
+   *       in a paginated form. If there is no match, this operation returns an empty list.</p>
    */
   public describeConnectorProfiles(
     args: DescribeConnectorProfilesCommandInput,
@@ -292,10 +301,11 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   *   Describes the connectors vended by Amazon AppFlow for specified connector types. If you don't specify a connector type, this operation describes all connectors vended by Amazon AppFlow.
-   *   If there are more connectors than can be returned in one page, the response contains a <code>nextToken</code> object, which can be be passed in to the next call to the <code>DescribeConnectors</code> API operation to retrieve the next page.
-   * </p>
+   * <p> Describes the connectors vended by Amazon AppFlow for specified connector types. If you
+   *       don't specify a connector type, this operation describes all connectors vended by Amazon
+   *       AppFlow. If there are more connectors than can be returned in one page, the response contains
+   *       a <code>nextToken</code> object, which can be be passed in to the next call to the
+   *         <code>DescribeConnectors</code> API operation to retrieve the next page. </p>
    */
   public describeConnectors(
     args: DescribeConnectorsCommandInput,
@@ -327,10 +337,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   *   Provides a description of the specified flow.
-   *
-   * </p>
+   * <p> Provides a description of the specified flow. </p>
    */
   public describeFlow(
     args: DescribeFlowCommandInput,
@@ -359,9 +366,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   * Fetches the execution history of the flow.
-   * </p>
+   * <p> Fetches the execution history of the flow. </p>
    */
   public describeFlowExecutionRecords(
     args: DescribeFlowExecutionRecordsCommandInput,
@@ -393,9 +398,10 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   *   Returns the list of available connector entities supported by Amazon AppFlow. For example, you can query Salesforce for <i>Account</i> and <i>Opportunity</i> entities, or query ServiceNow for the <i>Incident</i> entity.
-   * </p>
+   * <p> Returns the list of available connector entities supported by Amazon AppFlow. For
+   *       example, you can query Salesforce for <i>Account</i> and
+   *         <i>Opportunity</i> entities, or query ServiceNow for the
+   *         <i>Incident</i> entity. </p>
    */
   public listConnectorEntities(
     args: ListConnectorEntitiesCommandInput,
@@ -427,9 +433,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   * Lists all of the flows associated with your account.
-   * </p>
+   * <p> Lists all of the flows associated with your account. </p>
    */
   public listFlows(args: ListFlowsCommandInput, options?: __HttpHandlerOptions): Promise<ListFlowsCommandOutput>;
   public listFlows(args: ListFlowsCommandInput, cb: (err: any, data?: ListFlowsCommandOutput) => void): void;
@@ -455,9 +459,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   * Retrieves the tags that are associated with a specified flow.
-   * </p>
+   * <p> Retrieves the tags that are associated with a specified flow. </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -489,10 +491,8 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   * Activates an existing flow. For on-demand flows, this operation runs the flow immediately. For schedule and event-triggered flows, this operation activates the flow.
-   *
-   * </p>
+   * <p> Activates an existing flow. For on-demand flows, this operation runs the flow
+   *       immediately. For schedule and event-triggered flows, this operation activates the flow. </p>
    */
   public startFlow(args: StartFlowCommandInput, options?: __HttpHandlerOptions): Promise<StartFlowCommandOutput>;
   public startFlow(args: StartFlowCommandInput, cb: (err: any, data?: StartFlowCommandOutput) => void): void;
@@ -518,9 +518,9 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   * Deactivates the existing flow. For on-demand flows, this operation returns an <code>unsupportedOperationException</code> error message. For schedule and event-triggered flows, this operation deactivates the flow.
-   * </p>
+   * <p> Deactivates the existing flow. For on-demand flows, this operation returns an
+   *         <code>unsupportedOperationException</code> error message. For schedule and event-triggered
+   *       flows, this operation deactivates the flow. </p>
    */
   public stopFlow(args: StopFlowCommandInput, options?: __HttpHandlerOptions): Promise<StopFlowCommandOutput>;
   public stopFlow(args: StopFlowCommandInput, cb: (err: any, data?: StopFlowCommandOutput) => void): void;
@@ -546,9 +546,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   *  Applies a tag to the specified flow.
-   * </p>
+   * <p> Applies a tag to the specified flow. </p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -574,9 +572,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   *  Removes a tag from the specified flow.
-   * </p>
+   * <p> Removes a tag from the specified flow. </p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -608,9 +604,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   *   Updates a given connector profile associated with your account.
-   * </p>
+   * <p> Updates a given connector profile associated with your account. </p>
    */
   public updateConnectorProfile(
     args: UpdateConnectorProfileCommandInput,
@@ -642,9 +636,7 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>
-   *      Updates an existing flow.
-   * </p>
+   * <p> Updates an existing flow. </p>
    */
   public updateFlow(args: UpdateFlowCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFlowCommandOutput>;
   public updateFlow(args: UpdateFlowCommandInput, cb: (err: any, data?: UpdateFlowCommandOutput) => void): void;

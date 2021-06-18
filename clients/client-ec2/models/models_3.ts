@@ -11,12 +11,10 @@ import {
   FleetLaunchTemplateSpecification,
   FleetType,
   IamInstanceProfileSpecification,
-  InstanceInterruptionBehavior,
   InternetGateway,
   IpPermission,
   ReservedInstancesListing,
   ResourceType,
-  SpotInstanceType,
   Subnet,
   Tag,
   TagSpecification,
@@ -26,6 +24,7 @@ import {
   TransitGatewayAttachmentState,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
+  TrunkInterfaceAssociation,
   UserIdGroupPair,
   VolumeType,
   Vpc,
@@ -37,6 +36,7 @@ import {
   DnsEntry,
   DnsNameState,
   GroupIdentifier,
+  InstanceInterruptionBehavior,
   InstanceIpv6Address,
   LaunchTemplate,
   LaunchTemplateVersion,
@@ -58,6 +58,7 @@ import {
   Snapshot,
   SpotDatafeedSubscription,
   SpotInstanceStateFault,
+  SpotInstanceType,
   State,
   TrafficMirrorFilter,
   TrafficMirrorSession,
@@ -75,14 +76,167 @@ import {
 import {
   AttributeBooleanValue,
   EventInformation,
-  FastSnapshotRestoreStateCode,
   Filter,
   IdFormat,
-  LocationType,
+  InstanceState,
+  InstanceStatusDetails,
+  InstanceStatusEvent,
   PermissionGroup,
   ProductCode,
+  SummaryStatus,
   VirtualizationType,
 } from "./models_2";
+
+/**
+ * <p>Describes the status of an instance.</p>
+ */
+export interface InstanceStatusSummary {
+  /**
+   * <p>The system instance health or application instance health.</p>
+   */
+  Details?: InstanceStatusDetails[];
+
+  /**
+   * <p>The status.</p>
+   */
+  Status?: SummaryStatus | string;
+}
+
+export namespace InstanceStatusSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceStatusSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the status of an instance.</p>
+ */
+export interface InstanceStatus {
+  /**
+   * <p>The Availability Zone of the instance.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>Any scheduled events associated with the instance.</p>
+   */
+  Events?: InstanceStatusEvent[];
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The intended state of the instance. <a>DescribeInstanceStatus</a> requires
+   *             that an instance be in the <code>running</code> state.</p>
+   */
+  InstanceState?: InstanceState;
+
+  /**
+   * <p>Reports impaired functionality that stems from issues internal to the instance, such
+   *             as impaired reachability.</p>
+   */
+  InstanceStatus?: InstanceStatusSummary;
+
+  /**
+   * <p>Reports impaired functionality that stems from issues related to the systems that
+   *             support an instance, such as hardware failures and network connectivity problems.</p>
+   */
+  SystemStatus?: InstanceStatusSummary;
+}
+
+export namespace InstanceStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceStatus): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeInstanceStatusResult {
+  /**
+   * <p>Information about the status of the instances.</p>
+   */
+  InstanceStatuses?: InstanceStatus[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *             when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeInstanceStatusResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeInstanceStatusResult): any => ({
+    ...obj,
+  });
+}
+
+export type LocationType = "availability-zone" | "availability-zone-id" | "region";
+
+export interface DescribeInstanceTypeOfferingsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *          and provides an error response. If you have the required permissions, the error response is
+   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The location type.</p>
+   */
+  LocationType?: LocationType | string;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>location</code> - This depends on the location type. For example, if the location type is
+   *       <code>region</code> (default), the location is the Region code (for example, <code>us-east-2</code>.)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type. For example,
+   *      <code>c5.2xlarge</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results
+   *          can be seen by sending another request with the next token value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeInstanceTypeOfferingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeInstanceTypeOfferingsRequest): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The instance types offered.</p>
@@ -3726,14 +3880,12 @@ export interface DescribeNetworkInterfacePermissionsRequest {
    * 					the network interface.</p>
    * 			         </li>
    *             <li>
-   * 				           <p>
-   *                   <code>network-interface-permission.aws-account-id</code> - The AWS account
-   * 					ID.</p>
+   * 			            <p>
+   *                   <code>network-interface-permission.aws-account-id</code> - The account ID.</p>
    * 			         </li>
    *             <li>
-   * 				           <p>
-   *                   <code>network-interface-permission.aws-service</code> - The AWS
-   * 					service.</p>
+   * 			            <p>
+   *                   <code>network-interface-permission.aws-service</code> - The Amazon Web Service.</p>
    * 			         </li>
    *             <li>
    * 				           <p>
@@ -3901,7 +4053,7 @@ export interface DescribeNetworkInterfacesRequest {
    * 		          </li>
    *             <li>
    * 		             <p>
-   *                   <code>owner-id</code> - The AWS account ID of the network interface owner.</p>
+   *                   <code>owner-id</code> - The account ID of the network interface owner.</p>
    * 		          </li>
    *             <li>
    * 		             <p>
@@ -3914,11 +4066,12 @@ export interface DescribeNetworkInterfacesRequest {
    * 		          </li>
    *             <li>
    * 		             <p>
-   *                   <code>requester-id</code> - The alias or AWS account ID of the principal or service that created the network interface.</p>
+   *                   <code>requester-id</code> - The alias or account ID of the principal or service that created the network interface.</p>
    * 		          </li>
    *             <li>
    * 		             <p>
-   *                   <code>requester-managed</code> - Indicates whether the network interface is being managed by an AWS service (for example, AWS Management Console, Auto Scaling, and so on).</p>
+   *                   <code>requester-managed</code> - Indicates whether the network interface is being managed by an Amazon Web Service
+   * 		               (for example, Management Console, Auto Scaling, and so on).</p>
    * 		          </li>
    *             <li>
    * 		             <p>
@@ -4139,11 +4292,11 @@ export namespace DescribePrefixListsRequest {
 }
 
 /**
- * <p>Describes prefixes for AWS services.</p>
+ * <p>Describes prefixes for Amazon Web Services services.</p>
  */
 export interface PrefixList {
   /**
-   * <p>The IP address range of the AWS service.</p>
+   * <p>The IP address range of the Amazon Web Service.</p>
    */
   Cidrs?: string[];
 
@@ -4387,7 +4540,9 @@ export interface PublicIpv4Pool {
   TotalAvailableAddressCount?: number;
 
   /**
-   * <p>The name of the location from which the address pool is advertised. A network border group is a unique set of Availability Zones or Local Zones from where AWS advertises public IP addresses.</p>
+   * <p>The name of the location from which the address pool is advertised.
+   *             A network border group is a unique set of Availability Zones or Local Zones
+   *             from where Amazon Web Services advertises public IP addresses.</p>
    */
   NetworkBorderGroup?: string;
 
@@ -7108,7 +7263,8 @@ export interface InstanceNetworkInterfaceSpecification {
 
   /**
    * <p>Indicates whether to assign a carrier IP address to the network interface.</p>
-   *         <p>You can only assign a carrier IP address to a network interface that is in a subnet in a Wavelength Zone. For more information about carrier IP addresses, see Carrier IP addresses in the AWS Wavelength Developer Guide.</p>
+   *         <p>You can only assign a carrier IP address to a network interface that is in a subnet in a Wavelength Zone.
+   *             For more information about carrier IP addresses, see Carrier IP addresses in the Amazon Web Services Wavelength Developer Guide.</p>
    */
   AssociateCarrierIpAddress?: boolean;
 
@@ -7117,8 +7273,8 @@ export interface InstanceNetworkInterfaceSpecification {
    * 	        <p>To create an Elastic Fabric Adapter (EFA), specify
    * 			<code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter</a> in the
    * 			<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   * 		       <p>If you are not creating an EFA, specify <code>interface</code> or omit this parameter.</p>
-   * 		       <p>Valid values: <code>interface</code> | <code>efa</code>
+   *
+   * 	        <p>Valid values: <code>interface</code> | <code>efa</code>
    *          </p>
    */
   InterfaceType?: string;
@@ -10083,6 +10239,76 @@ export namespace DescribeTransitGatewayVpcAttachmentsResult {
   });
 }
 
+export interface DescribeTrunkInterfaceAssociationsRequest {
+  /**
+   * <p>The IDs of the associations.</p>
+   */
+  AssociationIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>gre-key</code> - The ID of a trunk interface association.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>interface-protocol</code> - The interface protocol. Valid values are <code>VLAN</code> and <code>GRE</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *             To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeTrunkInterfaceAssociationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTrunkInterfaceAssociationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTrunkInterfaceAssociationsResult {
+  /**
+   * <p>Information about the trunk associations.</p>
+   */
+  InterfaceAssociations?: TrunkInterfaceAssociation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTrunkInterfaceAssociationsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTrunkInterfaceAssociationsResult): any => ({
+    ...obj,
+  });
+}
+
 export type VolumeAttributeName = "autoEnableIO" | "productCodes";
 
 export interface DescribeVolumeAttributeRequest {
@@ -12374,221 +12600,6 @@ export namespace DetachVpnGatewayRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DetachVpnGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DisableEbsEncryptionByDefaultRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DisableEbsEncryptionByDefaultRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableEbsEncryptionByDefaultRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DisableEbsEncryptionByDefaultResult {
-  /**
-   * <p>The updated status of encryption by default.</p>
-   */
-  EbsEncryptionByDefault?: boolean;
-}
-
-export namespace DisableEbsEncryptionByDefaultResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableEbsEncryptionByDefaultResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DisableFastSnapshotRestoresRequest {
-  /**
-   * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
-   */
-  AvailabilityZones: string[] | undefined;
-
-  /**
-   * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>.</p>
-   */
-  SourceSnapshotIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DisableFastSnapshotRestoresRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableFastSnapshotRestoresRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes fast snapshot restores that were successfully disabled.</p>
- */
-export interface DisableFastSnapshotRestoreSuccessItem {
-  /**
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The Availability Zone.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The state of fast snapshot restores for the snapshot.</p>
-   */
-  State?: FastSnapshotRestoreStateCode | string;
-
-  /**
-   * <p>The reason for the state transition. The possible values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Client.UserInitiated</code> - The state successfully transitioned to <code>enabling</code> or
-   *           <code>disabling</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Client.UserInitiated - Lifecycle state transition</code> - The state successfully transitioned
-   *           to <code>optimizing</code>, <code>enabled</code>, or <code>disabled</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  StateTransitionReason?: string;
-
-  /**
-   * <p>The ID of the AWS account that enabled fast snapshot restores on the snapshot.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The AWS owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
-   */
-  OwnerAlias?: string;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>enabling</code> state.</p>
-   */
-  EnablingTime?: Date;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>optimizing</code> state.</p>
-   */
-  OptimizingTime?: Date;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>enabled</code> state.</p>
-   */
-  EnabledTime?: Date;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>disabling</code> state.</p>
-   */
-  DisablingTime?: Date;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>disabled</code> state.</p>
-   */
-  DisabledTime?: Date;
-}
-
-export namespace DisableFastSnapshotRestoreSuccessItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableFastSnapshotRestoreSuccessItem): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an error that occurred when disabling fast snapshot restores.</p>
- */
-export interface DisableFastSnapshotRestoreStateError {
-  /**
-   * <p>The error code.</p>
-   */
-  Code?: string;
-
-  /**
-   * <p>The error message.</p>
-   */
-  Message?: string;
-}
-
-export namespace DisableFastSnapshotRestoreStateError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableFastSnapshotRestoreStateError): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information about an error that occurred when disabling fast snapshot restores.</p>
- */
-export interface DisableFastSnapshotRestoreStateErrorItem {
-  /**
-   * <p>The Availability Zone.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The error.</p>
-   */
-  Error?: DisableFastSnapshotRestoreStateError;
-}
-
-export namespace DisableFastSnapshotRestoreStateErrorItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableFastSnapshotRestoreStateErrorItem): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains information about the errors that occurred when disabling fast snapshot restores.</p>
- */
-export interface DisableFastSnapshotRestoreErrorItem {
-  /**
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The errors.</p>
-   */
-  FastSnapshotRestoreStateErrors?: DisableFastSnapshotRestoreStateErrorItem[];
-}
-
-export namespace DisableFastSnapshotRestoreErrorItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableFastSnapshotRestoreErrorItem): any => ({
     ...obj,
   });
 }

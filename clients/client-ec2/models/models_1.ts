@@ -11,7 +11,6 @@ import {
   DnsSupportValue,
   ElasticGpuSpecification,
   GatewayType,
-  InstanceInterruptionBehavior,
   Ipv6SupportValue,
   LaunchTemplateBlockDeviceMappingRequest,
   LaunchTemplateCapacityReservationSpecificationRequest,
@@ -20,12 +19,9 @@ import {
   LaunchTemplateEnclaveOptionsRequest,
   LaunchTemplateHibernationOptionsRequest,
   LaunchTemplateIamInstanceProfileSpecificationRequest,
-  MarketType,
   ReservedInstancesListing,
   ResourceType,
   RouteTableAssociationState,
-  ShutdownBehavior,
-  SpotInstanceType,
   Subnet,
   Tag,
   TagSpecification,
@@ -42,6 +38,14 @@ import {
   VpcPeeringConnection,
   _InstanceType,
 } from "./models_0";
+
+export type ShutdownBehavior = "stop" | "terminate";
+
+export type MarketType = "spot";
+
+export type InstanceInterruptionBehavior = "hibernate" | "stop" | "terminate";
+
+export type SpotInstanceType = "one-time" | "persistent";
 
 /**
  * <p>The options for Spot Instances.</p>
@@ -2072,7 +2076,19 @@ export namespace CreateManagedPrefixListResult {
   });
 }
 
+export enum ConnectivityType {
+  PRIVATE = "private",
+  PUBLIC = "public",
+}
+
 export interface CreateNatGatewayRequest {
+  /**
+   * <p>[Public NAT gateways only] The allocation ID of an Elastic IP address to associate
+   *           with the NAT gateway. You cannot specify an Elastic IP address with a private NAT gateway.
+   *           If the Elastic IP address is associated with another resource, you must first disassociate it.</p>
+   */
+  AllocationId?: string;
+
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure
@@ -2099,9 +2115,10 @@ export interface CreateNatGatewayRequest {
   TagSpecifications?: TagSpecification[];
 
   /**
-   * <p>The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.</p>
+   * <p>Indicates whether the NAT gateway supports public or private connectivity.
+   *           The default is public connectivity.</p>
    */
-  AllocationId: string | undefined;
+  ConnectivityType?: ConnectivityType | string;
 }
 
 export namespace CreateNatGatewayRequest {
@@ -2118,7 +2135,7 @@ export namespace CreateNatGatewayRequest {
  */
 export interface NatGatewayAddress {
   /**
-   * <p>The allocation ID of the Elastic IP address that's associated with the NAT gateway.</p>
+   * <p>[Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.</p>
    */
   AllocationId?: string;
 
@@ -2128,12 +2145,12 @@ export interface NatGatewayAddress {
   NetworkInterfaceId?: string;
 
   /**
-   * <p>The private IP address associated with the Elastic IP address.</p>
+   * <p>The private IP address associated with the NAT gateway.</p>
    */
   PrivateIp?: string;
 
   /**
-   * <p>The Elastic IP address associated with the NAT gateway.</p>
+   * <p>[Public NAT gateway only] The Elastic IP address associated with the NAT gateway.</p>
    */
   PublicIp?: string;
 }
@@ -2302,6 +2319,11 @@ export interface NatGateway {
    * <p>The tags for the NAT gateway.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Indicates whether the NAT gateway supports public or private connectivity.</p>
+   */
+  ConnectivityType?: ConnectivityType | string;
 }
 
 export namespace NatGateway {
@@ -2774,7 +2796,7 @@ export namespace CreateNetworkInsightsPathResult {
   });
 }
 
-export type NetworkInterfaceCreationType = "efa";
+export type NetworkInterfaceCreationType = "branch" | "efa" | "trunk";
 
 /**
  * <p>Contains the parameters for CreateNetworkInterface.</p>
@@ -2839,7 +2861,9 @@ export interface CreateNetworkInterfaceRequest {
   /**
    * <p>Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify
    * 			<code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">
-   * 		    Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * 			    Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. To create a trunk network interface, specify
+   * 		    <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/eni-trunking.html">
+   * 		        Network interface trunking</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   InterfaceType?: NetworkInterfaceCreationType | string;
 
@@ -2956,7 +2980,7 @@ export interface NetworkInterfaceAttachment {
   InstanceId?: string;
 
   /**
-   * <p>The AWS account ID of the owner of the instance.</p>
+   * <p>The account ID of the owner of the instance.</p>
    */
   InstanceOwnerId?: string;
 
@@ -2999,7 +3023,7 @@ export namespace GroupIdentifier {
   });
 }
 
-export type NetworkInterfaceType = "efa" | "interface" | "natGateway";
+export type NetworkInterfaceType = "efa" | "interface" | "natGateway" | "trunk";
 
 /**
  * <p>Describes an IPv6 address associated with a network interface.</p>
@@ -3111,7 +3135,7 @@ export interface NetworkInterface {
   OutpostArn?: string;
 
   /**
-   * <p>The AWS account ID of the owner of the network interface.</p>
+   * <p>The account ID of the owner of the network interface.</p>
    */
   OwnerId?: string;
 
@@ -3131,12 +3155,12 @@ export interface NetworkInterface {
   PrivateIpAddresses?: NetworkInterfacePrivateIpAddress[];
 
   /**
-   * <p>The alias or AWS account ID of the principal or service that created the network interface.</p>
+   * <p>The alias or account ID of the principal or service that created the network interface.</p>
    */
   RequesterId?: string;
 
   /**
-   * <p>Indicates whether the network interface is being managed by AWS.</p>
+   * <p>Indicates whether the network interface is being managed by Amazon Web Services.</p>
    */
   RequesterManaged?: boolean;
 
@@ -3211,12 +3235,12 @@ export interface CreateNetworkInterfacePermissionRequest {
   NetworkInterfaceId: string | undefined;
 
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The account ID.</p>
    */
   AwsAccountId?: string;
 
   /**
-   * <p>The AWS service. Currently not supported.</p>
+   * <p>The Amazon Web Service. Currently not supported.</p>
    */
   AwsService?: string;
 
@@ -3283,12 +3307,12 @@ export interface NetworkInterfacePermission {
   NetworkInterfaceId?: string;
 
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The account ID.</p>
    */
   AwsAccountId?: string;
 
   /**
-   * <p>The AWS service.</p>
+   * <p>The Amazon Web Service.</p>
    */
   AwsService?: string;
 
@@ -9408,129 +9432,4 @@ export enum LaunchTemplateErrorCode {
   LAUNCH_TEMPLATE_NAME_MALFORMED = "launchTemplateNameMalformed",
   LAUNCH_TEMPLATE_VERSION_DOES_NOT_EXIST = "launchTemplateVersionDoesNotExist",
   UNEXPECTED_ERROR = "unexpectedError",
-}
-
-/**
- * <p>Describes the error that's returned when you cannot delete a launch template
- *             version.</p>
- */
-export interface ResponseError {
-  /**
-   * <p>The error code.</p>
-   */
-  Code?: LaunchTemplateErrorCode | string;
-
-  /**
-   * <p>The error message, if applicable.</p>
-   */
-  Message?: string;
-}
-
-export namespace ResponseError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseError): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a launch template version that could not be deleted.</p>
- */
-export interface DeleteLaunchTemplateVersionsResponseErrorItem {
-  /**
-   * <p>The ID of the launch template.</p>
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * <p>The name of the launch template.</p>
-   */
-  LaunchTemplateName?: string;
-
-  /**
-   * <p>The version number of the launch template.</p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * <p>Information about the error.</p>
-   */
-  ResponseError?: ResponseError;
-}
-
-export namespace DeleteLaunchTemplateVersionsResponseErrorItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLaunchTemplateVersionsResponseErrorItem): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteLaunchTemplateVersionsResult {
-  /**
-   * <p>Information about the launch template versions that were successfully
-   *             deleted.</p>
-   */
-  SuccessfullyDeletedLaunchTemplateVersions?: DeleteLaunchTemplateVersionsResponseSuccessItem[];
-
-  /**
-   * <p>Information about the launch template versions that could not be deleted.</p>
-   */
-  UnsuccessfullyDeletedLaunchTemplateVersions?: DeleteLaunchTemplateVersionsResponseErrorItem[];
-}
-
-export namespace DeleteLaunchTemplateVersionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLaunchTemplateVersionsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteLocalGatewayRouteRequest {
-  /**
-   * <p>The CIDR range for the route. This must match the CIDR for the route exactly.</p>
-   */
-  DestinationCidrBlock: string | undefined;
-
-  /**
-   * <p>The ID of the local gateway route table.</p>
-   */
-  LocalGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteLocalGatewayRouteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLocalGatewayRouteRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteLocalGatewayRouteResult {
-  /**
-   * <p>Information about the route.</p>
-   */
-  Route?: LocalGatewayRoute;
-}
-
-export namespace DeleteLocalGatewayRouteResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLocalGatewayRouteResult): any => ({
-    ...obj,
-  });
 }

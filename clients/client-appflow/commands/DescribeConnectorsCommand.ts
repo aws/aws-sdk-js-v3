@@ -21,10 +21,11 @@ export interface DescribeConnectorsCommandInput extends DescribeConnectorsReques
 export interface DescribeConnectorsCommandOutput extends DescribeConnectorsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *   Describes the connectors vended by Amazon AppFlow for specified connector types. If you don't specify a connector type, this operation describes all connectors vended by Amazon AppFlow.
- *   If there are more connectors than can be returned in one page, the response contains a <code>nextToken</code> object, which can be be passed in to the next call to the <code>DescribeConnectors</code> API operation to retrieve the next page.
- * </p>
+ * <p> Describes the connectors vended by Amazon AppFlow for specified connector types. If you
+ *       don't specify a connector type, this operation describes all connectors vended by Amazon
+ *       AppFlow. If there are more connectors than can be returned in one page, the response contains
+ *       a <code>nextToken</code> object, which can be be passed in to the next call to the
+ *         <code>DescribeConnectors</code> API operation to retrieve the next page. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

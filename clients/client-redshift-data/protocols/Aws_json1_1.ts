@@ -32,6 +32,7 @@ import {
   ListTablesRequest,
   ListTablesResponse,
   ResourceNotFoundException,
+  SqlParameter,
   StatementData,
   TableMember,
   ValidationException,
@@ -857,6 +858,8 @@ const serializeAws_json1_1ExecuteStatementInput = (input: ExecuteStatementInput,
       input.ClusterIdentifier !== null && { ClusterIdentifier: input.ClusterIdentifier }),
     ...(input.Database !== undefined && input.Database !== null && { Database: input.Database }),
     ...(input.DbUser !== undefined && input.DbUser !== null && { DbUser: input.DbUser }),
+    ...(input.Parameters !== undefined &&
+      input.Parameters !== null && { Parameters: serializeAws_json1_1SqlParametersList(input.Parameters, context) }),
     ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
     ...(input.Sql !== undefined && input.Sql !== null && { Sql: input.Sql }),
     ...(input.StatementName !== undefined && input.StatementName !== null && { StatementName: input.StatementName }),
@@ -925,6 +928,24 @@ const serializeAws_json1_1ListTablesRequest = (input: ListTablesRequest, context
     ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
     ...(input.TablePattern !== undefined && input.TablePattern !== null && { TablePattern: input.TablePattern }),
   };
+};
+
+const serializeAws_json1_1SqlParameter = (input: SqlParameter, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+  };
+};
+
+const serializeAws_json1_1SqlParametersList = (input: SqlParameter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1SqlParameter(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ActiveStatementsExceededException = (
@@ -1017,6 +1038,10 @@ const deserializeAws_json1_1DescribeStatementResponse = (
     Error: output.Error !== undefined && output.Error !== null ? output.Error : undefined,
     HasResultSet: output.HasResultSet !== undefined && output.HasResultSet !== null ? output.HasResultSet : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    QueryParameters:
+      output.QueryParameters !== undefined && output.QueryParameters !== null
+        ? deserializeAws_json1_1SqlParametersList(output.QueryParameters, context)
+        : undefined,
     QueryString: output.QueryString !== undefined && output.QueryString !== null ? output.QueryString : undefined,
     RedshiftPid: output.RedshiftPid !== undefined && output.RedshiftPid !== null ? output.RedshiftPid : undefined,
     RedshiftQueryId:
@@ -1203,6 +1228,24 @@ const deserializeAws_json1_1SchemaList = (output: any, context: __SerdeContext):
     });
 };
 
+const deserializeAws_json1_1SqlParameter = (output: any, context: __SerdeContext): SqlParameter => {
+  return {
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SqlParametersList = (output: any, context: __SerdeContext): SqlParameter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SqlParameter(entry, context);
+    });
+};
+
 const deserializeAws_json1_1SqlRecords = (output: any, context: __SerdeContext): Field[][] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -1221,6 +1264,10 @@ const deserializeAws_json1_1StatementData = (output: any, context: __SerdeContex
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    QueryParameters:
+      output.QueryParameters !== undefined && output.QueryParameters !== null
+        ? deserializeAws_json1_1SqlParametersList(output.QueryParameters, context)
+        : undefined,
     QueryString: output.QueryString !== undefined && output.QueryString !== null ? output.QueryString : undefined,
     SecretArn: output.SecretArn !== undefined && output.SecretArn !== null ? output.SecretArn : undefined,
     StatementName:

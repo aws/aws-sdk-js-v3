@@ -100,6 +100,7 @@ import {
   ServiceUnavailableException,
   SetSourceRequest,
   Source,
+  SourcePriority,
   TooManyRequestsException,
   Transport,
   UpdateEncryption,
@@ -4380,8 +4381,13 @@ const serializeAws_restJson1Encryption = (input: Encryption, context: __SerdeCon
 
 const serializeAws_restJson1FailoverConfig = (input: FailoverConfig, context: __SerdeContext): any => {
   return {
+    ...(input.FailoverMode !== undefined && input.FailoverMode !== null && { failoverMode: input.FailoverMode }),
     ...(input.RecoveryWindow !== undefined &&
       input.RecoveryWindow !== null && { recoveryWindow: input.RecoveryWindow }),
+    ...(input.SourcePriority !== undefined &&
+      input.SourcePriority !== null && {
+        sourcePriority: serializeAws_restJson1SourcePriority(input.SourcePriority, context),
+      }),
     ...(input.State !== undefined && input.State !== null && { state: input.State }),
   };
 };
@@ -4517,6 +4523,12 @@ const serializeAws_restJson1SetSourceRequest = (input: SetSourceRequest, context
   };
 };
 
+const serializeAws_restJson1SourcePriority = (input: SourcePriority, context: __SerdeContext): any => {
+  return {
+    ...(input.PrimarySource !== undefined && input.PrimarySource !== null && { primarySource: input.PrimarySource }),
+  };
+};
+
 const serializeAws_restJson1UpdateEncryption = (input: UpdateEncryption, context: __SerdeContext): any => {
   return {
     ...(input.Algorithm !== undefined && input.Algorithm !== null && { algorithm: input.Algorithm }),
@@ -4536,8 +4548,13 @@ const serializeAws_restJson1UpdateEncryption = (input: UpdateEncryption, context
 
 const serializeAws_restJson1UpdateFailoverConfig = (input: UpdateFailoverConfig, context: __SerdeContext): any => {
   return {
+    ...(input.FailoverMode !== undefined && input.FailoverMode !== null && { failoverMode: input.FailoverMode }),
     ...(input.RecoveryWindow !== undefined &&
       input.RecoveryWindow !== null && { recoveryWindow: input.RecoveryWindow }),
+    ...(input.SourcePriority !== undefined &&
+      input.SourcePriority !== null && {
+        sourcePriority: serializeAws_restJson1SourcePriority(input.SourcePriority, context),
+      }),
     ...(input.State !== undefined && input.State !== null && { state: input.State }),
   };
 };
@@ -4816,8 +4833,13 @@ const deserializeAws_restJson1Entitlement = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1FailoverConfig = (output: any, context: __SerdeContext): FailoverConfig => {
   return {
+    FailoverMode: output.failoverMode !== undefined && output.failoverMode !== null ? output.failoverMode : undefined,
     RecoveryWindow:
       output.recoveryWindow !== undefined && output.recoveryWindow !== null ? output.recoveryWindow : undefined,
+    SourcePriority:
+      output.sourcePriority !== undefined && output.sourcePriority !== null
+        ? deserializeAws_restJson1SourcePriority(output.sourcePriority, context)
+        : undefined,
     State: output.state !== undefined && output.state !== null ? output.state : undefined,
   } as any;
 };
@@ -5118,6 +5140,13 @@ const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): S
       output.vpcInterfaceName !== undefined && output.vpcInterfaceName !== null ? output.vpcInterfaceName : undefined,
     WhitelistCidr:
       output.whitelistCidr !== undefined && output.whitelistCidr !== null ? output.whitelistCidr : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SourcePriority = (output: any, context: __SerdeContext): SourcePriority => {
+  return {
+    PrimarySource:
+      output.primarySource !== undefined && output.primarySource !== null ? output.primarySource : undefined,
   } as any;
 };
 

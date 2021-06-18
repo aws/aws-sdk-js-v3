@@ -324,19 +324,28 @@ export interface AdvancedFieldSelector {
    *                <p>
    *                   <b>
    *                      <code>resources.type</code>
-   *                   </b> - This ﬁeld is required. <code>resources.type</code>
-   *             can only use the <code>Equals</code> operator, and the value can be one of the following: <code>AWS::S3::Object</code>,
-   *             <code>AWS::Lambda::Function</code>, or <code>AWS::S3Outposts::Object</code>. You can have only one <code>resources.type</code> ﬁeld per selector. To log
-   *             data events on more than one resource type, add another selector.</p>
+   *                   </b> - This ﬁeld is required.
+   *                   <code>resources.type</code> can only use the <code>Equals</code> operator, and the
+   *                value can be one of the following: <code>AWS::S3::Object</code>,
+   *                   <code>AWS::Lambda::Function</code>, <code>AWS::DynamoDB::Table</code>,
+   *                   <code>AWS::S3Outposts::Object</code>, <code>AWS::ManagedBlockchain::Node</code>,
+   *                or <code>AWS::S3ObjectLambda::AccessPoint</code>. You can have only one
+   *                   <code>resources.type</code> ﬁeld per selector. To log data events on more than one
+   *                resource type, add another selector.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <b>
    *                      <code>resources.ARN</code>
-   *                   </b> - You can use any operator with resources.ARN, but
-   *             if you use <code>Equals</code> or <code>NotEquals</code>, the value must exactly match the ARN of a valid resource
-   *             of the type you've speciﬁed in the template as the value of resources.type. For example, if resources.type equals
-   *             <code>AWS::S3::Object</code>, the ARN must be in one of the following formats. The trailing slash is intentional; do not exclude it.</p>
+   *                   </b> - You can use any operator with
+   *                resources.ARN, but if you use <code>Equals</code> or <code>NotEquals</code>, the
+   *                value must exactly match the ARN of a valid resource of the type you've speciﬁed in
+   *                the template as the value of resources.type. For example, if resources.type equals
+   *                   <code>AWS::S3::Object</code>, the ARN must be in one of the following formats. To
+   *                log all data events for all objects in a specific S3 bucket, use the
+   *                   <code>StartsWith</code> operator, and include only the bucket ARN as the matching
+   *                value.</p>
+   *                <p>The trailing slash is intentional; do not exclude it.</p>
    *                <ul>
    *                   <li>
    *                      <p>
@@ -358,12 +367,43 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
+   *                <p>When resources.type equals <code>AWS::DynamoDB::Table</code>, and the operator is
+   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
+   *                following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:partition:dynamodb:region:account_ID:table:table_name</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *                <p>When <code>resources.type</code> equals <code>AWS::S3Outposts::Object</code>, and the operator
    *                is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
    *                <ul>
    *                   <li>
    *                      <p>
    *                         <code>arn:partition:s3-outposts:region:>account_ID:object_path</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::ManagedBlockchain::Node</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:partition:managedblockchain:region:account_ID:nodes/node_ID</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals
+   *                   <code>AWS::S3ObjectLambda::AccessPoint</code>, and the operator is set to
+   *                   <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following
+   *                format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:partition:s3-object-lambda:region:account_ID:accesspoint/access_point_name</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1039,9 +1079,9 @@ export namespace KmsKeyDisabledException {
 }
 
 /**
- * <p>This exception is thrown when the KMS key does not exist, when the S3 bucket and the KMS key are not
- *          in the same region, or when the KMS key associated with the SNS topic either does not exist or is not
- *          in the same region.</p>
+ * <p>This exception is thrown when the AWS KMS key does not exist, when the S3 bucket and the
+ *          AWS KMS key are not in the same region, or when the AWS KMS key associated with the SNS
+ *          topic either does not exist or is not in the same region.</p>
  */
 export interface KmsKeyNotFoundException extends __SmithyException, $MetadataBearer {
   name: "KmsKeyNotFoundException";
@@ -1504,9 +1544,11 @@ export namespace GetEventSelectorsRequest {
 }
 
 /**
- * <p>The Amazon S3 buckets or AWS Lambda functions that you specify in your event selectors for your trail to
- *          log data events. Data events provide information about the resource operations performed on or within a resource itself.
- *          These are also known as data plane operations. You can specify up to 250 data resources for a trail.</p>
+ * <p>The Amazon S3 buckets, AWS Lambda functions, or Amazon DynamoDB tables that you specify
+ *          in your event selectors for your trail to log data events. Data events provide information
+ *          about the resource operations performed on or within a resource itself. These are also
+ *          known as data plane operations. You can specify up to 250 data resources for a
+ *          trail.</p>
  *          <note>
  *             <p>The total number of allowed data resources is 250. This number can be distributed between 1 and 5 event selectors,
  *       but the total cannot exceed 250 across all selectors.</p>
@@ -1557,10 +1599,13 @@ export namespace GetEventSelectorsRequest {
  */
 export interface DataResource {
   /**
-   * <p>The resource type in which you want to log data events. You can specify <code>AWS::S3::Object</code> or
-   *          <code>AWS::Lambda::Function</code> resources.</p>
-   *          <p>The <code>AWS::S3Outposts::Object</code> resource type is not valid in basic event selectors. To log data events on this resource type,
-   *          use advanced event selectors.</p>
+   * <p>The resource type in which you want to log data events. You can specify
+   *             <code>AWS::S3::Object</code>, <code>AWS::Lambda::Function</code>, or
+   *             <code>AWS::DynamoDB::Table</code> resources.</p>
+   *          <p>The <code>AWS::S3Outposts::Object</code>, <code>AWS::ManagedBlockchain::Node</code>, and
+   *             <code>AWS::S3ObjectLambda::AccessPoint</code> resource types are not valid in basic
+   *          event selectors. To log data events on these resource types, use advanced event
+   *          selectors.</p>
    */
   Type?: string;
 
@@ -1586,8 +1631,8 @@ export interface DataResource {
    *          objects in this S3 bucket that match the prefix.</p>
    *             </li>
    *             <li>
-   *                <p>To log data events for all functions in your AWS account, specify the prefix as
-   *       <code>arn:aws:lambda</code>.</p>
+   *                <p>To log data events for all Lambda functions in your AWS account, specify the prefix as
+   *                   <code>arn:aws:lambda</code>.</p>
    *                <note>
    *                   <p>This will also enable logging of <code>Invoke</code> activity performed by any user or role in your AWS account,
    *             even if that activity is performed on a function that belongs to another AWS account. </p>
@@ -1601,6 +1646,10 @@ export interface DataResource {
    *             only be logged for <i>arn:aws:lambda:us-west-2:111111111111:function:helloworld</i>. They will
    *             not be logged for <i>arn:aws:lambda:us-west-2:111111111111:function:helloworld2</i>.</p>
    *                </note>
+   *             </li>
+   *             <li>
+   *                <p>To log data events for all DynamoDB tables in your AWS account, specify the prefix
+   *                as <code>arn:aws:dynamodb</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -1654,9 +1703,11 @@ export interface EventSelector {
   IncludeManagementEvents?: boolean;
 
   /**
-   * <p>CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify
-   *          up to 250 resources for an individual event selector, but the total number of data resources cannot exceed
-   *          250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events. </p>
+   * <p>CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions
+   *          with basic event selectors. You can specify up to 250 resources for an individual event
+   *          selector, but the total number of data resources cannot exceed 250 across all event
+   *          selectors in a trail. This limit does not apply if you configure resource logging for all
+   *          data events. </p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events">Data Events</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Limits in AWS CloudTrail</a>
    *          in the <i>AWS CloudTrail User Guide</i>.</p>
    */

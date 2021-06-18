@@ -21,9 +21,8 @@ export interface DescribeConnectorEntityCommandInput extends DescribeConnectorEn
 export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorEntityResponse, __MetadataBearer {}
 
 /**
- * <p>
- * Provides details regarding the entity used with the connector, with a description of the data model for each entity.
- * </p>
+ * <p> Provides details regarding the entity used with the connector, with a description of the
+ *       data model for each entity. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

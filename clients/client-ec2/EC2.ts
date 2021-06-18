@@ -105,6 +105,11 @@ import {
   AssociateTransitGatewayRouteTableCommandOutput,
 } from "./commands/AssociateTransitGatewayRouteTableCommand";
 import {
+  AssociateTrunkInterfaceCommand,
+  AssociateTrunkInterfaceCommandInput,
+  AssociateTrunkInterfaceCommandOutput,
+} from "./commands/AssociateTrunkInterfaceCommand";
+import {
   AssociateVpcCidrBlockCommand,
   AssociateVpcCidrBlockCommandInput,
   AssociateVpcCidrBlockCommandOutput,
@@ -1309,6 +1314,11 @@ import {
   DescribeTransitGatewaysCommandOutput,
 } from "./commands/DescribeTransitGatewaysCommand";
 import {
+  DescribeTrunkInterfaceAssociationsCommand,
+  DescribeTrunkInterfaceAssociationsCommandInput,
+  DescribeTrunkInterfaceAssociationsCommandOutput,
+} from "./commands/DescribeTrunkInterfaceAssociationsCommand";
+import {
   DescribeVolumeAttributeCommand,
   DescribeVolumeAttributeCommandInput,
   DescribeVolumeAttributeCommandOutput,
@@ -1429,6 +1439,11 @@ import {
   DisableFastSnapshotRestoresCommandOutput,
 } from "./commands/DisableFastSnapshotRestoresCommand";
 import {
+  DisableImageDeprecationCommand,
+  DisableImageDeprecationCommandInput,
+  DisableImageDeprecationCommandOutput,
+} from "./commands/DisableImageDeprecationCommand";
+import {
   DisableSerialConsoleAccessCommand,
   DisableSerialConsoleAccessCommandInput,
   DisableSerialConsoleAccessCommandOutput,
@@ -1494,6 +1509,11 @@ import {
   DisassociateTransitGatewayRouteTableCommandOutput,
 } from "./commands/DisassociateTransitGatewayRouteTableCommand";
 import {
+  DisassociateTrunkInterfaceCommand,
+  DisassociateTrunkInterfaceCommandInput,
+  DisassociateTrunkInterfaceCommandOutput,
+} from "./commands/DisassociateTrunkInterfaceCommand";
+import {
   DisassociateVpcCidrBlockCommand,
   DisassociateVpcCidrBlockCommandInput,
   DisassociateVpcCidrBlockCommandOutput,
@@ -1508,6 +1528,11 @@ import {
   EnableFastSnapshotRestoresCommandInput,
   EnableFastSnapshotRestoresCommandOutput,
 } from "./commands/EnableFastSnapshotRestoresCommand";
+import {
+  EnableImageDeprecationCommand,
+  EnableImageDeprecationCommandInput,
+  EnableImageDeprecationCommandOutput,
+} from "./commands/EnableImageDeprecationCommand";
 import {
   EnableSerialConsoleAccessCommand,
   EnableSerialConsoleAccessCommandInput,
@@ -2430,15 +2455,15 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Advertises an IPv4 or IPv6 address range that is provisioned for use with your AWS resources through
+   * <p>Advertises an IPv4 or IPv6 address range that is provisioned for use with your Amazon Web Services resources through
    *          bring your own IP addresses (BYOIP).</p>
    *          <p>You can perform this operation at most once every 10 seconds, even if you specify different
    *          address ranges each time.</p>
    *          <p>We recommend that you stop advertising the BYOIP CIDR from other locations when you advertise
-   *          it from AWS. To minimize down time, you can configure your AWS resources to use an address from a
+   *           it from Amazon Web Services. To minimize down time, you can configure your Amazon Web Services resources to use an address from a
    *          BYOIP CIDR before it is advertised, and then simultaneously stop advertising it from the current
-   *          location and start advertising it through AWS.</p>
-   *          <p>It can take a few minutes before traffic to the specified addresses starts routing to AWS
+   *          location and start advertising it through Amazon Web Services.</p>
+   *          <p>It can take a few minutes before traffic to the specified addresses starts routing to Amazon Web Services
    *          because of BGP propagation delays.</p>
    *          <p>To stop advertising the BYOIP CIDR, use <a>WithdrawByoipCidr</a>.</p>
    */
@@ -2472,14 +2497,14 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Allocates an Elastic IP address to your AWS account. After you allocate the Elastic IP address you can associate
+   * <p>Allocates an Elastic IP address to your account. After you allocate the Elastic IP address you can associate
    *          it with an instance or network interface. After you release an Elastic IP address, it is released to the IP address
-   *          pool and can be allocated to a different AWS account.</p>
-   *          <p>You can allocate an Elastic IP address from an address pool owned by AWS or from an address pool created
-   *          from a public IPv4 address range that you have brought to AWS for use with your AWS resources using bring your own
+   *          pool and can be allocated to a different account.</p>
+   *          <p>You can allocate an Elastic IP address from an address pool owned by Amazon Web Services or from an address pool created
+   *        from a public IPv4 address range that you have brought to Amazon Web Services for use with your Amazon Web Services resources using bring your own
    *          IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>[EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You cannot recover an
-   *          Elastic IP address that you released after it is allocated to another AWS account. You cannot recover an Elastic IP
+   *        Elastic IP address that you released after it is allocated to another account. You cannot recover an Elastic IP
    *          address for EC2-Classic. To attempt to recover an Elastic IP address that you released, specify it in this operation.</p>
    *          <p>An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By default, you can allocate
    *          5 Elastic IP addresses for EC2-Classic per Region and 5 Elastic IP addresses for EC2-VPC per Region.</p>
@@ -2997,6 +3022,42 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: AssociateTransitGatewayRouteTableCommandOutput) => void
   ): Promise<AssociateTransitGatewayRouteTableCommandOutput> | void {
     const command = new AssociateTransitGatewayRouteTableCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates a branch network interface with a trunk network interface.</p>
+   *         <p>Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a> command and set
+   *             <code>--interface-type</code> to <code>trunk</code>. You must also create a network interface for each branch network interface that you want to associate with the trunk network interface.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/eni-trunking.html">
+   *             Network interface trunking</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  public associateTrunkInterface(
+    args: AssociateTrunkInterfaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateTrunkInterfaceCommandOutput>;
+  public associateTrunkInterface(
+    args: AssociateTrunkInterfaceCommandInput,
+    cb: (err: any, data?: AssociateTrunkInterfaceCommandOutput) => void
+  ): void;
+  public associateTrunkInterface(
+    args: AssociateTrunkInterfaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateTrunkInterfaceCommandOutput) => void
+  ): void;
+  public associateTrunkInterface(
+    args: AssociateTrunkInterfaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateTrunkInterfaceCommandOutput) => void),
+    cb?: (err: any, data?: AssociateTrunkInterfaceCommandOutput) => void
+  ): Promise<AssociateTrunkInterfaceCommandOutput> | void {
+    const command = new AssociateTrunkInterfaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4672,12 +4733,16 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a NAT gateway in the specified public subnet. This action creates a network
-   *             interface in the specified subnet with a private IP address from the IP address range of
-   *             the subnet. Internet-bound traffic from a private subnet can be routed to the NAT
-   *             gateway, therefore enabling instances in the private subnet to connect to the internet.
-   *             For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT Gateways</a> in the
-   *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   * <p>Creates a NAT gateway in the specified subnet. This action creates a network interface
+   *           in the specified subnet with a private IP address from the IP address range of the
+   *           subnet. You can create either a public NAT gateway or a private NAT gateway.</p>
+   *          <p>With a public NAT gateway, internet-bound traffic from a private subnet can be routed
+   *           to the NAT gateway, so that instances in a private subnet can connect to the internet.</p>
+   *          <p>With a private NAT gateway, private communication is routed across VPCs and on-premises
+   *             networks through a transit gateway or virtual private gateway. Common use cases include
+   *             running large workloads behind a small pool of allowlisted IPv4 addresses, preserving
+   *             private IPv4 addresses, and communicating between overlapping networks.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT Gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
    */
   public createNatGateway(
     args: CreateNatGatewayCommandInput,
@@ -4851,9 +4916,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Grants an AWS-authorized account permission to attach the specified network interface to
+   * <p>Grants an Amazon Web Services-authorized account permission to attach the specified network interface to
    *             an instance in their account.</p>
-   * 		       <p>You can grant permission to a single AWS account only, and only one account at a time.</p>
+   * 	        <p>You can grant permission to a single account only, and only one account at a time.</p>
    */
   public createNetworkInterfacePermission(
     args: CreateNetworkInterfacePermissionCommandInput,
@@ -6804,7 +6869,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deletes the specified NAT gateway. Deleting a NAT gateway disassociates its Elastic IP address, but does not release the address from your account. Deleting a NAT gateway does not delete any NAT gateway routes in your route tables.</p>
+   * <p>Deletes the specified NAT gateway. Deleting a public NAT gateway disassociates its Elastic IP address,
+   *           but does not release the address from your account. Deleting a NAT gateway does not delete any NAT gateway
+   *           routes in your route tables.</p>
    */
   public deleteNatGateway(
     args: DeleteNatGatewayCommandInput,
@@ -8066,7 +8133,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Releases the specified address range that you provisioned for use with your AWS resources
+   * <p>Releases the specified address range that you provisioned for use with your Amazon Web Services resources
    *          through bring your own IP addresses (BYOIP) and deletes the corresponding address pool.</p>
    *          <p>Before you can release an address range, you must stop advertising it using <a>WithdrawByoipCidr</a> and you must not have any IP addresses allocated from its
    *          address range.</p>
@@ -9561,9 +9628,10 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.</p>
    *          <p>The images available to you include public images, private images that you own, and private images owned by other AWS accounts for which you have explicit launch permissions.</p>
-   *          <p>Recently deregistered images appear in the returned results for a short interval and then return empty results.
-   *         After all instances that reference a deregistered AMI are terminated, specifying the ID of the image results
-   *         in an error indicating that the AMI ID cannot be found.</p>
+   *          <p>Recently deregistered images appear in the returned results for a short interval and then
+   *       return empty results. After all instances that reference a deregistered AMI are terminated,
+   *       specifying the ID of the image will eventually return an error indicating that the AMI ID
+   *       cannot be found.</p>
    */
   public describeImages(
     args: DescribeImagesCommandInput,
@@ -10321,7 +10389,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes your managed prefix lists and any AWS-managed prefix lists.</p>
+   * <p>Describes your managed prefix lists and any Amazon Web Services-managed prefix lists.</p>
    *         <p>To view the entries for your prefix list, use <a>GetManagedPrefixListEntries</a>.</p>
    */
   public describeManagedPrefixLists(
@@ -10646,7 +10714,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes available AWS services in a prefix list format, which includes the prefix list
+   * <p>Describes available Amazon Web Services services in a prefix list format, which includes the prefix list
    *             name and prefix list ID of the service and the IP address range for the service.</p>
    *         <p>We recommend that you use <a>DescribeManagedPrefixLists</a> instead.</p>
    */
@@ -11973,6 +12041,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describes one or more network interface trunk associations.</p>
+   */
+  public describeTrunkInterfaceAssociations(
+    args: DescribeTrunkInterfaceAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTrunkInterfaceAssociationsCommandOutput>;
+  public describeTrunkInterfaceAssociations(
+    args: DescribeTrunkInterfaceAssociationsCommandInput,
+    cb: (err: any, data?: DescribeTrunkInterfaceAssociationsCommandOutput) => void
+  ): void;
+  public describeTrunkInterfaceAssociations(
+    args: DescribeTrunkInterfaceAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTrunkInterfaceAssociationsCommandOutput) => void
+  ): void;
+  public describeTrunkInterfaceAssociations(
+    args: DescribeTrunkInterfaceAssociationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrunkInterfaceAssociationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeTrunkInterfaceAssociationsCommandOutput) => void
+  ): Promise<DescribeTrunkInterfaceAssociationsCommandOutput> | void {
+    const command = new DescribeTrunkInterfaceAssociationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the specified attribute of the specified volume. You can specify only one
    *       attribute at a time.</p>
    *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -12826,6 +12926,40 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Cancels the deprecation of the specified AMI.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the
+   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  public disableImageDeprecation(
+    args: DisableImageDeprecationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableImageDeprecationCommandOutput>;
+  public disableImageDeprecation(
+    args: DisableImageDeprecationCommandInput,
+    cb: (err: any, data?: DisableImageDeprecationCommandOutput) => void
+  ): void;
+  public disableImageDeprecation(
+    args: DisableImageDeprecationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableImageDeprecationCommandOutput) => void
+  ): void;
+  public disableImageDeprecation(
+    args: DisableImageDeprecationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableImageDeprecationCommandOutput) => void),
+    cb?: (err: any, data?: DisableImageDeprecationCommandOutput) => void
+  ): Promise<DisableImageDeprecationCommandOutput> | void {
+    const command = new DisableImageDeprecationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disables access to the EC2 serial console of all instances for your account. By default,
    * 			access to the EC2 serial console is disabled for your account. For more information, see
    * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-access-to-serial-console.html#serial-console-account-access">Manage account access to the EC2 serial console</a> in the <i>Amazon EC2
@@ -13286,6 +13420,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Removes an association between a branch network interface with a trunk network interface.</p>
+   */
+  public disassociateTrunkInterface(
+    args: DisassociateTrunkInterfaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateTrunkInterfaceCommandOutput>;
+  public disassociateTrunkInterface(
+    args: DisassociateTrunkInterfaceCommandInput,
+    cb: (err: any, data?: DisassociateTrunkInterfaceCommandOutput) => void
+  ): void;
+  public disassociateTrunkInterface(
+    args: DisassociateTrunkInterfaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateTrunkInterfaceCommandOutput) => void
+  ): void;
+  public disassociateTrunkInterface(
+    args: DisassociateTrunkInterfaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateTrunkInterfaceCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateTrunkInterfaceCommandOutput) => void
+  ): Promise<DisassociateTrunkInterfaceCommandOutput> | void {
+    const command = new DisassociateTrunkInterfaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disassociates a CIDR block from a VPC. To disassociate the CIDR block, you must
    *             specify its association ID. You can get the association ID by using
    *                 <a>DescribeVpcs</a>. You must detach or delete all gateways and resources that
@@ -13392,6 +13558,39 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: EnableFastSnapshotRestoresCommandOutput) => void
   ): Promise<EnableFastSnapshotRestoresCommandOutput> | void {
     const command = new EnableFastSnapshotRestoresCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Enables deprecation of the specified AMI at the specified date and time.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  public enableImageDeprecation(
+    args: EnableImageDeprecationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableImageDeprecationCommandOutput>;
+  public enableImageDeprecation(
+    args: EnableImageDeprecationCommandInput,
+    cb: (err: any, data?: EnableImageDeprecationCommandOutput) => void
+  ): void;
+  public enableImageDeprecation(
+    args: EnableImageDeprecationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableImageDeprecationCommandOutput) => void
+  ): void;
+  public enableImageDeprecation(
+    args: EnableImageDeprecationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableImageDeprecationCommandOutput) => void),
+    cb?: (err: any, data?: EnableImageDeprecationCommandOutput) => void
+  ): Promise<EnableImageDeprecationCommandOutput> | void {
+    const command = new EnableImageDeprecationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -16553,13 +16752,13 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Provisions an IPv4 or IPv6 address range for use with your AWS resources through bring your own IP
+   * <p>Provisions an IPv4 or IPv6 address range for use with your Amazon Web Services resources through bring your own IP
    *          addresses (BYOIP) and creates a corresponding address pool. After the address range is
    *          provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.</p>
-   *          <p>AWS verifies that you own the address range and are authorized to advertise it.
+   *          <p>Amazon Web Services verifies that you own the address range and are authorized to advertise it.
    *          You must ensure that the address range is registered to you and that you created an
    *          RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the address range.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring your own IP addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>Provisioning an address range is an asynchronous operation, so the call returns immediately,
    *          but the address range is not ready to use until its status changes from <code>pending-provision</code>
    *          to <code>provisioned</code>. To monitor the status of an address range, use <a>DescribeByoipCidrs</a>.
@@ -17123,7 +17322,7 @@ export class EC2 extends EC2Client {
    *          <p>After releasing an Elastic IP address, it is released to the IP address pool.
    *         Be sure to update your DNS records and any servers or devices that communicate with the address.
    *         If you attempt to release an Elastic IP address that you already released, you'll get an
-   *         <code>AuthFailure</code> error if the address is already allocated to another AWS account.</p>
+   *        <code>AuthFailure</code> error if the address is already allocated to another account.</p>
    *          <p>[EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it.
    *         For more information, see <a>AllocateAddress</a>.</p>
    */
@@ -18650,7 +18849,7 @@ export class EC2 extends EC2Client {
    * <p>Stops advertising an address range that is provisioned as an address pool.</p>
    *          <p>You can perform this operation at most once every 10 seconds, even if you specify different
    *          address ranges each time.</p>
-   *          <p>It can take a few minutes before traffic to the specified addresses stops routing to AWS
+   *          <p>It can take a few minutes before traffic to the specified addresses stops routing to Amazon Web Services
    *           because of BGP propagation delays.</p>
    */
   public withdrawByoipCidr(

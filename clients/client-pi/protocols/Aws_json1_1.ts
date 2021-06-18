@@ -2,6 +2,10 @@ import {
   DescribeDimensionKeysCommandInput,
   DescribeDimensionKeysCommandOutput,
 } from "../commands/DescribeDimensionKeysCommand";
+import {
+  GetDimensionKeyDetailsCommandInput,
+  GetDimensionKeyDetailsCommandOutput,
+} from "../commands/GetDimensionKeyDetailsCommand";
 import { GetResourceMetricsCommandInput, GetResourceMetricsCommandOutput } from "../commands/GetResourceMetricsCommand";
 import {
   DataPoint,
@@ -9,6 +13,9 @@ import {
   DescribeDimensionKeysResponse,
   DimensionGroup,
   DimensionKeyDescription,
+  DimensionKeyDetail,
+  GetDimensionKeyDetailsRequest,
+  GetDimensionKeyDetailsResponse,
   GetResourceMetricsRequest,
   GetResourceMetricsResponse,
   InternalServiceError,
@@ -39,6 +46,19 @@ export const serializeAws_json1_1DescribeDimensionKeysCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDimensionKeysRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetDimensionKeyDetailsCommand = async (
+  input: GetDimensionKeyDetailsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "PerformanceInsightsv20180227.GetDimensionKeyDetails",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetDimensionKeyDetailsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -76,6 +96,76 @@ const deserializeAws_json1_1DescribeDimensionKeysCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDimensionKeysCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.pi#InternalServiceError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.pi#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotAuthorizedException":
+    case "com.amazonaws.pi#NotAuthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetDimensionKeyDetailsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDimensionKeyDetailsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetDimensionKeyDetailsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetDimensionKeyDetailsResponse(data, context);
+  const response: GetDimensionKeyDetailsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetDimensionKeyDetailsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDimensionKeyDetailsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -268,9 +358,26 @@ const serializeAws_json1_1DescribeDimensionKeysRequest = (
 const serializeAws_json1_1DimensionGroup = (input: DimensionGroup, context: __SerdeContext): any => {
   return {
     ...(input.Dimensions !== undefined &&
-      input.Dimensions !== null && { Dimensions: serializeAws_json1_1StringList(input.Dimensions, context) }),
+      input.Dimensions !== null && { Dimensions: serializeAws_json1_1RequestStringList(input.Dimensions, context) }),
     ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
     ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+  };
+};
+
+const serializeAws_json1_1GetDimensionKeyDetailsRequest = (
+  input: GetDimensionKeyDetailsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
+    ...(input.GroupIdentifier !== undefined &&
+      input.GroupIdentifier !== null && { GroupIdentifier: input.GroupIdentifier }),
+    ...(input.Identifier !== undefined && input.Identifier !== null && { Identifier: input.Identifier }),
+    ...(input.RequestedDimensions !== undefined &&
+      input.RequestedDimensions !== null && {
+        RequestedDimensions: serializeAws_json1_1RequestedDimensionList(input.RequestedDimensions, context),
+      }),
+    ...(input.ServiceType !== undefined && input.ServiceType !== null && { ServiceType: input.ServiceType }),
   };
 };
 
@@ -329,7 +436,18 @@ const serializeAws_json1_1MetricQueryList = (input: MetricQuery[], context: __Se
     });
 };
 
-const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
+const serializeAws_json1_1RequestedDimensionList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1RequestStringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -417,6 +535,25 @@ const deserializeAws_json1_1DimensionKeyDescriptionList = (
     });
 };
 
+const deserializeAws_json1_1DimensionKeyDetail = (output: any, context: __SerdeContext): DimensionKeyDetail => {
+  return {
+    Dimension: output.Dimension !== undefined && output.Dimension !== null ? output.Dimension : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DimensionKeyDetailList = (output: any, context: __SerdeContext): DimensionKeyDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DimensionKeyDetail(entry, context);
+    });
+};
+
 const deserializeAws_json1_1DimensionMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -427,6 +564,18 @@ const deserializeAws_json1_1DimensionMap = (output: any, context: __SerdeContext
       [key]: value,
     };
   }, {});
+};
+
+const deserializeAws_json1_1GetDimensionKeyDetailsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetDimensionKeyDetailsResponse => {
+  return {
+    Dimensions:
+      output.Dimensions !== undefined && output.Dimensions !== null
+        ? deserializeAws_json1_1DimensionKeyDetailList(output.Dimensions, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1GetResourceMetricsResponse = (

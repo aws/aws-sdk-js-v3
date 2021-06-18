@@ -1806,8 +1806,11 @@ const serializeAws_restJson1SessionState = (input: SessionState, context: __Serd
 
 const serializeAws_restJson1Slot = (input: Slot, context: __SerdeContext): any => {
   return {
+    ...(input.shape !== undefined && input.shape !== null && { shape: input.shape }),
     ...(input.value !== undefined &&
       input.value !== null && { value: serializeAws_restJson1Value(input.value, context) }),
+    ...(input.values !== undefined &&
+      input.values !== null && { values: serializeAws_restJson1Values(input.values, context) }),
   };
 };
 
@@ -1882,6 +1885,17 @@ const serializeAws_restJson1Value = (input: Value, context: __SerdeContext): any
         resolvedValues: serializeAws_restJson1StringList(input.resolvedValues, context),
       }),
   };
+};
+
+const serializeAws_restJson1Values = (input: Slot[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Slot(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
@@ -2185,9 +2199,14 @@ const deserializeAws_restJson1SessionState = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1Slot = (output: any, context: __SerdeContext): Slot => {
   return {
+    shape: output.shape !== undefined && output.shape !== null ? output.shape : undefined,
     value:
       output.value !== undefined && output.value !== null
         ? deserializeAws_restJson1Value(output.value, context)
+        : undefined,
+    values:
+      output.values !== undefined && output.values !== null
+        ? deserializeAws_restJson1Values(output.values, context)
         : undefined,
   } as any;
 };
@@ -2353,6 +2372,17 @@ const deserializeAws_restJson1Value = (output: any, context: __SerdeContext): Va
         ? deserializeAws_restJson1StringList(output.resolvedValues, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1Values = (output: any, context: __SerdeContext): Slot[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Slot(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

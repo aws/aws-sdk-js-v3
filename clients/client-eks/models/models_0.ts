@@ -396,6 +396,8 @@ export enum UpdateParamType {
   LAUNCH_TEMPLATE_NAME = "LaunchTemplateName",
   LAUNCH_TEMPLATE_VERSION = "LaunchTemplateVersion",
   MAX_SIZE = "MaxSize",
+  MAX_UNAVAILABLE = "MaxUnavailable",
+  MAX_UNAVAILABLE_PERCENTAGE = "MaxUnavailablePercentage",
   MIN_SIZE = "MinSize",
   PLATFORM_VERSION = "PlatformVersion",
   PUBLIC_ACCESS_CIDRS = "PublicAccessCidrs",
@@ -1853,6 +1855,20 @@ export namespace Taint {
   });
 }
 
+export interface NodegroupUpdateConfig {
+  maxUnavailable?: number;
+  maxUnavailablePercentage?: number;
+}
+
+export namespace NodegroupUpdateConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NodegroupUpdateConfig): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateNodegroupRequest {
   /**
    * <p>The name of the cluster to create the node group in.</p>
@@ -1967,6 +1983,7 @@ export interface CreateNodegroupRequest {
    */
   launchTemplate?: LaunchTemplateSpecification;
 
+  updateConfig?: NodegroupUpdateConfig;
   /**
    * <p>The capacity type for your node group.</p>
    */
@@ -2331,6 +2348,7 @@ export interface Nodegroup {
    */
   health?: NodegroupHealth;
 
+  updateConfig?: NodegroupUpdateConfig;
   /**
    * <p>If a launch template was used to create the node group, then this is the launch
    *             template that was used.</p>
@@ -3763,6 +3781,7 @@ export interface UpdateNodegroupConfigRequest {
    */
   scalingConfig?: NodegroupScalingConfig;
 
+  updateConfig?: NodegroupUpdateConfig;
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request.</p>

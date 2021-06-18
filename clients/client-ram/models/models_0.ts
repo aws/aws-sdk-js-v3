@@ -141,6 +141,11 @@ export interface ResourceShareInvitation {
    *       		ListPendingInvitationResources</a>.</p>
    */
   resourceShareAssociations?: ResourceShareAssociation[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM user or IAM role that received the invitation.</p>
+   */
+  receiverArn?: string;
 }
 
 export namespace ResourceShareInvitation {
@@ -487,7 +492,7 @@ export interface AssociateResourceSharePermissionRequest {
   resourceShareArn: string | undefined;
 
   /**
-   * <p>The ARN of the AWS RAM permission to associate with the resource share.</p>
+   * <p>The Amazon Resource Name (ARN) of the AWS RAM permissions to associate with the resource share.</p>
    */
   permissionArn: string | undefined;
 
@@ -502,6 +507,11 @@ export interface AssociateResourceSharePermissionRequest {
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The version of the AWS RAM permissions to associate with the resource share.</p>
+   */
+  permissionVersion?: number;
 }
 
 export namespace AssociateResourceSharePermissionRequest {
@@ -939,8 +949,7 @@ export interface ResourceSharePermissionDetail {
   version?: string;
 
   /**
-   * <p>The identifier for the version of the permission that is set as the
-   *     		default version.</p>
+   * <p>Specifies whether the version of the permission is set to the default version for this permission.</p>
    */
   defaultVersion?: boolean;
 
@@ -970,6 +979,11 @@ export interface ResourceSharePermissionDetail {
    * <p>The date and time when the permission was last updated.</p>
    */
   lastUpdatedTime?: Date;
+
+  /**
+   * <p>Specifies whether the version of the permission is set to the default version for this resource type.</p>
+   */
+  isResourceTypeDefault?: boolean;
 }
 
 export namespace ResourceSharePermissionDetail {
@@ -1260,7 +1274,7 @@ export namespace TagFilter {
 
 export interface GetResourceSharesRequest {
   /**
-   * <p>The Amazon Resource Names (ARN) of the resource shares.</p>
+   * <p>The ARNs of the resource shares.</p>
    */
   resourceShareArns?: string[];
 
@@ -1294,6 +1308,11 @@ export interface GetResourceSharesRequest {
    *   To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS RAM permission that is associated with the resource share.</p>
+   */
+  permissionArn?: string;
 }
 
 export namespace GetResourceSharesRequest {
@@ -1492,7 +1511,7 @@ export interface ResourceSharePermissionSummary {
   version?: string;
 
   /**
-   * <p>The identifier for the version of the permission that is set as the default version.</p>
+   * <p>Specifies whether the version of the permission is set to the default version for this permission.</p>
    */
   defaultVersion?: boolean;
 
@@ -1520,6 +1539,11 @@ export interface ResourceSharePermissionSummary {
    * <p>The date and time when the permission was last updated.</p>
    */
   lastUpdatedTime?: Date;
+
+  /**
+   * <p>Specifies whether the version of the permission is set to the default version for this resource type.</p>
+   */
+  isResourceTypeDefault?: boolean;
 }
 
 export namespace ResourceSharePermissionSummary {
@@ -1570,7 +1594,7 @@ export interface ListPrincipalsRequest {
 
   /**
    * <p>The resource type.</p>
-   *    	     <p>Valid values: <code>acm-pca:CertificateAuthority</code> | <code>appmesh:Mesh</code> | <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:LocalGatewayRouteTable</code> | <code>ec2:PrefixList</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>imagebuilder:ContainerRecipe</code> | <code>glue:Catalog</code> | <code>glue:Database</code> | <code>glue:Table</code> | <code>license-manager:LicenseConfiguration</code> I <code>network-firewall:FirewallPolicy</code> | <code>network-firewall:StatefulRuleGroup</code> | <code>network-firewall:StatelessRuleGroup</code> | <code>outposts:Outpost</code> | <code>resource-groups:Group</code> | <code>rds:Cluster</code> | <code>route53resolver:FirewallRuleGroup</code> |<code>route53resolver:ResolverQueryLogConfig</code> | <code>route53resolver:ResolverRule</code>
+   *    	     <p>Valid values: <code>acm-pca:CertificateAuthority</code> | <code>appmesh:Mesh</code> | <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:LocalGatewayRouteTable</code> | <code>ec2:PrefixList</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>imagebuilder:ContainerRecipe</code> | <code>glue:Catalog</code> | <code>glue:Database</code> | <code>glue:Table</code> | <code>license-manager:LicenseConfiguration</code> I <code>network-firewall:FirewallPolicy</code> | <code>network-firewall:StatefulRuleGroup</code> | <code>network-firewall:StatelessRuleGroup</code> | <code>outposts:Outpost</code> | <code>resource-groups:Group</code> | <code>rds:Cluster</code> | <code>route53resolver:ResolverQueryLogConfig</code> | <code>route53resolver:ResolverRule</code>
    *          </p>
    */
   resourceType?: string;
@@ -1692,7 +1716,7 @@ export interface ListResourcesRequest {
 
   /**
    * <p>The resource type.</p>
-   *    	     <p>Valid values: <code>acm-pca:CertificateAuthority</code> | <code>appmesh:Mesh</code> | <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:LocalGatewayRouteTable</code> | <code>ec2:PrefixList</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>imagebuilder:ContainerRecipe</code> | <code>glue:Catalog</code> | <code>glue:Database</code> | <code>glue:Table</code> | <code>license-manager:LicenseConfiguration</code> I <code>network-firewall:FirewallPolicy</code> | <code>network-firewall:StatefulRuleGroup</code> | <code>network-firewall:StatelessRuleGroup</code> | <code>outposts:Outpost</code> | <code>resource-groups:Group</code> | <code>rds:Cluster</code> | <code>route53resolver:FirewallRuleGroup</code> |<code>route53resolver:ResolverQueryLogConfig</code> | <code>route53resolver:ResolverRule</code>
+   *    	     <p>Valid values: <code>acm-pca:CertificateAuthority</code> | <code>appmesh:Mesh</code> | <code>codebuild:Project</code> | <code>codebuild:ReportGroup</code> | <code>ec2:CapacityReservation</code> | <code>ec2:DedicatedHost</code> | <code>ec2:LocalGatewayRouteTable</code> | <code>ec2:PrefixList</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code> | <code>ec2:TransitGateway</code> | <code>imagebuilder:Component</code> | <code>imagebuilder:Image</code> | <code>imagebuilder:ImageRecipe</code> | <code>imagebuilder:ContainerRecipe</code> | <code>glue:Catalog</code> | <code>glue:Database</code> | <code>glue:Table</code> | <code>license-manager:LicenseConfiguration</code> I <code>network-firewall:FirewallPolicy</code> | <code>network-firewall:StatefulRuleGroup</code> | <code>network-firewall:StatelessRuleGroup</code> | <code>outposts:Outpost</code> | <code>resource-groups:Group</code> | <code>rds:Cluster</code> | <code>route53resolver:ResolverQueryLogConfig</code> | <code>route53resolver:ResolverRule</code>
    *          </p>
    */
   resourceType?: string;

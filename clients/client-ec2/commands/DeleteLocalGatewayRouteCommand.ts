@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteLocalGatewayRouteRequest, DeleteLocalGatewayRouteResult } from "../models/models_1";
+import { DeleteLocalGatewayRouteRequest, DeleteLocalGatewayRouteResult } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteLocalGatewayRouteCommand,
   serializeAws_ec2DeleteLocalGatewayRouteCommand,

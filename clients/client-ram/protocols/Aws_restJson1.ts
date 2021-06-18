@@ -187,6 +187,8 @@ export const serializeAws_restJson1AssociateResourceSharePermissionCommand = asy
   body = JSON.stringify({
     ...(input.clientToken !== undefined && input.clientToken !== null && { clientToken: input.clientToken }),
     ...(input.permissionArn !== undefined && input.permissionArn !== null && { permissionArn: input.permissionArn }),
+    ...(input.permissionVersion !== undefined &&
+      input.permissionVersion !== null && { permissionVersion: input.permissionVersion }),
     ...(input.replace !== undefined && input.replace !== null && { replace: input.replace }),
     ...(input.resourceShareArn !== undefined &&
       input.resourceShareArn !== null && { resourceShareArn: input.resourceShareArn }),
@@ -491,6 +493,7 @@ export const serializeAws_restJson1GetResourceSharesCommand = async (
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.permissionArn !== undefined && input.permissionArn !== null && { permissionArn: input.permissionArn }),
     ...(input.resourceOwner !== undefined && input.resourceOwner !== null && { resourceOwner: input.resourceOwner }),
     ...(input.resourceShareArns !== undefined &&
       input.resourceShareArns !== null && {
@@ -1645,6 +1648,14 @@ const deserializeAws_restJson1DisassociateResourceSharePermissionCommandError = 
     case "com.amazonaws.ram#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidStateTransitionException":
+    case "com.amazonaws.ram#InvalidStateTransitionException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidStateTransitionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2973,6 +2984,14 @@ const deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommandError 
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ResourceShareLimitExceededException":
+    case "com.amazonaws.ram#ResourceShareLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceShareLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
       response = {
@@ -3232,6 +3251,14 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     case "com.amazonaws.ram#TagPolicyViolationException":
       response = {
         ...(await deserializeAws_restJson1TagPolicyViolationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnknownResourceException":
+    case "com.amazonaws.ram#UnknownResourceException":
+      response = {
+        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4073,6 +4100,7 @@ const deserializeAws_restJson1ResourceShareInvitation = (
       output.receiverAccountId !== undefined && output.receiverAccountId !== null
         ? output.receiverAccountId
         : undefined,
+    receiverArn: output.receiverArn !== undefined && output.receiverArn !== null ? output.receiverArn : undefined,
     resourceShareArn:
       output.resourceShareArn !== undefined && output.resourceShareArn !== null ? output.resourceShareArn : undefined,
     resourceShareAssociations:
@@ -4130,6 +4158,10 @@ const deserializeAws_restJson1ResourceSharePermissionDetail = (
         : undefined,
     defaultVersion:
       output.defaultVersion !== undefined && output.defaultVersion !== null ? output.defaultVersion : undefined,
+    isResourceTypeDefault:
+      output.isResourceTypeDefault !== undefined && output.isResourceTypeDefault !== null
+        ? output.isResourceTypeDefault
+        : undefined,
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? new Date(Math.round(output.lastUpdatedTime * 1000))
@@ -4167,6 +4199,10 @@ const deserializeAws_restJson1ResourceSharePermissionSummary = (
         : undefined,
     defaultVersion:
       output.defaultVersion !== undefined && output.defaultVersion !== null ? output.defaultVersion : undefined,
+    isResourceTypeDefault:
+      output.isResourceTypeDefault !== undefined && output.isResourceTypeDefault !== null
+        ? output.isResourceTypeDefault
+        : undefined,
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
         ? new Date(Math.round(output.lastUpdatedTime * 1000))

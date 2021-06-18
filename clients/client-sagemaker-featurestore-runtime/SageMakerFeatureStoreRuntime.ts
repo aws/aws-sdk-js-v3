@@ -1,5 +1,10 @@
 import { SageMakerFeatureStoreRuntimeClient } from "./SageMakerFeatureStoreRuntimeClient";
 import {
+  BatchGetRecordCommand,
+  BatchGetRecordCommandInput,
+  BatchGetRecordCommandOutput,
+} from "./commands/BatchGetRecordCommand";
+import {
   DeleteRecordCommand,
   DeleteRecordCommandInput,
   DeleteRecordCommandOutput,
@@ -38,6 +43,38 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          </ul>
  */
 export class SageMakerFeatureStoreRuntime extends SageMakerFeatureStoreRuntimeClient {
+  /**
+   * <p>Retrieves a batch of <code>Records</code> from a <code>FeatureGroup</code>.</p>
+   */
+  public batchGetRecord(
+    args: BatchGetRecordCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetRecordCommandOutput>;
+  public batchGetRecord(
+    args: BatchGetRecordCommandInput,
+    cb: (err: any, data?: BatchGetRecordCommandOutput) => void
+  ): void;
+  public batchGetRecord(
+    args: BatchGetRecordCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetRecordCommandOutput) => void
+  ): void;
+  public batchGetRecord(
+    args: BatchGetRecordCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetRecordCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetRecordCommandOutput) => void
+  ): Promise<BatchGetRecordCommandOutput> | void {
+    const command = new BatchGetRecordCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Deletes a <code>Record</code> from a <code>FeatureGroup</code>. A new record will show
    *          up in the <code>OfflineStore</code> when the <code>DeleteRecord</code> API is called. This

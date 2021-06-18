@@ -22,7 +22,7 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
 
 /**
  * <p>
- *             Starts an Amazon RDS DB instance that was stopped using the AWS console, the stop-db-instance AWS CLI command, or the StopDBInstance action.
+ *             Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services console, the stop-db-instance CLI command, or the StopDBInstance action.
  *         </p>
  *
  *         <p>For more information, see

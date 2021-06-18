@@ -3246,6 +3246,7 @@ const serializeAws_restJson1MemberConfiguration = (input: MemberConfiguration, c
           context
         ),
       }),
+    ...(input.KmsKeyArn !== undefined && input.KmsKeyArn !== null && { KmsKeyArn: input.KmsKeyArn }),
     ...(input.LogPublishingConfiguration !== undefined &&
       input.LogPublishingConfiguration !== null && {
         LogPublishingConfiguration: serializeAws_restJson1MemberLogPublishingConfiguration(
@@ -3491,6 +3492,7 @@ const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): M
         ? deserializeAws_restJson1MemberFrameworkAttributes(output.FrameworkAttributes, context)
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    KmsKeyArn: output.KmsKeyArn !== undefined && output.KmsKeyArn !== null ? output.KmsKeyArn : undefined,
     LogPublishingConfiguration:
       output.LogPublishingConfiguration !== undefined && output.LogPublishingConfiguration !== null
         ? deserializeAws_restJson1MemberLogPublishingConfiguration(output.LogPublishingConfiguration, context)
@@ -3684,6 +3686,7 @@ const deserializeAws_restJson1Node = (output: any, context: __SerdeContext): Nod
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
+    KmsKeyArn: output.KmsKeyArn !== undefined && output.KmsKeyArn !== null ? output.KmsKeyArn : undefined,
     LogPublishingConfiguration:
       output.LogPublishingConfiguration !== undefined && output.LogPublishingConfiguration !== null
         ? deserializeAws_restJson1NodeLogPublishingConfiguration(output.LogPublishingConfiguration, context)

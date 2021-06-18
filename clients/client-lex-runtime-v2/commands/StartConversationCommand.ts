@@ -25,11 +25,32 @@ export interface StartConversationCommandOutput extends StartConversationRespons
 /**
  * <p>Starts an HTTP/2 bidirectional event stream that enables you to send
  *          audio, text, or DTMF input in real time. After your application starts
- *          a conversation, users send input to Amazon Lex as a stream of events. Amazon Lex
+ *          a conversation, users send input to Amazon Lex V2 as a stream of events. Amazon Lex V2
  *          processes the incoming events and responds with streaming text or audio
  *          events.
  *       </p>
- *          <p></p>
+ *          <p>Audio input must be in the following format: <code>audio/lpcm
+ *             sample-rate=8000 sample-size-bits=16 channel-count=1;
+ *             is-big-endian=false</code>.</p>
+ *          <p>The <code>StartConversation</code> operation is supported only in
+ *          the following SDKs: </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/goto/SdkForCpp/runtime.lex.v2-2020-08-07/StartConversation">AWS SDK for C++</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/goto/SdkForJavaV2/runtime.lex.v2-2020-08-07/StartConversation">AWS SDK for Java V2</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/goto/SdkForRubyV3/runtime.lex.v2-2020-08-07/StartConversation">AWS SDK for Ruby V3</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -137,6 +137,8 @@ import {
   UpdateFileSystemRequest,
   UpdateFileSystemResponse,
   UpdateFileSystemWindowsConfiguration,
+  WindowsAuditLogConfiguration,
+  WindowsAuditLogCreateConfiguration,
   WindowsFileSystemConfiguration,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -2638,6 +2640,13 @@ const serializeAws_json1_1CreateFileSystemWindowsConfiguration = (
       input.ActiveDirectoryId !== null && { ActiveDirectoryId: input.ActiveDirectoryId }),
     ...(input.Aliases !== undefined &&
       input.Aliases !== null && { Aliases: serializeAws_json1_1AlternateDNSNames(input.Aliases, context) }),
+    ...(input.AuditLogConfiguration !== undefined &&
+      input.AuditLogConfiguration !== null && {
+        AuditLogConfiguration: serializeAws_json1_1WindowsAuditLogCreateConfiguration(
+          input.AuditLogConfiguration,
+          context
+        ),
+      }),
     ...(input.AutomaticBackupRetentionDays !== undefined &&
       input.AutomaticBackupRetentionDays !== null && {
         AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays,
@@ -3051,6 +3060,13 @@ const serializeAws_json1_1UpdateFileSystemWindowsConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AuditLogConfiguration !== undefined &&
+      input.AuditLogConfiguration !== null && {
+        AuditLogConfiguration: serializeAws_json1_1WindowsAuditLogCreateConfiguration(
+          input.AuditLogConfiguration,
+          context
+        ),
+      }),
     ...(input.AutomaticBackupRetentionDays !== undefined &&
       input.AutomaticBackupRetentionDays !== null && {
         AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays,
@@ -3070,6 +3086,22 @@ const serializeAws_json1_1UpdateFileSystemWindowsConfiguration = (
       input.ThroughputCapacity !== null && { ThroughputCapacity: input.ThroughputCapacity }),
     ...(input.WeeklyMaintenanceStartTime !== undefined &&
       input.WeeklyMaintenanceStartTime !== null && { WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime }),
+  };
+};
+
+const serializeAws_json1_1WindowsAuditLogCreateConfiguration = (
+  input: WindowsAuditLogCreateConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AuditLogDestination !== undefined &&
+      input.AuditLogDestination !== null && { AuditLogDestination: input.AuditLogDestination }),
+    ...(input.FileAccessAuditLogLevel !== undefined &&
+      input.FileAccessAuditLogLevel !== null && { FileAccessAuditLogLevel: input.FileAccessAuditLogLevel }),
+    ...(input.FileShareAccessAuditLogLevel !== undefined &&
+      input.FileShareAccessAuditLogLevel !== null && {
+        FileShareAccessAuditLogLevel: input.FileShareAccessAuditLogLevel,
+      }),
   };
 };
 
@@ -3960,6 +3992,26 @@ const deserializeAws_json1_1UpdateFileSystemResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1WindowsAuditLogConfiguration = (
+  output: any,
+  context: __SerdeContext
+): WindowsAuditLogConfiguration => {
+  return {
+    AuditLogDestination:
+      output.AuditLogDestination !== undefined && output.AuditLogDestination !== null
+        ? output.AuditLogDestination
+        : undefined,
+    FileAccessAuditLogLevel:
+      output.FileAccessAuditLogLevel !== undefined && output.FileAccessAuditLogLevel !== null
+        ? output.FileAccessAuditLogLevel
+        : undefined,
+    FileShareAccessAuditLogLevel:
+      output.FileShareAccessAuditLogLevel !== undefined && output.FileShareAccessAuditLogLevel !== null
+        ? output.FileShareAccessAuditLogLevel
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1WindowsFileSystemConfiguration = (
   output: any,
   context: __SerdeContext
@@ -3972,6 +4024,10 @@ const deserializeAws_json1_1WindowsFileSystemConfiguration = (
     Aliases:
       output.Aliases !== undefined && output.Aliases !== null
         ? deserializeAws_json1_1Aliases(output.Aliases, context)
+        : undefined,
+    AuditLogConfiguration:
+      output.AuditLogConfiguration !== undefined && output.AuditLogConfiguration !== null
+        ? deserializeAws_json1_1WindowsAuditLogConfiguration(output.AuditLogConfiguration, context)
         : undefined,
     AutomaticBackupRetentionDays:
       output.AutomaticBackupRetentionDays !== undefined && output.AutomaticBackupRetentionDays !== null

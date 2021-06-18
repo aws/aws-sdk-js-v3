@@ -6,19 +6,29 @@ import {
   ClientVpnAuthorizationRuleStatus,
   CreditSpecificationRequest,
   ElasticGpuSpecification,
+  IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
-  InstanceInterruptionBehavior,
   IpPermission,
-  MarketType,
   Placement,
   RouteTableAssociationState,
-  ShutdownBehavior,
-  SpotInstanceType,
   TagSpecification,
   TransitGatewayAttachmentResourceType,
+  UnsuccessfulItem,
   _InstanceType,
 } from "./models_0";
-import { InstanceIpv6Address, LocalGatewayRoute, ManagedPrefixList, TransitGatewayRoute } from "./models_1";
+import {
+  IcmpTypeCode,
+  InstanceInterruptionBehavior,
+  InstanceIpv6Address,
+  LocalGatewayRoute,
+  ManagedPrefixList,
+  MarketType,
+  PortRange,
+  RuleAction,
+  ShutdownBehavior,
+  SpotInstanceType,
+  TransitGatewayRoute,
+} from "./models_1";
 import {
   ClientVpnConnectionStatus,
   Filter,
@@ -37,6 +47,414 @@ import {
   SpotPlacement,
 } from "./models_3";
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_4";
+
+export interface RejectVpcEndpointConnectionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the service.</p>
+   */
+  ServiceId: string | undefined;
+
+  /**
+   * <p>The IDs of one or more VPC endpoints.</p>
+   */
+  VpcEndpointIds: string[] | undefined;
+}
+
+export namespace RejectVpcEndpointConnectionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectVpcEndpointConnectionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectVpcEndpointConnectionsResult {
+  /**
+   * <p>Information about the endpoints that were not rejected, if applicable.</p>
+   */
+  Unsuccessful?: UnsuccessfulItem[];
+}
+
+export namespace RejectVpcEndpointConnectionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectVpcEndpointConnectionsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectVpcPeeringConnectionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the VPC peering connection.</p>
+   */
+  VpcPeeringConnectionId: string | undefined;
+}
+
+export namespace RejectVpcPeeringConnectionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectVpcPeeringConnectionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RejectVpcPeeringConnectionResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace RejectVpcPeeringConnectionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RejectVpcPeeringConnectionResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ReleaseAddressRequest {
+  /**
+   * <p>[EC2-VPC] The allocation ID. Required for EC2-VPC.</p>
+   */
+  AllocationId?: string;
+
+  /**
+   * <p>[EC2-Classic] The Elastic IP address. Required for EC2-Classic.</p>
+   */
+  PublicIp?: string;
+
+  /**
+   * <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises
+   *       IP addresses.</p>
+   *          <p>If you provide an incorrect network border group, you will receive an <code>InvalidAddress.NotFound</code> error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error Codes</a>.</p>
+   *          <note>
+   *             <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error Codes</a>.</p>
+   *          </note>
+   */
+  NetworkBorderGroup?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ReleaseAddressRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReleaseAddressRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ReleaseHostsRequest {
+  /**
+   * <p>The IDs of the Dedicated Hosts to release.</p>
+   */
+  HostIds: string[] | undefined;
+}
+
+export namespace ReleaseHostsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReleaseHostsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ReleaseHostsResult {
+  /**
+   * <p>The IDs of the Dedicated Hosts that were successfully released.</p>
+   */
+  Successful?: string[];
+
+  /**
+   * <p>The IDs of the Dedicated Hosts that could not be released, including an error
+   *             message.</p>
+   */
+  Unsuccessful?: UnsuccessfulItem[];
+}
+
+export namespace ReleaseHostsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReleaseHostsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ReplaceIamInstanceProfileAssociationRequest {
+  /**
+   * <p>The IAM instance profile.</p>
+   */
+  IamInstanceProfile: IamInstanceProfileSpecification | undefined;
+
+  /**
+   * <p>The ID of the existing IAM instance profile association.</p>
+   */
+  AssociationId: string | undefined;
+}
+
+export namespace ReplaceIamInstanceProfileAssociationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceIamInstanceProfileAssociationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ReplaceIamInstanceProfileAssociationResult {
+  /**
+   * <p>Information about the IAM instance profile association.</p>
+   */
+  IamInstanceProfileAssociation?: IamInstanceProfileAssociation;
+}
+
+export namespace ReplaceIamInstanceProfileAssociationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceIamInstanceProfileAssociationResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ReplaceNetworkAclAssociationRequest {
+  /**
+   * <p>The ID of the current association between the original network ACL and the subnet.</p>
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the new network ACL to associate with the subnet.</p>
+   */
+  NetworkAclId: string | undefined;
+}
+
+export namespace ReplaceNetworkAclAssociationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceNetworkAclAssociationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ReplaceNetworkAclAssociationResult {
+  /**
+   * <p>The ID of the new association.</p>
+   */
+  NewAssociationId?: string;
+}
+
+export namespace ReplaceNetworkAclAssociationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceNetworkAclAssociationResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ReplaceNetworkAclEntryRequest {
+  /**
+   * <p>The IPv4 network range to allow or deny, in CIDR notation (for example
+   *                 <code>172.16.0.0/24</code>).</p>
+   */
+  CidrBlock?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Indicates whether to replace the egress rule.</p>
+   * 		       <p>Default: If no value is specified, we replace the ingress rule.</p>
+   */
+  Egress: boolean | undefined;
+
+  /**
+   * <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol
+   * 		        1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
+   */
+  IcmpTypeCode?: IcmpTypeCode;
+
+  /**
+   * <p>The IPv6 network range to allow or deny, in CIDR notation (for example
+   *                 <code>2001:bd8:1234:1a00::/64</code>).</p>
+   */
+  Ipv6CidrBlock?: string;
+
+  /**
+   * <p>The ID of the ACL.</p>
+   */
+  NetworkAclId: string | undefined;
+
+  /**
+   * <p>TCP or UDP protocols: The range of ports the rule applies to.
+   * 		        Required if specifying protocol 6 (TCP) or 17 (UDP).</p>
+   */
+  PortRange?: PortRange;
+
+  /**
+   * <p>The protocol number. A value of "-1" means all protocols. If you specify "-1" or a
+   *            protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is
+   *            allowed, regardless of any ports or ICMP types or codes that you specify. If you specify
+   *            protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and
+   *            codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6)
+   *            and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
+   */
+  Protocol: string | undefined;
+
+  /**
+   * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
+   */
+  RuleAction: RuleAction | string | undefined;
+
+  /**
+   * <p>The rule number of the entry to replace.</p>
+   */
+  RuleNumber: number | undefined;
+}
+
+export namespace ReplaceNetworkAclEntryRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceNetworkAclEntryRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ReplaceRouteRequest {
+  /**
+   * <p>The IPv4 CIDR address block used for the destination match. The value that you
+   * 			provide must match the CIDR of an existing route in the table.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>The IPv6 CIDR address block used for the destination match. The value that you
+   * 			provide must match the CIDR of an existing route in the table.</p>
+   */
+  DestinationIpv6CidrBlock?: string;
+
+  /**
+   * <p>The ID of the prefix list for the route.</p>
+   */
+  DestinationPrefixListId?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</p>
+   */
+  VpcEndpointId?: string;
+
+  /**
+   * <p>[IPv6 traffic only] The ID of an egress-only internet gateway.</p>
+   */
+  EgressOnlyInternetGatewayId?: string;
+
+  /**
+   * <p>The ID of an internet gateway or virtual private gateway.</p>
+   */
+  GatewayId?: string;
+
+  /**
+   * <p>The ID of a NAT instance in your VPC.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>Specifies whether to reset the local route to its default target (<code>local</code>).</p>
+   */
+  LocalTarget?: boolean;
+
+  /**
+   * <p>[IPv4 traffic only] The ID of a NAT gateway.</p>
+   */
+  NatGatewayId?: string;
+
+  /**
+   * <p>The ID of a transit gateway.</p>
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * <p>[IPv4 traffic only] The ID of a carrier gateway.</p>
+   */
+  CarrierGatewayId?: string;
+
+  /**
+   * <p>The ID of a network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The ID of the route table.</p>
+   */
+  RouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of a VPC peering connection.</p>
+   */
+  VpcPeeringConnectionId?: string;
+}
+
+export namespace ReplaceRouteRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplaceRouteRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface ReplaceRouteTableAssociationRequest {
   /**

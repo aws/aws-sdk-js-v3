@@ -2,7 +2,7 @@ import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>Describes a quota for an AWS account.</p>
+ * <p>Describes a quota for an Amazon Web Services account.</p>
  *          <p>The following are account quotas:</p>
  *          <ul>
  *             <li>
@@ -30,7 +30,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *             </li>
  *             <li>
  *               <p>
- *                   <code>DBClusterRoles</code> - The number of associated AWS Identity and Access Management (IAM) roles per DB cluster.
+ *                   <code>DBClusterRoles</code> - The number of associated Amazon Web Services Identity and Access Management (IAM) roles per DB cluster.
  *                   The used value is the highest number of associated IAM roles for a DB cluster in the account. Other
  *                   DB clusters in the account might have a lower number of associated IAM roles.</p>
  *             </li>
@@ -115,7 +115,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface AccountQuota {
   /**
-   * <p>The name of the Amazon RDS quota for this AWS account.</p>
+   * <p>The name of the Amazon RDS quota for this Amazon Web Services account.</p>
    */
   AccountQuotaName?: string;
 
@@ -333,7 +333,7 @@ export namespace DBInstanceRoleAlreadyExistsFault {
 }
 
 /**
- * <p>You can't associate any more AWS Identity and Access Management (IAM) roles with the DB instance because the quota has been reached.</p>
+ * <p>You can't associate any more Amazon Web Services Identity and Access Management (IAM) roles with the DB instance because the quota has been reached.</p>
  */
 export interface DBInstanceRoleQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "DBInstanceRoleQuotaExceededFault";
@@ -418,7 +418,7 @@ export namespace AddSourceIdentifierToSubscriptionMessage {
  */
 export interface EventSubscription {
   /**
-   * <p>The AWS customer account associated with the RDS event notification subscription.</p>
+   * <p>The Amazon Web Services customer account associated with the RDS event notification subscription.</p>
    */
   CustomerAwsId?: string;
 
@@ -537,12 +537,12 @@ export namespace SubscriptionNotFoundFault {
  */
 export interface Tag {
   /**
-   * <p>A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").</p>
+   * <p>A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with <code>aws:</code> or <code>rds:</code>. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").</p>
    */
   Key?: string;
 
   /**
-   * <p>A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").</p>
+   * <p>A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with <code>aws:</code> or <code>rds:</code>. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").</p>
    */
   Value?: string;
 }
@@ -584,7 +584,7 @@ export namespace AddTagsToResourceMessage {
 }
 
 /**
- * <p>The specified proxy name doesn't correspond to a proxy owned by your AWS account in the specified AWS Region.</p>
+ * <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  */
 export interface DBProxyNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBProxyNotFoundFault";
@@ -602,7 +602,7 @@ export namespace DBProxyNotFoundFault {
 }
 
 /**
- * <p>The specified target group isn't available for a proxy owned by your AWS account in the specified AWS Region.</p>
+ * <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  */
 export interface DBProxyTargetGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBProxyTargetGroupNotFoundFault";
@@ -879,9 +879,9 @@ export interface AuthorizeDBSecurityGroupIngressMessage {
 
   /**
    * <p>
-   *         AWS account number of the owner of the EC2 security group
+   *         Amazon Web Services account number of the owner of the EC2 security group
    *         specified in the <code>EC2SecurityGroupName</code> parameter.
-   *         The AWS access key ID isn't an acceptable value.
+   *         The Amazon Web Services access key ID isn't an acceptable value.
    *         For VPC DB security groups, <code>EC2SecurityGroupId</code> must be provided.
    *         Otherwise, <code>EC2SecurityGroupOwnerId</code> and either <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must be provided.
    *         </p>
@@ -936,7 +936,7 @@ export interface EC2SecurityGroup {
 
   /**
    * <p>
-   *         Specifies the AWS ID of the owner of the EC2 security group
+   *         Specifies the Amazon Web Services ID of the owner of the EC2 security group
    *         specified in the <code>EC2SecurityGroupName</code> field.
    *         </p>
    */
@@ -987,7 +987,7 @@ export namespace IPRange {
  */
 export interface DBSecurityGroup {
   /**
-   * <p>Provides the AWS ID of the owner of a specific DB security group.</p>
+   * <p>Provides the Amazon Web Services ID of the owner of a specific DB security group.</p>
    */
   OwnerId?: string;
 
@@ -1321,9 +1321,9 @@ export interface ExportTask {
   IamRoleArn?: string;
 
   /**
-   * <p>The key identifier of the AWS KMS customer master key (CMK) that is used to encrypt the snapshot when it's exported to
-   *             Amazon S3. The AWS KMS CMK identifier is its key ARN, key ID, alias ARN, or alias name. The IAM role used for the snapshot export
-   *             must have encryption and decryption permissions to use this AWS KMS CMK. </p>
+   * <p>The key identifier of the Amazon Web Services KMS customer master key (CMK) that is used to encrypt the snapshot when it's exported to
+   *             Amazon S3. The Amazon Web Services KMS CMK identifier is its key ARN, key ID, alias ARN, or alias name. The IAM role used for the snapshot export
+   *             must have encryption and decryption permissions to use this Amazon Web Services KMS CMK. </p>
    */
   KmsKeyId?: string;
 
@@ -1579,20 +1579,20 @@ export namespace DBParameterGroupQuotaExceededFault {
 export interface CopyDBClusterSnapshotMessage {
   /**
    * <p>The identifier of the DB cluster snapshot to copy. This parameter isn't case-sensitive.</p>
-   *          <p>You can't copy an encrypted, shared DB cluster snapshot from one AWS Region to another.</p>
+   *          <p>You can't copy an encrypted, shared DB cluster snapshot from one Amazon Web Services Region to another.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
    *                <p>Must specify a valid system snapshot in the "available" state.</p>
    *             </li>
    *             <li>
-   *                <p>If the source snapshot is in the same AWS Region as the copy, specify a valid DB snapshot identifier.</p>
+   *                <p>If the source snapshot is in the same Amazon Web Services Region as the copy, specify a valid DB snapshot identifier.</p>
    *             </li>
    *             <li>
-   *                <p>If the source snapshot is in a different AWS Region than the copy,
+   *                <p>If the source snapshot is in a different Amazon Web Services Region than the copy,
    *               specify a valid DB cluster snapshot ARN. For more information, go to
    *               <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions">
-   *                   Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i>
+   *                   Copying Snapshots Across Amazon Web Services Regions</a> in the <i>Amazon Aurora User Guide.</i>
    *                </p>
    *             </li>
    *          </ul>
@@ -1621,18 +1621,18 @@ export interface CopyDBClusterSnapshotMessage {
   TargetDBClusterSnapshotIdentifier: string | undefined;
 
   /**
-   * <p>The AWS KMS key identifier for an encrypted DB cluster snapshot.
-   *             The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
+   * <p>The Amazon Web Services KMS key identifier for an encrypted DB cluster snapshot.
+   *             The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
    *
-   *         <p>If you copy an encrypted DB cluster snapshot from your AWS account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new AWS KMS CMK.
-   *             If you don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster snapshot is encrypted with the same AWS KMS key as the source DB cluster snapshot.
+   *         <p>If you copy an encrypted DB cluster snapshot from your Amazon Web Services account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new Amazon Web Services KMS CMK.
+   *             If you don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster snapshot is encrypted with the same Amazon Web Services KMS key as the source DB cluster snapshot.
    *         </p>
    *
-   *         <p>If you copy an encrypted DB cluster snapshot that is shared from another AWS account, then you must specify a value for <code>KmsKeyId</code>. </p>
+   *         <p>If you copy an encrypted DB cluster snapshot that is shared from another Amazon Web Services account, then you must specify a value for <code>KmsKeyId</code>. </p>
    *
-   *         <p>To copy an encrypted DB cluster snapshot to another AWS Region, you must set <code>KmsKeyId</code> to the AWS KMS key identifier you want to use to encrypt the copy of the DB cluster snapshot
-   *             in the destination AWS Region. AWS KMS CMKs are specific to the AWS Region that they are created in, and you can't use CMKs from one AWS Region
-   *             in another AWS Region.</p>
+   *         <p>To copy an encrypted DB cluster snapshot to another Amazon Web Services Region, you must set <code>KmsKeyId</code> to the Amazon Web Services KMS key identifier you want to use to encrypt the copy of the DB cluster snapshot
+   *             in the destination Amazon Web Services Region. Amazon Web Services KMS CMKs are specific to the Amazon Web Services Region that they are created in, and you can't use CMKs from one Amazon Web Services Region
+   *             in another Amazon Web Services Region.</p>
    *
    *         <p>If you copy an unencrypted DB cluster snapshot and specify a value for the <code>KmsKeyId</code> parameter,
    *             an error is returned.</p>
@@ -1640,29 +1640,29 @@ export interface CopyDBClusterSnapshotMessage {
   KmsKeyId?: string;
 
   /**
-   * <p>The URL that contains a Signature Version 4 signed request for the <code>CopyDBClusterSnapshot</code> API action in the AWS Region that contains the
-   *             source DB cluster snapshot to copy. The <code>PreSignedUrl</code> parameter must be used when copying an encrypted DB cluster snapshot from another AWS Region.
-   *             Don't specify <code>PreSignedUrl</code> when you are copying an encrypted DB cluster snapshot in the same AWS Region.</p>
+   * <p>The URL that contains a Signature Version 4 signed request for the <code>CopyDBClusterSnapshot</code> API action in the Amazon Web Services Region that contains the
+   *             source DB cluster snapshot to copy. The <code>PreSignedUrl</code> parameter must be used when copying an encrypted DB cluster snapshot from another Amazon Web Services Region.
+   *             Don't specify <code>PreSignedUrl</code> when you are copying an encrypted DB cluster snapshot in the same Amazon Web Services Region.</p>
    *         <p>The pre-signed URL must be a valid request for the <code>CopyDBClusterSnapshot</code> API action that can be
-   *             executed in the source AWS Region that contains the encrypted DB cluster snapshot to be copied.
+   *             executed in the source Amazon Web Services Region that contains the encrypted DB cluster snapshot to be copied.
    *             The pre-signed URL request must contain the following parameter values:</p>
    *
    *         <ul>
    *             <li>
    *                <p>
-   *                   <code>KmsKeyId</code> - The AWS KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB
-   *                 cluster snapshot in the destination AWS Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code>
-   *                 action that is called in the destination AWS Region, and the action contained in the pre-signed URL.</p>
+   *                   <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB
+   *                 cluster snapshot in the destination Amazon Web Services Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code>
+   *                 action that is called in the destination Amazon Web Services Region, and the action contained in the pre-signed URL.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot is to be created in.</p>
+   *                   <code>DestinationRegion</code> - The name of the Amazon Web Services Region that the DB cluster snapshot is to be created in.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier for the encrypted DB cluster
-   *                 snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example,
-   *                 if you are copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your <code>SourceDBClusterSnapshotIdentifier</code>
+   *                 snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source Amazon Web Services Region. For example,
+   *                 if you are copying an encrypted DB cluster snapshot from the us-west-2 Amazon Web Services Region, then your <code>SourceDBClusterSnapshotIdentifier</code>
    *                 looks like the following example: <code>arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115</code>.</p>
    *             </li>
    *          </ul>
@@ -1670,14 +1670,14 @@ export interface CopyDBClusterSnapshotMessage {
    *         <p>To learn how to generate a Signature Version 4 signed request, see
    *
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
-   *                 Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and
+   *                 Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> and
    *             <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
    *                 Signature Version 4 Signing Process</a>.</p>
    *
    *         <note>
-   *             <p>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the AWS CLI)
+   *             <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the CLI)
    *                 instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid
-   *                 request for the operation that can be executed in the source AWS Region.</p>
+   *                 request for the operation that can be executed in the source Amazon Web Services Region.</p>
    *         </note>
    */
   PreSignedUrl?: string;
@@ -1799,8 +1799,8 @@ export interface DBClusterSnapshot {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.</p>
-   *          <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
+   * <p>If <code>StorageEncrypted</code> is true, the Amazon Web Services KMS key identifier for the encrypted DB cluster snapshot.</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
    */
   KmsKeyId?: string;
 
@@ -1816,7 +1816,7 @@ export interface DBClusterSnapshot {
   SourceDBClusterSnapshotArn?: string;
 
   /**
-   * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.</p>
+   * <p>True if mapping of Amazon Web Services Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.</p>
    */
   IAMDatabaseAuthenticationEnabled?: boolean;
 
@@ -1914,7 +1914,7 @@ export namespace InvalidDBClusterSnapshotStateFault {
 }
 
 /**
- * <p>An error occurred accessing an AWS KMS key.</p>
+ * <p>An error occurred accessing an Amazon Web Services KMS key.</p>
  */
 export interface KMSKeyNotAccessibleFault extends __SmithyException, $MetadataBearer {
   name: "KMSKeyNotAccessibleFault";
@@ -2078,11 +2078,11 @@ export interface CopyDBSnapshotMessage {
   /**
    * <p>The identifier for the source DB snapshot.</p>
    *
-   *          <p>If the source snapshot is in the same AWS Region as the copy, specify a valid DB
+   *          <p>If the source snapshot is in the same Amazon Web Services Region as the copy, specify a valid DB
    *             snapshot identifier. For example, you might specify
    *                 <code>rds:mysql-instance1-snapshot-20130805</code>. </p>
    *
-   *          <p>If the source snapshot is in a different AWS Region than the copy, specify a valid DB
+   *          <p>If the source snapshot is in a different Amazon Web Services Region than the copy, specify a valid DB
    *             snapshot ARN. For example, you might specify
    *                 <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805</code>. </p>
    *
@@ -2091,7 +2091,7 @@ export interface CopyDBSnapshotMessage {
    *       </p>
    *
    *          <p>If you are copying an encrypted snapshot
-   *             this parameter must be in the ARN format for the source AWS Region,
+   *             this parameter must be in the ARN format for the source Amazon Web Services Region,
    *             and must match the <code>SourceDBSnapshotIdentifier</code> in the <code>PreSignedUrl</code> parameter.
    *       </p>
    *
@@ -2137,17 +2137,17 @@ export interface CopyDBSnapshotMessage {
   TargetDBSnapshotIdentifier: string | undefined;
 
   /**
-   * <p>The AWS KMS key identifier for an encrypted DB snapshot.
-   *             The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
+   * <p>The Amazon Web Services KMS key identifier for an encrypted DB snapshot.
+   *             The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).
    *         </p>
    *
-   *         <p>If you copy an encrypted DB snapshot from your AWS account,
-   *             you can specify a value for this parameter to encrypt the copy with a new AWS KMS CMK.
+   *         <p>If you copy an encrypted DB snapshot from your Amazon Web Services account,
+   *             you can specify a value for this parameter to encrypt the copy with a new Amazon Web Services KMS CMK.
    *             If you don't specify a value for this parameter,
-   *             then the copy of the DB snapshot is encrypted with the same AWS KMS key as the source DB snapshot.
+   *             then the copy of the DB snapshot is encrypted with the same Amazon Web Services KMS key as the source DB snapshot.
    *         </p>
    *
-   *         <p>If you copy an encrypted DB snapshot that is shared from another AWS account,
+   *         <p>If you copy an encrypted DB snapshot that is shared from another Amazon Web Services account,
    *             then you must specify a value for this parameter.
    *         </p>
    *
@@ -2155,10 +2155,10 @@ export interface CopyDBSnapshotMessage {
    *             the copy is encrypted.
    *         </p>
    *
-   *         <p>If you copy an encrypted snapshot to a different AWS Region, then you must specify
-   *             a AWS KMS key identifier for the destination AWS Region. AWS KMS CMKs are specific to the AWS Region
-   *             that they are created in, and you can't use CMKs from one AWS Region in another
-   *             AWS Region.
+   *         <p>If you copy an encrypted snapshot to a different Amazon Web Services Region, then you must specify
+   *             a Amazon Web Services KMS key identifier for the destination Amazon Web Services Region. Amazon Web Services KMS CMKs are specific to the Amazon Web Services Region
+   *             that they are created in, and you can't use CMKs from one Amazon Web Services Region in another
+   *             Amazon Web Services Region.
    *         </p>
    */
   KmsKeyId?: string;
@@ -2177,58 +2177,58 @@ export interface CopyDBSnapshotMessage {
 
   /**
    * <p>The URL that contains a Signature Version 4 signed request for the
-   *                 <code>CopyDBSnapshot</code> API action in the source AWS Region that contains the
+   *                 <code>CopyDBSnapshot</code> API action in the source Amazon Web Services Region that contains the
    *             source DB snapshot to copy. </p>
    *
    *         <p>You must specify this parameter when you copy an encrypted DB snapshot from another
-   *             AWS Region by using the Amazon RDS API. Don't specify <code>PreSignedUrl</code> when you are
-   *             copying an encrypted DB snapshot in the same AWS Region.</p>
+   *             Amazon Web Services Region by using the Amazon RDS API. Don't specify <code>PreSignedUrl</code> when you are
+   *             copying an encrypted DB snapshot in the same Amazon Web Services Region.</p>
    *
    *         <p>The presigned URL must be a valid request for the <code>CopyDBSnapshot</code> API action
-   *             that can be executed in the source AWS Region that contains the encrypted DB snapshot to be copied.
+   *             that can be executed in the source Amazon Web Services Region that contains the encrypted DB snapshot to be copied.
    *             The presigned URL request must contain the following parameter values:
    *         </p>
    *
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>DestinationRegion</code> - The AWS Region that the encrypted DB snapshot is copied to.
-   *                     This AWS Region is the same one where the <code>CopyDBSnapshot</code> action is called that contains this presigned URL.
+   *                   <code>DestinationRegion</code> - The Amazon Web Services Region that the encrypted DB snapshot is copied to.
+   *                     This Amazon Web Services Region is the same one where the <code>CopyDBSnapshot</code> action is called that contains this presigned URL.
    *                 </p>
    *
-   *                 <p>For example, if you copy an encrypted DB snapshot from the us-west-2 AWS Region
-   *                     to the us-east-1 AWS Region, then you call the <code>CopyDBSnapshot</code> action in
-   *                     the us-east-1 AWS Region and provide a presigned URL that contains a call to the
-   *                         <code>CopyDBSnapshot</code> action in the us-west-2 AWS Region. For this
+   *                 <p>For example, if you copy an encrypted DB snapshot from the us-west-2 Amazon Web Services Region
+   *                     to the us-east-1 Amazon Web Services Region, then you call the <code>CopyDBSnapshot</code> action in
+   *                     the us-east-1 Amazon Web Services Region and provide a presigned URL that contains a call to the
+   *                         <code>CopyDBSnapshot</code> action in the us-west-2 Amazon Web Services Region. For this
    *                     example, the <code>DestinationRegion</code> in the presigned URL must be set to
-   *                     the us-east-1 AWS Region. </p>
+   *                     the us-east-1 Amazon Web Services Region. </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>KmsKeyId</code> - The AWS KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB snapshot in the destination AWS Region.
-   *                     This is the same identifier for both the <code>CopyDBSnapshot</code> action that is called in the destination AWS Region,
+   *                   <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB snapshot in the destination Amazon Web Services Region.
+   *                     This is the same identifier for both the <code>CopyDBSnapshot</code> action that is called in the destination Amazon Web Services Region,
    *                     and the action contained in the presigned URL.
    *                 </p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>SourceDBSnapshotIdentifier</code> - The DB snapshot identifier for the encrypted snapshot to be copied.
-   *                     This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region.
-   *                     For example, if you are copying an encrypted DB snapshot from the us-west-2 AWS Region, then your <code>SourceDBSnapshotIdentifier</code> looks like
+   *                     This identifier must be in the Amazon Resource Name (ARN) format for the source Amazon Web Services Region.
+   *                     For example, if you are copying an encrypted DB snapshot from the us-west-2 Amazon Web Services Region, then your <code>SourceDBSnapshotIdentifier</code> looks like
    *                     the following example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115</code>.
    *                 </p>
    *             </li>
    *          </ul>
    *
    * 	        <p>To learn how to generate a Signature Version 4 signed request, see
-   * 		<a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and
+   * 		<a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> and
    * 		<a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a>.
    * 	   </p>
    *
    *          <note>
-   *            <p>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the AWS CLI)
+   *            <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the CLI)
    *                instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid
-   *                request for the operation that can be executed in the source AWS Region.</p>
+   *                request for the operation that can be executed in the source Amazon Web Services Region.</p>
    *          </note>
    */
   PreSignedUrl?: string;
@@ -2236,10 +2236,10 @@ export interface CopyDBSnapshotMessage {
   /**
    * <p>The name of an option group to associate with the copy of the snapshot.</p>
    *
-   *         <p>Specify this option if you are copying a snapshot from one AWS Region to another,
+   *         <p>Specify this option if you are copying a snapshot from one Amazon Web Services Region to another,
    *             and your DB instance uses a nondefault option group.
    *             If your source DB instance uses Transparent Data Encryption for Oracle or Microsoft SQL Server,
-   *             you must specify this option when copying across AWS Regions.
+   *             you must specify this option when copying across Amazon Web Services Regions.
    *             For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopySnapshot.Options">Option group considerations</a> in the <i>Amazon RDS User Guide.</i>
    *         </p>
@@ -2451,7 +2451,7 @@ export interface DBSnapshot {
   PercentProgress?: number;
 
   /**
-   * <p>The AWS Region that the DB snapshot was created in or copied from.</p>
+   * <p>The Amazon Web Services Region that the DB snapshot was created in or copied from.</p>
    */
   SourceRegion?: string;
 
@@ -2477,10 +2477,10 @@ export interface DBSnapshot {
 
   /**
    * <p>
-   *             If <code>Encrypted</code> is true, the AWS KMS key identifier
+   *             If <code>Encrypted</code> is true, the Amazon Web Services KMS key identifier
    *             for the encrypted DB snapshot.
    *         </p>
-   *          <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
    */
   KmsKeyId?: string;
 
@@ -2501,7 +2501,7 @@ export interface DBSnapshot {
   Timezone?: string;
 
   /**
-   * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.</p>
+   * <p>True if mapping of Amazon Web Services Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.</p>
    */
   IAMDatabaseAuthenticationEnabled?: boolean;
 
@@ -2512,7 +2512,7 @@ export interface DBSnapshot {
   ProcessorFeatures?: ProcessorFeature[];
 
   /**
-   * <p>The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.</p>
+   * <p>The identifier for the source DB instance, which can't be changed and which is unique to an Amazon Web Services Region.</p>
    */
   DbiResourceId?: string;
 
@@ -2974,7 +2974,7 @@ export namespace OptionGroupNotFoundFault {
 }
 
 /**
- * <p>The quota of 20 option groups was exceeded for this AWS account.</p>
+ * <p>The quota of 20 option groups was exceeded for this Amazon Web Services account.</p>
  */
 export interface OptionGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "OptionGroupQuotaExceededFault";
@@ -3029,7 +3029,7 @@ export namespace CreateCustomAvailabilityZoneMessage {
 }
 
 /**
- * <p>Information about the virtual private network (VPN) between the VMware vSphere cluster and the AWS website.</p>
+ * <p>Information about the virtual private network (VPN) between the VMware vSphere cluster and the Amazon Web Services website.</p>
  *         <p>For more information about RDS on VMware, see the
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
  *                 RDS on VMware User Guide.</a>
@@ -3047,7 +3047,7 @@ export interface VpnDetails {
   VpnTunnelOriginatorIP?: string;
 
   /**
-   * <p>The IP address of network traffic from AWS to your on-premises data center.</p>
+   * <p>The IP address of network traffic from Amazon Web Services to your on-premises data center.</p>
    */
   VpnGatewayIp?: string;
 
@@ -3103,7 +3103,7 @@ export interface CustomAvailabilityZone {
 
   /**
    * <p>Information about the virtual private network (VPN) between the VMware vSphere cluster
-   *             and the AWS website.</p>
+   *             and the Amazon Web Services website.</p>
    */
   VpnDetails?: VpnDetails;
 }
@@ -3248,7 +3248,7 @@ export namespace ScalingConfiguration {
 export interface CreateDBClusterMessage {
   /**
    * <p>A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on
-   *             AWS Regions and Availability Zones, see
+   *             Amazon Web Services Regions and Availability Zones, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html">Choosing the Regions and
    *                 Availability Zones</a> in the <i>Amazon Aurora User Guide</i>.
    *         </p>
@@ -3403,7 +3403,7 @@ export interface CreateDBClusterMessage {
    *         using the <code>BackupRetentionPeriod</code> parameter.
    *         </p>
    *          <p>The default is a 30-minute window selected at random from an
-   *         8-hour block of time for each AWS Region.
+   *         8-hour block of time for each Amazon Web Services Region.
    *         To view the time blocks available, see
    *         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.Backups.BackupWindow">
    *             Backup window</a> in the <i>Amazon Aurora User Guide.</i>
@@ -3431,7 +3431,7 @@ export interface CreateDBClusterMessage {
    *          <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *          </p>
    *          <p>The default is a 30-minute window selected at random from an
-   *             8-hour block of time for each AWS Region, occurring on a random day of the
+   *             8-hour block of time for each Amazon Web Services Region, occurring on a random day of the
    *             week. To see the time blocks available, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora">
    *                 Adjusting the Preferred DB Cluster Maintenance Window</a> in the <i>Amazon Aurora User Guide.</i>
@@ -3458,9 +3458,9 @@ export interface CreateDBClusterMessage {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for an encrypted DB cluster.</p>
-   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
-   *                  To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>
+   * <p>The Amazon Web Services KMS key identifier for an encrypted DB cluster.</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).
+   *                  To use a CMK in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
    *         <p>When a CMK isn't specified in <code>KmsKeyId</code>:</p>
    *         <ul>
    *             <li>
@@ -3474,58 +3474,58 @@ export interface CreateDBClusterMessage {
    *                     will use your default CMK.</p>
    *             </li>
    *          </ul>
-   *         <p>There is a default CMK for your AWS account. Your AWS account
-   *             has a different default CMK for each AWS Region.</p>
-   *         <p>If you create a read replica of an encrypted DB cluster in another AWS Region, you
-   *             must set <code>KmsKeyId</code> to a AWS KMS key identifier that is valid in the destination AWS
-   *             Region. This CMK is used to encrypt the read replica in that AWS Region.</p>
+   *         <p>There is a default CMK for your Amazon Web Services account. Your Amazon Web Services account
+   *             has a different default CMK for each Amazon Web Services Region.</p>
+   *         <p>If you create a read replica of an encrypted DB cluster in another Amazon Web Services Region, you
+   *             must set <code>KmsKeyId</code> to a Amazon Web Services KMS key identifier that is valid in the destination Amazon Web Services
+   *             Region. This CMK is used to encrypt the read replica in that Amazon Web Services Region.</p>
    */
   KmsKeyId?: string;
 
   /**
    * <p>A URL that contains a Signature Version 4 signed request for
-   *             the <code>CreateDBCluster</code> action to be called in the source AWS Region where the DB cluster is replicated from.
+   *             the <code>CreateDBCluster</code> action to be called in the source Amazon Web Services Region where the DB cluster is replicated from.
    *             You only need to specify <code>PreSignedUrl</code> when you are performing cross-region replication from an encrypted DB cluster.</p>
    *
    *         <p>The pre-signed URL must be a valid request for the <code>CreateDBCluster</code> API action
-   *             that can be executed in the source AWS Region that contains the encrypted DB cluster to be copied.</p>
+   *             that can be executed in the source Amazon Web Services Region that contains the encrypted DB cluster to be copied.</p>
    *         <p>The pre-signed URL request must contain the following parameter values:</p>
    *         <ul>
    *             <li>
    *                <p>
-   *                   <code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt the copy of
-   *                 the DB cluster in the destination AWS Region. This should refer to the same AWS KMS CMK for both the <code>CreateDBCluster</code>
-   *                 action that is called in the destination AWS Region, and the action contained in the pre-signed URL.</p>
+   *                   <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the key to use to encrypt the copy of
+   *                 the DB cluster in the destination Amazon Web Services Region. This should refer to the same Amazon Web Services KMS CMK for both the <code>CreateDBCluster</code>
+   *                 action that is called in the destination Amazon Web Services Region, and the action contained in the pre-signed URL.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DestinationRegion</code> - The name of the AWS Region that Aurora read replica will
+   *                   <code>DestinationRegion</code> - The name of the Amazon Web Services Region that Aurora read replica will
    *                     be created in.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>ReplicationSourceIdentifier</code> - The DB cluster identifier for the encrypted DB cluster to be copied.
-   *                 This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are copying an
-   *                 encrypted DB cluster from the us-west-2 AWS Region, then your <code>ReplicationSourceIdentifier</code> would look like
+   *                 This identifier must be in the Amazon Resource Name (ARN) format for the source Amazon Web Services Region. For example, if you are copying an
+   *                 encrypted DB cluster from the us-west-2 Amazon Web Services Region, then your <code>ReplicationSourceIdentifier</code> would look like
    *                 Example: <code>arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster1</code>.</p>
    *             </li>
    *          </ul>
    *
    *         <p>To learn how to generate a Signature Version 4 signed request, see
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
-   *                 Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and
+   *                 Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> and
    *             <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
    *                 Signature Version 4 Signing Process</a>.</p>
    *         <note>
-   *             <p>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the AWS CLI)
+   *             <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the CLI)
    *                 instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid
-   *                 request for the operation that can be executed in the source AWS Region.</p>
+   *                 request for the operation that can be executed in the source Amazon Web Services Region.</p>
    *         </note>
    */
   PreSignedUrl?: string;
 
   /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
    *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
    *
    *         <p>For more information, see
@@ -3684,7 +3684,7 @@ export namespace CreateDBClusterMessage {
 }
 
 /**
- * <p>Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.</p>
+ * <p>Describes an Amazon Web Services Identity and Access Management (IAM) role that is associated with a DB cluster.</p>
  */
 export interface DBClusterRole {
   /**
@@ -3699,7 +3699,7 @@ export interface DBClusterRole {
    *             <li>
    *                <p>
    *                   <code>ACTIVE</code> - the IAM role ARN is associated with the DB cluster and can be used to
-   *             access other AWS services on your behalf.</p>
+   *             access other Amazon Web Services on your behalf.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3708,14 +3708,14 @@ export interface DBClusterRole {
    *             <li>
    *                <p>
    *                   <code>INVALID</code> - the IAM role ARN is associated with the DB cluster, but the DB cluster is unable
-   *                 to assume the IAM role in order to access other AWS services on your behalf.</p>
+   *                 to assume the IAM role in order to access other Amazon Web Services on your behalf.</p>
    *             </li>
    *          </ul>
    */
   Status?: string;
 
   /**
-   * <p>The name of the feature associated with the AWS Identity and Access Management (IAM) role.
+   * <p>The name of the feature associated with the Amazon Web Services Identity and Access Management (IAM) role.
    *             For the list of supported feature names, see <a>DBEngineVersion</a>.
    *         </p>
    */
@@ -3880,7 +3880,7 @@ export interface ClusterPendingModifiedValues {
   MasterUserPassword?: string;
 
   /**
-   * <p>A value that indicates whether mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.</p>
+   * <p>A value that indicates whether mapping of Amazon Web Services Identity and Access Management (IAM) accounts to database accounts is enabled.</p>
    */
   IAMDatabaseAuthenticationEnabled?: boolean;
 
@@ -4115,14 +4115,14 @@ export interface DBCluster {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>If <code>StorageEncrypted</code> is enabled, the AWS KMS key identifier for the encrypted DB cluster.</p>
-   *          <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
+   * <p>If <code>StorageEncrypted</code> is enabled, the Amazon Web Services KMS key identifier for the encrypted DB cluster.</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The AWS Region-unique, immutable identifier for the DB cluster. This identifier is found in AWS CloudTrail log entries whenever
-   *           the AWS KMS CMK for the DB cluster is accessed.</p>
+   * <p>The Amazon Web Services Region-unique, immutable identifier for the DB cluster. This identifier is found in Amazon Web Services CloudTrail log entries whenever
+   *           the Amazon Web Services KMS CMK for the DB cluster is accessed.</p>
    */
   DbClusterResourceId?: string;
 
@@ -4132,14 +4132,14 @@ export interface DBCluster {
   DBClusterArn?: string;
 
   /**
-   * <p>Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster.
-   *           IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services
+   * <p>Provides a list of the Amazon Web Services Identity and Access Management (IAM) roles that are associated with the DB cluster.
+   *           IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other Amazon Web Services
    *           on your behalf.</p>
    */
   AssociatedRoles?: DBClusterRole[];
 
   /**
-   * <p>A value that indicates whether the mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.</p>
+   * <p>A value that indicates whether the mapping of Amazon Web Services Identity and Access Management (IAM) accounts to database accounts is enabled.</p>
    */
   IAMDatabaseAuthenticationEnabled?: boolean;
 
@@ -4231,8 +4231,8 @@ export interface DBCluster {
   ActivityStreamStatus?: ActivityStreamStatus | string;
 
   /**
-   * <p>The AWS KMS key identifier used for encrypting messages in the database activity stream.</p>
-   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
+   * <p>The Amazon Web Services KMS key identifier used for encrypting messages in the database activity stream.</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
    */
   ActivityStreamKmsKeyId?: string;
 
@@ -4247,7 +4247,7 @@ export interface DBCluster {
   CopyTagsToSnapshot?: boolean;
 
   /**
-   * <p>Specifies whether the DB cluster is a clone of a DB cluster owned by a different AWS account.</p>
+   * <p>Specifies whether the DB cluster is a clone of a DB cluster owned by a different Amazon Web Services account.</p>
    */
   CrossAccountClone?: boolean;
 
@@ -4763,6 +4763,33 @@ export interface CreateDBClusterParameterGroupMessage {
    *          </p>
    *          <p>Example: <code>aurora-postgresql9.6</code>
    *          </p>
+   *          <p>To list all of the available parameter group families for a DB engine, use the following command:</p>
+   *          <p>
+   *             <code>aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine></code>
+   *          </p>
+   *          <p>For example, to list all of the available parameter group families for the Aurora PostgreSQL DB engine, use the following command:</p>
+   *          <p>
+   *             <code>aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine aurora-postgresql</code>
+   *          </p>
+   *          <note>
+   *             <p>The output contains duplicates.</p>
+   *          </note>
+   *          <p>The following are the valid DB engine values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aurora</code> (for MySQL 5.6-compatible Aurora)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   DBParameterGroupFamily: string | undefined;
 
@@ -5166,7 +5193,7 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>The compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
-   *           Not all DB instance classes are available in all AWS Regions, or for all database engines.
+   *           Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.
    *           For the full list of DB instance classes,
    *           and availability for your engine, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
@@ -5178,7 +5205,7 @@ export interface CreateDBInstanceMessage {
    * <p>The name of the database engine to be used for this instance.
    *       </p>
    *
-   *          <p>Not every database engine is available for every AWS Region.
+   *          <p>Not every database engine is available for every Amazon Web Services Region.
    *       </p>
    *
    *          <p>Valid Values:
@@ -5214,17 +5241,17 @@ export interface CreateDBInstanceMessage {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>oracle-se2</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>oracle-se1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>oracle-se</code>
+   *                   <code>oracle-se2-cdb</code>
    *                </p>
    *             </li>
    *             <li>
@@ -5417,17 +5444,17 @@ export interface CreateDBInstanceMessage {
   /**
    * <p>
    *         The Availability Zone (AZ) where the database will be created. For information on
-   *         AWS Regions and Availability Zones, see
+   *         Amazon Web Services Regions and Availability Zones, see
    *         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
    *         and Availability Zones</a>.
    *         </p>
-   *          <p>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</p>
+   *          <p>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services Region.</p>
    *          <p>
    *             Example: <code>us-east-1d</code>
    *          </p>
    *          <p>
    *           Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the DB instance is a Multi-AZ deployment.
-   *             The specified Availability Zone must be in the same AWS Region as the current endpoint.
+   *             The specified Availability Zone must be in the same Amazon Web Services Region as the current endpoint.
    *         </p>
    *          <note>
    *             <p>If you're creating a DB instance in an RDS on VMware environment,
@@ -5456,7 +5483,7 @@ export interface CreateDBInstanceMessage {
    *             Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *          </p>
    *          <p>The default is a 30-minute window selected at random from an
-   *             8-hour block of time for each AWS Region, occurring on a random day of the
+   *             8-hour block of time for each Amazon Web Services Region, occurring on a random day of the
    *             week.
    *         </p>
    *          <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
@@ -5508,7 +5535,7 @@ export interface CreateDBInstanceMessage {
    *         if automated backups are enabled,
    *         using the <code>BackupRetentionPeriod</code> parameter.
    *           The default is a 30-minute window selected at random from an
-   *           8-hour block of time for each AWS Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Backup window</a> in the <i>Amazon RDS User Guide</i>.
+   *           8-hour block of time for each Amazon Web Services Region. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Backup window</a> in the <i>Amazon RDS User Guide</i>.
    *       </p>
    *
    *          <p>
@@ -5603,7 +5630,7 @@ export interface CreateDBInstanceMessage {
    * <p>The version number of the database engine to use.</p>
    *          <p>For a list of valid engine versions, use the  <code>DescribeDBEngineVersions</code> action.</p>
    *          <p>The following are the database engines and links to information about the major and minor versions that are available with
-   *           Amazon RDS. Not every database engine is available for every AWS Region.</p>
+   *           Amazon RDS. Not every database engine is available for every Amazon Web Services Region.</p>
    *
    *          <p>
    *             <b>Amazon Aurora</b>
@@ -5775,19 +5802,19 @@ export interface CreateDBInstanceMessage {
   StorageEncrypted?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for an encrypted DB instance.</p>
-   *          <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).
-   *           To use a CMK in a different AWS account, specify the key ARN or alias ARN.</p>
+   * <p>The Amazon Web Services KMS key identifier for an encrypted DB instance.</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).
+   *           To use a CMK in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
    *          <p>
    *             <b>Amazon Aurora</b>
    *          </p>
-   *          <p>Not applicable. The AWS KMS key identifier is managed by
+   *          <p>Not applicable. The Amazon Web Services KMS key identifier is managed by
    *           the DB cluster. For more information, see <code>CreateDBCluster</code>.</p>
    *          <p>If <code>StorageEncrypted</code> is enabled, and you do
    *         not specify a value for the <code>KmsKeyId</code> parameter, then
    *         Amazon RDS uses your default CMK. There is a
-   *         default CMK for your AWS account. Your AWS account has a different
-   *         default CMK for each AWS Region.</p>
+   *         default CMK for your Amazon Web Services account. Your Amazon Web Services account has a different
+   *         default CMK for each Amazon Web Services Region.</p>
    */
   KmsKeyId?: string;
 
@@ -5852,10 +5879,10 @@ export interface CreateDBInstanceMessage {
   Timezone?: string;
 
   /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
    *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
    *
-   *          <p>This setting doesn't apply to Amazon Aurora. Mapping AWS IAM accounts to database accounts is managed by the DB
+   *          <p>This setting doesn't apply to Amazon Aurora. Mapping Amazon Web Services IAM accounts to database accounts is managed by the DB
    *         cluster.</p>
    *
    *          <p>For more information, see
@@ -5876,11 +5903,11 @@ export interface CreateDBInstanceMessage {
   EnablePerformanceInsights?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for encryption of Performance Insights data.</p>
-   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
+   * <p>The Amazon Web Services KMS key identifier for encryption of Performance Insights data.</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
    *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
-   *             uses your default CMK. There is a default CMK for your AWS account.
-   *             Your AWS account has a different default CMK for each AWS Region.</p>
+   *             uses your default CMK. There is a default CMK for your Amazon Web Services account.
+   *             Your Amazon Web Services account has a different default CMK for each Amazon Web Services Region.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
@@ -5966,10 +5993,10 @@ export interface CreateDBInstanceMessage {
    *             your Outpost subnets through your on-premises network. For some use cases, a CoIP can
    *             provide lower latency for connections to the DB instance from outside of its virtual
    *             private cloud (VPC) on your local network.</p>
-   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on AWS Outposts</a>
+   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on Amazon Web Services Outposts</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned IP addresses</a>
-   *             in the <i>AWS Outposts User Guide</i>.</p>
+   *             in the <i>Amazon Web Services Outposts User Guide</i>.</p>
    */
   EnableCustomerOwnedIp?: boolean;
 }
@@ -5984,7 +6011,7 @@ export namespace CreateDBInstanceMessage {
 }
 
 /**
- * <p>Describes an AWS Identity and Access Management (IAM) role that is associated with a DB instance.</p>
+ * <p>Describes an Amazon Web Services Identity and Access Management (IAM) role that is associated with a DB instance.</p>
  */
 export interface DBInstanceRole {
   /**
@@ -5994,7 +6021,7 @@ export interface DBInstanceRole {
   RoleArn?: string;
 
   /**
-   * <p>The name of the feature associated with the AWS Identity and Access Management (IAM) role.
+   * <p>The name of the feature associated with the Amazon Web Services Identity and Access Management (IAM) role.
    *             For the list of supported feature names, see <code>DBEngineVersion</code>.
    *         </p>
    */
@@ -6007,7 +6034,7 @@ export interface DBInstanceRole {
    *             <li>
    *                <p>
    *                   <code>ACTIVE</code> - the IAM role ARN is associated with the DB instance and can be used to
-   *                 access other AWS services on your behalf.</p>
+   *                 access other Amazon Web Services services on your behalf.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6016,7 +6043,7 @@ export interface DBInstanceRole {
    *             <li>
    *                <p>
    *                   <code>INVALID</code> - the IAM role ARN is associated with the DB instance, but the DB instance is unable
-   *                 to assume the IAM role in order to access other AWS services on your behalf.</p>
+   *                 to assume the IAM role in order to access other Amazon Web Services services on your behalf.</p>
    *             </li>
    *          </ul>
    */
@@ -6033,7 +6060,7 @@ export namespace DBInstanceRole {
 }
 
 /**
- * <p>Automated backups of a DB instance replicated to another AWS Region. They consist of system backups, transaction logs, and database instance properties.</p>
+ * <p>Automated backups of a DB instance replicated to another Amazon Web Services Region. They consist of system backups, transaction logs, and database instance properties.</p>
  */
 export interface DBInstanceAutomatedBackupsReplication {
   /**
@@ -6131,7 +6158,7 @@ export namespace AvailabilityZone {
 
 /**
  * <p>A data type that represents an Outpost.</p>
- *          <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Amazon RDS on AWS Outposts</a>
+ *          <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Amazon RDS on Amazon Web Services Outposts</a>
  *           in the <i>Amazon RDS User Guide.</i>
  *          </p>
  */
@@ -6171,7 +6198,7 @@ export interface Subnet {
 
   /**
    * <p>If the subnet is associated with an Outpost, this value specifies the Outpost.</p>
-   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Amazon RDS on AWS Outposts</a>
+   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Amazon RDS on Amazon Web Services Outposts</a>
    *             in the <i>Amazon RDS User Guide.</i>
    *          </p>
    */
@@ -6411,7 +6438,7 @@ export interface PendingModifiedValues {
   ProcessorFeatures?: ProcessorFeature[];
 
   /**
-   * <p>Whether mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.</p>
+   * <p>Whether mapping of Amazon Web Services Identity and Access Management (IAM) accounts to database accounts is enabled.</p>
    */
   IAMDatabaseAuthenticationEnabled?: boolean;
 }
@@ -6491,7 +6518,8 @@ export interface DBInstance {
   /**
    * <p>Specifies the current state of this database.</p>
    *          <p>For information about DB instance statuses, see
-   *       <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Status.html">DB Instance Status</a> in the <i>Amazon RDS User Guide.</i>
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/accessing-monitoring.html#Overview.DBInstance.Status">Viewing DB instance status</a>
+   *           in the <i>Amazon RDS User Guide.</i>
    *          </p>
    */
   DBInstanceStatus?: string;
@@ -6711,16 +6739,16 @@ export interface DBInstance {
 
   /**
    * <p>
-   *             If <code>StorageEncrypted</code> is true, the AWS KMS key identifier
+   *             If <code>StorageEncrypted</code> is true, the Amazon Web Services KMS key identifier
    *             for the encrypted DB instance.
    *         </p>
-   *          <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log
-   *           entries whenever the AWS KMS customer master key (CMK) for the DB instance is accessed.</p>
+   * <p>The Amazon Web Services Region-unique, immutable identifier for the DB instance. This identifier is found in Amazon Web Services CloudTrail log
+   *           entries whenever the Amazon Web Services KMS customer master key (CMK) for the DB instance is accessed.</p>
    */
   DbiResourceId?: string;
 
@@ -6785,7 +6813,7 @@ export interface DBInstance {
   Timezone?: string;
 
   /**
-   * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.</p>
+   * <p>True if mapping of Amazon Web Services Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.</p>
    *
    *          <p>IAM database authentication can be enabled for the following database engines</p>
    *          <ul>
@@ -6808,8 +6836,8 @@ export interface DBInstance {
   PerformanceInsightsEnabled?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for encryption of Performance Insights data.</p>
-   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
+   * <p>The Amazon Web Services KMS key identifier for encryption of Performance Insights data.</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
@@ -6843,7 +6871,7 @@ export interface DBInstance {
 
   /**
    * <p>
-   *             The AWS Identity and Access Management (IAM) roles associated with the DB instance.
+   *             The Amazon Web Services Identity and Access Management (IAM) roles associated with the DB instance.
    *         </p>
    */
   AssociatedRoles?: DBInstanceRole[];
@@ -6876,17 +6904,45 @@ export interface DBInstance {
    *             your Outpost subnets through your on-premises network. For some use cases, a CoIP can
    *             provide lower latency for connections to the DB instance from outside of its virtual
    *             private cloud (VPC) on your local network.</p>
-   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on AWS Outposts</a>
+   *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on Amazon Web Services Outposts</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned IP addresses</a>
-   *             in the <i>AWS Outposts User Guide</i>.</p>
+   *             in the <i>Amazon Web Services Outposts User Guide</i>.</p>
    */
   CustomerOwnedIpEnabled?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the recovery point in AWS Backup.</p>
+   * <p>The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup.</p>
    */
   AwsBackupRecoveryPointArn?: string;
+
+  /**
+   * <p>The status of the database activity stream.</p>
+   */
+  ActivityStreamStatus?: ActivityStreamStatus | string;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier used for encrypting messages in the database activity stream.
+   *             The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS
+   *             customer master key (CMK).</p>
+   */
+  ActivityStreamKmsKeyId?: string;
+
+  /**
+   * <p>The name of the Amazon Kinesis data stream used for the database activity stream.</p>
+   */
+  ActivityStreamKinesisStreamName?: string;
+
+  /**
+   * <p>The mode of the database activity stream. Database events such as a change or access generate
+   *             an activity stream event. RDS for Oracle always handles these events asynchronously.</p>
+   */
+  ActivityStreamMode?: ActivityStreamMode | string;
+
+  /**
+   * <p>Indicates whether engine-native audit fields are included in the database activity stream.</p>
+   */
+  ActivityStreamEngineNativeAuditFieldsIncluded?: boolean;
 }
 
 export namespace DBInstance {
@@ -7047,11 +7103,11 @@ export interface CreateDBInstanceReadReplicaMessage {
    *                     retention period must be greater than 0.</p>
    *             </li>
    *             <li>
-   *                <p>If the source DB instance is in the same AWS Region as the read replica, specify a valid DB
+   *                <p>If the source DB instance is in the same Amazon Web Services Region as the read replica, specify a valid DB
    *                     instance identifier.</p>
    *             </li>
    *             <li>
-   *                <p>If the source DB instance is in a different AWS Region from the read replica, specify a valid DB instance ARN.
+   *                <p>If the source DB instance is in a different Amazon Web Services Region from the read replica, specify a valid DB instance ARN.
    *              For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">Constructing an ARN for Amazon RDS</a>
    *              in the <i>Amazon RDS User Guide</i>. This doesn't apply to SQL Server, which doesn't support cross-region replicas.</p>
    *             </li>
@@ -7061,7 +7117,7 @@ export interface CreateDBInstanceReadReplicaMessage {
 
   /**
    * <p>The compute and memory capacity of the read replica, for example,
-   *                 <code>db.m4.large</code>. Not all DB instance classes are available in all AWS
+   *                 <code>db.m4.large</code>. Not all DB instance classes are available in all Amazon Web Services
    *             Regions, or for all database engines. For the full list of DB instance classes, and
    *             availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance
    *                 Class</a> in the <i>Amazon RDS User Guide.</i>
@@ -7072,7 +7128,7 @@ export interface CreateDBInstanceReadReplicaMessage {
 
   /**
    * <p>The Availability Zone (AZ) where the read replica will be created.</p>
-   *          <p>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</p>
+   *          <p>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services Region.</p>
    *          <p>
    *            Example: <code>us-east-1d</code>
    *          </p>
@@ -7164,16 +7220,16 @@ export interface CreateDBInstanceReadReplicaMessage {
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Can only be specified if the source DB instance identifier specifies a DB instance in another AWS Region.</p>
+   *                <p>Can only be specified if the source DB instance identifier specifies a DB instance in another Amazon Web Services Region.</p>
    *             </li>
    *             <li>
    *                <p>If supplied, must match the name of an existing DBSubnetGroup.</p>
    *             </li>
    *             <li>
-   *                <p>The specified DB subnet group must be in the same AWS Region in which the operation is running.</p>
+   *                <p>The specified DB subnet group must be in the same Amazon Web Services Region in which the operation is running.</p>
    *             </li>
    *             <li>
-   *               <p>All read replicas in one AWS Region that are created from the same source DB
+   *               <p>All read replicas in one Amazon Web Services Region that are created from the same source DB
    *                     instance must either:></p>
    *               <ul>
    *                   <li>
@@ -7243,64 +7299,64 @@ export interface CreateDBInstanceReadReplicaMessage {
   MonitoringRoleArn?: string;
 
   /**
-   * <p>The AWS KMS key identifier for an encrypted read replica.</p>
-   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS CMK.</p>
-   *         <p>If you create an encrypted read replica in the same AWS Region as the source DB
+   * <p>The Amazon Web Services KMS key identifier for an encrypted read replica.</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS CMK.</p>
+   *         <p>If you create an encrypted read replica in the same Amazon Web Services Region as the source DB
    *             instance, then do not specify a value for this parameter. A read replica in the same Region
-   *             is always encrypted with the same AWS KMS CMK as the source DB instance.</p>
-   *         <p>If you create an encrypted read replica in a different AWS Region, then you must
-   *             specify a AWS KMS key identifier for the destination AWS Region. AWS KMS CMKs are specific to
-   *             the AWS Region that they are created in, and you can't use CMKs from one
-   *             AWS Region in another AWS Region.</p>
+   *             is always encrypted with the same Amazon Web Services KMS CMK as the source DB instance.</p>
+   *         <p>If you create an encrypted read replica in a different Amazon Web Services Region, then you must
+   *             specify a Amazon Web Services KMS key identifier for the destination Amazon Web Services Region. Amazon Web Services KMS CMKs are specific to
+   *             the Amazon Web Services Region that they are created in, and you can't use CMKs from one
+   *             Amazon Web Services Region in another Amazon Web Services Region.</p>
    *         <p>You can't create an encrypted read replica from an unencrypted DB instance.</p>
    */
   KmsKeyId?: string;
 
   /**
    * <p>The URL that contains a Signature Version 4 signed request for the <code>CreateDBInstanceReadReplica</code> API action
-   *             in the source AWS Region that contains the source DB instance.
+   *             in the source Amazon Web Services Region that contains the source DB instance.
    *         </p>
    *
    *         <p>You must specify this parameter when you create an encrypted read replica from
-   *             another AWS Region by using the Amazon RDS API. Don't specify
+   *             another Amazon Web Services Region by using the Amazon RDS API. Don't specify
    *                 <code>PreSignedUrl</code> when you are creating an encrypted read replica in the
-   *             same AWS Region.</p>
+   *             same Amazon Web Services Region.</p>
    *
    *         <p>The presigned URL must be a valid request for the <code>CreateDBInstanceReadReplica</code> API action
-   *             that can be executed in the source AWS Region that contains the encrypted source DB instance.
+   *             that can be executed in the source Amazon Web Services Region that contains the encrypted source DB instance.
    *             The presigned URL request must contain the following parameter values:
    *         </p>
    *
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>DestinationRegion</code> - The AWS Region that the encrypted read
-   *                     replica is created in. This AWS Region is the same one where the
+   *                   <code>DestinationRegion</code> - The Amazon Web Services Region that the encrypted read
+   *                     replica is created in. This Amazon Web Services Region is the same one where the
    *                         <code>CreateDBInstanceReadReplica</code> action is called that contains this presigned URL.</p>
    *
-   *                 <p>For example, if you create an encrypted DB instance in the us-west-1 AWS Region,
-   *                     from a source DB instance in the us-east-2 AWS Region,
+   *                 <p>For example, if you create an encrypted DB instance in the us-west-1 Amazon Web Services Region,
+   *                     from a source DB instance in the us-east-2 Amazon Web Services Region,
    *                     then you call the <code>CreateDBInstanceReadReplica</code> action in
-   *                     the us-east-1 AWS Region and provide a presigned URL that contains a call to the
-   *                     <code>CreateDBInstanceReadReplica</code> action in the us-west-2 AWS Region. For this
+   *                     the us-east-1 Amazon Web Services Region and provide a presigned URL that contains a call to the
+   *                     <code>CreateDBInstanceReadReplica</code> action in the us-west-2 Amazon Web Services Region. For this
    *                     example, the <code>DestinationRegion</code> in the presigned URL must be set to
-   *                     the us-east-1 AWS Region.
+   *                     the us-east-1 Amazon Web Services Region.
    *                 </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to
-   *                     encrypt the read replica in the destination AWS Region. This is the same
+   *                   <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the key to use to
+   *                     encrypt the read replica in the destination Amazon Web Services Region. This is the same
    *                     identifier for both the <code>CreateDBInstanceReadReplica</code> action that is
-   *                     called in the destination AWS Region, and the action contained in the presigned
+   *                     called in the destination Amazon Web Services Region, and the action contained in the presigned
    *                     URL. </p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>SourceDBInstanceIdentifier</code> - The DB instance identifier for
    *                     the encrypted DB instance to be replicated. This identifier must be in the
-   *                     Amazon Resource Name (ARN) format for the source AWS Region. For example, if you
-   *                     are creating an encrypted read replica from a DB instance in the us-west-2 AWS
+   *                     Amazon Resource Name (ARN) format for the source Amazon Web Services Region. For example, if you
+   *                     are creating an encrypted read replica from a DB instance in the us-west-2 Amazon Web Services
    *                     Region, then your <code>SourceDBInstanceIdentifier</code> looks like the
    *                     following example:
    *                         <code>arn:aws:rds:us-west-2:123456789012:instance:mysql-instance1-20161115</code>. </p>
@@ -7308,16 +7364,16 @@ export interface CreateDBInstanceReadReplicaMessage {
    *          </ul>
    *
    *         <p>To learn how to generate a Signature Version 4 signed request, see
-   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> and
    *             <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing Process</a>.
    *         </p>
    *
    *         <note>
-   *             <p>If you are using an AWS SDK tool or the AWS CLI, you can specify
-   *                     <code>SourceRegion</code> (or <code>--source-region</code> for the AWS CLI)
+   *             <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify
+   *                     <code>SourceRegion</code> (or <code>--source-region</code> for the CLI)
    *                 instead of specifying <code>PreSignedUrl</code> manually. Specifying
    *                     <code>SourceRegion</code> autogenerates a presigned URL that is a valid request
-   *                 for the operation that can be executed in the source AWS Region.</p>
+   *                 for the operation that can be executed in the source Amazon Web Services Region.</p>
    *             <p>
    *                <code>SourceRegion</code> isn't supported for SQL Server, because SQL Server on Amazon RDS
    *                 doesn't support cross-region read replicas.</p>
@@ -7326,7 +7382,7 @@ export interface CreateDBInstanceReadReplicaMessage {
   PreSignedUrl?: string;
 
   /**
-   * <p>A value that indicates whether to enable mapping of AWS Identity and Access
+   * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
    *           Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
    *
    *          <p>For more information about IAM database authentication, see
@@ -7345,11 +7401,11 @@ export interface CreateDBInstanceReadReplicaMessage {
   EnablePerformanceInsights?: boolean;
 
   /**
-   * <p>The AWS KMS key identifier for encryption of Performance Insights data.</p>
-   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
+   * <p>The Amazon Web Services KMS key identifier for encryption of Performance Insights data.</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
    *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
-   *             uses your default CMK. There is a default CMK for your AWS account.
-   *             Your AWS account has a different default CMK for each AWS Region.</p>
+   *             uses your default CMK. There is a default CMK for your Amazon Web Services account.
+   *             Your Amazon Web Services account has a different default CMK for each Amazon Web Services Region.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
@@ -7517,13 +7573,88 @@ export interface CreateDBParameterGroupMessage {
 
   /**
    * <p>The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.</p>
-   *          <p>To list all of the available parameter group families, use the following command:</p>
+   *          <p>To list all of the available parameter group families for a DB engine, use the following command:</p>
    *          <p>
-   *             <code>aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"</code>
+   *             <code>aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine></code>
+   *          </p>
+   *          <p>For example, to list all of the available parameter group families for the MySQL DB engine, use the following command:</p>
+   *          <p>
+   *             <code>aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql</code>
    *          </p>
    *          <note>
    *             <p>The output contains duplicates.</p>
    *          </note>
+   *          <p>The following are the valid DB engine values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aurora</code> (for MySQL 5.6-compatible Aurora)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aurora-postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mariadb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mysql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>oracle-se2-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>postgres</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ee</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-se</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-ex</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sqlserver-web</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   DBParameterGroupFamily: string | undefined;
 
@@ -7601,7 +7732,7 @@ export interface UserAuthConfig {
   SecretArn?: string;
 
   /**
-   * <p>Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.</p>
+   * <p>Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy.</p>
    */
   IAMAuth?: IAMAuthMode | string;
 }
@@ -7622,7 +7753,7 @@ export enum EngineFamily {
 
 export interface CreateDBProxyRequest {
   /**
-   * <p>The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.</p>
+   * <p>The identifier for the proxy. This name must be unique for all proxies owned by your Amazon Web Services account in the specified Amazon Web Services Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.</p>
    */
   DBProxyName: string | undefined;
 
@@ -7640,7 +7771,7 @@ export interface CreateDBProxyRequest {
   Auth: UserAuthConfig[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in Amazon Web Services Secrets Manager.</p>
    */
   RoleArn: string | undefined;
 
@@ -7717,7 +7848,7 @@ export interface UserAuthConfigInfo {
   SecretArn?: string;
 
   /**
-   * <p>Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.</p>
+   * <p>Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy.</p>
    */
   IAMAuth?: IAMAuthMode | string;
 }
@@ -7749,7 +7880,7 @@ export enum DBProxyStatus {
  */
 export interface DBProxy {
   /**
-   * <p>The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.</p>
+   * <p>The identifier for the proxy. This name must be unique for all proxies owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
    */
   DBProxyName?: string;
 
@@ -7863,7 +7994,7 @@ export namespace CreateDBProxyResponse {
 }
 
 /**
- * <p>The specified proxy name must be unique for all proxies owned by your AWS account in the specified AWS Region.</p>
+ * <p>The specified proxy name must be unique for all proxies owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  */
 export interface DBProxyAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "DBProxyAlreadyExistsFault";
@@ -7881,7 +8012,7 @@ export namespace DBProxyAlreadyExistsFault {
 }
 
 /**
- * <p>Your AWS account already has the maximum number of proxies in the specified AWS Region.</p>
+ * <p>Your Amazon Web Services account already has the maximum number of proxies in the specified Amazon Web Services Region.</p>
  */
 export interface DBProxyQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "DBProxyQuotaExceededFault";
@@ -8058,7 +8189,7 @@ export namespace CreateDBProxyEndpointResponse {
 }
 
 /**
- * <p>The specified DB proxy endpoint name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.</p>
+ * <p>The specified DB proxy endpoint name must be unique for all DB proxy endpoints owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  */
 export interface DBProxyEndpointAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "DBProxyEndpointAlreadyExistsFault";
@@ -8809,8 +8940,8 @@ export interface GlobalCluster {
 
   /**
    * <p>
-   *         The AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in
-   *         AWS CloudTrail log entries whenever the AWS KMS customer master key (CMK) for the DB cluster is accessed.
+   *         The Amazon Web Services Region-unique, immutable identifier for the global database cluster. This identifier is found in
+   *         Amazon Web Services CloudTrail log entries whenever the Amazon Web Services KMS customer master key (CMK) for the DB cluster is accessed.
    *       </p>
    */
   GlobalClusterResourceId?: string;
@@ -8980,17 +9111,17 @@ export interface CreateOptionGroupMessage {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>oracle-se2</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>oracle-se1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>oracle-se</code>
+   *                   <code>oracle-se2-cdb</code>
    *                </p>
    *             </li>
    *             <li>
@@ -9458,7 +9589,7 @@ export namespace DBInstanceAutomatedBackupNotFoundFault {
  */
 export interface DeleteDBInstanceAutomatedBackupMessage {
   /**
-   * <p>The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.</p>
+   * <p>The identifier for the source DB instance, which can't be changed and which is unique to an Amazon Web Services Region.</p>
    */
   DbiResourceId?: string;
 
@@ -9513,12 +9644,12 @@ export interface DBInstanceAutomatedBackup {
   DBInstanceArn?: string;
 
   /**
-   * <p>The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.</p>
+   * <p>The identifier for the source DB instance, which can't be changed and which is unique to an Amazon Web Services Region.</p>
    */
   DbiResourceId?: string;
 
   /**
-   * <p>The AWS Region associated with the automated backup.</p>
+   * <p>The Amazon Web Services Region associated with the automated backup.</p>
    */
   Region?: string;
 
@@ -9568,7 +9699,7 @@ export interface DBInstanceAutomatedBackup {
 
   /**
    * <p>The Availability Zone that the automated backup was created in. For information on
-   *             AWS Regions and Availability Zones, see
+   *             Amazon Web Services Regions and Availability Zones, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
    *                 and Availability Zones</a>.</p>
    */
@@ -9631,8 +9762,8 @@ export interface DBInstanceAutomatedBackup {
   StorageType?: string;
 
   /**
-   * <p>The AWS KMS key ID for an automated backup.</p>
-   *         <p>The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key (CMK).</p>
+   * <p>The Amazon Web Services KMS key ID for an automated backup.</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
    */
   KmsKeyId?: string;
 
@@ -9644,7 +9775,7 @@ export interface DBInstanceAutomatedBackup {
   Timezone?: string;
 
   /**
-   * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled,
+   * <p>True if mapping of Amazon Web Services Identity and Access Management (IAM) accounts to database accounts is enabled,
    *             and otherwise false.</p>
    */
   IAMDatabaseAuthenticationEnabled?: boolean;
@@ -9660,7 +9791,7 @@ export interface DBInstanceAutomatedBackup {
   DBInstanceAutomatedBackupsArn?: string;
 
   /**
-   * <p>The list of replications to different AWS Regions associated with the automated backup.</p>
+   * <p>The list of replications to different Amazon Web Services Regions associated with the automated backup.</p>
    */
   DBInstanceAutomatedBackupsReplications?: DBInstanceAutomatedBackupsReplication[];
 }
@@ -10205,7 +10336,7 @@ export namespace InvalidOptionGroupStateFault {
 }
 
 /**
- * <p>The specified RDS DB instance or Aurora DB cluster isn't available for a proxy owned by your AWS account in the specified AWS Region.</p>
+ * <p>The specified RDS DB instance or Aurora DB cluster isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  */
 export interface DBProxyTargetNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "DBProxyTargetNotFoundFault";
@@ -10279,7 +10410,7 @@ export namespace DescribeAccountAttributesMessage {
 }
 
 /**
- * <p>A CA certificate for an AWS account.</p>
+ * <p>A CA certificate for an Amazon Web Services account.</p>
  */
 export interface Certificate {
   /**
@@ -10338,7 +10469,7 @@ export namespace Certificate {
  */
 export interface CertificateMessage {
   /**
-   * <p>The list of <code>Certificate</code> objects for the AWS account.</p>
+   * <p>The list of <code>Certificate</code> objects for the Amazon Web Services account.</p>
    */
   Certificates?: Certificate[];
 
@@ -10505,7 +10636,7 @@ export interface CustomAvailabilityZoneMessage {
   Marker?: string;
 
   /**
-   * <p>The list of <a>CustomAvailabilityZone</a> objects for the AWS account.</p>
+   * <p>The list of <a>CustomAvailabilityZone</a> objects for the Amazon Web Services account.</p>
    */
   CustomAvailabilityZones?: CustomAvailabilityZone[];
 }
@@ -11127,7 +11258,7 @@ export interface DescribeDBClustersMessage {
 
   /**
    * <p>Optional Boolean parameter that specifies whether the output includes information about clusters
-   *           shared from other AWS accounts.</p>
+   *           shared from other Amazon Web Services accounts.</p>
    */
   IncludeShared?: boolean;
 }
@@ -11162,14 +11293,14 @@ export namespace DescribeDBClusterSnapshotAttributesMessage {
 
 /**
  * <p>Contains the name and values of a manual DB cluster snapshot attribute.</p>
- *         <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts
+ *         <p>Manual DB cluster snapshot attributes are used to authorize other Amazon Web Services accounts
  *             to restore a manual DB cluster snapshot. For more information, see the <code>ModifyDBClusterSnapshotAttribute</code>
  *             API action.</p>
  */
 export interface DBClusterSnapshotAttribute {
   /**
    * <p>The name of the manual DB cluster snapshot attribute.</p>
-   *         <p>The attribute named <code>restore</code> refers to the list of AWS accounts that
+   *         <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that
    *             have permission to copy or restore the manual DB cluster snapshot. For more information,
    *             see the <code>ModifyDBClusterSnapshotAttribute</code>
    *             API action.</p>
@@ -11179,9 +11310,9 @@ export interface DBClusterSnapshotAttribute {
   /**
    * <p>The value(s) for the manual DB cluster snapshot attribute.</p>
    *         <p>If the <code>AttributeName</code> field is set to <code>restore</code>, then this element
-   *             returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual
+   *             returns a list of IDs of the Amazon Web Services accounts that are authorized to copy or restore the manual
    *             DB cluster snapshot. If a value of <code>all</code> is in the list, then the manual DB cluster snapshot
-   *             is public and available for any AWS account to copy or restore.</p>
+   *             is public and available for any Amazon Web Services account to copy or restore.</p>
    */
   AttributeValues?: string[];
 }
@@ -11198,7 +11329,7 @@ export namespace DBClusterSnapshotAttribute {
 /**
  * <p>Contains the results of a successful call to the <code>DescribeDBClusterSnapshotAttributes</code>
  *             API action.</p>
- *         <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts
+ *         <p>Manual DB cluster snapshot attributes are used to authorize other Amazon Web Services accounts
  *             to copy or restore a manual DB cluster snapshot. For more information, see the <code>ModifyDBClusterSnapshotAttribute</code>
  *             API action.</p>
  */
@@ -11227,7 +11358,7 @@ export interface DescribeDBClusterSnapshotAttributesResult {
   /**
    * <p>Contains the results of a successful call to the <code>DescribeDBClusterSnapshotAttributes</code>
    *             API action.</p>
-   *         <p>Manual DB cluster snapshot attributes are used to authorize other AWS accounts
+   *         <p>Manual DB cluster snapshot attributes are used to authorize other Amazon Web Services accounts
    *             to copy or restore a manual DB cluster snapshot. For more information, see the <code>ModifyDBClusterSnapshotAttribute</code>
    *             API action.</p>
    */
@@ -11318,15 +11449,15 @@ export interface DescribeDBClusterSnapshotsMessage {
    *             <li>
    *                <p>
    *                   <code>automated</code> - Return all DB cluster snapshots that have been automatically taken by
-   *               Amazon RDS for my AWS account.</p>
+   *               Amazon RDS for my Amazon Web Services account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>manual</code> - Return all DB cluster snapshots that have been taken by my AWS account.</p>
+   *                   <code>manual</code> - Return all DB cluster snapshots that have been taken by my Amazon Web Services account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>shared</code> - Return all manual DB cluster snapshots that have been shared to my AWS account.</p>
+   *                   <code>shared</code> - Return all manual DB cluster snapshots that have been shared to my Amazon Web Services account.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -11391,16 +11522,16 @@ export interface DescribeDBClusterSnapshotsMessage {
 
   /**
    * <p>A value that indicates whether to include shared manual DB cluster snapshots
-   *             from other AWS accounts that this AWS account has been given
+   *             from other Amazon Web Services accounts that this Amazon Web Services account has been given
    *             permission to copy or restore. By default, these snapshots are not included.</p>
-   *         <p>You can give an AWS account permission to restore a manual DB cluster snapshot from
-   *             another AWS account by the <code>ModifyDBClusterSnapshotAttribute</code> API action.</p>
+   *         <p>You can give an Amazon Web Services account permission to restore a manual DB cluster snapshot from
+   *             another Amazon Web Services account by the <code>ModifyDBClusterSnapshotAttribute</code> API action.</p>
    */
   IncludeShared?: boolean;
 
   /**
    * <p>A value that indicates whether to include manual DB cluster snapshots that are public and can be copied
-   *             or restored by any AWS account. By default, the public snapshots are not included.</p>
+   *             or restored by any Amazon Web Services account. By default, the public snapshots are not included.</p>
    *         <p>You can share a manual DB cluster snapshot  as public by using the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
    */
   IncludePublic?: boolean;
@@ -11712,17 +11843,17 @@ export interface DescribeDBEngineVersionsMessage {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>oracle-ee-cdb</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>oracle-se2</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>oracle-se1</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>oracle-se</code>
+   *                   <code>oracle-se2-cdb</code>
    *                </p>
    *             </li>
    *             <li>
@@ -12358,7 +12489,7 @@ export interface DescribeDBProxiesRequest {
   /**
    * <p>The name of the DB proxy. If you omit this parameter,
    *         the output includes information about all DB proxies owned by
-   *         your AWS account ID.</p>
+   *         your Amazon Web Services account ID.</p>
    */
   DBProxyName?: string;
 
@@ -12608,7 +12739,7 @@ export interface DBProxyTargetGroup {
   DBProxyName?: string;
 
   /**
-   * <p>The identifier for the target group. This name must be unique for all target groups owned by your AWS account in the specified AWS Region.</p>
+   * <p>The identifier for the target group. This name must be unique for all target groups owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
    */
   TargetGroupName?: string;
 

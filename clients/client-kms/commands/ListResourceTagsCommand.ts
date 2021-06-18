@@ -37,6 +37,16 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  *          <ul>
  *             <li>
  *                <p>
+ *                   <a>CreateKey</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ReplicateKey</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>TagResource</a>
  *                </p>
  *             </li>

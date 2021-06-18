@@ -21,8 +21,8 @@ export interface StopActivityStreamCommandInput extends StopActivityStreamReques
 export interface StopActivityStreamCommandOutput extends StopActivityStreamResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a database activity stream that was started using the AWS console,
- *             the <code>start-activity-stream</code> AWS CLI command, or the <code>StartActivityStream</code> action.</p>
+ * <p>Stops a database activity stream that was started using the Amazon Web Services console,
+ *             the <code>start-activity-stream</code> CLI command, or the <code>StartActivityStream</code> action.</p>
  *         <p>For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database Activity Streams</a>
  *             in the <i>Amazon Aurora User Guide</i>.</p>

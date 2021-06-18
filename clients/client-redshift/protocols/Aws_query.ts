@@ -7981,6 +7981,14 @@ const deserializeAws_queryModifyAquaConfigurationCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidClusterStateFault":
+    case "com.amazonaws.redshift#InvalidClusterStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "UnsupportedOperationFault":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       response = {

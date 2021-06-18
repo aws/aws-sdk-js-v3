@@ -30,9 +30,8 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *           never leaves AWS KMS unencrypted. To use the CMK, you must call AWS KMS. You can use a
  *           symmetric CMK to encrypt and decrypt small amounts of data, but they are typically used to
  *           generate <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">data
- *             keys</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-key-pairs">data
- *               keys pairs</a>. For details, see <a>GenerateDataKey</a> and
- *             <a>GenerateDataKeyPair</a>.</p>
+ *             keys</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-key-pairs">data keys pairs</a>. For details,
+ *           see <a>GenerateDataKey</a> and <a>GenerateDataKeyPair</a>.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -67,7 +66,23 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *             valid values for symmetric CMKs. </p>
  *                <p> </p>
  *             </dd>
- *             <dt>Imported Key Material</dt>
+ *             <dt>Multi-Region primary keys</dt>
+ *             <dt>Imported key material</dt>
+ *             <dd>
+ *                <p>To create a multi-Region <i>primary key</i> in the local AWS Region,
+ *             use the <code>MultiRegion</code> parameter with a value of <code>True</code>. To create
+ *             a multi-Region <i>replica key</i>, that is, a CMK with the same key ID and
+ *             key material as a primary key, but in a different AWS Region, use the <a>ReplicateKey</a> operation. To change a replica key to a primary key, and its
+ *             primary key to a replica key, use the <a>UpdatePrimaryRegion</a>
+ *             operation.</p>
+ *                <p>This operation supports <i>multi-Region keys</i>, an AWS KMS feature that lets you create multiple
+ *       interoperable CMKs in different AWS Regions. Because these CMKs have the same key ID, key
+ *       material, and other metadata, you can use them to encrypt data in one AWS Region and decrypt
+ *       it in a different AWS Region without making a cross-Region call or exposing the plaintext data. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Using multi-Region keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *                <p>You can create symmetric and asymmetric multi-Region keys and multi-Region keys with
+ *             imported key material. You cannot create multi-Region keys in a custom key store.</p>
+ *                <p> </p>
+ *             </dd>
  *             <dd>
  *                <p>To import your own key material, begin by creating a symmetric CMK with no key
  *             material. To do this, use the <code>Origin</code> parameter of <code>CreateKey</code>
@@ -77,17 +92,21 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *                      <i>AWS Key Management Service Developer Guide</i>
  *                   </i>. You
  *             cannot import the key material into an asymmetric CMK.</p>
+ *                <p>To create a multi-Region primary key with imported key material, use the
+ *               <code>Origin</code> parameter of <code>CreateKey</code> with a value of
+ *               <code>EXTERNAL</code> and the <code>MultiRegion</code> parameter with a value of
+ *               <code>True</code>. To create replicas of the multi-Region primary key, use the <a>ReplicateKey</a> operation. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Using multi-Region keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  *                <p> </p>
  *             </dd>
- *             <dt>Custom Key Stores</dt>
+ *             <dt>Custom key store</dt>
  *             <dd>
  *                <p>To create a symmetric CMK in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>, use the
  *               <code>CustomKeyStoreId</code> parameter to specify the custom key store. You must also
  *             use the <code>Origin</code> parameter with a value of <code>AWS_CLOUDHSM</code>. The
  *             AWS CloudHSM cluster that is associated with the custom key store must have at least two active
  *             HSMs in different Availability Zones in the AWS Region. </p>
- *                <p>You cannot create an asymmetric CMK in a custom key store. For information about
- *             custom key stores in AWS KMS see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Using Custom Key Stores</a> in
+ *                <p>You cannot create an asymmetric CMK or a multi-Region CMK in a custom key store. For
+ *             information about custom key stores in AWS KMS see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Using Custom Key Stores</a> in
  *             the <i>
  *                      <i>AWS Key Management Service Developer Guide</i>
  *                   </i>.</p>

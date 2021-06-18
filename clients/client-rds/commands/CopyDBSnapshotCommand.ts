@@ -24,8 +24,8 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
 /**
  * <p>Copies the specified DB snapshot. The source DB snapshot must be in the <code>available</code> state.</p>
  *
- *         <p>You can copy a snapshot from one AWS Region to another. In that case, the AWS Region
- *             where you call the <code>CopyDBSnapshot</code> action is the destination AWS Region for the
+ *         <p>You can copy a snapshot from one Amazon Web Services Region to another. In that case, the Amazon Web Services Region
+ *             where you call the <code>CopyDBSnapshot</code> action is the destination Amazon Web Services Region for the
  *             DB snapshot copy. </p>
  *
  *         <p>For more information about copying snapshots, see

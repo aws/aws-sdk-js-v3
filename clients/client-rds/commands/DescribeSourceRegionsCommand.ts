@@ -21,7 +21,7 @@ export interface DescribeSourceRegionsCommandInput extends DescribeSourceRegions
 export interface DescribeSourceRegionsCommandOutput extends SourceRegionMessage, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the source AWS Regions where the current AWS Region can create a read replica,
+ * <p>Returns a list of the source Amazon Web Services Regions where the current Amazon Web Services Region can create a read replica,
  *          copy a DB snapshot from, or replicate automated backups from. This API action supports pagination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

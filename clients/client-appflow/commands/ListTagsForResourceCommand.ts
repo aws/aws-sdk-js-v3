@@ -21,9 +21,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- * Retrieves the tags that are associated with a specified flow.
- * </p>
+ * <p> Retrieves the tags that are associated with a specified flow. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

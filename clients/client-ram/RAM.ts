@@ -480,7 +480,7 @@ export class RAM extends RAMClient {
   }
 
   /**
-   * <p>Gets the invitations for resource sharing that you've received.</p>
+   * <p>Gets the invitations that you have received for resource shares.</p>
    */
   public getResourceShareInvitations(
     args: GetResourceShareInvitationsCommandInput,

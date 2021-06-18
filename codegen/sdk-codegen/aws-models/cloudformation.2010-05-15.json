@@ -116,7 +116,7 @@
           "min": 1,
           "max": 5120
         },
-        "smithy.api#pattern": "(s3://|http(s?)://).+"
+        "smithy.api#pattern": "^(s3://|http(s?)://).+$"
       }
     },
     "com.amazonaws.cloudformation#AllowedValue": {
@@ -136,6 +136,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "AlreadyExistsException",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The resource with the name requested already exists.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -194,6 +198,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "CFNRegistryException",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>An error occurred during a CloudFormation registry operation.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -333,7 +341,7 @@
         "smithy.api#length": {
           "min": 1
         },
-        "smithy.api#pattern": "arn:[-a-zA-Z0-9:/]*"
+        "smithy.api#pattern": "^arn:[-a-zA-Z0-9:/]*$"
       }
     },
     "com.amazonaws.cloudformation#ChangeSetName": {
@@ -343,7 +351,7 @@
           "min": 1,
           "max": 128
         },
-        "smithy.api#pattern": "[a-zA-Z][-a-zA-Z0-9]*"
+        "smithy.api#pattern": "^[a-zA-Z][-a-zA-Z0-9]*$"
       }
     },
     "com.amazonaws.cloudformation#ChangeSetNameOrId": {
@@ -353,7 +361,7 @@
           "min": 1,
           "max": 1600
         },
-        "smithy.api#pattern": "[a-zA-Z][-a-zA-Z0-9]*|arn:[-a-zA-Z0-9:/]*"
+        "smithy.api#pattern": "^[a-zA-Z][-a-zA-Z0-9]*|arn:[-a-zA-Z0-9:/]*$"
       }
     },
     "com.amazonaws.cloudformation#ChangeSetNotFoundException": {
@@ -364,6 +372,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "ChangeSetNotFound",
+          "httpResponseCode": 404
+        },
         "smithy.api#documentation": "<p>The specified change set name or ID doesn't exit. To view valid change sets for a\n         stack, use the <code>ListChangeSets</code> action.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
@@ -567,7 +579,7 @@
           "min": 1,
           "max": 128
         },
-        "smithy.api#pattern": "[a-zA-Z0-9][-a-zA-Z0-9]*"
+        "smithy.api#pattern": "^[a-zA-Z0-9][-a-zA-Z0-9]*$"
       }
     },
     "com.amazonaws.cloudformation#ClientToken": {
@@ -1357,6 +1369,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "CreatedButModifiedException",
+          "httpResponseCode": 409
+        },
         "smithy.api#documentation": "<p>The specified resource exists, but has been changed.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
@@ -3009,7 +3025,7 @@
           "min": 1,
           "max": 64
         },
-        "smithy.api#pattern": "[a-zA-Z_0-9+=,.@-]+"
+        "smithy.api#pattern": "^[a-zA-Z_0-9+=,.@-]+$"
       }
     },
     "com.amazonaws.cloudformation#ExecutionStatus": {
@@ -3428,6 +3444,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InsufficientCapabilitiesException",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The template contains resources with capabilities that weren't specified in the\n         Capabilities parameter.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -3441,6 +3461,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InvalidChangeSetStatus",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The specified change set can't be used to update the stack. For example, the change\n         set status might be <code>CREATE_IN_PROGRESS</code>, or the stack status might be\n            <code>UPDATE_IN_PROGRESS</code>.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -3454,6 +3478,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InvalidOperationException",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The specified operation isn't valid.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -3467,6 +3495,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InvalidStateTransition",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>Error reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>. CloudFormation does not return this error to users.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -3492,6 +3524,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "LimitExceededException",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>The quota for the resource has already been reached.</p>\n         <p>For information on resource and stack limitations, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html\">Limits</a> in\n         the <i>AWS CloudFormation User Guide</i>.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -4328,7 +4364,7 @@
           "min": 1,
           "max": 512
         },
-        "smithy.api#pattern": "[\\.\\-_/#A-Za-z0-9]+"
+        "smithy.api#pattern": "^[\\.\\-_/#A-Za-z0-9]+$"
       }
     },
     "com.amazonaws.cloudformation#LoggingConfig": {
@@ -4441,6 +4477,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "NameAlreadyExistsException",
+          "httpResponseCode": 409
+        },
         "smithy.api#documentation": "<p>The specified name is already in use.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
@@ -4503,6 +4543,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "OperationIdAlreadyExistsException",
+          "httpResponseCode": 409
+        },
         "smithy.api#documentation": "<p>The specified operation ID already exists.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
@@ -4516,6 +4560,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "OperationInProgressException",
+          "httpResponseCode": 409
+        },
         "smithy.api#documentation": "<p>Another operation is currently in progress for this stack set. Only one operation can\n         be performed for a stack set at a given time.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
@@ -4529,6 +4577,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "OperationNotFoundException",
+          "httpResponseCode": 404
+        },
         "smithy.api#documentation": "<p>The specified ID refers to an operation that doesn't exist.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
@@ -4565,6 +4617,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "ConditionalCheckFailed",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>Error reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>. CloudFormation does not return this error to users.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -4805,7 +4861,7 @@
           "min": 0,
           "max": 1024
         },
-        "smithy.api#pattern": "arn:aws[A-Za-z0-9-]{0,64}:cloudformation:[A-Za-z0-9-]{1,64}:[0-9]{12}:type/.+"
+        "smithy.api#pattern": "^arn:aws[A-Za-z0-9-]{0,64}:cloudformation:[A-Za-z0-9-]{1,64}:[0-9]{12}:type/.+$"
       }
     },
     "com.amazonaws.cloudformation#Properties": {
@@ -5083,7 +5139,7 @@
           "min": 1,
           "max": 128
         },
-        "smithy.api#pattern": "[a-zA-Z0-9][-a-zA-Z0-9]*"
+        "smithy.api#pattern": "^[a-zA-Z0-9][-a-zA-Z0-9]*$"
       }
     },
     "com.amazonaws.cloudformation#RegistrationTokenList": {
@@ -5133,7 +5189,7 @@
           "min": 1,
           "max": 128
         },
-        "smithy.api#pattern": "[a-zA-Z0-9][-a-zA-Z0-9]*"
+        "smithy.api#pattern": "^[a-zA-Z0-9][-a-zA-Z0-9]*$"
       }
     },
     "com.amazonaws.cloudformation#RequiresRecreation": {
@@ -5525,7 +5581,7 @@
     "com.amazonaws.cloudformation#ResourceToSkip": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "[a-zA-Z0-9]+|[a-zA-Z][-a-zA-Z0-9]*\\.[a-zA-Z0-9]+"
+        "smithy.api#pattern": "^[a-zA-Z0-9]+|[a-zA-Z][-a-zA-Z0-9]*\\.[a-zA-Z0-9]+$"
       }
     },
     "com.amazonaws.cloudformation#ResourceType": {
@@ -5598,7 +5654,7 @@
           "min": 1,
           "max": 256
         },
-        "smithy.api#pattern": "arn:.+:iam::[0-9]{12}:role/.+"
+        "smithy.api#pattern": "^arn:.+:iam::[0-9]{12}:role/.+$"
       }
     },
     "com.amazonaws.cloudformation#RollbackConfiguration": {
@@ -6310,6 +6366,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "StackInstanceNotFoundException",
+          "httpResponseCode": 404
+        },
         "smithy.api#documentation": "<p>The specified stack instance doesn't exist.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
@@ -6417,7 +6477,7 @@
         "smithy.api#length": {
           "min": 1
         },
-        "smithy.api#pattern": "([a-zA-Z][-a-zA-Z0-9]*)|(arn:\\b(aws|aws-us-gov|aws-cn)\\b:[-a-zA-Z0-9:/._+]*)"
+        "smithy.api#pattern": "^([a-zA-Z][-a-zA-Z0-9]*)|(arn:\\b(aws|aws-us-gov|aws-cn)\\b:[-a-zA-Z0-9:/._+]*)$"
       }
     },
     "com.amazonaws.cloudformation#StackPolicyBody": {
@@ -7064,7 +7124,7 @@
     "com.amazonaws.cloudformation#StackSetNameOrId": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "[a-zA-Z][-a-zA-Z0-9]*(?::[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12})?"
+        "smithy.api#pattern": "^[a-zA-Z][-a-zA-Z0-9]*(?::[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12})?$"
       }
     },
     "com.amazonaws.cloudformation#StackSetNotEmptyException": {
@@ -7075,6 +7135,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "StackSetNotEmptyException",
+          "httpResponseCode": 409
+        },
         "smithy.api#documentation": "<p>You can't yet delete this stack set, because it still contains one or more stack\n         instances. Delete all stack instances from the stack set before deleting the stack\n         set.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
@@ -7088,6 +7152,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "StackSetNotFoundException",
+          "httpResponseCode": 404
+        },
         "smithy.api#documentation": "<p>The specified stack set doesn't exist.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
@@ -7676,6 +7744,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "StaleRequestException",
+          "httpResponseCode": 409
+        },
         "smithy.api#documentation": "<p>Another operation has been performed on this stack set since the specified operation\n         was performed. </p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
@@ -7887,6 +7959,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "TokenAlreadyExistsException",
+          "httpResponseCode": 400
+        },
         "smithy.api#documentation": "<p>A client request token already exists.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
@@ -7919,7 +7995,7 @@
           "min": 0,
           "max": 1024
         },
-        "smithy.api#pattern": "arn:aws[A-Za-z0-9-]{0,64}:cloudformation:[A-Za-z0-9-]{1,64}:([0-9]{12})?:type/.+"
+        "smithy.api#pattern": "^arn:aws[A-Za-z0-9-]{0,64}:cloudformation:[A-Za-z0-9-]{1,64}:([0-9]{12})?:type/.+$"
       }
     },
     "com.amazonaws.cloudformation#TypeHierarchy": {
@@ -7932,7 +8008,7 @@
           "min": 10,
           "max": 204
         },
-        "smithy.api#pattern": "[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}(::MODULE){0,1}"
+        "smithy.api#pattern": "^[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}(::MODULE){0,1}$"
       }
     },
     "com.amazonaws.cloudformation#TypeNotFoundException": {
@@ -7943,6 +8019,10 @@
         }
       },
       "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "TypeNotFoundException",
+          "httpResponseCode": 404
+        },
         "smithy.api#documentation": "<p>The specified type does not exist in the CloudFormation registry.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 404
@@ -8014,7 +8094,7 @@
           "min": 1,
           "max": 128
         },
-        "smithy.api#pattern": "[A-Za-z0-9-]+"
+        "smithy.api#pattern": "^[A-Za-z0-9-]+$"
       }
     },
     "com.amazonaws.cloudformation#TypeVersionSummaries": {

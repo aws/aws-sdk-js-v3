@@ -70,6 +70,7 @@ import {
 } from "../commands/ListRetirableGrantsCommand";
 import { PutKeyPolicyCommandInput, PutKeyPolicyCommandOutput } from "../commands/PutKeyPolicyCommand";
 import { ReEncryptCommandInput, ReEncryptCommandOutput } from "../commands/ReEncryptCommand";
+import { ReplicateKeyCommandInput, ReplicateKeyCommandOutput } from "../commands/ReplicateKeyCommand";
 import { RetireGrantCommandInput, RetireGrantCommandOutput } from "../commands/RetireGrantCommand";
 import { RevokeGrantCommandInput, RevokeGrantCommandOutput } from "../commands/RevokeGrantCommand";
 import {
@@ -88,6 +89,10 @@ import {
   UpdateKeyDescriptionCommandInput,
   UpdateKeyDescriptionCommandOutput,
 } from "../commands/UpdateKeyDescriptionCommand";
+import {
+  UpdatePrimaryRegionCommandInput,
+  UpdatePrimaryRegionCommandOutput,
+} from "../commands/UpdatePrimaryRegionCommand";
 import { VerifyCommandInput, VerifyCommandOutput } from "../commands/VerifyCommand";
 import {
   AliasListEntry,
@@ -188,10 +193,14 @@ import {
   ListResourceTagsResponse,
   ListRetirableGrantsRequest,
   MalformedPolicyDocumentException,
+  MultiRegionConfiguration,
+  MultiRegionKey,
   NotFoundException,
   PutKeyPolicyRequest,
   ReEncryptRequest,
   ReEncryptResponse,
+  ReplicateKeyRequest,
+  ReplicateKeyResponse,
   RetireGrantRequest,
   RevokeGrantRequest,
   ScheduleKeyDeletionRequest,
@@ -208,6 +217,7 @@ import {
   UpdateCustomKeyStoreRequest,
   UpdateCustomKeyStoreResponse,
   UpdateKeyDescriptionRequest,
+  UpdatePrimaryRegionRequest,
   VerifyRequest,
   VerifyResponse,
 } from "../models/models_0";
@@ -689,6 +699,19 @@ export const serializeAws_json1_1ReEncryptCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ReplicateKeyCommand = async (
+  input: ReplicateKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "TrentService.ReplicateKey",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ReplicateKeyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1RetireGrantCommand = async (
   input: RetireGrantCommandInput,
   context: __SerdeContext
@@ -803,6 +826,19 @@ export const serializeAws_json1_1UpdateKeyDescriptionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateKeyDescriptionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdatePrimaryRegionCommand = async (
+  input: UpdatePrimaryRegionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "TrentService.UpdatePrimaryRegion",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdatePrimaryRegionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1831,6 +1867,14 @@ const deserializeAws_json1_1DescribeCustomKeyStoresCommandError = async (
     case "com.amazonaws.kms#CustomKeyStoreNotFoundException":
       response = {
         ...(await deserializeAws_json1_1CustomKeyStoreNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidMarkerException":
+    case "com.amazonaws.kms#InvalidMarkerException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidMarkerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4291,6 +4335,132 @@ const deserializeAws_json1_1ReEncryptCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ReplicateKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReplicateKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ReplicateKeyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ReplicateKeyResponse(data, context);
+  const response: ReplicateKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ReplicateKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReplicateKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AlreadyExistsException":
+    case "com.amazonaws.kms#AlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DisabledException":
+    case "com.amazonaws.kms#DisabledException":
+      response = {
+        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
+      response = {
+        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
+      response = {
+        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.kms#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MalformedPolicyDocumentException":
+    case "com.amazonaws.kms#MalformedPolicyDocumentException":
+      response = {
+        ...(await deserializeAws_json1_1MalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TagException":
+    case "com.amazonaws.kms#TagException":
+      response = {
+        ...(await deserializeAws_json1_1TagExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationException":
+    case "com.amazonaws.kms#UnsupportedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1RetireGrantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5127,6 +5297,97 @@ const deserializeAws_json1_1UpdateKeyDescriptionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdatePrimaryRegionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePrimaryRegionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdatePrimaryRegionCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdatePrimaryRegionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdatePrimaryRegionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePrimaryRegionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DisabledException":
+    case "com.amazonaws.kms#DisabledException":
+      response = {
+        ...(await deserializeAws_json1_1DisabledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArnException":
+    case "com.amazonaws.kms#InvalidArnException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KMSInternalException":
+    case "com.amazonaws.kms#KMSInternalException":
+      response = {
+        ...(await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KMSInvalidStateException":
+    case "com.amazonaws.kms#KMSInvalidStateException":
+      response = {
+        ...(await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.kms#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationException":
+    case "com.amazonaws.kms#UnsupportedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1VerifyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5811,6 +6072,7 @@ const serializeAws_json1_1CreateKeyRequest = (input: CreateKeyRequest, context: 
       input.CustomerMasterKeySpec !== null && { CustomerMasterKeySpec: input.CustomerMasterKeySpec }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.KeyUsage !== undefined && input.KeyUsage !== null && { KeyUsage: input.KeyUsage }),
+    ...(input.MultiRegion !== undefined && input.MultiRegion !== null && { MultiRegion: input.MultiRegion }),
     ...(input.Origin !== undefined && input.Origin !== null && { Origin: input.Origin }),
     ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
@@ -6205,6 +6467,20 @@ const serializeAws_json1_1ReEncryptRequest = (input: ReEncryptRequest, context: 
   };
 };
 
+const serializeAws_json1_1ReplicateKeyRequest = (input: ReplicateKeyRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.BypassPolicyLockoutSafetyCheck !== undefined &&
+      input.BypassPolicyLockoutSafetyCheck !== null && {
+        BypassPolicyLockoutSafetyCheck: input.BypassPolicyLockoutSafetyCheck,
+      }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
+    ...(input.ReplicaRegion !== undefined && input.ReplicaRegion !== null && { ReplicaRegion: input.ReplicaRegion }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1RetireGrantRequest = (input: RetireGrantRequest, context: __SerdeContext): any => {
   return {
     ...(input.GrantId !== undefined && input.GrantId !== null && { GrantId: input.GrantId }),
@@ -6317,6 +6593,16 @@ const serializeAws_json1_1UpdateKeyDescriptionRequest = (
   return {
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+  };
+};
+
+const serializeAws_json1_1UpdatePrimaryRegionRequest = (
+  input: UpdatePrimaryRegionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.PrimaryRegion !== undefined && input.PrimaryRegion !== null && { PrimaryRegion: input.PrimaryRegion }),
   };
 };
 
@@ -6996,7 +7282,16 @@ const deserializeAws_json1_1KeyMetadata = (output: any, context: __SerdeContext)
     KeyManager: output.KeyManager !== undefined && output.KeyManager !== null ? output.KeyManager : undefined,
     KeyState: output.KeyState !== undefined && output.KeyState !== null ? output.KeyState : undefined,
     KeyUsage: output.KeyUsage !== undefined && output.KeyUsage !== null ? output.KeyUsage : undefined,
+    MultiRegion: output.MultiRegion !== undefined && output.MultiRegion !== null ? output.MultiRegion : undefined,
+    MultiRegionConfiguration:
+      output.MultiRegionConfiguration !== undefined && output.MultiRegionConfiguration !== null
+        ? deserializeAws_json1_1MultiRegionConfiguration(output.MultiRegionConfiguration, context)
+        : undefined,
     Origin: output.Origin !== undefined && output.Origin !== null ? output.Origin : undefined,
+    PendingDeletionWindowInDays:
+      output.PendingDeletionWindowInDays !== undefined && output.PendingDeletionWindowInDays !== null
+        ? output.PendingDeletionWindowInDays
+        : undefined,
     SigningAlgorithms:
       output.SigningAlgorithms !== undefined && output.SigningAlgorithms !== null
         ? deserializeAws_json1_1SigningAlgorithmSpecList(output.SigningAlgorithms, context)
@@ -7115,6 +7410,44 @@ const deserializeAws_json1_1MalformedPolicyDocumentException = (
   } as any;
 };
 
+const deserializeAws_json1_1MultiRegionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MultiRegionConfiguration => {
+  return {
+    MultiRegionKeyType:
+      output.MultiRegionKeyType !== undefined && output.MultiRegionKeyType !== null
+        ? output.MultiRegionKeyType
+        : undefined,
+    PrimaryKey:
+      output.PrimaryKey !== undefined && output.PrimaryKey !== null
+        ? deserializeAws_json1_1MultiRegionKey(output.PrimaryKey, context)
+        : undefined,
+    ReplicaKeys:
+      output.ReplicaKeys !== undefined && output.ReplicaKeys !== null
+        ? deserializeAws_json1_1MultiRegionKeyList(output.ReplicaKeys, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1MultiRegionKey = (output: any, context: __SerdeContext): MultiRegionKey => {
+  return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1MultiRegionKeyList = (output: any, context: __SerdeContext): MultiRegionKey[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MultiRegionKey(entry, context);
+    });
+};
+
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -7151,6 +7484,21 @@ const deserializeAws_json1_1ReEncryptResponse = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1ReplicateKeyResponse = (output: any, context: __SerdeContext): ReplicateKeyResponse => {
+  return {
+    ReplicaKeyMetadata:
+      output.ReplicaKeyMetadata !== undefined && output.ReplicaKeyMetadata !== null
+        ? deserializeAws_json1_1KeyMetadata(output.ReplicaKeyMetadata, context)
+        : undefined,
+    ReplicaPolicy:
+      output.ReplicaPolicy !== undefined && output.ReplicaPolicy !== null ? output.ReplicaPolicy : undefined,
+    ReplicaTags:
+      output.ReplicaTags !== undefined && output.ReplicaTags !== null
+        ? deserializeAws_json1_1TagList(output.ReplicaTags, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ScheduleKeyDeletionResponse = (
   output: any,
   context: __SerdeContext
@@ -7161,6 +7509,11 @@ const deserializeAws_json1_1ScheduleKeyDeletionResponse = (
         ? new Date(Math.round(output.DeletionDate * 1000))
         : undefined,
     KeyId: output.KeyId !== undefined && output.KeyId !== null ? output.KeyId : undefined,
+    KeyState: output.KeyState !== undefined && output.KeyState !== null ? output.KeyState : undefined,
+    PendingWindowInDays:
+      output.PendingWindowInDays !== undefined && output.PendingWindowInDays !== null
+        ? output.PendingWindowInDays
+        : undefined,
   } as any;
 };
 

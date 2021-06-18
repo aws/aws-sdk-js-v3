@@ -32,6 +32,8 @@ export interface UpdateUserPoolClientCommandOutput extends UpdateUserPoolClientR
  *             <p>If you don't provide a value for an attribute, it will be set to the default
  *                 value.</p>
  *         </important>
+ *         <p>You can also use this operation to enable token revocation for user pool clients. For more information
+ *         about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

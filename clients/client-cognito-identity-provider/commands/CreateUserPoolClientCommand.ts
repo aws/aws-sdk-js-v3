@@ -27,6 +27,8 @@ export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientR
 
 /**
  * <p>Creates the user pool client.</p>
+ *         <p>When you create a new user pool client, token revocation is automatically enabled. For more information
+ *             about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

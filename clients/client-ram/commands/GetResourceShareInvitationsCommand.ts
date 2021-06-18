@@ -23,7 +23,7 @@ export interface GetResourceShareInvitationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets the invitations for resource sharing that you've received.</p>
+ * <p>Gets the invitations that you have received for resource shares.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

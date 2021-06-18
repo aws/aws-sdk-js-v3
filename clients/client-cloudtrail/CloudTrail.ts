@@ -200,8 +200,8 @@ export class CloudTrail extends CloudTrailClient {
    *                <p>If your event selector includes management events.</p>
    *             </li>
    *             <li>
-   *                <p>If your event selector includes data events, the Amazon S3 objects or AWS Lambda functions
-   *             that you are logging for data events.</p>
+   *                <p>If your event selector includes data events, the resources on which you are logging data
+   *                events.</p>
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging Data and Management Events for Trails

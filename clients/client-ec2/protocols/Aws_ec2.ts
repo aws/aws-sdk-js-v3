@@ -71,6 +71,10 @@ import {
   AssociateTransitGatewayRouteTableCommandOutput,
 } from "../commands/AssociateTransitGatewayRouteTableCommand";
 import {
+  AssociateTrunkInterfaceCommandInput,
+  AssociateTrunkInterfaceCommandOutput,
+} from "../commands/AssociateTrunkInterfaceCommand";
+import {
   AssociateVpcCidrBlockCommandInput,
   AssociateVpcCidrBlockCommandOutput,
 } from "../commands/AssociateVpcCidrBlockCommand";
@@ -880,6 +884,10 @@ import {
   DescribeTransitGatewaysCommandOutput,
 } from "../commands/DescribeTransitGatewaysCommand";
 import {
+  DescribeTrunkInterfaceAssociationsCommandInput,
+  DescribeTrunkInterfaceAssociationsCommandOutput,
+} from "../commands/DescribeTrunkInterfaceAssociationsCommand";
+import {
   DescribeVolumeAttributeCommandInput,
   DescribeVolumeAttributeCommandOutput,
 } from "../commands/DescribeVolumeAttributeCommand";
@@ -964,6 +972,10 @@ import {
   DisableFastSnapshotRestoresCommandOutput,
 } from "../commands/DisableFastSnapshotRestoresCommand";
 import {
+  DisableImageDeprecationCommandInput,
+  DisableImageDeprecationCommandOutput,
+} from "../commands/DisableImageDeprecationCommand";
+import {
   DisableSerialConsoleAccessCommandInput,
   DisableSerialConsoleAccessCommandOutput,
 } from "../commands/DisableSerialConsoleAccessCommand";
@@ -1016,6 +1028,10 @@ import {
   DisassociateTransitGatewayRouteTableCommandOutput,
 } from "../commands/DisassociateTransitGatewayRouteTableCommand";
 import {
+  DisassociateTrunkInterfaceCommandInput,
+  DisassociateTrunkInterfaceCommandOutput,
+} from "../commands/DisassociateTrunkInterfaceCommand";
+import {
   DisassociateVpcCidrBlockCommandInput,
   DisassociateVpcCidrBlockCommandOutput,
 } from "../commands/DisassociateVpcCidrBlockCommand";
@@ -1027,6 +1043,10 @@ import {
   EnableFastSnapshotRestoresCommandInput,
   EnableFastSnapshotRestoresCommandOutput,
 } from "../commands/EnableFastSnapshotRestoresCommand";
+import {
+  EnableImageDeprecationCommandInput,
+  EnableImageDeprecationCommandOutput,
+} from "../commands/EnableImageDeprecationCommand";
 import {
   EnableSerialConsoleAccessCommandInput,
   EnableSerialConsoleAccessCommandOutput,
@@ -1543,6 +1563,8 @@ import {
   AssociateTransitGatewayMulticastDomainResult,
   AssociateTransitGatewayRouteTableRequest,
   AssociateTransitGatewayRouteTableResult,
+  AssociateTrunkInterfaceRequest,
+  AssociateTrunkInterfaceResult,
   AssociateVpcCidrBlockRequest,
   AssociateVpcCidrBlockResult,
   AssociationStatus,
@@ -1704,6 +1726,7 @@ import {
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   TransitGatewayVpcAttachmentOptions,
+  TrunkInterfaceAssociation,
   UnsuccessfulItem,
   UnsuccessfulItemError,
   UserIdGroupPair,
@@ -1837,11 +1860,7 @@ import {
   DeleteLaunchTemplateRequest,
   DeleteLaunchTemplateResult,
   DeleteLaunchTemplateVersionsRequest,
-  DeleteLaunchTemplateVersionsResponseErrorItem,
   DeleteLaunchTemplateVersionsResponseSuccessItem,
-  DeleteLaunchTemplateVersionsResult,
-  DeleteLocalGatewayRouteRequest,
-  DeleteLocalGatewayRouteResult,
   DnsEntry,
   ElasticGpuSpecificationResponse,
   GroupIdentifier,
@@ -1915,7 +1934,6 @@ import {
   ProvisionedBandwidth,
   ReplaceRootVolumeTask,
   RequestLaunchTemplateData,
-  ResponseError,
   ResponseLaunchTemplateData,
   Route,
   RouteTable,
@@ -1986,6 +2004,10 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DeleteLaunchTemplateVersionsResponseErrorItem,
+  DeleteLaunchTemplateVersionsResult,
+  DeleteLocalGatewayRouteRequest,
+  DeleteLocalGatewayRouteResult,
   DeleteLocalGatewayRouteTableVpcAssociationRequest,
   DeleteLocalGatewayRouteTableVpcAssociationResult,
   DeleteManagedPrefixListRequest,
@@ -2149,8 +2171,6 @@ import {
   DescribeInstanceEventNotificationAttributesRequest,
   DescribeInstanceEventNotificationAttributesResult,
   DescribeInstanceStatusRequest,
-  DescribeInstanceStatusResult,
-  DescribeInstanceTypeOfferingsRequest,
   DescribeInstancesRequest,
   DescribeInstancesResult,
   DirectoryServiceAuthentication,
@@ -2203,10 +2223,8 @@ import {
   InstanceNetworkInterfaceAttachment,
   InstancePrivateIpAddress,
   InstanceState,
-  InstanceStatus,
   InstanceStatusDetails,
   InstanceStatusEvent,
-  InstanceStatusSummary,
   InstanceTagNotificationAttribute,
   LaunchPermission,
   LicenseConfiguration,
@@ -2216,6 +2234,7 @@ import {
   PciId,
   ProductCode,
   Reservation,
+  ResponseError,
   SnapshotDetail,
   SnapshotTaskDetail,
   SpotOptions,
@@ -2242,6 +2261,8 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeInstanceStatusResult,
+  DescribeInstanceTypeOfferingsRequest,
   DescribeInstanceTypeOfferingsResult,
   DescribeInstanceTypesRequest,
   DescribeInstanceTypesResult,
@@ -2361,6 +2382,8 @@ import {
   DescribeTransitGatewayVpcAttachmentsResult,
   DescribeTransitGatewaysRequest,
   DescribeTransitGatewaysResult,
+  DescribeTrunkInterfaceAssociationsRequest,
+  DescribeTrunkInterfaceAssociationsResult,
   DescribeVolumeAttributeRequest,
   DescribeVolumeAttributeResult,
   DescribeVolumeStatusRequest,
@@ -2401,13 +2424,6 @@ import {
   DetachNetworkInterfaceRequest,
   DetachVolumeRequest,
   DetachVpnGatewayRequest,
-  DisableEbsEncryptionByDefaultRequest,
-  DisableEbsEncryptionByDefaultResult,
-  DisableFastSnapshotRestoreErrorItem,
-  DisableFastSnapshotRestoreStateError,
-  DisableFastSnapshotRestoreStateErrorItem,
-  DisableFastSnapshotRestoreSuccessItem,
-  DisableFastSnapshotRestoresRequest,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
@@ -2423,6 +2439,8 @@ import {
   InferenceAcceleratorInfo,
   InferenceDeviceInfo,
   InstanceNetworkInterfaceSpecification,
+  InstanceStatus,
+  InstanceStatusSummary,
   InstanceStorageInfo,
   InstanceTypeInfo,
   InstanceTypeOffering,
@@ -2514,7 +2532,16 @@ import {
   ClientData,
   CoipAddressUsage,
   CreateVolumePermissionModifications,
+  DisableEbsEncryptionByDefaultRequest,
+  DisableEbsEncryptionByDefaultResult,
+  DisableFastSnapshotRestoreErrorItem,
+  DisableFastSnapshotRestoreStateError,
+  DisableFastSnapshotRestoreStateErrorItem,
+  DisableFastSnapshotRestoreSuccessItem,
+  DisableFastSnapshotRestoresRequest,
   DisableFastSnapshotRestoresResult,
+  DisableImageDeprecationRequest,
+  DisableImageDeprecationResult,
   DisableSerialConsoleAccessRequest,
   DisableSerialConsoleAccessResult,
   DisableTransitGatewayRouteTablePropagationRequest,
@@ -2538,6 +2565,8 @@ import {
   DisassociateTransitGatewayMulticastDomainResult,
   DisassociateTransitGatewayRouteTableRequest,
   DisassociateTransitGatewayRouteTableResult,
+  DisassociateTrunkInterfaceRequest,
+  DisassociateTrunkInterfaceResult,
   DisassociateVpcCidrBlockRequest,
   DisassociateVpcCidrBlockResult,
   DiskImage,
@@ -2552,6 +2581,8 @@ import {
   EnableFastSnapshotRestoreSuccessItem,
   EnableFastSnapshotRestoresRequest,
   EnableFastSnapshotRestoresResult,
+  EnableImageDeprecationRequest,
+  EnableImageDeprecationResult,
   EnableSerialConsoleAccessRequest,
   EnableSerialConsoleAccessResult,
   EnableTransitGatewayRouteTablePropagationRequest,
@@ -2759,20 +2790,7 @@ import {
   RejectTransitGatewayPeeringAttachmentResult,
   RejectTransitGatewayVpcAttachmentRequest,
   RejectTransitGatewayVpcAttachmentResult,
-  RejectVpcEndpointConnectionsRequest,
-  RejectVpcEndpointConnectionsResult,
-  RejectVpcPeeringConnectionRequest,
-  RejectVpcPeeringConnectionResult,
-  ReleaseAddressRequest,
-  ReleaseHostsRequest,
-  ReleaseHostsResult,
   RemovePrefixListEntry,
-  ReplaceIamInstanceProfileAssociationRequest,
-  ReplaceIamInstanceProfileAssociationResult,
-  ReplaceNetworkAclAssociationRequest,
-  ReplaceNetworkAclAssociationResult,
-  ReplaceNetworkAclEntryRequest,
-  ReplaceRouteRequest,
   ReservationValue,
   ReservedInstanceLimitPrice,
   ReservedInstanceReservationValue,
@@ -2805,6 +2823,19 @@ import {
   InstanceStateChange,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  RejectVpcEndpointConnectionsRequest,
+  RejectVpcEndpointConnectionsResult,
+  RejectVpcPeeringConnectionRequest,
+  RejectVpcPeeringConnectionResult,
+  ReleaseAddressRequest,
+  ReleaseHostsRequest,
+  ReleaseHostsResult,
+  ReplaceIamInstanceProfileAssociationRequest,
+  ReplaceIamInstanceProfileAssociationResult,
+  ReplaceNetworkAclAssociationRequest,
+  ReplaceNetworkAclAssociationResult,
+  ReplaceNetworkAclEntryRequest,
+  ReplaceRouteRequest,
   ReplaceRouteTableAssociationRequest,
   ReplaceRouteTableAssociationResult,
   ReplaceTransitGatewayRouteRequest,
@@ -3231,6 +3262,22 @@ export const serializeAws_ec2AssociateTransitGatewayRouteTableCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2AssociateTransitGatewayRouteTableRequest(input, context),
     Action: "AssociateTransitGatewayRouteTable",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2AssociateTrunkInterfaceCommand = async (
+  input: AssociateTrunkInterfaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2AssociateTrunkInterfaceRequest(input, context),
+    Action: "AssociateTrunkInterface",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -7204,6 +7251,22 @@ export const serializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand = async
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DescribeTrunkInterfaceAssociationsCommand = async (
+  input: DescribeTrunkInterfaceAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeTrunkInterfaceAssociationsRequest(input, context),
+    Action: "DescribeTrunkInterfaceAssociations",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DescribeVolumeAttributeCommand = async (
   input: DescribeVolumeAttributeCommandInput,
   context: __SerdeContext
@@ -7588,6 +7651,22 @@ export const serializeAws_ec2DisableFastSnapshotRestoresCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DisableImageDeprecationCommand = async (
+  input: DisableImageDeprecationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DisableImageDeprecationRequest(input, context),
+    Action: "DisableImageDeprecation",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DisableSerialConsoleAccessCommand = async (
   input: DisableSerialConsoleAccessCommandInput,
   context: __SerdeContext
@@ -7796,6 +7875,22 @@ export const serializeAws_ec2DisassociateTransitGatewayRouteTableCommand = async
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DisassociateTrunkInterfaceCommand = async (
+  input: DisassociateTrunkInterfaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DisassociateTrunkInterfaceRequest(input, context),
+    Action: "DisassociateTrunkInterface",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DisassociateVpcCidrBlockCommand = async (
   input: DisassociateVpcCidrBlockCommandInput,
   context: __SerdeContext
@@ -7839,6 +7934,22 @@ export const serializeAws_ec2EnableFastSnapshotRestoresCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2EnableFastSnapshotRestoresRequest(input, context),
     Action: "EnableFastSnapshotRestores",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2EnableImageDeprecationCommand = async (
+  input: EnableImageDeprecationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2EnableImageDeprecationRequest(input, context),
+    Action: "EnableImageDeprecation",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -11022,6 +11133,52 @@ const deserializeAws_ec2AssociateTransitGatewayRouteTableCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateTransitGatewayRouteTableCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2AssociateTrunkInterfaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateTrunkInterfaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2AssociateTrunkInterfaceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2AssociateTrunkInterfaceResult(data, context);
+  const response: AssociateTrunkInterfaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2AssociateTrunkInterfaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateTrunkInterfaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -22371,6 +22528,52 @@ const deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommandError = async
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2DescribeTrunkInterfaceAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrunkInterfaceAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeTrunkInterfaceAssociationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeTrunkInterfaceAssociationsResult(data, context);
+  const response: DescribeTrunkInterfaceAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeTrunkInterfaceAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrunkInterfaceAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2DescribeVolumeAttributeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -23466,6 +23669,52 @@ const deserializeAws_ec2DisableFastSnapshotRestoresCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2DisableImageDeprecationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableImageDeprecationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DisableImageDeprecationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DisableImageDeprecationResult(data, context);
+  const response: DisableImageDeprecationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DisableImageDeprecationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableImageDeprecationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2DisableSerialConsoleAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -24055,6 +24304,52 @@ const deserializeAws_ec2DisassociateTransitGatewayRouteTableCommandError = async
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2DisassociateTrunkInterfaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateTrunkInterfaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DisassociateTrunkInterfaceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DisassociateTrunkInterfaceResult(data, context);
+  const response: DisassociateTrunkInterfaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DisassociateTrunkInterfaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateTrunkInterfaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2DisassociateVpcCidrBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -24168,6 +24463,52 @@ const deserializeAws_ec2EnableFastSnapshotRestoresCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableFastSnapshotRestoresCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2EnableImageDeprecationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableImageDeprecationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2EnableImageDeprecationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2EnableImageDeprecationResult(data, context);
+  const response: EnableImageDeprecationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2EnableImageDeprecationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableImageDeprecationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -31080,6 +31421,35 @@ const serializeAws_ec2AssociateTransitGatewayRouteTableRequest = (
   return entries;
 };
 
+const serializeAws_ec2AssociateTrunkInterfaceRequest = (
+  input: AssociateTrunkInterfaceRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.BranchInterfaceId !== undefined && input.BranchInterfaceId !== null) {
+    entries["BranchInterfaceId"] = input.BranchInterfaceId;
+  }
+  if (input.TrunkInterfaceId !== undefined && input.TrunkInterfaceId !== null) {
+    entries["TrunkInterfaceId"] = input.TrunkInterfaceId;
+  }
+  if (input.VlanId !== undefined && input.VlanId !== null) {
+    entries["VlanId"] = input.VlanId;
+  }
+  if (input.GreKey !== undefined && input.GreKey !== null) {
+    entries["GreKey"] = input.GreKey;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken !== undefined && input.ClientToken !== null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2AssociateVpcCidrBlockRequest = (
   input: AssociateVpcCidrBlockRequest,
   context: __SerdeContext
@@ -32717,6 +33087,9 @@ const serializeAws_ec2CreateManagedPrefixListRequest = (
 
 const serializeAws_ec2CreateNatGatewayRequest = (input: CreateNatGatewayRequest, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.AllocationId !== undefined && input.AllocationId !== null) {
+    entries["AllocationId"] = input.AllocationId;
+  }
   if (input.ClientToken === undefined) {
     input.ClientToken = generateIdempotencyToken();
   }
@@ -32736,8 +33109,8 @@ const serializeAws_ec2CreateNatGatewayRequest = (input: CreateNatGatewayRequest,
       entries[loc] = value;
     });
   }
-  if (input.AllocationId !== undefined && input.AllocationId !== null) {
-    entries["AllocationId"] = input.AllocationId;
+  if (input.ConnectivityType !== undefined && input.ConnectivityType !== null) {
+    entries["ConnectivityType"] = input.ConnectivityType;
   }
   return entries;
 };
@@ -36034,6 +36407,9 @@ const serializeAws_ec2DescribeImagesRequest = (input: DescribeImagesRequest, con
       entries[loc] = value;
     });
   }
+  if (input.IncludeDeprecated !== undefined && input.IncludeDeprecated !== null) {
+    entries["IncludeDeprecated"] = input.IncludeDeprecated;
+  }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
   }
@@ -38092,6 +38468,37 @@ const serializeAws_ec2DescribeTransitGatewayVpcAttachmentsRequest = (
   return entries;
 };
 
+const serializeAws_ec2DescribeTrunkInterfaceAssociationsRequest = (
+  input: DescribeTrunkInterfaceAssociationsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AssociationIds !== undefined && input.AssociationIds !== null) {
+    const memberEntries = serializeAws_ec2TrunkInterfaceAssociationIdList(input.AssociationIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AssociationId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DescribeVolumeAttributeRequest = (
   input: DescribeVolumeAttributeRequest,
   context: __SerdeContext
@@ -38687,6 +39094,20 @@ const serializeAws_ec2DisableFastSnapshotRestoresRequest = (
   return entries;
 };
 
+const serializeAws_ec2DisableImageDeprecationRequest = (
+  input: DisableImageDeprecationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ImageId !== undefined && input.ImageId !== null) {
+    entries["ImageId"] = input.ImageId;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DisableSerialConsoleAccessRequest = (
   input: DisableSerialConsoleAccessRequest,
   context: __SerdeContext
@@ -38878,6 +39299,26 @@ const serializeAws_ec2DisassociateTransitGatewayRouteTableRequest = (
   }
   if (input.TransitGatewayAttachmentId !== undefined && input.TransitGatewayAttachmentId !== null) {
     entries["TransitGatewayAttachmentId"] = input.TransitGatewayAttachmentId;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DisassociateTrunkInterfaceRequest = (
+  input: DisassociateTrunkInterfaceRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AssociationId !== undefined && input.AssociationId !== null) {
+    entries["AssociationId"] = input.AssociationId;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken !== undefined && input.ClientToken !== null) {
+    entries["ClientToken"] = input.ClientToken;
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
@@ -39143,6 +39584,23 @@ const serializeAws_ec2EnableFastSnapshotRestoresRequest = (
       const loc = `SourceSnapshotId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2EnableImageDeprecationRequest = (
+  input: EnableImageDeprecationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ImageId !== undefined && input.ImageId !== null) {
+    entries["ImageId"] = input.ImageId;
+  }
+  if (input.DeprecateAt !== undefined && input.DeprecateAt !== null) {
+    entries["DeprecateAt"] = input.DeprecateAt.toISOString().split(".")[0] + "Z";
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
@@ -47355,6 +47813,19 @@ const serializeAws_ec2TransitGatewaySubnetIdList = (input: string[], context: __
   return entries;
 };
 
+const serializeAws_ec2TrunkInterfaceAssociationIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_ec2UnassignIpv6AddressesRequest = (
   input: UnassignIpv6AddressesRequest,
   context: __SerdeContext
@@ -48843,6 +49314,26 @@ const deserializeAws_ec2AssociateTransitGatewayRouteTableResult = (
   };
   if (output["association"] !== undefined) {
     contents.Association = deserializeAws_ec2TransitGatewayAssociation(output["association"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2AssociateTrunkInterfaceResult = (
+  output: any,
+  context: __SerdeContext
+): AssociateTrunkInterfaceResult => {
+  let contents: any = {
+    InterfaceAssociation: undefined,
+    ClientToken: undefined,
+  };
+  if (output["interfaceAssociation"] !== undefined) {
+    contents.InterfaceAssociation = deserializeAws_ec2TrunkInterfaceAssociation(
+      output["interfaceAssociation"],
+      context
+    );
+  }
+  if (output["clientToken"] !== undefined) {
+    contents.ClientToken = output["clientToken"];
   }
   return contents;
 };
@@ -54770,6 +55261,29 @@ const deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsResult = (
   return contents;
 };
 
+const deserializeAws_ec2DescribeTrunkInterfaceAssociationsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeTrunkInterfaceAssociationsResult => {
+  let contents: any = {
+    InterfaceAssociations: undefined,
+    NextToken: undefined,
+  };
+  if (output.interfaceAssociationSet === "") {
+    contents.InterfaceAssociations = [];
+  }
+  if (output["interfaceAssociationSet"] !== undefined && output["interfaceAssociationSet"]["item"] !== undefined) {
+    contents.InterfaceAssociations = deserializeAws_ec2TrunkInterfaceAssociationList(
+      __getArrayIfSingleItem(output["interfaceAssociationSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = output["nextToken"];
+  }
+  return contents;
+};
+
 const deserializeAws_ec2DescribeVolumeAttributeResult = (
   output: any,
   context: __SerdeContext
@@ -55453,6 +55967,19 @@ const deserializeAws_ec2DisableFastSnapshotRestoreSuccessSet = (
     });
 };
 
+const deserializeAws_ec2DisableImageDeprecationResult = (
+  output: any,
+  context: __SerdeContext
+): DisableImageDeprecationResult => {
+  let contents: any = {
+    Return: undefined,
+  };
+  if (output["return"] !== undefined) {
+    contents.Return = output["return"] == "true";
+  }
+  return contents;
+};
+
 const deserializeAws_ec2DisableSerialConsoleAccessResult = (
   output: any,
   context: __SerdeContext
@@ -55596,6 +56123,23 @@ const deserializeAws_ec2DisassociateTransitGatewayRouteTableResult = (
   };
   if (output["association"] !== undefined) {
     contents.Association = deserializeAws_ec2TransitGatewayAssociation(output["association"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DisassociateTrunkInterfaceResult = (
+  output: any,
+  context: __SerdeContext
+): DisassociateTrunkInterfaceResult => {
+  let contents: any = {
+    Return: undefined,
+    ClientToken: undefined,
+  };
+  if (output["return"] !== undefined) {
+    contents.Return = output["return"] == "true";
+  }
+  if (output["clientToken"] !== undefined) {
+    contents.ClientToken = output["clientToken"];
   }
   return contents;
 };
@@ -56241,6 +56785,19 @@ const deserializeAws_ec2EnableFastSnapshotRestoreSuccessSet = (
       }
       return deserializeAws_ec2EnableFastSnapshotRestoreSuccessItem(entry, context);
     });
+};
+
+const deserializeAws_ec2EnableImageDeprecationResult = (
+  output: any,
+  context: __SerdeContext
+): EnableImageDeprecationResult => {
+  let contents: any = {
+    Return: undefined,
+  };
+  if (output["return"] !== undefined) {
+    contents.Return = output["return"] == "true";
+  }
+  return contents;
 };
 
 const deserializeAws_ec2EnableSerialConsoleAccessResult = (
@@ -58544,6 +59101,7 @@ const deserializeAws_ec2Image = (output: any, context: __SerdeContext): Image =>
     Tags: undefined,
     VirtualizationType: undefined,
     BootMode: undefined,
+    DeprecationTime: undefined,
   };
   if (output["architecture"] !== undefined) {
     contents.Architecture = output["architecture"];
@@ -58640,6 +59198,9 @@ const deserializeAws_ec2Image = (output: any, context: __SerdeContext): Image =>
   }
   if (output["bootMode"] !== undefined) {
     contents.BootMode = output["bootMode"];
+  }
+  if (output["deprecationTime"] !== undefined) {
+    contents.DeprecationTime = output["deprecationTime"];
   }
   return contents;
 };
@@ -62790,6 +63351,7 @@ const deserializeAws_ec2NatGateway = (output: any, context: __SerdeContext): Nat
     SubnetId: undefined,
     VpcId: undefined,
     Tags: undefined,
+    ConnectivityType: undefined,
   };
   if (output["createTime"] !== undefined) {
     contents.CreateTime = new Date(output["createTime"]);
@@ -62832,6 +63394,9 @@ const deserializeAws_ec2NatGateway = (output: any, context: __SerdeContext): Nat
   }
   if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
     contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["connectivityType"] !== undefined) {
+    contents.ConnectivityType = output["connectivityType"];
   }
   return contents;
 };
@@ -69963,6 +70528,60 @@ const deserializeAws_ec2TransitGatewayVpcAttachmentOptions = (
     contents.ApplianceModeSupport = output["applianceModeSupport"];
   }
   return contents;
+};
+
+const deserializeAws_ec2TrunkInterfaceAssociation = (
+  output: any,
+  context: __SerdeContext
+): TrunkInterfaceAssociation => {
+  let contents: any = {
+    AssociationId: undefined,
+    BranchInterfaceId: undefined,
+    TrunkInterfaceId: undefined,
+    InterfaceProtocol: undefined,
+    VlanId: undefined,
+    GreKey: undefined,
+    Tags: undefined,
+  };
+  if (output["associationId"] !== undefined) {
+    contents.AssociationId = output["associationId"];
+  }
+  if (output["branchInterfaceId"] !== undefined) {
+    contents.BranchInterfaceId = output["branchInterfaceId"];
+  }
+  if (output["trunkInterfaceId"] !== undefined) {
+    contents.TrunkInterfaceId = output["trunkInterfaceId"];
+  }
+  if (output["interfaceProtocol"] !== undefined) {
+    contents.InterfaceProtocol = output["interfaceProtocol"];
+  }
+  if (output["vlanId"] !== undefined) {
+    contents.VlanId = parseInt(output["vlanId"]);
+  }
+  if (output["greKey"] !== undefined) {
+    contents.GreKey = parseInt(output["greKey"]);
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  }
+  if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2TrunkInterfaceAssociationList = (
+  output: any,
+  context: __SerdeContext
+): TrunkInterfaceAssociation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2TrunkInterfaceAssociation(entry, context);
+    });
 };
 
 const deserializeAws_ec2TunnelOption = (output: any, context: __SerdeContext): TunnelOption => {

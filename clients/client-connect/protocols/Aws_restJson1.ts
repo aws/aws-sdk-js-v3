@@ -2,6 +2,7 @@ import {
   AssociateApprovedOriginCommandInput,
   AssociateApprovedOriginCommandOutput,
 } from "../commands/AssociateApprovedOriginCommand";
+import { AssociateBotCommandInput, AssociateBotCommandOutput } from "../commands/AssociateBotCommand";
 import {
   AssociateInstanceStorageConfigCommandInput,
   AssociateInstanceStorageConfigCommandOutput,
@@ -92,6 +93,7 @@ import {
   DisassociateApprovedOriginCommandInput,
   DisassociateApprovedOriginCommandOutput,
 } from "../commands/DisassociateApprovedOriginCommand";
+import { DisassociateBotCommandInput, DisassociateBotCommandOutput } from "../commands/DisassociateBotCommand";
 import {
   DisassociateInstanceStorageConfigCommandInput,
   DisassociateInstanceStorageConfigCommandOutput,
@@ -127,6 +129,7 @@ import {
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
 } from "../commands/ListApprovedOriginsCommand";
+import { ListBotsCommandInput, ListBotsCommandOutput } from "../commands/ListBotsCommand";
 import { ListContactFlowsCommandInput, ListContactFlowsCommandOutput } from "../commands/ListContactFlowsCommand";
 import {
   ListHoursOfOperationsCommandInput,
@@ -337,6 +340,8 @@ import {
   KinesisStreamConfig,
   KinesisVideoStreamConfig,
   LexBot,
+  LexBotConfig,
+  LexV2Bot,
   LimitExceededException,
   MediaConcurrency,
   OutboundCallerConfig,
@@ -410,6 +415,42 @@ export const serializeAws_restJson1AssociateApprovedOriginCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Origin !== undefined && input.Origin !== null && { Origin: input.Origin }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1AssociateBotCommand = async (
+  input: AssociateBotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/instance/{InstanceId}/bot";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.LexBot !== undefined &&
+      input.LexBot !== null && { LexBot: serializeAws_restJson1LexBot(input.LexBot, context) }),
+    ...(input.LexV2Bot !== undefined &&
+      input.LexV2Bot !== null && { LexV2Bot: serializeAws_restJson1LexV2Bot(input.LexV2Bot, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1666,6 +1707,42 @@ export const serializeAws_restJson1DisassociateApprovedOriginCommand = async (
   });
 };
 
+export const serializeAws_restJson1DisassociateBotCommand = async (
+  input: DisassociateBotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/instance/{InstanceId}/bot";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.LexBot !== undefined &&
+      input.LexBot !== null && { LexBot: serializeAws_restJson1LexBot(input.LexBot, context) }),
+    ...(input.LexV2Bot !== undefined &&
+      input.LexV2Bot !== null && { LexV2Bot: serializeAws_restJson1LexV2Bot(input.LexV2Bot, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DisassociateInstanceStorageConfigCommand = async (
   input: DisassociateInstanceStorageConfigCommandInput,
   context: __SerdeContext
@@ -2070,6 +2147,40 @@ export const serializeAws_restJson1ListApprovedOriginsCommand = async (
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListBotsCommand = async (
+  input: ListBotsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/instance/{InstanceId}/bots";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.LexVersion !== undefined && { lexVersion: input.LexVersion }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4139,6 +4250,105 @@ const deserializeAws_restJson1AssociateApprovedOriginCommandError = async (
     case "com.amazonaws.connect#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connect#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1AssociateBotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateBotCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociateBotCommandError(output, context);
+  }
+  const contents: AssociateBotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AssociateBotCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateBotCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.connect#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7191,6 +7401,81 @@ const deserializeAws_restJson1DisassociateApprovedOriginCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DisassociateBotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateBotCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateBotCommandError(output, context);
+  }
+  const contents: DisassociateBotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DisassociateBotCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateBotCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DisassociateInstanceStorageConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8087,6 +8372,89 @@ const deserializeAws_restJson1ListApprovedOriginsCommandError = async (
     case "com.amazonaws.connect#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListBotsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBotsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListBotsCommandError(output, context);
+  }
+  const contents: ListBotsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    LexBots: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.LexBots !== undefined && data.LexBots !== null) {
+    contents.LexBots = deserializeAws_restJson1LexBotConfigList(data.LexBots, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListBotsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBotsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -13269,6 +13637,12 @@ const serializeAws_restJson1LexBot = (input: LexBot, context: __SerdeContext): a
   };
 };
 
+const serializeAws_restJson1LexV2Bot = (input: LexV2Bot, context: __SerdeContext): any => {
+  return {
+    ...(input.AliasArn !== undefined && input.AliasArn !== null && { AliasArn: input.AliasArn }),
+  };
+};
+
 const serializeAws_restJson1MediaConcurrencies = (input: MediaConcurrency[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -14111,6 +14485,30 @@ const deserializeAws_restJson1LexBot = (output: any, context: __SerdeContext): L
   } as any;
 };
 
+const deserializeAws_restJson1LexBotConfig = (output: any, context: __SerdeContext): LexBotConfig => {
+  return {
+    LexBot:
+      output.LexBot !== undefined && output.LexBot !== null
+        ? deserializeAws_restJson1LexBot(output.LexBot, context)
+        : undefined,
+    LexV2Bot:
+      output.LexV2Bot !== undefined && output.LexV2Bot !== null
+        ? deserializeAws_restJson1LexV2Bot(output.LexV2Bot, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LexBotConfigList = (output: any, context: __SerdeContext): LexBotConfig[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LexBotConfig(entry, context);
+    });
+};
+
 const deserializeAws_restJson1LexBotsList = (output: any, context: __SerdeContext): LexBot[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -14120,6 +14518,12 @@ const deserializeAws_restJson1LexBotsList = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1LexBot(entry, context);
     });
+};
+
+const deserializeAws_restJson1LexV2Bot = (output: any, context: __SerdeContext): LexV2Bot => {
+  return {
+    AliasArn: output.AliasArn !== undefined && output.AliasArn !== null ? output.AliasArn : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1MediaConcurrencies = (output: any, context: __SerdeContext): MediaConcurrency[] => {

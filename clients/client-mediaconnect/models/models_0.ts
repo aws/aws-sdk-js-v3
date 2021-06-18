@@ -1909,6 +1909,30 @@ export namespace CreateFlow420Exception {
   });
 }
 
+export enum FailoverMode {
+  FAILOVER = "FAILOVER",
+  MERGE = "MERGE",
+}
+
+/**
+ * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+ */
+export interface SourcePriority {
+  /**
+   * The name of the source you choose as the primary source for this flow.
+   */
+  PrimarySource?: string;
+}
+
+export namespace SourcePriority {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SourcePriority): any => ({
+    ...obj,
+  });
+}
+
 export enum State {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -1919,9 +1943,19 @@ export enum State {
  */
 export interface FailoverConfig {
   /**
+   * The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+   */
+  FailoverMode?: FailoverMode | string;
+
+  /**
    * Search window time to look for dash-7 packets
    */
   RecoveryWindow?: number;
+
+  /**
+   * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+   */
+  SourcePriority?: SourcePriority;
 
   State?: State | string;
 }
@@ -2888,9 +2922,19 @@ export namespace UntagResourceRequest {
  */
 export interface UpdateFailoverConfig {
   /**
+   * The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+   */
+  FailoverMode?: FailoverMode | string;
+
+  /**
    * Recovery window time to look for dash-7 packets
    */
   RecoveryWindow?: number;
+
+  /**
+   * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+   */
+  SourcePriority?: SourcePriority;
 
   State?: State | string;
 }

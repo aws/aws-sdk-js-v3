@@ -21,10 +21,10 @@ export interface RecognizeTextCommandInput extends RecognizeTextRequest {}
 export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __MetadataBearer {}
 
 /**
- * <p>Sends user input to Amazon Lex. Client applications use this API to send
- *          requests to Amazon Lex at runtime. Amazon Lex then interprets the user input
+ * <p>Sends user input to Amazon Lex V2. Client applications use this API to send
+ *          requests to Amazon Lex V2 at runtime. Amazon Lex V2 then interprets the user input
  *          using the machine learning model that it build for the bot.</p>
- *          <p>In response, Amazon Lex returns the next message to convey to the user
+ *          <p>In response, Amazon Lex V2 returns the next message to convey to the user
  *          and an optional response card to display.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

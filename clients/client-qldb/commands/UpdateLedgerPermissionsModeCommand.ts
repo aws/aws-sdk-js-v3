@@ -24,6 +24,12 @@ export interface UpdateLedgerPermissionsModeCommandOutput
 
 /**
  * <p>Updates the permissions mode of a ledger.</p>
+ *          <important>
+ *             <p>Before you switch to the <code>STANDARD</code> permissions mode, you must first
+ *             create all required IAM policies and table tags to avoid disruption to your users. To
+ *             learn more, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/ledger-management.basics.html#ledger-mgmt.basics.update-permissions.migrating">Migrating to the standard permissions mode</a> in the <i>Amazon QLDB
+ *                Developer Guide</i>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

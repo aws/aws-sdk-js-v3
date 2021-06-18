@@ -24,8 +24,7 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  * <p>Updates the description of a customer master key (CMK). To see the description of a CMK,
  *       use <a>DescribeKey</a>. </p>
  *          <p>The CMK that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
- * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No.  You cannot perform this operation on a CMK in a different AWS account. </p>
  *

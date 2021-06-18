@@ -1,3 +1,11 @@
+import {
+  BatchAssociateClientDeviceWithCoreDeviceCommandInput,
+  BatchAssociateClientDeviceWithCoreDeviceCommandOutput,
+} from "../commands/BatchAssociateClientDeviceWithCoreDeviceCommand";
+import {
+  BatchDisassociateClientDeviceFromCoreDeviceCommandInput,
+  BatchDisassociateClientDeviceFromCoreDeviceCommandOutput,
+} from "../commands/BatchDisassociateClientDeviceFromCoreDeviceCommand";
 import { CancelDeploymentCommandInput, CancelDeploymentCommandOutput } from "../commands/CancelDeploymentCommand";
 import {
   CreateComponentVersionCommandInput,
@@ -14,6 +22,10 @@ import {
 } from "../commands/GetComponentVersionArtifactCommand";
 import { GetCoreDeviceCommandInput, GetCoreDeviceCommandOutput } from "../commands/GetCoreDeviceCommand";
 import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "../commands/GetDeploymentCommand";
+import {
+  ListClientDevicesAssociatedWithCoreDeviceCommandInput,
+  ListClientDevicesAssociatedWithCoreDeviceCommandOutput,
+} from "../commands/ListClientDevicesAssociatedWithCoreDeviceCommand";
 import {
   ListComponentVersionsCommandInput,
   ListComponentVersionsCommandOutput,
@@ -41,6 +53,9 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   AccessDeniedException,
+  AssociateClientDeviceWithCoreDeviceEntry,
+  AssociateClientDeviceWithCoreDeviceErrorEntry,
+  AssociatedClientDevice,
   CloudComponentStatus,
   Component,
   ComponentCandidate,
@@ -58,6 +73,8 @@ import {
   DeploymentConfigurationValidationPolicy,
   DeploymentIoTJobConfiguration,
   DeploymentPolicies,
+  DisassociateClientDeviceFromCoreDeviceEntry,
+  DisassociateClientDeviceFromCoreDeviceErrorEntry,
   EffectiveDeployment,
   InstalledComponent,
   InternalServerException,
@@ -92,6 +109,78 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+export const serializeAws_restJson1BatchAssociateClientDeviceWithCoreDeviceCommand = async (
+  input: BatchAssociateClientDeviceWithCoreDeviceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/greengrass/v2/coreDevices/{coreDeviceThingName}/associateClientDevices";
+  if (input.coreDeviceThingName !== undefined) {
+    const labelValue: string = input.coreDeviceThingName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: coreDeviceThingName.");
+    }
+    resolvedPath = resolvedPath.replace("{coreDeviceThingName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: coreDeviceThingName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.entries !== undefined &&
+      input.entries !== null && {
+        entries: serializeAws_restJson1AssociateClientDeviceWithCoreDeviceEntryList(input.entries, context),
+      }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1BatchDisassociateClientDeviceFromCoreDeviceCommand = async (
+  input: BatchDisassociateClientDeviceFromCoreDeviceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/greengrass/v2/coreDevices/{coreDeviceThingName}/disassociateClientDevices";
+  if (input.coreDeviceThingName !== undefined) {
+    const labelValue: string = input.coreDeviceThingName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: coreDeviceThingName.");
+    }
+    resolvedPath = resolvedPath.replace("{coreDeviceThingName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: coreDeviceThingName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.entries !== undefined &&
+      input.entries !== null && {
+        entries: serializeAws_restJson1DisassociateClientDeviceFromCoreDeviceEntryList(input.entries, context),
+      }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CancelDeploymentCommand = async (
   input: CancelDeploymentCommandInput,
@@ -405,6 +494,39 @@ export const serializeAws_restJson1GetDeploymentCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListClientDevicesAssociatedWithCoreDeviceCommand = async (
+  input: ListClientDevicesAssociatedWithCoreDeviceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/greengrass/v2/coreDevices/{coreDeviceThingName}/associatedClientDevices";
+  if (input.coreDeviceThingName !== undefined) {
+    const labelValue: string = input.coreDeviceThingName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: coreDeviceThingName.");
+    }
+    resolvedPath = resolvedPath.replace("{coreDeviceThingName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: coreDeviceThingName.");
+  }
+  const query: any = {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListComponentsCommand = async (
   input: ListComponentsCommandInput,
   context: __SerdeContext
@@ -701,6 +823,186 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     query,
     body,
   });
+};
+
+export const deserializeAws_restJson1BatchAssociateClientDeviceWithCoreDeviceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchAssociateClientDeviceWithCoreDeviceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchAssociateClientDeviceWithCoreDeviceCommandError(output, context);
+  }
+  const contents: BatchAssociateClientDeviceWithCoreDeviceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    errorEntries: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.errorEntries !== undefined && data.errorEntries !== null) {
+    contents.errorEntries = deserializeAws_restJson1AssociateClientDeviceWithCoreDeviceErrorList(
+      data.errorEntries,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1BatchAssociateClientDeviceWithCoreDeviceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchAssociateClientDeviceWithCoreDeviceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.greengrassv2#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.greengrassv2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.greengrassv2#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.greengrassv2#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.greengrassv2#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1BatchDisassociateClientDeviceFromCoreDeviceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDisassociateClientDeviceFromCoreDeviceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchDisassociateClientDeviceFromCoreDeviceCommandError(output, context);
+  }
+  const contents: BatchDisassociateClientDeviceFromCoreDeviceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    errorEntries: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.errorEntries !== undefined && data.errorEntries !== null) {
+    contents.errorEntries = deserializeAws_restJson1DisassociateClientDeviceFromCoreDeviceErrorList(
+      data.errorEntries,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1BatchDisassociateClientDeviceFromCoreDeviceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDisassociateClientDeviceFromCoreDeviceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.greengrassv2#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.greengrassv2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.greengrassv2#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.greengrassv2#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.greengrassv2#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CancelDeploymentCommand = async (
@@ -1671,6 +1973,100 @@ const deserializeAws_restJson1GetDeploymentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.greengrassv2#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.greengrassv2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.greengrassv2#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.greengrassv2#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.greengrassv2#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListClientDevicesAssociatedWithCoreDeviceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClientDevicesAssociatedWithCoreDeviceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListClientDevicesAssociatedWithCoreDeviceCommandError(output, context);
+  }
+  const contents: ListClientDevicesAssociatedWithCoreDeviceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    associatedClientDevices: undefined,
+    nextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.associatedClientDevices !== undefined && data.associatedClientDevices !== null) {
+    contents.associatedClientDevices = deserializeAws_restJson1AssociatedClientDeviceList(
+      data.associatedClientDevices,
+      context
+    );
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListClientDevicesAssociatedWithCoreDeviceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClientDevicesAssociatedWithCoreDeviceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2739,6 +3135,29 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1AssociateClientDeviceWithCoreDeviceEntry = (
+  input: AssociateClientDeviceWithCoreDeviceEntry,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.thingName !== undefined && input.thingName !== null && { thingName: input.thingName }),
+  };
+};
+
+const serializeAws_restJson1AssociateClientDeviceWithCoreDeviceEntryList = (
+  input: AssociateClientDeviceWithCoreDeviceEntry[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AssociateClientDeviceWithCoreDeviceEntry(entry, context);
+    });
+};
+
 const serializeAws_restJson1ComponentCandidate = (input: ComponentCandidate, context: __SerdeContext): any => {
   return {
     ...(input.componentName !== undefined && input.componentName !== null && { componentName: input.componentName }),
@@ -2953,6 +3372,29 @@ const serializeAws_restJson1DeploymentPolicies = (input: DeploymentPolicies, con
     ...(input.failureHandlingPolicy !== undefined &&
       input.failureHandlingPolicy !== null && { failureHandlingPolicy: input.failureHandlingPolicy }),
   };
+};
+
+const serializeAws_restJson1DisassociateClientDeviceFromCoreDeviceEntry = (
+  input: DisassociateClientDeviceFromCoreDeviceEntry,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.thingName !== undefined && input.thingName !== null && { thingName: input.thingName }),
+  };
+};
+
+const serializeAws_restJson1DisassociateClientDeviceFromCoreDeviceEntryList = (
+  input: DisassociateClientDeviceFromCoreDeviceEntry[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1DisassociateClientDeviceFromCoreDeviceEntry(entry, context);
+    });
 };
 
 const serializeAws_restJson1IoTJobAbortConfig = (input: IoTJobAbortConfig, context: __SerdeContext): any => {
@@ -3230,6 +3672,58 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
       [key]: value,
     };
   }, {});
+};
+
+const deserializeAws_restJson1AssociateClientDeviceWithCoreDeviceErrorEntry = (
+  output: any,
+  context: __SerdeContext
+): AssociateClientDeviceWithCoreDeviceErrorEntry => {
+  return {
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AssociateClientDeviceWithCoreDeviceErrorList = (
+  output: any,
+  context: __SerdeContext
+): AssociateClientDeviceWithCoreDeviceErrorEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssociateClientDeviceWithCoreDeviceErrorEntry(entry, context);
+    });
+};
+
+const deserializeAws_restJson1AssociatedClientDevice = (
+  output: any,
+  context: __SerdeContext
+): AssociatedClientDevice => {
+  return {
+    associationTimestamp:
+      output.associationTimestamp !== undefined && output.associationTimestamp !== null
+        ? new Date(Math.round(output.associationTimestamp * 1000))
+        : undefined,
+    thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AssociatedClientDeviceList = (
+  output: any,
+  context: __SerdeContext
+): AssociatedClientDevice[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssociatedClientDevice(entry, context);
+    });
 };
 
 const deserializeAws_restJson1CloudComponentStatus = (output: any, context: __SerdeContext): CloudComponentStatus => {
@@ -3514,6 +4008,31 @@ const deserializeAws_restJson1DeploymentPolicies = (output: any, context: __Serd
         ? output.failureHandlingPolicy
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1DisassociateClientDeviceFromCoreDeviceErrorEntry = (
+  output: any,
+  context: __SerdeContext
+): DisassociateClientDeviceFromCoreDeviceErrorEntry => {
+  return {
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DisassociateClientDeviceFromCoreDeviceErrorList = (
+  output: any,
+  context: __SerdeContext
+): DisassociateClientDeviceFromCoreDeviceErrorEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DisassociateClientDeviceFromCoreDeviceErrorEntry(entry, context);
+    });
 };
 
 const deserializeAws_restJson1EffectiveDeployment = (output: any, context: __SerdeContext): EffectiveDeployment => {

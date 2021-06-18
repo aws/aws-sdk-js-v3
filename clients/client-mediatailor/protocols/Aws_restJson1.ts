@@ -86,6 +86,7 @@ import {
   ResponseOutputItem,
   ScheduleConfiguration,
   ScheduleEntry,
+  SecretsManagerAccessTokenConfiguration,
   SlateSource,
   SourceLocation,
   SpliceInsertMessage,
@@ -3139,6 +3140,13 @@ const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string },
 const serializeAws_restJson1AccessConfiguration = (input: AccessConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.AccessType !== undefined && input.AccessType !== null && { AccessType: input.AccessType }),
+    ...(input.SecretsManagerAccessTokenConfiguration !== undefined &&
+      input.SecretsManagerAccessTokenConfiguration !== null && {
+        SecretsManagerAccessTokenConfiguration: serializeAws_restJson1SecretsManagerAccessTokenConfiguration(
+          input.SecretsManagerAccessTokenConfiguration,
+          context
+        ),
+      }),
   };
 };
 
@@ -3332,6 +3340,18 @@ const serializeAws_restJson1ScheduleConfiguration = (input: ScheduleConfiguratio
   };
 };
 
+const serializeAws_restJson1SecretsManagerAccessTokenConfiguration = (
+  input: SecretsManagerAccessTokenConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HeaderName !== undefined && input.HeaderName !== null && { HeaderName: input.HeaderName }),
+    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
+    ...(input.SecretStringKey !== undefined &&
+      input.SecretStringKey !== null && { SecretStringKey: input.SecretStringKey }),
+  };
+};
+
 const serializeAws_restJson1SlateSource = (input: SlateSource, context: __SerdeContext): any => {
   return {
     ...(input.SourceLocationName !== undefined &&
@@ -3445,6 +3465,14 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
 const deserializeAws_restJson1AccessConfiguration = (output: any, context: __SerdeContext): AccessConfiguration => {
   return {
     AccessType: output.AccessType !== undefined && output.AccessType !== null ? output.AccessType : undefined,
+    SecretsManagerAccessTokenConfiguration:
+      output.SecretsManagerAccessTokenConfiguration !== undefined &&
+      output.SecretsManagerAccessTokenConfiguration !== null
+        ? deserializeAws_restJson1SecretsManagerAccessTokenConfiguration(
+            output.SecretsManagerAccessTokenConfiguration,
+            context
+          )
+        : undefined,
   } as any;
 };
 
@@ -3777,6 +3805,18 @@ const deserializeAws_restJson1ScheduleEntry = (output: any, context: __SerdeCont
         : undefined,
     VodSourceName:
       output.VodSourceName !== undefined && output.VodSourceName !== null ? output.VodSourceName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SecretsManagerAccessTokenConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SecretsManagerAccessTokenConfiguration => {
+  return {
+    HeaderName: output.HeaderName !== undefined && output.HeaderName !== null ? output.HeaderName : undefined,
+    SecretArn: output.SecretArn !== undefined && output.SecretArn !== null ? output.SecretArn : undefined,
+    SecretStringKey:
+      output.SecretStringKey !== undefined && output.SecretStringKey !== null ? output.SecretStringKey : undefined,
   } as any;
 };
 

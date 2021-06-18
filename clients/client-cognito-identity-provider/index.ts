@@ -88,6 +88,7 @@ export * from "./commands/ListUsersInGroupCommand";
 export * from "./pagination/ListUsersInGroupPaginator";
 export * from "./commands/ResendConfirmationCodeCommand";
 export * from "./commands/RespondToAuthChallengeCommand";
+export * from "./commands/RevokeTokenCommand";
 export * from "./commands/SetRiskConfigurationCommand";
 export * from "./commands/SetUICustomizationCommand";
 export * from "./commands/SetUserMFAPreferenceCommand";

@@ -26,7 +26,7 @@ export interface ListJournalS3ExportsCommandOutput extends ListJournalS3ExportsR
  *          <p>This action returns a maximum of <code>MaxResults</code> items, and is paginated so that
  *          you can retrieve all the items by calling <code>ListJournalS3Exports</code> multiple
  *          times.</p>
- *          <p>This action does not return any expired export jobs. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export Job Expiration</a> in the <i>Amazon QLDB Developer
+ *          <p>This action does not return any expired export jobs. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export job expiration</a> in the <i>Amazon QLDB Developer
  *          Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

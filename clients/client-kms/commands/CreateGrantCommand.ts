@@ -21,37 +21,35 @@ export interface CreateGrantCommandInput extends CreateGrantRequest {}
 export interface CreateGrantCommandOutput extends CreateGrantResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a grant to a customer master key (CMK). The grant allows the grantee principal to use
- *       the CMK when the conditions specified in the grant are met. When setting permissions, grants
- *       are an alternative to key policies. </p>
- *          <p>To create a grant that allows a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operation</a> only when the request includes a particular
- *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption
- *         context</a>, use the <code>Constraints</code> parameter. For details, see <a>GrantConstraints</a>.</p>
- *          <p>You can create grants on symmetric and asymmetric CMKs. However, if the grant allows an
- *       operation that the CMK does not support, <code>CreateGrant</code> fails with a
- *         <code>ValidationException</code>. </p>
- *
+ * <p>Adds a grant to a customer master key (CMK). </p>
+ *          <p>A <i>grant</i> is a policy instrument that allows AWS principals to use AWS
+ *       KMS customer master keys (CMKs) in cryptographic operations. It also can allow them to view a
+ *       CMK (<a>DescribeKey</a>) and create and manage grants. When authorizing access to a
+ *       CMK, grants are considered along with key policies and IAM policies. Grants are often used for
+ *       temporary permissions because you can create one, use its permissions, and delete it without
+ *       changing your key policies or IAM policies. </p>
+ *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using grants</a> in the
+ *         <i>
+ *                <i>AWS Key Management Service Developer Guide</i>
+ *             </i>. For examples of working with grants in several
+ *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming grants</a>.</p>
+ *          <p>The <code>CreateGrant</code> operation returns a <code>GrantToken</code> and a
+ *         <code>GrantId</code>.</p>
  *          <ul>
  *             <li>
- *                <p>Grants for symmetric CMKs cannot allow operations that are not supported for symmetric
- *           CMKs, including <a>Sign</a>, <a>Verify</a>, and <a>GetPublicKey</a>. (There are limited exceptions to this rule for legacy
- *           operations, but you should not create a grant for an operation that AWS KMS does not
- *           support.)</p>
+ *                <p>When you create, retire, or revoke a grant, there might be a brief delay, usually less than five minutes, until the grant is available throughout AWS KMS. This state is known as <i>eventual consistency</i>. Once the grant has achieved eventual consistency, the grantee principal
+ *           can use the permissions in the grant without identifying the grant. </p>
+ *                <p>However, to use the permissions in the grant immediately, use the
+ *             <code>GrantToken</code> that <code>CreateGrant</code> returns. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant
+ *             token</a> in the <i>
+ *                      <i>AWS Key Management Service Developer Guide</i>
+ *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>Grants for asymmetric CMKs cannot allow operations that are not supported for
- *           asymmetric CMKs, including operations that <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey">generate data keys</a> or <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPair">data key pairs</a>,
- *           or operations related to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic key rotation</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or CMKs in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key
- *             stores</a>.</p>
- *             </li>
- *             <li>
- *                <p>Grants for asymmetric CMKs with a <code>KeyUsage</code> of
- *             <code>ENCRYPT_DECRYPT</code> cannot allow the <a>Sign</a> or <a>Verify</a> operations. Grants for asymmetric CMKs with a <code>KeyUsage</code>
- *           of <code>SIGN_VERIFY</code> cannot allow the <a>Encrypt</a> or <a>Decrypt</a> operations.</p>
- *             </li>
- *             <li>
- *                <p>Grants for asymmetric CMKs cannot include an encryption context grant constraint. An
- *           encryption context is not supported on asymmetric CMKs.</p>
+ *                <p>The <code>CreateGrant</code> operation also returns a <code>GrantId</code>. You can use the
+ *             <code>GrantId</code> and a key identifier to identify the grant in the <a>RetireGrant</a> and <a>RevokeGrant</a> operations. To find the grant
+ *           ID, use the <a>ListGrants</a> or <a>ListRetirableGrants</a>
+ *           operations.</p>
  *             </li>
  *          </ul>
  *          <p>For information about symmetric and asymmetric CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric CMKs</a> in the <i>AWS Key Management Service Developer Guide</i>. For more information about grants, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants</a> in the
@@ -59,8 +57,7 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *                <i>AWS Key Management Service Developer Guide</i>
  *             </i>.</p>
  *          <p>The CMK that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
- * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different AWS account, specify the key
  *   ARN in the value of the <code>KeyId</code> parameter. </p>

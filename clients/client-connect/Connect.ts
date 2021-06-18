@@ -5,6 +5,11 @@ import {
   AssociateApprovedOriginCommandOutput,
 } from "./commands/AssociateApprovedOriginCommand";
 import {
+  AssociateBotCommand,
+  AssociateBotCommandInput,
+  AssociateBotCommandOutput,
+} from "./commands/AssociateBotCommand";
+import {
   AssociateInstanceStorageConfigCommand,
   AssociateInstanceStorageConfigCommandInput,
   AssociateInstanceStorageConfigCommandOutput,
@@ -158,6 +163,11 @@ import {
   DisassociateApprovedOriginCommandOutput,
 } from "./commands/DisassociateApprovedOriginCommand";
 import {
+  DisassociateBotCommand,
+  DisassociateBotCommandInput,
+  DisassociateBotCommandOutput,
+} from "./commands/DisassociateBotCommand";
+import {
   DisassociateInstanceStorageConfigCommand,
   DisassociateInstanceStorageConfigCommandInput,
   DisassociateInstanceStorageConfigCommandOutput,
@@ -212,6 +222,7 @@ import {
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
 } from "./commands/ListApprovedOriginsCommand";
+import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
 import {
   ListContactFlowsCommand,
   ListContactFlowsCommandInput,
@@ -502,6 +513,36 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: AssociateApprovedOriginCommandOutput) => void
   ): Promise<AssociateApprovedOriginCommandOutput> | void {
     const command = new AssociateApprovedOriginCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex or Amazon Lex V2 bot.</p>
+   */
+  public associateBot(
+    args: AssociateBotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateBotCommandOutput>;
+  public associateBot(args: AssociateBotCommandInput, cb: (err: any, data?: AssociateBotCommandOutput) => void): void;
+  public associateBot(
+    args: AssociateBotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateBotCommandOutput) => void
+  ): void;
+  public associateBot(
+    args: AssociateBotCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateBotCommandOutput) => void),
+    cb?: (err: any, data?: AssociateBotCommandOutput) => void
+  ): Promise<AssociateBotCommandOutput> | void {
+    const command = new AssociateBotCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1597,6 +1638,40 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2
+   *    bot. </p>
+   */
+  public disassociateBot(
+    args: DisassociateBotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateBotCommandOutput>;
+  public disassociateBot(
+    args: DisassociateBotCommandInput,
+    cb: (err: any, data?: DisassociateBotCommandOutput) => void
+  ): void;
+  public disassociateBot(
+    args: DisassociateBotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateBotCommandOutput) => void
+  ): void;
+  public disassociateBot(
+    args: DisassociateBotCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateBotCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateBotCommandOutput) => void
+  ): Promise<DisassociateBotCommandOutput> | void {
+    const command = new DisassociateBotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Removes the storage type configurations for the specified resource type and association
    *    ID.</p>
    */
@@ -1958,6 +2033,34 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: ListApprovedOriginsCommandOutput) => void
   ): Promise<ListApprovedOriginsCommandOutput> | void {
     const command = new ListApprovedOriginsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the
+   *    instance. </p>
+   */
+  public listBots(args: ListBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListBotsCommandOutput>;
+  public listBots(args: ListBotsCommandInput, cb: (err: any, data?: ListBotsCommandOutput) => void): void;
+  public listBots(
+    args: ListBotsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBotsCommandOutput) => void
+  ): void;
+  public listBots(
+    args: ListBotsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBotsCommandOutput) => void),
+    cb?: (err: any, data?: ListBotsCommandOutput) => void
+  ): Promise<ListBotsCommandOutput> | void {
+    const command = new ListBotsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

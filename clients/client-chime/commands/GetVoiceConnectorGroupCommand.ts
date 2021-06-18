@@ -23,9 +23,7 @@ export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGr
 /**
  * <p>
  * Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,name, and associated
- * <code>VoiceConnectorItems</code>
- * .
- * </p>
+ * <code>VoiceConnectorItems</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

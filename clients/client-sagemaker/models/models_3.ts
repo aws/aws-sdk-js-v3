@@ -1,16 +1,330 @@
 import { BooleanOperator, UserSettings } from "./models_0";
 import {
   MemberDefinition,
+  MonitoringScheduleConfig,
+  NotebookInstanceAcceleratorType,
+  NotebookInstanceLifecycleHook,
   NotificationConfiguration,
   OidcConfig,
   ProfilerRuleConfiguration,
+  RootAccess,
   SourceIpConfig,
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
-  Workforce,
+  _InstanceType,
 } from "./models_1";
-import { Filter, NestedFilters, ProfilerConfigForUpdate, ResourceType, SearchSortOrder, Workteam } from "./models_2";
+import {
+  Filter,
+  NestedFilters,
+  ProfilerConfigForUpdate,
+  ResourceType,
+  SearchSortOrder,
+  Workforce,
+  Workteam,
+} from "./models_2";
+
+export interface UpdateMonitoringScheduleRequest {
+  /**
+   * <p>The name of the monitoring schedule. The name must be unique within an AWS Region within
+   *          an AWS account.</p>
+   */
+  MonitoringScheduleName: string | undefined;
+
+  /**
+   * <p>The configuration object that specifies the monitoring schedule and defines the
+   *          monitoring job.</p>
+   */
+  MonitoringScheduleConfig: MonitoringScheduleConfig | undefined;
+}
+
+export namespace UpdateMonitoringScheduleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateMonitoringScheduleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateMonitoringScheduleResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the monitoring schedule.</p>
+   */
+  MonitoringScheduleArn: string | undefined;
+}
+
+export namespace UpdateMonitoringScheduleResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateMonitoringScheduleResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateNotebookInstanceInput {
+  /**
+   * <p>The name of the notebook instance to update.</p>
+   */
+  NotebookInstanceName: string | undefined;
+
+  /**
+   * <p>The Amazon ML compute instance type.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access the
+   *             notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker Roles</a>. </p>
+   *         <note>
+   *             <p>To be able to pass this role to Amazon SageMaker, the caller of this API must have the
+   *                     <code>iam:PassRole</code> permission.</p>
+   *         </note>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The name of a lifecycle configuration to associate with the notebook instance. For
+   *             information about lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional)
+   *                 Customize a Notebook Instance</a>.</p>
+   */
+  LifecycleConfigName?: string;
+
+  /**
+   * <p>Set to <code>true</code> to remove the notebook instance lifecycle configuration
+   *             currently associated with the notebook instance. This operation is idempotent. If you
+   *             specify a lifecycle configuration that is not associated with the notebook instance when
+   *             you call this method, it does not throw an error.</p>
+   */
+  DisassociateLifecycleConfig?: boolean;
+
+  /**
+   * <p>The size, in GB, of the ML storage volume to attach to the notebook instance. The
+   *             default value is 5 GB. ML storage volumes are encrypted, so Amazon SageMaker can't determine the
+   *             amount of available free space on the volume. Because of this, you can increase the
+   *             volume size when you update a notebook instance, but you can't decrease the volume size.
+   *             If you want to decrease the size of the ML storage volume in use, create a new notebook
+   *             instance with the desired size.</p>
+   */
+  VolumeSizeInGB?: number;
+
+  /**
+   * <p>The Git repository to associate with the notebook instance as its default code
+   *             repository. This can be either the name of a Git repository stored as a resource in your
+   *             account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+   *             other Git repository. When you open a notebook instance, it opens in the directory that
+   *             contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with Amazon SageMaker
+   *                 Notebook Instances</a>.</p>
+   */
+  DefaultCodeRepository?: string;
+
+  /**
+   * <p>An array of up to three Git repositories to associate with the notebook instance.
+   *             These can be either the names of Git repositories stored as resources in your account,
+   *             or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
+   *             other Git repository. These repositories are cloned at the same level as the default
+   *             repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git
+   *                 Repositories with Amazon SageMaker Notebook Instances</a>.</p>
+   */
+  AdditionalCodeRepositories?: string[];
+
+  /**
+   * <p>A list of the Elastic Inference (EI) instance types to associate with this notebook
+   *             instance. Currently only one EI instance type can be associated with a notebook
+   *             instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using Elastic Inference in Amazon
+   *                 SageMaker</a>.</p>
+   */
+  AcceleratorTypes?: (NotebookInstanceAcceleratorType | string)[];
+
+  /**
+   * <p>A list of the Elastic Inference (EI) instance types to remove from this notebook
+   *             instance. This operation is idempotent. If you specify an accelerator type that is not
+   *             associated with the notebook instance when you call this method, it does not throw an
+   *             error.</p>
+   */
+  DisassociateAcceleratorTypes?: boolean;
+
+  /**
+   * <p>The name or URL of the default Git repository to remove from this notebook instance.
+   *             This operation is idempotent. If you specify a Git repository that is not associated
+   *             with the notebook instance when you call this method, it does not throw an error.</p>
+   */
+  DisassociateDefaultCodeRepository?: boolean;
+
+  /**
+   * <p>A list of names or URLs of the default Git repositories to remove from this notebook
+   *             instance. This operation is idempotent. If you specify a Git repository that is not
+   *             associated with the notebook instance when you call this method, it does not throw an
+   *             error.</p>
+   */
+  DisassociateAdditionalCodeRepositories?: boolean;
+
+  /**
+   * <p>Whether root access is enabled or disabled for users of the notebook instance. The
+   *             default value is <code>Enabled</code>.</p>
+   *         <note>
+   *             <p>If you set this to <code>Disabled</code>, users don't have root access on the
+   *                 notebook instance, but lifecycle configuration scripts still run with root
+   *                 permissions.</p>
+   *         </note>
+   */
+  RootAccess?: RootAccess | string;
+}
+
+export namespace UpdateNotebookInstanceInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateNotebookInstanceInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateNotebookInstanceOutput {}
+
+export namespace UpdateNotebookInstanceOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateNotebookInstanceOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateNotebookInstanceLifecycleConfigInput {
+  /**
+   * <p>The name of the lifecycle configuration.</p>
+   */
+  NotebookInstanceLifecycleConfigName: string | undefined;
+
+  /**
+   * <p>The shell script that runs only once, when you create a notebook instance. The shell
+   *             script must be a base64-encoded string.</p>
+   */
+  OnCreate?: NotebookInstanceLifecycleHook[];
+
+  /**
+   * <p>The shell script that runs every time you start a notebook instance, including when
+   *             you create the notebook instance. The shell script must be a base64-encoded
+   *             string.</p>
+   */
+  OnStart?: NotebookInstanceLifecycleHook[];
+}
+
+export namespace UpdateNotebookInstanceLifecycleConfigInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateNotebookInstanceLifecycleConfigInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateNotebookInstanceLifecycleConfigOutput {}
+
+export namespace UpdateNotebookInstanceLifecycleConfigOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateNotebookInstanceLifecycleConfigOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePipelineRequest {
+  /**
+   * <p>The name of the pipeline to update.</p>
+   */
+  PipelineName: string | undefined;
+
+  /**
+   * <p>The display name of the pipeline.</p>
+   */
+  PipelineDisplayName?: string;
+
+  /**
+   * <p>The JSON pipeline definition.</p>
+   */
+  PipelineDefinition?: string;
+
+  /**
+   * <p>The description of the pipeline.</p>
+   */
+  PipelineDescription?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that the pipeline uses to execute.</p>
+   */
+  RoleArn?: string;
+}
+
+export namespace UpdatePipelineRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePipelineRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePipelineResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated pipeline.</p>
+   */
+  PipelineArn?: string;
+}
+
+export namespace UpdatePipelineResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePipelineResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePipelineExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn: string | undefined;
+
+  /**
+   * <p>The description of the pipeline execution.</p>
+   */
+  PipelineExecutionDescription?: string;
+
+  /**
+   * <p>The display name of the pipeline execution.</p>
+   */
+  PipelineExecutionDisplayName?: string;
+}
+
+export namespace UpdatePipelineExecutionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePipelineExecutionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+}
+
+export namespace UpdatePipelineExecutionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePipelineExecutionResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface UpdateTrainingJobRequest {
   /**

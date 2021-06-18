@@ -23,7 +23,10 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
 /**
  * <p>Associates an existing AWS KMS alias with a different customer master key (CMK). Each alias
  *       is associated with only one CMK at a time, although a CMK can have multiple aliases. The alias
- *       and the CMK must be in the same AWS account and region.</p>
+ *       and the CMK must be in the same AWS account and Region.</p>
+ *          <note>
+ *             <p>Adding, deleting, or updating an alias can allow or deny permission to the CMK. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using ABAC in AWS KMS</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ *          </note>
  *          <p>The current and new CMK must be the same type (both symmetric or both asymmetric), and
  *       they must have the same key usage (<code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>).
  *       This restriction prevents errors in code that uses aliases. If you must assign an alias to a
@@ -36,8 +39,7 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  *       the <a>DescribeKey</a> operation. To get the aliases of all CMKs in the account,
  *       use the <a>ListAliases</a> operation. </p>
  *          <p>The CMK that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
- * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a CMK in a different AWS account. </p>
  *          <p>

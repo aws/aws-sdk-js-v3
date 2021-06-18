@@ -18577,6 +18577,7 @@ const serializeAws_json1_1S3Target = (input: S3Target, context: __SerdeContext):
     ...(input.Exclusions !== undefined &&
       input.Exclusions !== null && { Exclusions: serializeAws_json1_1PathList(input.Exclusions, context) }),
     ...(input.Path !== undefined && input.Path !== null && { Path: input.Path }),
+    ...(input.SampleSize !== undefined && input.SampleSize !== null && { SampleSize: input.SampleSize }),
   };
 };
 
@@ -23249,6 +23250,7 @@ const deserializeAws_json1_1S3Target = (output: any, context: __SerdeContext): S
         ? deserializeAws_json1_1PathList(output.Exclusions, context)
         : undefined,
     Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
+    SampleSize: output.SampleSize !== undefined && output.SampleSize !== null ? output.SampleSize : undefined,
   } as any;
 };
 

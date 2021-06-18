@@ -203,6 +203,7 @@ export * from "./commands/UpdateProxySessionCommand";
 export * from "./commands/UpdateRoomCommand";
 export * from "./commands/UpdateRoomMembershipCommand";
 export * from "./commands/UpdateSipMediaApplicationCommand";
+export * from "./commands/UpdateSipMediaApplicationCallCommand";
 export * from "./commands/UpdateSipRuleCommand";
 export * from "./commands/UpdateUserCommand";
 export * from "./commands/UpdateUserSettingsCommand";

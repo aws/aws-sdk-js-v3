@@ -21,7 +21,7 @@ export interface DescribeCertificatesCommandInput extends DescribeCertificatesMe
 export interface DescribeCertificatesCommandOutput extends CertificateMessage, __MetadataBearer {}
 
 /**
- * <p>Lists the set of CA certificates provided by Amazon RDS for this AWS account.</p>
+ * <p>Lists the set of CA certificates provided by Amazon RDS for this Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

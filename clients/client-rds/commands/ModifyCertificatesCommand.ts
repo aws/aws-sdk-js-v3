@@ -31,10 +31,10 @@ export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResul
  *          <ul>
  *             <li>
  *               <p>You already migrated your applications to support the latest certificate authority (CA) certificate, but the new CA certificate is not yet
- *                   the RDS default CA certificate for the specified AWS Region.</p>
+ *                   the RDS default CA certificate for the specified Amazon Web Services Region.</p>
  *             </li>
  *             <li>
- *               <p>RDS has already moved to a new default CA certificate for the specified AWS
+ *               <p>RDS has already moved to a new default CA certificate for the specified Amazon Web Services
  *                     Region, but you are still in the process of supporting the new CA certificate.
  *                     In this case, you temporarily need additional time to finish your application
  *                     changes.</p>

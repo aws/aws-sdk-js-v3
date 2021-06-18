@@ -5,6 +5,11 @@ import {
   BatchDeleteDocumentCommandOutput,
 } from "./commands/BatchDeleteDocumentCommand";
 import {
+  BatchGetDocumentStatusCommand,
+  BatchGetDocumentStatusCommandInput,
+  BatchGetDocumentStatusCommandOutput,
+} from "./commands/BatchGetDocumentStatusCommand";
+import {
   BatchPutDocumentCommand,
   BatchPutDocumentCommandInput,
   BatchPutDocumentCommandOutput,
@@ -181,6 +186,50 @@ export class Kendra extends KendraClient {
     cb?: (err: any, data?: BatchDeleteDocumentCommandOutput) => void
   ): Promise<BatchDeleteDocumentCommandOutput> | void {
     const command = new BatchDeleteDocumentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the indexing status for one or more documents submitted
+   *             with the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">
+   *                 BatchPutDocument</a> operation.</p>
+   *         <p>When you use the <code>BatchPutDocument</code> operation,
+   *             documents are indexed asynchronously. You can use the
+   *                 <code>BatchGetDocumentStatus</code> operation to get the current
+   *             status of a list of documents so that you can determine if they have
+   *             been successfully indexed.</p>
+   *         <p>You can also use the <code>BatchGetDocumentStatus</code> operation
+   *             to check the status of the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html">
+   *                 BatchDeleteDocument</a> operation. When a document is
+   *             deleted from the index, Amazon Kendra returns <code>NOT_FOUND</code> as the
+   *             status.</p>
+   */
+  public batchGetDocumentStatus(
+    args: BatchGetDocumentStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetDocumentStatusCommandOutput>;
+  public batchGetDocumentStatus(
+    args: BatchGetDocumentStatusCommandInput,
+    cb: (err: any, data?: BatchGetDocumentStatusCommandOutput) => void
+  ): void;
+  public batchGetDocumentStatus(
+    args: BatchGetDocumentStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetDocumentStatusCommandOutput) => void
+  ): void;
+  public batchGetDocumentStatus(
+    args: BatchGetDocumentStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetDocumentStatusCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetDocumentStatusCommandOutput) => void
+  ): Promise<BatchGetDocumentStatusCommandOutput> | void {
+    const command = new BatchGetDocumentStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

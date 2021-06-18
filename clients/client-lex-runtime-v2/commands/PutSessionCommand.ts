@@ -21,7 +21,7 @@ export interface PutSessionCommandInput extends PutSessionRequest {}
 export interface PutSessionCommandOutput extends PutSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new session or modifies an existing session with an Amazon Lex
+ * <p>Creates a new session or modifies an existing session with an Amazon Lex V2
  *          bot. Use this operation to enable your application to set the state of
  *          the bot.</p>
  * @example

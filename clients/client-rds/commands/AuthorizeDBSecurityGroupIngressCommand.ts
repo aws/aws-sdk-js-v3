@@ -29,7 +29,7 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput
  *           Required parameters for this API are one of CIDR range, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId
  *           and either EC2SecurityGroupName or EC2SecurityGroupId for non-VPC).</p>
  *          <note>
- *             <p>You can't authorize ingress from an EC2 security group in one AWS Region to an Amazon RDS DB instance in
+ *             <p>You can't authorize ingress from an EC2 security group in one Amazon Web Services Region to an Amazon RDS DB instance in
  *              another. You can't authorize ingress from a VPC security group in one VPC to an Amazon RDS DB instance in another.</p>
  *          </note>
  *          <p>For an overview of CIDR ranges, go to the

@@ -21,7 +21,7 @@ export interface DeprovisionByoipCidrCommandInput extends DeprovisionByoipCidrRe
 export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrResult, __MetadataBearer {}
 
 /**
- * <p>Releases the specified address range that you provisioned for use with your AWS resources
+ * <p>Releases the specified address range that you provisioned for use with your Amazon Web Services resources
  *          through bring your own IP addresses (BYOIP) and deletes the corresponding address pool.</p>
  *          <p>Before you can release an address range, you must stop advertising it using <a>WithdrawByoipCidr</a> and you must not have any IP addresses allocated from its
  *          address range.</p>

@@ -749,7 +749,7 @@ export class RDS extends RDSClient {
   /**
    * <p>Associates an Identity and Access Management (IAM) role from an Amazon Aurora DB cluster.
    *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html">Authorizing Amazon Aurora MySQL
-   *                   to Access Other AWS Services on Your Behalf</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *                   to Access Other Amazon Web Services Services on Your Behalf</a> in the <i>Amazon Aurora User Guide</i>.</p>
    *         <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *         </note>
@@ -784,7 +784,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Associates an AWS Identity and Access Management (IAM) role with a DB instance.</p>
+   * <p>Associates an Amazon Web Services Identity and Access Management (IAM) role with a DB instance.</p>
    *         <note>
    *             <p>To add a role to a DB instance, the status of the DB instance must be <code>available</code>.</p>
    *         </note>
@@ -923,7 +923,7 @@ export class RDS extends RDSClient {
    *           Required parameters for this API are one of CIDR range, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId
    *           and either EC2SecurityGroupName or EC2SecurityGroupId for non-VPC).</p>
    *          <note>
-   *             <p>You can't authorize ingress from an EC2 security group in one AWS Region to an Amazon RDS DB instance in
+   *             <p>You can't authorize ingress from an EC2 security group in one Amazon Web Services Region to an Amazon RDS DB instance in
    *              another. You can't authorize ingress from a VPC security group in one VPC to an Amazon RDS DB instance in another.</p>
    *          </note>
    *          <p>For an overview of CIDR ranges, go to the
@@ -1073,67 +1073,67 @@ export class RDS extends RDSClient {
    *          <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code>
    *           must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.</p>
    *
-   *          <p>You can copy an encrypted DB cluster snapshot from another AWS Region. In that case, the AWS Region where you call the <code>CopyDBClusterSnapshot</code> action
-   *           is the destination AWS Region for the encrypted DB cluster snapshot to be copied to. To copy an encrypted DB cluster snapshot from another AWS Region,
+   *          <p>You can copy an encrypted DB cluster snapshot from another Amazon Web Services Region. In that case, the Amazon Web Services Region where you call the <code>CopyDBClusterSnapshot</code> action
+   *           is the destination Amazon Web Services Region for the encrypted DB cluster snapshot to be copied to. To copy an encrypted DB cluster snapshot from another Amazon Web Services Region,
    *           you must provide the following values:</p>
    *
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>KmsKeyId</code> - The AWS Key Management System (AWS KMS) key identifier for the key to use to
-   *               encrypt the copy of the DB cluster snapshot in the destination AWS Region.</p>
+   *                   <code>KmsKeyId</code> - The Amazon Web Services Key Management System (Amazon Web Services KMS) key identifier for the key to use to
+   *               encrypt the copy of the DB cluster snapshot in the destination Amazon Web Services Region.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>PreSignedUrl</code> -  A URL that contains a Signature Version 4 signed request for the
-   *               <code>CopyDBClusterSnapshot</code> action to be called in the source AWS Region where the DB cluster snapshot is copied from.
+   *               <code>CopyDBClusterSnapshot</code> action to be called in the source Amazon Web Services Region where the DB cluster snapshot is copied from.
    *               The pre-signed URL must be a valid request for the <code>CopyDBClusterSnapshot</code> API action that can be executed in the
-   *               source AWS Region that contains the encrypted DB cluster snapshot to be copied.</p>
+   *               source Amazon Web Services Region that contains the encrypted DB cluster snapshot to be copied.</p>
    *               <p>The pre-signed URL request must contain the following parameter values:</p>
    *               <ul>
    *                   <li>
    *                      <p>
-   *                         <code>KmsKeyId</code> - The AWS KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB
-   *                       cluster snapshot in the destination AWS Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code>
-   *                       action that is called in the destination AWS Region, and the action contained in the pre-signed URL.</p>
+   *                         <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB
+   *                       cluster snapshot in the destination Amazon Web Services Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code>
+   *                       action that is called in the destination Amazon Web Services Region, and the action contained in the pre-signed URL.</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot is to be created in.</p>
+   *                         <code>DestinationRegion</code> - The name of the Amazon Web Services Region that the DB cluster snapshot is to be created in.</p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier for the encrypted DB cluster
-   *                       snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source AWS Region. For example,
-   *                       if you are copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your <code>SourceDBClusterSnapshotIdentifier</code>
+   *                       snapshot to be copied. This identifier must be in the Amazon Resource Name (ARN) format for the source Amazon Web Services Region. For example,
+   *                       if you are copying an encrypted DB cluster snapshot from the us-west-2 Amazon Web Services Region, then your <code>SourceDBClusterSnapshotIdentifier</code>
    *                       looks like the following example: <code>arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115</code>.</p>
    *                   </li>
    *                </ul>
    *               <p>To learn how to generate a Signature Version 4 signed request, see
    *
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
-   *                       Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and
+   *                       Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> and
    *                   <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
    *                       Signature Version 4 Signing Process</a>.</p>
    *               <note>
-   *                   <p>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the AWS CLI)
+   *                   <p>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <code>SourceRegion</code> (or <code>--source-region</code> for the CLI)
    *                       instead of specifying <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that is a valid
-   *                       request for the operation that can be executed in the source AWS Region.</p>
+   *                       request for the operation that can be executed in the source Amazon Web Services Region.</p>
    *               </note>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TargetDBClusterSnapshotIdentifier</code> - The identifier for the new copy of the DB cluster snapshot in the destination AWS Region.</p>
+   *                   <code>TargetDBClusterSnapshotIdentifier</code> - The identifier for the new copy of the DB cluster snapshot in the destination Amazon Web Services Region.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier for the encrypted DB cluster snapshot to be copied.
-   *               This identifier must be in the ARN format for the source AWS Region and is the same value as the <code>SourceDBClusterSnapshotIdentifier</code> in the pre-signed URL. </p>
+   *               This identifier must be in the ARN format for the source Amazon Web Services Region and is the same value as the <code>SourceDBClusterSnapshotIdentifier</code> in the pre-signed URL. </p>
    *             </li>
    *          </ul>
    *          <p>To cancel the copy operation once it is in progress, delete the target DB cluster snapshot identified
    *           by <code>TargetDBClusterSnapshotIdentifier</code> while that DB cluster snapshot is in "copying" status.</p>
-   *          <p>For more information on copying encrypted DB cluster snapshots from one AWS Region to another, see
+   *          <p>For more information on copying encrypted DB cluster snapshots from one Amazon Web Services Region to another, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html">
    *               Copying a Snapshot</a> in the <i>Amazon Aurora User Guide.</i>
    *          </p>
@@ -1209,8 +1209,8 @@ export class RDS extends RDSClient {
   /**
    * <p>Copies the specified DB snapshot. The source DB snapshot must be in the <code>available</code> state.</p>
    *
-   *         <p>You can copy a snapshot from one AWS Region to another. In that case, the AWS Region
-   *             where you call the <code>CopyDBSnapshot</code> action is the destination AWS Region for the
+   *         <p>You can copy a snapshot from one Amazon Web Services Region to another. In that case, the Amazon Web Services Region
+   *             where you call the <code>CopyDBSnapshot</code> action is the destination Amazon Web Services Region for the
    *             DB snapshot copy. </p>
    *
    *         <p>For more information about copying snapshots, see
@@ -1318,7 +1318,7 @@ export class RDS extends RDSClient {
   /**
    * <p>Creates a new Amazon Aurora DB cluster.</p>
    *          <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
-   *             cluster as a read replica of another DB cluster or Amazon RDS MySQL DB instance. For
+   *             cluster as a read replica of another DB cluster or Amazon RDS MySQL or PostgreSQL DB instance. For
    *             cross-region replication where the DB cluster identified by
    *                 <code>ReplicationSourceIdentifier</code> is encrypted, you must also specify the
    *                 <code>PreSignedUrl</code> parameter.</p>
@@ -1764,7 +1764,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the AWS Region.</p>
+   * <p>Creates a new DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the Amazon Web Services Region.</p>
    */
   public createDBSubnetGroup(
     args: CreateDBSubnetGroupCommandInput,
@@ -1852,7 +1852,7 @@ export class RDS extends RDSClient {
   /**
    * <p>
    *         Creates an Aurora global database
-   *         spread across multiple AWS Regions. The global database
+   *         spread across multiple Amazon Web Services Regions. The global database
    *         contains a single primary cluster with read-write capability,
    *         and a read-only secondary cluster that receives
    *         data from the primary cluster through high-speed replication
@@ -2619,7 +2619,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Lists the set of CA certificates provided by Amazon RDS for this AWS account.</p>
+   * <p>Lists the set of CA certificates provided by Amazon RDS for this Amazon Web Services account.</p>
    */
   public describeCertificates(
     args: DescribeCertificatesCommandInput,
@@ -2884,12 +2884,12 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster snapshot.</p>
-   *         <p>When sharing snapshots with other AWS accounts, <code>DescribeDBClusterSnapshotAttributes</code>
-   *             returns the <code>restore</code> attribute and a list of IDs for the AWS accounts that are
+   *         <p>When sharing snapshots with other Amazon Web Services accounts, <code>DescribeDBClusterSnapshotAttributes</code>
+   *             returns the <code>restore</code> attribute and a list of IDs for the Amazon Web Services accounts that are
    *             authorized to copy or restore the manual DB cluster snapshot. If <code>all</code> is included in the list of
    *             values for the <code>restore</code> attribute, then the manual DB cluster snapshot is public and
-   *             can be copied or restored by all AWS accounts.</p>
-   *         <p>To add or remove access for an AWS account to copy or restore a manual DB cluster snapshot, or to make the
+   *             can be copied or restored by all Amazon Web Services accounts.</p>
+   *         <p>To add or remove access for an Amazon Web Services account to copy or restore a manual DB cluster snapshot, or to make the
    *             manual DB cluster snapshot public or private, use the <code>ModifyDBClusterSnapshotAttribute</code> API action.</p>
    *         <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
@@ -3332,12 +3332,12 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Returns a list of DB snapshot attribute names and values for a manual DB snapshot.</p>
-   *          <p>When sharing snapshots with other AWS accounts, <code>DescribeDBSnapshotAttributes</code>
-   *       returns the <code>restore</code> attribute and a list of IDs for the AWS accounts that are
+   *          <p>When sharing snapshots with other Amazon Web Services accounts, <code>DescribeDBSnapshotAttributes</code>
+   *       returns the <code>restore</code> attribute and a list of IDs for the Amazon Web Services accounts that are
    *       authorized to copy or restore the manual DB snapshot. If <code>all</code> is included in the list of
    *       values for the <code>restore</code> attribute, then the manual DB snapshot is public and
-   *       can be copied or restored by all AWS accounts.</p>
-   *          <p>To add or remove access for an AWS account to copy or restore a manual DB snapshot, or to make the
+   *       can be copied or restored by all Amazon Web Services accounts.</p>
+   *          <p>To add or remove access for an Amazon Web Services account to copy or restore a manual DB snapshot, or to make the
    *       manual DB snapshot public or private, use the <code>ModifyDBSnapshotAttribute</code> API action.</p>
    */
   public describeDBSnapshotAttributes(
@@ -3913,7 +3913,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Returns a list of the source AWS Regions where the current AWS Region can create a read replica,
+   * <p>Returns a list of the source Amazon Web Services Regions where the current Amazon Web Services Region can create a read replica,
    *          copy a DB snapshot from, or replicate automated backups from. This API action supports pagination.</p>
    */
   public describeSourceRegions(
@@ -4183,10 +4183,10 @@ export class RDS extends RDSClient {
    *          <ul>
    *             <li>
    *               <p>You already migrated your applications to support the latest certificate authority (CA) certificate, but the new CA certificate is not yet
-   *                   the RDS default CA certificate for the specified AWS Region.</p>
+   *                   the RDS default CA certificate for the specified Amazon Web Services Region.</p>
    *             </li>
    *             <li>
-   *               <p>RDS has already moved to a new default CA certificate for the specified AWS
+   *               <p>RDS has already moved to a new default CA certificate for the specified Amazon Web Services
    *                     Region, but you are still in the process of supporting the new CA certificate.
    *                     In this case, you temporarily need additional time to finish your application
    *                     changes.</p>
@@ -4364,9 +4364,6 @@ export class RDS extends RDSClient {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
    *               What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i>
    *          </p>
-   *         <note>
-   *             <p>Changes to dynamic parameters are applied immediately. Changes to static parameters require a reboot without failover to the DB cluster associated with the parameter group before the change can take effect.</p>
-   *         </note>
    *         <important>
    *             <p>After you create a DB cluster parameter group, you should wait at least 5 minutes
    *                 before creating your first DB cluster that uses that DB cluster parameter group as the default parameter
@@ -4417,22 +4414,22 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB cluster snapshot.</p>
-   *         <p>To share a manual DB cluster snapshot with other AWS accounts, specify
+   *         <p>To share a manual DB cluster snapshot with other Amazon Web Services accounts, specify
    *                 <code>restore</code> as the <code>AttributeName</code> and use the
-   *                 <code>ValuesToAdd</code> parameter to add a list of IDs of the AWS accounts that are
+   *                 <code>ValuesToAdd</code> parameter to add a list of IDs of the Amazon Web Services accounts that are
    *             authorized to restore the manual DB cluster snapshot. Use the value <code>all</code> to
    *             make the manual DB cluster snapshot public, which means that it can be copied or
-   *             restored by all AWS accounts.</p>
+   *             restored by all Amazon Web Services accounts.</p>
    *         <note>
    *             <p>Don't add the <code>all</code> value for any manual DB cluster snapshots
-   *                 that contain private information that you don't want available to all AWS
+   *                 that contain private information that you don't want available to all Amazon Web Services
    *                 accounts.</p>
    *         </note>
    *         <p>If a manual DB cluster snapshot is encrypted, it can be shared, but only by
-   *             specifying a list of authorized AWS account IDs for the <code>ValuesToAdd</code>
+   *             specifying a list of authorized Amazon Web Services account IDs for the <code>ValuesToAdd</code>
    *             parameter. You can't use <code>all</code> as a value for that parameter in this
    *             case.</p>
-   *         <p>To view which AWS accounts have access to copy or restore a manual DB cluster
+   *         <p>To view which Amazon Web Services accounts have access to copy or restore a manual DB cluster
    *             snapshot, or whether a manual DB cluster snapshot is public or private, use the <a>DescribeDBClusterSnapshotAttributes</a> API action. The accounts are
    *             returned as values for the <code>restore</code> attribute.</p>
    *         <note>
@@ -4509,12 +4506,8 @@ export class RDS extends RDSClient {
    * <p>
    *         Modifies the parameters of a DB parameter group. To modify more than one parameter,
    *         submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>, and
-   *         <code>ApplyMethod</code>. A maximum of 20
-   *         parameters can be modified in a single request.
+   *         <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single request.
    *         </p>
-   *          <note>
-   *             <p>Changes to dynamic parameters are applied immediately. Changes to static parameters require a reboot without failover to the DB instance associated with the parameter group before the change can take effect.</p>
-   *          </note>
    *          <important>
    *             <p>After you modify a DB parameter group, you should wait at least 5 minutes
    *             before creating your first DB instance that uses that DB parameter group as the default parameter
@@ -4692,20 +4685,20 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Adds an attribute and values to, or removes an attribute and values from, a manual DB snapshot.</p>
-   *          <p>To share a manual DB snapshot with other AWS accounts, specify <code>restore</code>
+   *          <p>To share a manual DB snapshot with other Amazon Web Services accounts, specify <code>restore</code>
    *             as the <code>AttributeName</code> and use the <code>ValuesToAdd</code> parameter to add
-   *             a list of IDs of the AWS accounts that are authorized to restore the manual DB snapshot.
+   *             a list of IDs of the Amazon Web Services accounts that are authorized to restore the manual DB snapshot.
    *             Uses the value <code>all</code> to make the manual DB snapshot public, which means it
-   *             can be copied or restored by all AWS accounts.</p>
+   *             can be copied or restored by all Amazon Web Services accounts.</p>
    *         <note>
    *             <p>Don't add the <code>all</code> value for any manual DB snapshots that
-   *                 contain private information that you don't want available to all AWS
+   *                 contain private information that you don't want available to all Amazon Web Services
    *                 accounts.</p>
    *         </note>
    *         <p>If the manual DB snapshot is encrypted, it can be shared, but only by specifying a
-   *             list of authorized AWS account IDs for the <code>ValuesToAdd</code> parameter. You
+   *             list of authorized Amazon Web Services account IDs for the <code>ValuesToAdd</code> parameter. You
    *             can't use <code>all</code> as a value for that parameter in this case.</p>
-   *          <p>To view which AWS accounts have access to copy or restore a manual DB snapshot, or
+   *          <p>To view which Amazon Web Services accounts have access to copy or restore a manual DB snapshot, or
    *             whether a manual DB snapshot public or private, use the <a>DescribeDBSnapshotAttributes</a> API action. The accounts are returned as
    *             values for the <code>restore</code> attribute.</p>
    */
@@ -4739,7 +4732,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the AWS Region.</p>
+   * <p>Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet in at least two AZs in the Amazon Web Services Region.</p>
    */
   public modifyDBSubnetGroup(
     args: ModifyDBSubnetGroupCommandInput,
@@ -5110,9 +5103,9 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Disassociates an AWS Identity and Access Management (IAM) role from an Amazon Aurora DB cluster.
+   * <p>Disassociates an Amazon Web Services Identity and Access Management (IAM) role from an Amazon Aurora DB cluster.
    *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html">Authorizing Amazon Aurora MySQL
-   *                 to Access Other AWS Services on Your Behalf </a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *                 to Access Other Amazon Web Services Services on Your Behalf </a> in the <i>Amazon Aurora User Guide</i>.</p>
    *         <note>
    *             <p>This action only applies to Aurora DB clusters.</p>
    *         </note>
@@ -5147,7 +5140,7 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Disassociates an AWS Identity and Access Management (IAM) role from a DB instance.</p>
+   * <p>Disassociates an Amazon Web Services Identity and Access Management (IAM) role from a DB instance.</p>
    */
   public removeRoleFromDBInstance(
     args: RemoveRoleFromDBInstanceCommandInput,
@@ -5683,8 +5676,8 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Starts an Amazon Aurora DB cluster that was stopped using the AWS console, the stop-db-cluster
-   *        AWS CLI command, or the StopDBCluster action.</p>
+   * <p>Starts an Amazon Aurora DB cluster that was stopped using the Amazon Web Services console, the stop-db-cluster
+   *        CLI command, or the StopDBCluster action.</p>
    *
    *          <p>For more information, see
    *            <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html">
@@ -5725,7 +5718,7 @@ export class RDS extends RDSClient {
 
   /**
    * <p>
-   *             Starts an Amazon RDS DB instance that was stopped using the AWS console, the stop-db-instance AWS CLI command, or the StopDBInstance action.
+   *             Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services console, the stop-db-instance CLI command, or the StopDBInstance action.
    *         </p>
    *
    *         <p>For more information, see
@@ -5771,9 +5764,9 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Enables replication of automated backups to a different AWS Region.</p>
+   * <p>Enables replication of automated backups to a different Amazon Web Services Region.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
-   *             Replicating Automated Backups to Another AWS Region</a> in the <i>Amazon RDS User Guide.</i>
+   *             Replicating Automated Backups to Another Amazon Web Services Region</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
    */
   public startDBInstanceAutomatedBackupsReplication(
@@ -5842,8 +5835,8 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>Stops a database activity stream that was started using the AWS console,
-   *             the <code>start-activity-stream</code> AWS CLI command, or the <code>StartActivityStream</code> action.</p>
+   * <p>Stops a database activity stream that was started using the Amazon Web Services console,
+   *             the <code>start-activity-stream</code> CLI command, or the <code>StartActivityStream</code> action.</p>
    *         <p>For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database Activity Streams</a>
    *             in the <i>Amazon Aurora User Guide</i>.</p>
@@ -5973,7 +5966,7 @@ export class RDS extends RDSClient {
   /**
    * <p>Stops automated backup replication for a DB instance.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
-   *             Replicating Automated Backups to Another AWS Region</a> in the <i>Amazon RDS User Guide.</i>
+   *             Replicating Automated Backups to Another Amazon Web Services Region</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
    */
   public stopDBInstanceAutomatedBackupsReplication(

@@ -20,14 +20,16 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
 /**
  * <p>Decrypts ciphertext and then reencrypts it entirely within AWS KMS. You can use this
  *       operation to change the customer master key (CMK) under which data is encrypted, such as when
- *       you <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-manually">manually rotate</a> a
- *       CMK or change the CMK that protects a ciphertext. You can also use it to reencrypt ciphertext
- *       under the same CMK, such as to change the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption context</a> of a ciphertext.</p>
+ *       you <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-manually">manually rotate</a> a CMK or change the CMK that protects a ciphertext. You can also
+ *       use it to reencrypt ciphertext under the same CMK, such as to change the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption
+ *         context</a> of a ciphertext.</p>
  *          <p>The <code>ReEncrypt</code> operation can decrypt ciphertext that was encrypted by using an
  *       AWS KMS CMK in an AWS KMS operation, such as <a>Encrypt</a> or <a>GenerateDataKey</a>. It can also decrypt ciphertext that was encrypted by using the
- *       public key of an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks">asymmetric CMK</a> outside of AWS KMS. However, it cannot decrypt ciphertext
- *       produced by other libraries, such as the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">AWS Encryption SDK</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3 client-side encryption</a>.
- *       These libraries return a ciphertext format that is incompatible with AWS KMS.</p>
+ *       public key of an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks">asymmetric CMK</a> outside
+ *       of AWS KMS. However, it cannot decrypt ciphertext produced by other libraries, such as the
+ *         <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">AWS Encryption SDK</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3 client-side
+ *         encryption</a>. These libraries return a ciphertext format that is incompatible with
+ *       AWS KMS.</p>
  *          <p>When you use the <code>ReEncrypt</code> operation, you need to provide information for the
  *       decrypt operation and the subsequent encrypt operation.</p>
  *          <ul>
@@ -65,8 +67,7 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *
  *
  *          <p>The CMK that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
- * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: Yes. The source CMK and destination
  *       CMK can be in different AWS accounts. Either or both CMKs can be in a different account than

@@ -24,12 +24,8 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * <p>
  *         Modifies the parameters of a DB parameter group. To modify more than one parameter,
  *         submit a list of the following: <code>ParameterName</code>, <code>ParameterValue</code>, and
- *         <code>ApplyMethod</code>. A maximum of 20
- *         parameters can be modified in a single request.
+ *         <code>ApplyMethod</code>. A maximum of 20 parameters can be modified in a single request.
  *         </p>
- *          <note>
- *             <p>Changes to dynamic parameters are applied immediately. Changes to static parameters require a reboot without failover to the DB instance associated with the parameter group before the change can take effect.</p>
- *          </note>
  *          <important>
  *             <p>After you modify a DB parameter group, you should wait at least 5 minutes
  *             before creating your first DB instance that uses that DB parameter group as the default parameter

@@ -29,6 +29,7 @@ import {
   InputDeviceType,
   InputDeviceUhdSettings,
   InputLocation,
+  InputLossActionForMsSmoothOut,
   InputSecurityGroup,
   InputSecurityGroupState,
   InputSource,
@@ -43,8 +44,6 @@ import {
   MediaConnectFlow,
   MediaConnectFlowRequest,
   MediaPackageGroupSettings,
-  MsSmoothGroupSettings,
-  MultiplexGroupSettings,
   MultiplexOutputDestination,
   MultiplexProgramPipelineDetail,
   MultiplexProgramSummary,
@@ -55,12 +54,160 @@ import {
   OfferingType,
   Output,
   OutputDestination,
+  OutputLocationRef,
   ReservationResourceSpecification,
+  SmoothGroupAudioOnlyTimecodeControl,
+  SmoothGroupCertificateMode,
+  SmoothGroupEventIdMode,
+  SmoothGroupEventStopBehavior,
+  SmoothGroupSegmentationMode,
+  SmoothGroupSparseTrackType,
+  SmoothGroupStreamManifestBehavior,
   VpcOutputSettingsDescription,
 } from "./models_0";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+export enum SmoothGroupTimestampOffsetMode {
+  USE_CONFIGURED_OFFSET = "USE_CONFIGURED_OFFSET",
+  USE_EVENT_START_DATE = "USE_EVENT_START_DATE",
+}
+
+/**
+ * Ms Smooth Group Settings
+ */
+export interface MsSmoothGroupSettings {
+  /**
+   * The ID to include in each message in the sparse track. Ignored if sparseTrackType is NONE.
+   */
+  AcquisitionPointId?: string;
+
+  /**
+   * If set to passthrough for an audio-only MS Smooth output, the fragment absolute time will be set to the current timecode. This option does not write timecodes to the audio elementary stream.
+   */
+  AudioOnlyTimecodeControl?: SmoothGroupAudioOnlyTimecodeControl | string;
+
+  /**
+   * If set to verifyAuthenticity, verify the https certificate chain to a trusted Certificate Authority (CA).  This will cause https outputs to self-signed certificates to fail.
+   */
+  CertificateMode?: SmoothGroupCertificateMode | string;
+
+  /**
+   * Number of seconds to wait before retrying connection to the IIS server if the connection is lost. Content will be cached during this time and the cache will be be delivered to the IIS server once the connection is re-established.
+   */
+  ConnectionRetryInterval?: number;
+
+  /**
+   * Smooth Streaming publish point on an IIS server. Elemental Live acts as a "Push" encoder to IIS.
+   */
+  Destination: OutputLocationRef | undefined;
+
+  /**
+   * MS Smooth event ID to be sent to the IIS server.
+   *
+   * Should only be specified if eventIdMode is set to useConfigured.
+   */
+  EventId?: string;
+
+  /**
+   * Specifies whether or not to send an event ID to the IIS server. If no event ID is sent and the same Live Event is used without changing the publishing point, clients might see cached video from the previous run.
+   *
+   * Options:
+   * - "useConfigured" - use the value provided in eventId
+   * - "useTimestamp" - generate and send an event ID based on the current timestamp
+   * - "noEventId" - do not send an event ID to the IIS server.
+   */
+  EventIdMode?: SmoothGroupEventIdMode | string;
+
+  /**
+   * When set to sendEos, send EOS signal to IIS server when stopping the event
+   */
+  EventStopBehavior?: SmoothGroupEventStopBehavior | string;
+
+  /**
+   * Size in seconds of file cache for streaming outputs.
+   */
+  FilecacheDuration?: number;
+
+  /**
+   * Length of mp4 fragments to generate (in seconds). Fragment length must be compatible with GOP size and framerate.
+   */
+  FragmentLength?: number;
+
+  /**
+   * Parameter that control output group behavior on input loss.
+   */
+  InputLossAction?: InputLossActionForMsSmoothOut | string;
+
+  /**
+   * Number of retry attempts.
+   */
+  NumRetries?: number;
+
+  /**
+   * Number of seconds before initiating a restart due to output failure, due to exhausting the numRetries on one segment, or exceeding filecacheDuration.
+   */
+  RestartDelay?: number;
+
+  /**
+   * useInputSegmentation has been deprecated. The configured segment size is always used.
+   */
+  SegmentationMode?: SmoothGroupSegmentationMode | string;
+
+  /**
+   * Number of milliseconds to delay the output from the second pipeline.
+   */
+  SendDelayMs?: number;
+
+  /**
+   * Identifies the type of data to place in the sparse track:
+   * - SCTE35: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame to start a new segment.
+   * - SCTE35_WITHOUT_SEGMENTATION: Insert SCTE-35 messages from the source content. With each message, insert an IDR frame but don't start a new segment.
+   * - NONE: Don't generate a sparse track for any outputs in this output group.
+   */
+  SparseTrackType?: SmoothGroupSparseTrackType | string;
+
+  /**
+   * When set to send, send stream manifest so publishing point doesn't start until all streams start.
+   */
+  StreamManifestBehavior?: SmoothGroupStreamManifestBehavior | string;
+
+  /**
+   * Timestamp offset for the event.  Only used if timestampOffsetMode is set to useConfiguredOffset.
+   */
+  TimestampOffset?: string;
+
+  /**
+   * Type of timestamp date offset to use.
+   * - useEventStartDate: Use the date the event was started as the offset
+   * - useConfiguredOffset: Use an explicitly configured date as the offset
+   */
+  TimestampOffsetMode?: SmoothGroupTimestampOffsetMode | string;
+}
+
+export namespace MsSmoothGroupSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MsSmoothGroupSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Multiplex Group Settings
+ */
+export interface MultiplexGroupSettings {}
+
+export namespace MultiplexGroupSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MultiplexGroupSettings): any => ({
+    ...obj,
+  });
+}
 
 export enum RtmpAdMarkers {
   ON_CUE_POINT_SCTE35 = "ON_CUE_POINT_SCTE35",
@@ -1287,6 +1434,7 @@ export namespace FrameCaptureSettings {
 }
 
 export enum H264AdaptiveQuantization {
+  AUTO = "AUTO",
   HIGH = "HIGH",
   HIGHER = "HIGHER",
   LOW = "LOW",
@@ -1584,7 +1732,7 @@ export enum H264TimecodeInsertionBehavior {
  */
 export interface H264Settings {
   /**
-   * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
+   * Enables or disables adaptive quantization, which is a technique MediaLive can apply to video on a frame-by-frame basis to produce more compression without losing quality. There are three types of adaptive quantization: flicker, spatial, and temporal. Set the field in one of these ways: Set to Auto. Recommended. For each type of AQ, MediaLive will determine if AQ is needed, and if so, the appropriate strength. Set a strength (a value other than Auto or Disable). This strength will apply to any of the AQ fields that you choose to enable. Set to Disabled to disable all types of adaptive quantization.
    */
   AdaptiveQuantization?: H264AdaptiveQuantization | string;
 
@@ -1634,7 +1782,7 @@ export interface H264Settings {
   FixedAfd?: FixedAfd | string;
 
   /**
-   * If set to enabled, adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+   * Flicker AQ makes adjustments within each frame to reduce flicker or 'pop' on I-frames. The value to enter in this field depends on the value in the Adaptive quantization field: If you have set the Adaptive quantization field to Auto, MediaLive ignores any value in this field. MediaLive will determine if flicker AQ is appropriate and will apply the appropriate strength. If you have set the Adaptive quantization field to a strength, you can set this field to Enabled or Disabled. Enabled: MediaLive will apply flicker AQ using the specified strength. Disabled: MediaLive won't apply flicker AQ. If you have set the Adaptive quantization to Disabled, MediaLive ignores any value in this field and doesn't apply flicker AQ.
    */
   FlickerAq?: H264FlickerAq | string;
 
@@ -1742,10 +1890,11 @@ export interface H264Settings {
   QualityLevel?: H264QualityLevel | string;
 
   /**
-   * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
+   * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. You can set a target quality or you can let MediaLive determine the best quality. To set a target quality, enter values in the QVBR quality level field and the Max bitrate field. Enter values that suit your most important viewing devices. Recommended values are:
    * - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
    * - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
    * - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+   * To let MediaLive decide, leave the QVBR quality level field empty, and in Max bitrate enter the maximum rate you want in the video. For more information, see the section called "Video - rate control mode" in the MediaLive user guide
    */
   QvbrQualityLevel?: number;
 
@@ -1792,7 +1941,7 @@ export interface H264Settings {
   Softness?: number;
 
   /**
-   * If set to enabled, adjust quantization within each frame based on spatial variation of content complexity.
+   * Spatial AQ makes adjustments within each frame based on spatial variation of content complexity. The value to enter in this field depends on the value in the Adaptive quantization field: If you have set the Adaptive quantization field to Auto, MediaLive ignores any value in this field. MediaLive will determine if spatial AQ is appropriate and will apply the appropriate strength. If you have set the Adaptive quantization field to a strength, you can set this field to Enabled or Disabled. Enabled: MediaLive will apply spatial AQ using the specified strength. Disabled: MediaLive won't apply spatial AQ. If you have set the Adaptive quantization to Disabled, MediaLive ignores any value in this field and doesn't apply spatial AQ.
    */
   SpatialAq?: H264SpatialAq | string;
 
@@ -1807,7 +1956,7 @@ export interface H264Settings {
   Syntax?: H264Syntax | string;
 
   /**
-   * If set to enabled, adjust quantization within each frame based on temporal variation of content complexity.
+   * Temporal makes adjustments within each frame based on temporal variation of content complexity. The value to enter in this field depends on the value in the Adaptive quantization field: If you have set the Adaptive quantization field to Auto, MediaLive ignores any value in this field. MediaLive will determine if temporal AQ is appropriate and will apply the appropriate strength. If you have set the Adaptive quantization field to a strength, you can set this field to Enabled or Disabled. Enabled: MediaLive will apply temporal AQ using the specified strength. Disabled: MediaLive won't apply temporal AQ. If you have set the Adaptive quantization to Disabled, MediaLive ignores any value in this field and doesn't apply temporal AQ.
    */
   TemporalAq?: H264TemporalAq | string;
 
@@ -1829,6 +1978,7 @@ export namespace H264Settings {
 }
 
 export enum H265AdaptiveQuantization {
+  AUTO = "AUTO",
   HIGH = "HIGH",
   HIGHER = "HIGHER",
   LOW = "LOW",

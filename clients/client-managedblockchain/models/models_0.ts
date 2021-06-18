@@ -205,6 +205,25 @@ export interface MemberConfiguration {
    *          <p>When specifying tags during creation, you can specify multiple key-value pairs in a single request, with an overall maximum of 50 tags added to each resource.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer managed key in AWS Key Management Service (AWS KMS) to use for encryption at rest in the member. This parameter is inherited by any nodes that this member creates.</p>
+   *          <p>Use one of the following options to specify this parameter:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Undefined or empty string</b> - The member uses an AWS owned KMS key for encryption by default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>A valid symmetric customer managed KMS key</b> - The member uses the specified key for encryption.</p>
+   *                <p>Amazon Managed Blockchain doesn't support asymmetric keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using symmetric and asymmetric keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+   *                <p>The following is an example of a KMS key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KmsKeyArn?: string;
 }
 
 export namespace MemberConfiguration {
@@ -1025,6 +1044,7 @@ export enum MemberStatus {
   CREATING = "CREATING",
   DELETED = "DELETED",
   DELETING = "DELETING",
+  INACCESSIBLE_ENCRYPTION_KEY = "INACCESSIBLE_ENCRYPTION_KEY",
   UPDATING = "UPDATING",
 }
 
@@ -1080,6 +1100,10 @@ export interface Member {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>UPDATING</code> - The member is in the process of being updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>DELETING</code> - The member and all associated resources are in the process of being deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code>
    *                   <code>PROPOSAL</code> to remove the member.</p>
    *             </li>
@@ -1087,6 +1111,11 @@ export interface Member {
    *                <p>
    *                   <code>DELETED</code> - The member can no longer participate on the network and all associated resources are deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code>
    *                   <code>PROPOSAL</code> to remove the member.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INACCESSIBLE_ENCRYPTION_KEY</code> - The member is impaired and might not function as expected because it cannot access the specified customer managed key in AWS KMS for encryption at rest. Either the KMS key was disabled or deleted, or the grants on the key were revoked.</p>
+   *                <p>The effect of disabling or deleting a key, or revoking a grant is not immediate. The member resource might take some time to find that the key is inaccessible. When a resource is in this state, we recommend deleting and recreating the resource.</p>
    *             </li>
    *          </ul>
    */
@@ -1106,6 +1135,11 @@ export interface Member {
    * <p>The Amazon Resource Name (ARN) of the member. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer managed key in AWS Key Management Service (AWS KMS) that the member uses for encryption at rest. If the value of this parameter is <code>"AWS Owned KMS Key"</code>, the member uses an AWS owned KMS key for encryption. This parameter is inherited by the nodes that this member owns.</p>
+   */
+  KmsKeyArn?: string;
 }
 
 export namespace Member {
@@ -1435,6 +1469,7 @@ export enum NodeStatus {
   DELETED = "DELETED",
   DELETING = "DELETING",
   FAILED = "FAILED",
+  INACCESSIBLE_ENCRYPTION_KEY = "INACCESSIBLE_ENCRYPTION_KEY",
   UNHEALTHY = "UNHEALTHY",
   UPDATING = "UPDATING",
 }
@@ -1487,6 +1522,45 @@ export interface Node {
 
   /**
    * <p>The status of the node.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> - The AWS account is in the process of creating a node.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AVAILABLE</code> - The node has been created and can participate in the network.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNHEALTHY</code> - The node is impaired and might not function as expected. Amazon Managed Blockchain automatically finds nodes in this state and tries to recover them. If a node is recoverable, it returns to <code>AVAILABLE</code>. Otherwise, it moves to <code>FAILED</code> status.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_FAILED</code> - The AWS account attempted to create a node and creation failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATING</code> - The node is in the process of being updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - The node is in the process of being deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code> - The node can no longer participate on the network.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The node is no longer functional, cannot be recovered, and must be deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INACCESSIBLE_ENCRYPTION_KEY</code> - The node is impaired and might not function as expected because it cannot access the specified customer managed key in AWS KMS for encryption at rest. Either the KMS key was disabled or deleted, or the grants on the key were revoked.</p>
+   *                <p>The effect of disabling or deleting a key, or revoking a grant is not immediate. The node resource might take some time to find that the key is inaccessible. When a resource is in this state, we recommend deleting and recreating the resource.</p>
+   *             </li>
+   *          </ul>
    */
   Status?: NodeStatus | string;
 
@@ -1505,6 +1579,12 @@ export interface Node {
    * <p>The Amazon Resource Name (ARN) of the node. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer managed key in AWS Key Management Service (AWS KMS) that the node uses for encryption at rest. If the value of this parameter is <code>"AWS Owned KMS Key"</code>, the node uses an AWS owned KMS key for encryption. The node inherits this parameter from the member that it belongs to.</p>
+   *          <p>Applies only to Hyperledger Fabric.</p>
+   */
+  KmsKeyArn?: string;
 }
 
 export namespace Node {
@@ -1964,6 +2044,10 @@ export interface MemberSummary {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>UPDATING</code> - The member is in the process of being updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>DELETING</code> - The member and all associated resources are in the process of being deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code>
    *                   <code>PROPOSAL</code> to remove the member.</p>
    *             </li>
@@ -1971,6 +2055,11 @@ export interface MemberSummary {
    *                <p>
    *                   <code>DELETED</code> - The member can no longer participate on the network and all associated resources are deleted. Either the AWS account that owns the member deleted it, or the member is being deleted as the result of an <code>APPROVED</code>
    *                   <code>PROPOSAL</code> to remove the member.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INACCESSIBLE_ENCRYPTION_KEY</code> - The member is impaired and might not function as expected because it cannot access the specified customer managed key in AWS Key Management Service (AWS KMS) for encryption at rest. Either the KMS key was disabled or deleted, or the grants on the key were revoked.</p>
+   *                <p>The effect of disabling or deleting a key, or revoking a grant is not immediate. The member resource might take some time to find that the key is inaccessible. When a resource is in this state, we recommend deleting and recreating the resource.</p>
    *             </li>
    *          </ul>
    */

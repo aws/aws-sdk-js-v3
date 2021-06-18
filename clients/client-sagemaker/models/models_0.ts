@@ -202,11 +202,20 @@ export namespace ResourceNotFound {
 }
 
 /**
- * <p>Describes a tag. </p>
+ * <p>A tag object that consists of a key and an optional value, used to manage metadata
+ *             for Amazon SageMaker AWS resources.</p>
+ *         <p>You can add tags to notebook instances, training jobs, hyperparameter tuning jobs,
+ *             batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and
+ *             endpoints. For more information on adding tags to Amazon SageMaker resources, see <a>AddTags</a>.</p>
+ *         <p>For more information on adding metadata to your AWS resources with tagging, see
+ *                 <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+ *                 resources</a>. For advice on best practices for managing AWS resources with
+ *             tagging, see <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
+ *                 Best Practices: Implement an Effective AWS Resource Tagging Strategy</a>.</p>
  */
 export interface Tag {
   /**
-   * <p>The tag key.</p>
+   * <p>The tag key. Tag keys must be unique per resource.</p>
    */
   Key: string | undefined;
 
@@ -316,8 +325,7 @@ export enum AlgorithmSortBy {
 /**
  * <p>Specifies a metric that the training algorithm
  *             writes
- *             to <code>stderr</code> or <code>stdout</code>
- *          . Amazon SageMakerhyperparameter
+ *             to <code>stderr</code> or <code>stdout</code>. Amazon SageMakerhyperparameter
  *             tuning captures
  *             all
  *             defined metrics.
@@ -910,8 +918,8 @@ export interface OutputDataConfig {
    *             policy with an <code>s3:PutObject</code> permission that only allows objects with
    *             server-side encryption, set the condition key of
    *                 <code>s3:x-amz-server-side-encryption</code> to <code>"aws:kms"</code>. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer
-   *                 Guide.</i>
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed Encryption
+   *                 Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>
    *          </p>
    *         <p>The KMS key policy must grant permission to the IAM role that you specify in your
    *                 <code>CreateTrainingJob</code>, <code>CreateTransformJob</code>, or
@@ -1062,9 +1070,8 @@ export namespace ResourceConfig {
 /**
  * <p>Specifies a limit to how long a model training job, model compilation job, or
  *             hyperparameter tuning job can run. It also specifies how long a managed Spot training
- *             job has to complete.
- *             When the job reaches the time limit, Amazon SageMaker ends the training or compilation job. Use this
- *             API to cap model training costs.</p>
+ *             job has to complete. When the job reaches the time limit, Amazon SageMaker ends the training or
+ *             compilation job. Use this API to cap model training costs.</p>
  *         <p>To stop a job, Amazon SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
  *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
  *             model artifacts, so the results of training are not lost. </p>
@@ -1082,21 +1089,24 @@ export namespace ResourceConfig {
  */
 export interface StoppingCondition {
   /**
-   * <p>The maximum length of time, in seconds, that a training or compilation job can run.
-   *             If the job does not complete during this time, Amazon SageMaker ends the job.</p>
-   *         <p>When <code>RetryStrategy</code> is specified in the job request, <code>MaxRuntimeInSeconds</code>
-   *             specifies the maximum time for all of the attempts in total, not each individual attempt.</p>
+   * <p>The maximum length of time, in seconds, that a training or compilation job can run. If
+   *             the job does not complete during this time, Amazon SageMaker ends the job.</p>
+   *         <p>When <code>RetryStrategy</code> is specified in the job request,
+   *                 <code>MaxRuntimeInSeconds</code> specifies the maximum time for all of the attempts
+   *             in total, not each individual attempt.</p>
    *         <p>The default value is 1 day. The maximum value is 28 days.</p>
    */
   MaxRuntimeInSeconds?: number;
 
   /**
-   * <p>The maximum length of time, in seconds, that a managed Spot training job has to complete.
-   *             It is the amount of time spent waiting for Spot capacity plus the amount of time the job
-   *             can run. It must be equal to or greater than <code>MaxRuntimeInSeconds</code>.  If the job
-   *             does not complete during this time, Amazon SageMaker ends the job.</p>
-   *         <p>When <code>RetryStrategy</code> is specified in the job request, <code>MaxWaitTimeInSeconds</code>
-   *             specifies the maximum time for all of the attempts in total, not each individual attempt.</p>
+   * <p>The maximum length of time, in seconds, that a managed Spot training job has to
+   *             complete. It is the amount of time spent waiting for Spot capacity plus the amount of
+   *             time the job can run. It must be equal to or greater than
+   *                 <code>MaxRuntimeInSeconds</code>. If the job does not complete during this time,
+   *             Amazon SageMaker ends the job.</p>
+   *         <p>When <code>RetryStrategy</code> is specified in the job request,
+   *                 <code>MaxWaitTimeInSeconds</code> specifies the maximum time for all of the attempts
+   *             in total, not each individual attempt.</p>
    */
   MaxWaitTimeInSeconds?: number;
 }
@@ -1148,10 +1158,9 @@ export interface TrainingJobDefinition {
   ResourceConfig: ResourceConfig | undefined;
 
   /**
-   * <p>Specifies a limit to how long a model training job can run.
-   *             It also specifies how long a managed Spot training job has to complete.
-   *             When the job reaches the time limit, Amazon SageMaker ends
-   *             the training job. Use this API to cap model training costs.</p>
+   * <p>Specifies a limit to how long a model training job can run. It also specifies how long
+   *             a managed Spot training job has to complete. When the job reaches the time limit, Amazon SageMaker
+   *             ends the training job. Use this API to cap model training costs.</p>
    *         <p>To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal, which delays job
    *             termination for 120 seconds. Algorithms can use this 120-second window to save the model
    *             artifacts.</p>
@@ -1429,7 +1438,6 @@ export interface TransformOutput {
    *             role's account. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed Encryption Keys</a> in the
    *                 <i>Amazon Simple Storage Service
    *                 Developer Guide.</i>
-   *
    *          </p>
    *         <p>The KMS key policy must grant permission to the IAM role that you specify in your
    *                 <a>CreateModel</a> request. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
@@ -1458,6 +1466,12 @@ export enum TransformInstanceType {
   ML_C5_4XLARGE = "ml.c5.4xlarge",
   ML_C5_9XLARGE = "ml.c5.9xlarge",
   ML_C5_XLARGE = "ml.c5.xlarge",
+  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
   ML_M4_10XLARGE = "ml.m4.10xlarge",
   ML_M4_16XLARGE = "ml.m4.16xlarge",
   ML_M4_2XLARGE = "ml.m4.2xlarge",
@@ -1487,8 +1501,7 @@ export interface TransformResources {
    *             algorithms to
    *             transform
    *             moderately sized datasets, we recommend using ml.m4.xlarge or
-   *             <code>ml.m5.large</code>
-   *          instance types.</p>
+   *             <code>ml.m5.large</code>instance types.</p>
    */
   InstanceType: TransformInstanceType | string | undefined;
 
@@ -1503,8 +1516,18 @@ export interface TransformResources {
 
   /**
    * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt model data on the storage volume
-   *             attached to the ML compute instance(s) that run the batch transform job. The
-   *                 <code>VolumeKmsKeyId</code> can be any of the following formats:</p>
+   *             attached to the ML compute instance(s) that run the batch transform job.</p>
+   *         <note>
+   *             <p>Certain Nitro-based instances include local storage, dependent on the instance
+   *                 type. Local storage volumes are encrypted using a hardware module on the instance.
+   *                 You can't request a <code>VolumeKmsKeyId</code> when using an instance type with
+   *                 local storage.</p>
+   *             <p>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
+   *             <p>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
+   *                 Instance Store Volumes</a>.</p>
+   *         </note>
+   *             <p>
+   *             The <code>VolumeKmsKeyId</code> can be any of the following formats:</p>
    *         <ul>
    *             <li>
    *                 <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
@@ -3261,7 +3284,7 @@ export namespace FileSystemConfig {
  */
 export interface KernelSpec {
   /**
-   * <p>The name of the kernel.</p>
+   * <p>The name of the Jupyter kernel in the image. This value is case sensitive.</p>
    */
   Name: string | undefined;
 
@@ -4080,13 +4103,12 @@ export interface AutoMLJobCompletionCriteria {
   MaxCandidates?: number;
 
   /**
-   * <p>The maximum time, in seconds, a job is allowed to run.</p>
+   * <p>The maximum time, in seconds, a training job is allowed to run as part of an AutoML job.</p>
    */
   MaxRuntimePerTrainingJobInSeconds?: number;
 
   /**
-   * <p>The maximum time, in seconds, an AutoML job is allowed to wait for a trial to complete.
-   *          It must be equal to or greater than <code>MaxRuntimePerTrainingJobInSeconds</code>.</p>
+   * <p>The maximum runtime, in seconds, an AutoML job has to complete.</p>
    */
   MaxAutoMLJobRuntimeInSeconds?: number;
 }
@@ -4606,6 +4628,59 @@ export namespace CacheHitResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: CacheHitResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An output parameter of a pipeline step.</p>
+ */
+export interface OutputParameter {
+  /**
+   * <p>The name of the output parameter.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The value of the output parameter.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace OutputParameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OutputParameter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Metadata about a callback step.</p>
+ */
+export interface CallbackStepMetadata {
+  /**
+   * <p>The pipeline generated token from the Amazon SQS queue.</p>
+   */
+  CallbackToken?: string;
+
+  /**
+   * <p>The URL of the Amazon Simple Queue Service (Amazon SQS) queue used by the callback step.</p>
+   */
+  SqsQueueUrl?: string;
+
+  /**
+   * <p>A list of the output parameters of the callback step.</p>
+   */
+  OutputParameters?: OutputParameter[];
+}
+
+export namespace CallbackStepMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CallbackStepMetadata): any => ({
     ...obj,
   });
 }
@@ -6326,7 +6401,7 @@ export interface ModelDeployConfig {
   /**
    * <p>Set to <code>True</code> to automatically generate an endpoint name for a one-click
    *          Autopilot model deployment; set to <code>False</code> otherwise. The default value is
-   *             <code>True</code>.</p>
+   *             <code>False</code>.</p>
    *          <note>
    *             <p>If you set <code>AutoGenerateEndpointName</code> to <code>True</code>, do not specify
    *             the <code>EndpointName</code>; otherwise a 400 error is thrown.</p>
@@ -6378,9 +6453,6 @@ export interface CreateAutoMLJobRequest {
   /**
    * <p>Provides information about encryption and the Amazon S3 output path needed to store
    *          artifacts from an AutoML job. Format(s) supported: CSV.</p>
-   *
-   *          <p><para>Specifies whether to automatically deploy the best &ATP; model to an
-   *          endpoint and the name of that endpoint if deployed automatically.</para></p>
    */
   OutputDataConfig: AutoMLOutputDataConfig | undefined;
 
@@ -6407,9 +6479,6 @@ export interface CreateAutoMLJobRequest {
 
   /**
    * <p>The ARN of the role that is used to access the data.</p>
-   *
-   *          <p><para>Specifies whether to automatically deploy the best &ATP; model to an
-   *          endpoint and the name of that endpoint if deployed automatically.</para></p>
    */
   RoleArn: string | undefined;
 
@@ -7715,6 +7784,12 @@ export enum ProcessingInstanceType {
   ML_C5_4XLARGE = "ml.c5.4xlarge",
   ML_C5_9XLARGE = "ml.c5.9xlarge",
   ML_C5_XLARGE = "ml.c5.xlarge",
+  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
   ML_M4_10XLARGE = "ml.m4.10xlarge",
   ML_M4_16XLARGE = "ml.m4.16xlarge",
   ML_M4_2XLARGE = "ml.m4.2xlarge",
@@ -7942,6 +8017,10 @@ export namespace CreateDataQualityJobDefinitionResponse {
   });
 }
 
+export enum EdgePresetDeploymentType {
+  GreengrassV2Component = "GreengrassV2Component",
+}
+
 /**
  * <p>The output configuration.</p>
  */
@@ -7955,6 +8034,50 @@ export interface EdgeOutputConfig {
    * <p>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.</p>
    */
   KmsKeyId?: string;
+
+  /**
+   * <p>The deployment type SageMaker Edge Manager will create.
+   *       Currently only supports AWS IoT Greengrass Version 2 components.</p>
+   */
+  PresetDeploymentType?: EdgePresetDeploymentType | string;
+
+  /**
+   * <p>The configuration used to create deployment artifacts.
+   *       Specify configuration options with a JSON string. The available configuration options for each type are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ComponentName</code> (optional) - Name of the GreenGrass V2 component. If not specified,
+   *      the default name generated consists of "SagemakerEdgeManager" and the name of your SageMaker Edge Manager
+   *      packaging job.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ComponentDescription</code> (optional) - Description of the component.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ComponentVersion</code> (optional) - The version of the component.</p>
+   *                <note>
+   *                   <p>AWS IoT Greengrass uses semantic versions for components. Semantic versions follow a<i>
+   *        major.minor.patch</i> number system. For example, version 1.0.0 represents the first
+   *         major release for a component. For more information, see the <a href="https://semver.org/">semantic version specification</a>.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PlatformOS</code> (optional) - The name of the operating system for the platform.
+   *      Supported platforms include Windows and Linux.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PlatformArchitecture</code> (optional) - The processor architecture for the platform. </p>
+   *                <p>Supported architectures Windows include: Windows32_x86, Windows64_x64.</p>
+   *                <p>Supported architectures for Linux include: Linux x86_64, Linux ARMV8.</p>
+   *             </li>
+   *          </ul>
+   */
+  PresetDeploymentConfig?: string;
 }
 
 export namespace EdgeOutputConfig {
@@ -7991,6 +8114,15 @@ export interface CreateDeviceFleetRequest {
    * <p>Creates tags for the specified fleet.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Whether to create an AWS IoT Role Alias during device fleet creation.
+   *      The name of the role alias generated will match this pattern:
+   *      "SageMakerEdge-{DeviceFleetName}".</p>
+   *          <p>For example, if your device fleet is called "demo-fleet", the name of
+   *      the role alias will be "SageMakerEdge-demo-fleet".</p>
+   */
+  EnableIotRoleAlias?: boolean;
 }
 
 export namespace CreateDeviceFleetRequest {
@@ -8512,10 +8644,9 @@ export namespace ProductionVariantCoreDumpConfig {
 }
 
 /**
- * <p>Identifies
- *             a model that you want to host and the resources to deploy for hosting
- *             it. If you are deploying multiple models, tell Amazon SageMaker how to distribute
- *             traffic among the models by specifying variant weights. </p>
+ * <p>Identifies a model that you want to host and the resources chosen to deploy for
+ *             hosting it. If you are deploying multiple models, tell Amazon SageMaker how to distribute traffic
+ *             among the models by specifying variant weights. </p>
  */
 export interface ProductionVariant {
   /**
@@ -10363,15 +10494,15 @@ export namespace HyperParameterAlgorithmSpecification {
 
 /**
  * <p>The retry strategy to use when a training job fails due to an
- *             <code>InternalServerError</code>. <code>RetryStrategy</code> is specified as
- *             part of the <code>CreateTrainingJob</code> and <code>CreateHyperParameterTuningJob</code>
+ *                 <code>InternalServerError</code>. <code>RetryStrategy</code> is specified as part of
+ *             the <code>CreateTrainingJob</code> and <code>CreateHyperParameterTuningJob</code>
  *             requests. You can add the <code>StoppingCondition</code> parameter to the request to
  *             limit the training time for the complete job.</p>
  */
 export interface RetryStrategy {
   /**
    * <p>The number of times to retry the job. When the job is retried, it's
-   *             <code>SecondaryStatus</code> is changed to <code>STARTING</code>.</p>
+   *                 <code>SecondaryStatus</code> is changed to <code>STARTING</code>.</p>
    */
   MaximumRetryAttempts: number | undefined;
 }
@@ -10487,9 +10618,8 @@ export interface HyperParameterTrainingJobDefinition {
 
   /**
    * <p>Specifies a limit to how long a model hyperparameter training job can run. It also
-   *             specifies how long a managed spot training job has to complete.
-   *             When the job reaches the time limit, Amazon SageMaker ends the training job. Use this API to cap model
-   *             training costs.</p>
+   *             specifies how long a managed spot training job has to complete. When the job reaches the
+   *             time limit, Amazon SageMaker ends the training job. Use this API to cap model training costs.</p>
    */
   StoppingCondition: StoppingCondition | undefined;
 
@@ -10525,7 +10655,7 @@ export interface HyperParameterTrainingJobDefinition {
 
   /**
    * <p>The number of times to retry the job when the job fails due to an
-   *             <code>InternalServerError</code>.</p>
+   *                 <code>InternalServerError</code>.</p>
    */
   RetryStrategy?: RetryStrategy;
 }
@@ -13498,47 +13628,6 @@ export namespace CreateModelExplainabilityJobDefinitionRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateModelExplainabilityJobDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateModelExplainabilityJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model explainability job.</p>
-   */
-  JobDefinitionArn: string | undefined;
-}
-
-export namespace CreateModelExplainabilityJobDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelExplainabilityJobDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum ModelApprovalStatus {
-  APPROVED = "Approved",
-  PENDING_MANUAL_APPROVAL = "PendingManualApproval",
-  REJECTED = "Rejected",
-}
-
-/**
- * <p>Contains explainability metrics for a model.</p>
- */
-export interface Explainability {
-  /**
-   * <p>The explainability report for a model.</p>
-   */
-  Report?: MetricsSource;
-}
-
-export namespace Explainability {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Explainability): any => ({
     ...obj,
   });
 }

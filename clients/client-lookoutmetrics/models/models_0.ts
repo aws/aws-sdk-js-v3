@@ -468,6 +468,7 @@ export enum AnomalyDetectorStatus {
   DELETING = "DELETING",
   FAILED = "FAILED",
   INACTIVE = "INACTIVE",
+  LEARNING = "LEARNING",
 }
 
 /**
@@ -1402,7 +1403,7 @@ export interface CreateMetricSetRequest {
   MetricList: Metric[] | undefined;
 
   /**
-   * <p>After an interval ends, the amount of time that the detector waits before importing data.</p>
+   * <p>After an interval ends, the amount of seconds that the detector waits before importing data. Offset is only supported for S3 and Redshift datasources.</p>
    */
   Offset?: number;
 
@@ -1749,7 +1750,7 @@ export interface DescribeMetricSetResponse {
   LastModificationTime?: Date;
 
   /**
-   * <p>The offset for the dataset.</p>
+   * <p>The offset in seconds. Only supported for S3 and Redshift datasources.</p>
    */
   Offset?: number;
 
@@ -2265,8 +2266,9 @@ export interface ListMetricSetsRequest {
   MaxResults?: number;
 
   /**
-   * <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To
-   *       retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
+   * <p>If the result of the previous request was truncated, the response includes a
+   *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
+   *       request. Tokens expire after 24 hours.</p>
    */
   NextToken?: string;
 }
@@ -2336,8 +2338,8 @@ export interface ListMetricSetsResponse {
   MetricSetSummaryList?: MetricSetSummary[];
 
   /**
-   * <p>If the response is truncated, the list call returns this token. To retrieve the next set of results, use the
-   *       token in the next list request. </p>
+   * <p>If the response is truncated, the list call returns this token. To retrieve the next set
+   *       of results, use the token in the next list request. </p>
    */
   NextToken?: string;
 }
@@ -2545,7 +2547,7 @@ export interface UpdateMetricSetRequest {
   MetricList?: Metric[];
 
   /**
-   * <p>After an interval ends, the amount of time that the detector waits before importing data.</p>
+   * <p>After an interval ends, the amount of seconds that the detector waits before importing data. Offset is only supported for S3 and Redshift datasources.</p>
    */
   Offset?: number;
 

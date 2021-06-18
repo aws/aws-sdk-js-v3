@@ -234,6 +234,11 @@ export namespace DocumentAttributeValue {
 
   /**
    * <p>A date expressed as an ISO 8601 string.</p>
+   *         <p>It is important for the time zone to be included
+   *             in the ISO 8601 date-time format. For example,
+   *             20120325T123010+01:00 is the ISO 8601 date-time format
+   *             for March 25th 2012 at 12:30PM (plus 10 seconds) in
+   *             Central European Time.</p>
    */
   export interface DateValueMember {
     StringValue?: never;
@@ -301,6 +306,67 @@ export namespace DocumentAttribute {
   export const filterSensitiveLog = (obj: DocumentAttribute): any => ({
     ...obj,
     ...(obj.Value && { Value: DocumentAttributeValue.filterSensitiveLog(obj.Value) }),
+  });
+}
+
+/**
+ * <p>Provides the configuration information to connect to websites that require
+ *             basic user authentication.</p>
+ */
+export interface BasicAuthenticationConfiguration {
+  /**
+   * <p>The name of the website host you want to connect to using
+   *             authentication credentials.</p>
+   *         <p>For example, the host name of https://a.example.com/page1.html is
+   *             "a.example.com".</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>The port number of the website host you want to connect to using
+   *             authentication credentials.</p>
+   *         <p>For example, the port for https://a.example.com/page1.html is 443,
+   *             the standard port for HTTPS.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>Your secret ARN, which you can create in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">AWS Secrets Manager</a>
+   *          </p>
+   *         <p>You use a secret if basic authentication credentials are required to connect
+   *             to a website. The secret stores your credentials of user name and password.</p>
+   */
+  Credentials: string | undefined;
+}
+
+export namespace BasicAuthenticationConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BasicAuthenticationConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the configuration information to connect to websites that require
+ *             user authentication.</p>
+ */
+export interface AuthenticationConfiguration {
+  /**
+   * <p>The list of configuration information that's required to connect to and
+   *             crawl a website host using basic authentication credentials.</p>
+   *         <p>The list includes the name and port number of the website host.</p>
+   */
+  BasicAuthentication?: BasicAuthenticationConfiguration[];
+}
+
+export namespace AuthenticationConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuthenticationConfiguration): any => ({
+    ...obj,
   });
 }
 
@@ -506,6 +572,193 @@ export namespace ValidationException {
    * @internal
    */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Identifies a document for which to retrieve status
+ *             information</p>
+ */
+export interface DocumentInfo {
+  /**
+   * <p>The unique identifier of the document.</p>
+   */
+  DocumentId: string | undefined;
+
+  /**
+   * <p>Attributes that identify a specific version of a document to
+   *             check.</p>
+   *         <p>The only valid attributes are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>version</p>
+   *             </li>
+   *             <li>
+   *                 <p>datasourceId</p>
+   *             </li>
+   *             <li>
+   *                 <p>jobExecutionId</p>
+   *             </li>
+   *          </ul>
+   *         <p>The attributes follow these rules:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>dataSourceId</code> and <code>jobExecutionId</code>
+   *                     must be used together.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>version</code> is ignored if
+   *                         <code>dataSourceId</code> and
+   *                         <code>jobExecutionId</code> are not provided.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If <code>dataSourceId</code> and
+   *                         <code>jobExecutionId</code> are provided, but
+   *                         <code>version</code> is not, the version defaults to
+   *                     "0".</p>
+   *             </li>
+   *          </ul>
+   */
+  Attributes?: DocumentAttribute[];
+}
+
+export namespace DocumentInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DocumentInfo): any => ({
+    ...obj,
+    ...(obj.Attributes && { Attributes: obj.Attributes.map((item) => DocumentAttribute.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface BatchGetDocumentStatusRequest {
+  /**
+   * <p>The identifier of the index to add documents to. The index ID is
+   *             returned by the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html"> CreateIndex
+   *             </a> operation.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>A list of <code>DocumentInfo</code> objects that identify the
+   *             documents for which to get the status. You identify the documents by
+   *             their document ID and optional attributes.</p>
+   */
+  DocumentInfoList: DocumentInfo[] | undefined;
+}
+
+export namespace BatchGetDocumentStatusRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetDocumentStatusRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum DocumentStatus {
+  FAILED = "FAILED",
+  INDEXED = "INDEXED",
+  NOT_FOUND = "NOT_FOUND",
+  PROCESSING = "PROCESSING",
+  UPDATED = "UPDATED",
+  UPDATE_FAILED = "UPDATE_FAILED",
+}
+
+/**
+ * <p>Provides information about the status of documents submitted for indexing.</p>
+ */
+export interface Status {
+  /**
+   * <p>The unique identifier of the document.</p>
+   */
+  DocumentId?: string;
+
+  /**
+   * <p>The current status of a document.</p>
+   *         <p>If the document was submitted for deletion, the status is
+   *                 <code>NOT_FOUND</code> after the document is deleted.</p>
+   */
+  DocumentStatus?: DocumentStatus | string;
+
+  /**
+   * <p>Indicates the source of the error.</p>
+   */
+  FailureCode?: string;
+
+  /**
+   * <p>Provides detailed information about why the document couldn't be
+   *             indexed. Use this information to correct the error before you
+   *             resubmit the document for indexing.</p>
+   */
+  FailureReason?: string;
+}
+
+export namespace Status {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Status): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides a response when the status of a document could not be retrieved.</p>
+ */
+export interface BatchGetDocumentStatusResponseError {
+  /**
+   * <p>The unique identifier of the document whose status could not be retrieved.</p>
+   */
+  DocumentId?: string;
+
+  /**
+   * <p>Indicates the source of the error.</p>
+   */
+  ErrorCode?: ErrorCode | string;
+
+  /**
+   * <p>States that the API could not get the status of a document. This could be
+   *             because the request is not valid or there is a system error.</p>
+   */
+  ErrorMessage?: string;
+}
+
+export namespace BatchGetDocumentStatusResponseError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetDocumentStatusResponseError): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchGetDocumentStatusResponse {
+  /**
+   * <p>A list of documents that Amazon Kendra couldn't get the status for. The
+   *             list includes the ID of the document and the reason that the status
+   *             couldn't be found.</p>
+   */
+  Errors?: BatchGetDocumentStatusResponseError[];
+
+  /**
+   * <p>The status of documents. The status indicates if the document is
+   *             waiting to be indexed, is in the process of indexing, has completed
+   *             indexing, or failed indexing. If a document failed indexing, the
+   *             status provides the reason why.</p>
+   */
+  DocumentStatusList?: Status[];
+}
+
+export namespace BatchGetDocumentStatusResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchGetDocumentStatusResponse): any => ({
     ...obj,
   });
 }
@@ -2427,6 +2680,273 @@ export namespace SharePointConfiguration {
 }
 
 /**
+ * <p>Provides the configuration information for a web proxy to connect to
+ *             website hosts.</p>
+ */
+export interface ProxyConfiguration {
+  /**
+   * <p>The name of the website host you want to connect to
+   *             via a web proxy server.</p>
+   *         <p>For example, the host name of https://a.example.com/page1.html
+   *             is "a.example.com".</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>The port number of the website host you want to connect
+   *             to via a web proxy server. </p>
+   *         <p>For example, the port for https://a.example.com/page1.html
+   *             is 443, the standard port for HTTPS.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>Your secret ARN, which you can create in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">AWS Secrets Manager</a>
+   *          </p>
+   *         <p>The credentials are optional. You use a secret if web proxy credentials
+   *             are required to connect to a website host. Amazon Kendra currently support basic
+   *             authentication to connect to a web proxy server. The secret stores your
+   *             credentials.</p>
+   */
+  Credentials?: string;
+}
+
+export namespace ProxyConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProxyConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum WebCrawlerMode {
+  EVERYTHING = "EVERYTHING",
+  HOST_ONLY = "HOST_ONLY",
+  SUBDOMAINS = "SUBDOMAINS",
+}
+
+/**
+ * <p>Provides the configuration information of the seed or starting point URLs to crawl.</p>
+ *         <p>
+ *             <i>When selecting websites to index, you must adhere to
+ *             the <a href="https://aws.amazon.com/aup/">Amazon Acceptable Use Policy</a>
+ *             and all other Amazon terms. Remember that you must only use the Amazon Kendra web
+ *             crawler to index your own webpages, or webpages that you have authorization
+ *             to index.</i>
+ *          </p>
+ */
+export interface SeedUrlConfiguration {
+  /**
+   * <p>The list of seed or starting point URLs of the
+   *             websites you want to crawl.</p>
+   *         <p>The list can include a maximum of 100 seed URLs.</p>
+   */
+  SeedUrls: string[] | undefined;
+
+  /**
+   * <p>You can choose one of the following modes:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>HOST_ONLY</code> – crawl only the website host names.
+   *                     For example, if the seed URL is "abc.example.com",
+   *                     then only URLs with host name "abc.example.com" are crawled.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SUBDOMAINS</code> – crawl the website host names with
+   *                     subdomains. For example, if the seed URL is  "abc.example.com", then
+   *                     "a.abc.example.com" and "b.abc.example.com" are also crawled.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>EVERYTHING</code> – crawl the website host names with
+   *                     subdomains and other domains that the webpages link to.</p>
+   *             </li>
+   *          </ul>
+   *         <p>The default mode is set to <code>HOST_ONLY</code>.</p>
+   */
+  WebCrawlerMode?: WebCrawlerMode | string;
+}
+
+export namespace SeedUrlConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SeedUrlConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the configuration information of the sitemap URLs to crawl.</p>
+ *         <p>
+ *             <i>When selecting websites to index, you must adhere to
+ *             the <a href="https://aws.amazon.com/aup/">Amazon Acceptable Use Policy</a>
+ *             and all other Amazon terms. Remember that you must only use the Amazon Kendra web
+ *             crawler to index your own webpages, or webpages that you have authorization
+ *             to index.</i>
+ *          </p>
+ */
+export interface SiteMapsConfiguration {
+  /**
+   * <p>The list of sitemap URLs of the websites
+   *             you want to crawl.</p>
+   *         <p>The list can include a maximum of three sitemap URLs.</p>
+   */
+  SiteMaps: string[] | undefined;
+}
+
+export namespace SiteMapsConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SiteMapsConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the configuration information of the URLs to crawl.</p>
+ *         <p>
+ *             <i>When selecting websites to index, you must adhere to
+ *             the <a href="https://aws.amazon.com/aup/">Amazon Acceptable Use Policy</a>
+ *             and all other Amazon terms. Remember that you must only use the Amazon Kendra web
+ *             crawler to index your own webpages, or webpages that you have authorization to
+ *             index.</i>
+ *          </p>
+ */
+export interface Urls {
+  /**
+   * <p>Provides the configuration of the seed or starting point URLs of the websites
+   *             you want to crawl.</p>
+   *         <p>You can choose to crawl only the website host names, or the website host names
+   *             with subdomains, or the website host names with subdomains and other domains
+   *             that the webpages link to.</p>
+   *         <p>You can list up to 100 seed URLs.</p>
+   */
+  SeedUrlConfiguration?: SeedUrlConfiguration;
+
+  /**
+   * <p>Provides the configuration of the sitemap URLs of the websites you want to crawl.</p>
+   *         <p>Only URLs belonging to the same website host names are crawled. You can list up to
+   *             three sitemap URLs.</p>
+   */
+  SiteMapsConfiguration?: SiteMapsConfiguration;
+}
+
+export namespace Urls {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Urls): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the configuration information required for Amazon Kendra
+ *             web crawler.</p>
+ */
+export interface WebCrawlerConfiguration {
+  /**
+   * <p>Specifies the seed or starting point URLs of the
+   *             websites or the sitemap URLs of the websites you want to crawl.</p>
+   *         <p>You can include website subdomains. You can list up to 100 seed
+   *             URLs and up to three sitemap URLs.</p>
+   *         <p>
+   *             <i>When selecting websites to index, you must adhere to
+   *             the <a href="https://aws.amazon.com/aup/">Amazon Acceptable Use Policy</a>
+   *             and all other Amazon terms. Remember that you must only use the Amazon Kendra
+   *             web crawler to index your own webpages, or webpages that you have
+   *             authorization to index.</i>
+   *          </p>
+   */
+  Urls: Urls | undefined;
+
+  /**
+   * <p>Specifies the number of levels in a website that you want to crawl.</p>
+   *         <p>The first level begins from the website seed or starting point URL.
+   *             For example, if a website has 3 levels – index level (i.e. seed in this
+   *             example), sections level, and subsections level – and you are only
+   *             interested in crawling information up to the sections level (i.e.
+   *             levels 0-1), you can set your depth to 1.</p>
+   *         <p>The default crawl depth is set to 2.</p>
+   */
+  CrawlDepth?: number;
+
+  /**
+   * <p>The maximum number of URLs on a webpage to include when crawling a website.
+   *             This number is per webpage.</p>
+   *             <p>As a website’s webpages are crawled, any URLs the webpages link to are
+   *                 also crawled. URLs on a webpage are crawled in order of appearance.</p>
+   *         <p>The default maximum links per page is 100.</p>
+   */
+  MaxLinksPerPage?: number;
+
+  /**
+   * <p>The maximum size (in MB) of a webpage or attachment to crawl.</p>
+   *         <p>Files larger than this size (in MB) are skipped/not crawled.</p>
+   *         <p>The default maximum size of a webpage or attachment is set to 50 MB.</p>
+   */
+  MaxContentSizePerPageInMegaBytes?: number;
+
+  /**
+   * <p>The maximum number of URLs crawled per website host per minute.</p>
+   *         <p>A minimum of one URL is required.</p>
+   *         <p>The default maximum number of URLs crawled per website host per minute is 300.</p>
+   */
+  MaxUrlsPerMinuteCrawlRate?: number;
+
+  /**
+   * <p>The regular expression pattern to include certain URLs to crawl.</p>
+   *         <p>If there is a regular expression pattern to exclude certain URLs that
+   *             conflicts with the include pattern, the exclude pattern takes precedence.</p>
+   */
+  UrlInclusionPatterns?: string[];
+
+  /**
+   * <p>The regular expression pattern to exclude certain URLs to crawl.</p>
+   *         <p>If there is a regular expression pattern to include certain URLs that
+   *             conflicts with the exclude pattern, the exclude pattern takes precedence.</p>
+   */
+  UrlExclusionPatterns?: string[];
+
+  /**
+   * <p>Provides configuration information required to connect to your internal
+   *             websites via a web proxy.</p>
+   *         <p>You must provide the website host name and port number. For example, the
+   *             host name of https://a.example.com/page1.html is "a.example.com" and the
+   *             port is 443, the standard port for HTTPS.</p>
+   *         <p>Web proxy credentials are optional and you can use them to connect to a
+   *             web proxy server that requires basic authentication. To store web proxy
+   *             credentials, you use a secret in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">AWS Secrets Manager</a>.</p>
+   */
+  ProxyConfiguration?: ProxyConfiguration;
+
+  /**
+   * <p>Provides configuration information required to connect to websites using
+   *             authentication.</p>
+   *         <p>You can connect to websites using basic authentication of user name and password.</p>
+   *         <p>You must provide the website host name and port number. For example, the host name
+   *             of https://a.example.com/page1.html is "a.example.com" and the port is 443, the
+   *             standard port for HTTPS. You use a secret in <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">AWS Secrets Manager</a> to store
+   *             your authentication credentials.</p>
+   */
+  AuthenticationConfiguration?: AuthenticationConfiguration;
+}
+
+export namespace WebCrawlerConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: WebCrawlerConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Configuration information for a Amazon Kendra data source.</p>
  */
 export interface DataSourceConfiguration {
@@ -2477,6 +2997,12 @@ export interface DataSourceConfiguration {
    *             Drive. </p>
    */
   GoogleDriveConfiguration?: GoogleDriveConfiguration;
+
+  /**
+   * <p>Provides the configuration information required for Amazon Kendra
+   *             web crawler.</p>
+   */
+  WebCrawlerConfiguration?: WebCrawlerConfiguration;
 }
 
 export namespace DataSourceConfiguration {
@@ -2526,6 +3052,7 @@ export enum DataSourceType {
   SALESFORCE = "SALESFORCE",
   SERVICENOW = "SERVICENOW",
   SHAREPOINT = "SHAREPOINT",
+  WEBCRAWLER = "WEBCRAWLER",
 }
 
 export interface CreateDataSourceRequest {
@@ -3449,22 +3976,30 @@ export namespace DescribeIndexRequest {
 }
 
 /**
- * <p>Specifies capacity units configured for your index. You can add
- *             and remove capacity units to tune an index to your
+ * <p>Specifies capacity units configured for your enterprise edition index.
+ *             You can add and remove capacity units to tune an index to your
  *             requirements.</p>
  */
 export interface CapacityUnitsConfiguration {
   /**
-   * <p>The amount of extra storage capacity for an index. Each capacity
-   *             unit provides 150 Gb of storage space or 500,000 documents,
-   *             whichever is reached first.</p>
+   * <p>The amount of extra storage capacity for an index. A single capacity
+   *             unit for an index provides 150 GB of storage space or
+   *             500,000 documents, whichever is reached first.</p>
    */
   StorageCapacityUnits: number | undefined;
 
   /**
-   * <p>The amount of extra query capacity for an index. Each capacity
-   *             unit provides 0.5 queries per second and 40,000 queries per
-   *             day.</p>
+   * <p>The amount of extra query capacity for an index and
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html">GetQuerySuggestions</a>
+   *             capacity.</p>
+   *         <p>A single extra capacity unit for an index provides 0.5 queries per second or
+   *             approximately 40,000 queries per day.</p>
+   *         <p>
+   *             <code>GetQuerySuggestions</code> capacity is 5 times the provisioned query
+   *             capacity for an index. For example, the base capacity for an index is 0.5
+   *             queries per second, so GetQuerySuggestions capacity is 2.5 calls per second.
+   *             If adding another 0.5 queries per second to total 1 queries per second for an
+   *             index, the <code>GetQuerySuggestions</code> capacity is 5 calls per second.</p>
    */
   QueryCapacityUnits: number | undefined;
 }

@@ -479,6 +479,14 @@ import { RegisterDevicesCommandInput, RegisterDevicesCommandOutput } from "../co
 import { RenderUiTemplateCommandInput, RenderUiTemplateCommandOutput } from "../commands/RenderUiTemplateCommand";
 import { SearchCommandInput, SearchCommandOutput } from "../commands/SearchCommand";
 import {
+  SendPipelineExecutionStepFailureCommandInput,
+  SendPipelineExecutionStepFailureCommandOutput,
+} from "../commands/SendPipelineExecutionStepFailureCommand";
+import {
+  SendPipelineExecutionStepSuccessCommandInput,
+  SendPipelineExecutionStepSuccessCommandOutput,
+} from "../commands/SendPipelineExecutionStepSuccessCommand";
+import {
   StartMonitoringScheduleCommandInput,
   StartMonitoringScheduleCommandOutput,
 } from "../commands/StartMonitoringScheduleCommand";
@@ -608,6 +616,7 @@ import {
   Bias,
   BlueGreenUpdatePolicy,
   CacheHitResult,
+  CallbackStepMetadata,
   CandidateArtifactLocations,
   CandidateProperties,
   CapacitySize,
@@ -679,7 +688,6 @@ import {
   CreateModelBiasJobDefinitionRequest,
   CreateModelBiasJobDefinitionResponse,
   CreateModelExplainabilityJobDefinitionRequest,
-  CreateModelExplainabilityJobDefinitionResponse,
   CreateModelInput,
   CreateModelOutput,
   CustomImage,
@@ -691,7 +699,6 @@ import {
   DataSource,
   EdgeOutputConfig,
   EndpointInput,
-  Explainability,
   FeatureDefinition,
   FileSystemConfig,
   FileSystemDataSource,
@@ -755,6 +762,7 @@ import {
   OnlineStoreSecurityConfig,
   OutputConfig,
   OutputDataConfig,
+  OutputParameter,
   ParameterRange,
   ParameterRanges,
   ParentHyperParameterTuningJob,
@@ -799,6 +807,7 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateModelExplainabilityJobDefinitionResponse,
   CreateModelPackageGroupInput,
   CreateModelPackageGroupOutput,
   CreateModelPackageInput,
@@ -982,12 +991,11 @@ import {
   DescribeTrialComponentResponse,
   DescribeTrialRequest,
   DescribeTrialResponse,
-  DescribeUserProfileRequest,
-  DescribeUserProfileResponse,
-  DescribeWorkforceRequest,
   EdgeModel,
+  EdgePresetDeploymentOutput,
   ExperimentConfig,
   ExperimentSource,
+  Explainability,
   FinalHyperParameterTuningJobObjectiveMetric,
   HyperParameterTrainingJobSummary,
   LabelCounters,
@@ -1021,8 +1029,8 @@ import {
   ObjectiveStatusCounters,
   OfflineStoreStatus,
   OidcConfig,
-  OidcConfigForResponse,
   OidcMemberDefinition,
+  PipelineExperimentConfig,
   ProcessingClusterConfig,
   ProcessingFeatureStoreOutput,
   ProcessingInput,
@@ -1057,9 +1065,11 @@ import {
   TrialComponentStatus,
   TrialSource,
   UiTemplateInfo,
-  Workforce,
 } from "../models/models_1";
 import {
+  DescribeUserProfileRequest,
+  DescribeUserProfileResponse,
+  DescribeWorkforceRequest,
   DescribeWorkforceResponse,
   DescribeWorkteamRequest,
   DescribeWorkteamResponse,
@@ -1221,6 +1231,7 @@ import {
   NestedFilters,
   NotebookInstanceLifecycleConfigSummary,
   NotebookInstanceSummary,
+  OidcConfigForResponse,
   Parameter,
   Parent,
   Pipeline,
@@ -1246,6 +1257,10 @@ import {
   RenderingError,
   SearchRecord,
   SearchResponse,
+  SendPipelineExecutionStepFailureRequest,
+  SendPipelineExecutionStepFailureResponse,
+  SendPipelineExecutionStepSuccessRequest,
+  SendPipelineExecutionStepSuccessResponse,
   StartMonitoringScheduleRequest,
   StartNotebookInstanceInput,
   StartPipelineExecutionRequest,
@@ -1299,6 +1314,14 @@ import {
   UpdateImageResponse,
   UpdateModelPackageInput,
   UpdateModelPackageOutput,
+  UserProfileDetails,
+  VariantProperty,
+  Workforce,
+  Workteam,
+} from "../models/models_2";
+import {
+  SearchExpression,
+  SearchRequest,
   UpdateMonitoringScheduleRequest,
   UpdateMonitoringScheduleResponse,
   UpdateNotebookInstanceInput,
@@ -1309,13 +1332,6 @@ import {
   UpdatePipelineExecutionResponse,
   UpdatePipelineRequest,
   UpdatePipelineResponse,
-  UserProfileDetails,
-  VariantProperty,
-  Workteam,
-} from "../models/models_2";
-import {
-  SearchExpression,
-  SearchRequest,
   UpdateTrainingJobRequest,
   UpdateTrainingJobResponse,
   UpdateTrialComponentRequest,
@@ -3872,6 +3888,32 @@ export const serializeAws_json1_1SearchCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SearchRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1SendPipelineExecutionStepFailureCommand = async (
+  input: SendPipelineExecutionStepFailureCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.SendPipelineExecutionStepFailure",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1SendPipelineExecutionStepFailureRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1SendPipelineExecutionStepSuccessCommand = async (
+  input: SendPipelineExecutionStepSuccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.SendPipelineExecutionStepSuccess",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1SendPipelineExecutionStepSuccessRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -14485,6 +14527,130 @@ const deserializeAws_json1_1SearchCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1SendPipelineExecutionStepFailureCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendPipelineExecutionStepFailureCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1SendPipelineExecutionStepFailureCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1SendPipelineExecutionStepFailureResponse(data, context);
+  const response: SendPipelineExecutionStepFailureCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1SendPipelineExecutionStepFailureCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendPipelineExecutionStepFailureCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1SendPipelineExecutionStepSuccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendPipelineExecutionStepSuccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1SendPipelineExecutionStepSuccessCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1SendPipelineExecutionStepSuccessResponse(data, context);
+  const response: SendPipelineExecutionStepSuccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1SendPipelineExecutionStepSuccessCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendPipelineExecutionStepSuccessCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1StartMonitoringScheduleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -17499,6 +17665,8 @@ const serializeAws_json1_1CreateDeviceFleetRequest = (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.DeviceFleetName !== undefined &&
       input.DeviceFleetName !== null && { DeviceFleetName: input.DeviceFleetName }),
+    ...(input.EnableIotRoleAlias !== undefined &&
+      input.EnableIotRoleAlias !== null && { EnableIotRoleAlias: input.EnableIotRoleAlias }),
     ...(input.OutputConfig !== undefined &&
       input.OutputConfig !== null && {
         OutputConfig: serializeAws_json1_1EdgeOutputConfig(input.OutputConfig, context),
@@ -19426,6 +19594,10 @@ const serializeAws_json1_1DisassociateTrialComponentRequest = (
 const serializeAws_json1_1EdgeOutputConfig = (input: EdgeOutputConfig, context: __SerdeContext): any => {
   return {
     ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.PresetDeploymentConfig !== undefined &&
+      input.PresetDeploymentConfig !== null && { PresetDeploymentConfig: input.PresetDeploymentConfig }),
+    ...(input.PresetDeploymentType !== undefined &&
+      input.PresetDeploymentType !== null && { PresetDeploymentType: input.PresetDeploymentType }),
     ...(input.S3OutputLocation !== undefined &&
       input.S3OutputLocation !== null && { S3OutputLocation: input.S3OutputLocation }),
   };
@@ -22091,6 +22263,24 @@ const serializeAws_json1_1OutputDataConfig = (input: OutputDataConfig, context: 
   };
 };
 
+const serializeAws_json1_1OutputParameter = (input: OutputParameter, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1OutputParameterList = (input: OutputParameter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1OutputParameter(entry, context);
+    });
+};
+
 const serializeAws_json1_1Parameter = (input: Parameter, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
@@ -22705,6 +22895,31 @@ const serializeAws_json1_1SecurityGroupIds = (input: string[], context: __SerdeC
       }
       return entry;
     });
+};
+
+const serializeAws_json1_1SendPipelineExecutionStepFailureRequest = (
+  input: SendPipelineExecutionStepFailureRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CallbackToken !== undefined && input.CallbackToken !== null && { CallbackToken: input.CallbackToken }),
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.FailureReason !== undefined && input.FailureReason !== null && { FailureReason: input.FailureReason }),
+  };
+};
+
+const serializeAws_json1_1SendPipelineExecutionStepSuccessRequest = (
+  input: SendPipelineExecutionStepSuccessRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CallbackToken !== undefined && input.CallbackToken !== null && { CallbackToken: input.CallbackToken }),
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.OutputParameters !== undefined &&
+      input.OutputParameters !== null && {
+        OutputParameters: serializeAws_json1_1OutputParameterList(input.OutputParameters, context),
+      }),
+  };
 };
 
 const serializeAws_json1_1ServiceCatalogProvisioningDetails = (
@@ -23373,6 +23588,8 @@ const serializeAws_json1_1UpdateDeviceFleetRequest = (
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.DeviceFleetName !== undefined &&
       input.DeviceFleetName !== null && { DeviceFleetName: input.DeviceFleetName }),
+    ...(input.EnableIotRoleAlias !== undefined &&
+      input.EnableIotRoleAlias !== null && { EnableIotRoleAlias: input.EnableIotRoleAlias }),
     ...(input.OutputConfig !== undefined &&
       input.OutputConfig !== null && {
         OutputConfig: serializeAws_json1_1EdgeOutputConfig(input.OutputConfig, context),
@@ -24538,6 +24755,18 @@ const deserializeAws_json1_1CacheHitResult = (output: any, context: __SerdeConte
       output.SourcePipelineExecutionArn !== undefined && output.SourcePipelineExecutionArn !== null
         ? output.SourcePipelineExecutionArn
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CallbackStepMetadata = (output: any, context: __SerdeContext): CallbackStepMetadata => {
+  return {
+    CallbackToken:
+      output.CallbackToken !== undefined && output.CallbackToken !== null ? output.CallbackToken : undefined,
+    OutputParameters:
+      output.OutputParameters !== undefined && output.OutputParameters !== null
+        ? deserializeAws_json1_1OutputParameterList(output.OutputParameters, context)
+        : undefined,
+    SqsQueueUrl: output.SqsQueueUrl !== undefined && output.SqsQueueUrl !== null ? output.SqsQueueUrl : undefined,
   } as any;
 };
 
@@ -26437,6 +26666,10 @@ const deserializeAws_json1_1DescribeEdgePackagingJobResponse = (
       output.OutputConfig !== undefined && output.OutputConfig !== null
         ? deserializeAws_json1_1EdgeOutputConfig(output.OutputConfig, context)
         : undefined,
+    PresetDeploymentOutput:
+      output.PresetDeploymentOutput !== undefined && output.PresetDeploymentOutput !== null
+        ? deserializeAws_json1_1EdgePresetDeploymentOutput(output.PresetDeploymentOutput, context)
+        : undefined,
     ResourceKey: output.ResourceKey !== undefined && output.ResourceKey !== null ? output.ResourceKey : undefined,
     RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
   } as any;
@@ -27295,6 +27528,8 @@ const deserializeAws_json1_1DescribePipelineExecutionResponse = (
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
     LastModifiedBy:
       output.LastModifiedBy !== undefined && output.LastModifiedBy !== null
         ? deserializeAws_json1_1UserContext(output.LastModifiedBy, context)
@@ -27319,6 +27554,10 @@ const deserializeAws_json1_1DescribePipelineExecutionResponse = (
     PipelineExecutionStatus:
       output.PipelineExecutionStatus !== undefined && output.PipelineExecutionStatus !== null
         ? output.PipelineExecutionStatus
+        : undefined,
+    PipelineExperimentConfig:
+      output.PipelineExperimentConfig !== undefined && output.PipelineExperimentConfig !== null
+        ? deserializeAws_json1_1PipelineExperimentConfig(output.PipelineExperimentConfig, context)
         : undefined,
   } as any;
 };
@@ -28079,6 +28318,14 @@ const deserializeAws_json1_1EdgeModelSummary = (output: any, context: __SerdeCon
 const deserializeAws_json1_1EdgeOutputConfig = (output: any, context: __SerdeContext): EdgeOutputConfig => {
   return {
     KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
+    PresetDeploymentConfig:
+      output.PresetDeploymentConfig !== undefined && output.PresetDeploymentConfig !== null
+        ? output.PresetDeploymentConfig
+        : undefined,
+    PresetDeploymentType:
+      output.PresetDeploymentType !== undefined && output.PresetDeploymentType !== null
+        ? output.PresetDeploymentType
+        : undefined,
     S3OutputLocation:
       output.S3OutputLocation !== undefined && output.S3OutputLocation !== null ? output.S3OutputLocation : undefined,
   } as any;
@@ -28129,6 +28376,19 @@ const deserializeAws_json1_1EdgePackagingJobSummary = (
         : undefined,
     ModelName: output.ModelName !== undefined && output.ModelName !== null ? output.ModelName : undefined,
     ModelVersion: output.ModelVersion !== undefined && output.ModelVersion !== null ? output.ModelVersion : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1EdgePresetDeploymentOutput = (
+  output: any,
+  context: __SerdeContext
+): EdgePresetDeploymentOutput => {
+  return {
+    Artifact: output.Artifact !== undefined && output.Artifact !== null ? output.Artifact : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null ? output.StatusMessage : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
 };
 
@@ -31692,6 +31952,24 @@ const deserializeAws_json1_1OutputDataConfig = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_json1_1OutputParameter = (output: any, context: __SerdeContext): OutputParameter => {
+  return {
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1OutputParameterList = (output: any, context: __SerdeContext): OutputParameter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1OutputParameter(entry, context);
+    });
+};
+
 const deserializeAws_json1_1Parameter = (output: any, context: __SerdeContext): Parameter => {
   return {
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -31860,6 +32138,8 @@ const deserializeAws_json1_1PipelineExecution = (output: any, context: __SerdeCo
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
     LastModifiedBy:
       output.LastModifiedBy !== undefined && output.LastModifiedBy !== null
         ? deserializeAws_json1_1UserContext(output.LastModifiedBy, context)
@@ -31884,6 +32164,10 @@ const deserializeAws_json1_1PipelineExecution = (output: any, context: __SerdeCo
     PipelineExecutionStatus:
       output.PipelineExecutionStatus !== undefined && output.PipelineExecutionStatus !== null
         ? output.PipelineExecutionStatus
+        : undefined,
+    PipelineExperimentConfig:
+      output.PipelineExperimentConfig !== undefined && output.PipelineExperimentConfig !== null
+        ? deserializeAws_json1_1PipelineExperimentConfig(output.PipelineExperimentConfig, context)
         : undefined,
     PipelineParameters:
       output.PipelineParameters !== undefined && output.PipelineParameters !== null
@@ -31934,6 +32218,10 @@ const deserializeAws_json1_1PipelineExecutionStepMetadata = (
   context: __SerdeContext
 ): PipelineExecutionStepMetadata => {
   return {
+    Callback:
+      output.Callback !== undefined && output.Callback !== null
+        ? deserializeAws_json1_1CallbackStepMetadata(output.Callback, context)
+        : undefined,
     Condition:
       output.Condition !== undefined && output.Condition !== null
         ? deserializeAws_json1_1ConditionStepMetadata(output.Condition, context)
@@ -32001,6 +32289,17 @@ const deserializeAws_json1_1PipelineExecutionSummaryList = (
       }
       return deserializeAws_json1_1PipelineExecutionSummary(entry, context);
     });
+};
+
+const deserializeAws_json1_1PipelineExperimentConfig = (
+  output: any,
+  context: __SerdeContext
+): PipelineExperimentConfig => {
+  return {
+    ExperimentName:
+      output.ExperimentName !== undefined && output.ExperimentName !== null ? output.ExperimentName : undefined,
+    TrialName: output.TrialName !== undefined && output.TrialName !== null ? output.TrialName : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineSummary = (output: any, context: __SerdeContext): PipelineSummary => {
@@ -32940,6 +33239,30 @@ const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeCon
       }
       return entry;
     });
+};
+
+const deserializeAws_json1_1SendPipelineExecutionStepFailureResponse = (
+  output: any,
+  context: __SerdeContext
+): SendPipelineExecutionStepFailureResponse => {
+  return {
+    PipelineExecutionArn:
+      output.PipelineExecutionArn !== undefined && output.PipelineExecutionArn !== null
+        ? output.PipelineExecutionArn
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SendPipelineExecutionStepSuccessResponse = (
+  output: any,
+  context: __SerdeContext
+): SendPipelineExecutionStepSuccessResponse => {
+  return {
+    PipelineExecutionArn:
+      output.PipelineExecutionArn !== undefined && output.PipelineExecutionArn !== null
+        ? output.PipelineExecutionArn
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1ServiceCatalogProvisionedProductDetails = (

@@ -211,9 +211,7 @@ import {
   MediaPackageOutputDestinationSettings,
   MediaPackageOutputSettings,
   Mp2Settings,
-  MsSmoothGroupSettings,
   MsSmoothOutputSettings,
-  MultiplexGroupSettings,
   MultiplexMediaConnectOutputDestinationSettings,
   MultiplexOutputDestination,
   MultiplexOutputSettings,
@@ -302,7 +300,9 @@ import {
   MotionGraphicsSettings,
   Mpeg2FilterSettings,
   Mpeg2Settings,
+  MsSmoothGroupSettings,
   Multiplex,
+  MultiplexGroupSettings,
   MultiplexProgram,
   MultiplexProgramPacketIdentifiersMap,
   MultiplexProgramServiceDescriptor,
@@ -10006,6 +10006,7 @@ const serializeAws_restJson1DvbSubDestinationSettings = (
 
 const serializeAws_restJson1DvbSubSourceSettings = (input: DvbSubSourceSettings, context: __SerdeContext): any => {
   return {
+    ...(input.OcrLanguage !== undefined && input.OcrLanguage !== null && { ocrLanguage: input.OcrLanguage }),
     ...(input.Pid !== undefined && input.Pid !== null && { pid: input.Pid }),
   };
 };
@@ -10644,6 +10645,7 @@ const serializeAws_restJson1HlsInputSettings = (input: HlsInputSettings, context
       input.BufferSegments !== null && { bufferSegments: input.BufferSegments }),
     ...(input.Retries !== undefined && input.Retries !== null && { retries: input.Retries }),
     ...(input.RetryInterval !== undefined && input.RetryInterval !== null && { retryInterval: input.RetryInterval }),
+    ...(input.Scte35Source !== undefined && input.Scte35Source !== null && { scte35Source: input.Scte35Source }),
   };
 };
 
@@ -11752,6 +11754,7 @@ const serializeAws_restJson1Scte27DestinationSettings = (
 
 const serializeAws_restJson1Scte27SourceSettings = (input: Scte27SourceSettings, context: __SerdeContext): any => {
   return {
+    ...(input.OcrLanguage !== undefined && input.OcrLanguage !== null && { ocrLanguage: input.OcrLanguage }),
     ...(input.Pid !== undefined && input.Pid !== null && { pid: input.Pid }),
   };
 };
@@ -13490,6 +13493,7 @@ const deserializeAws_restJson1DvbSubDestinationSettings = (
 
 const deserializeAws_restJson1DvbSubSourceSettings = (output: any, context: __SerdeContext): DvbSubSourceSettings => {
   return {
+    OcrLanguage: output.ocrLanguage !== undefined && output.ocrLanguage !== null ? output.ocrLanguage : undefined,
     Pid: output.pid !== undefined && output.pid !== null ? output.pid : undefined,
   } as any;
 };
@@ -14239,6 +14243,7 @@ const deserializeAws_restJson1HlsInputSettings = (output: any, context: __SerdeC
     Retries: output.retries !== undefined && output.retries !== null ? output.retries : undefined,
     RetryInterval:
       output.retryInterval !== undefined && output.retryInterval !== null ? output.retryInterval : undefined,
+    Scte35Source: output.scte35Source !== undefined && output.scte35Source !== null ? output.scte35Source : undefined,
   } as any;
 };
 
@@ -15839,6 +15844,7 @@ const deserializeAws_restJson1Scte27DestinationSettings = (
 
 const deserializeAws_restJson1Scte27SourceSettings = (output: any, context: __SerdeContext): Scte27SourceSettings => {
   return {
+    OcrLanguage: output.ocrLanguage !== undefined && output.ocrLanguage !== null ? output.ocrLanguage : undefined,
     Pid: output.pid !== undefined && output.pid !== null ? output.pid : undefined,
   } as any;
 };

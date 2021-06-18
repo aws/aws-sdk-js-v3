@@ -895,6 +895,16 @@ import {
 } from "./commands/RenderUiTemplateCommand";
 import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
 import {
+  SendPipelineExecutionStepFailureCommand,
+  SendPipelineExecutionStepFailureCommandInput,
+  SendPipelineExecutionStepFailureCommandOutput,
+} from "./commands/SendPipelineExecutionStepFailureCommand";
+import {
+  SendPipelineExecutionStepSuccessCommand,
+  SendPipelineExecutionStepSuccessCommandInput,
+  SendPipelineExecutionStepSuccessCommandOutput,
+} from "./commands/SendPipelineExecutionStepSuccessCommand";
+import {
   StartMonitoringScheduleCommand,
   StartMonitoringScheduleCommandInput,
   StartMonitoringScheduleCommandOutput,
@@ -1152,12 +1162,13 @@ export class SageMaker extends SageMakerClient {
    *             </p>
    *         </note>
    *         <note>
-   *             <p>Tags that you add to a SageMaker Studio Domain or User Profile by calling this API are also
-   *                 added to any Apps that the Domain or User Profile launches after you
-   *                 call this API, but not to Apps that the Domain or User Profile launched
-   *                 before you called this API. To make sure that the tags associated with a
-   *                 Domain or User Profile are also added to all Apps that the
-   *                 Domain or User Profile launches, add the tags when you first create the Domain or User Profile by specifying them in the <code>Tags</code> parameter of <a>CreateDomain</a> or <a>CreateUserProfile</a>.</p>
+   *             <p>Tags that you add to a SageMaker Studio Domain or User Profile by calling this API
+   *                 are also added to any Apps that the Domain or User Profile launches after you call
+   *                 this API, but not to Apps that the Domain or User Profile launched before you called
+   *                 this API. To make sure that the tags associated with a Domain or User Profile are
+   *                 also added to all Apps that the Domain or User Profile launches, add the tags when
+   *                 you first create the Domain or User Profile by specifying them in the
+   *                     <code>Tags</code> parameter of <a>CreateDomain</a> or <a>CreateUserProfile</a>.</p>
    *         </note>
    */
   public addTags(args: AddTagsCommandInput, options?: __HttpHandlerOptions): Promise<AddTagsCommandOutput>;
@@ -2241,10 +2252,9 @@ export class SageMaker extends SageMakerClient {
 
   /**
    * <p>Creates a model in Amazon SageMaker. In the request, you name the model and describe a primary
-   *             container. For the primary container,
-   *             you specify the Docker image that contains inference code, artifacts (from prior
-   *             training), and a custom environment map that the inference code uses when you deploy the
-   *             model for predictions.</p>
+   *             container. For the primary container, you specify the Docker image that
+   *             contains inference code, artifacts (from prior training), and a custom environment map
+   *             that the inference code uses when you deploy the model for predictions.</p>
    *         <p>Use this API to create a model if you want to use Amazon SageMaker hosting services or run a batch
    *             transform job.</p>
    *         <p>To host your model, you create an endpoint configuration with the
@@ -2813,7 +2823,6 @@ export class SageMaker extends SageMakerClient {
    *             resulting model artifacts as part of the model. You can also use the artifacts in a
    *             machine learning service other than Amazon SageMaker, provided that you know how to use them for
    *             inference.
-   *
    *         </p>
    *         <p>In the request body, you provide the following: </p>
    *         <ul>
@@ -2866,17 +2875,18 @@ export class SageMaker extends SageMakerClient {
    *                 <p>
    *                   <code>StoppingCondition</code> - To help cap training costs, use
    *                         <code>MaxRuntimeInSeconds</code> to set a time limit for training. Use
-   *                         <code>MaxWaitTimeInSeconds</code> to specify how long
-   *                         a managed spot training job has to complete. </p>
+   *                         <code>MaxWaitTimeInSeconds</code> to specify how long a managed spot
+   *                     training job has to complete. </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>Environment</code> - The environment variables to set in the Docker container.</p>
+   *                   <code>Environment</code> - The environment variables to set in the Docker
+   *                     container.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>RetryStrategy</code> - The number of times to retry the job when the
-   *                     job fails due to an <code>InternalServerError</code>.</p>
+   *                   <code>RetryStrategy</code> - The number of times to retry the job when the job
+   *                     fails due to an <code>InternalServerError</code>.</p>
    *             </li>
    *          </ul>
    *         <p> For more information about Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
@@ -4210,9 +4220,9 @@ export class SageMaker extends SageMakerClient {
    *                 launched before you called this API.</p>
    *         </note>
    *         <note>
-   *             <p>When you call this API to delete tags from a SageMaker Studio Domain or User Profile, the
-   *                 deleted tags are not removed from Apps that the SageMaker Studio Domain or User Profile
-   *                 launched before you called this API.</p>
+   *             <p>When you call this API to delete tags from a SageMaker Studio Domain or User
+   *                 Profile, the deleted tags are not removed from Apps that the SageMaker Studio Domain
+   *                 or User Profile launched before you called this API.</p>
    *         </note>
    */
   public deleteTags(args: DeleteTagsCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTagsCommandOutput>;
@@ -7596,15 +7606,16 @@ export class SageMaker extends SageMakerClient {
    *             <p>When <code>StatusEquals</code> and <code>MaxResults</code> are set at the same
    *                 time, the <code>MaxResults</code> number of training jobs are first retrieved
    *                 ignoring the <code>StatusEquals</code> parameter and then they are filtered by the
-   *                 <code>StatusEquals</code> parameter, which is returned as a response.</p>
-   *             <p>For example, if <code>ListTrainingJobs</code> is invoked with the following parameters:</p>
+   *                     <code>StatusEquals</code> parameter, which is returned as a response.</p>
+   *             <p>For example, if <code>ListTrainingJobs</code> is invoked with the following
+   *                 parameters:</p>
    *             <p>
    *                <code>{ ... MaxResults: 100, StatusEquals: InProgress ... }</code>
    *             </p>
    *             <p>First, 100 trainings jobs with any status, including those other than
-   *                 <code>InProgress</code>, are selected (sorted according to the creation time,
+   *                     <code>InProgress</code>, are selected (sorted according to the creation time,
    *                 from the most current to the oldest). Next, those with a status of
-   *                 <code>InProgress</code> are returned.</p>
+   *                     <code>InProgress</code> are returned.</p>
    *             <p>You can quickly test the API using the following AWS CLI code.</p>
    *             <p>
    *                <code>aws sagemaker list-training-jobs --max-results 100 --status-equals
@@ -8006,6 +8017,74 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: SearchCommandOutput) => void
   ): Promise<SearchCommandOutput> | void {
     const command = new SearchCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Notifies the pipeline that the execution of a callback step failed, along with a
+   *         message describing why. When a callback step is run, the pipeline generates a callback
+   *         token and includes the token in a message sent to Amazon Simple Queue Service (Amazon SQS).</p>
+   */
+  public sendPipelineExecutionStepFailure(
+    args: SendPipelineExecutionStepFailureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendPipelineExecutionStepFailureCommandOutput>;
+  public sendPipelineExecutionStepFailure(
+    args: SendPipelineExecutionStepFailureCommandInput,
+    cb: (err: any, data?: SendPipelineExecutionStepFailureCommandOutput) => void
+  ): void;
+  public sendPipelineExecutionStepFailure(
+    args: SendPipelineExecutionStepFailureCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendPipelineExecutionStepFailureCommandOutput) => void
+  ): void;
+  public sendPipelineExecutionStepFailure(
+    args: SendPipelineExecutionStepFailureCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendPipelineExecutionStepFailureCommandOutput) => void),
+    cb?: (err: any, data?: SendPipelineExecutionStepFailureCommandOutput) => void
+  ): Promise<SendPipelineExecutionStepFailureCommandOutput> | void {
+    const command = new SendPipelineExecutionStepFailureCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Notifies the pipeline that the execution of a callback step succeeded and provides a
+   *         list of the step's output parameters. When a callback step is run, the pipeline generates
+   *         a callback token and includes the token in a message sent to Amazon Simple Queue Service (Amazon SQS).</p>
+   */
+  public sendPipelineExecutionStepSuccess(
+    args: SendPipelineExecutionStepSuccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendPipelineExecutionStepSuccessCommandOutput>;
+  public sendPipelineExecutionStepSuccess(
+    args: SendPipelineExecutionStepSuccessCommandInput,
+    cb: (err: any, data?: SendPipelineExecutionStepSuccessCommandOutput) => void
+  ): void;
+  public sendPipelineExecutionStepSuccess(
+    args: SendPipelineExecutionStepSuccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendPipelineExecutionStepSuccessCommandOutput) => void
+  ): void;
+  public sendPipelineExecutionStepSuccess(
+    args: SendPipelineExecutionStepSuccessCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendPipelineExecutionStepSuccessCommandOutput) => void),
+    cb?: (err: any, data?: SendPipelineExecutionStepSuccessCommandOutput) => void
+  ): Promise<SendPipelineExecutionStepSuccessCommandOutput> | void {
+    const command = new SendPipelineExecutionStepSuccessCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

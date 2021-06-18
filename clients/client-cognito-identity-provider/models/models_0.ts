@@ -2049,18 +2049,15 @@ export interface AdminInitiateAuthRequest {
    *                 <p>User migration</p>
    *             </li>
    *          </ul>
-   *
    *         <p>When Amazon Cognito invokes the functions for these triggers, it passes a JSON
    *             payload, which the function receives as input. This payload contains a
    *                 <code>validationData</code> attribute, which provides the data that you assigned to
    *             the ClientMetadata parameter in your AdminInitiateAuth request. In your function code in
    *             AWS Lambda, you can process the <code>validationData</code> value to enhance your
    *             workflow for your specific needs.</p>
-   *
    *         <p>When you use the AdminInitiateAuth API action, Amazon Cognito also invokes the
    *             functions for the following triggers, but it does not provide the ClientMetadata value
    *             as input:</p>
-   *
    *         <ul>
    *             <li>
    *                 <p>Post authentication</p>
@@ -4573,9 +4570,6 @@ export interface IdentityProviderType {
    *                                 oidc_issuer key</i>
    *                      </p>
    *                     </li>
-   *                   <li>
-   *                         <p>authorize_scopes</p>
-   *                     </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -5028,7 +5022,6 @@ export interface EmailConfigurationType {
    *                         environments, the default email limit is below the required delivery volume.
    *                         To achieve a higher delivery volume, specify DEVELOPER to use your Amazon
    *                         SES email configuration.</p>
-   *
    *                     <p>To look up the email delivery limit for the default option, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html">Limits in Amazon Cognito</a> in the <i>Amazon Cognito
    *                             Developer Guide</i>.</p>
    *                     <p>The default FROM address is no-reply@verificationemail.com. To customize
@@ -5036,7 +5029,6 @@ export interface EmailConfigurationType {
    *                         for the <code>SourceArn</code> parameter.</p>
    *                     <p> If EmailSendingAccount is COGNITO_DEFAULT, the following parameters
    *                         aren't allowed:</p>
-   *
    *                     <ul>
    *                   <li>
    *                             <p>EmailVerificationMessage</p>
@@ -5063,8 +5055,6 @@ export interface EmailConfigurationType {
    *                             <p>VerificationMessageTemplate.EmailSubjectByLink</p>
    *                         </li>
    *                </ul>
-   *
-   *
    *                     <note>
    *                         <p>DEVELOPER EmailSendingAccount is required.</p>
    *                     </note>
@@ -5801,6 +5791,21 @@ export interface UserPoolType {
 
   /**
    * <p>The reason why the SMS configuration cannot send the messages to your users.</p>
+   *         <p>This message might include comma-separated values to describe why your SMS configuration
+   *             can't send messages to user pool end users.</p>
+   *
+   *         <ul>
+   *             <li>
+   *                 <p>InvalidSmsRoleAccessPolicyException - The IAM role which Cognito uses to send
+   *                     SMS messages is not properly configured. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SmsConfigurationType.html">SmsConfigurationType</a>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>SNSSandbox - The AWS account is in SNS Sandbox and messages won’t reach
+   *                     unverified end users. This parameter won’t get populated
+   *                     with SNSSandbox if the IAM user creating the user pool doesn’t have SNS permissions.
+   *                     To learn how to move your AWS account out of the sandbox, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-moving-to-production.html">Moving out of the SMS sandbox</a>.</p>
+   *             </li>
+   *          </ul>
    */
   SmsConfigurationFailure?: string;
 
@@ -6191,6 +6196,13 @@ export interface CreateUserPoolClientRequest {
    *         </note>
    */
   PreventUserExistenceErrors?: PreventUserExistenceErrorTypes | string;
+
+  /**
+   * <p>Enables or disables token revocation. For more information
+   *             about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
+   *         <p>If you don't include this parameter, token revocation is automatically enabled for the new user pool client.</p>
+   */
+  EnableTokenRevocation?: boolean;
 }
 
 export namespace CreateUserPoolClientRequest {
@@ -6431,6 +6443,13 @@ export interface UserPoolClientType {
    *         </note>
    */
   PreventUserExistenceErrors?: PreventUserExistenceErrorTypes | string;
+
+  /**
+   * <p>Indicates whether token revocation is enabled for the user pool client. When you
+   *             create a new user pool client, token revocation is enabled by default. For more information
+   *             about revoking tokens, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html">RevokeToken</a>.</p>
+   */
+  EnableTokenRevocation?: boolean;
 }
 
 export namespace UserPoolClientType {
@@ -8105,18 +8124,15 @@ export interface InitiateAuthRequest {
    *                 <p>User migration</p>
    *             </li>
    *          </ul>
-   *
    *         <p>When Amazon Cognito invokes the functions for these triggers, it passes a JSON
    *             payload, which the function receives as input. This payload contains a
    *                 <code>validationData</code> attribute, which provides the data that you assigned to
    *             the ClientMetadata parameter in your InitiateAuth request. In your function code in AWS
    *             Lambda, you can process the <code>validationData</code> value to enhance your workflow
    *             for your specific needs.</p>
-   *
    *         <p>When you use the InitiateAuth API action, Amazon Cognito also invokes the functions
    *             for the following triggers, but it does not provide the ClientMetadata value as
    *             input:</p>
-   *
    *         <ul>
    *             <li>
    *                 <p>Post authentication</p>
@@ -8137,7 +8153,6 @@ export interface InitiateAuthRequest {
    *                 <p>Verify auth challenge</p>
    *             </li>
    *          </ul>
-   *
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the
    *                 <i>Amazon Cognito Developer Guide</i>.</p>
    *         <note>
@@ -9282,6 +9297,100 @@ export namespace RespondToAuthChallengeResponse {
   });
 }
 
+export interface RevokeTokenRequest {
+  /**
+   * <p>The token that you want to revoke.</p>
+   */
+  Token: string | undefined;
+
+  /**
+   * <p>The client ID for the token that you want to revoke.</p>
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>The secret for the client ID. This is required only if the client ID has a secret.</p>
+   */
+  ClientSecret?: string;
+}
+
+export namespace RevokeTokenRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RevokeTokenRequest): any => ({
+    ...obj,
+    ...(obj.Token && { Token: SENSITIVE_STRING }),
+    ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+    ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+  });
+}
+
+export interface RevokeTokenResponse {}
+
+export namespace RevokeTokenResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RevokeTokenResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This exception is thrown when the request is not authorized. This can happen due to an invalid access token in the request.</p>
+ */
+export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
+  name: "UnauthorizedException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnauthorizedException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This exception is thrown when you attempt to perform an operation that is not enabled for the user pool client.</p>
+ */
+export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
+  name: "UnsupportedOperationException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnsupportedOperationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This exception is thrown when an unsupported token is passed to an operation.</p>
+ */
+export interface UnsupportedTokenTypeException extends __SmithyException, $MetadataBearer {
+  name: "UnsupportedTokenTypeException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace UnsupportedTokenTypeException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnsupportedTokenTypeException): any => ({
+    ...obj,
+  });
+}
+
 export interface SetRiskConfigurationRequest {
   /**
    * <p>The user pool ID. </p>
@@ -9718,102 +9827,6 @@ export namespace StartUserImportJobRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: StartUserImportJobRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Represents the response from the server to the request to start the user import
- *             job.</p>
- */
-export interface StartUserImportJobResponse {
-  /**
-   * <p>The job object that represents the user import job.</p>
-   */
-  UserImportJob?: UserImportJobType;
-}
-
-export namespace StartUserImportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartUserImportJobResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Represents the request to stop the user import job.</p>
- */
-export interface StopUserImportJobRequest {
-  /**
-   * <p>The user pool ID for the user pool that the users are being imported into.</p>
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * <p>The job ID for the user import job.</p>
-   */
-  JobId: string | undefined;
-}
-
-export namespace StopUserImportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopUserImportJobRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Represents the response from the server to the request to stop the user import
- *             job.</p>
- */
-export interface StopUserImportJobResponse {
-  /**
-   * <p>The job object that represents the user import job.</p>
-   */
-  UserImportJob?: UserImportJobType;
-}
-
-export namespace StopUserImportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopUserImportJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user pool to assign the tags to.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>The tags to assign to the user pool.</p>
-   */
-  Tags: { [key: string]: string } | undefined;
-}
-
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
 }
