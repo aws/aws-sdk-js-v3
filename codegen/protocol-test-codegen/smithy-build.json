@@ -118,6 +118,11 @@
             "license": "Apache-2.0"
           },
           "private": true
+        },
+        "typescript-ssdk-codegen": {
+          "package": "@aws-sdk/aws-restjson-server",
+          "packageVersion": "1.0.0-alpha.1",
+          "disableDefaultValidation": true
         }
       }
     },
