@@ -8,6 +8,7 @@ import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
 
 import { ClientDefaults } from "./CognitoIdentityClient";
+// @ts-ignore
 import packageInfo from "./package.js";
 import { ClientSharedValues } from "./runtimeConfig.shared";
 
