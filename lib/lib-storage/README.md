@@ -7,7 +7,7 @@
 
 Upload allows for easy and efficient uploading of buffers, blobs, or streams, using a configurable amount of concurrency to perform multipart uploads where possible. This abstraction enables uploading large files or streams of unknown size due to the use of multipart uploads under the hood.
 
-```
+```js
   import { Upload } from "@aws-sdk/lib-storage";
   import { S3Client, S3 } from "@aws-sdk/client-s3";
 
