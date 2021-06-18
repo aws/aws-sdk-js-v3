@@ -1,0 +1,49 @@
+name: server-protocol-tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'yarn'
+
+      - name: build and publish smithy-typescript
+        run: |
+          git clone --depth 1 https://github.com/awslabs/smithy-typescript.git
+          cd smithy-typescript
+          ./gradlew clean build publishToMavenLocal
+          cd ..
+
+      - name: install dependencies
+        run: |
+          yarn install
+
+      - name: generate protocol tests
+        run: |
+          yarn generate-clients --server-artifacts
+
+      # there are new dependencies as a result of generating server protocol tests
+      - name: install dependencies again
+        run: |
+          yarn install
+
+      - name: run protocol tests
+        run: |
+          yarn test:server-protocols
+
+

@@ -3,7 +3,7 @@ const yargs = require("yargs");
 const path = require("path");
 const { emptyDirSync, rmdirSync } = require("fs-extra");
 const { generateClients, generateProtocolTests } = require("./code-gen");
-const { copyToClients } = require("./copy-to-clients");
+const { copyToClients, copyServerTests } = require("./copy-to-clients");
 const {
   CODE_GEN_SDK_OUTPUT_DIR,
   CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR,
@@ -19,6 +19,7 @@ const {
   globs,
   output: clientsDir,
   noProtocolTest,
+  s: serverOnly,
 } = yargs
   .alias("m", "models")
   .string("m")
@@ -34,10 +35,27 @@ const {
   .alias("n", "noProtocolTest")
   .boolean("n")
   .describe("n", "Disable generating protocol test files")
+  .alias("s", "server-artifacts")
+  .boolean("s")
+  .describe("s", "Generate server artifacts instead of client ones")
+  .default("s", false)
+  .conflicts("s", ["m", "g", "n"])
   .help().argv;
 
 (async () => {
   try {
+    if (serverOnly) {
+      await generateProtocolTests();
+      await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+      await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
+
+      emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+      emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
+
+      rmdirSync(TEMP_CODE_GEN_INPUT_DIR);
+      return;
+    }
+
     await generateClients(models || globs);
     if (!noProtocolTest) await generateProtocolTests();
 
