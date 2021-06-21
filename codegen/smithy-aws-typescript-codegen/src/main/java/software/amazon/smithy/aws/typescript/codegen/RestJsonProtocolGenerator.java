@@ -341,4 +341,9 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     private DocumentMemberDeserVisitor getMemberDeserVisitor(GenerationContext context, String dataSource) {
         return new JsonMemberDeserVisitor(context, dataSource, getDocumentTimestampFormat());
     }
+
+    @Override
+    public void generateProtocolTests(GenerationContext context) {
+        AwsProtocolUtils.generateProtocolTests(this, context);
+    }
 }
