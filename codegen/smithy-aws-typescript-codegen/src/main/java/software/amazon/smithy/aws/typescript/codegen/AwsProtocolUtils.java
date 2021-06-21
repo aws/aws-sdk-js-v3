@@ -33,8 +33,10 @@ import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.model.traits.XmlNamespaceTrait;
+import software.amazon.smithy.typescript.codegen.HttpProtocolTestGenerator;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpProtocolGeneratorUtils;
+import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
@@ -273,5 +275,9 @@ final class AwsProtocolUtils {
         HttpBindingIndex httpIndex = HttpBindingIndex.of(context.getModel());
         TimestampFormatTrait.Format format = httpIndex.determineTimestampFormat(memberShape, DOCUMENT, defaultFormat);
         return HttpProtocolGeneratorUtils.getTimestampInputParam(context, inputLocation, memberShape, format);
+    }
+
+    static void generateProtocolTests(ProtocolGenerator generator, GenerationContext context) {
+        new HttpProtocolTestGenerator(context, generator).run();
     }
 }
