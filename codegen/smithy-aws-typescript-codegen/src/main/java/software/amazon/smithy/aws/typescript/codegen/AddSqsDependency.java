@@ -36,7 +36,7 @@ import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
- * Adds SQS customization
+ * Adds SQS customization.
  */
 @SmithyInternalApi
 public class AddSqsDependency implements TypeScriptIntegration {
@@ -47,17 +47,17 @@ public class AddSqsDependency implements TypeScriptIntegration {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessage",
                                          HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessage")  && isSQS(s))
+                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessage")  && isSqs(s))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessageBatch",
                                          HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessageBatch") && isSQS(s))
+                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessageBatch") && isSqs(s))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "ReceiveMessage",
                                          HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("ReceiveMessage") && isSQS(s))
+                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("ReceiveMessage") && isSqs(s))
                         .build()
         );
     }
@@ -69,7 +69,7 @@ public class AddSqsDependency implements TypeScriptIntegration {
             SymbolProvider symbolProvider,
             TypeScriptWriter writer
     ) {
-        if (!isSQS(settings.getService(model))) {
+        if (!isSqs(settings.getService(model))) {
             return;
         }
 
@@ -87,7 +87,7 @@ public class AddSqsDependency implements TypeScriptIntegration {
             SymbolProvider symbolProvider,
             LanguageTarget target
     ) {
-        if (!isSQS(settings.getService(model))) {
+        if (!isSqs(settings.getService(model))) {
             return Collections.emptyMap();
         }
 
@@ -110,7 +110,7 @@ public class AddSqsDependency implements TypeScriptIntegration {
         }
     }
 
-    private static boolean isSQS(ServiceShape service) {
+    private static boolean isSqs(ServiceShape service) {
         return service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("").equals("SQS");
     }
 }
