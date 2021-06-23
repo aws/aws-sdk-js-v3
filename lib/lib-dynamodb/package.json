@@ -30,6 +30,10 @@
     "@aws-sdk/util-dynamodb": "^3.0.0"
   },
   "devDependencies": {
+    "@aws-sdk/client-dynamodb": "3.18.0",
+    "@aws-sdk/smithy-client": "3.18.0",
+    "@aws-sdk/types": "3.18.0",
+    "@aws-sdk/util-dynamodb": "3.18.0",
     "@types/jest": "^26.0.4",
     "@types/node": "^14.11.2",
     "jest": "^26.4.2",
