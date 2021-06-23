@@ -347,6 +347,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -7590,7 +7591,7 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
     );
   }
   if (output["NewInstancesProtectedFromScaleIn"] !== undefined) {
-    contents.NewInstancesProtectedFromScaleIn = output["NewInstancesProtectedFromScaleIn"] == "true";
+    contents.NewInstancesProtectedFromScaleIn = __parseBoolean(output["NewInstancesProtectedFromScaleIn"]);
   }
   if (output["ServiceLinkedRoleARN"] !== undefined) {
     contents.ServiceLinkedRoleARN = output["ServiceLinkedRoleARN"];
@@ -7599,7 +7600,7 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
     contents.MaxInstanceLifetime = parseInt(output["MaxInstanceLifetime"]);
   }
   if (output["CapacityRebalance"] !== undefined) {
-    contents.CapacityRebalance = output["CapacityRebalance"] == "true";
+    contents.CapacityRebalance = __parseBoolean(output["CapacityRebalance"]);
   }
   if (output["WarmPoolConfiguration"] !== undefined) {
     contents.WarmPoolConfiguration = deserializeAws_queryWarmPoolConfiguration(
@@ -7685,7 +7686,7 @@ const deserializeAws_queryAutoScalingInstanceDetails = (
     contents.LaunchTemplate = deserializeAws_queryLaunchTemplateSpecification(output["LaunchTemplate"], context);
   }
   if (output["ProtectedFromScaleIn"] !== undefined) {
-    contents.ProtectedFromScaleIn = output["ProtectedFromScaleIn"] == "true";
+    contents.ProtectedFromScaleIn = __parseBoolean(output["ProtectedFromScaleIn"]);
   }
   if (output["WeightedCapacity"] !== undefined) {
     contents.WeightedCapacity = output["WeightedCapacity"];
@@ -7810,7 +7811,7 @@ const deserializeAws_queryBlockDeviceMapping = (output: any, context: __SerdeCon
     contents.Ebs = deserializeAws_queryEbs(output["Ebs"], context);
   }
   if (output["NoDevice"] !== undefined) {
-    contents.NoDevice = output["NoDevice"] == "true";
+    contents.NoDevice = __parseBoolean(output["NoDevice"]);
   }
   return contents;
 };
@@ -8255,13 +8256,13 @@ const deserializeAws_queryEbs = (output: any, context: __SerdeContext): Ebs => {
     contents.VolumeType = output["VolumeType"];
   }
   if (output["DeleteOnTermination"] !== undefined) {
-    contents.DeleteOnTermination = output["DeleteOnTermination"] == "true";
+    contents.DeleteOnTermination = __parseBoolean(output["DeleteOnTermination"]);
   }
   if (output["Iops"] !== undefined) {
     contents.Iops = parseInt(output["Iops"]);
   }
   if (output["Encrypted"] !== undefined) {
-    contents.Encrypted = output["Encrypted"] == "true";
+    contents.Encrypted = __parseBoolean(output["Encrypted"]);
   }
   if (output["Throughput"] !== undefined) {
     contents.Throughput = parseInt(output["Throughput"]);
@@ -8422,7 +8423,7 @@ const deserializeAws_queryInstance = (output: any, context: __SerdeContext): Ins
     contents.LaunchTemplate = deserializeAws_queryLaunchTemplateSpecification(output["LaunchTemplate"], context);
   }
   if (output["ProtectedFromScaleIn"] !== undefined) {
-    contents.ProtectedFromScaleIn = output["ProtectedFromScaleIn"] == "true";
+    contents.ProtectedFromScaleIn = __parseBoolean(output["ProtectedFromScaleIn"]);
   }
   if (output["WeightedCapacity"] !== undefined) {
     contents.WeightedCapacity = output["WeightedCapacity"];
@@ -8453,7 +8454,7 @@ const deserializeAws_queryInstanceMonitoring = (output: any, context: __SerdeCon
     Enabled: undefined,
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   return contents;
 };
@@ -8725,10 +8726,10 @@ const deserializeAws_queryLaunchConfiguration = (output: any, context: __SerdeCo
     contents.CreatedTime = new Date(output["CreatedTime"]);
   }
   if (output["EbsOptimized"] !== undefined) {
-    contents.EbsOptimized = output["EbsOptimized"] == "true";
+    contents.EbsOptimized = __parseBoolean(output["EbsOptimized"]);
   }
   if (output["AssociatePublicIpAddress"] !== undefined) {
-    contents.AssociatePublicIpAddress = output["AssociatePublicIpAddress"] == "true";
+    contents.AssociatePublicIpAddress = __parseBoolean(output["AssociatePublicIpAddress"]);
   }
   if (output["PlacementTenancy"] !== undefined) {
     contents.PlacementTenancy = output["PlacementTenancy"];
@@ -9519,7 +9520,7 @@ const deserializeAws_queryScalingPolicy = (output: any, context: __SerdeContext)
     );
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["PredictiveScalingConfiguration"] !== undefined) {
     contents.PredictiveScalingConfiguration = deserializeAws_queryPredictiveScalingConfiguration(
@@ -9740,7 +9741,7 @@ const deserializeAws_queryTagDescription = (output: any, context: __SerdeContext
     contents.Value = output["Value"];
   }
   if (output["PropagateAtLaunch"] !== undefined) {
-    contents.PropagateAtLaunch = output["PropagateAtLaunch"] == "true";
+    contents.PropagateAtLaunch = __parseBoolean(output["PropagateAtLaunch"]);
   }
   return contents;
 };
@@ -9810,7 +9811,7 @@ const deserializeAws_queryTargetTrackingConfiguration = (
     contents.TargetValue = parseFloat(output["TargetValue"]);
   }
   if (output["DisableScaleIn"] !== undefined) {
-    contents.DisableScaleIn = output["DisableScaleIn"] == "true";
+    contents.DisableScaleIn = __parseBoolean(output["DisableScaleIn"]);
   }
   return contents;
 };

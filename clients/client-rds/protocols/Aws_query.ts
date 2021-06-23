@@ -912,6 +912,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -20307,7 +20308,7 @@ const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): 
     contents.CertificateArn = output["CertificateArn"];
   }
   if (output["CustomerOverride"] !== undefined) {
-    contents.CustomerOverride = output["CustomerOverride"] == "true";
+    contents.CustomerOverride = __parseBoolean(output["CustomerOverride"]);
   }
   if (output["CustomerOverrideValidTill"] !== undefined) {
     contents.CustomerOverrideValidTill = new Date(output["CustomerOverrideValidTill"]);
@@ -20397,7 +20398,7 @@ const deserializeAws_queryClusterPendingModifiedValues = (
     contents.MasterUserPassword = output["MasterUserPassword"];
   }
   if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
-    contents.IAMDatabaseAuthenticationEnabled = output["IAMDatabaseAuthenticationEnabled"] == "true";
+    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
   }
   if (output["EngineVersion"] !== undefined) {
     contents.EngineVersion = output["EngineVersion"];
@@ -20903,7 +20904,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     );
   }
   if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = output["MultiAZ"] == "true";
+    contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
   }
   if (output["Engine"] !== undefined) {
     contents.Engine = output["Engine"];
@@ -20978,7 +20979,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.HostedZoneId = output["HostedZoneId"];
   }
   if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = output["StorageEncrypted"] == "true";
+    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
   }
   if (output["KmsKeyId"] !== undefined) {
     contents.KmsKeyId = output["KmsKeyId"];
@@ -20999,7 +21000,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     );
   }
   if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
-    contents.IAMDatabaseAuthenticationEnabled = output["IAMDatabaseAuthenticationEnabled"] == "true";
+    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
   }
   if (output["CloneGroupId"] !== undefined) {
     contents.CloneGroupId = output["CloneGroupId"];
@@ -21041,10 +21042,10 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     );
   }
   if (output["DeletionProtection"] !== undefined) {
-    contents.DeletionProtection = output["DeletionProtection"] == "true";
+    contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
   }
   if (output["HttpEndpointEnabled"] !== undefined) {
-    contents.HttpEndpointEnabled = output["HttpEndpointEnabled"] == "true";
+    contents.HttpEndpointEnabled = __parseBoolean(output["HttpEndpointEnabled"]);
   }
   if (output["ActivityStreamMode"] !== undefined) {
     contents.ActivityStreamMode = output["ActivityStreamMode"];
@@ -21059,10 +21060,10 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.ActivityStreamKinesisStreamName = output["ActivityStreamKinesisStreamName"];
   }
   if (output["CopyTagsToSnapshot"] !== undefined) {
-    contents.CopyTagsToSnapshot = output["CopyTagsToSnapshot"] == "true";
+    contents.CopyTagsToSnapshot = __parseBoolean(output["CopyTagsToSnapshot"]);
   }
   if (output["CrossAccountClone"] !== undefined) {
-    contents.CrossAccountClone = output["CrossAccountClone"] == "true";
+    contents.CrossAccountClone = __parseBoolean(output["CrossAccountClone"]);
   }
   if (output.DomainMemberships === "") {
     contents.DomainMemberships = [];
@@ -21083,7 +21084,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.GlobalWriteForwardingStatus = output["GlobalWriteForwardingStatus"];
   }
   if (output["GlobalWriteForwardingRequested"] !== undefined) {
-    contents.GlobalWriteForwardingRequested = output["GlobalWriteForwardingRequested"] == "true";
+    contents.GlobalWriteForwardingRequested = __parseBoolean(output["GlobalWriteForwardingRequested"]);
   }
   if (output["PendingModifiedValues"] !== undefined) {
     contents.PendingModifiedValues = deserializeAws_queryClusterPendingModifiedValues(
@@ -21369,7 +21370,7 @@ const deserializeAws_queryDBClusterMember = (output: any, context: __SerdeContex
     contents.DBInstanceIdentifier = output["DBInstanceIdentifier"];
   }
   if (output["IsClusterWriter"] !== undefined) {
-    contents.IsClusterWriter = output["IsClusterWriter"] == "true";
+    contents.IsClusterWriter = __parseBoolean(output["IsClusterWriter"]);
   }
   if (output["DBClusterParameterGroupStatus"] !== undefined) {
     contents.DBClusterParameterGroupStatus = output["DBClusterParameterGroupStatus"];
@@ -21724,7 +21725,7 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     contents.PercentProgress = parseInt(output["PercentProgress"]);
   }
   if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = output["StorageEncrypted"] == "true";
+    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
   }
   if (output["KmsKeyId"] !== undefined) {
     contents.KmsKeyId = output["KmsKeyId"];
@@ -21736,7 +21737,7 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     contents.SourceDBClusterSnapshotArn = output["SourceDBClusterSnapshotArn"];
   }
   if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
-    contents.IAMDatabaseAuthenticationEnabled = output["IAMDatabaseAuthenticationEnabled"] == "true";
+    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
   }
   if (output.TagList === "") {
     contents.TagList = [];
@@ -21961,10 +21962,10 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
     );
   }
   if (output["SupportsLogExportsToCloudwatchLogs"] !== undefined) {
-    contents.SupportsLogExportsToCloudwatchLogs = output["SupportsLogExportsToCloudwatchLogs"] == "true";
+    contents.SupportsLogExportsToCloudwatchLogs = __parseBoolean(output["SupportsLogExportsToCloudwatchLogs"]);
   }
   if (output["SupportsReadReplica"] !== undefined) {
-    contents.SupportsReadReplica = output["SupportsReadReplica"] == "true";
+    contents.SupportsReadReplica = __parseBoolean(output["SupportsReadReplica"]);
   }
   if (output.SupportedEngineModes === "") {
     contents.SupportedEngineModes = [];
@@ -21988,10 +21989,10 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
     contents.Status = output["Status"];
   }
   if (output["SupportsParallelQuery"] !== undefined) {
-    contents.SupportsParallelQuery = output["SupportsParallelQuery"] == "true";
+    contents.SupportsParallelQuery = __parseBoolean(output["SupportsParallelQuery"]);
   }
   if (output["SupportsGlobalDatabases"] !== undefined) {
-    contents.SupportsGlobalDatabases = output["SupportsGlobalDatabases"] == "true";
+    contents.SupportsGlobalDatabases = __parseBoolean(output["SupportsGlobalDatabases"]);
   }
   return contents;
 };
@@ -22181,13 +22182,13 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.LatestRestorableTime = new Date(output["LatestRestorableTime"]);
   }
   if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = output["MultiAZ"] == "true";
+    contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
   }
   if (output["EngineVersion"] !== undefined) {
     contents.EngineVersion = output["EngineVersion"];
   }
   if (output["AutoMinorVersionUpgrade"] !== undefined) {
-    contents.AutoMinorVersionUpgrade = output["AutoMinorVersionUpgrade"] == "true";
+    contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
   }
   if (output["ReadReplicaSourceDBInstanceIdentifier"] !== undefined) {
     contents.ReadReplicaSourceDBInstanceIdentifier = output["ReadReplicaSourceDBInstanceIdentifier"];
@@ -22247,7 +22248,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.SecondaryAvailabilityZone = output["SecondaryAvailabilityZone"];
   }
   if (output["PubliclyAccessible"] !== undefined) {
-    contents.PubliclyAccessible = output["PubliclyAccessible"] == "true";
+    contents.PubliclyAccessible = __parseBoolean(output["PubliclyAccessible"]);
   }
   if (output.StatusInfos === "") {
     contents.StatusInfos = [];
@@ -22271,7 +22272,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.DBClusterIdentifier = output["DBClusterIdentifier"];
   }
   if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = output["StorageEncrypted"] == "true";
+    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
   }
   if (output["KmsKeyId"] !== undefined) {
     contents.KmsKeyId = output["KmsKeyId"];
@@ -22292,7 +22293,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     );
   }
   if (output["CopyTagsToSnapshot"] !== undefined) {
-    contents.CopyTagsToSnapshot = output["CopyTagsToSnapshot"] == "true";
+    contents.CopyTagsToSnapshot = __parseBoolean(output["CopyTagsToSnapshot"]);
   }
   if (output["MonitoringInterval"] !== undefined) {
     contents.MonitoringInterval = parseInt(output["MonitoringInterval"]);
@@ -22313,10 +22314,10 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.Timezone = output["Timezone"];
   }
   if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
-    contents.IAMDatabaseAuthenticationEnabled = output["IAMDatabaseAuthenticationEnabled"] == "true";
+    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
   }
   if (output["PerformanceInsightsEnabled"] !== undefined) {
-    contents.PerformanceInsightsEnabled = output["PerformanceInsightsEnabled"] == "true";
+    contents.PerformanceInsightsEnabled = __parseBoolean(output["PerformanceInsightsEnabled"]);
   }
   if (output["PerformanceInsightsKMSKeyId"] !== undefined) {
     contents.PerformanceInsightsKMSKeyId = output["PerformanceInsightsKMSKeyId"];
@@ -22346,7 +22347,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     );
   }
   if (output["DeletionProtection"] !== undefined) {
-    contents.DeletionProtection = output["DeletionProtection"] == "true";
+    contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
   }
   if (output.AssociatedRoles === "") {
     contents.AssociatedRoles = [];
@@ -22382,7 +22383,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     );
   }
   if (output["CustomerOwnedIpEnabled"] !== undefined) {
-    contents.CustomerOwnedIpEnabled = output["CustomerOwnedIpEnabled"] == "true";
+    contents.CustomerOwnedIpEnabled = __parseBoolean(output["CustomerOwnedIpEnabled"]);
   }
   if (output["AwsBackupRecoveryPointArn"] !== undefined) {
     contents.AwsBackupRecoveryPointArn = output["AwsBackupRecoveryPointArn"];
@@ -22400,8 +22401,9 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.ActivityStreamMode = output["ActivityStreamMode"];
   }
   if (output["ActivityStreamEngineNativeAuditFieldsIncluded"] !== undefined) {
-    contents.ActivityStreamEngineNativeAuditFieldsIncluded =
-      output["ActivityStreamEngineNativeAuditFieldsIncluded"] == "true";
+    contents.ActivityStreamEngineNativeAuditFieldsIncluded = __parseBoolean(
+      output["ActivityStreamEngineNativeAuditFieldsIncluded"]
+    );
   }
   return contents;
 };
@@ -22506,7 +22508,7 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
     contents.TdeCredentialArn = output["TdeCredentialArn"];
   }
   if (output["Encrypted"] !== undefined) {
-    contents.Encrypted = output["Encrypted"] == "true";
+    contents.Encrypted = __parseBoolean(output["Encrypted"]);
   }
   if (output["StorageType"] !== undefined) {
     contents.StorageType = output["StorageType"];
@@ -22518,7 +22520,7 @@ const deserializeAws_queryDBInstanceAutomatedBackup = (
     contents.Timezone = output["Timezone"];
   }
   if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
-    contents.IAMDatabaseAuthenticationEnabled = output["IAMDatabaseAuthenticationEnabled"] == "true";
+    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
   }
   if (output["BackupRetentionPeriod"] !== undefined) {
     contents.BackupRetentionPeriod = parseInt(output["BackupRetentionPeriod"]);
@@ -22754,7 +22756,7 @@ const deserializeAws_queryDBInstanceStatusInfo = (output: any, context: __SerdeC
     contents.StatusType = output["StatusType"];
   }
   if (output["Normal"] !== undefined) {
-    contents.Normal = output["Normal"] == "true";
+    contents.Normal = __parseBoolean(output["Normal"]);
   }
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
@@ -23009,13 +23011,13 @@ const deserializeAws_queryDBProxy = (output: any, context: __SerdeContext): DBPr
     contents.Endpoint = output["Endpoint"];
   }
   if (output["RequireTLS"] !== undefined) {
-    contents.RequireTLS = output["RequireTLS"] == "true";
+    contents.RequireTLS = __parseBoolean(output["RequireTLS"]);
   }
   if (output["IdleClientTimeout"] !== undefined) {
     contents.IdleClientTimeout = parseInt(output["IdleClientTimeout"]);
   }
   if (output["DebugLogging"] !== undefined) {
-    contents.DebugLogging = output["DebugLogging"] == "true";
+    contents.DebugLogging = __parseBoolean(output["DebugLogging"]);
   }
   if (output["CreatedDate"] !== undefined) {
     contents.CreatedDate = new Date(output["CreatedDate"]);
@@ -23096,7 +23098,7 @@ const deserializeAws_queryDBProxyEndpoint = (output: any, context: __SerdeContex
     contents.TargetRole = output["TargetRole"];
   }
   if (output["IsDefault"] !== undefined) {
-    contents.IsDefault = output["IsDefault"] == "true";
+    contents.IsDefault = __parseBoolean(output["IsDefault"]);
   }
   return contents;
 };
@@ -23257,7 +23259,7 @@ const deserializeAws_queryDBProxyTargetGroup = (output: any, context: __SerdeCon
     contents.TargetGroupArn = output["TargetGroupArn"];
   }
   if (output["IsDefault"] !== undefined) {
-    contents.IsDefault = output["IsDefault"] == "true";
+    contents.IsDefault = __parseBoolean(output["IsDefault"]);
   }
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
@@ -23556,7 +23558,7 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
     contents.TdeCredentialArn = output["TdeCredentialArn"];
   }
   if (output["Encrypted"] !== undefined) {
-    contents.Encrypted = output["Encrypted"] == "true";
+    contents.Encrypted = __parseBoolean(output["Encrypted"]);
   }
   if (output["KmsKeyId"] !== undefined) {
     contents.KmsKeyId = output["KmsKeyId"];
@@ -23568,7 +23570,7 @@ const deserializeAws_queryDBSnapshot = (output: any, context: __SerdeContext): D
     contents.Timezone = output["Timezone"];
   }
   if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
-    contents.IAMDatabaseAuthenticationEnabled = output["IAMDatabaseAuthenticationEnabled"] == "true";
+    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
   }
   if (output.ProcessorFeatures === "") {
     contents.ProcessorFeatures = [];
@@ -24297,7 +24299,7 @@ const deserializeAws_queryDownloadDBLogFilePortionDetails = (
     contents.Marker = output["Marker"];
   }
   if (output["AdditionalDataPending"] !== undefined) {
-    contents.AdditionalDataPending = output["AdditionalDataPending"] == "true";
+    contents.AdditionalDataPending = __parseBoolean(output["AdditionalDataPending"]);
   }
   return contents;
 };
@@ -24563,7 +24565,7 @@ const deserializeAws_queryEventSubscription = (output: any, context: __SerdeCont
     );
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["EventSubscriptionArn"] !== undefined) {
     contents.EventSubscriptionArn = output["EventSubscriptionArn"];
@@ -24835,10 +24837,10 @@ const deserializeAws_queryGlobalCluster = (output: any, context: __SerdeContext)
     contents.DatabaseName = output["DatabaseName"];
   }
   if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = output["StorageEncrypted"] == "true";
+    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
   }
   if (output["DeletionProtection"] !== undefined) {
-    contents.DeletionProtection = output["DeletionProtection"] == "true";
+    contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
   }
   if (output.GlobalClusterMembers === "") {
     contents.GlobalClusterMembers = [];
@@ -24899,7 +24901,7 @@ const deserializeAws_queryGlobalClusterMember = (output: any, context: __SerdeCo
     contents.Readers = deserializeAws_queryReadersArnList(__getArrayIfSingleItem(output["Readers"]["member"]), context);
   }
   if (output["IsWriter"] !== undefined) {
-    contents.IsWriter = output["IsWriter"] == "true";
+    contents.IsWriter = __parseBoolean(output["IsWriter"]);
   }
   if (output["GlobalWriteForwardingStatus"] !== undefined) {
     contents.GlobalWriteForwardingStatus = output["GlobalWriteForwardingStatus"];
@@ -25722,10 +25724,10 @@ const deserializeAws_queryOption = (output: any, context: __SerdeContext): Optio
     contents.OptionDescription = output["OptionDescription"];
   }
   if (output["Persistent"] !== undefined) {
-    contents.Persistent = output["Persistent"] == "true";
+    contents.Persistent = __parseBoolean(output["Persistent"]);
   }
   if (output["Permanent"] !== undefined) {
-    contents.Permanent = output["Permanent"] == "true";
+    contents.Permanent = __parseBoolean(output["Permanent"]);
   }
   if (output["Port"] !== undefined) {
     contents.Port = parseInt(output["Port"]);
@@ -25799,7 +25801,7 @@ const deserializeAws_queryOptionGroup = (output: any, context: __SerdeContext): 
     contents.Options = deserializeAws_queryOptionsList(__getArrayIfSingleItem(output["Options"]["Option"]), context);
   }
   if (output["AllowsVpcAndNonVpcInstanceMemberships"] !== undefined) {
-    contents.AllowsVpcAndNonVpcInstanceMemberships = output["AllowsVpcAndNonVpcInstanceMemberships"] == "true";
+    contents.AllowsVpcAndNonVpcInstanceMemberships = __parseBoolean(output["AllowsVpcAndNonVpcInstanceMemberships"]);
   }
   if (output["VpcId"] !== undefined) {
     contents.VpcId = output["VpcId"];
@@ -25899,7 +25901,7 @@ const deserializeAws_queryOptionGroupOption = (output: any, context: __SerdeCont
     contents.MinimumRequiredMinorEngineVersion = output["MinimumRequiredMinorEngineVersion"];
   }
   if (output["PortRequired"] !== undefined) {
-    contents.PortRequired = output["PortRequired"] == "true";
+    contents.PortRequired = __parseBoolean(output["PortRequired"]);
   }
   if (output["DefaultPort"] !== undefined) {
     contents.DefaultPort = parseInt(output["DefaultPort"]);
@@ -25926,19 +25928,19 @@ const deserializeAws_queryOptionGroupOption = (output: any, context: __SerdeCont
     );
   }
   if (output["Persistent"] !== undefined) {
-    contents.Persistent = output["Persistent"] == "true";
+    contents.Persistent = __parseBoolean(output["Persistent"]);
   }
   if (output["Permanent"] !== undefined) {
-    contents.Permanent = output["Permanent"] == "true";
+    contents.Permanent = __parseBoolean(output["Permanent"]);
   }
   if (output["RequiresAutoMinorEngineVersionUpgrade"] !== undefined) {
-    contents.RequiresAutoMinorEngineVersionUpgrade = output["RequiresAutoMinorEngineVersionUpgrade"] == "true";
+    contents.RequiresAutoMinorEngineVersionUpgrade = __parseBoolean(output["RequiresAutoMinorEngineVersionUpgrade"]);
   }
   if (output["VpcOnly"] !== undefined) {
-    contents.VpcOnly = output["VpcOnly"] == "true";
+    contents.VpcOnly = __parseBoolean(output["VpcOnly"]);
   }
   if (output["SupportsOptionVersionDowngrade"] !== undefined) {
-    contents.SupportsOptionVersionDowngrade = output["SupportsOptionVersionDowngrade"] == "true";
+    contents.SupportsOptionVersionDowngrade = __parseBoolean(output["SupportsOptionVersionDowngrade"]);
   }
   if (output.OptionGroupOptionSettings === "") {
     contents.OptionGroupOptionSettings = [];
@@ -25997,10 +25999,10 @@ const deserializeAws_queryOptionGroupOptionSetting = (
     contents.AllowedValues = output["AllowedValues"];
   }
   if (output["IsModifiable"] !== undefined) {
-    contents.IsModifiable = output["IsModifiable"] == "true";
+    contents.IsModifiable = __parseBoolean(output["IsModifiable"]);
   }
   if (output["IsRequired"] !== undefined) {
-    contents.IsRequired = output["IsRequired"] == "true";
+    contents.IsRequired = __parseBoolean(output["IsRequired"]);
   }
   if (output.MinimumEngineVersionPerAllowedValue === "") {
     contents.MinimumEngineVersionPerAllowedValue = [];
@@ -26176,10 +26178,10 @@ const deserializeAws_queryOptionSetting = (output: any, context: __SerdeContext)
     contents.AllowedValues = output["AllowedValues"];
   }
   if (output["IsModifiable"] !== undefined) {
-    contents.IsModifiable = output["IsModifiable"] == "true";
+    contents.IsModifiable = __parseBoolean(output["IsModifiable"]);
   }
   if (output["IsCollection"] !== undefined) {
-    contents.IsCollection = output["IsCollection"] == "true";
+    contents.IsCollection = __parseBoolean(output["IsCollection"]);
   }
   return contents;
 };
@@ -26215,7 +26217,7 @@ const deserializeAws_queryOptionVersion = (output: any, context: __SerdeContext)
     contents.Version = output["Version"];
   }
   if (output["IsDefault"] !== undefined) {
-    contents.IsDefault = output["IsDefault"] == "true";
+    contents.IsDefault = __parseBoolean(output["IsDefault"]);
   }
   return contents;
 };
@@ -26279,31 +26281,31 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     );
   }
   if (output["MultiAZCapable"] !== undefined) {
-    contents.MultiAZCapable = output["MultiAZCapable"] == "true";
+    contents.MultiAZCapable = __parseBoolean(output["MultiAZCapable"]);
   }
   if (output["ReadReplicaCapable"] !== undefined) {
-    contents.ReadReplicaCapable = output["ReadReplicaCapable"] == "true";
+    contents.ReadReplicaCapable = __parseBoolean(output["ReadReplicaCapable"]);
   }
   if (output["Vpc"] !== undefined) {
-    contents.Vpc = output["Vpc"] == "true";
+    contents.Vpc = __parseBoolean(output["Vpc"]);
   }
   if (output["SupportsStorageEncryption"] !== undefined) {
-    contents.SupportsStorageEncryption = output["SupportsStorageEncryption"] == "true";
+    contents.SupportsStorageEncryption = __parseBoolean(output["SupportsStorageEncryption"]);
   }
   if (output["StorageType"] !== undefined) {
     contents.StorageType = output["StorageType"];
   }
   if (output["SupportsIops"] !== undefined) {
-    contents.SupportsIops = output["SupportsIops"] == "true";
+    contents.SupportsIops = __parseBoolean(output["SupportsIops"]);
   }
   if (output["SupportsEnhancedMonitoring"] !== undefined) {
-    contents.SupportsEnhancedMonitoring = output["SupportsEnhancedMonitoring"] == "true";
+    contents.SupportsEnhancedMonitoring = __parseBoolean(output["SupportsEnhancedMonitoring"]);
   }
   if (output["SupportsIAMDatabaseAuthentication"] !== undefined) {
-    contents.SupportsIAMDatabaseAuthentication = output["SupportsIAMDatabaseAuthentication"] == "true";
+    contents.SupportsIAMDatabaseAuthentication = __parseBoolean(output["SupportsIAMDatabaseAuthentication"]);
   }
   if (output["SupportsPerformanceInsights"] !== undefined) {
-    contents.SupportsPerformanceInsights = output["SupportsPerformanceInsights"] == "true";
+    contents.SupportsPerformanceInsights = __parseBoolean(output["SupportsPerformanceInsights"]);
   }
   if (output["MinStorageSize"] !== undefined) {
     contents.MinStorageSize = parseInt(output["MinStorageSize"]);
@@ -26345,13 +26347,13 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     );
   }
   if (output["SupportsStorageAutoscaling"] !== undefined) {
-    contents.SupportsStorageAutoscaling = output["SupportsStorageAutoscaling"] == "true";
+    contents.SupportsStorageAutoscaling = __parseBoolean(output["SupportsStorageAutoscaling"]);
   }
   if (output["SupportsKerberosAuthentication"] !== undefined) {
-    contents.SupportsKerberosAuthentication = output["SupportsKerberosAuthentication"] == "true";
+    contents.SupportsKerberosAuthentication = __parseBoolean(output["SupportsKerberosAuthentication"]);
   }
   if (output["OutpostCapable"] !== undefined) {
-    contents.OutpostCapable = output["OutpostCapable"] == "true";
+    contents.OutpostCapable = __parseBoolean(output["OutpostCapable"]);
   }
   if (output.SupportedActivityStreamModes === "") {
     contents.SupportedActivityStreamModes = [];
@@ -26366,7 +26368,7 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     );
   }
   if (output["SupportsGlobalDatabases"] !== undefined) {
-    contents.SupportsGlobalDatabases = output["SupportsGlobalDatabases"] == "true";
+    contents.SupportsGlobalDatabases = __parseBoolean(output["SupportsGlobalDatabases"]);
   }
   return contents;
 };
@@ -26457,7 +26459,7 @@ const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Pa
     contents.AllowedValues = output["AllowedValues"];
   }
   if (output["IsModifiable"] !== undefined) {
-    contents.IsModifiable = output["IsModifiable"] == "true";
+    contents.IsModifiable = __parseBoolean(output["IsModifiable"]);
   }
   if (output["MinimumEngineVersion"] !== undefined) {
     contents.MinimumEngineVersion = output["MinimumEngineVersion"];
@@ -26639,7 +26641,7 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     contents.BackupRetentionPeriod = parseInt(output["BackupRetentionPeriod"]);
   }
   if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = output["MultiAZ"] == "true";
+    contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
   }
   if (output["EngineVersion"] !== undefined) {
     contents.EngineVersion = output["EngineVersion"];
@@ -26678,7 +26680,7 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     );
   }
   if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
-    contents.IAMDatabaseAuthenticationEnabled = output["IAMDatabaseAuthenticationEnabled"] == "true";
+    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
   }
   return contents;
 };
@@ -26979,7 +26981,7 @@ const deserializeAws_queryReservedDBInstance = (output: any, context: __SerdeCon
     contents.OfferingType = output["OfferingType"];
   }
   if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = output["MultiAZ"] == "true";
+    contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
   }
   if (output["State"] !== undefined) {
     contents.State = output["State"];
@@ -27119,7 +27121,7 @@ const deserializeAws_queryReservedDBInstancesOffering = (
     contents.OfferingType = output["OfferingType"];
   }
   if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = output["MultiAZ"] == "true";
+    contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
   }
   if (output.RecurringCharges === "") {
     contents.RecurringCharges = [];
@@ -27345,7 +27347,7 @@ const deserializeAws_queryScalingConfigurationInfo = (
     contents.MaxCapacity = parseInt(output["MaxCapacity"]);
   }
   if (output["AutoPause"] !== undefined) {
-    contents.AutoPause = output["AutoPause"] == "true";
+    contents.AutoPause = __parseBoolean(output["AutoPause"]);
   }
   if (output["SecondsUntilAutoPause"] !== undefined) {
     contents.SecondsUntilAutoPause = parseInt(output["SecondsUntilAutoPause"]);
@@ -27453,8 +27455,9 @@ const deserializeAws_querySourceRegion = (output: any, context: __SerdeContext):
     contents.Status = output["Status"];
   }
   if (output["SupportsDBInstanceAutomatedBackupsReplication"] !== undefined) {
-    contents.SupportsDBInstanceAutomatedBackupsReplication =
-      output["SupportsDBInstanceAutomatedBackupsReplication"] == "true";
+    contents.SupportsDBInstanceAutomatedBackupsReplication = __parseBoolean(
+      output["SupportsDBInstanceAutomatedBackupsReplication"]
+    );
   }
   return contents;
 };
@@ -27515,10 +27518,10 @@ const deserializeAws_queryStartActivityStreamResponse = (
     contents.Mode = output["Mode"];
   }
   if (output["ApplyImmediately"] !== undefined) {
-    contents.ApplyImmediately = output["ApplyImmediately"] == "true";
+    contents.ApplyImmediately = __parseBoolean(output["ApplyImmediately"]);
   }
   if (output["EngineNativeAuditFieldsIncluded"] !== undefined) {
-    contents.EngineNativeAuditFieldsIncluded = output["EngineNativeAuditFieldsIncluded"] == "true";
+    contents.EngineNativeAuditFieldsIncluded = __parseBoolean(output["EngineNativeAuditFieldsIncluded"]);
   }
   return contents;
 };
@@ -27866,10 +27869,10 @@ const deserializeAws_queryUpgradeTarget = (output: any, context: __SerdeContext)
     contents.Description = output["Description"];
   }
   if (output["AutoUpgrade"] !== undefined) {
-    contents.AutoUpgrade = output["AutoUpgrade"] == "true";
+    contents.AutoUpgrade = __parseBoolean(output["AutoUpgrade"]);
   }
   if (output["IsMajorVersionUpgrade"] !== undefined) {
-    contents.IsMajorVersionUpgrade = output["IsMajorVersionUpgrade"] == "true";
+    contents.IsMajorVersionUpgrade = __parseBoolean(output["IsMajorVersionUpgrade"]);
   }
   if (output.SupportedEngineModes === "") {
     contents.SupportedEngineModes = [];
@@ -27881,10 +27884,10 @@ const deserializeAws_queryUpgradeTarget = (output: any, context: __SerdeContext)
     );
   }
   if (output["SupportsParallelQuery"] !== undefined) {
-    contents.SupportsParallelQuery = output["SupportsParallelQuery"] == "true";
+    contents.SupportsParallelQuery = __parseBoolean(output["SupportsParallelQuery"]);
   }
   if (output["SupportsGlobalDatabases"] !== undefined) {
-    contents.SupportsGlobalDatabases = output["SupportsGlobalDatabases"] == "true";
+    contents.SupportsGlobalDatabases = __parseBoolean(output["SupportsGlobalDatabases"]);
   }
   return contents;
 };
@@ -27997,7 +28000,7 @@ const deserializeAws_queryValidStorageOptions = (output: any, context: __SerdeCo
     );
   }
   if (output["SupportsStorageAutoscaling"] !== undefined) {
-    contents.SupportsStorageAutoscaling = output["SupportsStorageAutoscaling"] == "true";
+    contents.SupportsStorageAutoscaling = __parseBoolean(output["SupportsStorageAutoscaling"]);
   }
   return contents;
 };

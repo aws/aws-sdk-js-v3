@@ -434,6 +434,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -8637,7 +8638,7 @@ const deserializeAws_queryEventDestination = (output: any, context: __SerdeConte
     contents.Name = output["Name"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output.MatchingEventTypes === "") {
     contents.MatchingEventTypes = [];
@@ -8755,7 +8756,7 @@ const deserializeAws_queryGetAccountSendingEnabledResponse = (
     Enabled: undefined,
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   return contents;
 };
@@ -8939,7 +8940,7 @@ const deserializeAws_queryIdentityDkimAttributes = (output: any, context: __Serd
     DkimTokens: undefined,
   };
   if (output["DkimEnabled"] !== undefined) {
-    contents.DkimEnabled = output["DkimEnabled"] == "true";
+    contents.DkimEnabled = __parseBoolean(output["DkimEnabled"]);
   }
   if (output["DkimVerificationStatus"] !== undefined) {
     contents.DkimVerificationStatus = output["DkimVerificationStatus"];
@@ -9011,16 +9012,16 @@ const deserializeAws_queryIdentityNotificationAttributes = (
     contents.DeliveryTopic = output["DeliveryTopic"];
   }
   if (output["ForwardingEnabled"] !== undefined) {
-    contents.ForwardingEnabled = output["ForwardingEnabled"] == "true";
+    contents.ForwardingEnabled = __parseBoolean(output["ForwardingEnabled"]);
   }
   if (output["HeadersInBounceNotificationsEnabled"] !== undefined) {
-    contents.HeadersInBounceNotificationsEnabled = output["HeadersInBounceNotificationsEnabled"] == "true";
+    contents.HeadersInBounceNotificationsEnabled = __parseBoolean(output["HeadersInBounceNotificationsEnabled"]);
   }
   if (output["HeadersInComplaintNotificationsEnabled"] !== undefined) {
-    contents.HeadersInComplaintNotificationsEnabled = output["HeadersInComplaintNotificationsEnabled"] == "true";
+    contents.HeadersInComplaintNotificationsEnabled = __parseBoolean(output["HeadersInComplaintNotificationsEnabled"]);
   }
   if (output["HeadersInDeliveryNotificationsEnabled"] !== undefined) {
-    contents.HeadersInDeliveryNotificationsEnabled = output["HeadersInDeliveryNotificationsEnabled"] == "true";
+    contents.HeadersInDeliveryNotificationsEnabled = __parseBoolean(output["HeadersInDeliveryNotificationsEnabled"]);
   }
   return contents;
 };
@@ -9672,7 +9673,7 @@ const deserializeAws_queryReceiptRule = (output: any, context: __SerdeContext): 
     contents.Name = output["Name"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["TlsPolicy"] !== undefined) {
     contents.TlsPolicy = output["TlsPolicy"];
@@ -9696,7 +9697,7 @@ const deserializeAws_queryReceiptRule = (output: any, context: __SerdeContext): 
     );
   }
   if (output["ScanEnabled"] !== undefined) {
-    contents.ScanEnabled = output["ScanEnabled"] == "true";
+    contents.ScanEnabled = __parseBoolean(output["ScanEnabled"]);
   }
   return contents;
 };
@@ -9763,10 +9764,10 @@ const deserializeAws_queryReputationOptions = (output: any, context: __SerdeCont
     LastFreshStart: undefined,
   };
   if (output["SendingEnabled"] !== undefined) {
-    contents.SendingEnabled = output["SendingEnabled"] == "true";
+    contents.SendingEnabled = __parseBoolean(output["SendingEnabled"]);
   }
   if (output["ReputationMetricsEnabled"] !== undefined) {
-    contents.ReputationMetricsEnabled = output["ReputationMetricsEnabled"] == "true";
+    contents.ReputationMetricsEnabled = __parseBoolean(output["ReputationMetricsEnabled"]);
   }
   if (output["LastFreshStart"] !== undefined) {
     contents.LastFreshStart = new Date(output["LastFreshStart"]);

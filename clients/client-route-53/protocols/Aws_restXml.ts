@@ -303,6 +303,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5968,7 +5969,7 @@ export const deserializeAws_restXmlListGeoLocationsCommand = async (
     );
   }
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["MaxItems"] !== undefined) {
     contents.MaxItems = parseInt(data["MaxItems"]);
@@ -6048,7 +6049,7 @@ export const deserializeAws_restXmlListHealthChecksCommand = async (
     );
   }
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["Marker"] !== undefined) {
     contents.Marker = data["Marker"];
@@ -6133,7 +6134,7 @@ export const deserializeAws_restXmlListHostedZonesCommand = async (
     );
   }
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["Marker"] !== undefined) {
     contents.Marker = data["Marker"];
@@ -6234,7 +6235,7 @@ export const deserializeAws_restXmlListHostedZonesByNameCommand = async (
     );
   }
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["MaxItems"] !== undefined) {
     contents.MaxItems = parseInt(data["MaxItems"]);
@@ -6469,7 +6470,7 @@ export const deserializeAws_restXmlListResourceRecordSetsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["MaxItems"] !== undefined) {
     contents.MaxItems = parseInt(data["MaxItems"]);
@@ -6566,7 +6567,7 @@ export const deserializeAws_restXmlListReusableDelegationSetsCommand = async (
     );
   }
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["Marker"] !== undefined) {
     contents.Marker = data["Marker"];
@@ -6813,7 +6814,7 @@ export const deserializeAws_restXmlListTrafficPoliciesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["MaxItems"] !== undefined) {
     contents.MaxItems = parseInt(data["MaxItems"]);
@@ -6894,7 +6895,7 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesCommand = async (
     contents.HostedZoneIdMarker = data["HostedZoneIdMarker"];
   }
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["MaxItems"] !== undefined) {
     contents.MaxItems = parseInt(data["MaxItems"]);
@@ -6982,7 +6983,7 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand
   };
   const data: any = await parseBody(output.body, context);
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["MaxItems"] !== undefined) {
     contents.MaxItems = parseInt(data["MaxItems"]);
@@ -7082,7 +7083,7 @@ export const deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = a
     contents.HostedZoneIdMarker = data["HostedZoneIdMarker"];
   }
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["MaxItems"] !== undefined) {
     contents.MaxItems = parseInt(data["MaxItems"]);
@@ -7177,7 +7178,7 @@ export const deserializeAws_restXmlListTrafficPolicyVersionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data["IsTruncated"] !== undefined) {
-    contents.IsTruncated = data["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(data["IsTruncated"]);
   }
   if (data["MaxItems"] !== undefined) {
     contents.MaxItems = parseInt(data["MaxItems"]);
@@ -9233,7 +9234,7 @@ const deserializeAws_restXmlAliasTarget = (output: any, context: __SerdeContext)
     contents.DNSName = output["DNSName"];
   }
   if (output["EvaluateTargetHealth"] !== undefined) {
-    contents.EvaluateTargetHealth = output["EvaluateTargetHealth"] == "true";
+    contents.EvaluateTargetHealth = __parseBoolean(output["EvaluateTargetHealth"]);
   }
   return contents;
 };
@@ -9562,13 +9563,13 @@ const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeCo
     contents.FailureThreshold = parseInt(output["FailureThreshold"]);
   }
   if (output["MeasureLatency"] !== undefined) {
-    contents.MeasureLatency = output["MeasureLatency"] == "true";
+    contents.MeasureLatency = __parseBoolean(output["MeasureLatency"]);
   }
   if (output["Inverted"] !== undefined) {
-    contents.Inverted = output["Inverted"] == "true";
+    contents.Inverted = __parseBoolean(output["Inverted"]);
   }
   if (output["Disabled"] !== undefined) {
-    contents.Disabled = output["Disabled"] == "true";
+    contents.Disabled = __parseBoolean(output["Disabled"]);
   }
   if (output["HealthThreshold"] !== undefined) {
     contents.HealthThreshold = parseInt(output["HealthThreshold"]);
@@ -9583,7 +9584,7 @@ const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeCo
     );
   }
   if (output["EnableSNI"] !== undefined) {
-    contents.EnableSNI = output["EnableSNI"] == "true";
+    contents.EnableSNI = __parseBoolean(output["EnableSNI"]);
   }
   if (output.Regions === "") {
     contents.Regions = [];
@@ -9699,7 +9700,7 @@ const deserializeAws_restXmlHostedZoneConfig = (output: any, context: __SerdeCon
     contents.Comment = output["Comment"];
   }
   if (output["PrivateZone"] !== undefined) {
-    contents.PrivateZone = output["PrivateZone"] == "true";
+    contents.PrivateZone = __parseBoolean(output["PrivateZone"]);
   }
   return contents;
 };
@@ -9966,7 +9967,7 @@ const deserializeAws_restXmlResourceRecordSet = (output: any, context: __SerdeCo
     contents.Failover = output["Failover"];
   }
   if (output["MultiValueAnswer"] !== undefined) {
-    contents.MultiValueAnswer = output["MultiValueAnswer"] == "true";
+    contents.MultiValueAnswer = __parseBoolean(output["MultiValueAnswer"]);
   }
   if (output["TTL"] !== undefined) {
     contents.TTL = parseInt(output["TTL"]);

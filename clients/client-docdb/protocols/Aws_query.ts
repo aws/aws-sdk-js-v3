@@ -287,6 +287,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6497,7 +6498,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.ReaderEndpoint = output["ReaderEndpoint"];
   }
   if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = output["MultiAZ"] == "true";
+    contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
   }
   if (output["Engine"] !== undefined) {
     contents.Engine = output["Engine"];
@@ -6545,7 +6546,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     contents.HostedZoneId = output["HostedZoneId"];
   }
   if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = output["StorageEncrypted"] == "true";
+    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
   }
   if (output["KmsKeyId"] !== undefined) {
     contents.KmsKeyId = output["KmsKeyId"];
@@ -6581,7 +6582,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     );
   }
   if (output["DeletionProtection"] !== undefined) {
-    contents.DeletionProtection = output["DeletionProtection"] == "true";
+    contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
   }
   return contents;
 };
@@ -6621,7 +6622,7 @@ const deserializeAws_queryDBClusterMember = (output: any, context: __SerdeContex
     contents.DBInstanceIdentifier = output["DBInstanceIdentifier"];
   }
   if (output["IsClusterWriter"] !== undefined) {
-    contents.IsClusterWriter = output["IsClusterWriter"] == "true";
+    contents.IsClusterWriter = __parseBoolean(output["IsClusterWriter"]);
   }
   if (output["DBClusterParameterGroupStatus"] !== undefined) {
     contents.DBClusterParameterGroupStatus = output["DBClusterParameterGroupStatus"];
@@ -6888,7 +6889,7 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     contents.PercentProgress = parseInt(output["PercentProgress"]);
   }
   if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = output["StorageEncrypted"] == "true";
+    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
   }
   if (output["KmsKeyId"] !== undefined) {
     contents.KmsKeyId = output["KmsKeyId"];
@@ -7070,7 +7071,7 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
     );
   }
   if (output["SupportsLogExportsToCloudwatchLogs"] !== undefined) {
-    contents.SupportsLogExportsToCloudwatchLogs = output["SupportsLogExportsToCloudwatchLogs"] == "true";
+    contents.SupportsLogExportsToCloudwatchLogs = __parseBoolean(output["SupportsLogExportsToCloudwatchLogs"]);
   }
   return contents;
 };
@@ -7193,10 +7194,10 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.EngineVersion = output["EngineVersion"];
   }
   if (output["AutoMinorVersionUpgrade"] !== undefined) {
-    contents.AutoMinorVersionUpgrade = output["AutoMinorVersionUpgrade"] == "true";
+    contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
   }
   if (output["PubliclyAccessible"] !== undefined) {
-    contents.PubliclyAccessible = output["PubliclyAccessible"] == "true";
+    contents.PubliclyAccessible = __parseBoolean(output["PubliclyAccessible"]);
   }
   if (output.StatusInfos === "") {
     contents.StatusInfos = [];
@@ -7211,7 +7212,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.DBClusterIdentifier = output["DBClusterIdentifier"];
   }
   if (output["StorageEncrypted"] !== undefined) {
-    contents.StorageEncrypted = output["StorageEncrypted"] == "true";
+    contents.StorageEncrypted = __parseBoolean(output["StorageEncrypted"]);
   }
   if (output["KmsKeyId"] !== undefined) {
     contents.KmsKeyId = output["KmsKeyId"];
@@ -7308,7 +7309,7 @@ const deserializeAws_queryDBInstanceStatusInfo = (output: any, context: __SerdeC
     contents.StatusType = output["StatusType"];
   }
   if (output["Normal"] !== undefined) {
-    contents.Normal = output["Normal"] == "true";
+    contents.Normal = __parseBoolean(output["Normal"]);
   }
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
@@ -8082,7 +8083,7 @@ const deserializeAws_queryOrderableDBInstanceOption = (
     );
   }
   if (output["Vpc"] !== undefined) {
-    contents.Vpc = output["Vpc"] == "true";
+    contents.Vpc = __parseBoolean(output["Vpc"]);
   }
   return contents;
 };
@@ -8162,7 +8163,7 @@ const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Pa
     contents.AllowedValues = output["AllowedValues"];
   }
   if (output["IsModifiable"] !== undefined) {
-    contents.IsModifiable = output["IsModifiable"] == "true";
+    contents.IsModifiable = __parseBoolean(output["IsModifiable"]);
   }
   if (output["MinimumEngineVersion"] !== undefined) {
     contents.MinimumEngineVersion = output["MinimumEngineVersion"];
@@ -8333,7 +8334,7 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     contents.BackupRetentionPeriod = parseInt(output["BackupRetentionPeriod"]);
   }
   if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = output["MultiAZ"] == "true";
+    contents.MultiAZ = __parseBoolean(output["MultiAZ"]);
   }
   if (output["EngineVersion"] !== undefined) {
     contents.EngineVersion = output["EngineVersion"];
@@ -8604,10 +8605,10 @@ const deserializeAws_queryUpgradeTarget = (output: any, context: __SerdeContext)
     contents.Description = output["Description"];
   }
   if (output["AutoUpgrade"] !== undefined) {
-    contents.AutoUpgrade = output["AutoUpgrade"] == "true";
+    contents.AutoUpgrade = __parseBoolean(output["AutoUpgrade"]);
   }
   if (output["IsMajorVersionUpgrade"] !== undefined) {
-    contents.IsMajorVersionUpgrade = output["IsMajorVersionUpgrade"] == "true";
+    contents.IsMajorVersionUpgrade = __parseBoolean(output["IsMajorVersionUpgrade"]);
   }
   return contents;
 };

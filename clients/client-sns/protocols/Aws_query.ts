@@ -215,6 +215,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5273,7 +5274,7 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutResponse = (
     isOptedOut: undefined,
   };
   if (output["isOptedOut"] !== undefined) {
-    contents.isOptedOut = output["isOptedOut"] == "true";
+    contents.isOptedOut = __parseBoolean(output["isOptedOut"]);
   }
   return contents;
 };
@@ -5464,7 +5465,7 @@ const deserializeAws_queryGetSMSSandboxAccountStatusResult = (
     IsInSandbox: undefined,
   };
   if (output["IsInSandbox"] !== undefined) {
-    contents.IsInSandbox = output["IsInSandbox"] == "true";
+    contents.IsInSandbox = __parseBoolean(output["IsInSandbox"]);
   }
   return contents;
 };

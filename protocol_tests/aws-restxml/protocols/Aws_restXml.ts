@@ -3920,7 +3920,7 @@ export const deserializeAws_restXmlSimpleScalarPropertiesCommand = async (
     contents.doubleValue = parseFloat(data["DoubleDribble"]);
   }
   if (data["falseBooleanValue"] !== undefined) {
-    contents.falseBooleanValue = data["falseBooleanValue"] == "true";
+    contents.falseBooleanValue = __parseBoolean(data["falseBooleanValue"]);
   }
   if (data["floatValue"] !== undefined) {
     contents.floatValue = parseFloat(data["floatValue"]);
@@ -3938,7 +3938,7 @@ export const deserializeAws_restXmlSimpleScalarPropertiesCommand = async (
     contents.stringValue = data["stringValue"];
   }
   if (data["trueBooleanValue"] !== undefined) {
-    contents.trueBooleanValue = data["trueBooleanValue"] == "true";
+    contents.trueBooleanValue = __parseBoolean(data["trueBooleanValue"]);
   }
   return Promise.resolve(contents);
 };
@@ -5839,7 +5839,7 @@ const deserializeAws_restXmlXmlNestedUnionStruct = (output: any, context: __Serd
     contents.stringValue = output["stringValue"];
   }
   if (output["booleanValue"] !== undefined) {
-    contents.booleanValue = output["booleanValue"] == "true";
+    contents.booleanValue = __parseBoolean(output["booleanValue"]);
   }
   if (output["byteValue"] !== undefined) {
     contents.byteValue = parseInt(output["byteValue"]);
@@ -5870,7 +5870,7 @@ const deserializeAws_restXmlXmlUnionShape = (output: any, context: __SerdeContex
   }
   if (output["booleanValue"] !== undefined) {
     return {
-      booleanValue: output["booleanValue"] == "true",
+      booleanValue: __parseBoolean(output["booleanValue"]),
     };
   }
   if (output["byteValue"] !== undefined) {
@@ -5923,7 +5923,7 @@ const deserializeAws_restXmlBooleanList = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry == "true";
+      return __parseBoolean(entry);
     });
 };
 

@@ -213,6 +213,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3916,7 +3917,7 @@ const deserializeAws_queryAccessLog = (output: any, context: __SerdeContext): Ac
     S3BucketPrefix: undefined,
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["S3BucketName"] !== undefined) {
     contents.S3BucketName = output["S3BucketName"];
@@ -4138,7 +4139,7 @@ const deserializeAws_queryConnectionDraining = (output: any, context: __SerdeCon
     Timeout: undefined,
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["Timeout"] !== undefined) {
     contents.Timeout = parseInt(output["Timeout"]);
@@ -4203,7 +4204,7 @@ const deserializeAws_queryCrossZoneLoadBalancing = (output: any, context: __Serd
     Enabled: undefined,
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   return contents;
 };

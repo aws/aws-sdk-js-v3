@@ -225,6 +225,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3653,7 +3654,7 @@ export const deserializeAws_restXmlGetBucketCommand = async (
     contents.CreationDate = new Date(data["CreationDate"]);
   }
   if (data["PublicAccessBlockEnabled"] !== undefined) {
-    contents.PublicAccessBlockEnabled = data["PublicAccessBlockEnabled"] == "true";
+    contents.PublicAccessBlockEnabled = __parseBoolean(data["PublicAccessBlockEnabled"]);
   }
   return Promise.resolve(contents);
 };
@@ -6588,7 +6589,7 @@ const deserializeAws_restXmlActivityMetrics = (output: any, context: __SerdeCont
     IsEnabled: undefined,
   };
   if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = output["IsEnabled"] == "true";
+    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
   }
   return contents;
 };
@@ -6699,7 +6700,7 @@ const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContex
     contents.JobId = output["JobId"];
   }
   if (output["ConfirmationRequired"] !== undefined) {
-    contents.ConfirmationRequired = output["ConfirmationRequired"] == "true";
+    contents.ConfirmationRequired = __parseBoolean(output["ConfirmationRequired"]);
   }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
@@ -6981,7 +6982,7 @@ const deserializeAws_restXmlJobReport = (output: any, context: __SerdeContext): 
     contents.Format = output["Format"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["Prefix"] !== undefined) {
     contents.Prefix = output["Prefix"];
@@ -7015,7 +7016,7 @@ const deserializeAws_restXmlLifecycleExpiration = (output: any, context: __Serde
     contents.Days = parseInt(output["Days"]);
   }
   if (output["ExpiredObjectDeleteMarker"] !== undefined) {
-    contents.ExpiredObjectDeleteMarker = output["ExpiredObjectDeleteMarker"] == "true";
+    contents.ExpiredObjectDeleteMarker = __parseBoolean(output["ExpiredObjectDeleteMarker"]);
   }
   return contents;
 };
@@ -7148,7 +7149,7 @@ const deserializeAws_restXmlListStorageLensConfigurationEntry = (
     contents.HomeRegion = output["HomeRegion"];
   }
   if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = output["IsEnabled"] == "true";
+    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
   }
   return contents;
 };
@@ -7256,7 +7257,7 @@ const deserializeAws_restXmlObjectLambdaConfiguration = (
     contents.SupportingAccessPoint = output["SupportingAccessPoint"];
   }
   if (output["CloudWatchMetricsEnabled"] !== undefined) {
-    contents.CloudWatchMetricsEnabled = output["CloudWatchMetricsEnabled"] == "true";
+    contents.CloudWatchMetricsEnabled = __parseBoolean(output["CloudWatchMetricsEnabled"]);
   }
   if (output.AllowedFeatures === "") {
     contents.AllowedFeatures = [];
@@ -7353,7 +7354,7 @@ const deserializeAws_restXmlPolicyStatus = (output: any, context: __SerdeContext
     IsPublic: undefined,
   };
   if (output["IsPublic"] !== undefined) {
-    contents.IsPublic = output["IsPublic"] == "true";
+    contents.IsPublic = __parseBoolean(output["IsPublic"]);
   }
   return contents;
 };
@@ -7377,7 +7378,7 @@ const deserializeAws_restXmlPrefixLevelStorageMetrics = (
     SelectionCriteria: undefined,
   };
   if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = output["IsEnabled"] == "true";
+    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
   }
   if (output["SelectionCriteria"] !== undefined) {
     contents.SelectionCriteria = deserializeAws_restXmlSelectionCriteria(output["SelectionCriteria"], context);
@@ -7396,16 +7397,16 @@ const deserializeAws_restXmlPublicAccessBlockConfiguration = (
     RestrictPublicBuckets: undefined,
   };
   if (output["BlockPublicAcls"] !== undefined) {
-    contents.BlockPublicAcls = output["BlockPublicAcls"] == "true";
+    contents.BlockPublicAcls = __parseBoolean(output["BlockPublicAcls"]);
   }
   if (output["IgnorePublicAcls"] !== undefined) {
-    contents.IgnorePublicAcls = output["IgnorePublicAcls"] == "true";
+    contents.IgnorePublicAcls = __parseBoolean(output["IgnorePublicAcls"]);
   }
   if (output["BlockPublicPolicy"] !== undefined) {
-    contents.BlockPublicPolicy = output["BlockPublicPolicy"] == "true";
+    contents.BlockPublicPolicy = __parseBoolean(output["BlockPublicPolicy"]);
   }
   if (output["RestrictPublicBuckets"] !== undefined) {
-    contents.RestrictPublicBuckets = output["RestrictPublicBuckets"] == "true";
+    contents.RestrictPublicBuckets = __parseBoolean(output["RestrictPublicBuckets"]);
   }
   return contents;
 };
@@ -7425,7 +7426,7 @@ const deserializeAws_restXmlRegionalBucket = (output: any, context: __SerdeConte
     contents.BucketArn = output["BucketArn"];
   }
   if (output["PublicAccessBlockEnabled"] !== undefined) {
-    contents.PublicAccessBlockEnabled = output["PublicAccessBlockEnabled"] == "true";
+    contents.PublicAccessBlockEnabled = __parseBoolean(output["PublicAccessBlockEnabled"]);
   }
   if (output["CreationDate"] !== undefined) {
     contents.CreationDate = new Date(output["CreationDate"]);
@@ -7576,7 +7577,7 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
     contents.RedirectLocation = output["RedirectLocation"];
   }
   if (output["RequesterPays"] !== undefined) {
-    contents.RequesterPays = output["RequesterPays"] == "true";
+    contents.RequesterPays = __parseBoolean(output["RequesterPays"]);
   }
   if (output["StorageClass"] !== undefined) {
     contents.StorageClass = output["StorageClass"];
@@ -7600,7 +7601,7 @@ const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __Ser
     contents.ObjectLockRetainUntilDate = new Date(output["ObjectLockRetainUntilDate"]);
   }
   if (output["BucketKeyEnabled"] !== undefined) {
-    contents.BucketKeyEnabled = output["BucketKeyEnabled"] == "true";
+    contents.BucketKeyEnabled = __parseBoolean(output["BucketKeyEnabled"]);
   }
   return contents;
 };
@@ -7731,7 +7732,7 @@ const deserializeAws_restXmlS3ObjectMetadata = (output: any, context: __SerdeCon
     contents.HttpExpiresDate = new Date(output["HttpExpiresDate"]);
   }
   if (output["RequesterCharged"] !== undefined) {
-    contents.RequesterCharged = output["RequesterCharged"] == "true";
+    contents.RequesterCharged = __parseBoolean(output["RequesterCharged"]);
   }
   if (output["SSEAlgorithm"] !== undefined) {
     contents.SSEAlgorithm = output["SSEAlgorithm"];
@@ -7802,7 +7803,7 @@ const deserializeAws_restXmlS3SetObjectRetentionOperation = (
     Retention: undefined,
   };
   if (output["BypassGovernanceRetention"] !== undefined) {
-    contents.BypassGovernanceRetention = output["BypassGovernanceRetention"] == "true";
+    contents.BypassGovernanceRetention = __parseBoolean(output["BypassGovernanceRetention"]);
   }
   if (output["Retention"] !== undefined) {
     contents.Retention = deserializeAws_restXmlS3Retention(output["Retention"], context);
@@ -7936,7 +7937,7 @@ const deserializeAws_restXmlStorageLensConfiguration = (
     contents.DataExport = deserializeAws_restXmlStorageLensDataExport(output["DataExport"], context);
   }
   if (output["IsEnabled"] !== undefined) {
-    contents.IsEnabled = output["IsEnabled"] == "true";
+    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
   }
   if (output["AwsOrg"] !== undefined) {
     contents.AwsOrg = deserializeAws_restXmlStorageLensAwsOrg(output["AwsOrg"], context);

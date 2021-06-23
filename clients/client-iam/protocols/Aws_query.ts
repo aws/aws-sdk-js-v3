@@ -707,6 +707,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -18123,7 +18124,7 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -18238,7 +18239,7 @@ const deserializeAws_queryGetGroupResponse = (output: any, context: __SerdeConte
     contents.Users = deserializeAws_queryuserListType(__getArrayIfSingleItem(output["Users"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -18353,7 +18354,7 @@ const deserializeAws_queryGetOrganizationsAccessReportResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -18489,7 +18490,7 @@ const deserializeAws_queryGetServiceLastAccessedDetailsResponse = (
     contents.JobCompletionDate = new Date(output["JobCompletionDate"]);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -18532,7 +18533,7 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -18855,7 +18856,7 @@ const deserializeAws_queryListAccessKeysResponse = (output: any, context: __Serd
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -18882,7 +18883,7 @@ const deserializeAws_queryListAccountAliasesResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -18909,7 +18910,7 @@ const deserializeAws_queryListAttachedGroupPoliciesResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -18936,7 +18937,7 @@ const deserializeAws_queryListAttachedRolePoliciesResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -18963,7 +18964,7 @@ const deserializeAws_queryListAttachedUserPoliciesResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19010,7 +19011,7 @@ const deserializeAws_queryListEntitiesForPolicyResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19037,7 +19038,7 @@ const deserializeAws_queryListGroupPoliciesResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19061,7 +19062,7 @@ const deserializeAws_queryListGroupsForUserResponse = (
     contents.Groups = deserializeAws_querygroupListType(__getArrayIfSingleItem(output["Groups"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19082,7 +19083,7 @@ const deserializeAws_queryListGroupsResponse = (output: any, context: __SerdeCon
     contents.Groups = deserializeAws_querygroupListType(__getArrayIfSingleItem(output["Groups"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19109,7 +19110,7 @@ const deserializeAws_queryListInstanceProfilesForRoleResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19136,7 +19137,7 @@ const deserializeAws_queryListInstanceProfilesResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19160,7 +19161,7 @@ const deserializeAws_queryListInstanceProfileTagsResponse = (
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19184,7 +19185,7 @@ const deserializeAws_queryListMFADevicesResponse = (output: any, context: __Serd
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19208,7 +19209,7 @@ const deserializeAws_queryListMFADeviceTagsResponse = (
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19254,7 +19255,7 @@ const deserializeAws_queryListOpenIDConnectProviderTagsResponse = (
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19307,7 +19308,7 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19331,7 +19332,7 @@ const deserializeAws_queryListPoliciesResponse = (output: any, context: __SerdeC
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19366,7 +19367,7 @@ const deserializeAws_queryListPolicyTagsResponse = (output: any, context: __Serd
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19393,7 +19394,7 @@ const deserializeAws_queryListPolicyVersionsResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19420,7 +19421,7 @@ const deserializeAws_queryListRolePoliciesResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19441,7 +19442,7 @@ const deserializeAws_queryListRolesResponse = (output: any, context: __SerdeCont
     contents.Roles = deserializeAws_queryroleListType(__getArrayIfSingleItem(output["Roles"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19462,7 +19463,7 @@ const deserializeAws_queryListRoleTagsResponse = (output: any, context: __SerdeC
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19505,7 +19506,7 @@ const deserializeAws_queryListSAMLProviderTagsResponse = (
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19535,7 +19536,7 @@ const deserializeAws_queryListServerCertificatesResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19559,7 +19560,7 @@ const deserializeAws_queryListServerCertificateTagsResponse = (
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19608,7 +19609,7 @@ const deserializeAws_queryListSigningCertificatesResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19635,7 +19636,7 @@ const deserializeAws_queryListSSHPublicKeysResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19662,7 +19663,7 @@ const deserializeAws_queryListUserPoliciesResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19683,7 +19684,7 @@ const deserializeAws_queryListUsersResponse = (output: any, context: __SerdeCont
     contents.Users = deserializeAws_queryuserListType(__getArrayIfSingleItem(output["Users"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19704,7 +19705,7 @@ const deserializeAws_queryListUserTagsResponse = (output: any, context: __SerdeC
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19731,7 +19732,7 @@ const deserializeAws_queryListVirtualMFADevicesResponse = (
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -19752,7 +19753,7 @@ const deserializeAws_queryLoginProfile = (output: any, context: __SerdeContext):
     contents.CreateDate = new Date(output["CreateDate"]);
   }
   if (output["PasswordResetRequired"] !== undefined) {
-    contents.PasswordResetRequired = output["PasswordResetRequired"] == "true";
+    contents.PasswordResetRequired = __parseBoolean(output["PasswordResetRequired"]);
   }
   return contents;
 };
@@ -19820,7 +19821,7 @@ const deserializeAws_queryManagedPolicyDetail = (output: any, context: __SerdeCo
     contents.PermissionsBoundaryUsageCount = parseInt(output["PermissionsBoundaryUsageCount"]);
   }
   if (output["IsAttachable"] !== undefined) {
-    contents.IsAttachable = output["IsAttachable"] == "true";
+    contents.IsAttachable = __parseBoolean(output["IsAttachable"]);
   }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
@@ -19931,7 +19932,7 @@ const deserializeAws_queryOrganizationsDecisionDetail = (
     AllowedByOrganizations: undefined,
   };
   if (output["AllowedByOrganizations"] !== undefined) {
-    contents.AllowedByOrganizations = output["AllowedByOrganizations"] == "true";
+    contents.AllowedByOrganizations = __parseBoolean(output["AllowedByOrganizations"]);
   }
   return contents;
 };
@@ -19953,22 +19954,22 @@ const deserializeAws_queryPasswordPolicy = (output: any, context: __SerdeContext
     contents.MinimumPasswordLength = parseInt(output["MinimumPasswordLength"]);
   }
   if (output["RequireSymbols"] !== undefined) {
-    contents.RequireSymbols = output["RequireSymbols"] == "true";
+    contents.RequireSymbols = __parseBoolean(output["RequireSymbols"]);
   }
   if (output["RequireNumbers"] !== undefined) {
-    contents.RequireNumbers = output["RequireNumbers"] == "true";
+    contents.RequireNumbers = __parseBoolean(output["RequireNumbers"]);
   }
   if (output["RequireUppercaseCharacters"] !== undefined) {
-    contents.RequireUppercaseCharacters = output["RequireUppercaseCharacters"] == "true";
+    contents.RequireUppercaseCharacters = __parseBoolean(output["RequireUppercaseCharacters"]);
   }
   if (output["RequireLowercaseCharacters"] !== undefined) {
-    contents.RequireLowercaseCharacters = output["RequireLowercaseCharacters"] == "true";
+    contents.RequireLowercaseCharacters = __parseBoolean(output["RequireLowercaseCharacters"]);
   }
   if (output["AllowUsersToChangePassword"] !== undefined) {
-    contents.AllowUsersToChangePassword = output["AllowUsersToChangePassword"] == "true";
+    contents.AllowUsersToChangePassword = __parseBoolean(output["AllowUsersToChangePassword"]);
   }
   if (output["ExpirePasswords"] !== undefined) {
-    contents.ExpirePasswords = output["ExpirePasswords"] == "true";
+    contents.ExpirePasswords = __parseBoolean(output["ExpirePasswords"]);
   }
   if (output["MaxPasswordAge"] !== undefined) {
     contents.MaxPasswordAge = parseInt(output["MaxPasswordAge"]);
@@ -19977,7 +19978,7 @@ const deserializeAws_queryPasswordPolicy = (output: any, context: __SerdeContext
     contents.PasswordReusePrevention = parseInt(output["PasswordReusePrevention"]);
   }
   if (output["HardExpiry"] !== undefined) {
-    contents.HardExpiry = output["HardExpiry"] == "true";
+    contents.HardExpiry = __parseBoolean(output["HardExpiry"]);
   }
   return contents;
 };
@@ -20003,7 +20004,7 @@ const deserializeAws_queryPermissionsBoundaryDecisionDetail = (
     AllowedByPermissionsBoundary: undefined,
   };
   if (output["AllowedByPermissionsBoundary"] !== undefined) {
-    contents.AllowedByPermissionsBoundary = output["AllowedByPermissionsBoundary"] == "true";
+    contents.AllowedByPermissionsBoundary = __parseBoolean(output["AllowedByPermissionsBoundary"]);
   }
   return contents;
 };
@@ -20045,7 +20046,7 @@ const deserializeAws_queryPolicy = (output: any, context: __SerdeContext): Polic
     contents.PermissionsBoundaryUsageCount = parseInt(output["PermissionsBoundaryUsageCount"]);
   }
   if (output["IsAttachable"] !== undefined) {
-    contents.IsAttachable = output["IsAttachable"] == "true";
+    contents.IsAttachable = __parseBoolean(output["IsAttachable"]);
   }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
@@ -20281,7 +20282,7 @@ const deserializeAws_queryPolicyVersion = (output: any, context: __SerdeContext)
     contents.VersionId = output["VersionId"];
   }
   if (output["IsDefaultVersion"] !== undefined) {
-    contents.IsDefaultVersion = output["IsDefaultVersion"] == "true";
+    contents.IsDefaultVersion = __parseBoolean(output["IsDefaultVersion"]);
   }
   if (output["CreateDate"] !== undefined) {
     contents.CreateDate = new Date(output["CreateDate"]);
@@ -20905,7 +20906,7 @@ const deserializeAws_querySimulatePolicyResponse = (output: any, context: __Serd
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];

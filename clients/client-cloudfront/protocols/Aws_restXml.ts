@@ -478,6 +478,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -15213,7 +15214,7 @@ const deserializeAws_restXmlActiveTrustedKeyGroups = (output: any, context: __Se
     Items: undefined,
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(output["Quantity"]);
@@ -15237,7 +15238,7 @@ const deserializeAws_restXmlActiveTrustedSigners = (output: any, context: __Serd
     Items: undefined,
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(output["Quantity"]);
@@ -15376,10 +15377,10 @@ const deserializeAws_restXmlCacheBehavior = (output: any, context: __SerdeContex
     contents.AllowedMethods = deserializeAws_restXmlAllowedMethods(output["AllowedMethods"], context);
   }
   if (output["SmoothStreaming"] !== undefined) {
-    contents.SmoothStreaming = output["SmoothStreaming"] == "true";
+    contents.SmoothStreaming = __parseBoolean(output["SmoothStreaming"]);
   }
   if (output["Compress"] !== undefined) {
-    contents.Compress = output["Compress"] == "true";
+    contents.Compress = __parseBoolean(output["Compress"]);
   }
   if (output["LambdaFunctionAssociations"] !== undefined) {
     contents.LambdaFunctionAssociations = deserializeAws_restXmlLambdaFunctionAssociations(
@@ -15683,7 +15684,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityList = (
     contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(output["Quantity"]);
@@ -15762,7 +15763,7 @@ const deserializeAws_restXmlContentTypeProfileConfig = (
     ContentTypeProfiles: undefined,
   };
   if (output["ForwardWhenContentTypeIsUnknown"] !== undefined) {
-    contents.ForwardWhenContentTypeIsUnknown = output["ForwardWhenContentTypeIsUnknown"] == "true";
+    contents.ForwardWhenContentTypeIsUnknown = __parseBoolean(output["ForwardWhenContentTypeIsUnknown"]);
   }
   if (output["ContentTypeProfiles"] !== undefined) {
     contents.ContentTypeProfiles = deserializeAws_restXmlContentTypeProfiles(output["ContentTypeProfiles"], context);
@@ -15982,10 +15983,10 @@ const deserializeAws_restXmlDefaultCacheBehavior = (output: any, context: __Serd
     contents.AllowedMethods = deserializeAws_restXmlAllowedMethods(output["AllowedMethods"], context);
   }
   if (output["SmoothStreaming"] !== undefined) {
-    contents.SmoothStreaming = output["SmoothStreaming"] == "true";
+    contents.SmoothStreaming = __parseBoolean(output["SmoothStreaming"]);
   }
   if (output["Compress"] !== undefined) {
-    contents.Compress = output["Compress"] == "true";
+    contents.Compress = __parseBoolean(output["Compress"]);
   }
   if (output["LambdaFunctionAssociations"] !== undefined) {
     contents.LambdaFunctionAssociations = deserializeAws_restXmlLambdaFunctionAssociations(
@@ -16132,7 +16133,7 @@ const deserializeAws_restXmlDistributionConfig = (output: any, context: __SerdeC
     contents.PriceClass = output["PriceClass"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["ViewerCertificate"] !== undefined) {
     contents.ViewerCertificate = deserializeAws_restXmlViewerCertificate(output["ViewerCertificate"], context);
@@ -16147,7 +16148,7 @@ const deserializeAws_restXmlDistributionConfig = (output: any, context: __SerdeC
     contents.HttpVersion = output["HttpVersion"];
   }
   if (output["IsIPV6Enabled"] !== undefined) {
-    contents.IsIPV6Enabled = output["IsIPV6Enabled"] == "true";
+    contents.IsIPV6Enabled = __parseBoolean(output["IsIPV6Enabled"]);
   }
   return contents;
 };
@@ -16171,7 +16172,7 @@ const deserializeAws_restXmlDistributionIdList = (output: any, context: __SerdeC
     contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(output["Quantity"]);
@@ -16218,7 +16219,7 @@ const deserializeAws_restXmlDistributionList = (output: any, context: __SerdeCon
     contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(output["Quantity"]);
@@ -16298,7 +16299,7 @@ const deserializeAws_restXmlDistributionSummary = (output: any, context: __Serde
     contents.PriceClass = output["PriceClass"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["ViewerCertificate"] !== undefined) {
     contents.ViewerCertificate = deserializeAws_restXmlViewerCertificate(output["ViewerCertificate"], context);
@@ -16313,7 +16314,7 @@ const deserializeAws_restXmlDistributionSummary = (output: any, context: __Serde
     contents.HttpVersion = output["HttpVersion"];
   }
   if (output["IsIPV6Enabled"] !== undefined) {
-    contents.IsIPV6Enabled = output["IsIPV6Enabled"] == "true";
+    contents.IsIPV6Enabled = __parseBoolean(output["IsIPV6Enabled"]);
   }
   if (output.AliasICPRecordals === "") {
     contents.AliasICPRecordals = [];
@@ -16717,7 +16718,7 @@ const deserializeAws_restXmlForwardedValues = (output: any, context: __SerdeCont
     QueryStringCacheKeys: undefined,
   };
   if (output["QueryString"] !== undefined) {
-    contents.QueryString = output["QueryString"] == "true";
+    contents.QueryString = __parseBoolean(output["QueryString"]);
   }
   if (output["Cookies"] !== undefined) {
     contents.Cookies = deserializeAws_restXmlCookiePreference(output["Cookies"], context);
@@ -16988,7 +16989,7 @@ const deserializeAws_restXmlInvalidationList = (output: any, context: __SerdeCon
     contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(output["Quantity"]);
@@ -17208,7 +17209,7 @@ const deserializeAws_restXmlLambdaFunctionAssociation = (
     contents.EventType = output["EventType"];
   }
   if (output["IncludeBody"] !== undefined) {
-    contents.IncludeBody = output["IncludeBody"] == "true";
+    contents.IncludeBody = __parseBoolean(output["IncludeBody"]);
   }
   return contents;
 };
@@ -17269,10 +17270,10 @@ const deserializeAws_restXmlLoggingConfig = (output: any, context: __SerdeContex
     Prefix: undefined,
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["IncludeCookies"] !== undefined) {
-    contents.IncludeCookies = output["IncludeCookies"] == "true";
+    contents.IncludeCookies = __parseBoolean(output["IncludeCookies"]);
   }
   if (output["Bucket"] !== undefined) {
     contents.Bucket = output["Bucket"];
@@ -17677,7 +17678,7 @@ const deserializeAws_restXmlOriginShield = (output: any, context: __SerdeContext
     OriginShieldRegion: undefined,
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["OriginShieldRegion"] !== undefined) {
     contents.OriginShieldRegion = output["OriginShieldRegion"];
@@ -17717,10 +17718,10 @@ const deserializeAws_restXmlParametersInCacheKeyAndForwardedToOrigin = (
     QueryStringsConfig: undefined,
   };
   if (output["EnableAcceptEncodingGzip"] !== undefined) {
-    contents.EnableAcceptEncodingGzip = output["EnableAcceptEncodingGzip"] == "true";
+    contents.EnableAcceptEncodingGzip = __parseBoolean(output["EnableAcceptEncodingGzip"]);
   }
   if (output["EnableAcceptEncodingBrotli"] !== undefined) {
-    contents.EnableAcceptEncodingBrotli = output["EnableAcceptEncodingBrotli"] == "true";
+    contents.EnableAcceptEncodingBrotli = __parseBoolean(output["EnableAcceptEncodingBrotli"]);
   }
   if (output["HeadersConfig"] !== undefined) {
     contents.HeadersConfig = deserializeAws_restXmlCachePolicyHeadersConfig(output["HeadersConfig"], context);
@@ -17901,7 +17902,7 @@ const deserializeAws_restXmlQueryArgProfileConfig = (output: any, context: __Ser
     QueryArgProfiles: undefined,
   };
   if (output["ForwardWhenQueryArgProfileIsUnknown"] !== undefined) {
-    contents.ForwardWhenQueryArgProfileIsUnknown = output["ForwardWhenQueryArgProfileIsUnknown"] == "true";
+    contents.ForwardWhenQueryArgProfileIsUnknown = __parseBoolean(output["ForwardWhenQueryArgProfileIsUnknown"]);
   }
   if (output["QueryArgProfiles"] !== undefined) {
     contents.QueryArgProfiles = deserializeAws_restXmlQueryArgProfiles(output["QueryArgProfiles"], context);
@@ -18069,7 +18070,7 @@ const deserializeAws_restXmlRealtimeLogConfigs = (output: any, context: __SerdeC
     );
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -18267,7 +18268,7 @@ const deserializeAws_restXmlStreamingDistributionConfig = (
     contents.PriceClass = output["PriceClass"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   return contents;
 };
@@ -18294,7 +18295,7 @@ const deserializeAws_restXmlStreamingDistributionList = (
     contents.MaxItems = parseInt(output["MaxItems"]);
   }
   if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
+    contents.IsTruncated = __parseBoolean(output["IsTruncated"]);
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(output["Quantity"]);
@@ -18359,7 +18360,7 @@ const deserializeAws_restXmlStreamingDistributionSummary = (
     contents.PriceClass = output["PriceClass"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   return contents;
 };
@@ -18385,7 +18386,7 @@ const deserializeAws_restXmlStreamingLoggingConfig = (output: any, context: __Se
     Prefix: undefined,
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["Bucket"] !== undefined) {
     contents.Bucket = output["Bucket"];
@@ -18484,7 +18485,7 @@ const deserializeAws_restXmlTrustedKeyGroups = (output: any, context: __SerdeCon
     Items: undefined,
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(output["Quantity"]);
@@ -18508,7 +18509,7 @@ const deserializeAws_restXmlTrustedSigners = (output: any, context: __SerdeConte
     Items: undefined,
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["Quantity"] !== undefined) {
     contents.Quantity = parseInt(output["Quantity"]);
@@ -18536,7 +18537,7 @@ const deserializeAws_restXmlViewerCertificate = (output: any, context: __SerdeCo
     CertificateSource: undefined,
   };
   if (output["CloudFrontDefaultCertificate"] !== undefined) {
-    contents.CloudFrontDefaultCertificate = output["CloudFrontDefaultCertificate"] == "true";
+    contents.CloudFrontDefaultCertificate = __parseBoolean(output["CloudFrontDefaultCertificate"]);
   }
   if (output["IAMCertificateId"] !== undefined) {
     contents.IAMCertificateId = output["IAMCertificateId"];
