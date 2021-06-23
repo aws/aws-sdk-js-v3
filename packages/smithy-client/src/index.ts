@@ -1,3 +1,4 @@
+export * from "./boolean";
 export * from "./client";
 export * from "./command";
 export * from "./document-type";
