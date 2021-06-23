@@ -1,4 +1,4 @@
-import { parseBoolean } from "./boolean";
+import { parseBoolean } from "./parse-utils";
 
 describe("parseBoolean", () => {
   it('Returns true for "true"', () => {
