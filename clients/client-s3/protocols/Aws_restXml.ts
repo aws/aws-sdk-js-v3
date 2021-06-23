@@ -396,6 +396,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5008,7 +5009,7 @@ export const deserializeAws_restXmlCompleteMultipartUploadCommand = async (
     contents.SSEKMSKeyId = output.headers["x-amz-server-side-encryption-aws-kms-key-id"];
   }
   if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
-    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
+    contents.BucketKeyEnabled = __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]);
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
@@ -5104,7 +5105,7 @@ export const deserializeAws_restXmlCopyObjectCommand = async (
     contents.SSEKMSEncryptionContext = output.headers["x-amz-server-side-encryption-context"];
   }
   if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
-    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
+    contents.BucketKeyEnabled = __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]);
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
@@ -5258,7 +5259,7 @@ export const deserializeAws_restXmlCreateMultipartUploadCommand = async (
     contents.SSEKMSEncryptionContext = output.headers["x-amz-server-side-encryption-context"];
   }
   if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
-    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
+    contents.BucketKeyEnabled = __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]);
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
@@ -5878,7 +5879,7 @@ export const deserializeAws_restXmlDeleteObjectCommand = async (
     VersionId: undefined,
   };
   if (output.headers["x-amz-delete-marker"] !== undefined) {
-    contents.DeleteMarker = output.headers["x-amz-delete-marker"] === "true";
+    contents.DeleteMarker = __parseBoolean(output.headers["x-amz-delete-marker"]);
   }
   if (output.headers["x-amz-version-id"] !== undefined) {
     contents.VersionId = output.headers["x-amz-version-id"];
@@ -7102,7 +7103,7 @@ export const deserializeAws_restXmlGetObjectCommand = async (
     WebsiteRedirectLocation: undefined,
   };
   if (output.headers["x-amz-delete-marker"] !== undefined) {
-    contents.DeleteMarker = output.headers["x-amz-delete-marker"] === "true";
+    contents.DeleteMarker = __parseBoolean(output.headers["x-amz-delete-marker"]);
   }
   if (output.headers["accept-ranges"] !== undefined) {
     contents.AcceptRanges = output.headers["accept-ranges"];
@@ -7165,7 +7166,7 @@ export const deserializeAws_restXmlGetObjectCommand = async (
     contents.SSEKMSKeyId = output.headers["x-amz-server-side-encryption-aws-kms-key-id"];
   }
   if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
-    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
+    contents.BucketKeyEnabled = __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]);
   }
   if (output.headers["x-amz-storage-class"] !== undefined) {
     contents.StorageClass = output.headers["x-amz-storage-class"];
@@ -7690,7 +7691,7 @@ export const deserializeAws_restXmlHeadObjectCommand = async (
     WebsiteRedirectLocation: undefined,
   };
   if (output.headers["x-amz-delete-marker"] !== undefined) {
-    contents.DeleteMarker = output.headers["x-amz-delete-marker"] === "true";
+    contents.DeleteMarker = __parseBoolean(output.headers["x-amz-delete-marker"]);
   }
   if (output.headers["accept-ranges"] !== undefined) {
     contents.AcceptRanges = output.headers["accept-ranges"];
@@ -7753,7 +7754,7 @@ export const deserializeAws_restXmlHeadObjectCommand = async (
     contents.SSEKMSKeyId = output.headers["x-amz-server-side-encryption-aws-kms-key-id"];
   }
   if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
-    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
+    contents.BucketKeyEnabled = __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]);
   }
   if (output.headers["x-amz-storage-class"] !== undefined) {
     contents.StorageClass = output.headers["x-amz-storage-class"];
@@ -9475,7 +9476,7 @@ export const deserializeAws_restXmlPutObjectCommand = async (
     contents.SSEKMSEncryptionContext = output.headers["x-amz-server-side-encryption-context"];
   }
   if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
-    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
+    contents.BucketKeyEnabled = __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]);
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
@@ -9950,7 +9951,7 @@ export const deserializeAws_restXmlUploadPartCommand = async (
     contents.SSEKMSKeyId = output.headers["x-amz-server-side-encryption-aws-kms-key-id"];
   }
   if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
-    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
+    contents.BucketKeyEnabled = __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]);
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];
@@ -10022,7 +10023,7 @@ export const deserializeAws_restXmlUploadPartCopyCommand = async (
     contents.SSEKMSKeyId = output.headers["x-amz-server-side-encryption-aws-kms-key-id"];
   }
   if (output.headers["x-amz-server-side-encryption-bucket-key-enabled"] !== undefined) {
-    contents.BucketKeyEnabled = output.headers["x-amz-server-side-encryption-bucket-key-enabled"] === "true";
+    contents.BucketKeyEnabled = __parseBoolean(output.headers["x-amz-server-side-encryption-bucket-key-enabled"]);
   }
   if (output.headers["x-amz-request-charged"] !== undefined) {
     contents.RequestCharged = output.headers["x-amz-request-charged"];

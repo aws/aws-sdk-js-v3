@@ -160,6 +160,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
   splitEvery as __splitEvery,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3351,10 +3352,10 @@ export const deserializeAws_restXmlInputAndOutputWithHeadersCommand = async (
     contents.headerDouble = parseFloat(output.headers["x-double"]);
   }
   if (output.headers["x-boolean1"] !== undefined) {
-    contents.headerTrueBool = output.headers["x-boolean1"] === "true";
+    contents.headerTrueBool = __parseBoolean(output.headers["x-boolean1"]);
   }
   if (output.headers["x-boolean2"] !== undefined) {
-    contents.headerFalseBool = output.headers["x-boolean2"] === "true";
+    contents.headerFalseBool = __parseBoolean(output.headers["x-boolean2"]);
   }
   if (output.headers["x-stringlist"] !== undefined) {
     contents.headerStringList = (output.headers["x-stringlist"] || "").split(",").map((_entry) => _entry.trim());
@@ -3370,7 +3371,7 @@ export const deserializeAws_restXmlInputAndOutputWithHeadersCommand = async (
   if (output.headers["x-booleanlist"] !== undefined) {
     contents.headerBooleanList = (output.headers["x-booleanlist"] || "")
       .split(",")
-      .map((_entry) => _entry.trim() === "true");
+      .map((_entry) => __parseBoolean(_entry.trim()));
   }
   if (output.headers["x-timestamplist"] !== undefined) {
     contents.headerTimestampList = __splitEvery(output.headers["x-timestamplist"] || "", ",", 2).map(
