@@ -70,7 +70,7 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                         .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
                                 "EndpointDiscovery", RuntimeClientPlugin.Convention.HAS_CONFIG)
                         // ToDo: The Endpoint Discovery Command Name needs to be read from ClientEndpointDiscoveryTrait.
-                        .resolveFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
+                        .additionalResolveFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
                             put("DescribeEndpointsCommand", Symbol.builder().name("DescribeEndpointsCommand").build());
                         }})
                         .servicePredicate((m, s) -> hasClientEndpointDiscovery(s))
@@ -80,7 +80,7 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
                                 "EndpointDiscoveryRequired", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
-                        .pluginFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
+                        .additionalPluginFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
                             put("clientStack", Symbol.builder().name("clientStack").build());
                             put("options", Symbol.builder().name("options").build());
                         }})
@@ -89,7 +89,7 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.dependency,
                                 "EndpointDiscoveryOptional", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
-                        .pluginFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
+                        .additionalPluginFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
                             put("clientStack", Symbol.builder().name("clientStack").build());
                             put("options", Symbol.builder().name("options").build());
                         }})

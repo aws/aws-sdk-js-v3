@@ -106,7 +106,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.STS_MIDDLEWARE.dependency,
                             "StsAuth", HAS_CONFIG)
-                    .resolveFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
+                    .additionalResolveFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
                         put("STSClient", Symbol.builder().name("STSClient").build());
                     }})
                     .servicePredicate((m, s) -> testServiceId(s, "STS"))
