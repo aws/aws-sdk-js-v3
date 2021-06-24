@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.19.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.18.0...v3.19.0) (2021-06-24)
+
+
+### Bug Fixes
+
+* **clients:** parse status code bindings in rest protocols ([#2483](https://github.com/aws/aws-sdk-js-v3/issues/2483)) ([6d4e6b5](https://github.com/aws/aws-sdk-js-v3/commit/6d4e6b5c2ad4e4b99b9079008afeef3d932c0bb1))
+
+
+
+
+
 # [3.18.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.17.0...v3.18.0) (2021-06-04)
 
 

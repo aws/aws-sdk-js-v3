@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.19.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.18.0...v3.19.0) (2021-06-24)
+
+
+### Features
+
+* **lib:** change higher level libs use peer deps on clients ([#2516](https://github.com/aws/aws-sdk-js-v3/issues/2516)) ([2e662cd](https://github.com/aws/aws-sdk-js-v3/commit/2e662cd6e157295813c1fb25d7df055675026e17))
+
+
+
+
+
 # [3.18.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.17.0...v3.18.0) (2021-06-04)
 
 **Note:** Version bump only for package @aws-sdk/lib-storage

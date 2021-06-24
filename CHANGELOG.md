@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.19.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.18.0...v3.19.0) (2021-06-24)
+
+
+### Bug Fixes
+
+* **@aws-sdk/lib-dynamodb:** correct homepage URL in package.json ([#2485](https://github.com/aws/aws-sdk-js-v3/issues/2485)) ([ff9df37](https://github.com/aws/aws-sdk-js-v3/commit/ff9df374ef503a1af34978a31a129035b0b52415))
+* **clients:** documentation for config.region for new clients ([#2468](https://github.com/aws/aws-sdk-js-v3/issues/2468)) ([3bd30bb](https://github.com/aws/aws-sdk-js-v3/commit/3bd30bb798cee9739b98842cfdca5a6b60dec124))
+* **clients:** parse status code bindings in rest protocols ([#2483](https://github.com/aws/aws-sdk-js-v3/issues/2483)) ([6d4e6b5](https://github.com/aws/aws-sdk-js-v3/commit/6d4e6b5c2ad4e4b99b9079008afeef3d932c0bb1))
+* **credential-provider-imds:** destroy request handle on promise resolve/reject ([#2452](https://github.com/aws/aws-sdk-js-v3/issues/2452)) ([122c139](https://github.com/aws/aws-sdk-js-v3/commit/122c13976311de921155dc62f6ccd07b139c274a))
+* **protocol_tests:** format files using prettier v2.3.0 ([#2467](https://github.com/aws/aws-sdk-js-v3/issues/2467)) ([cce6231](https://github.com/aws/aws-sdk-js-v3/commit/cce62317e862f9ebf91ba991c4e2dabb5c59f55a))
+* **s3-request-presigner:** remove x-amz-user-agent header ([#2493](https://github.com/aws/aws-sdk-js-v3/issues/2493)) ([019292b](https://github.com/aws/aws-sdk-js-v3/commit/019292ba73d2a64280c30b10819924330b1f4f16))
+* **smithy-client:** use uppercase for percent encodings ([#2500](https://github.com/aws/aws-sdk-js-v3/issues/2500)) ([6ef34b5](https://github.com/aws/aws-sdk-js-v3/commit/6ef34b51263ff9278c311bb4f1927995d2036954))
+
+
+### Features
+
+* **client-s3:** add md5 header for operations with httpChecksumRequired trait ([#2507](https://github.com/aws/aws-sdk-js-v3/issues/2507)) ([cec0692](https://github.com/aws/aws-sdk-js-v3/commit/cec069255c4a0af55b451dd9688251bdf8e35b2a))
+* **clients:** update clients as of 06/17/2021 ([#2501](https://github.com/aws/aws-sdk-js-v3/issues/2501)) ([19bd800](https://github.com/aws/aws-sdk-js-v3/commit/19bd800233490de726cf38a292f835371c2a24a5))
+* **credential-provider-node:** throw cannot load credential error from credentail chain ([#2408](https://github.com/aws/aws-sdk-js-v3/issues/2408)) ([5e0a46a](https://github.com/aws/aws-sdk-js-v3/commit/5e0a46a9f4a35cdb200f7eccef09fb4c6ad76e9c))
+* **lib:** change higher level libs use peer deps on clients ([#2516](https://github.com/aws/aws-sdk-js-v3/issues/2516)) ([2e662cd](https://github.com/aws/aws-sdk-js-v3/commit/2e662cd6e157295813c1fb25d7df055675026e17))
+
+
+
+
+
 # [3.18.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.17.0...v3.18.0) (2021-06-04)
 
 
