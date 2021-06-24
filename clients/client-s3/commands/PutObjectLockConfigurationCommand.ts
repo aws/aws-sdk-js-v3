@@ -4,6 +4,7 @@ import {
   deserializeAws_restXmlPutObjectLockConfigurationCommand,
   serializeAws_restXmlPutObjectLockConfigurationCommand,
 } from "../protocols/Aws_restXml";
+import { getApplyMd5BodyChecksumPlugin } from "@aws-sdk/middleware-apply-body-checksum";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -82,6 +83,7 @@ export class PutObjectLockConfigurationCommand extends $Command<
   ): Handler<PutObjectLockConfigurationCommandInput, PutObjectLockConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

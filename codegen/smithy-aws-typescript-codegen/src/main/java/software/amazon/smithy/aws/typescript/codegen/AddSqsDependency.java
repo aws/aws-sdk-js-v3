@@ -15,9 +15,11 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
+
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.function.Consumer;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
@@ -27,17 +29,38 @@ import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
-import software.amazon.smithy.utils.SetUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
- * Adds Md5Hash if needed.
+ * Adds SQS customization.
  */
 @SmithyInternalApi
-public class AddMd5HashDependency implements TypeScriptIntegration {
-    private static final Set<String> SERVICE_IDS = SetUtils.of("S3", "SQS");
+public class AddSqsDependency implements TypeScriptIntegration {
+
+    @Override
+    public List<RuntimeClientPlugin> getClientPlugins() {
+        return ListUtils.of(
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessage",
+                                         HAS_MIDDLEWARE)
+                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessage")  && isSqs(s))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessageBatch",
+                                         HAS_MIDDLEWARE)
+                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessageBatch") && isSqs(s))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "ReceiveMessage",
+                                         HAS_MIDDLEWARE)
+                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("ReceiveMessage") && isSqs(s))
+                        .build()
+        );
+    }
 
     @Override
     public void addConfigInterfaceFields(
@@ -46,7 +69,7 @@ public class AddMd5HashDependency implements TypeScriptIntegration {
             SymbolProvider symbolProvider,
             TypeScriptWriter writer
     ) {
-        if (!needsMd5Dep(settings.getService(model))) {
+        if (!isSqs(settings.getService(model))) {
             return;
         }
 
@@ -64,7 +87,7 @@ public class AddMd5HashDependency implements TypeScriptIntegration {
             SymbolProvider symbolProvider,
             LanguageTarget target
     ) {
-        if (!needsMd5Dep(settings.getService(model))) {
+        if (!isSqs(settings.getService(model))) {
             return Collections.emptyMap();
         }
 
@@ -78,8 +101,8 @@ public class AddMd5HashDependency implements TypeScriptIntegration {
                 });
             case BROWSER:
                 return MapUtils.of("md5", writer -> {
-                    writer.addDependency(AwsDependency.MD5_BROWSER);
-                    writer.addImport("Md5", "Md5", AwsDependency.MD5_BROWSER.packageName);
+                    writer.addDependency(TypeScriptDependency.MD5_BROWSER);
+                    writer.addImport("Md5", "Md5", TypeScriptDependency.MD5_BROWSER.packageName);
                     writer.write("md5: Md5,");
                 });
             default:
@@ -87,8 +110,7 @@ public class AddMd5HashDependency implements TypeScriptIntegration {
         }
     }
 
-    private static boolean needsMd5Dep(ServiceShape service) {
-        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
-        return SERVICE_IDS.contains(serviceId);
+    private static boolean isSqs(ServiceShape service) {
+        return service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("").equals("SQS");
     }
 }

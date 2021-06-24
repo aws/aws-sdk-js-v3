@@ -186,9 +186,11 @@ import {
   Logger as __Logger,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
+  StreamHasher as __StreamHasher,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
+import { Readable } from "stream";
 
 export type ServiceInputTypes =
   | CreateAccessPointCommandInput
@@ -403,6 +405,20 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
+   * A function that, given a hash constructor and a stream, calculates the
+   * hash of the streamed value.
+   * @internal
+   */
+  streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;
+
+  /**
+   * A constructor for a class implementing the @aws-sdk/types.Hash interface
+   * that computes MD5 hashes.
+   * @internal
+   */
+  md5?: __HashConstructor;
 }
 
 type S3ControlClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &

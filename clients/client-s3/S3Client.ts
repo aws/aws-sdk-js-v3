@@ -604,20 +604,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   regionInfoProvider?: RegionInfoProvider;
 
   /**
-   * A constructor for a class implementing the @aws-sdk/types.Hash interface
-   * that computes MD5 hashes.
-   * @internal
-   */
-  md5?: __HashConstructor;
-
-  /**
-   * A function that, given a hash constructor and a stream, calculates the
-   * hash of the streamed value.
-   * @internal
-   */
-  streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;
-
-  /**
    * Whether to escape request path when signing the request.
    */
   signingEscapePath?: boolean;
@@ -636,6 +622,20 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * The function that provides necessary utilities for generating and parsing event stream
    */
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
+
+  /**
+   * A function that, given a hash constructor and a stream, calculates the
+   * hash of the streamed value.
+   * @internal
+   */
+  streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;
+
+  /**
+   * A constructor for a class implementing the @aws-sdk/types.Hash interface
+   * that computes MD5 hashes.
+   * @internal
+   */
+  md5?: __HashConstructor;
 }
 
 type S3ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
