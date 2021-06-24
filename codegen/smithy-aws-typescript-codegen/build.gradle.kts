@@ -13,9 +13,21 @@
  * permissions and limitations under the License.
  */
 
+import software.amazon.smithy.model.node.Node
+
+
 description = "Generates TypeScript code for AWS protocols from Smithy models"
 extra["displayName"] = "Smithy :: AWS :: Typescript :: Codegen"
 extra["moduleName"] = "software.amazon.smithy.aws.typescript.codegen"
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("software.amazon.smithy:smithy-model:[1.7.0, 1.8.0[")
+    }
+}
 
 dependencies {
     api("software.amazon.smithy:smithy-aws-cloudformation-traits:[1.8.0, 1.9.0[")
@@ -25,3 +37,31 @@ dependencies {
     api("software.amazon.smithy:smithy-protocol-test-traits:[1.8.0, 1.9.0[")
     api("software.amazon.smithy.typescript:smithy-typescript-codegen:0.3.0")
 }
+
+tasks.register("set-aws-sdk-versions") {
+    doLast {
+        mkdir("$buildDir/generated/resources/software/amazon/smithy/aws/typescript/codegen")
+        var versionsFile =
+                file("$buildDir/generated/resources/software/amazon/smithy/aws/typescript/codegen/sdkVersions.properties")
+        var roots = project.file("../../packages").listFiles().toMutableList() + project.file("../../clients").listFiles().toList()
+        roots.forEach { packageDir ->
+            var packageJsonFile = File(packageDir, "package.json")
+            if (packageJsonFile.isFile()) {
+                var packageJson = Node.parse(packageJsonFile.readText()).expectObjectNode()
+                var packageName = packageJson.expectStringMember("name").getValue()
+                var packageVersion = packageJson.expectStringMember("version").getValue()
+                versionsFile.appendText("$packageName=$packageVersion\n")
+            }
+        }
+    }
+}
+
+sourceSets {
+    main {
+        resources {
+            setSrcDirs(listOf("src/main/resources", "$buildDir/generated/resources"))
+        }
+    }
+}
+
+tasks["processResources"].dependsOn(tasks["set-aws-sdk-versions"])

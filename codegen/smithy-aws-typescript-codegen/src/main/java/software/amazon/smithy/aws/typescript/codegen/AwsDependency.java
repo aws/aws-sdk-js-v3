@@ -18,10 +18,16 @@ package software.amazon.smithy.aws.typescript.codegen;
 import static software.amazon.smithy.typescript.codegen.TypeScriptDependency.DEV_DEPENDENCY;
 import static software.amazon.smithy.typescript.codegen.TypeScriptDependency.NORMAL_DEPENDENCY;
 
+import java.io.IOException;
+import java.io.StringReader;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 import software.amazon.smithy.codegen.core.SymbolDependency;
 import software.amazon.smithy.codegen.core.SymbolDependencyContainer;
+import software.amazon.smithy.utils.IoUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -31,45 +37,48 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 public enum AwsDependency implements SymbolDependencyContainer {
 
-    MIDDLEWARE_SIGNING(NORMAL_DEPENDENCY, "@aws-sdk/middleware-signing", "3.15.0"),
-    CREDENTIAL_PROVIDER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/credential-provider-node", "3.15.0"),
-    ACCEPT_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-api-gateway", "3.15.0"),
-    S3_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-s3", "3.15.0"),
-    ADD_EXPECT_CONTINUE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-expect-continue", "3.15.0"),
-    GLACIER_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-glacier", "3.15.0"),
-    MACHINELEARNING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-machinelearning", "3.15.0"),
-    S3_CONTROL_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-s3-control", "3.15.0"),
-    SSEC_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-ssec", "3.15.0"),
-    RDS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-rds", "3.15.0"),
-    LOCATION_CONSTRAINT(NORMAL_DEPENDENCY, "@aws-sdk/middleware-location-constraint", "3.15.0"),
-    ROUTE53_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-route53", "3.15.0"),
-    EC2_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-ec2", "3.15.0"),
-    BUCKET_ENDPOINT_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-bucket-endpoint", "3.15.0"),
-    MIDDLEWARE_HOST_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-host-header", "3.15.0"),
-    SQS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-sqs", "3.15.0"),
-    BODY_CHECKSUM_GENERATOR_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/body-checksum-browser", "3.15.0"),
-    BODY_CHECKSUM_GENERATOR_NODE(NORMAL_DEPENDENCY, "@aws-sdk/body-checksum-node", "3.15.0"),
-    XML_BUILDER(NORMAL_DEPENDENCY, "@aws-sdk/xml-builder", "3.14.0"),
+    MIDDLEWARE_SIGNING(NORMAL_DEPENDENCY, "@aws-sdk/middleware-signing"),
+    CREDENTIAL_PROVIDER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/credential-provider-node"),
+    ACCEPT_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-api-gateway"),
+    S3_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-s3"),
+    ADD_EXPECT_CONTINUE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-expect-continue"),
+    GLACIER_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-glacier"),
+    MACHINELEARNING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-machinelearning"),
+    S3_CONTROL_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-s3-control"),
+    SSEC_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-ssec"),
+    RDS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-rds"),
+    LOCATION_CONSTRAINT(NORMAL_DEPENDENCY, "@aws-sdk/middleware-location-constraint"),
+    ROUTE53_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-route53"),
+    EC2_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-ec2"),
+    BUCKET_ENDPOINT_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-bucket-endpoint"),
+    MIDDLEWARE_HOST_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-host-header"),
+    SQS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-sqs"),
+    BODY_CHECKSUM_GENERATOR_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/body-checksum-browser"),
+    BODY_CHECKSUM_GENERATOR_NODE(NORMAL_DEPENDENCY, "@aws-sdk/body-checksum-node"),
+    XML_BUILDER(NORMAL_DEPENDENCY, "@aws-sdk/xml-builder"),
     XML_PARSER(NORMAL_DEPENDENCY, "fast-xml-parser", "3.19.0"),
     HTML_ENTITIES(NORMAL_DEPENDENCY, "entities", "2.2.0"),
     UUID_GENERATOR(NORMAL_DEPENDENCY, "uuid", "^8.3.2"),
     UUID_GENERATOR_TYPES(DEV_DEPENDENCY, "@types/uuid", "^8.3.0"),
-    MIDDLEWARE_EVENTSTREAM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-eventstream", "3.15.0"),
-    AWS_SDK_EVENTSTREAM_HANDLER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/eventstream-handler-node", "3.15.0"),
-    TRANSCRIBE_STREAMING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-transcribe-streaming",
-            "3.15.0"),
-    STS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-sts", "3.15.0"),
-    STS_CLIENT(NORMAL_DEPENDENCY, "@aws-sdk/client-sts", "3.15.0"),
-    NODE_CONFIG_PROVIDER(NORMAL_DEPENDENCY, "@aws-sdk/node-config-provider", "3.15.0"),
-    MIDDLEWARE_LOGGER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-logger", "3.15.0"),
-    MIDDLEWARE_USER_AGENT("dependencies", "@aws-sdk/middleware-user-agent", "3.15.0"),
-    AWS_SDK_UTIL_USER_AGENT_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-browser", "3.15.0"),
-    AWS_SDK_UTIL_USER_AGENT_NODE(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-node", "3.15.0"),
-    MIDDLEWARE_ENDPOINT_DISCOVERY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-endpoint-discovery", "3.0.0");
+    MIDDLEWARE_EVENTSTREAM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-eventstream"),
+    AWS_SDK_EVENTSTREAM_HANDLER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/eventstream-handler-node"),
+    TRANSCRIBE_STREAMING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-transcribe-streaming"),
+    STS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-sts"),
+    STS_CLIENT(NORMAL_DEPENDENCY, "@aws-sdk/client-sts"),
+    NODE_CONFIG_PROVIDER(NORMAL_DEPENDENCY, "@aws-sdk/node-config-provider"),
+    MIDDLEWARE_LOGGER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-logger"),
+    MIDDLEWARE_USER_AGENT("dependencies", "@aws-sdk/middleware-user-agent"),
+    AWS_SDK_UTIL_USER_AGENT_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-browser"),
+    AWS_SDK_UTIL_USER_AGENT_NODE(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-node"),
+    MIDDLEWARE_ENDPOINT_DISCOVERY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-endpoint-discovery");
 
     public final String packageName;
     public final String version;
     public final SymbolDependency dependency;
+
+    AwsDependency(String type, String name) {
+        this(type, name, SdkVersion.expectVersion(name));
+    }
 
     AwsDependency(String type, String name, String version) {
         this.dependency = SymbolDependency.builder().dependencyType(type).packageName(name).version(version).build();
@@ -77,8 +86,40 @@ public enum AwsDependency implements SymbolDependencyContainer {
         this.version = version;
     }
 
+
     @Override
     public List<SymbolDependency> getDependencies() {
         return Collections.singletonList(dependency);
     }
+
+    private static final class SdkVersion {
+        private static final Map<String, String> VERSIONS;
+
+        static {
+            String rawProperties =
+                    IoUtils.readUtf8Url(AwsDependency.class.getResource("sdkVersions.properties")).trim();
+            Properties p = new Properties();
+            try {
+                p.load(new StringReader(rawProperties));
+            } catch (IOException e) {
+                throw new IllegalArgumentException("Could not read sdkVersions.properties");
+            }
+
+            final Map<String, String> versions = new HashMap<>(p.size());
+            p.forEach((k, v) -> {
+                if (versions.put(k.toString(), v.toString()) != null) {
+                    throw new IllegalArgumentException("Multiple versions defined for " + k.toString());
+                }
+            });
+            VERSIONS = Collections.unmodifiableMap(versions);
+        }
+
+        private static String expectVersion(String packageName) {
+            if (!VERSIONS.containsKey(packageName)) {
+                throw new IllegalArgumentException("No version for " + packageName);
+            }
+            return VERSIONS.get(packageName);
+        }
+    }
 }
+
