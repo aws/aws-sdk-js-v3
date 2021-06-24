@@ -39,7 +39,7 @@ export function expectBoolean(value: any): boolean | undefined {
  * @returns The value if it's a number, undefined if it's null/undefined,
  *   otherwise an error is thrown.
  */
-export function expectNumber(value: any): number {
+export function expectNumber(value: any): number | undefined {
   if (value === null || value === undefined) {
     return undefined;
   }
@@ -56,7 +56,7 @@ export function expectNumber(value: any): number {
  * @returns The value if it's a string, undefined if it's null/undefined,
  *   otherwise an error is thrown.
  */
-export function expectString(value: any): string {
+export function expectString(value: any): string | undefined {
   if (value === null || value === undefined) {
     return undefined;
   }

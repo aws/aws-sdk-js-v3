@@ -28,8 +28,10 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.JsonNameTrait;
+import software.amazon.smithy.model.traits.MediaTypeTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
+import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeDeserVisitor;
@@ -132,7 +134,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                         .orElse(memberName);
                 Shape target = context.getModel().expectShape(memberShape.getTarget());
 
-                if (target.isBooleanShape() || target instanceof NumberShape) {
+                if (usesExpect(target)) {
                     // Booleans and numbers will call expectBoolean/expectNumber which will handle
                     // null/undefined properly.
                     writer.write("$L: $L,", memberName, target.accept(getMemberVisitor("output." + locationName)));
@@ -144,6 +146,16 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 }
             });
         });
+    }
+
+    private boolean usesExpect(Shape shape) {
+        if (shape.isStringShape()) {
+            if (shape.hasTrait(MediaTypeTrait.class)) {
+                return !CodegenUtils.isJsonMediaType(shape.expectTrait(MediaTypeTrait.class).getValue());
+            }
+            return true;
+        }
+        return shape.isBooleanShape() || shape instanceof NumberShape;
     }
 
     @Override
@@ -161,7 +173,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                     .orElse(memberName);
 
             String memberValue = target.accept(getMemberVisitor("output." + locationName));
-            if (target.isBooleanShape() || target instanceof NumberShape) {
+            if (usesExpect(target)) {
                 // Booleans and numbers will call expectBoolean/expectNumber which will handle
                 // null/undefined properly.
                 writer.openBlock("if ((val = $L) !== undefined) {", "}", memberValue, () -> {
