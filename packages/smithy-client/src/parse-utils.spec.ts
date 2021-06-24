@@ -51,6 +51,8 @@ describe("expectBoolean", () => {
   it("accepts booleans", () => {
     expect(expectBoolean(true)).toEqual(true);
     expect(expectBoolean(false)).toEqual(false);
+    expect(expectBoolean(null)).toEqual(undefined);
+    expect(expectBoolean(undefined)).toEqual(undefined);
   });
 
   it("rejects non-booleans", () => {
@@ -64,8 +66,6 @@ describe("expectBoolean", () => {
     expect(() => expectBoolean(NaN)).toThrowError();
     expect(() => expectBoolean({})).toThrowError();
     expect(() => expectBoolean([])).toThrowError();
-    expect(() => expectBoolean(null)).toThrowError();
-    expect(() => expectBoolean(undefined)).toThrowError();
   });
 });
 
@@ -76,6 +76,8 @@ describe("expectNumber", () => {
     expect(expectNumber(Infinity)).toEqual(Infinity);
     expect(expectNumber(-Infinity)).toEqual(-Infinity);
     expect(expectNumber(NaN)).toEqual(NaN);
+    expect(expectNumber(null)).toEqual(undefined);
+    expect(expectNumber(undefined)).toEqual(undefined);
   });
 
   it("rejects non-numbers", () => {
@@ -88,14 +90,14 @@ describe("expectNumber", () => {
     expect(() => expectNumber(false)).toThrowError();
     expect(() => expectNumber([])).toThrowError();
     expect(() => expectNumber({})).toThrowError();
-    expect(() => expectNumber(null)).toThrowError();
-    expect(() => expectNumber(undefined)).toThrowError();
   });
 });
 
 describe("expectString", () => {
   it("accepts strings", () => {
     expect(expectString("foo")).toEqual("foo");
+    expect(expectString(null)).toEqual(undefined);
+    expect(expectString(undefined)).toEqual(undefined);
   });
 
   it("rejects non-strings", () => {
@@ -107,7 +109,5 @@ describe("expectString", () => {
     expect(() => expectString(false)).toThrowError();
     expect(() => expectString([])).toThrowError();
     expect(() => expectString({})).toThrowError();
-    expect(() => expectString(null)).toThrowError();
-    expect(() => expectString(undefined)).toThrowError();
   });
 });

@@ -19,9 +19,13 @@ export const parseBoolean = (value: string): boolean => {
  * Asserts a value is a boolean and returns it.
  *
  * @param value A value that is expected to be a boolean.
- * @returns The value if it is a boolean, otherwise an error is thrown.
+ * @returns The value if it's a boolean, undefined if it's null/undefined,
+ *   otherwise an error is thrown.
  */
-export function expectBoolean(value: any): boolean {
+export function expectBoolean(value: any): boolean | undefined {
+  if (value === null || value === undefined) {
+    return undefined;
+  }
   if (typeof value === "boolean") {
     return value;
   }
@@ -32,9 +36,13 @@ export function expectBoolean(value: any): boolean {
  * Asserts a value is a number and returns it.
  *
  * @param value A value that is expected to be a number.
- * @returns The value if it is a number, otherwise an error is thrown.
+ * @returns The value if it's a number, undefined if it's null/undefined,
+ *   otherwise an error is thrown.
  */
 export function expectNumber(value: any): number {
+  if (value === null || value === undefined) {
+    return undefined;
+  }
   if (typeof value === "number") {
     return value;
   }
@@ -45,9 +53,13 @@ export function expectNumber(value: any): number {
  * Asserts a value is a string and returns it.
  *
  * @param value A value that is expected to be a string.
- * @returns The value if it is a string, otherwise an error is thrown.
+ * @returns The value if it's a string, undefined if it's null/undefined,
+ *   otherwise an error is thrown.
  */
 export function expectString(value: any): string {
+  if (value === null || value === undefined) {
+    return undefined;
+  }
   if (typeof value === "string") {
     return value;
   }

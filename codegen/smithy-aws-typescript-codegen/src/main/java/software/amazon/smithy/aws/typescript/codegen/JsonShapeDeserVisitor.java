@@ -23,6 +23,7 @@ import software.amazon.smithy.model.shapes.CollectionShape;
 import software.amazon.smithy.model.shapes.DocumentShape;
 import software.amazon.smithy.model.shapes.MapShape;
 import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.NumberShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
@@ -131,10 +132,16 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                         .orElse(memberName);
                 Shape target = context.getModel().expectShape(memberShape.getTarget());
 
-                writer.write("$1L: (output.$2L !== undefined && output.$2L !== null)"
-                        + " ? $3L: undefined,", memberName, locationName,
-                        // Dispatch to the output value provider for any additional handling.
-                        target.accept(getMemberVisitor("output." + locationName)));
+                if (target.isBooleanShape() || target instanceof NumberShape) {
+                    // Booleans and numbers will call expectBoolean/expectNumber which will handle
+                    // null/undefined properly.
+                    writer.write("$L: $L,", memberName, target.accept(getMemberVisitor("output." + locationName)));
+                } else {
+                    writer.write("$1L: (output.$2L !== undefined && output.$2L !== null)"
+                                    + " ? $3L: undefined,", memberName, locationName,
+                            // Dispatch to the output value provider for any additional handling.
+                            target.accept(getMemberVisitor("output." + locationName)));
+                }
             });
         });
     }
@@ -152,13 +159,23 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
             String locationName = memberShape.getTrait(JsonNameTrait.class)
                     .map(JsonNameTrait::getValue)
                     .orElse(memberName);
-            writer.openBlock("if (output.$L !== undefined && output.$L !== null) {", "}", locationName, locationName,
-                    () -> {
-                writer.openBlock("return {", "};", () -> {
-                    // Dispatch to the output value provider for any additional handling.
-                    writer.write("$L: $L", memberName, target.accept(getMemberVisitor("output." + locationName)));
+
+            String memberValue = target.accept(getMemberVisitor("output." + locationName));
+            if (target.isBooleanShape() || target instanceof NumberShape) {
+                // Booleans and numbers will call expectBoolean/expectNumber which will handle
+                // null/undefined properly.
+                writer.openBlock("if ((val = $L) !== undefined) {", "}", memberValue, () -> {
+                    writer.write("return { $L: val }", memberName);
                 });
-            });
+            } else {
+                writer.openBlock("if (output.$L !== undefined && output.$L !== null) {", "}", locationName,
+                    locationName, () -> {
+                        writer.openBlock("return {", "};", () -> {
+                            // Dispatch to the output value provider for any additional handling.
+                            writer.write("$L: $L", memberName, memberValue);
+                        });
+                    });
+            }
         });
         // Or write to the unknown member the element in the output.
         writer.write("return { $$unknown: Object.entries(output)[0] };");
