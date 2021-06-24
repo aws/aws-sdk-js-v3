@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.19.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.18.0...v3.19.0) (2021-06-24)
+
+
+### Bug Fixes
+
+* **smithy-client:** use uppercase for percent encodings ([#2500](https://github.com/aws/aws-sdk-js-v3/issues/2500)) ([6ef34b5](https://github.com/aws/aws-sdk-js-v3/commit/6ef34b51263ff9278c311bb4f1927995d2036954))
+
+
+
+
+
 # [3.18.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.17.0...v3.18.0) (2021-06-04)
 
 **Note:** Version bump only for package @aws-sdk/smithy-client

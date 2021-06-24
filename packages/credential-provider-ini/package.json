@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-ini",
-  "version": "3.18.0",
+  "version": "3.19.0",
   "description": "AWS credential provider that sources credentials from ~/.aws/credentials and ~/.aws/config",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
@@ -21,10 +21,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/credential-provider-env": "3.18.0",
-    "@aws-sdk/credential-provider-imds": "3.18.0",
-    "@aws-sdk/credential-provider-web-identity": "3.18.0",
-    "@aws-sdk/property-provider": "3.18.0",
+    "@aws-sdk/credential-provider-env": "3.19.0",
+    "@aws-sdk/credential-provider-imds": "3.19.0",
+    "@aws-sdk/credential-provider-web-identity": "3.19.0",
+    "@aws-sdk/property-provider": "3.19.0",
     "@aws-sdk/shared-ini-file-loader": "3.18.0",
     "@aws-sdk/types": "3.18.0",
     "tslib": "^2.0.0"

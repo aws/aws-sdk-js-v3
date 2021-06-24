@@ -167,4 +167,9 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
         writer.write("contents = $L;",
                 outputStructure.accept(new XmlMemberDeserVisitor(context, "data", Format.DATE_TIME)));
     }
+
+    @Override
+    public void generateProtocolTests(GenerationContext context) {
+        AwsProtocolUtils.generateProtocolTests(this, context);
+    }
 }

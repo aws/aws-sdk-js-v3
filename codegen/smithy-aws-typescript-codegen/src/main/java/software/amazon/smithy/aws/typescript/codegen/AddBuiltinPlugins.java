@@ -101,24 +101,6 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                                             && testServiceId(s, "Route 53"))
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessage",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessage")
-                                            && testServiceId(s, "SQS"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessageBatch",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessageBatch")
-                                            && testServiceId(s, "SQS"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "ReceiveMessage",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("ReceiveMessage")
-                                            && testServiceId(s, "SQS"))
-                        .build(),
-                RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_HOST_HEADER.dependency, "HostHeader")
                         .build(),
                 RuntimeClientPlugin.builder()

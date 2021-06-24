@@ -350,4 +350,9 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             });
         }
     }
+
+    @Override
+    public void generateProtocolTests(GenerationContext context) {
+        AwsProtocolUtils.generateProtocolTests(this, context);
+    }
 }

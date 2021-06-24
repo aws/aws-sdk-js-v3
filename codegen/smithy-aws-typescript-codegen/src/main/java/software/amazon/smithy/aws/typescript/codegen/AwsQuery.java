@@ -168,4 +168,9 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
         writer.write("contents = $L;",
                 outputStructure.accept(new XmlMemberDeserVisitor(context, dataSource, Format.DATE_TIME)));
     }
+
+    @Override
+    public void generateProtocolTests(GenerationContext context) {
+        AwsProtocolUtils.generateProtocolTests(this, context);
+    }
 }

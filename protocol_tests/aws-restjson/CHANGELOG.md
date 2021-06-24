@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.19.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.18.0...v3.19.0) (2021-06-24)
+
+
+### Bug Fixes
+
+* **protocol_tests:** format files using prettier v2.3.0 ([#2467](https://github.com/aws/aws-sdk-js-v3/issues/2467)) ([cce6231](https://github.com/aws/aws-sdk-js-v3/commit/cce62317e862f9ebf91ba991c4e2dabb5c59f55a))
+
+
+
+
+
 # [3.18.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.17.0...v3.18.0) (2021-06-04)
 
 

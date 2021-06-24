@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.19.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.18.0...v3.19.0) (2021-06-24)
+
+
+### Features
+
+* **credential-provider-node:** throw cannot load credential error from credentail chain ([#2408](https://github.com/aws/aws-sdk-js-v3/issues/2408)) ([5e0a46a](https://github.com/aws/aws-sdk-js-v3/commit/5e0a46a9f4a35cdb200f7eccef09fb4c6ad76e9c))
+
+
+
+
+
 # [3.18.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.17.0...v3.18.0) (2021-06-04)
 
 **Note:** Version bump only for package @aws-sdk/property-provider

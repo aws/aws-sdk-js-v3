@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.19.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.18.0...v3.19.0) (2021-06-24)
+
+
+### Features
+
+* **client-s3:** add md5 header for operations with httpChecksumRequired trait ([#2507](https://github.com/aws/aws-sdk-js-v3/issues/2507)) ([cec0692](https://github.com/aws/aws-sdk-js-v3/commit/cec069255c4a0af55b451dd9688251bdf8e35b2a))
+
+
+
+
+
 # [3.18.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.17.0...v3.18.0) (2021-06-04)
 
 
