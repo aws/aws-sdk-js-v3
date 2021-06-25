@@ -71,7 +71,8 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                                 "EndpointDiscovery", RuntimeClientPlugin.Convention.HAS_CONFIG)
                         // ToDo: The Endpoint Discovery Command Name needs to be read from ClientEndpointDiscoveryTrait.
                         .additionalResolveFunctionParamsSupplier((m, s, o) -> new HashMap<String, Object>() {{
-                            put("DescribeEndpointsCommand", Symbol.builder().name("DescribeEndpointsCommand").build());
+                            put("endpointDiscoveryCommandCtor",
+                                    Symbol.builder().name("DescribeEndpointsCommand").build());
                         }})
                         .servicePredicate((m, s) -> hasClientEndpointDiscovery(s))
                         .build(),
