@@ -713,6 +713,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -15489,16 +15490,16 @@ const deserializeAws_queryCluster = (output: any, context: __SerdeContext): Clus
     contents.ClusterVersion = output["ClusterVersion"];
   }
   if (output["AllowVersionUpgrade"] !== undefined) {
-    contents.AllowVersionUpgrade = output["AllowVersionUpgrade"] == "true";
+    contents.AllowVersionUpgrade = __parseBoolean(output["AllowVersionUpgrade"]);
   }
   if (output["NumberOfNodes"] !== undefined) {
     contents.NumberOfNodes = parseInt(output["NumberOfNodes"]);
   }
   if (output["PubliclyAccessible"] !== undefined) {
-    contents.PubliclyAccessible = output["PubliclyAccessible"] == "true";
+    contents.PubliclyAccessible = __parseBoolean(output["PubliclyAccessible"]);
   }
   if (output["Encrypted"] !== undefined) {
-    contents.Encrypted = output["Encrypted"] == "true";
+    contents.Encrypted = __parseBoolean(output["Encrypted"]);
   }
   if (output["RestoreStatus"] !== undefined) {
     contents.RestoreStatus = deserializeAws_queryRestoreStatus(output["RestoreStatus"], context);
@@ -15543,7 +15544,7 @@ const deserializeAws_queryCluster = (output: any, context: __SerdeContext): Clus
     contents.KmsKeyId = output["KmsKeyId"];
   }
   if (output["EnhancedVpcRouting"] !== undefined) {
-    contents.EnhancedVpcRouting = output["EnhancedVpcRouting"] == "true";
+    contents.EnhancedVpcRouting = __parseBoolean(output["EnhancedVpcRouting"]);
   }
   if (output.IamRoles === "") {
     contents.IamRoles = [];
@@ -17025,7 +17026,7 @@ const deserializeAws_queryEndpointAuthorization = (output: any, context: __Serde
     contents.Status = output["Status"];
   }
   if (output["AllowedAllVPCs"] !== undefined) {
-    contents.AllowedAllVPCs = output["AllowedAllVPCs"] == "true";
+    contents.AllowedAllVPCs = __parseBoolean(output["AllowedAllVPCs"]);
   }
   if (output.AllowedVPCs === "") {
     contents.AllowedVPCs = [];
@@ -17376,7 +17377,7 @@ const deserializeAws_queryEventSubscription = (output: any, context: __SerdeCont
     contents.Severity = output["Severity"];
   }
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output.Tags === "") {
     contents.Tags = [];
@@ -18144,7 +18145,7 @@ const deserializeAws_queryLoggingStatus = (output: any, context: __SerdeContext)
     LastFailureMessage: undefined,
   };
   if (output["LoggingEnabled"] !== undefined) {
-    contents.LoggingEnabled = output["LoggingEnabled"] == "true";
+    contents.LoggingEnabled = __parseBoolean(output["LoggingEnabled"]);
   }
   if (output["BucketName"] !== undefined) {
     contents.BucketName = output["BucketName"];
@@ -18522,7 +18523,7 @@ const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Pa
     contents.ApplyType = output["ApplyType"];
   }
   if (output["IsModifiable"] !== undefined) {
-    contents.IsModifiable = output["IsModifiable"] == "true";
+    contents.IsModifiable = __parseBoolean(output["IsModifiable"]);
   }
   if (output["MinimumEngineVersion"] !== undefined) {
     contents.MinimumEngineVersion = output["MinimumEngineVersion"];
@@ -18690,10 +18691,10 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     contents.ClusterIdentifier = output["ClusterIdentifier"];
   }
   if (output["PubliclyAccessible"] !== undefined) {
-    contents.PubliclyAccessible = output["PubliclyAccessible"] == "true";
+    contents.PubliclyAccessible = __parseBoolean(output["PubliclyAccessible"]);
   }
   if (output["EnhancedVpcRouting"] !== undefined) {
-    contents.EnhancedVpcRouting = output["EnhancedVpcRouting"] == "true";
+    contents.EnhancedVpcRouting = __parseBoolean(output["EnhancedVpcRouting"]);
   }
   if (output["MaintenanceTrackName"] !== undefined) {
     contents.MaintenanceTrackName = output["MaintenanceTrackName"];
@@ -19018,7 +19019,7 @@ const deserializeAws_queryResizeClusterMessage = (output: any, context: __SerdeC
     contents.NumberOfNodes = parseInt(output["NumberOfNodes"]);
   }
   if (output["Classic"] !== undefined) {
-    contents.Classic = output["Classic"] == "true";
+    contents.Classic = __parseBoolean(output["Classic"]);
   }
   return contents;
 };
@@ -19042,7 +19043,7 @@ const deserializeAws_queryResizeInfo = (output: any, context: __SerdeContext): R
     contents.ResizeType = output["ResizeType"];
   }
   if (output["AllowCancelResize"] !== undefined) {
-    contents.AllowCancelResize = output["AllowCancelResize"] == "true";
+    contents.AllowCancelResize = __parseBoolean(output["AllowCancelResize"]);
   }
   return contents;
 };
@@ -19588,13 +19589,13 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     contents.VpcId = output["VpcId"];
   }
   if (output["Encrypted"] !== undefined) {
-    contents.Encrypted = output["Encrypted"] == "true";
+    contents.Encrypted = __parseBoolean(output["Encrypted"]);
   }
   if (output["KmsKeyId"] !== undefined) {
     contents.KmsKeyId = output["KmsKeyId"];
   }
   if (output["EncryptedWithHSM"] !== undefined) {
-    contents.EncryptedWithHSM = output["EncryptedWithHSM"] == "true";
+    contents.EncryptedWithHSM = __parseBoolean(output["EncryptedWithHSM"]);
   }
   if (output.AccountsWithRestoreAccess === "") {
     contents.AccountsWithRestoreAccess = [];
@@ -19648,7 +19649,7 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     );
   }
   if (output["EnhancedVpcRouting"] !== undefined) {
-    contents.EnhancedVpcRouting = output["EnhancedVpcRouting"] == "true";
+    contents.EnhancedVpcRouting = __parseBoolean(output["EnhancedVpcRouting"]);
   }
   if (output["MaintenanceTrackName"] !== undefined) {
     contents.MaintenanceTrackName = output["MaintenanceTrackName"];

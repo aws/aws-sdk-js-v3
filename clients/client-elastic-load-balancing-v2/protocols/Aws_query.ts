@@ -218,6 +218,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5905,7 +5906,7 @@ const deserializeAws_queryAuthenticateOidcActionConfig = (
     contents.OnUnauthenticatedRequest = output["OnUnauthenticatedRequest"];
   }
   if (output["UseExistingClientSecret"] !== undefined) {
-    contents.UseExistingClientSecret = output["UseExistingClientSecret"] == "true";
+    contents.UseExistingClientSecret = __parseBoolean(output["UseExistingClientSecret"]);
   }
   return contents;
 };
@@ -5971,7 +5972,7 @@ const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): 
     contents.CertificateArn = output["CertificateArn"];
   }
   if (output["IsDefault"] !== undefined) {
-    contents.IsDefault = output["IsDefault"] == "true";
+    contents.IsDefault = __parseBoolean(output["IsDefault"]);
   }
   return contents;
 };
@@ -7137,7 +7138,7 @@ const deserializeAws_queryRule = (output: any, context: __SerdeContext): Rule =>
     contents.Actions = deserializeAws_queryActions(__getArrayIfSingleItem(output["Actions"]["member"]), context);
   }
   if (output["IsDefault"] !== undefined) {
-    contents.IsDefault = output["IsDefault"] == "true";
+    contents.IsDefault = __parseBoolean(output["IsDefault"]);
   }
   return contents;
 };
@@ -7486,7 +7487,7 @@ const deserializeAws_queryTargetGroup = (output: any, context: __SerdeContext): 
     contents.HealthCheckPort = output["HealthCheckPort"];
   }
   if (output["HealthCheckEnabled"] !== undefined) {
-    contents.HealthCheckEnabled = output["HealthCheckEnabled"] == "true";
+    contents.HealthCheckEnabled = __parseBoolean(output["HealthCheckEnabled"]);
   }
   if (output["HealthCheckIntervalSeconds"] !== undefined) {
     contents.HealthCheckIntervalSeconds = parseInt(output["HealthCheckIntervalSeconds"]);
@@ -7606,7 +7607,7 @@ const deserializeAws_queryTargetGroupStickinessConfig = (
     DurationSeconds: undefined,
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["DurationSeconds"] !== undefined) {
     contents.DurationSeconds = parseInt(output["DurationSeconds"]);

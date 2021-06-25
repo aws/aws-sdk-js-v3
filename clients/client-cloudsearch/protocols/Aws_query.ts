@@ -160,6 +160,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3631,7 +3632,7 @@ const deserializeAws_queryAvailabilityOptionsStatus = (
     Status: undefined,
   };
   if (output["Options"] !== undefined) {
-    contents.Options = output["Options"] == "true";
+    contents.Options = __parseBoolean(output["Options"]);
   }
   if (output["Status"] !== undefined) {
     contents.Status = deserializeAws_queryOptionStatus(output["Status"], context);
@@ -3694,13 +3695,13 @@ const deserializeAws_queryDateArrayOptions = (output: any, context: __SerdeConte
     contents.SourceFields = output["SourceFields"];
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = output["FacetEnabled"] == "true";
+    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = output["SearchEnabled"] == "true";
+    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
+    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
   }
   return contents;
 };
@@ -3721,16 +3722,16 @@ const deserializeAws_queryDateOptions = (output: any, context: __SerdeContext): 
     contents.SourceField = output["SourceField"];
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = output["FacetEnabled"] == "true";
+    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = output["SearchEnabled"] == "true";
+    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
+    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
   }
   if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled = output["SortEnabled"] == "true";
+    contents.SortEnabled = __parseBoolean(output["SortEnabled"]);
   }
   return contents;
 };
@@ -4037,7 +4038,7 @@ const deserializeAws_queryDomainEndpointOptions = (output: any, context: __Serde
     TLSSecurityPolicy: undefined,
   };
   if (output["EnforceHTTPS"] !== undefined) {
-    contents.EnforceHTTPS = output["EnforceHTTPS"] == "true";
+    contents.EnforceHTTPS = __parseBoolean(output["EnforceHTTPS"]);
   }
   if (output["TLSSecurityPolicy"] !== undefined) {
     contents.TLSSecurityPolicy = output["TLSSecurityPolicy"];
@@ -4100,10 +4101,10 @@ const deserializeAws_queryDomainStatus = (output: any, context: __SerdeContext):
     contents.ARN = output["ARN"];
   }
   if (output["Created"] !== undefined) {
-    contents.Created = output["Created"] == "true";
+    contents.Created = __parseBoolean(output["Created"]);
   }
   if (output["Deleted"] !== undefined) {
-    contents.Deleted = output["Deleted"] == "true";
+    contents.Deleted = __parseBoolean(output["Deleted"]);
   }
   if (output["DocService"] !== undefined) {
     contents.DocService = deserializeAws_queryServiceEndpoint(output["DocService"], context);
@@ -4112,10 +4113,10 @@ const deserializeAws_queryDomainStatus = (output: any, context: __SerdeContext):
     contents.SearchService = deserializeAws_queryServiceEndpoint(output["SearchService"], context);
   }
   if (output["RequiresIndexDocuments"] !== undefined) {
-    contents.RequiresIndexDocuments = output["RequiresIndexDocuments"] == "true";
+    contents.RequiresIndexDocuments = __parseBoolean(output["RequiresIndexDocuments"]);
   }
   if (output["Processing"] !== undefined) {
-    contents.Processing = output["Processing"] == "true";
+    contents.Processing = __parseBoolean(output["Processing"]);
   }
   if (output["SearchInstanceType"] !== undefined) {
     contents.SearchInstanceType = output["SearchInstanceType"];
@@ -4158,13 +4159,13 @@ const deserializeAws_queryDoubleArrayOptions = (output: any, context: __SerdeCon
     contents.SourceFields = output["SourceFields"];
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = output["FacetEnabled"] == "true";
+    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = output["SearchEnabled"] == "true";
+    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
+    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
   }
   return contents;
 };
@@ -4185,16 +4186,16 @@ const deserializeAws_queryDoubleOptions = (output: any, context: __SerdeContext)
     contents.SourceField = output["SourceField"];
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = output["FacetEnabled"] == "true";
+    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = output["SearchEnabled"] == "true";
+    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
+    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
   }
   if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled = output["SortEnabled"] == "true";
+    contents.SortEnabled = __parseBoolean(output["SortEnabled"]);
   }
   return contents;
 };
@@ -4363,13 +4364,13 @@ const deserializeAws_queryIntArrayOptions = (output: any, context: __SerdeContex
     contents.SourceFields = output["SourceFields"];
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = output["FacetEnabled"] == "true";
+    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = output["SearchEnabled"] == "true";
+    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
+    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
   }
   return contents;
 };
@@ -4404,16 +4405,16 @@ const deserializeAws_queryIntOptions = (output: any, context: __SerdeContext): I
     contents.SourceField = output["SourceField"];
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = output["FacetEnabled"] == "true";
+    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = output["SearchEnabled"] == "true";
+    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
+    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
   }
   if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled = output["SortEnabled"] == "true";
+    contents.SortEnabled = __parseBoolean(output["SortEnabled"]);
   }
   return contents;
 };
@@ -4448,16 +4449,16 @@ const deserializeAws_queryLatLonOptions = (output: any, context: __SerdeContext)
     contents.SourceField = output["SourceField"];
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = output["FacetEnabled"] == "true";
+    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = output["SearchEnabled"] == "true";
+    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
+    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
   }
   if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled = output["SortEnabled"] == "true";
+    contents.SortEnabled = __parseBoolean(output["SortEnabled"]);
   }
   return contents;
 };
@@ -4521,13 +4522,13 @@ const deserializeAws_queryLiteralArrayOptions = (output: any, context: __SerdeCo
     contents.SourceFields = output["SourceFields"];
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = output["FacetEnabled"] == "true";
+    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = output["SearchEnabled"] == "true";
+    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
+    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
   }
   return contents;
 };
@@ -4548,16 +4549,16 @@ const deserializeAws_queryLiteralOptions = (output: any, context: __SerdeContext
     contents.SourceField = output["SourceField"];
   }
   if (output["FacetEnabled"] !== undefined) {
-    contents.FacetEnabled = output["FacetEnabled"] == "true";
+    contents.FacetEnabled = __parseBoolean(output["FacetEnabled"]);
   }
   if (output["SearchEnabled"] !== undefined) {
-    contents.SearchEnabled = output["SearchEnabled"] == "true";
+    contents.SearchEnabled = __parseBoolean(output["SearchEnabled"]);
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
+    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
   }
   if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled = output["SortEnabled"] == "true";
+    contents.SortEnabled = __parseBoolean(output["SortEnabled"]);
   }
   return contents;
 };
@@ -4583,7 +4584,7 @@ const deserializeAws_queryOptionStatus = (output: any, context: __SerdeContext):
     contents.State = output["State"];
   }
   if (output["PendingDeletion"] !== undefined) {
-    contents.PendingDeletion = output["PendingDeletion"] == "true";
+    contents.PendingDeletion = __parseBoolean(output["PendingDeletion"]);
   }
   return contents;
 };
@@ -4704,10 +4705,10 @@ const deserializeAws_queryTextArrayOptions = (output: any, context: __SerdeConte
     contents.SourceFields = output["SourceFields"];
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
+    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
   }
   if (output["HighlightEnabled"] !== undefined) {
-    contents.HighlightEnabled = output["HighlightEnabled"] == "true";
+    contents.HighlightEnabled = __parseBoolean(output["HighlightEnabled"]);
   }
   if (output["AnalysisScheme"] !== undefined) {
     contents.AnalysisScheme = output["AnalysisScheme"];
@@ -4731,13 +4732,13 @@ const deserializeAws_queryTextOptions = (output: any, context: __SerdeContext): 
     contents.SourceField = output["SourceField"];
   }
   if (output["ReturnEnabled"] !== undefined) {
-    contents.ReturnEnabled = output["ReturnEnabled"] == "true";
+    contents.ReturnEnabled = __parseBoolean(output["ReturnEnabled"]);
   }
   if (output["SortEnabled"] !== undefined) {
-    contents.SortEnabled = output["SortEnabled"] == "true";
+    contents.SortEnabled = __parseBoolean(output["SortEnabled"]);
   }
   if (output["HighlightEnabled"] !== undefined) {
-    contents.HighlightEnabled = output["HighlightEnabled"] == "true";
+    contents.HighlightEnabled = __parseBoolean(output["HighlightEnabled"]);
   }
   if (output["AnalysisScheme"] !== undefined) {
     contents.AnalysisScheme = output["AnalysisScheme"];

@@ -93,6 +93,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -2497,7 +2498,7 @@ const deserializeAws_queryBatchResultErrorEntry = (output: any, context: __Serde
     contents.Id = output["Id"];
   }
   if (output["SenderFault"] !== undefined) {
-    contents.SenderFault = output["SenderFault"] == "true";
+    contents.SenderFault = __parseBoolean(output["SenderFault"]);
   }
   if (output["Code"] !== undefined) {
     contents.Code = output["Code"];

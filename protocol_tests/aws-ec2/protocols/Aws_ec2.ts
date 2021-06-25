@@ -73,6 +73,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -1704,10 +1705,10 @@ const deserializeAws_ec2SimpleScalarXmlPropertiesOutput = (
     contents.emptyStringValue = output["emptyStringValue"];
   }
   if (output["trueBooleanValue"] !== undefined) {
-    contents.trueBooleanValue = output["trueBooleanValue"] == "true";
+    contents.trueBooleanValue = __parseBoolean(output["trueBooleanValue"]);
   }
   if (output["falseBooleanValue"] !== undefined) {
-    contents.falseBooleanValue = output["falseBooleanValue"] == "true";
+    contents.falseBooleanValue = __parseBoolean(output["falseBooleanValue"]);
   }
   if (output["byteValue"] !== undefined) {
     contents.byteValue = parseInt(output["byteValue"]);
@@ -2001,7 +2002,7 @@ const deserializeAws_ec2BooleanList = (output: any, context: __SerdeContext): bo
       if (entry === null) {
         return null as any;
       }
-      return entry == "true";
+      return __parseBoolean(entry);
     });
 };
 

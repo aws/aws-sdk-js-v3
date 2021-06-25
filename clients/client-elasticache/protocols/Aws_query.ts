@@ -452,6 +452,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -10956,7 +10957,7 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
     );
   }
   if (output["AutoMinorVersionUpgrade"] !== undefined) {
-    contents.AutoMinorVersionUpgrade = output["AutoMinorVersionUpgrade"] == "true";
+    contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
   }
   if (output.SecurityGroups === "") {
     contents.SecurityGroups = [];
@@ -10977,22 +10978,22 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
     contents.SnapshotWindow = output["SnapshotWindow"];
   }
   if (output["AuthTokenEnabled"] !== undefined) {
-    contents.AuthTokenEnabled = output["AuthTokenEnabled"] == "true";
+    contents.AuthTokenEnabled = __parseBoolean(output["AuthTokenEnabled"]);
   }
   if (output["AuthTokenLastModifiedDate"] !== undefined) {
     contents.AuthTokenLastModifiedDate = new Date(output["AuthTokenLastModifiedDate"]);
   }
   if (output["TransitEncryptionEnabled"] !== undefined) {
-    contents.TransitEncryptionEnabled = output["TransitEncryptionEnabled"] == "true";
+    contents.TransitEncryptionEnabled = __parseBoolean(output["TransitEncryptionEnabled"]);
   }
   if (output["AtRestEncryptionEnabled"] !== undefined) {
-    contents.AtRestEncryptionEnabled = output["AtRestEncryptionEnabled"] == "true";
+    contents.AtRestEncryptionEnabled = __parseBoolean(output["AtRestEncryptionEnabled"]);
   }
   if (output["ARN"] !== undefined) {
     contents.ARN = output["ARN"];
   }
   if (output["ReplicationGroupLogDeliveryEnabled"] !== undefined) {
-    contents.ReplicationGroupLogDeliveryEnabled = output["ReplicationGroupLogDeliveryEnabled"] == "true";
+    contents.ReplicationGroupLogDeliveryEnabled = __parseBoolean(output["ReplicationGroupLogDeliveryEnabled"]);
   }
   if (output.LogDeliveryConfigurations === "") {
     contents.LogDeliveryConfigurations = [];
@@ -11220,7 +11221,7 @@ const deserializeAws_queryCacheNodeTypeSpecificParameter = (
     contents.AllowedValues = output["AllowedValues"];
   }
   if (output["IsModifiable"] !== undefined) {
-    contents.IsModifiable = output["IsModifiable"] == "true";
+    contents.IsModifiable = __parseBoolean(output["IsModifiable"]);
   }
   if (output["MinimumEngineVersion"] !== undefined) {
     contents.MinimumEngineVersion = output["MinimumEngineVersion"];
@@ -11358,7 +11359,7 @@ const deserializeAws_queryCacheParameterGroup = (output: any, context: __SerdeCo
     contents.Description = output["Description"];
   }
   if (output["IsGlobal"] !== undefined) {
-    contents.IsGlobal = output["IsGlobal"] == "true";
+    contents.IsGlobal = __parseBoolean(output["IsGlobal"]);
   }
   if (output["ARN"] !== undefined) {
     contents.ARN = output["ARN"];
@@ -12397,7 +12398,7 @@ const deserializeAws_queryGlobalReplicationGroup = (output: any, context: __Serd
     );
   }
   if (output["ClusterEnabled"] !== undefined) {
-    contents.ClusterEnabled = output["ClusterEnabled"] == "true";
+    contents.ClusterEnabled = __parseBoolean(output["ClusterEnabled"]);
   }
   if (output.GlobalNodeGroups === "") {
     contents.GlobalNodeGroups = [];
@@ -12409,13 +12410,13 @@ const deserializeAws_queryGlobalReplicationGroup = (output: any, context: __Serd
     );
   }
   if (output["AuthTokenEnabled"] !== undefined) {
-    contents.AuthTokenEnabled = output["AuthTokenEnabled"] == "true";
+    contents.AuthTokenEnabled = __parseBoolean(output["AuthTokenEnabled"]);
   }
   if (output["TransitEncryptionEnabled"] !== undefined) {
-    contents.TransitEncryptionEnabled = output["TransitEncryptionEnabled"] == "true";
+    contents.TransitEncryptionEnabled = __parseBoolean(output["TransitEncryptionEnabled"]);
   }
   if (output["AtRestEncryptionEnabled"] !== undefined) {
-    contents.AtRestEncryptionEnabled = output["AtRestEncryptionEnabled"] == "true";
+    contents.AtRestEncryptionEnabled = __parseBoolean(output["AtRestEncryptionEnabled"]);
   }
   if (output["ARN"] !== undefined) {
     contents.ARN = output["ARN"];
@@ -13273,7 +13274,7 @@ const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Pa
     contents.AllowedValues = output["AllowedValues"];
   }
   if (output["IsModifiable"] !== undefined) {
-    contents.IsModifiable = output["IsModifiable"] == "true";
+    contents.IsModifiable = __parseBoolean(output["IsModifiable"]);
   }
   if (output["MinimumEngineVersion"] !== undefined) {
     contents.MinimumEngineVersion = output["MinimumEngineVersion"];
@@ -13567,22 +13568,22 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     contents.SnapshotWindow = output["SnapshotWindow"];
   }
   if (output["ClusterEnabled"] !== undefined) {
-    contents.ClusterEnabled = output["ClusterEnabled"] == "true";
+    contents.ClusterEnabled = __parseBoolean(output["ClusterEnabled"]);
   }
   if (output["CacheNodeType"] !== undefined) {
     contents.CacheNodeType = output["CacheNodeType"];
   }
   if (output["AuthTokenEnabled"] !== undefined) {
-    contents.AuthTokenEnabled = output["AuthTokenEnabled"] == "true";
+    contents.AuthTokenEnabled = __parseBoolean(output["AuthTokenEnabled"]);
   }
   if (output["AuthTokenLastModifiedDate"] !== undefined) {
     contents.AuthTokenLastModifiedDate = new Date(output["AuthTokenLastModifiedDate"]);
   }
   if (output["TransitEncryptionEnabled"] !== undefined) {
-    contents.TransitEncryptionEnabled = output["TransitEncryptionEnabled"] == "true";
+    contents.TransitEncryptionEnabled = __parseBoolean(output["TransitEncryptionEnabled"]);
   }
   if (output["AtRestEncryptionEnabled"] !== undefined) {
-    contents.AtRestEncryptionEnabled = output["AtRestEncryptionEnabled"] == "true";
+    contents.AtRestEncryptionEnabled = __parseBoolean(output["AtRestEncryptionEnabled"]);
   }
   if (output.MemberClustersOutpostArns === "") {
     contents.MemberClustersOutpostArns = [];
@@ -14109,7 +14110,7 @@ const deserializeAws_queryServiceUpdate = (output: any, context: __SerdeContext)
     contents.EngineVersion = output["EngineVersion"];
   }
   if (output["AutoUpdateAfterRecommendedApplyByDate"] !== undefined) {
-    contents.AutoUpdateAfterRecommendedApplyByDate = output["AutoUpdateAfterRecommendedApplyByDate"] == "true";
+    contents.AutoUpdateAfterRecommendedApplyByDate = __parseBoolean(output["AutoUpdateAfterRecommendedApplyByDate"]);
   }
   if (output["EstimatedUpdateTime"] !== undefined) {
     contents.EstimatedUpdateTime = output["EstimatedUpdateTime"];
@@ -14259,7 +14260,7 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
     contents.VpcId = output["VpcId"];
   }
   if (output["AutoMinorVersionUpgrade"] !== undefined) {
-    contents.AutoMinorVersionUpgrade = output["AutoMinorVersionUpgrade"] == "true";
+    contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
   }
   if (output["SnapshotRetentionLimit"] !== undefined) {
     contents.SnapshotRetentionLimit = parseInt(output["SnapshotRetentionLimit"]);

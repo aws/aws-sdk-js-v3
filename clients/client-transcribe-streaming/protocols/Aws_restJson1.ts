@@ -29,7 +29,7 @@ import {
   TranscriptResultStream,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, parseBoolean as __parseBoolean } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   EventStreamSerdeContext as __EventStreamSerdeContext,
@@ -187,13 +187,15 @@ export const deserializeAws_restJson1StartMedicalStreamTranscriptionCommand = as
     contents.Type = output.headers["x-amzn-transcribe-type"];
   }
   if (output.headers["x-amzn-transcribe-show-speaker-label"] !== undefined) {
-    contents.ShowSpeakerLabel = output.headers["x-amzn-transcribe-show-speaker-label"] === "true";
+    contents.ShowSpeakerLabel = __parseBoolean(output.headers["x-amzn-transcribe-show-speaker-label"]);
   }
   if (output.headers["x-amzn-transcribe-session-id"] !== undefined) {
     contents.SessionId = output.headers["x-amzn-transcribe-session-id"];
   }
   if (output.headers["x-amzn-transcribe-enable-channel-identification"] !== undefined) {
-    contents.EnableChannelIdentification = output.headers["x-amzn-transcribe-enable-channel-identification"] === "true";
+    contents.EnableChannelIdentification = __parseBoolean(
+      output.headers["x-amzn-transcribe-enable-channel-identification"]
+    );
   }
   if (output.headers["x-amzn-transcribe-number-of-channels"] !== undefined) {
     contents.NumberOfChannels = parseInt(output.headers["x-amzn-transcribe-number-of-channels"], 10);
@@ -338,17 +340,20 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
     contents.VocabularyFilterMethod = output.headers["x-amzn-transcribe-vocabulary-filter-method"];
   }
   if (output.headers["x-amzn-transcribe-show-speaker-label"] !== undefined) {
-    contents.ShowSpeakerLabel = output.headers["x-amzn-transcribe-show-speaker-label"] === "true";
+    contents.ShowSpeakerLabel = __parseBoolean(output.headers["x-amzn-transcribe-show-speaker-label"]);
   }
   if (output.headers["x-amzn-transcribe-enable-channel-identification"] !== undefined) {
-    contents.EnableChannelIdentification = output.headers["x-amzn-transcribe-enable-channel-identification"] === "true";
+    contents.EnableChannelIdentification = __parseBoolean(
+      output.headers["x-amzn-transcribe-enable-channel-identification"]
+    );
   }
   if (output.headers["x-amzn-transcribe-number-of-channels"] !== undefined) {
     contents.NumberOfChannels = parseInt(output.headers["x-amzn-transcribe-number-of-channels"], 10);
   }
   if (output.headers["x-amzn-transcribe-enable-partial-results-stabilization"] !== undefined) {
-    contents.EnablePartialResultsStabilization =
-      output.headers["x-amzn-transcribe-enable-partial-results-stabilization"] === "true";
+    contents.EnablePartialResultsStabilization = __parseBoolean(
+      output.headers["x-amzn-transcribe-enable-partial-results-stabilization"]
+    );
   }
   if (output.headers["x-amzn-transcribe-partial-results-stability"] !== undefined) {
     contents.PartialResultsStability = output.headers["x-amzn-transcribe-partial-results-stability"];

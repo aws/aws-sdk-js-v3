@@ -182,6 +182,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -4707,7 +4708,7 @@ const deserializeAws_queryCompositeAlarm = (output: any, context: __SerdeContext
     StateValue: undefined,
   };
   if (output["ActionsEnabled"] !== undefined) {
-    contents.ActionsEnabled = output["ActionsEnabled"] == "true";
+    contents.ActionsEnabled = __parseBoolean(output["ActionsEnabled"]);
   }
   if (output.AlarmActions === "") {
     contents.AlarmActions = [];
@@ -5797,7 +5798,7 @@ const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): 
     contents.AlarmConfigurationUpdatedTimestamp = new Date(output["AlarmConfigurationUpdatedTimestamp"]);
   }
   if (output["ActionsEnabled"] !== undefined) {
-    contents.ActionsEnabled = output["ActionsEnabled"] == "true";
+    contents.ActionsEnabled = __parseBoolean(output["ActionsEnabled"]);
   }
   if (output.OKActions === "") {
     contents.OKActions = [];
@@ -5942,7 +5943,7 @@ const deserializeAws_queryMetricDataQuery = (output: any, context: __SerdeContex
     contents.Label = output["Label"];
   }
   if (output["ReturnData"] !== undefined) {
-    contents.ReturnData = output["ReturnData"] == "true";
+    contents.ReturnData = __parseBoolean(output["ReturnData"]);
   }
   if (output["Period"] !== undefined) {
     contents.Period = parseInt(output["Period"]);

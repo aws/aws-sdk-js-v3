@@ -53,7 +53,8 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
 
     @Override
     public String booleanShape(BooleanShape shape) {
-        return getDataSource() + " == 'true'";
+        getContext().getWriter().addImport("parseBoolean", "__parseBoolean", "@aws-sdk/smithy-client");
+        return "__parseBoolean(" + getDataSource() + ")";
     }
 
     @Override

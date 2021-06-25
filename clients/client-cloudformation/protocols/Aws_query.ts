@@ -309,6 +309,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -6449,10 +6450,10 @@ const deserializeAws_queryAutoDeployment = (output: any, context: __SerdeContext
     RetainStacksOnAccountRemoval: undefined,
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["RetainStacksOnAccountRemoval"] !== undefined) {
-    contents.RetainStacksOnAccountRemoval = output["RetainStacksOnAccountRemoval"] == "true";
+    contents.RetainStacksOnAccountRemoval = __parseBoolean(output["RetainStacksOnAccountRemoval"]);
   }
   return contents;
 };
@@ -6570,7 +6571,7 @@ const deserializeAws_queryChangeSetSummary = (output: any, context: __SerdeConte
     contents.Description = output["Description"];
   }
   if (output["IncludeNestedStacks"] !== undefined) {
-    contents.IncludeNestedStacks = output["IncludeNestedStacks"] == "true";
+    contents.IncludeNestedStacks = __parseBoolean(output["IncludeNestedStacks"]);
   }
   if (output["ParentChangeSetId"] !== undefined) {
     contents.ParentChangeSetId = output["ParentChangeSetId"];
@@ -6825,7 +6826,7 @@ const deserializeAws_queryDescribeChangeSetOutput = (output: any, context: __Ser
     contents.NextToken = output["NextToken"];
   }
   if (output["IncludeNestedStacks"] !== undefined) {
-    contents.IncludeNestedStacks = output["IncludeNestedStacks"] == "true";
+    contents.IncludeNestedStacks = __parseBoolean(output["IncludeNestedStacks"]);
   }
   if (output["ParentChangeSetId"] !== undefined) {
     contents.ParentChangeSetId = output["ParentChangeSetId"];
@@ -7036,7 +7037,7 @@ const deserializeAws_queryDescribeTypeOutput = (output: any, context: __SerdeCon
     contents.DefaultVersionId = output["DefaultVersionId"];
   }
   if (output["IsDefaultVersion"] !== undefined) {
-    contents.IsDefaultVersion = output["IsDefaultVersion"] == "true";
+    contents.IsDefaultVersion = __parseBoolean(output["IsDefaultVersion"]);
   }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
@@ -7785,7 +7786,7 @@ const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Pa
     contents.ParameterValue = output["ParameterValue"];
   }
   if (output["UsePreviousValue"] !== undefined) {
-    contents.UsePreviousValue = output["UsePreviousValue"] == "true";
+    contents.UsePreviousValue = __parseBoolean(output["UsePreviousValue"]);
   }
   if (output["ResolvedValue"] !== undefined) {
     contents.ResolvedValue = output["ResolvedValue"];
@@ -7828,7 +7829,7 @@ const deserializeAws_queryParameterDeclaration = (output: any, context: __SerdeC
     contents.ParameterType = output["ParameterType"];
   }
   if (output["NoEcho"] !== undefined) {
-    contents.NoEcho = output["NoEcho"] == "true";
+    contents.NoEcho = __parseBoolean(output["NoEcho"]);
   }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
@@ -8271,7 +8272,7 @@ const deserializeAws_queryStack = (output: any, context: __SerdeContext): Stack 
     contents.StackStatusReason = output["StackStatusReason"];
   }
   if (output["DisableRollback"] !== undefined) {
-    contents.DisableRollback = output["DisableRollback"] == "true";
+    contents.DisableRollback = __parseBoolean(output["DisableRollback"]);
   }
   if (output.NotificationARNs === "") {
     contents.NotificationARNs = [];
@@ -8310,7 +8311,7 @@ const deserializeAws_queryStack = (output: any, context: __SerdeContext): Stack 
     contents.Tags = deserializeAws_queryTags(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   if (output["EnableTerminationProtection"] !== undefined) {
-    contents.EnableTerminationProtection = output["EnableTerminationProtection"] == "true";
+    contents.EnableTerminationProtection = __parseBoolean(output["EnableTerminationProtection"]);
   }
   if (output["ParentId"] !== undefined) {
     contents.ParentId = output["ParentId"];
@@ -9040,7 +9041,7 @@ const deserializeAws_queryStackSetOperation = (output: any, context: __SerdeCont
     );
   }
   if (output["RetainStacks"] !== undefined) {
-    contents.RetainStacks = output["RetainStacks"] == "true";
+    contents.RetainStacks = __parseBoolean(output["RetainStacks"]);
   }
   if (output["AdministrationRoleARN"] !== undefined) {
     contents.AdministrationRoleARN = output["AdministrationRoleARN"];
@@ -9373,7 +9374,7 @@ const deserializeAws_queryTemplateParameter = (output: any, context: __SerdeCont
     contents.DefaultValue = output["DefaultValue"];
   }
   if (output["NoEcho"] !== undefined) {
-    contents.NoEcho = output["NoEcho"] == "true";
+    contents.NoEcho = __parseBoolean(output["NoEcho"]);
   }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
@@ -9498,7 +9499,7 @@ const deserializeAws_queryTypeVersionSummary = (output: any, context: __SerdeCon
     contents.VersionId = output["VersionId"];
   }
   if (output["IsDefaultVersion"] !== undefined) {
-    contents.IsDefaultVersion = output["IsDefaultVersion"] == "true";
+    contents.IsDefaultVersion = __parseBoolean(output["IsDefaultVersion"]);
   }
   if (output["Arn"] !== undefined) {
     contents.Arn = output["Arn"];

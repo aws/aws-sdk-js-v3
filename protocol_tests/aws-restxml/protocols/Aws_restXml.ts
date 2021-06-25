@@ -160,6 +160,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
   splitEvery as __splitEvery,
 } from "@aws-sdk/smithy-client";
 import {
@@ -3351,10 +3352,10 @@ export const deserializeAws_restXmlInputAndOutputWithHeadersCommand = async (
     contents.headerDouble = parseFloat(output.headers["x-double"]);
   }
   if (output.headers["x-boolean1"] !== undefined) {
-    contents.headerTrueBool = output.headers["x-boolean1"] === "true";
+    contents.headerTrueBool = __parseBoolean(output.headers["x-boolean1"]);
   }
   if (output.headers["x-boolean2"] !== undefined) {
-    contents.headerFalseBool = output.headers["x-boolean2"] === "true";
+    contents.headerFalseBool = __parseBoolean(output.headers["x-boolean2"]);
   }
   if (output.headers["x-stringlist"] !== undefined) {
     contents.headerStringList = (output.headers["x-stringlist"] || "").split(",").map((_entry) => _entry.trim());
@@ -3370,7 +3371,7 @@ export const deserializeAws_restXmlInputAndOutputWithHeadersCommand = async (
   if (output.headers["x-booleanlist"] !== undefined) {
     contents.headerBooleanList = (output.headers["x-booleanlist"] || "")
       .split(",")
-      .map((_entry) => _entry.trim() === "true");
+      .map((_entry) => __parseBoolean(_entry.trim()));
   }
   if (output.headers["x-timestamplist"] !== undefined) {
     contents.headerTimestampList = __splitEvery(output.headers["x-timestamplist"] || "", ",", 2).map(
@@ -3919,7 +3920,7 @@ export const deserializeAws_restXmlSimpleScalarPropertiesCommand = async (
     contents.doubleValue = parseFloat(data["DoubleDribble"]);
   }
   if (data["falseBooleanValue"] !== undefined) {
-    contents.falseBooleanValue = data["falseBooleanValue"] == "true";
+    contents.falseBooleanValue = __parseBoolean(data["falseBooleanValue"]);
   }
   if (data["floatValue"] !== undefined) {
     contents.floatValue = parseFloat(data["floatValue"]);
@@ -3937,7 +3938,7 @@ export const deserializeAws_restXmlSimpleScalarPropertiesCommand = async (
     contents.stringValue = data["stringValue"];
   }
   if (data["trueBooleanValue"] !== undefined) {
-    contents.trueBooleanValue = data["trueBooleanValue"] == "true";
+    contents.trueBooleanValue = __parseBoolean(data["trueBooleanValue"]);
   }
   return Promise.resolve(contents);
 };
@@ -5838,7 +5839,7 @@ const deserializeAws_restXmlXmlNestedUnionStruct = (output: any, context: __Serd
     contents.stringValue = output["stringValue"];
   }
   if (output["booleanValue"] !== undefined) {
-    contents.booleanValue = output["booleanValue"] == "true";
+    contents.booleanValue = __parseBoolean(output["booleanValue"]);
   }
   if (output["byteValue"] !== undefined) {
     contents.byteValue = parseInt(output["byteValue"]);
@@ -5869,7 +5870,7 @@ const deserializeAws_restXmlXmlUnionShape = (output: any, context: __SerdeContex
   }
   if (output["booleanValue"] !== undefined) {
     return {
-      booleanValue: output["booleanValue"] == "true",
+      booleanValue: __parseBoolean(output["booleanValue"]),
     };
   }
   if (output["byteValue"] !== undefined) {
@@ -5922,7 +5923,7 @@ const deserializeAws_restXmlBooleanList = (output: any, context: __SerdeContext)
       if (entry === null) {
         return null as any;
       }
-      return entry == "true";
+      return __parseBoolean(entry);
     });
 };
 

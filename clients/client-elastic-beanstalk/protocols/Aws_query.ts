@@ -317,6 +317,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
   getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -5845,7 +5846,7 @@ const deserializeAws_queryCheckDNSAvailabilityResultMessage = (
     FullyQualifiedCNAME: undefined,
   };
   if (output["Available"] !== undefined) {
-    contents.Available = output["Available"] == "true";
+    contents.Available = __parseBoolean(output["Available"]);
   }
   if (output["FullyQualifiedCNAME"] !== undefined) {
     contents.FullyQualifiedCNAME = output["FullyQualifiedCNAME"];
@@ -5896,7 +5897,7 @@ const deserializeAws_queryConfigurationOptionDescription = (
     contents.ChangeSeverity = output["ChangeSeverity"];
   }
   if (output["UserDefined"] !== undefined) {
-    contents.UserDefined = output["UserDefined"] == "true";
+    contents.UserDefined = __parseBoolean(output["UserDefined"]);
   }
   if (output["ValueType"] !== undefined) {
     contents.ValueType = output["ValueType"];
@@ -6481,7 +6482,7 @@ const deserializeAws_queryEnvironmentDescription = (output: any, context: __Serd
     contents.Status = output["Status"];
   }
   if (output["AbortableOperationInProgress"] !== undefined) {
-    contents.AbortableOperationInProgress = output["AbortableOperationInProgress"] == "true";
+    contents.AbortableOperationInProgress = __parseBoolean(output["AbortableOperationInProgress"]);
   }
   if (output["Health"] !== undefined) {
     contents.Health = output["Health"];
@@ -7258,13 +7259,13 @@ const deserializeAws_queryMaxAgeRule = (output: any, context: __SerdeContext): M
     DeleteSourceFromS3: undefined,
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["MaxAgeInDays"] !== undefined) {
     contents.MaxAgeInDays = parseInt(output["MaxAgeInDays"]);
   }
   if (output["DeleteSourceFromS3"] !== undefined) {
-    contents.DeleteSourceFromS3 = output["DeleteSourceFromS3"] == "true";
+    contents.DeleteSourceFromS3 = __parseBoolean(output["DeleteSourceFromS3"]);
   }
   return contents;
 };
@@ -7276,13 +7277,13 @@ const deserializeAws_queryMaxCountRule = (output: any, context: __SerdeContext):
     DeleteSourceFromS3: undefined,
   };
   if (output["Enabled"] !== undefined) {
-    contents.Enabled = output["Enabled"] == "true";
+    contents.Enabled = __parseBoolean(output["Enabled"]);
   }
   if (output["MaxCount"] !== undefined) {
     contents.MaxCount = parseInt(output["MaxCount"]);
   }
   if (output["DeleteSourceFromS3"] !== undefined) {
-    contents.DeleteSourceFromS3 = output["DeleteSourceFromS3"] == "true";
+    contents.DeleteSourceFromS3 = __parseBoolean(output["DeleteSourceFromS3"]);
   }
   return contents;
 };
