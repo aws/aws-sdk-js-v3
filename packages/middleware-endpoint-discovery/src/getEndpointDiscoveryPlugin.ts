@@ -26,6 +26,9 @@ export const getEndpointDiscoveryPlugin = (
   },
 });
 
+/**
+ * @deprecated Use getEndpointDiscoveryPlugin
+ */
 export const getEndpointDiscoveryRequiredPlugin = (
   pluginConfig: EndpointDiscoveryResolvedConfig & PreviouslyResolved,
   middlewareConfig: Omit<EndpointDiscoveryMiddlewareConfig, "isDiscoveredEndpointRequired">
@@ -38,6 +41,9 @@ export const getEndpointDiscoveryRequiredPlugin = (
   },
 });
 
+/**
+ * @deprecated Use getEndpointDiscoveryPlugin
+ */
 export const getEndpointDiscoveryOptionalPlugin = (
   pluginConfig: EndpointDiscoveryResolvedConfig & PreviouslyResolved,
   middlewareConfig: Omit<EndpointDiscoveryMiddlewareConfig, "isDiscoveredEndpointRequired">
