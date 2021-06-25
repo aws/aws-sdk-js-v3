@@ -60,10 +60,10 @@ export interface EndpointDiscoveryConfigOptions {
 
 export const resolveEndpointDiscoveryConfig = <T>(
   input: T & PreviouslyResolved & EndpointDiscoveryInputConfig,
-  options: EndpointDiscoveryConfigOptions
+  { endpointDiscoveryCommandCtor }: EndpointDiscoveryConfigOptions
 ): T & EndpointDiscoveryResolvedConfig => ({
   ...input,
-  endpointDiscoveryCommandCtor: options.endpointDiscoveryCommandCtor,
+  endpointDiscoveryCommandCtor,
   endpointCache: new EndpointCache(input.endpointCacheSize ?? 1000),
   endpointDiscoveryEnabled:
     input.endpointDiscoveryEnabled !== undefined
