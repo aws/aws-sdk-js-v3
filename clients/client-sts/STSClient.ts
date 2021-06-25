@@ -244,7 +244,7 @@ export class STSClient extends __Client<
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);
     let _config_4 = resolveHostHeaderConfig(_config_3);
-    let _config_5 = resolveStsAuthConfig(_config_4, STSClient);
+    let _config_5 = resolveStsAuthConfig(_config_4, { stsClientCtor: STSClient });
     let _config_6 = resolveUserAgentConfig(_config_5);
     super(_config_6);
     this.config = _config_6;
